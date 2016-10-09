@@ -30,6 +30,11 @@
         <router-view class="view"></router-view>
       </transition>
     </div>
+    <footer>
+      施工中...
+      <a href = "https://xd.adobe.com/view/504e446c-90c8-4816-5ac3-941ee02cbdff/" target="_blank">Wireframe Design</a> | 
+      <a href = "https://github.com/g0v/vue.vtaiwan.tw/issues" target="_blank">Issues</a>
+    </footer>
   </div>
 </template>
 
@@ -38,7 +43,7 @@ html {
   font-size: 16px;
   font-size: 2vmax;
 }
-div {
+* {
   box-sizing: border-box;
 }
 body {
@@ -86,5 +91,13 @@ nav {
       font-size: 1rem;
     }
   }
+}
+footer {
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  height:50px;
+  text-align:center;
 }
 </style>
