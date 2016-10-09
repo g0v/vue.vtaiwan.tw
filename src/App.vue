@@ -5,7 +5,7 @@
         <li>
           <router-link to="/" exact>
             <img class="logo" src="./assets/logo.png" alt="logo">
-            vTaiwan {{$route.path == '/'}}
+            vTaiwan
           </router-link>
         </li>
         <li>
@@ -42,7 +42,7 @@ div {
   box-sizing: border-box;
 }
 body {
-  border: 4px solid #D75155;
+  border: 4px solid #3cf;
   height: 100vh;
   margin: 0;
 }
