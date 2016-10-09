@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" :class = "{join: $route.path == '/join', comment: $route.path == '/comment', live: $route.path == '/live', track: $route.path == '/track'}">
     <nav class="ui menu">
       <ul>
         <li>
@@ -9,17 +9,22 @@
           </router-link>
         </li>
         <li>
-          <router-link to="/join" exact>
+          <router-link to="/join" class="join" exact>
             Pitch Issue 來提個案吧
           </router-link>
         </li>
         <li>
-          <router-link to="/live" exact>
+          <router-link to="/comment" class="comment" exact>
+            Live Draft 留言不忘返
+          </router-link>
+        </li>
+        <li>
+          <router-link to="/live" class="live" exact>
             Live Draft 直播寫草案
           </router-link>
         </li>
         <li>
-          <router-link to="/track" exact>
+          <router-link to="/track" class="track" exact>
             Follow PROPOSAL 來追蹤定案
           </router-link>
         </li>
@@ -39,6 +44,11 @@
 </template>
 
 <style lang="sass">
+$join: #f3c;
+$comment: #f33;
+$live: #33f;
+$track: #ff2;
+
 html {
   font-size: 16px;
   font-size: 2vmax;
@@ -47,9 +57,23 @@ html {
   box-sizing: border-box;
 }
 body {
-  border: 4px solid #3cf;
-  height: 100vh;
+  padding: 0;
   margin: 0;
+}
+#app {
+  border: 5px solid #3cf;
+  height: 100vh;
+  width: 100%;
+  margin: 0;
+  &.join {
+    border-color: $join;
+  }
+  &.live {
+    border-color: $live;    
+  }
+  &.track {
+    border-color: $track;    
+  }
 }
 #main {
   position: absolute;
@@ -62,6 +86,7 @@ nav {
   a {
     color: #333;
     cursor: pointer;
+    font-size: 0.5rem;
     text-decoration: none;
     &:visited {
       color: green;
@@ -71,6 +96,10 @@ nav {
     }
     &.active, &.router-link-active {
       background-color: #ccf;
+      &.join { background-color: $join }
+      &.comment { background-color: $comment }
+      &.live { background-color: $live }
+      &.track { background-color: $track }
     }
     padding: 10px;
     border: 1px solid gray;
