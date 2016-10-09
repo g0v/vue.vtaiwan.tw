@@ -1,10 +1,10 @@
 <template>
   <div id="app" :class = "{join: $route.path == '/join', comment: $route.path == '/comment', live: $route.path == '/live', track: $route.path == '/track'}">
-    <nav class="ui menu">
+    <nav class="ui menu" v-cloak="">
       <ul>
         <li>
           <router-link to="/" exact>
-            <img class="logo" src="./assets/logo.png" alt="logo">
+            <img width="40" height="40" class="logo" src="./assets/logo.png" alt="logo">
             vTaiwan
           </router-link>
         </li>        
@@ -46,11 +46,13 @@ export default {
 
 </script>
 
+
 <style lang="sass">
 $join: #f3c;
 $comment: #f33;
 $live: #33f;
 $track: #ff2;
+
 
 html {
   font-size: 16px;
@@ -68,15 +70,10 @@ body {
   height: 100vh;
   width: 100%;
   margin: 0;
-  &.join {
-    border-color: $join;
-  }
-  &.live {
-    border-color: $live;    
-  }
-  &.track {
-    border-color: $track;    
-  }
+  &.join {    border-color: $join  }
+  &.comment {    border-color: $comment  }
+  &.live {    border-color: $live  }
+  &.track {   border-color: $track  }
 }
 #main {
   position: absolute;
