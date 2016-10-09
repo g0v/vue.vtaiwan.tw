@@ -5,6 +5,16 @@
   </div>
 </template>
 
-<style lang="stylus">
+<script>
+export default {
+  data () {
+    return {
+    	data: '...'
+    }
+  }
+}
+</script>
+
+<style lang="sass">
 
 </style>
