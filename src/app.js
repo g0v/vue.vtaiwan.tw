@@ -3,7 +3,7 @@ import App from './App.vue'
 import store from './store'
 import router from './router'
 import { sync } from 'vuex-router-sync'
-// import * as filters from './filters'
+ import * as filters from './filters'
 
 // sync the router with the vuex store.
 // this registers `store.state.route`
@@ -20,6 +20,7 @@ sync(store, router)
 const app = new Vue({
   router,
   store,
+  filters,
   ...App // Object spread copying everything from App.vue
 })
 
@@ -27,3 +28,4 @@ const app = new Vue({
 // note we are not mounting the app here, since bootstrapping will be
 // different depending on whether we are in a browser or on the server.
 export { app, router, store }
+

@@ -1,3 +1,7 @@
+export function uppercase (str) {
+  return str.toUpperCase()
+}
+
 export function host (url) {
   const host = url.replace(/^https?:\/\//, '').replace(/\/.*$/, '')
   const parts = host.split('.').slice(-3)
@@ -22,3 +26,4 @@ function pluralize (time, label) {
   }
   return time + label + 's'
 }
+

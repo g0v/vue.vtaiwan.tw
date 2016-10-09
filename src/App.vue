@@ -7,25 +7,11 @@
             <img class="logo" src="./assets/logo.png" alt="logo">
             vTaiwan
           </router-link>
-        </li>
-        <li>
-          <router-link to="/join" class="join" exact>
-            Pitch Issue 來提個案吧
-          </router-link>
-        </li>
-        <li>
-          <router-link to="/comment" class="comment" exact>
-            Live Draft 留言不忘返
-          </router-link>
-        </li>
-        <li>
-          <router-link to="/live" class="live" exact>
-            Live Draft 直播寫草案
-          </router-link>
-        </li>
-        <li>
-          <router-link to="/track" class="track" exact>
-            Follow PROPOSAL 來追蹤定案
+        </li>        
+        <li v-for="r in myRoutes">
+          <router-link :to="'/'+r.r" :class="r.r" exact>
+            {{r.en | uppercase}}
+            {{r.t}}
           </router-link>
         </li>
       </ul>
@@ -42,6 +28,23 @@
     </footer>
   </div>
 </template>
+
+<script>
+export default {
+  data () {
+    return {
+      myRoutes: [
+        {en:'Pitch Issue',t:'來提個案吧',r:'join'},
+        {en:'Comment',t:'留言不忘返',r:'comment'},
+        {en:'Live Draft', t:'直播寫草案',r:'live'},
+        {en:'Follow PROPOSAL', t:'來追蹤定案',r:'track'}
+      ]
+    }
+  }
+}
+
+
+</script>
 
 <style lang="sass">
 $join: #f3c;
@@ -86,7 +89,7 @@ nav {
   a {
     color: #333;
     cursor: pointer;
-    font-size: 0.5rem;
+    font-size: 0.6rem;
     text-decoration: none;
     &:visited {
       color: green;
