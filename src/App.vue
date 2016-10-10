@@ -1,21 +1,13 @@
 <template lang="jade">
 #app(:class="{join: $route.path == '/join', comment: $route.path == '/comment', live: $route.path == '/live', track: $route.path == '/track'}")
-  nav.ui.menu(v-cloak='')
-    ul
-      li
-        router-link(to='/', exact='')
-          .main
-            img.logo(width='40', height='40', src='./assets/logo.png', alt='logo')
-            |             vTaiwan
-      li(v-for='r in myRoutes')
-        router-link(:to="'/'+r.r", :class='r.r', exact='')
-          .sub {{r.en | uppercase}}
-          .main {{r.t}}
+
+  navbar(:routes = "myRoutes")
+
   .breadcrumb
     router-link(v-if="rtName($route.path)", to='/', exact='')
       | vTaiwan HOME
     span(v-else) vTaiwan HOME
-    span(v-if="rtName($route.path)")&nbsp;>&nbsp;
+    span(v-if="rtName($route.path)") &nbsp;>&nbsp;
     | {{rtName($route.path)}}
   #main
     transition(name='fade', mode='out-in')
@@ -28,7 +20,13 @@
 </template>
 
 <script>
+
+import navbar from './components/navbar.vue'
+
 export default {
+  components: {
+    navbar
+  },
   data () {
     return {
       myRoutes: [
@@ -53,11 +51,8 @@ export default {
 
 
 <style lang="sass">
-$join: #f3c;
-$comment: #f33;
-$live: #33f;
-$track: #ff2;
 
+@import "./sass/global.scss";
 
 html {
   font-size: 16px;
