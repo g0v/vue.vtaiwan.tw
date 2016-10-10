@@ -70,6 +70,10 @@ body {
   height: 100vh;
   width: 100%;
   margin: 0;
+  transition: border-color 0.5s ease;
+  -webkit-transition: border-color 0.5s ease;
+  -moz-transition: border-color 0.5s ease;
+  -o-transition: border-color 0.5s ease;  
   &.join {    border-color: $join  }
   &.comment {    border-color: $comment  }
   &.live {    border-color: $live  }
@@ -96,11 +100,15 @@ nav {
     }
     &.active, &.router-link-active {
       background-color: #ccf;
-      &.join { background-color: $join }
-      &.comment { background-color: $comment }
-      &.live { background-color: $live }
-      &.track { background-color: $track }
+      &.join { background-color: lighten($join,20) }
+      &.comment { background-color: lighten($comment,20) }
+      &.live { background-color: lighten($live,30) }
+      &.track { background-color: lighten($track,20) }
     }
+    transition: background-color 0.5s ease;
+    -webkit-transition: background-color 0.5s ease;
+    -moz-transition: background-color 0.5s ease;
+    -o-transition: background-color 0.5s ease;  
     padding: 10px;
     border: 1px solid gray;
   }
