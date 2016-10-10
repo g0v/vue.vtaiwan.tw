@@ -37,6 +37,8 @@
     "node-bourbon": "^3.10.5",
     "stylus": "^0.54.5",
     "stylus-loader": "^2.1.2",
+    "livescript": "^1.5.0",
+    "vue-livescript-loader": "0.0.1",
     "url-loader": "^0.5.7",
     "vue-loader": "^9.5.0",
     "webpack": "^2.1.0-beta.20",
