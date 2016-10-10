@@ -8,6 +8,7 @@
 
 <script>
 export default {
+  name: '來追綜定案',
   data () {
     return {
     	data: '...'

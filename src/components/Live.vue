@@ -6,6 +6,7 @@
 
 <script>
 export default {
+  name: '直播寫草案',
   data () {
     return {
     	data: '...'

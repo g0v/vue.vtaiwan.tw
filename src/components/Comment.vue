@@ -8,6 +8,7 @@
 
 <script>
 export default {
+  name: '留言不忘返',
   data () {
     return {
         data: '...'

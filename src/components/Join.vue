@@ -11,6 +11,7 @@
 
 <script>
 export default {
+  name: '來提個案吧',
   data () {
     return {
         data: '...'
