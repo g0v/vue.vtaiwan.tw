@@ -1,32 +1,30 @@
-<template>
-  <div id="app" :class = "{join: $route.path == '/join', comment: $route.path == '/comment', live: $route.path == '/live', track: $route.path == '/track'}">
-    <nav class="ui menu" v-cloak="">
-      <ul>
-        <li>
-          <router-link to="/" exact>
-            <img width="40" height="40" class="logo" src="./assets/logo.png" alt="logo">
-            vTaiwan
-          </router-link>
-        </li>        
-        <li v-for="r in myRoutes">
-          <router-link :to="'/'+r.r" :class="r.r" exact>
-            {{r.en | uppercase}}
-            {{r.t}}
-          </router-link>
-        </li>
-      </ul>
-    </nav>
-    <div id="main">
-      <transition name="fade" mode="out-in">
-        <router-view class="view"></router-view>
-      </transition>
-    </div>
-    <footer>
-      施工中...
-      <a href = "https://xd.adobe.com/view/504e446c-90c8-4816-5ac3-941ee02cbdff/" target="_blank">Wireframe Design</a> | 
-      <a href = "https://github.com/g0v/vue.vtaiwan.tw/issues" target="_blank">Issues</a>
-    </footer>
-  </div>
+<template lang="jade">
+#app(:class="{join: $route.path == '/join', comment: $route.path == '/comment', live: $route.path == '/live', track: $route.path == '/track'}")
+  nav.ui.menu(v-cloak='')
+    ul
+      li
+        router-link(to='/', exact='')
+          .main
+            img.logo(width='40', height='40', src='./assets/logo.png', alt='logo')
+            |             vTaiwan
+      li(v-for='r in myRoutes')
+        router-link(:to="'/'+r.r", :class='r.r', exact='')
+          .sub {{r.en | uppercase}}
+          .main {{r.t}}
+  .breadcrumb
+    router-link(v-if="rtName($route.path)", to='/', exact='')
+      | vTaiwan HOME
+    span(v-else) vTaiwan HOME
+    span(v-if="rtName($route.path)")&nbsp;>&nbsp;
+    | {{rtName($route.path)}}
+  #main
+    transition(name='fade', mode='out-in')
+      router-view.view
+  footer
+    | 施工中...
+    a(href='https://xd.adobe.com/view/504e446c-90c8-4816-5ac3-941ee02cbdff/', target='_blank') Wireframe Design
+    |  
+    a(href='https://github.com/g0v/vue.vtaiwan.tw/issues', target='_blank') Issues
 </template>
 
 <script>
@@ -40,9 +38,16 @@ export default {
         {en:'Follow PROPOSAL', t:'來追蹤定案',r:'track'}
       ]
     }
+  },
+  methods: {
+    rtName(path) {
+      var r = this.myRoutes.filter((o) => {
+        return '/'+o.r == path;
+      })[0];
+      return r ? r.t : '';
+    }
   }
 }
-
 
 </script>
 
@@ -86,36 +91,13 @@ body {
   width: 100%;
   text-align: center;
 }
+.breadcrumb {
+  position: absolute;
+  top: 100px;
+  left: 1vw;
+  font-size: 0.5rem;
+}
 nav {
-  a {
-    color: #333;
-    cursor: pointer;
-    font-size: 0.6rem;
-    text-decoration: none;
-    &:visited {
-      color: green;
-    }
-    &:hover {
-      border-bottom: 3px solid green;
-    }
-    &.active, &.router-link-active {
-      background-color: #ccf;
-      &.join { background-color: lighten($join,20) }
-      &.comment { background-color: lighten($comment,20) }
-      &.live { background-color: lighten($live,30) }
-      &.track { background-color: lighten($track,20) }
-    }
-    transition: background-color 0.5s ease;
-    -webkit-transition: background-color 0.5s ease;
-    -moz-transition: background-color 0.5s ease;
-    -o-transition: background-color 0.5s ease;  
-    padding: 10px;
-    border: 1px solid gray;
-  }
-  .logo {
-    width: 40px;
-    height: 40px;
-  }
   ul {
     width: 100%;
     text-align: center;
@@ -126,7 +108,43 @@ nav {
       display: inline-block;
       float: none;
       font-size: 1rem;
+      a {
+        color: #333;
+        cursor: pointer;
+        display: block;
+        font-size: 0.6rem;
+        text-decoration: none;
+        &:visited {
+           color: #030;
+        }
+        &:hover {
+          border-bottom: 3px solid green;
+        }
+        &.active, &.router-link-active {
+          background-color: #ccf;
+          &.join { background-color: lighten($join,20) }
+          &.comment { background-color: lighten($comment,20) }
+          &.live { background-color: lighten($live,30) }
+          &.track { background-color: lighten($track,20) }
+        }
+        transition: background-color 0.5s ease;
+        -webkit-transition: background-color 0.5s ease;
+        -moz-transition: background-color 0.5s ease;
+        -o-transition: background-color 0.5s ease;  
+        padding: 10px;
+        border: 1px solid gray;
+        .sub {
+
+        }
+        .main {
+          font-size: 1rem;
+        }
+      }
     }
+  }
+  .logo {
+    width: 40px;
+    height: 40px;
   }
 }
 footer {
@@ -136,5 +154,15 @@ footer {
   width:100%;
   height:50px;
   text-align:center;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s ease-in;
+  -webkit-transition: opacity .5s ease-in;
+  -moz-transition: bopacity .5s ease-in;
+  -o-transition: opacity .5s ease-in; 
+}
+.fade-enter, .fade-leave-active {
+  opacity: 0
 }
 </style>
