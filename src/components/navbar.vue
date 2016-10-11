@@ -55,7 +55,7 @@ nav {
           background-color: #ccf;
           &.join { background-color: lighten($join,20) }
           &.comment { background-color: lighten($comment,20) }
-          &.live { background-color: lighten($live,30) }
+          &.live { background-color: lighten($live,20) }
           &.track { background-color: lighten($track,20) }
         }
         transition: background-color 0.5s ease;
