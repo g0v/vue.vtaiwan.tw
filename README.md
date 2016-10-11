@@ -17,3 +17,16 @@
 其次，行政機關或法規制定機關必須彙整所有的意見，並納入決策的討論過程。針對意見中的疑問或建議，機關要在一定時間內提出回覆。當法規修改內容確定後，也要說明具體採納了哪些意見。對於未採納的意見，機關也必須回應目前無法實行的理由。
 
 感謝 g0v vTaiwan.tw 專案參與者的共同建置、國發會法治協調中心與資策會科技法律研究所的協力支援，以及所有參與者的意見貢獻。
+
+# 參與開發
+
+* 在Github上
+[複製本專案](https://github.com/g0v/vue.vtaiwan.tw)
+* 安裝
+[nodeJS](https://nodejs.org/en/)
+* 下載相關套件
+```npm i```
+* 近端測試
+```npm run dev```
+* 要做的內容與相關討論，請見[議題區](https://github.com/g0v/vue.vtaiwan.tw/issues)
+* 本專案的技術框架使用Vue，請參考[VueJS](https://vuejs.org/)或[Vue說明](https://cn.vuejs.org/)
