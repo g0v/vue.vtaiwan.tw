@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name: '來追綜定案',
+  name: 'Track',
   data () {
     return {
     	data: '...'

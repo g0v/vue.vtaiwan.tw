@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: '直播寫草案',
+  name: 'Live',
   data () {
     return {
     	data: '...'

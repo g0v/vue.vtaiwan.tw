@@ -11,7 +11,7 @@
 
 <script>
 export default {
-  name: '來提個案吧',
+  name: 'Join',
   data () {
     return {
         data: '...'
