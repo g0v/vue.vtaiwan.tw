@@ -30,3 +30,4 @@
 ```npm run dev```
 * 要做的內容與相關討論，請見[議題區](https://github.com/g0v/vue.vtaiwan.tw/issues)
 * 本專案的技術框架使用Vue，請參考[VueJS](https://vuejs.org/)或[Vue說明](https://cn.vuejs.org/)
+* 開發環境使用Webpack與vue-loader，如欲設定環境或引入資源，請閱讀[Webpack](http://webpack.github.io/)與[vue-loader](https://github.com/vuejs/vue-loader)。
