@@ -62,18 +62,18 @@ html {
   box-sizing: border-box;
 }
 body {
+  visibility: visible;
+  opacity: 1;
+  @include transition(opacity 0.5s ease);
   padding: 0;
   margin: 0;
 }
 #app {
-  border: 5px solid #3cf;
   height: 100vh;
   width: 100%;
   margin: 0;
-  transition: border-color 0.5s ease;
-  -webkit-transition: border-color 0.5s ease;
-  -moz-transition: border-color 0.5s ease;
-  -o-transition: border-color 0.5s ease;  
+  border: 5px solid $main;
+  @include transition(border-color 0.5s ease);
   &.join {    border-color: $join  }
   &.comment {    border-color: $comment  }
   &.live {    border-color: $live  }
@@ -122,10 +122,7 @@ nav {
           &.live { background-color: lighten($live,30) }
           &.track { background-color: lighten($track,20) }
         }
-        transition: background-color 0.5s ease;
-        -webkit-transition: background-color 0.5s ease;
-        -moz-transition: background-color 0.5s ease;
-        -o-transition: background-color 0.5s ease;  
+        @include transition(background-color 0.5s ease);  
         padding: 10px;
         border: 1px solid gray;
         .sub {
@@ -152,10 +149,7 @@ footer {
 }
 
 .fade-enter-active, .fade-leave-active {
-  transition: opacity .5s ease-in;
-  -webkit-transition: opacity .5s ease-in;
-  -moz-transition: bopacity .5s ease-in;
-  -o-transition: opacity .5s ease-in; 
+  @include transition(opacity .5s ease-in);
 }
 .fade-enter, .fade-leave-active {
   opacity: 0
