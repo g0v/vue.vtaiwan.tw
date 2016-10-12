@@ -66,6 +66,7 @@ export default {
 @import "./sass/global.scss";
 
 * {  box-sizing: border-box }
+a, button { cursor: pointer }
 
 html {
   font-size: 16px;
