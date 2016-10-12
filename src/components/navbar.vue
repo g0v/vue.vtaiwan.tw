@@ -6,7 +6,7 @@ nav.ui.menu(v-cloak='')
         .main
           img.logo(width='40', height='40', src='../assets/logo.png', alt='logo')
           |             vTaiwan
-    li(v-for='r in routes')
+    li(v-for='r in routes', v-if="r.r")
       router-link(:to="'/'+r.r", :class='r.r', exact='')
         .sub {{r.en | uppercase}}
         .main {{r.t}}
@@ -52,7 +52,7 @@ nav {
           border-bottom: 3px solid green;
         }
         &.active, &.router-link-active {
-          background-color: #ccf;
+          background-color: $main;
           &.join { background-color: lighten($join,20) }
           &.comment { background-color: lighten($comment,20) }
           &.live { background-color: lighten($live,20) }
@@ -65,7 +65,6 @@ nav {
         padding: 10px;
         border: 1px solid gray;
         .sub {
-
         }
         .main {
           font-size: 1rem;

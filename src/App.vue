@@ -1,7 +1,10 @@
 <template lang="jade">
-#app(:class="{join: $route.path == '/join', comment: $route.path == '/comment', live: $route.path == '/live', track: $route.path == '/track'}")
-
+#app(:class="pure($route.path)")
   navbar(:routes = "myRoutes")
+
+  a.sidebar-button(@click="openSideBar = !openSideBar", :class="pure($route.path)")
+    span(v-if="openSideBar") -
+    span(v-else) +
 
   .breadcrumb
     router-link(v-if="rtName($route.path)", to='/', exact='')
@@ -30,11 +33,13 @@ export default {
   data () {
     return {
       myRoutes: [
+        {en:'Home',t:'首頁',r:''},
         {en:'Pitch Issue',t:'來提個案吧',r:'join'},
         {en:'Comment',t:'留言不忘返',r:'comment'},
         {en:'Live Draft', t:'直播寫草案',r:'live'},
         {en:'Follow PROPOSAL', t:'來追蹤定案',r:'track'}
-      ]
+      ],
+      openSideBar: false
     }
   },
   methods: {
@@ -43,6 +48,12 @@ export default {
         return '/'+o.r == path;
       })[0];
       return r ? r.t : '';
+    },
+    pure(path) {
+      var obj = this.myRoutes.filter((o) => {
+        return '/'+o.r == path;
+      })[0]
+      return obj ? obj.r : ''
     }
   }
 }
@@ -54,14 +65,14 @@ export default {
 
 @import "./sass/global.scss";
 
+* {  box-sizing: border-box }
+
 html {
   font-size: 16px;
   font-size: 2.5vm;
   font-size: 2.5vmin;
 }
-* {
-  box-sizing: border-box;
-}
+
 body {
   visibility: visible;
   opacity: 1;
@@ -69,6 +80,7 @@ body {
   padding: 0;
   margin: 0;
 }
+
 #app {
   min-height: 100vh;
   width: 100%;
@@ -80,17 +92,35 @@ body {
   &.live {    border-color: $live  }
   &.track {   border-color: $track  }
 }
+
 #main {
   position: relative;
   top: 1.5rem;
   width: 100%;
   text-align: center;
 }
+
+.sidebar-button {
+  position: fixed;
+  top: 95px;
+  left: 0;
+  width: 35px;
+  height: 35px;
+  font-size: 35px;
+  text-align: center;
+  background-color: $main;
+  &.join { background-color: $join }
+  &.comment { background-color: $comment }
+  &.live { background-color: $live }
+  &.track { background-color: $track }
+  @include transition(background-color 0.5s ease);
+}
+
 .breadcrumb {
   position: absolute;
   top: 100px;
-  left: 1vw;
-  font-size: 0.5rem;
+  left: 50px;
+  font-size: 0.66rem;
 }
 nav {
   ul {

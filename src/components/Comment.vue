@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name: '留言不忘返',
+  name: 'Comment',
   data () {
     return {
         data: '...'
