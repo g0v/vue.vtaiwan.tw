@@ -1,11 +1,13 @@
 <template lang="jade">
-nav.ui.menu(v-cloak='')
+nav
+  .bg
   ul
     li
       router-link(to='/', exact='')
+        .sub &nbsp;          
         .main
           img.logo(width='40', height='40', src='../assets/logo.png', alt='logo')
-          |             vTaiwan
+          | vTaiwan
     li(v-for='r in routes', v-if="r.r")
       router-link(:to="'/'+r.r", :class='r.r', exact='')
         .sub {{r.en | uppercase}}
@@ -28,6 +30,14 @@ export default {
 
 @import "../sass/global.scss";
 
+.bg {
+  position: absolute;
+  z-index: -1;
+  background-color: #ccc;
+  height: 100px;
+  width: 100%;
+}
+
 nav {
   ul {
     width: 100%;
@@ -41,8 +51,10 @@ nav {
       font-size: 1rem;
       a {
         color: #333;
+        background-color: white;
         cursor: pointer;
-        display: block;
+        display: inline-block;
+        height: 70px;
         font-size: 0.6rem;
         text-decoration: none;
         &:visited {
@@ -63,8 +75,12 @@ nav {
         -moz-transition: background-color 0.5s ease;
         -o-transition: background-color 0.5s ease;  
         padding: 10px;
-        border: 1px solid gray;
+
+        border-left: 1px solid #ccc;
+
         .sub {
+          font-size: 0.7rem;
+          line-height: 1rem;
         }
         .main {
           font-size: 1rem;
@@ -73,6 +89,10 @@ nav {
     }
   }
   .logo {
+    position: relative;
+    top: -10px;
+    left: -5px;
+    float: left;
     width: 40px;
     height: 40px;
   }

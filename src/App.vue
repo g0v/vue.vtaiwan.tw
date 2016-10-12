@@ -101,9 +101,11 @@ body {
   text-align: center;
 }
 
+$bread-top: 120px;
+
 .sidebar-button {
   position: fixed;
-  top: 95px;
+  top: $bread-top - 5px;
   left: 0;
   width: 35px;
   height: 35px;
@@ -119,57 +121,11 @@ body {
 
 .breadcrumb {
   position: absolute;
-  top: 100px;
+  top: $bread-top;
   left: 50px;
   font-size: 0.66rem;
 }
-nav {
-  ul {
-    width: 100%;
-    text-align: center;
-    padding-left: 0;
-    list-style: none;
-    font-size:0;
-    li {
-      display: inline-block;
-      float: none;
-      font-size: 1rem;
-      a {
-        color: #333;
-        cursor: pointer;
-        display: block;
-        font-size: 0.6rem;
-        text-decoration: none;
-        &:visited {
-           color: #030;
-        }
-        &:hover {
-          border-bottom: 3px solid green;
-        }
-        &.active, &.router-link-active {
-          background-color: #ccf;
-          &.join { background-color: lighten($join,20) }
-          &.comment { background-color: lighten($comment,20) }
-          &.live { background-color: lighten($live,30) }
-          &.track { background-color: lighten($track,20) }
-        }
-        @include transition(background-color 0.5s ease);  
-        padding: 10px;
-        border: 1px solid gray;
-        .sub {
 
-        }
-        .main {
-          font-size: 1rem;
-        }
-      }
-    }
-  }
-  .logo {
-    width: 40px;
-    height: 40px;
-  }
-}
 footer {
   position:fixed;
   bottom:0;
