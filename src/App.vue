@@ -15,7 +15,7 @@
   footer
     | 施工中...
     a(href='https://xd.adobe.com/view/504e446c-90c8-4816-5ac3-941ee02cbdff/', target='_blank') Wireframe Design
-    |  
+    | |
     a(href='https://github.com/g0v/vue.vtaiwan.tw/issues', target='_blank') Issues
 </template>
 
@@ -70,7 +70,7 @@ body {
   margin: 0;
 }
 #app {
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   margin: 0;
   border: 5px solid $main;
@@ -81,9 +81,8 @@ body {
   &.track {   border-color: $track  }
 }
 #main {
-  position: absolute;
-  top: 150px;
-  left: 0;
+  position: relative;
+  top: 1.5rem;
   width: 100%;
   text-align: center;
 }
@@ -143,10 +142,14 @@ nav {
 footer {
   position:fixed;
   bottom:0;
-  left:0;
-  width:100%;
-  height:50px;
+  left: 20%;
+  width: 60%;
+  height: 2rem;
   text-align:center;
+  background-color: #ccc;
+  padding: 7px;
+  border-top: 1px dotted green;
+  a {padding: 5px}
 }
 
 .fade-enter-active, .fade-leave-active {
