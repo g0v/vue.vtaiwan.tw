@@ -56,7 +56,8 @@ export default {
 
 html {
   font-size: 16px;
-  font-size: 2vmax;
+  font-size: 2.5vm;
+  font-size: 2.5vmin;
 }
 * {
   box-sizing: border-box;
