@@ -26,6 +26,14 @@ module.exports = {
         exclude: /node_modules/
       },
       {
+        test: /\.css$/,
+        loader: 'style!css',
+      },
+      {
+        test:/\.scss$/,
+        loader: 'style!css!sass'
+      },
+      {
         test: /\.(png|jpg|gif|svg)$/,
         loader: 'url',
         query: {
