@@ -1,7 +1,8 @@
-
 const path = require('path')
 const webpack = require('webpack')
 const vueConfig = require('./vue-loader.config')
+
+var pathToBourbon = require('node-bourbon').includePaths //???
 
 module.exports = {
   devtool: '#source-map',
@@ -46,6 +47,13 @@ module.exports = {
   plugins: [
     new webpack.LoaderOptionsPlugin({
       vue: vueConfig
+    }),
+    new webpack.LoaderOptionsPlugin({
+      options: {
+        sassLoader: {
+          includePaths: [pathToBourbon]
+        }
+      }
     })
   ]
 }
