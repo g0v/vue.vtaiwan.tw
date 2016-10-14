@@ -28,6 +28,14 @@ if (process.env.NODE_ENV === 'production') {
     stylus: ExtractTextPlugin.extract({
       loader: "css-loader!stylus-loader",
       fallbackLoader: "vue-style-loader" // <- this is a dep of vue-loader
+    }),
+    scss: ExtractTextPlugin.extract({
+      loader: "css-loader!sass-loader",
+      fallbackLoader: "vue-style-loader" // <- this is a dep of vue-loader
+    }),
+    sass: ExtractTextPlugin.extract({
+      loader: "css-loader!sass?indentedSyntax",
+      fallbackLoader: "vue-style-loader" // <- this is a dep of vue-loader
     })
   }
 
