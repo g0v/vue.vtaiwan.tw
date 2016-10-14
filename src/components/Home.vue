@@ -32,7 +32,7 @@ export default {
 }
 </script>
 
-<style lang="sass">
+<style lang="scss">
     .home {
         width: 80%;
         min-width: 320px;
