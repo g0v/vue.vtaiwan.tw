@@ -17,9 +17,13 @@
       router-view.view
   footer
     | 施工中...
-    a(href='https://xd.adobe.com/view/504e446c-90c8-4816-5ac3-941ee02cbdff/', target='_blank') Wireframe Design
+    a(href='https://g0v.hackpad.com/vTaiwan--H2QhNRFVMOw', target="_blank") Hackpad
     | |
-    a(href='https://github.com/g0v/vue.vtaiwan.tw/issues', target='_blank') Issues
+    a(href='https://xd.adobe.com/view/504e446c-90c8-4816-5ac3-941ee02cbdff/', target='_blank') 視稿
+    | |
+    a(href='https://github.com/g0v/vue.vtaiwan.tw/issues', target='_blank') 議題區
+    | |
+    a(href="https://bestian.github.io/start-vue") 學習Vue
 </template>
 
 <script>
