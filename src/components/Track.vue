@@ -1,9 +1,9 @@
-<template>
-  <div class="home">
-  <h1>來追綜定案</h1>
-  <h4>追綜定案內容和後續發展</h4>
-
-  </div>
+<template lang="jade">
+  .track
+    h1
+      i.unhide.icon 
+      | 來追綜定案
+    h4 追綜定案內容和後續發展
 </template>
 
 <script>

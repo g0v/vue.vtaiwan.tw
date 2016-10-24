@@ -125,6 +125,7 @@ $bread-top: 120px;
 
 .breadcrumb {
   position: absolute;
+  z-index: 9;
   top: $bread-top;
   left: 50px;
   font-size: 0.66rem;

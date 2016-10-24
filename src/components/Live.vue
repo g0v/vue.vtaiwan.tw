@@ -1,7 +1,9 @@
-<template>
-  <div class="home">
-    <h1>直播寫草案</h1>
-  </div>
+<template lang="jade">
+  .live
+    h1 
+      i.tv.icon
+      | 直播寫草案
+
 </template>
 
 <script>
@@ -9,7 +11,7 @@ export default {
   name: 'Live',
   data () {
     return {
-    	data: '...'
+      data: '...'
     }
   }
 }
