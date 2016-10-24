@@ -4,13 +4,14 @@
       | vTaiwan HOME
     span(v-else) vTaiwan HOME
     span(v-if="rtName($route.path)") &nbsp;>&nbsp;
-    | {{rtName($route.path)}}
+    span.c(:class="pure($route.path)")
+      | {{rtName($route.path)}}
 </template>
 
 <script>
 export default {
   name: 'breadcrumb',
-  props: ['routes'],
+  props: ['routes','pure'],
   data () {
     return {
       data: '...'
@@ -37,6 +38,13 @@ export default {
   top: $bread-top;
   left: 50px;
   font-size: 0.66rem;
+  .c {
+    color: $main;
+    &.join {    color: $join  }
+    &.comment {    color: $comment  }
+    &.live {    color: $live  }
+    &.track {   color: $track  }
+  }
 }
 
 </style>

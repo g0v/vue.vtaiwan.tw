@@ -65,15 +65,13 @@ nav {
         }
         &.active, &.router-link-active {
           background-color: $main;
-          &.join { background-color: lighten($join,20) }
-          &.comment { background-color: lighten($comment,20) }
-          &.live { background-color: lighten($live,20) }
-          &.track { background-color: lighten($track,20) }
+          color: white;
+          &.join { background-color: $join }
+          &.comment { background-color: $comment }
+          &.live { background-color: $live }
+          &.track { background-color: $track }
         }
-        transition: background-color 0.5s ease;
-        -webkit-transition: background-color 0.5s ease;
-        -moz-transition: background-color 0.5s ease;
-        -o-transition: background-color 0.5s ease;  
+        @include transition(background-color 0.5s ease);
         padding: 10px;
 
         border-left: 1px solid #ccc;

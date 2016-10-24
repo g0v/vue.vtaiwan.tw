@@ -6,7 +6,7 @@
     span(v-if="openSideBar") -
     span(v-else) +
 
-  breadcrumb(:routes = "myRoutes")
+  breadcrumb(:routes = "myRoutes", :pure="pure")
   
   #main
     transition(name='fade', mode='out-in')
