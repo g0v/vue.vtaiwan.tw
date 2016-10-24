@@ -24,8 +24,8 @@
 
 <script>
 
-import navbar from './components/navbar.vue'
-import breadcrumb from './components/breadcrumb.vue'
+import navbar from './components/app_navbar.vue'
+import breadcrumb from './components/app_breadcrumb.vue'
 
 export default {
   components: {
