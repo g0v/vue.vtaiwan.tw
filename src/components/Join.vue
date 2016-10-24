@@ -10,7 +10,7 @@
       | 請至
       br
       a(href='http://join.gov.tw/idea/index', target='_blank')
-        公共政策網路參與平台
+        | 公共政策網路參與平台
 
 </template>
 

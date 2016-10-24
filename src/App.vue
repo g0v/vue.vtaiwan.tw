@@ -6,12 +6,8 @@
     span(v-if="openSideBar") -
     span(v-else) +
 
-  .breadcrumb
-    router-link(v-if="rtName($route.path)", to='/', exact='')
-      | vTaiwan HOME
-    span(v-else) vTaiwan HOME
-    span(v-if="rtName($route.path)") &nbsp;>&nbsp;
-    | {{rtName($route.path)}}
+  breadcrumb(:routes = "myRoutes")
+  
   #main
     transition(name='fade', mode='out-in')
       router-view.view
@@ -29,16 +25,18 @@
 <script>
 
 import navbar from './components/navbar.vue'
+import breadcrumb from './components/breadcrumb.vue'
 
 export default {
   components: {
-    navbar
+    navbar,
+    breadcrumb
   },
   data () {
     return {
       myRoutes: [
         {en:'Home',t:'首頁',r:''},
-        {en:'Pitch Issue',t:'來提個案吧',r:'join'},
+        {en:'Pitch Issue',t:'來提個議題',r:'join'},
         {en:'Comment',t:'留言不忘返',r:'comment'},
         {en:'Live Draft', t:'直播寫草案',r:'live'},
         {en:'Follow PROPOSAL', t:'來追蹤定案',r:'track'}
@@ -47,12 +45,6 @@ export default {
     }
   },
   methods: {
-    rtName(path) {
-      var r = this.myRoutes.filter((o) => {
-        return '/'+o.r == path;
-      })[0];
-      return r ? r.t : '';
-    },
     pure(path) {
       var obj = this.myRoutes.filter((o) => {
         return '/'+o.r == path;
@@ -70,7 +62,9 @@ export default {
 @import "./sass/global.scss";
 
 * {  box-sizing: border-box }
-a, button { cursor: pointer }
+a, button {
+  cursor: pointer !important;
+}
 
 html {
   font-size: 16px;
@@ -105,10 +99,10 @@ body {
   text-align: center;
 }
 
-$bread-top: 120px;
 
 .sidebar-button {
   position: fixed;
+  z-index: 99999;
   top: $bread-top - 5px;
   left: 0;
   width: 35px;
@@ -123,13 +117,6 @@ $bread-top: 120px;
   @include transition(background-color 0.5s ease);
 }
 
-.breadcrumb {
-  position: absolute;
-  z-index: 9;
-  top: $bread-top;
-  left: 50px;
-  font-size: 0.66rem;
-}
 
 footer {
   position:fixed;
