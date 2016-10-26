@@ -9,7 +9,7 @@
   breadcrumb(:routes = "myRoutes", :pure="pure")
   
   #main
-    transition(name='fade', mode='out-in')
+    transition(name='fade-out-speard-in', mode='out-in')
       router-view.view
   footer
     | 施工中...
@@ -131,10 +131,23 @@ footer {
   a {padding: 5px}
 }
 
-.fade-enter-active, .fade-leave-active {
-  @include transition(opacity .5s ease-in);
-}
-.fade-enter, .fade-leave-active {
+
+
+.fade-out-speard-in-enter, .fade-out-speard-in-leave-active {
   opacity: 0
 }
+
+.fade-out-speard-in-leave-active {
+  @include transition(all .3s);
+}
+
+.fade-out-speard-in-enter-active {
+  @include transition(all .5s ease-in);
+}
+
+.fade-out-speard-in-enter {
+  @include transform(rotateY(45deg));
+}
+
+
 </style>
