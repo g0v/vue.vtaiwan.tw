@@ -15,9 +15,9 @@
     | 施工中...
     a(href='https://g0v.hackpad.com/vTaiwan--H2QhNRFVMOw', target="_blank") Hackpad
     | |
-    a(href='https://xd.adobe.com/view/504e446c-90c8-4816-5ac3-941ee02cbdff/', target='_blank') 視稿
+    a(href='https://g0v.hackpad.com/vTaiwan-2016-10-22--XS7DoCGwObg#:h=%E4%BB%8B%E9%9D%A2%E8%A8%8E%E8%AB%96', target='_blank') 視稿
     | |
-    a(href='https://github.com/g0v/vue.vtaiwan.tw/issues', target='_blank') 議題區
+    a(href='https://github.com/g0v/vue.vtaiwan.tw/issues', target='_blank') 最新議題
     | |
     a(href="https://bestian.github.io/start-vue") 學習Vue
 </template>
