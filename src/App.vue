@@ -1,14 +1,72 @@
+<style lang="scss" scoped>
+
+@import "./sass/global.scss";
+
+.app {
+  min-height: 100vh;
+  width: 100%;
+  margin: 0;
+  border: 5px solid $main;
+  @include transition(border-color 0.5s ease);
+  &.join {    border-color: $join  }
+  &.comment {    border-color: $comment  }
+  &.live {    border-color: $live  }
+  &.track {   border-color: $track  }
+}
+
+.main {
+  position: relative;
+  top: 1.5rem;
+  width: 100%;
+  text-align: center;
+}
+
+.sidebar-button {
+  position: fixed;
+  z-index: 99999;
+  top: $bread-top - 5px;
+  left: 0;
+  width: 35px;
+  height: 35px;
+  font-size: 35px;
+  text-align: center;
+  background-color: $main;
+  &.join { background-color: $join }
+  &.comment { background-color: $comment }
+  &.live { background-color: $live }
+  &.track { background-color: $track }
+  @include transition(background-color 0.5s ease);
+}
+
+.fade-out-speard-in-enter, .fade-out-speard-in-leave-active {
+  opacity: 0
+}
+
+.fade-out-speard-in-leave-active {
+  @include transition(all .3s);
+}
+
+.fade-out-speard-in-enter-active {
+  @include transition(all .5s ease-in);
+}
+
+.fade-out-speard-in-enter {
+  @include transform(rotateY(45deg));
+}
+
+</style>
+
 <template lang="jade">
-#app(:class="pure($route.path)")
+#app.app
   navbar(:routes = "myRoutes")
 
-  a.sidebar-button(@click="openSideBar = !openSideBar", :class="pure($route.path)")
+  a.sidebar-button(@click="openSideBar = !openSideBar")
     span(v-if="openSideBar") -
     span(v-else) +
 
   breadcrumb(:routes = "myRoutes", :pure="pure")
-  
-  #main
+
+  #main.main
     transition(name='fade-out-speard-in', mode='out-in')
       router-view.view
   footer
@@ -56,7 +114,6 @@ export default {
 
 </script>
 
-
 <style lang="scss">
 
 @import "./sass/global.scss";
@@ -80,44 +137,6 @@ body {
   margin: 0;
 }
 
-#app {
-  min-height: 100vh;
-  width: 100%;
-  margin: 0;
-  border: 5px solid $main;
-  @include transition(border-color 0.5s ease);
-  &.join {    border-color: $join  }
-  &.comment {    border-color: $comment  }
-  &.live {    border-color: $live  }
-  &.track {   border-color: $track  }
-}
-
-#main {
-  position: relative;
-  top: 1.5rem;
-  width: 100%;
-  text-align: center;
-}
-
-
-.sidebar-button {
-  position: fixed;
-  z-index: 99999;
-  top: $bread-top - 5px;
-  left: 0;
-  width: 35px;
-  height: 35px;
-  font-size: 35px;
-  text-align: center;
-  background-color: $main;
-  &.join { background-color: $join }
-  &.comment { background-color: $comment }
-  &.live { background-color: $live }
-  &.track { background-color: $track }
-  @include transition(background-color 0.5s ease);
-}
-
-
 footer {
   position:fixed;
   bottom:0;
@@ -130,24 +149,4 @@ footer {
   border-top: 1px dotted green;
   a {padding: 5px}
 }
-
-
-
-.fade-out-speard-in-enter, .fade-out-speard-in-leave-active {
-  opacity: 0
-}
-
-.fade-out-speard-in-leave-active {
-  @include transition(all .3s);
-}
-
-.fade-out-speard-in-enter-active {
-  @include transition(all .5s ease-in);
-}
-
-.fade-out-speard-in-enter {
-  @include transform(rotateY(45deg));
-}
-
-
 </style>
