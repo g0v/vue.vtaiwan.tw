@@ -8,15 +8,15 @@ export default {
   name: 'Proposal',
   data () {
     return {
-      metadata: 'FOO'
+      metadata: null,
     }
   },
   beforeMount () {
-    const url = 'https://raw.githubusercontent.com/g0v/vue.vtaiwan.tw/master/metadata.json';
+    const url = 'https://raw.githubusercontent.com/g0v/vue.vtaiwan.tw/feature/proposal-page/metadata.json';
 
-    fetch('https://raw.githubusercontent.com/g0v/vue.vtaiwan.tw/master/metadata.json')
+    fetch(url)
     .then(res => res.json())
-    .then(data => console.log(data));
+    .then(data => this.metadata = data);
   },
 }
 </script>
