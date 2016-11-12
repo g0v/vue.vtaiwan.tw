@@ -74,6 +74,8 @@
 
   Slideshow.slideshow
 
+  StepGuide.stepGuide
+
   a.sidebar-button(@click="openSideBar = !openSideBar")
     span(v-if="openSideBar") -
     span(v-else) +
@@ -92,6 +94,7 @@
 import navbar from './components/app_navbar.vue'
 import breadcrumb from './components/app_breadcrumb.vue'
 import Slideshow from './components/Slideshow.vue'
+import StepGuide from './components/StepGuide.vue'
 import Footer from './components/Footer.vue'
 
 export default {
@@ -99,6 +102,7 @@ export default {
     navbar,
     breadcrumb,
     Slideshow,
+    StepGuide,
     Footer
   },
   data () {
