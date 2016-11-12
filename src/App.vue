@@ -60,6 +60,12 @@
   right: 0;
 }
 
+.footer {
+  margin: 0 auto;
+  margin-top: 40px;
+  max-width: 1170px;
+}
+
 </style>
 
 <template lang="jade">
@@ -77,15 +83,8 @@
   #main.main
     transition(name='fade-out-speard-in', mode='out-in')
       router-view.view
-  footer
-    | 施工中...
-    a(href='https://g0v.hackpad.com/vTaiwan--H2QhNRFVMOw', target="_blank") Hackpad
-    | |
-    a(href='https://g0v.hackpad.com/vTaiwan-2016-10-22--XS7DoCGwObg#:h=%E4%BB%8B%E9%9D%A2%E8%A8%8E%E8%AB%96', target='_blank') 視稿
-    | |
-    a(href='https://github.com/g0v/vue.vtaiwan.tw/issues', target='_blank') 最新議題
-    | |
-    a(href="https://bestian.github.io/start-vue") 學習Vue
+
+  Footer.footer
 </template>
 
 <script>
@@ -93,12 +92,14 @@
 import navbar from './components/app_navbar.vue'
 import breadcrumb from './components/app_breadcrumb.vue'
 import Slideshow from './components/Slideshow.vue'
+import Footer from './components/Footer.vue'
 
 export default {
   components: {
     navbar,
     breadcrumb,
-    Slideshow
+    Slideshow,
+    Footer
   },
   data () {
     return {
@@ -144,18 +145,5 @@ body {
   @include transition(opacity 0.5s ease);
   padding: 0;
   margin: 0;
-}
-
-footer {
-  position:fixed;
-  bottom:0;
-  left: 20%;
-  width: 60%;
-  height: 2rem;
-  text-align:center;
-  background-color: #ccc;
-  padding: 7px;
-  border-top: 1px dotted green;
-  a {padding: 5px}
 }
 </style>
