@@ -4,19 +4,28 @@
 
 <script>
 import fetch from 'isomorphic-fetch';
+
+function fetchMetaData(store) {
+
+}
+
 export default {
   name: 'Proposal',
-  data () {
-    return {
-      metadata: null,
-    }
-  },
-  beforeMount () {
-    const url = 'https://raw.githubusercontent.com/g0v/vue.vtaiwan.tw/feature/proposal-page/metadata.json';
 
-    fetch(url)
-    .then(res => res.json())
-    .then(data => this.metadata = data);
+  computed: {
+    metadata () { return this.$store.state.activeProposalMetadata }
+  },
+
+  preFetch(store) {
+    return store.dispatch('FETCH_PROPOSAL_METADATA', 'proposal-name-foo');
+  },
+
+  beforeMount () {
+    // do data fetching if the data is not pre-fetched by server
+    //
+    if(this.metadata() === null) {
+      store.dispatch('FETCH_PROPOSAL_METADATA', 'proposal-name-foo');
+    }
   },
 }
 </script>
