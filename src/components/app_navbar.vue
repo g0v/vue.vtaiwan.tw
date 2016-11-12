@@ -1,44 +1,27 @@
-<template lang="jade">
-nav
-  .bg
-  ul
-    li
-      router-link(to='/', exact='')
-        .sub &nbsp;          
-        .main
-          img.logo(width='40', height='40', src='../assets/logo.png', alt='logo')
-          | vTaiwan
-    li(v-for='r in routes', v-if="r.r")
-      router-link(:to="'/'+r.r", :class='r.r', exact='')
-        .sub {{r.en | uppercase}}
-        .main {{r.t}}
-</template>
-
-<script>
-export default {
-  name: 'navbar',
-  props: ['routes'],
-  data () {
-    return {
-      data: '...'
-    }
-  }
-}
-</script>
-
-<style lang="scss">
+<style lang="scss" scoped>
 
 @import "../sass/global.scss";
 
-.bg {
-  position: absolute;
-  z-index: -1;
-  background-color: #ccc;
-  height: 100px;
-  width: 100%;
+.nav {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.8);
 }
 
-nav {
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 90px;
+  margin-left: 30px;
+  margin-right: 20px;
+}
+
+.main {
+  flex: 1;
+}
+
+.tab {
   ul {
     width: 100%;
     text-align: center;
@@ -54,11 +37,10 @@ nav {
         background-color: white;
         cursor: pointer;
         display: inline-block;
-        height: 70px;
         font-size: 0.6rem;
         text-decoration: none;
         &:visited {
-           color: #030;
+          color: #030;
         }
         &:hover {
           border-bottom: 3px solid green;
@@ -80,20 +62,34 @@ nav {
           font-size: 0.7rem;
           line-height: 1rem;
         }
-        .main {
-          font-size: 1rem;
-        }
       }
     }
   }
-  .logo {
-    position: relative;
-    top: -10px;
-    left: -5px;
-    float: left;
-    width: 40px;
-    height: 40px;
+}
+</style>
+
+<template lang="jade">
+nav.nav
+  router-link(to='/', exact='').logo
+    img(width='30', height='30', src='../assets/logo.png', alt='logo')
+    span vTaiwan
+  .main
+  .tab
+    ul
+      li(v-for='r in routes', v-if="r.r")
+        router-link(:to="'/'+r.r", :class='r.r', exact='')
+          .sub {{r.en | uppercase}}
+          .main {{r.t}}
+</template>
+
+<script>
+export default {
+  name: 'navbar',
+  props: ['routes'],
+  data () {
+    return {
+      data: '...'
+    }
   }
 }
-
-</style>
+</script>

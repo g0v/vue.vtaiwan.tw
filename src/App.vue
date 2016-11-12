@@ -6,7 +6,6 @@
   min-height: 100vh;
   width: 100%;
   margin: 0;
-  border: 5px solid $main;
   @include transition(border-color 0.5s ease);
   &.join {    border-color: $join  }
   &.comment {    border-color: $comment  }
@@ -54,11 +53,20 @@
   @include transform(rotateY(45deg));
 }
 
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
 </style>
 
 <template lang="jade">
 #app.app
-  navbar(:routes = "myRoutes")
+  navbar.navbar(:routes = "myRoutes")
+
+  Slideshow.slideshow
 
   a.sidebar-button(@click="openSideBar = !openSideBar")
     span(v-if="openSideBar") -
@@ -84,20 +92,21 @@
 
 import navbar from './components/app_navbar.vue'
 import breadcrumb from './components/app_breadcrumb.vue'
+import Slideshow from './components/Slideshow.vue'
 
 export default {
   components: {
     navbar,
-    breadcrumb
+    breadcrumb,
+    Slideshow
   },
   data () {
     return {
       myRoutes: [
         {en:'Home',t:'首頁',r:''},
-        {en:'Pitch Issue',t:'來提個議題',r:'join'},
-        {en:'Comment',t:'留言不忘返',r:'comment'},
-        {en:'Live Draft', t:'直播寫草案',r:'live'},
-        {en:'Follow PROPOSAL', t:'來追蹤定案',r:'track'}
+        {en:'User manual',t:'使用手冊',r:'join'},
+        {en:'About',t:'關於 vTaiwan',r:'comment'},
+        {en:'Login', t:'登入',r:'live'},
       ],
       openSideBar: false
     }
