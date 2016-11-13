@@ -6,7 +6,11 @@ import Join from '../components/Join.vue'
 import Comment from '../components/Comment.vue'
 import Live from '../components/Live.vue'
 import Track from '../components/Track.vue'
-import Proposal from '../components/Proposal.vue'
+import Proposal from '../components/Proposal/index.vue'
+import ProposalDetail from '../components/Proposal/Detail.vue'
+import ProposalTimeline from '../components/Proposal/Timeline.vue'
+import ProposalDiscuss from '../components/Proposal/Discuss.vue'
+import ProposalNext from '../components/Proposal/Next.vue'
 
 Vue.use(Router)
 
@@ -19,6 +23,11 @@ export default new Router({
     { path: '/comment', component: Comment },
     { path: '/live', component: Live },
     { path: '/track', component: Track },
-    { path: '/proposal/test', component: Proposal }
+    { path: '/proposals/:code', component: Proposal, children: [
+      { path: '', component: ProposalDetail },
+      { path: 'timeline', component: ProposalTimeline },
+      { path: 'discuss', component: ProposalDiscuss },
+      { path: 'next', component: ProposalNext },
+    ] }
   ]
 })

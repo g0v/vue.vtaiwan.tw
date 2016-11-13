@@ -1,11 +1,19 @@
 <template lang="jade">
   div
-    div.header
+    .header
       h1
         | {{ metadata.proposal_title }}
         span.status {{ metadata.status_code }}
       p.description {{ metadata.description }}
       iframe(v-bind:src="metadata.slide_embed_url")
+
+    .tabs
+      router-link(:to="`/proposals/${$route.params.code}/`") 詳細內容
+      router-link(:to="`/proposals/${$route.params.code}/timeline`") 議題時間軸
+      router-link(:to="`/proposals/${$route.params.code}/discuss`") 參與討論
+      router-link(:to="`/proposals/${$route.params.code}/next`") 下一階段
+
+    router-view /
 
     div Proposal test, metadata = {{ JSON.stringify(metadata) }}
 </template>
@@ -16,12 +24,6 @@
 
 
 <script>
-import fetch from 'isomorphic-fetch';
-
-function fetchMetaData(store) {
-
-}
-
 export default {
   name: 'Proposal',
 
@@ -30,7 +32,7 @@ export default {
   },
 
   preFetch(store) {
-    return store.dispatch('FETCH_PROPOSAL_METADATA', 'proposal-name-foo');
+    return store.dispatch('FETCH_PROPOSAL_METADATA', store.state.route.params.code);
   },
 
   beforeMount () {
