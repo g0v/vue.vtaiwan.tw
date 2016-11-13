@@ -1,6 +1,19 @@
 <template lang="jade">
-  div Proposal test, metadata = {{ JSON.stringify(metadata) }}
+  div
+    div.header
+      h1
+        | {{ metadata.proposal_title }}
+        span.status {{ metadata.status_code }}
+      p.description {{ metadata.description }}
+      iframe(v-bind:src="metadata.slide_embed_url")
+
+    div Proposal test, metadata = {{ JSON.stringify(metadata) }}
 </template>
+
+<style lang="scss" scoped>
+
+</style>
+
 
 <script>
 import fetch from 'isomorphic-fetch';
@@ -29,7 +42,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss">
-
-</style>
