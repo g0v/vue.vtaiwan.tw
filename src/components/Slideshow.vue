@@ -1,12 +1,11 @@
 <style lang="scss" scoped>
   .component {
     position: relative;
-    top: 54px;
-    margin-bottom: 54px;
     width: 100%;
     img {
+      position: relative;
       width: 100%;
-      z-index: 3;
+      z-index: -3;
     }
   }
 
