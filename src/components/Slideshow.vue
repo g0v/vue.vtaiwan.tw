@@ -10,4 +10,7 @@
 <template lang="jade">
   .component
     img(src="http://static.thousandwonders.net/Taiwan.original.3738.jpg")
+
+
+    // to use vue-slide, see this: https://github.com/hilongjw/vue-slide
 </template>

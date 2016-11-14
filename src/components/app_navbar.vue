@@ -114,7 +114,7 @@ nav.nav
   .null
   .tab    
     router-link.item(v-for='r in routes', v-if="r.r", :to="'/'+r.r", :class='r.r', exact='')
-      {{ r.t }}
+      | {{ r.t }}
       //.sub {{r.en | uppercase}}
         
 </template>
