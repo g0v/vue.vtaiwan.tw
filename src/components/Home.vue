@@ -24,8 +24,8 @@
 
 <script>
 
-import Slideshow from './app_Slideshow.vue'
-import StepGuide from './app_StepGuide.vue'
+import Slideshow from './home_Slideshow.vue'
+import StepGuide from './home_StepGuide.vue'
 
 export default {
   name: 'Home',

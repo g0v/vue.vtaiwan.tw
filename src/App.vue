@@ -72,16 +72,12 @@
 
 import Navbar from './components/app_Navbar.vue'
 import Breadcrumb from './components/app_Breadcrumb.vue'
-import Slideshow from './components/app_Slideshow.vue'
-import StepGuide from './components/app_StepGuide.vue'
 import Footer from './components/Footer.vue'
 
 export default {
   components: {
     Navbar,
     Breadcrumb,
-    Slideshow,
-    StepGuide,
     Footer
   },
   data () {
