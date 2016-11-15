@@ -9,7 +9,7 @@ $navHeight: 55px;
   height: $navHeight;
   overflow: visible;
   align-items: center;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.75);
 }
 
 .logo, .explore {
@@ -83,7 +83,7 @@ form.search {
       background-color: $main;
       color: white;
       &.join { background-color: $join }
-      &.comment { background-color: $comment }
+      &.intro { background-color: $intro }
       &.live { background-color: $live }
       &.track { background-color: $track }
     }

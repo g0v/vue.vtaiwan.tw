@@ -3,7 +3,7 @@ import Router from 'vue-router'
 
 import Home from '../components/Home.vue'
 import Join from '../components/Join.vue'
-import Comment from '../components/Comment.vue'
+import Intro from '../components/Intro.vue'
 import Live from '../components/Live.vue'
 import Track from '../components/Track.vue'
 
@@ -15,7 +15,7 @@ export default new Router({
   routes: [
     { path: '/', component: Home },
     { path: '/join', component: Join },
-    { path: '/comment', component: Comment },
+    { path: '/intro', component: Intro },
     { path: '/live', component: Live },
     { path: '/track', component: Track }
   ]

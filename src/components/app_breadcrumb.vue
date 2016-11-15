@@ -41,7 +41,7 @@ export default {
   .c {
     color: $main;
     &.join {    color: $join  }
-    &.comment {    color: $comment  }
+    &.comment {    color: $intro  }
     &.live {    color: $live  }
     &.track {   color: $track  }
   }

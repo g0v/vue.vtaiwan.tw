@@ -8,34 +8,18 @@
   margin: 0;
   @include transition(border-color 0.5s ease);
   &.join {    border-color: $join  }
-  &.comment {    border-color: $comment  }
+  &.intro {    border-color: $intro  }
   &.live {    border-color: $live  }
   &.track {   border-color: $track  }
 }
 
 .main {
   position: relative;
-  top: 1.5rem;
+  top: 0;
   width: 100%;
   text-align: center;
 }
 
-.sidebar-button {
-  position: fixed;
-  z-index: 99999;
-  top: $bread-top - 5px;
-  left: 0;
-  width: 35px;
-  height: 35px;
-  font-size: 35px;
-  text-align: center;
-  background-color: $main;
-  &.join { background-color: $join }
-  &.comment { background-color: $comment }
-  &.live { background-color: $live }
-  &.track { background-color: $track }
-  @include transition(background-color 0.5s ease);
-}
 
 .fade-out-speard-in-enter, .fade-out-speard-in-leave-active {
   opacity: 0
@@ -55,12 +39,14 @@
 
 .navbar {
   position: fixed;
+  z-index: 50000;
   top: 0;
   left: 0;
   right: 0;
 }
 
 .footer {
+  position: relative;
   margin: 0 auto;
   margin-top: 40px;
   max-width: 1170px;
@@ -70,17 +56,10 @@
 
 <template lang="jade">
 #app.app
-  navbar.navbar(:routes = "myRoutes")
-
-  Slideshow.slideshow
-
-  StepGuide.stepGuide
-
-  a.sidebar-button(@click="openSideBar = !openSideBar")
-    span(v-if="openSideBar") -
-    span(v-else) +
-
-  breadcrumb(:routes = "myRoutes", :pure="pure")
+  Navbar.navbar(:routes = "myRoutes")
+  Breadcrumb(:routes = "myRoutes", :pure="pure")
+  //Slideshow.slideshow
+  //StepGuide.stepGuide
 
   #main.main
     transition(name='fade-out-speard-in', mode='out-in')
@@ -91,16 +70,16 @@
 
 <script>
 
-import navbar from './components/app_navbar.vue'
-import breadcrumb from './components/app_breadcrumb.vue'
-import Slideshow from './components/Slideshow.vue'
-import StepGuide from './components/StepGuide.vue'
+import Navbar from './components/app_Navbar.vue'
+import Breadcrumb from './components/app_Breadcrumb.vue'
+import Slideshow from './components/app_Slideshow.vue'
+import StepGuide from './components/app_StepGuide.vue'
 import Footer from './components/Footer.vue'
 
 export default {
   components: {
-    navbar,
-    breadcrumb,
+    Navbar,
+    Breadcrumb,
     Slideshow,
     StepGuide,
     Footer
@@ -110,10 +89,9 @@ export default {
       myRoutes: [
         {en:'Home',t:'首頁',r:''},
         {en:'User manual',t:'使用手冊',r:'join'},
-        {en:'About',t:'關於 vTaiwan',r:'comment'},
+        {en:'About',t:'關於 vTaiwan',r:'intro'},
         {en:'Login', t:'登入',r:'live'},
-      ],
-      openSideBar: false
+      ]
     }
   },
   methods: {

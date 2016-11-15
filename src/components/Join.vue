@@ -1,3 +1,12 @@
+<style scoped lang="scss">
+
+.join {
+  position: relative;
+  top: 66px;
+}
+
+</style>
+
 <template lang="jade">
   .join
     h1
@@ -24,7 +33,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-
-</style>
