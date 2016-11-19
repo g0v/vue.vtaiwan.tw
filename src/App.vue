@@ -57,9 +57,6 @@
 <template lang="jade">
 #app.app
   Navbar.navbar(:routes = "myRoutes")
-  Breadcrumb(:routes = "myRoutes", :pure="pure")
-  //Slideshow.slideshow
-  //StepGuide.stepGuide
 
   #main.main
     transition(name='fade-out-speard-in', mode='out-in')
@@ -71,13 +68,11 @@
 <script>
 
 import Navbar from './components/app_Navbar.vue'
-import Breadcrumb from './components/app_Breadcrumb.vue'
 import MyFooter from './components/MyFooter.vue'
 
 export default {
   components: {
     Navbar,
-    Breadcrumb,
     MyFooter
   },
   data () {
