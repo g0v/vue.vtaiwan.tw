@@ -19,6 +19,7 @@
   .home
     Slideshow.slideshow
     StepGuide.stepguide
+    HotProposal.hotproposal
 
 </template>
 
@@ -26,12 +27,14 @@
 
 import Slideshow from './home_Slideshow.vue'
 import StepGuide from './home_StepGuide.vue'
+import HotProposal from './home_HotProposal.vue'
 
 export default {
   name: 'Home',
   components: {
     Slideshow,
-    StepGuide
+    StepGuide,
+    HotProposal
   },
   data () {
     return {
