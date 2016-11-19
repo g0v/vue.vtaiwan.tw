@@ -65,28 +65,28 @@
     transition(name='fade-out-speard-in', mode='out-in')
       router-view.view
 
-  Footer.footer
+  MyFooter.footer
 </template>
 
 <script>
 
 import Navbar from './components/app_Navbar.vue'
 import Breadcrumb from './components/app_Breadcrumb.vue'
-import Footer from './components/Footer.vue'
+import MyFooter from './components/MyFooter.vue'
 
 export default {
   components: {
     Navbar,
     Breadcrumb,
-    Footer
+    MyFooter
   },
   data () {
     return {
       myRoutes: [
         {en:'Home',t:'首頁',r:''},
-        {en:'User manual',t:'使用手冊',r:'join'},
+        {en:'User manual',t:'使用手冊',r:'how-to-use'},
         {en:'About',t:'關於 vTaiwan',r:'intro'},
-        {en:'Login', t:'登入',r:'live'},
+        {en:'Login', t:'登入',r:'login'},
       ]
     }
   },

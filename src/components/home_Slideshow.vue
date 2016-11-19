@@ -30,6 +30,11 @@
     }
   }
 
+  img.full-page {
+    min-height: 80vh;
+    width: 100vw;
+  }
+
   i {
     transition: color 0.3s;
   }
@@ -43,7 +48,7 @@
       i.huge.chevron.black.left.icon
     a.next
       i.huge.chevron.black.right.icon
-    img(src="http://static.thousandwonders.net/Taiwan.original.3738.jpg")
+    img.full-page(src="http://static.thousandwonders.net/Taiwan.original.3738.jpg")
 
 
     // to use vue-slide, see this: https://github.com/hilongjw/vue-slide

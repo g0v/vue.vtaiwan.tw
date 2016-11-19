@@ -4,12 +4,12 @@
 
 $navHeight: 55px;
 
-.nav {
+nav.component {
   display: flex;
   height: $navHeight;
   overflow: visible;
   align-items: center;
-  background: rgba(255, 255, 255, 0.75);
+  background: hsla(60, 0%, 90%, 0.75);
 }
 
 .logo, .explore {
@@ -101,7 +101,7 @@ form.search {
 </style>
 
 <template lang="jade">
-nav.nav
+nav.component
   router-link.logo(to='/', exact='')
     img(width='30', height='30', src='../assets/logo.png', alt='logo')
     span vTaiwan
