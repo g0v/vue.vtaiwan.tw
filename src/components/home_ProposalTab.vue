@@ -5,6 +5,7 @@
     margin: 0 auto;
     padding: 0 20px;
     font-size: 0.8rem;
+
   }
 </style>
 
@@ -22,8 +23,8 @@
 </template>
 
 <script>
-  import Tabs from './Tabs.vue'
-  import TabPane from './TabPane.vue'
+  import Tabs from './home_prop_Tabs.vue'
+  import TabPane from './home_prop_TabPane.vue'
 
   export default {
     components: {

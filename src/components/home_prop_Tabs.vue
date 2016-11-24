@@ -1,7 +1,7 @@
 <template lang="jade">
   div
     .nav-tabs
-      div(v-bind:class="{'active': index==selected}", v-for="(tab, index) in tablist", @click="onTabClick(index)")
+      a(v-bind:class="{'active': index==selected}", v-for="(tab, index) in tablist", @click="onTabClick(index)")
         {{tab.title}}
     .tab-content
       slot
@@ -33,10 +33,14 @@
     display: flex;
     cursor: pointer;
     font-size: 1.2rem;
-    .active {
-      border-bottom: 1px #000 solid;
-    }
+    a {
+      padding: 0.5em;
+      &.active {
+        border-bottom: 2px #000 solid;
+      }
+    }    
   }
   .tab-content {
+    margin-top: 2em;
   }
 </style>

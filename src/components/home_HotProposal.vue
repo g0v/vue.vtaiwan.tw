@@ -1,4 +1,6 @@
 <style lang="scss" scoped>
+  @import "bourbon";
+
   .component {
     width: 100%;
     max-width: 1200px;
@@ -19,25 +21,33 @@
     margin: 0 -10px;
     .item {
       flex: 1;
-      margin: 0 10px;
-    }
-    .cover {
-      width: 100%;
-    }
-    .title {
-      font-size: 1.2rem;
-    }
-    .owner {
-      color: #AAA;
-    }
-    .progress_bar {
-      background-color: #CCC;
-      padding: 2px 0;
-    }
-    .progress {
-      height: 4px;
-      background-color: #000;
-    }
+      margin: 10px;
+      img.cover {
+        width: 100%;
+        @include transition(all 0.3s);
+        &:hover {
+          opacity: 0.5;
+        }
+      }
+      .title {
+        font-size: 1.2rem;
+        margin:5px;
+      }
+      .owner {
+        color: #AAA;
+        margin:5px;
+      }
+      .progress_bar {
+        background-color: #CCC;
+        padding: 2px 0;
+        .progress {
+          height: 6px;
+          background-color: #000;
+          border-radius: 0 5px 0 0;
+        }
+        margin-bottom: 4px;
+      }
+    }    
   }
 </style>
 

@@ -19,7 +19,9 @@
   .home
     Slideshow.slideshow
     StepGuide.stepguide
+    .ui.divider
     HotProposal.hotproposal
+    .ui.divider
     ProposalTab.proposalTab
 
 </template>
