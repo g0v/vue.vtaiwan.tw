@@ -1,59 +1,3 @@
-<style lang="scss" scoped>
-
-@import "./sass/global.scss";
-
-.app {
-  min-height: 100vh;
-  width: 100%;
-  margin: 0;
-  @include transition(border-color 0.5s ease);
-  &.join {    border-color: $join  }
-  &.intro {    border-color: $intro  }
-  &.live {    border-color: $live  }
-  &.track {   border-color: $track  }
-}
-
-.main {
-  position: relative;
-  top: 0;
-  width: 100%;
-  text-align: center;
-}
-
-
-.fade-out-speard-in-enter, .fade-out-speard-in-leave-active {
-  opacity: 0
-}
-
-.fade-out-speard-in-leave-active {
-  @include transition(all .3s);
-}
-
-.fade-out-speard-in-enter-active {
-  @include transition(all .5s ease-in);
-}
-
-.fade-out-speard-in-enter {
-  @include transform(rotateY(45deg));
-}
-
-.navbar {
-  position: fixed;
-  z-index: 50000;
-  top: 0;
-  left: 0;
-  right: 0;
-}
-
-.footer {
-  position: relative;
-  margin: 0 auto;
-  margin-top: 40px;
-  max-width: 1170px;
-}
-
-</style>
-
 <template lang="jade">
 #app.app
   Navbar.navbar(:routes = "myRoutes")
@@ -119,4 +63,60 @@ body {
   padding: 0;
   margin: 0;
 }
+</style>
+
+<style lang="scss" scoped>
+
+@import "./sass/global.scss";
+
+.app {
+  min-height: 100vh;
+  width: 100%;
+  margin: 0;
+  @include transition(border-color 0.5s ease);
+  &.join {    border-color: $join  }
+  &.intro {    border-color: $intro  }
+  &.live {    border-color: $live  }
+  &.track {   border-color: $track  }
+}
+
+.main {
+  position: relative;
+  top: 0;
+  width: 100%;
+  text-align: center;
+}
+
+
+.fade-out-speard-in-enter, .fade-out-speard-in-leave-active {
+  opacity: 0
+}
+
+.fade-out-speard-in-leave-active {
+  @include transition(all .3s);
+}
+
+.fade-out-speard-in-enter-active {
+  @include transition(all .5s ease-in);
+}
+
+.fade-out-speard-in-enter {
+  @include transform(rotateY(45deg));
+}
+
+.navbar {
+  position: fixed;
+  z-index: 50000;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.footer {
+  position: relative;
+  margin: 0 auto;
+  margin-top: 40px;
+  max-width: 1170px;
+}
+
 </style>
