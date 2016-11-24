@@ -1,22 +1,35 @@
 <template lang="jade">
   .component
-    a.pre(@click="c = cycle(c,topics,-1)")
-      i.huge.chevron.black.left.icon
-    a.next(@click="c = cycle(c,topics,1)")
-      i.huge.chevron.black.right.icon
-    img.full-page(:src="topics[c].img")
-    .box
-      .slogen.ui.header {{topics[c].slogan}}
-      .title {{topics[c].title}} {{c}}
-      .status {{topics[c].status}}
-
+    .slide-page      
+      a.pre(@click="c = cycle(c,topics,-1)")
+        i.huge.chevron.black.left.icon
+      a.next(@click="c = cycle(c,topics,1)")
+        i.huge.chevron.black.right.icon
+      .slide-item(v-for="(t,idx) in topics", 
+        :style="{ transform: 'translateX('+ (idx-c) * 100 +'%)', '-ms-transform': 'translateX('+ (idx-c) * 100 +'%)', '-webkit-transform': 'translateX('+ (idx-c) * 100 +'%)'  }")
+        img.full-page(:src="t.img")
+        .box
+          .slogan.ui.header {{t.slogan}}
+          .title {{t.title}}
+          .status {{t.status}}
 
 
     // to use vue-slide, see this: https://github.com/hilongjw/vue-slide
+      slide(:pages='slideList', :slide='slideParam')
+        .slider-item(v-for='item in slideList', :style='slideList[$index].style')
+          
+          .box
+            .slogen.ui.header {{item.slogan}}
+            .title {{item.title}}
+            .status {{item.status}}
+
 </template>
 
+
 <script type="text/javascript">
-  
+
+// import slide from 'vue-slide'
+
 export default {
   data () {
     return {
@@ -28,6 +41,37 @@ export default {
       ]
     }
   },
+/*  computed: {
+    // a computed getter
+    slideList: function () {
+      return this.topics.map(function(o, idx) {
+        ans = o;
+        ans.origin = idx * 100;
+        ans.current = 0;
+        ans.style = {
+          'background-image': ans.img,
+          'background-size': 'cover',
+          'transform': `translateX(${ 100 }%)`
+        }
+        return ans;
+      })
+    },
+    slideParam: function (argument) {
+      return {
+        init: {
+              pageNum: this.topics.length,
+              currentPage: 1,
+              canPre : false,
+              canNext: true,
+              start: {},
+              end: {},
+              tracking: false,
+              thresholdTime: 500,
+              thresholdDistance: 100
+        }
+      }
+    }
+  }, */
   methods: {
     cycle: (c, ts, n) => {
       c = c + n;
@@ -58,6 +102,26 @@ export default {
     }
   }
 
+  .slide-page {
+    display: block;
+    height: 90%;
+    height: 90vh;
+  }
+
+  .slide-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    @include transition(all 0.3s ease-in-out);
+    img.full-page {
+      min-height: 80vh;
+      width: 100vw;
+    }
+    overflow: hidden;
+    height: 80%;
+    height: 80vh;
+  }
+
   a {
     cursor: pointer;
     &:hover {
@@ -82,11 +146,6 @@ export default {
     }
   }
 
-  img.full-page {
-    min-height: 80vh;
-    width: 100vw;
-  }
-
   .box {
     position: absolute;
     top: 33vh;
@@ -98,6 +157,7 @@ export default {
       display: box;
     }
     .slogan {
+      text-shadow: 0 2px 2px #fff, 0 0 2px #fff;
       width: 250px;
     }
     .title {
