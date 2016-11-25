@@ -1,27 +1,18 @@
 <template lang="jade">
   .component
     .slide-page      
-      a.pre(@click="c = cycle(c,topics,-1)")
+      a.pre(@click="c = cycle(c,hotTopics,-1)")
         i.huge.chevron.black.left.icon
-      a.next(@click="c = cycle(c,topics,1)")
+      a.next(@click="c = cycle(c,hotTopics,1)")
         i.huge.chevron.black.right.icon
-      .slide-item(v-for="(t,idx) in topics", 
-        :style="{ transform: 'translateX('+ (idx-c) * 100 +'%)', '-ms-transform': 'translateX('+ (idx-c) * 100 +'%)', '-webkit-transform': 'translateX('+ (idx-c) * 100 +'%)'  }")
+      .slide-item(v-for="(t,idx) in mySlideTopics", 
+        :style="{ 'z-index': t.zIndex, transform: t.transform, '-ms-transform': t.transform, '-webkit-transform': t.transform  }")
         img.full-page(:src="t.img")
         .box
           .slogan.ui.header {{t.slogan}}
           .title {{t.title}}
           .status {{t.status}}
 
-
-    // to use vue-slide, see this: https://github.com/hilongjw/vue-slide
-      slide(:pages='slideList', :slide='slideParam')
-        .slider-item(v-for='item in slideList', :style='slideList[$index].style')
-          
-          .box
-            .slogen.ui.header {{item.slogan}}
-            .title {{item.title}}
-            .status {{item.status}}
 
 </template>
 
@@ -34,46 +25,37 @@ export default {
   data () {
     return {
       c: 0,
-      topics: [
-        {slogan:'邁向世界的舞台',title:'公司英文名稱登記',status:'討論中', img:'http://static.thousandwonders.net/Taiwan.original.3738.jpg'},        
-        {slogan:'理想與現實',title:'公司法中的社會企業',status:'討論中', img:'http://lorempixel.com/320/240/cats'},        
-        {slogan:'事做不夠假放不夠',title:'一例一修草案',status:'已送審', img:'http://lorempixel.com/320/240/transport'}
+      hotTopics: [
+        {slogan:'邁向世界的舞台', title:'公司英文名稱登記', status:'討論中', img:'http://static.thousandwonders.net/Taiwan.original.3738.jpg'},        
+        {slogan:'理想與現實', title:'公司法中的社會企業', status:'討論中', img:'http://lorempixel.com/320/240/cats'},        
+        {slogan:'事做不夠假放不夠',title:'一例一修草案', status:'已送審', img:'http://lorempixel.com/320/240/transport'},        
+        {slogan:'測試一下',title:'測試', status:'測試中', img:'http://lorempixel.com/320/240/sports'}
       ]
     }
   },
-/*  computed: {
-    // a computed getter
-    slideList: function () {
-      return this.topics.map(function(o, idx) {
-        ans = o;
-        ans.origin = idx * 100;
-        ans.current = 0;
-        ans.style = {
-          'background-image': ans.img,
-          'background-size': 'cover',
-          'transform': `translateX(${ 100 }%)`
+  computed: {
+    mySlideTopics: function () {
+      var c = this.c;
+      var lastC = this.lastC;
+      var ts = this.hotTopics;
+      return ts.map(function (o, idx) {
+        //o.transform = 'translateX('+ (idx-c) * 100 +'%)';
+
+        o.transform = 'translateX(0%)';
+
+        if (idx == c-1 || (c == 0 && idx == ts.length-1)) {
+          o.transform = 'translateX(-100%)';
         }
-        return ans;
+        if (idx == c+1 || (c == ts.length-1 && idx == 0)) {
+          o.transform = 'translateX(100%)';
+        }
+        o.zIndex = (idx == c || idx == lastC) ? 4 : 3;
+        return o
       })
-    },
-    slideParam: function (argument) {
-      return {
-        init: {
-              pageNum: this.topics.length,
-              currentPage: 1,
-              canPre : false,
-              canNext: true,
-              start: {},
-              end: {},
-              tracking: false,
-              thresholdTime: 500,
-              thresholdDistance: 100
-        }
-      }
     }
-  }, */
+  },
   methods: {
-    cycle: (c, ts, n) => {
+    cycle: (c,ts,n) => {
       c = c + n;
       if (c < 0) {
         c = ts.length + c;
@@ -129,16 +111,16 @@ export default {
         color: white !important;
       }
     }
-    &.pre {
+    &.pre, &.next {      
       position: absolute;
       z-index: 5;
       top: 33vh;
+      text-shadow: 0px 2px 1px #ccc;
+    }
+    &.pre {
       left: 5px;
     }
     &.next {
-      position: absolute;
-      z-index: 5;
-      top: 33vh;
       right: 5px;
     }    
     i {

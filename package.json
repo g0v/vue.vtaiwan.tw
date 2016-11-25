@@ -40,7 +40,6 @@
     "vue-loader": "^9.5.0",
     "vue-router": "^2.0.0",
     "vue-server-renderer": "^2.0.0",
-    "vue-slide": "^1.0.2",
     "vuex": "^2.0.0",
     "vuex-router-sync": "^3.0.0",
     "webpack": "^2.1.0-beta.20",
