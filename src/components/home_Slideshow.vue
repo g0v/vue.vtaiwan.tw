@@ -1,12 +1,12 @@
 <template lang="jade">
   .component
     .slide-page      
-      a.pre(@click="c = cycle(c,hotTopics,-1)")
+      a.pre(@click="lastC = c; c = cycle(c,hotTopics,-1)")
         i.huge.chevron.black.left.icon
-      a.next(@click="c = cycle(c,hotTopics,1)")
+      a.next(@click="lastC = c; c = cycle(c,hotTopics,1)")
         i.huge.chevron.black.right.icon
       .slide-item(v-for="(t,idx) in mySlideTopics", 
-        :style="{ 'z-index': t.zIndex, transform: t.transform, '-ms-transform': t.transform, '-webkit-transform': t.transform  }")
+        :style="{ 'z-index': t.zIndex, opacity: t.opacity, transform: t.transform, '-ms-transform': t.transform, '-webkit-transform': t.transform  }")
         img.full-page(:src="t.img")
         .box
           .slogan.ui.header {{t.slogan}}
@@ -28,8 +28,7 @@ export default {
       hotTopics: [
         {slogan:'邁向世界的舞台', title:'公司英文名稱登記', status:'討論中', img:'http://static.thousandwonders.net/Taiwan.original.3738.jpg'},        
         {slogan:'理想與現實', title:'公司法中的社會企業', status:'討論中', img:'http://lorempixel.com/320/240/cats'},        
-        {slogan:'事做不夠假放不夠',title:'一例一修草案', status:'已送審', img:'http://lorempixel.com/320/240/transport'},        
-        {slogan:'測試一下',title:'測試', status:'測試中', img:'http://lorempixel.com/320/240/sports'}
+        {slogan:'事做不夠假放不夠',title:'一例一修草案', status:'已送審', img:'http://lorempixel.com/320/240/transport'}
       ]
     }
   },
@@ -50,6 +49,7 @@ export default {
           o.transform = 'translateX(100%)';
         }
         o.zIndex = (idx == c || idx == lastC) ? 4 : 3;
+        o.opacity = (idx == c || idx == lastC) ? 1 : 0;
         return o
       })
     }
@@ -94,7 +94,7 @@ export default {
     position: absolute;
     top: 0;
     left: 0;
-    @include transition(all 0.3s ease-in-out);
+    @include transition(transform .8s ease-in-out, z-index .5s ease-in-out);
     img.full-page {
       min-height: 80vh;
       width: 100vw;
