@@ -1,13 +1,13 @@
 <template lang="jade">
   .component
     .slide-page      
-      a.pre(@click="c = cycle(-1)", @dblclick="")
+      a.pre(@click="c = cycle(-1)")
         i.huge.chevron.black.left.icon
-      a.next(@click="c = cycle(1)", @dblclick="")
+      a.next(@click="c = cycle(1)")
         i.huge.chevron.black.right.icon
       .slide-item(v-for="(t,idx) in mySlideTopics", 
         :style="{ 'z-index': t.zIndex, opacity: t.opacity, transform: t.transform, '-ms-transform': t.transform, '-webkit-transform': t.transform  }")
-        img.full-page(:src="t.img")
+        img.full-page(:src="t.cover")
         .box
           .slogan.ui.header {{t.slogan}}
           .title {{t.title}}
@@ -23,16 +23,12 @@
 
 export default {
   name: 'SlideShow',
+  props: ['hotTopics'],
   data () {
     return {
       c: 0,
       lastC: 0,
-      isBusy: false,
-      hotTopics: [
-        {slogan:'邁向世界的舞台', title:'公司英文名稱登記', status:'討論中', img:'http://static.thousandwonders.net/Taiwan.original.3738.jpg'},        
-        {slogan:'理想與現實', title:'公司法中的社會企業', status:'討論中', img:'http://lorempixel.com/320/240/cats'},        
-        {slogan:'事做不夠假放不夠',title:'一例一修草案', status:'已送審', img:'http://lorempixel.com/320/240/transport'}
-      ]
+      isBusy: false
     }
   },
   computed: {
