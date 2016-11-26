@@ -26,30 +26,52 @@ export default {
   },
   data () {
     return {
-      hotTopics: [
+      allTopics: [
         {   slogan:'邁向世界的舞台', 
             title:'公司英文名稱登記', 
             status:'討論中',
             progress: 10,
             total: 30,
             owner: '內政部',
-            cover:'http://static.thousandwonders.net/Taiwan.original.3738.jpg'},        
+            cover:'http://static.thousandwonders.net/Taiwan.original.3738.jpg',
+            likes: 6543
+        },        
         {   slogan:'理想與現實',
             title:'公司法中的社會企業',
             status:'討論中',
             progress: 18,
             total: 30,
             owner: '勞動部',
-            cover:'http://lorempixel.com/320/240/transport'},        
+            cover:'http://lorempixel.com/320/240/transport',
+            likes: 4543
+        },        
         {   slogan:'事做不夠假放不夠',
             title:'一例一修草案', 
             status:'已送審', 
             progress: 24,
             total: 30,
             owner: '勞動部',
-            cover:'http://lorempixel.com/320/240/sports'}
+            cover:'http://lorempixel.com/320/240/sports',
+            likes: 2543
+        },        
+        {   slogan:'測試一下',
+            title:'測試一下', 
+            status:'已送審', 
+            progress: 24,
+            total: 30,
+            owner: '不管部',
+            cover:'http://lorempixel.com/320/240/sports',
+            likes: 143
+        }
       ]
     }
+  },
+  computed: {
+      hotTopics: function () {
+          return this.allTopics.sort(function(o){
+              return 0 - o.likes
+          }).slice(0,3)
+      }
   }
 }
 </script>

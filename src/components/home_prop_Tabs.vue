@@ -2,7 +2,7 @@
   div
     .nav-tabs
       a(v-bind:class="{'active': index==selected}", v-for="(tab, index) in tablist", @click="onTabClick(index)")
-        {{tab.title}}
+        | {{tab.title}}
     .tab-content
       slot
 </template>
