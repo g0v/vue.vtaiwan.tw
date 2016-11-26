@@ -6,6 +6,7 @@
     HotProposal(:hotProposal="hotTopics").hotproposal
     .ui.divider
     ProposalTab.proposalTab
+    Catagories(:catagories="catagories").catagories
 
 </template>
 
@@ -15,6 +16,7 @@ import Slideshow from './home_Slideshow.vue'
 import StepGuide from './home_StepGuide.vue'
 import HotProposal from './home_HotProposal.vue'
 import ProposalTab from './home_ProposalTab.vue'
+import Catagories from './home_Catagories.vue'
 
 export default {
   name: 'Home',
@@ -22,7 +24,8 @@ export default {
     Slideshow,
     StepGuide,
     HotProposal,
-    ProposalTab
+    ProposalTab,
+    Catagories
   },
   data () {
     return {
@@ -33,6 +36,7 @@ export default {
             progress: 10,
             total: 30,
             owner: '內政部',
+            catagory: '科技',
             cover:'http://static.thousandwonders.net/Taiwan.original.3738.jpg',
             likes: 6543
         },        
@@ -41,7 +45,8 @@ export default {
             status:'討論中',
             progress: 18,
             total: 30,
-            owner: '勞動部',
+            owner: '經濟部',
+            catagory: '經濟',
             cover:'http://lorempixel.com/320/240/transport',
             likes: 4543
         },        
@@ -51,6 +56,7 @@ export default {
             progress: 24,
             total: 30,
             owner: '勞動部',
+            catagory: '社會',
             cover:'http://lorempixel.com/320/240/sports',
             likes: 2543
         },        
@@ -60,9 +66,20 @@ export default {
             progress: 24,
             total: 30,
             owner: '不管部',
-            cover:'http://lorempixel.com/320/240/sports',
+            cover: 'http://lorempixel.com/320/240/sports',
             likes: 143
         }
+      ],
+    catagories: [
+      {t: '商業'},
+      {t: '經濟'},
+      {t: '科技'},
+      {t: '文化'},
+      {t: '交通'},
+      {t: '體育', 
+        cover: 'http://lorempixel.com/320/240/sports'},
+      {t: '社會'},
+      {t: '農業'}
       ]
     }
   },
