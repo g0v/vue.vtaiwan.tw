@@ -4,7 +4,7 @@
 
   #main.main
     transition(name='fade-out-speard-in', mode='out-in')
-      router-view.view
+      router-view.view(:allTopics="allTopics", :catagories="catagories")
 
   MyFooter.footer
 </template>
@@ -26,6 +26,58 @@ export default {
         {en:'User manual',t:'使用手冊',r:'how-to-use'},
         {en:'About',t:'關於 vTaiwan',r:'intro'},
         {en:'Login', t:'登入',r:'login'},
+      ],
+      catagories: [
+        {t: '商業'},
+        {t: '經濟'},
+        {t: '科技'},
+        {t: '文化'},
+        {t: '交通'},
+        {t: '體育', 
+          cover: 'http://lorempixel.com/320/240/sports'},
+        {t: '社會'},
+        {t: '農業'}
+      ],
+      allTopics: [
+        {   slogan:'邁向世界的舞台', 
+            title:'公司英文名稱登記', 
+            status:'討論中',
+            progress: 10,
+            total: 30,
+            owner: '內政部',
+            catagory: '科技',
+            cover:'http://static.thousandwonders.net/Taiwan.original.3738.jpg',
+            likes: 6543
+        },        
+        {   slogan:'理想與現實',
+            title:'公司法中的社會企業',
+            status:'討論中',
+            progress: 18,
+            total: 30,
+            owner: '經濟部',
+            catagory: '經濟',
+            cover:'http://lorempixel.com/320/240/transport',
+            likes: 4543
+        },        
+        {   slogan:'事做不夠假放不夠',
+            title:'一例一修草案', 
+            status:'已送審', 
+            progress: 24,
+            total: 30,
+            owner: '勞動部',
+            catagory: '社會',
+            cover:'http://lorempixel.com/320/240/sports',
+            likes: 2543
+        },        
+        {   slogan:'測試一下',
+            title:'測試一下', 
+            status:'已送審', 
+            progress: 24,
+            total: 30,
+            owner: '不管部',
+            cover: 'http://lorempixel.com/320/240/sports',
+            likes: 143
+        }
       ]
     }
   },

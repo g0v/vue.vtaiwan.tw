@@ -9,19 +9,10 @@
 <script>
 export default {
   name: 'Detial_Catagory',
+  props: ['catagories'],
   data () {
     return {
-      catagories: [
-        {t: '商業'},
-        {t: '經濟'},
-        {t: '科技'},
-        {t: '文化'},
-        {t: '交通'},
-        {t: '體育', 
-          cover: 'http://lorempixel.com/320/240/sports'},
-        {t: '社會'},
-        {t: '農業'}
-        ]
+      //...
     }
   },
   computed: {
