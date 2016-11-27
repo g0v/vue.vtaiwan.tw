@@ -8,5 +8,14 @@ $live: hsla(240,85%,50%,1);
 $track: hsla(60,85%,30%,1);
 
 
-$bread-top: 120px;
+.fat-only {
+	@media only screen and (max-width: 767px) {
+    display: none !important;        
+  }
+}
 
+.thin-only {
+	@media only screen and (min-width: 768px) {
+    display: none !important;        
+  }	
+}

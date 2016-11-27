@@ -1,54 +1,3 @@
-<style lang="scss" scoped>
-  .component {
-    width: 100%;
-    max-width: 640px;
-    margin: 0 auto;
-    font-size: 0.8rem;
-  }
-
-  .subtitle {
-    text-align: center;
-  }
-
-  .container {
-    display: flex;
-    justify-content: space-between;
-    text-align: center;
-    margin: 0 -20px;
-    .step {
-      flex: 1;
-      margin: 0 20px;
-    }
-    .number,
-    .label,
-    .description {
-      margin: 0 auto;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-top: 15px;
-    }
-    .number {
-      border-radius: 99px;
-      border: 1px #000 solid;
-      width: 26px;
-      height: 26px;
-    }
-    .label {
-      background: #000;
-      color: #FFF;
-      display: inline-block;
-      padding: 3px 7px;
-    }
-
-    .description {
-      text-align: left;      
-      line-height: 1.2;
-      white-space: pre;
-    }
-  }
-</style>
-
 <template lang="jade">
   .component
     .subtitle 階段說明
@@ -81,3 +30,64 @@ export default {
   }
 }
 </script>
+
+
+<style lang="scss" scoped>
+  .component {
+    width: 100%;
+    max-width: 640px;
+    margin: 2em auto;
+    font-size: 0.8rem;
+  }
+
+  .subtitle {
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+    margin: 1em 0;
+  }
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    margin: 0 -2vw;
+    @media only screen and (max-width: 767px) {
+      flex-direction: column;        
+    } 
+    .step {
+      flex: 1;
+      margin: 0 -2vw;
+      @media only screen and (max-width: 600px) {
+        min-width: 100vw;        
+      } 
+    }
+    .number,
+    .label,
+    .description {
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 15px;
+    }
+    .number {
+      border-radius: 99px;
+      border: 1px #000 solid;
+      width: 26px;
+      height: 26px;
+    }
+    .label {
+      background: #000;
+      color: #FFF;
+      display: inline-block;
+      padding: 3px 7px;
+    }
+
+    .description {
+      text-align: center;      
+      line-height: 1.4;
+      white-space: pre;
+    }
+  }
+</style>

@@ -1,15 +1,58 @@
+<template lang="jade">
+nav.component
+  router-link.logo(to='/', exact='')
+    img(width='30', height='30', src='../assets/logo.png', alt='logo')
+    span.fat-only vTaiwan
+  router-link.explore.fat-only(to='/', exact='')
+    | 探索
+  form.search(:class="{active: key}")
+    i.search.icon
+    input(type="search", v-model="key")
+    span {{key}}
+  .null
+  .more.thin-only
+    a(@click="showDropDown = !showDropDown")
+      | 更多
+      i.caret.down.icon(v-if="!showDropDown")
+      i.caret.up.icon(v-else)
+    .dropdown.menu(v-if="showDropDown")
+      router-link.item(v-for='r in routes', v-if="r.r", :to="'/'+r.r", :class='r.r', exact='')
+        | {{ r.t }}
+
+  .tab.fat-only    
+    router-link.item(v-for='r in routes', v-if="r.r", :to="'/'+r.r", :class='r.r', exact='')
+      | {{ r.t }}
+      //.sub {{r.en | uppercase}}
+        
+</template>
+
+<script>
+export default {
+  name: 'navbar',
+  props: ['routes'],
+  data () {
+    return {
+      key: '',
+      showDropDown: false
+    }
+  }
+}
+</script>
+
+
 <style lang="scss" scoped>
 
 @import "../sass/global.scss";
 
 $navHeight: 55px;
+$navBgColor: hsla(60, 0%, 90%, 0.75);
 
 nav.component {
   display: flex;
   height: $navHeight;
   overflow: visible;
   align-items: center;
-  background: hsla(60, 0%, 90%, 0.75);
+  background: $navBgColor;
 }
 
 .logo, .explore {
@@ -19,9 +62,11 @@ nav.component {
 }
 
 .logo {
-  width: 90px;
-  margin-left: 30px;
-  margin-right: 20px;
+  padding-left: 1em;
+  padding-right: 1em;
+  span {
+    margin-left: 0.5em;
+  }
 }
 
 .explore {
@@ -33,11 +78,13 @@ nav.component {
 }
 
 form.search {
-  padding: 5px;
-  i.icon {
-    position: relative;
+  position: relative;
+  padding: 0.2em;
+  i.search.icon {
+    position: absolute;
     z-index: -1;
-    left: 1.6em;
+    left: 0.5em;
+    top: 0.5em;
     color: white;
     font-size: 1.4em;
   }
@@ -98,36 +145,22 @@ form.search {
     }
   }
 }
-</style>
 
-<template lang="jade">
-nav.component
-  router-link.logo(to='/', exact='')
-    img(width='30', height='30', src='../assets/logo.png', alt='logo')
-    span vTaiwan
-  router-link.explore(to='/', exact='')
-    | 探索
-  form.search(:class="{active: key}")
-    i.search.icon
-    input(type="search", v-model="key")
-    span {{key}}
-  .null
-  .tab    
-    router-link.item(v-for='r in routes', v-if="r.r", :to="'/'+r.r", :class='r.r', exact='')
-      | {{ r.t }}
-      //.sub {{r.en | uppercase}}
-        
-</template>
-
-<script>
-export default {
-  name: 'navbar',
-  props: ['routes'],
-  data () {
-    return {
-      key: '',
-      data: '...'
+.more {
+  position:relative;
+  .dropdown.menu {
+    position: absolute;
+    z-index: 10;
+    top: $navHeight - 20px;
+    left: -4em;
+    width: 10em;
+    background-color: $navBgColor;
+    padding: 0.5em;
+    a {
+      display: block;
+      margin-top: 0.5em;
     }
   }
 }
-</script>
+
+</style>

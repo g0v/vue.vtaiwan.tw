@@ -1,6 +1,6 @@
 <template lang="jade">
   .component
-    .ui.four.column.grid
+    .ui.four.column.doubling.grid
       .column(v-for="c in catagories")
         .inner
           a 
@@ -31,7 +31,13 @@ export default {
     .inner {
       border: 1px solid black;
       min-height: 6em;
-      height: calc(25vw - 3em);
+      height: calc(25vw - 4em);
+      @media only screen and (max-width: 767px) {
+        height: calc(50vw - 5em);        
+      }
+      @media only screen and (max-width: 991px) and (min-width: 768px) {
+        height: calc(50vw - 5em);
+      }
       a {
         display : flex;
         align-items : center;
