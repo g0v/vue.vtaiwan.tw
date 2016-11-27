@@ -1,9 +1,9 @@
 <template lang="jade">
   .component
     .ui.four.column.doubling.grid
-      .column(v-for="c in catagories")
+      .column(v-for="(c,idx) in catagories")
         .inner
-          a 
+          router-link(:to="'/catagory/'+idx") 
             .txt {{c.t}}
             img(:src="c.cover || 'http://lorempixel.com/320/240/transport'")
 </template>

@@ -5,8 +5,8 @@
         i.huge.chevron.black.left.icon
       a.next(@click="c = cycle(1)")
         i.huge.chevron.black.right.icon
-      a.slide-item(v-for="(t,idx) in mySlideTopics",
-        @click="", 
+      router-link.slide-item(v-for="(t,idx) in mySlideTopics",
+        :to="'/topic/'+allTopics.indexOf(t)",
         :style="{ 'z-index': t.zIndex, opacity: t.opacity, transform: t.transform, '-ms-transform': t.transform, '-webkit-transform': t.transform  }")
         img.full-page(:src="t.cover")
         .box
@@ -24,7 +24,7 @@
 
 export default {
   name: 'SlideShow',
-  props: ['hotTopics'],
+  props: ['hotTopics', 'allTopics'],
   data () {
     return {
       c: 0,

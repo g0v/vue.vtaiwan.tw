@@ -1,34 +1,25 @@
+
 <template lang="jade">
-  .home
-    Slideshow(:hotTopics="hotTopics", :allTopics="allTopics").slideshow
-    StepGuide.stepguide
-    .ui.divider
-    HotProposal(:hotProposal="hotTopics").hotproposal
-    .ui.divider
-    ProposalTab.proposalTab
-    Catagories(:catagories="catagories").catagories
+  .component
+    .ui.container
+      h2.ui.header {{t.title}}
+        .sub.header {{t.status}}
+      br
+      video(controls, :style="{'background-image': 'url('+t.cover+')'}")
+        source(:src = "t.video || 'https://github.com/g0v/vue.vtaiwan.tw/blob/master/vTaiwan%20v4%20record.mov'", type="video/mov")
+      br
+      .steps
+        a(v-for="s in steps") {{s}}
 
 </template>
 
-
 <script>
-import Slideshow from './home_Slideshow.vue'
-import StepGuide from './home_StepGuide.vue'
-import HotProposal from './home_HotProposal.vue'
-import ProposalTab from './home_ProposalTab.vue'
-import Catagories from './home_Catagories.vue'
-
 export default {
-  name: 'Home',
-  components: {
-    Slideshow,
-    StepGuide,
-    HotProposal,
-    ProposalTab,
-    Catagories
-  },
+  name: 'Detial_Topic',
+  props: [],
   data () {
     return {
+      steps: ['詳細內容', '議題時間軸', '參與討論', '下一階段'],
       allTopics: [
         {   slogan:'邁向世界的舞台', 
             title:'公司英文名稱登記', 
@@ -69,42 +60,41 @@ export default {
             cover: 'http://lorempixel.com/320/240/sports',
             likes: 143
         }
-      ],
-    catagories: [
-      {t: '商業'},
-      {t: '經濟'},
-      {t: '科技'},
-      {t: '文化'},
-      {t: '交通'},
-      {t: '體育', 
-        cover: 'http://lorempixel.com/320/240/sports'},
-      {t: '社會'},
-      {t: '農業'}
       ]
     }
   },
   computed: {
-      hotTopics: function () {
-          return this.allTopics.sort(function(o){
-              return 0 - o.likes
-          }).slice(0,3)
-      }
+    t: function () {
+      return this.allTopics[this.$route.params.tId]
+    }
   }
 }
 </script>
 
 <style scoped lang="scss">
-    .home {
-        width: 100%;
-        min-width: 320px;
-        margin-left: auto;
-        margin-right: auto;
-        padding-bottom: 5vh;
+.component {
+  position: relative;
+  top: 66px;
+}
+
+p {
+  text-align: left;
+}
+
+video {
+  min-width: 80%;
+  min-height: 50vh;
+  background-color: #ccc;
+  background-size: cover;
+}
+
+.steps {
+  a {
+    padding: 0 2em;
+    color: black;
+    &:hover, &:active, &.active {
+      border-bottom: 2px solid black;
     }
-    p {
-        font-size: 1rem;
-        text-align: left;
-        line-height: 155%;
-        padding: 5px;
-    }
+  }
+}
 </style>

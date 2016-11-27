@@ -2,8 +2,9 @@
   .component
     .subtitle 熱門議題
     .container
-      .item(v-for='(item, index) in hotProposal')
-        img.cover(:src="item.cover")
+      .item(v-for='(item, idx) in hotProposal')
+        router-link(:to="'/topic/' + idx")
+          img.cover(:src="item.cover")
         .title {{item.title}}
         .owner {{item.owner}}
         .progress_bar
@@ -47,11 +48,16 @@ export default {
     .item {
       flex: 1;
       margin: 10px;
-      img.cover {
-        width: 100%;
-        @include transition(all 0.3s);
+      a {
+        display: block;
+        height: 25vw;
+        max-height: 300px;
         &:hover {
           opacity: 0.5;
+        }
+        img.cover {
+          width: 100%;
+          @include transition(all 0.3s);
         }
       }
       .title {
