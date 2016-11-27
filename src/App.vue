@@ -145,7 +145,7 @@ body {
 }
 
 .fade-out-speard-in-leave-active {
-  @include transition(all .3s);
+  // @include transition(all .3s);
 }
 
 .fade-out-speard-in-enter-active {
