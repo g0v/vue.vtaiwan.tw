@@ -3,7 +3,7 @@
     .ui.four.column.doubling.grid
       .column(v-for="(c,idx) in catagories")
         .inner
-          router-link(:to="'/catagory/'+idx") 
+          router-link(:to="'/catagory/'+c.routeName") 
             .txt {{c.t}}
             img(:src="c.cover || 'http://lorempixel.com/320/240/transport'")
 </template>

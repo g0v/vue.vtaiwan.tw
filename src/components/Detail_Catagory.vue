@@ -17,7 +17,11 @@ export default {
   },
   computed: {
     cata: function () {
-      return this.catagories[this.$route.params.cId]
+      var rtName = this.$route.params.cRouteName;
+      return this.catagories.filter(function (o) {
+        return o.routeName == rtName;
+      })[0]
+      // return this.catagories[this.$route.params.cId]
     }
   }
 }
