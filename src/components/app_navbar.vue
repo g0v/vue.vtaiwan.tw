@@ -98,7 +98,11 @@ form.search {
     height: 2.5em;
     border: 1px solid white;
     border-radius: 1em;
+    padding: 0 .6em;
     background-color: transparent;
+    &:focus {
+      outline: none;
+    }
   }
   &.active {
     i.icon {
