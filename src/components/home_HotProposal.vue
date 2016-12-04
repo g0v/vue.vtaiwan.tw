@@ -46,15 +46,20 @@ export default {
     display: flex;
     flex-flow: row wrap;
     text-align: left;
-    justify-content: space-between;
+    // justify-content: space-between;
+    justify-content: space-around;
     margin: 0 -10px;
     .item {
+      flex: 1;
       display: flex;
       flex-flow: column nowrap;
       position: relative;
-      flex: 1;
-      min-width: 22vw;
       margin: 10px;
+      min-width: 22vw;
+      max-width: 40vw;
+      @media only screen and (max-width: 420px) {
+        min-width: 40vw;
+      }
       a {
         flex: 0 0 6em;
         &:hover {
@@ -66,31 +71,32 @@ export default {
         }
       }
       .null {
-        flex: 1 5 1em;
+        flex: 1 1 0;
       }
       .foot {
         flex: 0 0 10em;
-        background-color: white;
-      }
-      .title {
-        font-size: 2vw;
-        line-height: 1.1;
-        margin:5px;
-        min-height: 4vw;
-      }
-      .owner {
-        color: #AAA;
-        margin:5px;
-      }
-      .progress_bar {
-        background-color: #CCC;
-        padding: 2px 0;
-        .progress {
-          height: 6px;
-          background-color: #000;
-          border-radius: 0 5px 0 0;
+        display: flex;
+        flex-flow: column nowrap;       
+        .title {
+          font-size: 2vw;
+          line-height: 1.1;
+          margin: .5em 0;
+          // min-height: 2.2em;
         }
-        margin-bottom: 4px;
+        .owner {
+          color: #AAA;
+          margin:5px;
+        }
+        .progress_bar {
+          background-color: #CCC;
+          padding: 2px 0;
+          .progress {
+            height: 6px;
+            background-color: #000;
+            border-radius: 0 5px 0 0;
+          }
+          margin-bottom: 4px;
+        }
       }
     }    
   }
