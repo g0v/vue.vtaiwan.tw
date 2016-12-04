@@ -3,7 +3,7 @@
     Slideshow(:hotTopics="hotTopics", :allTopics="allTopics").slideshow
     StepGuide.stepguide
     .ui.divider
-    HotProposal(:hotProposal="hotTopics").hotproposal
+    HotProposal(:hotProposal="hotTopics", header="熱門議題").hotproposal
     .ui.divider
     ProposalTab.proposalTab
     Catagories(:catagories="catagories").catagories

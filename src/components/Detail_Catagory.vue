@@ -2,26 +2,40 @@
 <template lang="jade">
   .component
     .ui.container
-      h1.ui.header {{ cata.t }}
+      h1.ui.header {{ myC.t }}
+    HotProposal(:hotProposal="cataTopics", :header="myC.t").hotproposal
+
 
 </template>
 
 <script>
+
+import HotProposal from './home_HotProposal.vue'
+
 export default {
-  name: 'Detial_Catagory',
-  props: ['catagories'],
+  name: 'Detail_Catagory',
+  components: {
+    HotProposal
+  },
+  props: ['catagories', 'allTopics'],
   data () {
     return {
       //...
     }
   },
   computed: {
-    cata: function () {
+    myC: function () {
       var rtName = this.$route.params.cRouteName;
       return this.catagories.filter(function (o) {
         return o.routeName == rtName;
       })[0]
       // return this.catagories[this.$route.params.cId]
+    },
+    cataTopics: function () {
+      var myCT = this.myC.t;
+      return this.allTopics.filter(function(o) {
+        return o.catas.indexOf(myCT) > -1
+      })
     }
   }
 }

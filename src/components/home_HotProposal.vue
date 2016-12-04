@@ -1,21 +1,23 @@
 <template lang="jade">
   .component
-    .subtitle 熱門議題
+    .subtitle {{header}}
     .container
       .item(v-for='(item, idx) in hotProposal')
         router-link(:to="'/topic/' + item.routeName")
           img.cover(:src="item.cover")
-        .title {{item.title}}
-        .owner {{item.owner}}
-        .progress_bar
-          .progress(v-bind:style="{ width: (item.progress / item.total * 100) + '%' }")
-        .progress_text 還有{{item.total - item.progress}}天
+        .null
+        .foot
+          .title {{item.title}}
+          .owner {{item.owner}}
+          .progress_bar
+            .progress(v-bind:style="{ width: (item.progress / item.total * 100) + '%' }")
+          .progress_text 還有{{item.total - item.progress}}天
 </template>
 
 <script>
 export default {
   name: 'hot',
-  props: ['hotProposal'],
+  props: ['hotProposal', 'header'],
   data () {
     return {
       //...
@@ -42,16 +44,19 @@ export default {
 
   .container {
     display: flex;
+    flex-flow: row wrap;
     text-align: left;
     justify-content: space-between;
     margin: 0 -10px;
     .item {
+      display: flex;
+      flex-flow: column nowrap;
+      position: relative;
       flex: 1;
+      min-width: 22vw;
       margin: 10px;
       a {
-        display: block;
-        height: 25vw;
-        max-height: 300px;
+        flex: 0 0 6em;
         &:hover {
           opacity: 0.5;
         }
@@ -60,9 +65,18 @@ export default {
           @include transition(all 0.3s);
         }
       }
+      .null {
+        flex: 1 5 1em;
+      }
+      .foot {
+        flex: 0 0 10em;
+        background-color: white;
+      }
       .title {
-        font-size: 1.2rem;
+        font-size: 2vw;
+        line-height: 1.1;
         margin:5px;
+        min-height: 4vw;
       }
       .owner {
         color: #AAA;
