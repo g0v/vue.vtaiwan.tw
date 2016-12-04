@@ -46,6 +46,7 @@ export default {
       ],
       allTopics: [
         {   slogan:'邁向世界的舞台', 
+            routeName: 'english_company_name',
             title:'公司英文名稱登記', 
             status:'討論中',
             progress: 10,
@@ -56,6 +57,7 @@ export default {
             likes: 6543
         },        
         {   slogan:'理想與現實',
+            routeName: 'social_enterprise_company_law',
             title:'公司法中的社會企業',
             status:'討論中',
             progress: 18,
@@ -65,8 +67,9 @@ export default {
             cover:'http://lorempixel.com/320/240/transport',
             likes: 4543
         },        
-        {   slogan:'事做不夠假放不夠',
-            title:'一例一修草案', 
+        {   slogan: '事做不夠假放不夠',
+            routeName: 'labor_vacation_draft',
+            title:'一例一休草案', 
             status:'已送審', 
             progress: 24,
             total: 30,

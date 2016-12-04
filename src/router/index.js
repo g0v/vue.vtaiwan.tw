@@ -20,8 +20,10 @@ export default new Router({
     { path: '/intro', component: Intro },
     { path: '/login', component: Login },
     { path: '/track', component: Track },
-    { path: '/topic/:tId', component: Detail_Topic },
-    { path: '/topic/:tId/step/:sId', component: Detail_Topic },
+  //  { path: '/topic/:tId', component: Detail_Topic },
+  //  { path: '/topic/:tId/step/:sId', component: Detail_Topic },
+    { path: '/topic/:tRouteName', component: Detail_Topic },
+    { path: '/topic/:tRouteName/step/:sId', component: Detail_Topic },
   //  { path: '/catagory/:cId', component: Detail_Catagory },
     { path: '/catagory/:cRouteName', component: Detail_Catagory }
   ]

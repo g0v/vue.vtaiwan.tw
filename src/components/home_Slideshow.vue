@@ -6,7 +6,7 @@
       a.next(@click="c = cycle(1)")
         i.huge.chevron.black.right.icon
       router-link.slide-item(v-for="(t,idx) in mySlideTopics",
-        :to="'/topic/'+allTopics.indexOf(t)",
+        :to="'/topic/'+t.routeName",
         :style="{ 'z-index': t.zIndex, opacity: t.opacity, transform: t.transform, '-ms-transform': t.transform, '-webkit-transform': t.transform  }")
         img.full-page(:src="t.cover")
         .box

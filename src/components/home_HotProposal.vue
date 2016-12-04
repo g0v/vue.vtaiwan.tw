@@ -3,7 +3,7 @@
     .subtitle 熱門議題
     .container
       .item(v-for='(item, idx) in hotProposal')
-        router-link(:to="'/topic/' + idx")
+        router-link(:to="'/topic/' + item.routeName")
           img.cover(:src="item.cover")
         .title {{item.title}}
         .owner {{item.owner}}

@@ -9,7 +9,7 @@
         source(:src = "t.video || 'https://github.com/g0v/vue.vtaiwan.tw/blob/master/vTaiwan%20v4%20record.mov'", type="video/mov")
       br
       .steps
-        router-link(v-for="(s,idx) in steps", :to="'/topic/'+$route.params.tId+'/step/'+idx", exact='') {{s}}
+        router-link(v-for="(s,idx) in steps", :to="'/topic/'+$route.params.tRouteName+'/step/'+idx", exact='') {{s}}
 
       br
     .step(v-if="$route.params.sId == 0")
@@ -22,7 +22,7 @@
             br
             | {{ ev.title }}
           .null
-    .step(v-if="$route.params.sId == 2")
+    .step(v-show="$route.params.sId == 2")
       //iframe from polis
       .ui.container
         .polis(:data-conversation_id=" t.polisId || fooPolisId")
@@ -52,7 +52,11 @@ export default {
   },
   computed: {
     t: function () {
-      return this.allTopics[this.$route.params.tId]
+      var rtName = this.$route.params.tRouteName;
+      return this.allTopics.filter(function (o) {
+        return o.routeName == rtName;
+      })[0]
+      // return this.allTopics[this.$route.params.tId]
     }
   }
 }
