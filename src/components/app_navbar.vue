@@ -5,10 +5,10 @@ nav.component
     span.fat-only vTaiwan
   router-link.explore.fat-only(to='/', exact='')
     | 探索
-  form.search(:class="{active: key}")
+  form.search(:class="{active: myKey}")
     i.search.icon
-    input(type="search", v-model="key")
-    span {{key}}
+    input(type="search", v-model="myKey")
+    SearchResult(v-show="myKey", :allTopics="allTopics", :myKey = "myKey")
   .null
   .more.thin-only
     a(@click="showDropDown = !showDropDown")
@@ -27,12 +27,18 @@ nav.component
 </template>
 
 <script>
+
+import SearchResult from "./app_nav_SearchResult.vue";
+
 export default {
   name: 'navbar',
-  props: ['routes'],
+  props: ['routes', 'allTopics'],
+  components: {
+    SearchResult
+  },
   data () {
     return {
-      key: '',
+      myKey: '',
       showDropDown: false
     }
   }
