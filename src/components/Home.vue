@@ -5,7 +5,7 @@
     .ui.divider
     HotProposal(:hotProposal="hotTopics", header="熱門議題").hotproposal
     .ui.divider
-    ProposalTab.proposalTab
+    ProposalTab.proposalTab(:allTopics="allTopics")
     Catagories(:catagories="catagories").catagories
 
 </template>
