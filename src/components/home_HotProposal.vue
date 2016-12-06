@@ -16,7 +16,7 @@
 
 <script>
 export default {
-  name: 'hot',
+  name: 'hotProposal',
   props: ['hotProposal', 'header'],
   data () {
     return {

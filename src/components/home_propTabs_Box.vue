@@ -1,6 +1,6 @@
 <template lang="jade">
   .box
-    router-link.topic(v-for="(t, idx) in list", :to="'/topic/' + t.routeName")
+    router-link.topic(v-for="t in list", :to="'/topic/' + t.routeName")
       img(:src ="t.cover || 'http://lorempixel.com/320/240/sports'")
       .null
       h3.header {{ t.title }}
@@ -28,7 +28,7 @@
   }
 
   a {
-    flex: 1 1 20vw;
+    flex: 1 1 20%;
     display: flex;
     flex-flow: column nowrap;
     margin: .5em;
@@ -40,6 +40,11 @@
       flex: 1 1;
     }
     h3 {
+      flex: 1 1;
+      color: black;
+      font-size: .8rem;
+      margin: 0;
+      margin-top: .5em;
       flex: 1;
       text-align: left;
       .sub.header {

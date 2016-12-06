@@ -54,7 +54,7 @@ export default {
             owner: '內政部',
             catas: ['科技','文化'],
             cover:'http://static.thousandwonders.net/Taiwan.original.3738.jpg',
-            likes: 6543
+            likes: 7569
         },        
         {   slogan:'理想與現實',
             routeName: 'social_enterprise_company_law',
@@ -192,6 +192,12 @@ body {
   padding: 0;
   margin: 0;
 }
+
+strong {
+  font-weight: 900;
+  color: black;
+}
+
 </style>
 
 <style lang="scss" scoped>

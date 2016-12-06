@@ -5,10 +5,10 @@ nav.component
     span.fat-only vTaiwan
   router-link.explore.fat-only(to='/', exact='')
     | 探索
-  form.search(:class="{active: myKey}")
+  form.search(:class="{active: myKey}", @keyup.down="onKeyDown()")
     i.search.icon
     input(type="search", v-model="myKey")
-    SearchResult(v-show="myKey", :allTopics="allTopics", :myKey = "myKey")
+    SearchResult(v-show="myKey", :allTopics="allTopics", :myKey = "myKey", :myIdx="myIdx")
   .null
   .more.thin-only
     a(@click="showDropDown = !showDropDown")
@@ -39,7 +39,15 @@ export default {
   data () {
     return {
       myKey: '',
+      myIdx: 0,
       showDropDown: false
+    }
+  },
+  methods: {
+    onKeyDown: function () {
+      this.myIdx++;
+      this.showDropDown = true;
+      // body...
     }
   }
 }

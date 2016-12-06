@@ -3,52 +3,53 @@
     .nav-tabs
       a(v-for="(tab, idx) in tablist", :class="{'active': idx == myIdx}", @click="myIdx = idx")
         | {{tab.title}}
-    Box(:list = "news", v-show="myIdx == 0")
-    Box(:list = "running", v-show="myIdx == 1")
-    Box(:list = "drafts", v-show="myIdx == 2")
-    Box(:list = "soon", v-show="myIdx == 3")
-           
+
+    Box(v-for="(tab, idx) in tablist", :list = "mySort[tab.dataName]", v-show="idx == myIdx")
 
 </template>
 
 <script>
-  // import Tabs from './home_prop_Tabs.vue'
-  // import TabPane from './home_prop_TabPane.vue'
   import Box from './home_propTabs_Box.vue'
 
   export default {
     name: 'proposalTab',
     props: ['allTopics'],
     components: {
-     // Tabs,
-     // TabPane,
       Box
     },
     data () {
       return {
         myIdx: 0,
+        // myTab: {dataName: 'news'},
         tablist: [
-          {title: '最新議題'},
-          {title: '討論階段'},
-          {title: '草案階段'},
-          {title: '即將開始'}
+          {title: '最新議題', dataName: 'news'},
+          {title: '討論階段', dataName: 'running'},
+          {title: '草案階段', dataName: 'drafts'},
+          {title: '即將開始', dataName: 'soon'}
         ]
       }
     },
     computed: {
-      news: function () {
-        return this.allTopics.sort(function(a,b){
-          return a.progress - b.progress;
-        }).slice(0,8)
-      },
-      running: function () {
-        return this.allTopics.slice(1,9);
-      },
-      drafts: function () {
-        return this.allTopics.slice(2,10);
-      },
-      soon: function () {
-        return this.allTopics.slice(3,11);
+      mySort: function () { 
+        var news = this.allTopics.slice().sort(function(a,b) {
+            return a.progress - b.progress;
+          }).slice(0,8);
+        var running = this.allTopics.slice().sort(function(a,b) {
+            return 1; // replace this by other logic...
+          }).slice(0,8);
+        var drafts = this.allTopics.slice().sort(function(a,b) {
+            return 1; // replace this by other logic...
+          }).slice(0,8);
+        var soon = this.allTopics.slice().sort(function(a,b) {
+            return 1; // replace this by other logic...
+          }).slice(0,8);
+
+        return {
+          news: news,
+          running: running,
+          drafts: drafts,
+          soon: soon
+        }
       }
     }
   }
@@ -66,12 +67,12 @@
   .nav-tabs {
     display: flex;
     cursor: pointer;
-    font-size: 1.2rem;
+    font-size: 0.8rem;
     a {
       color: black;
-      padding: .1em .5em;
+      padding: .2em .5em;
       margin: 0 1em;
-      &.active {
+      &:hover, &:active, &.active {
         border-bottom: 4px black solid;
       }
     }    

@@ -35,8 +35,8 @@ export default {
   },
   computed: {
       hotTopics: function () {
-          return this.allTopics.sort(function(o){
-              return 0 - o.likes
+          return this.allTopics.sort(function(a, b){
+              return (b.likes - a.likes)
           }).slice(0,3)
       }
   }
