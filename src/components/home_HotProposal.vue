@@ -3,7 +3,7 @@
     .subtitle {{header}}
     .container
       .item(v-for='(item, idx) in hotProposal')
-        router-link(:to="'/topic/' + item.routeName")
+        router-link(:to="'/topic/' + item.routeName + '/step/0'")
           img.cover(:src="item.cover")
         .null
         .foot

@@ -2,37 +2,43 @@
 <template lang="jade">
   .component    
     .ui.container
-      h2.ui.header {{t.title}}
-        .sub.header {{t.status}}
+      input(v-model="article")
+      h2.ui.header {{article.title}}
+        .sub.header {{article.status}}
       br
-      video(controls, :style="{'background-image': 'url('+t.cover+')'}")
-        source(:src = "t.video || 'https://github.com/g0v/vue.vtaiwan.tw/blob/master/vTaiwan%20v4%20record.mov'", type="video/mov")
+      // video(controls, :style="{'background-image': 'url('+t.cover+')'}")
+      //   source(:src = "t.video || 'https://github.com/g0v/vue.vtaiwan.tw/blob/master/vTaiwan%20v4%20record.mov'", type="video/mov")
       br
       .steps
         router-link(v-for="(s,idx) in steps", :to="'/topic/'+$route.params.tRouteName+'/step/'+idx", exact='') {{s}}
 
       br
     .step(v-if="$route.params.sId == 0")
+      h2 123
+      p(v-html="test")
     .step(v-if="$route.params.sId == 1")
       // 時間軸
-      .event-list
-        .item(v-for = "(ev,idx) in (t.eventList || fooList)", :class="['dark','gloom','light'][idx % 3]")
-          .big {{ ev.y }}年{{ ev.m }}月
-          .small {{ ev.d }}日
-            br
-            | {{ ev.title }}
-          .null
+      // .event-list
+      //   .item(v-for = "(ev,idx) in (t.eventList || fooList)", :class="['dark','gloom','light'][idx % 3]")
+      //     .big {{ ev.y }}年{{ ev.m }}月
+      //     .small {{ ev.d }}日
+      //       br
+      //       | {{ ev.title }}
+      //     .null
     .step(v-show="$route.params.sId == 2")
       //iframe from polis
-      .ui.container
-        .polis(:data-conversation_id=" t.polisId || fooPolisId")
-        script(async='true', src='https://pol.is/embed.js')
+      // .ui.container
+      //   .polis(:data-conversation_id=" t.polisId || fooPolisId")
+      //   script(async='true', src='https://pol.is/embed.js')
     .step(v-if="$route.params.sId == 3")
 
 
 </template>
 
 <script>
+
+import axios from 'axios'
+
 export default {
   name: 'Detial_Topic',
   props: ['allTopics'],
@@ -47,19 +53,59 @@ export default {
         {y: 2016, m:10, d: 8, title: '工作組會議' },
         {y: 2016, m:9, d: 30, title: '進入草案階段' },
         {y: 2016, m:8, d: 11, title: '討論爭點出現' }
-      ]
+      ],
+      article:{},
+      test:{}
     }
   },
   computed: {
-    t: function () {
+    article:function(){
       var rtName = this.$route.params.tRouteName;
-      return this.allTopics.filter(function (o) {
+      var t = this.allTopics.filter( (o)=> {
         return o.routeName == rtName;
-      })[0]
-      // return this.allTopics[this.$route.params.tId]
+      })[0];
+      if(t===undefined){return new Object()}
+      else{return t};
+    }
+  },
+  methods:{
+    // t: function () {
+     
+    //   // return this.allTopics[this.$route.params.tId] 
+    // }
+
+  },
+  created:function(){
+    console.log("created");
+  },
+  beforeUpdate:function(){
+
+     axios.get('https://talk.vtaiwan.tw/t/'+ this.article.id +'.json?include_raw=1')
+     .then((response)=>{
+       var detail_info = response.data;
+       var content = {};
+
+       content = detail_info['post_stream']['posts'][0]['cooked'];
+       
+       content = content.split("<hr>")[1];
+
+
+
+       console.log(content);
+
+       this.test = content;
+       
+       
+     })
+      
+  },
+  watch: {
+    article: function (newVal, oldVal) { 
+      console.log('article changed','newVal', newVal, 'oldVal', oldVal)
     }
   }
 }
+
 </script>
 
 <style scoped lang="scss">
