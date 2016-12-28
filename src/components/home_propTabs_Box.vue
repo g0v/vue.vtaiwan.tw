@@ -1,10 +1,13 @@
 <template lang="jade">
-  .box
-    router-link.topic(v-for="t in list", :to="'/topic/' + t.routeName")
-      img(:src ="t.cover || 'http://lorempixel.com/320/240/sports'")
-      .null
-      h3.header {{ t.title }}
-        .sub.header {{ t.owner }} 
+  .component
+    .ui.four.column.doubling.grid
+      .box.column(v-for="t in list")
+        .inner
+        router-link.topic(:to="'/topic/' + t.routeName")
+          img(:src ="t.cover || 'http://lorempixel.com/320/240/sports'")
+          .null
+          h3.header {{ t.title }}
+            .sub.header {{ t.owner }} 
 </template>
 
 <script>
@@ -21,17 +24,13 @@
 
 <style lang="scss" scoped>
   .box {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
-    margin-top: 2em;
+    display:flex !important;
   }
 
   a {
     flex: 1 1 20%;
     display: flex;
     flex-flow: column nowrap;
-    margin: .5em;
     img {
       flex: 1;
       max-width: 100%;
