@@ -146,7 +146,7 @@ export default {
             tmp['total'] = this.getTotal(lastPost.raw);
             tmp['owner'] = ""
             tmp['cover'] = ""
-            console.log(tmp)
+           // console.log(tmp)
         })
       })
     })
