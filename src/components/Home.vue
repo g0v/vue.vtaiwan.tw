@@ -6,7 +6,10 @@
     HotProposal(:hotProposal="hotTopics", header="熱門議題").hotproposal
     .ui.divider
     ProposalTab.proposalTab(:allTopics="allTopics")
-    Catagories(:catagories="catagories").catagories
+
+    SocialMediaLink
+    // SocialMediaLink.socialmedialink
+    
 
 </template>
 
@@ -17,6 +20,7 @@ import StepGuide from './home_StepGuide.vue'
 import HotProposal from './home_HotProposal.vue'
 import ProposalTab from './home_ProposalTab.vue'
 import Catagories from './home_Catagories.vue'
+import SocialMediaLink from './Social_Media_Link.vue'
 
 export default {
   name: 'Home',
@@ -25,7 +29,8 @@ export default {
     StepGuide,
     HotProposal,
     ProposalTab,
-    Catagories
+    Catagories,
+    SocialMediaLink
   },
   props:['allTopics', 'catagories'],
   data () {

@@ -115,11 +115,13 @@ export default {
           {
             tmp['progress'] = this.getProgress(lastPost.raw);
             tmp['total'] = this.getTotal(lastPost.raw);
+
           }
           tmp['owner'] = this.getOwner(firstPost.raw);
           tmp['cover'] = this.getCover(firstPost.raw);
           // console.log(tmp);
           this.allTopics.push(tmp);
+
         })
       })
     })
