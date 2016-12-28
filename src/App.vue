@@ -13,6 +13,7 @@
 
 import Navbar from './components/app_Navbar.vue'
 import MyFooter from './components/MyFooter.vue'
+import axios from 'axios'
 
 export default {
   components: {
@@ -55,105 +56,38 @@ export default {
             catas: ['科技','文化'],
             cover:'http://static.thousandwonders.net/Taiwan.original.3738.jpg',
             likes: 7569
-        },        
-        {   slogan:'理想與現實',
-            routeName: 'social_enterprise_company_law',
-            title:'公司法中的社會企業',
+        },
+        {   slogan:'邁向世界的舞台', 
+            routeName: 'english_company_name',
+            title:'公司英文名稱登記', 
             status:'討論中',
-            progress: 24,
+            progress: 10,
             total: 30,
-            owner: '經濟部',
-            catas: ['經濟','文化'],
-            cover:'http://lorempixel.com/320/240/transport',
-            likes: 4543
-        },        
-        {   slogan: '事做不夠假放不夠',
-            routeName: 'labor_vacation_draft',
-            title:'一例一休草案', 
-            status:'已送審', 
-            progress: 6,
+            owner: '內政部',
+            catas: ['科技','文化'],
+            cover:'http://static.thousandwonders.net/Taiwan.original.3738.jpg',
+            likes: 7569
+        },{   slogan:'邁向世界的舞台', 
+            routeName: 'english_company_name',
+            title:'公司英文名稱登記', 
+            status:'討論中',
+            progress: 10,
             total: 30,
-            owner: '勞動部',
-            catas: ['社會','工業','文化'],
-            cover:'http://lorempixel.com/320/240/sports',
-            likes: 2543
-        },        
-        {   slogan: '那一天，遠方辦公',
-            routeName: 'labor_vacation_draft',
-            title:'那一天，遠方辦公', 
-            status:'已送審', 
-            progress: 24,
+            owner: '內政部',
+            catas: ['科技','文化'],
+            cover:'http://static.thousandwonders.net/Taiwan.original.3738.jpg',
+            likes: 7569
+        },
+        {   slogan:'邁向世界的舞台', 
+            routeName: 'english_company_name',
+            title:'公司英文名稱登記', 
+            status:'討論中',
+            progress: 10,
             total: 30,
-            owner: '勞動部',
-            catas: ['社會','工業','文化'],
-            cover:'http://lorempixel.com/320/240/sports',
-            likes: 2543
-        },        
-        {   slogan: '那一天，遠方辦公',
-            routeName: 'labor_vacation_draft',
-            title:'那一天，遠方辦公', 
-            status:'已送審', 
-            progress: 24,
-            total: 30,
-            owner: '勞動部',
-            catas: ['社會','工業','文化'],
-            cover:'http://lorempixel.com/320/240/sports',
-            likes: 2543
-        },        
-        {   slogan:'那一天，遠方辦公',
-            routeName: 'test0',
-            title:'那一天，遠方辦公', 
-            status:'已送審', 
-            progress: 24,
-            total: 30,
-            owner: '不管部',
-            catas: ['教育','文化'],
-            cover: 'http://lorempixel.com/320/240/sports',
-            likes: 143
-        },        
-        {   slogan:'談場戀愛吧',
-            routeName: 'test1',
-            title:'談場戀愛吧', 
-            status:'已送審', 
-            progress: 24,
-            total: 30,
-            owner: '不管部',
-            catas: ['教育','文化'],
-            cover: 'http://lorempixel.com/320/240/sports',
-            likes: 143
-        },        
-        {   slogan:'發達起來',
-            routeName: 'test2',
-            title:'發達起來', 
-            status:'已送審', 
-            progress: 24,
-            total: 30,
-            owner: '不管部',
-            catas: ['教育','文化'],
-            cover: 'http://lorempixel.com/320/240/sports',
-            likes: 143
-        },        
-        {   slogan:'發達起來',
-            routeName: 'test2',
-            title:'發達起來', 
-            status:'已送審', 
-            progress: 24,
-            total: 30,
-            owner: '不管部',
-            catas: ['教育','文化'],
-            cover: 'http://lorempixel.com/320/240/sports',
-            likes: 143
-        },        
-        {   slogan:'發達起來',
-            routeName: 'test2',
-            title:'發達起來', 
-            status:'已送審', 
-            progress: 24,
-            total: 30,
-            owner: '不管部',
-            catas: ['教育','文化'],
-            cover: 'http://lorempixel.com/320/240/sports',
-            likes: 143
+            owner: '內政部',
+            catas: ['科技','文化'],
+            cover:'http://static.thousandwonders.net/Taiwan.original.3738.jpg',
+            likes: 7569
         }
       ]
     }
@@ -164,7 +98,58 @@ export default {
         return '/'+o.r == path;
       })[0]
       return obj ? obj.r : ''
+    },
+    getSlogan(raw) {
+      var myRegexp = /slogan *: *(.*)/g;
+      var match = myRegexp.exec(raw)
+      return match[1];
+    },
+    getProgress(raw) {
+      var now = new Date();
+      var start = raw.split(" ")[1];
+      var end = raw.split(" ")[2];
+    },
+    getTotal(raw) {
+      var start = new Date(raw.split(" ")[1]);
+      var end = new Date(raw.split(" ")[2]);
+      console.log(start);
+    },
+    getOwner(raw) {
+
+    },
+    getCover(raw){
+
     }
+  },
+  created: function(){
+    axios.get('https://talk.vtaiwan.tw/c/meta-data.json')
+    .then((response)=>{
+      var topics = response.data.topic_list.topics.slice(1);
+      topics.forEach((topic)=>{
+        axios.get('https://talk.vtaiwan.tw/t/'+topic.id+'.json?include_raw=1')
+        .then((response)=>{
+          var topic = response.data;
+
+            var tmp = {};
+
+            tmp['routeName'] = topic['title'].split(" ")[1];
+            tmp['title'] = topic['title'].split(" ")[0];
+            tmp['catas'] = topic['tags'];
+            tmp['likes'] = 0 ;
+
+            var firstPost = topic.post_stream.posts[0];
+            var lastPost = topic.post_stream.posts.slice(-1)[0]; 
+
+            tmp['slogan'] = this.getSlogan(firstPost.raw);
+            tmp['status'] = lastPost.raw.split(" ")[0];
+            tmp['progress'] = ""
+            tmp['total'] = this.getTotal(lastPost.raw);
+            tmp['owner'] = ""
+            tmp['cover'] = ""
+            console.log(tmp)
+        })
+      })
+    })
   }
 }
 
