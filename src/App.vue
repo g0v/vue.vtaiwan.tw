@@ -45,51 +45,7 @@ export default {
         {t: '體育', routeName: 'sports', 
           cover: 'http://lorempixel.com/320/240/sports'},
       ],
-      allTopics: [
-        {   slogan:'邁向世界的舞台', 
-            routeName: 'english_company_name',
-            title:'公司英文名稱登記', 
-            status:'討論中',
-            progress: 10,
-            total: 30,
-            owner: '內政部',
-            catas: ['科技','文化'],
-            cover:'http://static.thousandwonders.net/Taiwan.original.3738.jpg',
-            likes: 7569
-        },
-        {   slogan:'邁向世界的舞台', 
-            routeName: 'english_company_name',
-            title:'公司英文名稱登記', 
-            status:'討論中',
-            progress: 10,
-            total: 30,
-            owner: '內政部',
-            catas: ['科技','文化'],
-            cover:'http://static.thousandwonders.net/Taiwan.original.3738.jpg',
-            likes: 7569
-        },{   slogan:'邁向世界的舞台', 
-            routeName: 'english_company_name',
-            title:'公司英文名稱登記', 
-            status:'討論中',
-            progress: 10,
-            total: 30,
-            owner: '內政部',
-            catas: ['科技','文化'],
-            cover:'http://static.thousandwonders.net/Taiwan.original.3738.jpg',
-            likes: 7569
-        },
-        {   slogan:'邁向世界的舞台', 
-            routeName: 'english_company_name',
-            title:'公司英文名稱登記', 
-            status:'討論中',
-            progress: 10,
-            total: 30,
-            owner: '內政部',
-            catas: ['科技','文化'],
-            cover:'http://static.thousandwonders.net/Taiwan.original.3738.jpg',
-            likes: 7569
-        }
-      ]
+      allTopics: []
     }
   },
   methods: {
@@ -105,20 +61,32 @@ export default {
       return match[1];
     },
     getProgress(raw) {
+      var regex = /(?: (?:init )?)|\n/g;
+      var start = new Date(raw.split(regex)[1]+"T00:00:00+08:00");
+      var end = new Date(raw.split(regex)[2]+"T00:00:00+08:00");
       var now = new Date();
-      var start = raw.split(" ")[1];
-      var end = raw.split(" ")[2];
+      if (now > end) {
+        return (end - start)/(24*60*60*1000);
+      }
+      else{
+        return (now - start)/(24*60*60*1000);
+      }
     },
     getTotal(raw) {
-      var start = new Date(raw.split(" ")[1]);
-      var end = new Date(raw.split(" ")[2]);
-      console.log(start);
+      var regex = /(?: (?:init )?)|\n/g;
+      var start = new Date(raw.split(regex)[1]+"T00:00:00+08:00");
+      var end = new Date(raw.split(regex)[2]+"T00:00:00+08:00");
+      return (end - start)/(24*60*60*1000)
     },
     getOwner(raw) {
-
+      var regex = /@(\w+)/g;
+      var match = regex.exec(raw);
+      return match[1];
     },
     getCover(raw){
-
+      var myRegexp = /cover *: *(.*)/g;
+      var match = myRegexp.exec(raw)
+      return match[1];
     }
   },
   created: function(){
@@ -130,23 +98,34 @@ export default {
         .then((response)=>{
           var topic = response.data;
 
-            var tmp = {};
+          var tmp = {};
 
-            tmp['routeName'] = topic['title'].split(" ")[1];
-            tmp['title'] = topic['title'].split(" ")[0];
-            tmp['catas'] = topic['tags'];
-            tmp['likes'] = 0 ;
+          tmp['id'] = topic['id'];
+          tmp['routeName'] = topic['title'].split(" ")[1];
+          tmp['title'] = topic['title'].split(" ")[0];
+          tmp['catas'] = topic['tags'];
+          tmp['likes'] = 0 ;
 
-            var firstPost = topic.post_stream.posts[0];
-            var lastPost = topic.post_stream.posts.slice(-1)[0]; 
+          var firstPost = topic.post_stream.posts[0];
+          var lastPost = topic.post_stream.posts.slice(-1)[0]; 
 
-            tmp['slogan'] = this.getSlogan(firstPost.raw);
-            tmp['status'] = lastPost.raw.split(" ")[0];
-            tmp['progress'] = ""
+          tmp['slogan'] = this.getSlogan(firstPost.raw);
+          tmp['status'] = lastPost.raw.split(" ")[0];
+          if(tmp['status'] === "討論中")
+          {
+            tmp['progress'] = this.getProgress(lastPost.raw);
             tmp['total'] = this.getTotal(lastPost.raw);
+<<<<<<< HEAD
             tmp['owner'] = ""
             tmp['cover'] = ""
            // console.log(tmp)
+=======
+          }
+          tmp['owner'] = this.getOwner(firstPost.raw);
+          tmp['cover'] = this.getCover(firstPost.raw);
+          // console.log(tmp);
+          this.allTopics.push(tmp);
+>>>>>>> 7b95ea1e28aca456a642eea69a8a6374f98a41f0
         })
       })
     })
