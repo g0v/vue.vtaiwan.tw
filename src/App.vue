@@ -28,23 +28,7 @@ export default {
         {en:'About',t:'關於 vTaiwan',r:'intro'},
         {en:'Login', t:'登入',r:'login'},
       ],
-      catagories: [
-        {t: '科技', routeName: 'technology'},
-        {t: '文化', routeName: 'culture'},
-        {t: '教育', routeName: 'education'},
-        {t: '勞動', routeName: 'labor'},
-        {t: '社會', routeName: 'social_policy'},
-        {t: '農業', routeName: 'agriculture'},
-        {t: '工業', routeName: 'industry'},
-        {t: '商業', routeName: 'commerce'},
-        {t: '生態', routeName: 'ecology'},
-        {t: '經濟', routeName: 'economy'},
-        {t: '財稅', routeName: 'tax'},
-        {t: '交通', routeName: 'transport'},
-        {t: '健康', routeName: 'health_care'},
-        {t: '體育', routeName: 'sports', 
-          cover: 'http://lorempixel.com/320/240/sports'},
-      ],
+      catagories: [],
       allTopics: []
     }
   },
@@ -107,6 +91,18 @@ export default {
           this.allTopics.push(tmp);
 
         })
+      })
+    })
+
+    axios.get('https://talk.vtaiwan.tw/posts/2094.json?include_raw=1')
+    .then((response)=>{
+      var configs = response.data.raw.split('\n')
+      configs.forEach((config)=>{
+        var tmp = {};
+        tmp['t'] = config.split(" ")[0];
+        tmp['routeName'] = config.split(" ")[1];
+        tmp['cover'] = config.split(" ")[2];
+        this.catagories.push(tmp);
       })
     })
   }

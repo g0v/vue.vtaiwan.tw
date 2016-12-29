@@ -6,7 +6,7 @@
     HotProposal(:hotProposal="hotTopics", header="熱門議題").hotproposal
     .ui.divider
     ProposalTab.proposalTab(:allTopics="allTopics")
-
+    Catagories(:catagories="catagories").catagories
     SocialMediaLink
     // SocialMediaLink.socialmedialink
     
