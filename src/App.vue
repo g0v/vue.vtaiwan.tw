@@ -55,21 +55,6 @@ export default {
       })[0]
       return obj ? obj.r : ''
     },
-    getStatus(firstPost,lastPost){
-      if(firstPost.id===lastPost.id)
-      {
-        return "即將開始";
-      }
-      else
-      {
-        return lastPost.raw.split(" ")[0];
-      }
-    },
-    getSlogan(raw) {
-      var myRegexp = /slogan *: *(.*)/g;
-      var match = myRegexp.exec(raw)
-      return match[1];
-    },
     getProgress(raw) {
       var regex = /(?: (?:init )?)|\n/g;
       var start = new Date(raw.split(regex)[1]+"T00:00:00+08:00");
@@ -87,19 +72,9 @@ export default {
       var start = new Date(raw.split(regex)[1]+"T00:00:00+08:00");
       var end = new Date(raw.split(regex)[2]+"T00:00:00+08:00");
       return (end - start)/(24*60*60*1000)
-    },
-    getOwner(raw) {
-      var regex = /@(\w+)/g;
-      var match = regex.exec(raw);
-      return match[1];
-    },
-    getCover(raw){
-      var myRegexp = /cover *: *(.*)/g;
-      var match = myRegexp.exec(raw)
-      return match[1];
     }
   },
-  created: function(){
+  mounted: function(){
     axios.get('https://talk.vtaiwan.tw/c/meta-data.json')
     .then((response)=>{
       var topics = response.data.topic_list.topics.slice(1);
@@ -119,16 +94,15 @@ export default {
           var firstPost = topic.post_stream.posts[0];
           var lastPost = topic.post_stream.posts.slice(-1)[0]; 
 
-          tmp['slogan'] = this.getSlogan(firstPost.raw);
-          tmp['status'] = this.getStatus(firstPost,lastPost);
+          tmp['slogan'] = /slogan *: *(.*)/g.exec(firstPost.raw)[1];
+          tmp['status'] = (firstPost.id===lastPost.id) ? "即將開始" : lastPost.raw.split(" ")[0];
           if(tmp['status'] === "討論中")
           {
             tmp['progress'] = this.getProgress(lastPost.raw);
             tmp['total'] = this.getTotal(lastPost.raw);
-
           }
-          tmp['owner'] = this.getOwner(firstPost.raw);
-          tmp['cover'] = this.getCover(firstPost.raw);
+          tmp['owner'] = /@(\w+)/g.exec(firstPost.raw)[1];
+          tmp['cover'] = /cover *: *(.*)/g.exec(firstPost.raw)[1];
           console.log(tmp);
           this.allTopics.push(tmp);
 
