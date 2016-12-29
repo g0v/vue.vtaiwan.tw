@@ -55,6 +55,16 @@ export default {
       })[0]
       return obj ? obj.r : ''
     },
+    getStatus(firstPost,lastPost){
+      if(firstPost.id===lastPost.id)
+      {
+        return "即將開始";
+      }
+      else
+      {
+        return lastPost.raw.split(" ")[0];
+      }
+    },
     getSlogan(raw) {
       var myRegexp = /slogan *: *(.*)/g;
       var match = myRegexp.exec(raw)
@@ -110,7 +120,7 @@ export default {
           var lastPost = topic.post_stream.posts.slice(-1)[0]; 
 
           tmp['slogan'] = this.getSlogan(firstPost.raw);
-          tmp['status'] = lastPost.raw.split(" ")[0];
+          tmp['status'] = this.getStatus(firstPost,lastPost);
           if(tmp['status'] === "討論中")
           {
             tmp['progress'] = this.getProgress(lastPost.raw);
