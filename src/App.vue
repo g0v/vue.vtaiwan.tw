@@ -3,7 +3,7 @@
   Navbar.navbar(:routes = "myRoutes", :allTopics = "allTopics")
 
   #main.main
-    transition(name='fade-out-speard-in', mode='out-in')
+    transition(name='fade-in', mode='out-in')
       router-view.view(:allTopics="allTopics", :catagories="catagories")
 
   MyFooter.footer
@@ -111,37 +111,7 @@ export default {
 
 </script>
 
-<style lang="scss">
-
-@import "./sass/global.scss";
-
-* {  box-sizing: border-box }
-a, button {
-  cursor: pointer !important;
-}
-
-html {
-  font-size: 16px;
-  font-size: 2.5vm;
-  font-size: 2.5vmin;
-}
-
-body {
-  visibility: visible;
-  opacity: 1;
-  @include transition(opacity 0.5s ease);
-  padding: 0;
-  margin: 0;
-}
-
-strong {
-  font-weight: 900;
-  color: black;
-}
-
-</style>
-
-<style lang="scss" scoped>
+<style lang="scss" >
 
 @import "./sass/global.scss";
 
@@ -151,7 +121,7 @@ strong {
   margin: 0;
   @include transition(border-color 0.5s ease);
   &.join {    border-color: $join  }
-  &.intro {    border-color: $intro  }
+  &.intro {   border-color: $intro  }
   &.live {    border-color: $live  }
   &.track {   border-color: $track  }
 }
@@ -163,22 +133,25 @@ strong {
   text-align: center;
 }
 
+// ********************** transition
 
-.fade-out-speard-in-enter, .fade-out-speard-in-leave-active {
+.fade-in-enter, .fade-in-leave-active {
   opacity: 0
 }
 
-.fade-out-speard-in-leave-active {
+.fade-in-leave-active {
   // @include transition(all .3s);
 }
 
-.fade-out-speard-in-enter-active {
+.fade-in-enter-active {
   @include transition(all .5s ease-in);
 }
 
-.fade-out-speard-in-enter {
-  @include transform(rotateY(45deg));
+.fade-in-enter {
+  // @include transform(rotateY(45deg));
 }
+
+// ********************** 
 
 .navbar {
   position: fixed;

@@ -11,10 +11,8 @@
         router-link(v-for="(s,idx) in steps", :to="'/topic/'+$route.params.tRouteName+'/step/'+idx", exact='') {{s}}
 
       br
-    // 詳細內容
-    .step(v-if = "$route.params.sId == 0") 
-      .ui.container(v-html = "information")
-    //時間軸
+    .step(v-if = "$route.params.sId == 0")
+      Description(:allTopics="allTopics")
     .step(v-if = "$route.params.sId == 1")
       br
       .event-list
@@ -44,6 +42,7 @@
 <script>
 
 import axios from 'axios'
+import Description from './Detail_Topic_Description.vue'
 import SocialMediaLink from './Social_Media_Link.vue'
 
 export default {
@@ -52,6 +51,9 @@ export default {
     SocialMediaLink
   },
   props: ['allTopics'],
+  components: {
+      Description
+  },
   data () {
     return {
       steps: ['詳細內容', '議題時間軸', '參與討論', '下一階段'],
@@ -80,10 +82,7 @@ export default {
      axios.get('https://talk.vtaiwan.tw/t/'+ this.article.id +'.json?include_raw=1')
      .then((response)=>{
        var detail_info = response.data;
-       var content = {};
-       
-       content = detail_info['post_stream']['posts'][0]['cooked']; // 取得詳細內容(第一篇)
-       
+
        detail_info = detail_info['post_stream']['posts'].slice(1); // 取得議題時間軸內容
 
        if(this.timeline.length === 0){
@@ -114,8 +113,6 @@ export default {
          
        }
 
-       content = content.split("<hr>")[1]; // 取第一篇中水平線底下的內容
-       this.information = content;
        
        
      })

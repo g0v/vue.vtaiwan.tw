@@ -84,7 +84,7 @@ export default {
 
 
 <style lang="scss" scoped>
-  @import "bourbon";
+  @import "../sass/global.scss";
 
   .component {
     position: relative;
@@ -99,7 +99,7 @@ export default {
   .slide-page {
     display: block;
     height: 90%;
-    height: 90vh;
+    height: 99.9vh;
   }
 
   .slide-item {
@@ -111,49 +111,33 @@ export default {
       min-height: 80vh;
       width: 100vw;
       background-color: #999;
+      opacity: 0.6;
     }
     overflow: hidden;
-    height: 80%;
-    height: 80vh;
-  }
-
-  a {
-    cursor: pointer;
-    &:hover {
-      i {
-        color: white !important;
-      }
-    }
-    &.pre, &.next {      
-      position: absolute;
-      z-index: 5;
-      top: 33vh;
-      text-shadow: 0px 2px 1px #ccc;
-    }
-    &.pre {
-      left: 5px;
-    }
-    &.next {
-      right: 5px;
-    }    
-    i {
-      @include transition(all 0.3s);
-    }
+    // height: 80%;
+    height: 99.9vh;
   }
 
   .box {
-    position: absolute;
-    top: 33vh;
-    width: 100%;
     font-size: 1rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include transform(translate(-50%, -50%));
+    width: 100%;
+    background: hsla(0,0,0%,0.1);
     .slogan, .title, .status {
-      margin-left: auto;
-      margin-right: auto;
+      // margin-left: auto;
+      // margin-right: auto;
+      margin: 1em auto;
       display: box;
     }
-    .slogan {
-      text-shadow: 0 2px 2px #fff, 0 0 2px #fff;
-      width: 250px;
+    .slogan.ui.header {
+      font-family: $main_font;
+      text-shadow: 0 0px 1em white;
+      font-size: 3rem;
+      // text-shadow: 0 2px 2px #fff, 0 0 2px #fff;
+      // width: 250px;
     }
     .title {
       width: 250px;
@@ -166,6 +150,30 @@ export default {
       background-color: black;
       width: 100px;
       padding: 0.5em;
+    }
+  }
+
+  a {
+    cursor: pointer;
+    &:hover {
+      i {
+        color: white !important;
+      }
+    }
+    &.pre, &.next {      
+      position: absolute;
+      z-index: 5;
+      top: 44vh;
+      text-shadow: 0px 2px 1px #ccc;
+    }
+    &.pre {
+      left: 5px;
+    }
+    &.next {
+      right: 5px;
+    }    
+    i {
+      @include transition(all 0.3s);
     }
   }
 
