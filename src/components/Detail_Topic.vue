@@ -28,7 +28,8 @@
           .small 相關連結
             br
             br
-            | {{ev.link}}
+            // {{ev.link}}
+            SocialMediaLink(:urllink="ev.link")
     // 參與討論
     .step(v-show="$route.params.sId == 2")
       //iframe from polis
@@ -43,9 +44,13 @@
 <script>
 
 import axios from 'axios'
+import SocialMediaLink from './Social_Media_Link.vue'
 
 export default {
   name: 'Detial_Topic',
+  components: {
+    SocialMediaLink
+  },
   props: ['allTopics'],
   data () {
     return {
