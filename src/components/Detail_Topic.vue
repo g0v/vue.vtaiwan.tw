@@ -16,8 +16,7 @@
       .ui.container(v-html = "information")
     //時間軸
     .step(v-if = "$route.params.sId == 1")
-      // {{timeline}}
-      p(v-html = "timeline")
+      br
       .event-list
         .item(v-for = "(ev,idx) in timeline", :class="['dark','gloom','light'][idx % 3]")
           .big 從 {{ev.start}} 開始 {{ev.end}}
