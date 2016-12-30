@@ -1,21 +1,51 @@
 @import "bourbon";
 
-
 $main: #3cf;
 $join: hsla(340,85%,70%,1);
 $intro: hsla(30,85%,50%,1);
 $live: hsla(240,85%,50%,1);
 $track: hsla(60,85%,30%,1);
+$breakpoint: 767px;
+$main_font: Roboto, 'Microsoft JhengHei', 'Heiti TC', sans-serif;
 
+// ********************** global reset
+
+* {  box-sizing: border-box }
+
+html {
+  // font-size: 16px;
+  // font-size: 2.5vm;
+}
+
+body {
+  font-family: $main_font;
+  font-size: 2.5vmin;
+  visibility: visible;
+  opacity: 1;
+  @include transition(opacity 0.5s ease);
+  padding: 0;
+  margin: 0;
+}
+
+a, button {
+  cursor: pointer !important;
+}
+
+strong {
+  font-weight: 900;
+  color: black;
+}
+
+// ********************** 
 
 .fat-only {
-	@media only screen and (max-width: 767px) {
+	@media only screen and (max-width: $breakpoint) {
     display: none !important;        
   }
 }
 
 .thin-only {
-	@media only screen and (min-width: 768px) {
+	@media only screen and (min-width: $breakpoint+1) {
     display: none !important;        
   }	
 }
