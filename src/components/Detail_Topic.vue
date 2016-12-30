@@ -29,6 +29,7 @@
             br
             // {{ev.link}}
             SocialMediaLink(:urllink="ev.link")
+            {{ev.link}}
     // 參與討論
     .step(v-show="$route.params.sId == 2")
       //iframe from polis
