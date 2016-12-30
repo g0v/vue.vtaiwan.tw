@@ -31,16 +31,29 @@
     },
     computed: {
       mySort: function () { 
-        var news = this.allTopics.slice().sort(function(a,b) {
+        var news = this.allTopics.slice()
+          .sort(function(a,b) {
             return a.progress - b.progress;
           }).slice(0,8);
-        var running = this.allTopics.slice().sort(function(a,b) {
+        var running = this.allTopics.slice()
+          .filter((topic)=>{
+            return topic.status==="討論中"
+          })
+          .sort(function(a,b) {
+            return a.progress - b.progress;
+          }).slice(0,8);
+        var drafts = this.allTopics.slice()
+          .filter((topic)=>{
+            return topic.status==="寫草案"
+          })
+          .sort(function(a,b) {
             return 1; // replace this by other logic...
           }).slice(0,8);
-        var drafts = this.allTopics.slice().sort(function(a,b) {
-            return 1; // replace this by other logic...
-          }).slice(0,8);
-        var soon = this.allTopics.slice().sort(function(a,b) {
+        var soon = this.allTopics.slice()
+          .filter((topic)=>{
+            return topic.status==="即將開始"
+          })
+          .sort(function(a,b) {
             return 1; // replace this by other logic...
           }).slice(0,8);
 

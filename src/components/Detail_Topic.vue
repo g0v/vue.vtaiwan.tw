@@ -1,4 +1,3 @@
-
 <template lang="jade">
   .component    
     .ui.container
@@ -32,7 +31,6 @@
       //   script(async='true', src='https://pol.is/embed.js')
     .step(v-if="$route.params.sId == 3")
       h2 be continued
-
 </template>
 
 <script>
