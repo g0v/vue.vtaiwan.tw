@@ -85,15 +85,8 @@ export default {
             tmp['progress'] = this.getProgress(lastPost.raw);
             tmp['total'] = this.getTotal(lastPost.raw);
           }
-<<<<<<< HEAD
-          tmp['owner'] = this.getOwner(firstPost.raw);
-          tmp['cover'] = this.getCover(firstPost.raw);
-          //console.log(tmp);
-=======
           tmp['owner'] = /@(\w+)/g.exec(firstPost.raw)[1];
           tmp['cover'] = /cover *: *(.*)/g.exec(firstPost.raw)[1];
-          console.log(tmp);
->>>>>>> 36497d9ac4ffd94c2af474fb0018715e79752416
           this.allTopics.push(tmp);
 
         })
