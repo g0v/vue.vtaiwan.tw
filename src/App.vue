@@ -119,7 +119,7 @@ export default {
           }
           tmp['owner'] = this.getOwner(firstPost.raw);
           tmp['cover'] = this.getCover(firstPost.raw);
-          console.log(tmp);
+          //console.log(tmp);
           this.allTopics.push(tmp);
 
         })

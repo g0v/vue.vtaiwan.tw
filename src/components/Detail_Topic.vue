@@ -1,36 +1,36 @@
 
 <template lang="jade">
-  .component    
-    .ui.container
-      input(v-model="article")
-      h2.ui.header {{article.title}}
-        .sub.header {{article.status}}
-      br
-      // video(controls, :style="{'background-image': 'url('+t.cover+')'}")
-      //   source(:src = "t.video || 'https://github.com/g0v/vue.vtaiwan.tw/blob/master/vTaiwan%20v4%20record.mov'", type="video/mov")
-      br
-      .steps
-        router-link(v-for="(s,idx) in steps", :to="'/topic/'+$route.params.tRouteName+'/step/'+idx", exact='') {{s}}
+  // .component    
+  //   .ui.container
+  //     input(v-model="article")
+  //     h2.ui.header {{article.title}}
+  //       .sub.header {{article.status}}
+  //     br
+  //     video(controls, :style="{'background-image': 'url('+t.cover+')'}")
+  //       source(:src = "t.video || 'https://github.com/g0v/vue.vtaiwan.tw/blob/master/vTaiwan%20v4%20record.mov'", type="video/mov")
+  //     br
+  //     .steps
+  //       router-link(v-for="(s,idx) in steps", :to="'/topic/'+$route.params.tRouteName+'/step/'+idx", exact='') {{s}}
 
-      br
-    .step(v-if="$route.params.sId == 0")
-      h2 123
-      p(v-html="test")
-    .step(v-if="$route.params.sId == 1")
-      // 時間軸
-      // .event-list
-      //   .item(v-for = "(ev,idx) in (t.eventList || fooList)", :class="['dark','gloom','light'][idx % 3]")
-      //     .big {{ ev.y }}年{{ ev.m }}月
-      //     .small {{ ev.d }}日
-      //       br
-      //       | {{ ev.title }}
-      //     .null
-    .step(v-show="$route.params.sId == 2")
-      //iframe from polis
-      // .ui.container
-      //   .polis(:data-conversation_id=" t.polisId || fooPolisId")
-      //   script(async='true', src='https://pol.is/embed.js')
-    .step(v-if="$route.params.sId == 3")
+  //     br
+  //   .step(v-if="$route.params.sId == 0")
+  //     h2 123
+  //     p(v-html="test")
+  //   .step(v-if="$route.params.sId == 1")
+  //     時間軸
+  //     .event-list
+  //       .item(v-for = "(ev,idx) in (t.eventList || fooList)", :class="['dark','gloom','light'][idx % 3]")
+  //         .big {{ ev.y }}年{{ ev.m }}月
+  //         .small {{ ev.d }}日
+  //           br
+  //           | {{ ev.title }}
+  //         .null
+  //   .step(v-show="$route.params.sId == 2")
+  //     iframe from polis
+  //     .ui.container
+  //       .polis(:data-conversation_id=" t.polisId || fooPolisId")
+  //       script(async='true', src='https://pol.is/embed.js')
+  //   .step(v-if="$route.params.sId == 3")
 
 
 </template>
