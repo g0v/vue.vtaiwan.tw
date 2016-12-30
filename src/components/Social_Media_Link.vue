@@ -1,6 +1,5 @@
-<template lang="jade">
- h1 Social Media Link Test     
-  br
+<template lang="jade">  
+
   // a(:href= "youtubelink" , target='_blank')
   //  img(:src="youtubeicon" width="200" height="200")
   // a(:href= "hackpadlink" , target='_blank') 
@@ -47,7 +46,7 @@ export default {
       var search_talkpdis= this.urllink[i].indexOf('sayit');
       var seav
       if(search_hackpad!==-1){
-         ttt="<a href= "+this.urllink[i]+" target='_blank'><img src="+this.hackpadicon+" width='200'' height='200'></a>"
+         ttt="<a href= "+this.urllink[i]+" target='_blank'><img src="+this.hackpadicon+" width='50'' height='50'></a>"
          this.ulinkall.push(ttt);
          search_hackpad=-1;
         
