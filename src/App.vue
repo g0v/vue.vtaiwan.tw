@@ -28,23 +28,7 @@ export default {
         {en:'About',t:'關於 vTaiwan',r:'intro'},
         {en:'Login', t:'登入',r:'login'},
       ],
-      catagories: [
-        {t: '科技', routeName: 'technology'},
-        {t: '文化', routeName: 'culture'},
-        {t: '教育', routeName: 'education'},
-        {t: '勞動', routeName: 'labor'},
-        {t: '社會', routeName: 'social_policy'},
-        {t: '農業', routeName: 'agriculture'},
-        {t: '工業', routeName: 'industry'},
-        {t: '商業', routeName: 'commerce'},
-        {t: '生態', routeName: 'ecology'},
-        {t: '經濟', routeName: 'economy'},
-        {t: '財稅', routeName: 'tax'},
-        {t: '交通', routeName: 'transport'},
-        {t: '健康', routeName: 'health_care'},
-        {t: '體育', routeName: 'sports', 
-          cover: 'http://lorempixel.com/320/240/sports'},
-      ],
+      catagories: [],
       allTopics: []
     }
   },
@@ -54,11 +38,6 @@ export default {
         return '/'+o.r == path;
       })[0]
       return obj ? obj.r : ''
-    },
-    getSlogan(raw) {
-      var myRegexp = /slogan *: *(.*)/g;
-      var match = myRegexp.exec(raw)
-      return match[1];
     },
     getProgress(raw) {
       var regex = /(?: (?:init )?)|\n/g;
@@ -77,19 +56,9 @@ export default {
       var start = new Date(raw.split(regex)[1]+"T00:00:00+08:00");
       var end = new Date(raw.split(regex)[2]+"T00:00:00+08:00");
       return (end - start)/(24*60*60*1000)
-    },
-    getOwner(raw) {
-      var regex = /@(\w+)/g;
-      var match = regex.exec(raw);
-      return match[1];
-    },
-    getCover(raw){
-      var myRegexp = /cover *: *(.*)/g;
-      var match = myRegexp.exec(raw)
-      return match[1];
     }
   },
-  created: function(){
+  mounted: function(){
     axios.get('https://talk.vtaiwan.tw/c/meta-data.json')
     .then((response)=>{
       var topics = response.data.topic_list.topics.slice(1);
@@ -109,20 +78,37 @@ export default {
           var firstPost = topic.post_stream.posts[0];
           var lastPost = topic.post_stream.posts.slice(-1)[0]; 
 
-          tmp['slogan'] = this.getSlogan(firstPost.raw);
-          tmp['status'] = lastPost.raw.split(" ")[0];
+          tmp['slogan'] = /slogan *: *(.*)/g.exec(firstPost.raw)[1];
+          tmp['status'] = (firstPost.id===lastPost.id) ? "即將開始" : lastPost.raw.split(" ")[0];
           if(tmp['status'] === "討論中")
           {
             tmp['progress'] = this.getProgress(lastPost.raw);
             tmp['total'] = this.getTotal(lastPost.raw);
-
           }
+<<<<<<< HEAD
           tmp['owner'] = this.getOwner(firstPost.raw);
           tmp['cover'] = this.getCover(firstPost.raw);
           //console.log(tmp);
+=======
+          tmp['owner'] = /@(\w+)/g.exec(firstPost.raw)[1];
+          tmp['cover'] = /cover *: *(.*)/g.exec(firstPost.raw)[1];
+          console.log(tmp);
+>>>>>>> 36497d9ac4ffd94c2af474fb0018715e79752416
           this.allTopics.push(tmp);
 
         })
+      })
+    })
+
+    axios.get('https://talk.vtaiwan.tw/posts/2094.json?include_raw=1')
+    .then((response)=>{
+      var configs = response.data.raw.split('\n')
+      configs.forEach((config)=>{
+        var tmp = {};
+        tmp['t'] = config.split(" ")[0];
+        tmp['routeName'] = config.split(" ")[1];
+        tmp['cover'] = config.split(" ")[2];
+        this.catagories.push(tmp);
       })
     })
   }
