@@ -3,7 +3,7 @@
     .subtitle {{header}}
     .container
       .item(v-for='(item, idx) in hotProposal')
-        router-link(:to="'/topic/' + item.routeName + '/step/0'")
+        router-link(:to="'/topic/' + item.routeName")
           img.cover(:src="item.cover")
         .null
         .foot
@@ -20,7 +20,7 @@ export default {
   props: ['hotProposal', 'header'],
   data () {
     return {
-      //...
+      //...'/step/0'
     }
   }
 }

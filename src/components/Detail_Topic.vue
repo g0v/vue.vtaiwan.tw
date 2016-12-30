@@ -2,36 +2,36 @@
 <template lang="jade">
   .component    
     .ui.container
-      input(v-model="article")
       h2.ui.header {{article.title}}
         .sub.header {{article.status}}
       br
-      // video(controls, :style="{'background-image': 'url('+t.cover+')'}")
-      //   source(:src = "t.video || 'https://github.com/g0v/vue.vtaiwan.tw/blob/master/vTaiwan%20v4%20record.mov'", type="video/mov")
+      video(controls, :style="{'background-image': 'url('+article.cover+')'}")
+      //   source(:src = "https://github.com/g0v/vue.vtaiwan.tw/blob/master/vTaiwan%20v4%20record.mov", type="video/mov")
       br
       .steps
         router-link(v-for="(s,idx) in steps", :to="'/topic/'+$route.params.tRouteName+'/step/'+idx", exact='') {{s}}
 
       br
-    .step(v-if="$route.params.sId == 0")
-      h2 123
-      p(v-html="test")
-    .step(v-if="$route.params.sId == 1")
-      // 時間軸
-      // .event-list
-      //   .item(v-for = "(ev,idx) in (t.eventList || fooList)", :class="['dark','gloom','light'][idx % 3]")
-      //     .big {{ ev.y }}年{{ ev.m }}月
-      //     .small {{ ev.d }}日
-      //       br
-      //       | {{ ev.title }}
-      //     .null
+    .step(v-if = "$route.params.sId == 0")
+      p(v-html = "information")
+    .step(v-if = "$route.params.sId == 1")
+      //時間軸
+      // {{timeline}}
+      p(v-html = "timeline")
+      .event-list
+        .item(v-for = "(ev,idx) in timeline", :class="['dark','gloom','light'][idx % 3]")
+          .big 從{{ev.start}}開始 至 {{ev.end}}
+          .small 進度
+            br
+            | {{ ev.title }} | {{ev.link}}
+          .null
     .step(v-show="$route.params.sId == 2")
       //iframe from polis
       // .ui.container
       //   .polis(:data-conversation_id=" t.polisId || fooPolisId")
       //   script(async='true', src='https://pol.is/embed.js')
     .step(v-if="$route.params.sId == 3")
-
+      h2 be continued
 
 </template>
 
@@ -54,8 +54,9 @@ export default {
         {y: 2016, m:9, d: 30, title: '進入草案階段' },
         {y: 2016, m:8, d: 11, title: '討論爭點出現' }
       ],
-      article:{},
-      test:{}
+      article:{}, // title & status
+      information:{}, // 詳細內容
+      timeline:[] // 時間軸
     }
   },
   computed: {
@@ -78,32 +79,60 @@ export default {
   created:function(){
     console.log("created");
   },
+
   beforeUpdate:function(){
 
      axios.get('https://talk.vtaiwan.tw/t/'+ this.article.id +'.json?include_raw=1')
      .then((response)=>{
        var detail_info = response.data;
        var content = {};
-
-       content = detail_info['post_stream']['posts'][0]['cooked'];
        
-       content = content.split("<hr>")[1];
+
+       content = detail_info['post_stream']['posts'][0]['cooked']; // 取得詳細內容(第一篇)
+       
+       detail_info = detail_info['post_stream']['posts'].slice(1); // 取得議題時間軸內容
+
+      //  detail_info = detail_info['post_stream']['posts'][0]['raw'];
 
 
+       console.log(detail_info);
+      //  console.log(detail_info[0]['raw']);
 
-       console.log(content);
+       if(this.timeline.length === 0){
+         for(var i in detail_info){
+           var timeline_content = {};
+           var link = {};
+           var links = [];
+           timeline_content['title'] = detail_info[i]['raw'].split(" ")[0]; // 進度
+           timeline_content['start'] = detail_info[i]['raw'].split(" ")[1]; // 開始日期
 
-       this.test = content;
+           link= detail_info[i]['raw'].split(" ")[2]; // 第二行後連結
+           timeline_content['end'] = link.split("\n")[0]; // 結束日期
+
+
+           for(var i = 1; i < link.split("\n").length; i++ ){
+             links.push(link.split("\n")[i]);
+           }
+           timeline_content['link'] = links; 
+           this.timeline.push(timeline_content);
+         }
+         
+       }
+      
+       console.log(this.timeline);
+
+       content = content.split("<hr>")[1]; // 取第一篇中水平線底下的內容
+       this.information = content;
        
        
      })
       
   },
-  watch: {
-    article: function (newVal, oldVal) { 
-      console.log('article changed','newVal', newVal, 'oldVal', oldVal)
-    }
-  }
+  // watch: {
+  //   article: function (newVal, oldVal) { 
+  //     console.log('article changed','newVal', newVal, 'oldVal', oldVal)
+  //   }
+  // }
 }
 
 </script>
@@ -115,7 +144,7 @@ export default {
 }
 
 p {
-  text-align: left;
+  text-align: center;
 }
 
 video {
