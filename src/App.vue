@@ -85,8 +85,10 @@ export default {
             tmp['progress'] = this.getProgress(lastPost.raw);
             tmp['total'] = this.getTotal(lastPost.raw);
           }
+
           tmp['owner'] = /@(\w+)/g.exec(firstPost.raw)[1];
           tmp['cover'] = /cover *: *(.*)/g.exec(firstPost.raw)[1];
+
           this.allTopics.push(tmp);
 
         })

@@ -34,7 +34,7 @@ export default {
   created: function(){
     
     
-    axios.get('https://talk.vtaiwan.tw/t/eliquor/918.json')
+    axios.get('https://talk.vtaiwan.tw/t/eliquor/917.json')
     .then((response)=>{
       var topics = response.data.post_stream.posts;
       var topic={};
