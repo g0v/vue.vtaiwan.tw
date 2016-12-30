@@ -46,6 +46,7 @@ module.exports = {
           urllink.push(re[i].href);
         }               
       }      
+      console.log(re);
     return urllink;
     }
 };
