@@ -88,7 +88,6 @@ export default {
 
           tmp['owner'] = /@(\w+)/g.exec(firstPost.raw)[1];
           tmp['cover'] = /cover *: *(.*)/g.exec(firstPost.raw)[1];
-          //console.log(tmp);
 
           this.allTopics.push(tmp);
 
