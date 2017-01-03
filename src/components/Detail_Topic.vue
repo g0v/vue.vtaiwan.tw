@@ -30,6 +30,9 @@
             {{ev.link}}
     // 參與討論
     .step(v-show="$route.params.sId == 2")
+      {{timeline}}
+      {{polis_link}}
+      SocialMediaLink(:urllink="polis_link.polis")
       //iframe from polis
       // .ui.container
       //   .polis(:data-conversation_id=" t.polisId || fooPolisId")
@@ -59,7 +62,8 @@ export default {
       fooPolisId: '89bzf78kbn',
       article:{}, // title & status
       information:{}, // 詳細內容
-      timeline:[] // 時間軸
+      timeline:[], // 時間軸
+      polis_link:[] // polis連結
     }
   },
   computed: {
@@ -89,6 +93,7 @@ export default {
            var timeline_content = {};
            var link = {};
            var links = [];
+           var polis = {};
            timeline_content['title'] = detail_info[i]['raw'].split(regex)[0]; // 進度
            timeline_content['start'] = detail_info[i]['raw'].split(regex)[1]; // 開始日期
 
@@ -102,10 +107,17 @@ export default {
              timeline_content['end'] = "至"+ detail_info[i]['raw'].split(regex)[2]; // 結束日期
            }
            
-           for(var j = 3; j < link.length; j++ ){ 
+           for(var j = 3; j < link.length; j++ ){
+             if(detail_info[i]['raw'].split(regex)[j].indexOf("pol.is")>-1){
+               
+               polis['polis'] = detail_info[i]['raw'].split(regex)[j];
+               this.polis_link.push(polis);
+             } 
              links.push(detail_info[i]['raw'].split(regex)[j]);
            }
-           timeline_content['link'] = links; 
+           timeline_content['link'] = links;
+          //  timeline_content['polis'] = polis;
+           console.log(this.polis_link); 
            this.timeline.push(timeline_content);
          }
          
