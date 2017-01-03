@@ -47,12 +47,10 @@ import SocialMediaLink from './Social_Media_Link.vue'
 
 export default {
   name: 'Detial_Topic',
-  components: {
-    SocialMediaLink
-  },
   props: ['allTopics'],
   components: {
-      Description
+      Description,
+      SocialMediaLink
   },
   data () {
     return {
