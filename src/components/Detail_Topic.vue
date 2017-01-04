@@ -31,7 +31,7 @@
     .step(v-show="$route.params.sId == 2")
       {{timeline}}
       {{polis_link}}
-      //SocialMediaLink(:urllink="polis_link")
+      //Discussion(:urllink="polis_link")
       //iframe from polis
       // .ui.container
       //   .polis(:data-conversation_id=" t.polisId || fooPolisId")
@@ -46,13 +46,16 @@
 import axios from 'axios'
 import Description from './Detail_Topic_Description.vue'
 import Timeline from './Detail_Topic_Timeline.vue'
+import Discussion from './Detail_Topic_Discussion.vue'
+
 
 export default {
   name: 'Detial_Topic',
   props: ['allTopics'],
   components: {
       Description,
-      Timeline
+      Timeline,
+      Discussion,
   },
   data () {
     return {
