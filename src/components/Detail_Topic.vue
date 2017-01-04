@@ -32,7 +32,7 @@
     .step(v-show="$route.params.sId == 2")
       {{timeline}}
       {{polis_link}}
-      SocialMediaLink(:urllink="polis_link.polis")
+      // SocialMediaLink(:urllink="polis_link.polis")
       //iframe from polis
       // .ui.container
       //   .polis(:data-conversation_id=" t.polisId || fooPolisId")
