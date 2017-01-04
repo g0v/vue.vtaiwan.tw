@@ -26,13 +26,12 @@
             br
             br
             // {{ev.link}}
-            SocialMediaLink(:urllink="ev.link")
-            {{ev.link}}
+            Timeline(:urllink="ev.link")
     // 參與討論
     .step(v-if="$route.params.sId == 2")
       {{timeline}}
       {{polis_link}}
-      // SocialMediaLink(:urllink="polis_link.polis")
+      //Discussion(:urllink="polis_link")
       //iframe from polis
       // .ui.container
       //   .polis(:data-conversation_id=" t.polisId || fooPolisId")
@@ -46,14 +45,17 @@
 
 import axios from 'axios'
 import Description from './Detail_Topic_Description.vue'
-import SocialMediaLink from './Social_Media_Link.vue'
+import Timeline from './Detail_Topic_Timeline.vue'
+import Discussion from './Detail_Topic_Discussion.vue'
+
 
 export default {
   name: 'Detial_Topic',
   props: ['allTopics'],
   components: {
       Description,
-      SocialMediaLink
+      Timeline,
+      Discussion,
   },
   data () {
     return {
@@ -110,7 +112,8 @@ export default {
            for(var j = 3; j < link.length; j++ ){
              if(detail_info[i]['raw'].split(regex)[j].indexOf("pol.is")>-1){
                
-               polis['polis'] = detail_info[i]['raw'].split(regex)[j];
+               polis =  "polis"+detail_info[i]['raw'].split(regex)[j];
+               this.polis_link.push(polis);
                this.polis_link.push(polis);
              } 
              links.push(detail_info[i]['raw'].split(regex)[j]);
