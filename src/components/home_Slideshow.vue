@@ -126,14 +126,15 @@ export default {
     @include transform(translate(-50%, -50%));
     // width: 100%;
     // background: hsla(0,0,0%,0.1);
-    justify-content: center;
     display: flex;
+    justify-content: center;
     flex-flow: column;
     width: 30rem;
     height: 30rem;
     border-radius: 30rem;
-    border: 1px solid lightgray;
-    background: rgba(240, 240, 240, 0.9);
+    // border: 1px solid lightgray;
+    background: lightcoral;
+    box-shadow: 2px 4px 5px hsla(0,0,0%,0.5);
     
     .slogan, .title, .status {
       // margin-left: auto;

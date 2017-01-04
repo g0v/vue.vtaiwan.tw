@@ -11,8 +11,10 @@
         router-link(v-for="(s,idx) in steps", :to="'/topic/'+$route.params.tRouteName+'/step/'+idx", exact='') {{s}}
 
       br
-    .step(v-if = "$route.params.sId == 0")
-      Description(:allTopics="allTopics")
+      //詳細內容
+    .step(v-if = "$route.params.sId == 0 && article.id !== undefined") 
+      Description(:article="article")
+      //時間軸
     .step(v-if = "$route.params.sId == 1")
       br
       .event-list
@@ -26,9 +28,9 @@
             br
             br
             // {{ev.link}}
-            Timeline(:urllink="ev.link")
+            Plink(:urllink="ev.link")
     // 參與討論
-    .step(v-show="$route.params.sId == 2")
+    .step(v-if="$route.params.sId == 2 && article.id !== undefined")
       {{timeline}}
       {{polis_link}}
       Discussion(:urllink="polis_link")
@@ -45,7 +47,7 @@
 
 import axios from 'axios'
 import Description from './Detail_Topic_Description.vue'
-import Timeline from './Detail_Topic_Timeline.vue'
+import Plink from './ParticipationLink.vue'
 import Discussion from './Detail_Topic_Discussion.vue'
 
 
@@ -54,7 +56,7 @@ export default {
   props: ['allTopics'],
   components: {
       Description,
-      Timeline,
+      Plink,
       Discussion,
   },
   data () {
@@ -157,7 +159,7 @@ video {
 .steps {
   display: inline-flex;
   width: 66vw;
-  justify-content: center;
+  // justify-content: center;
   a {
     flex: 1;
     padding: .5em .5em;
