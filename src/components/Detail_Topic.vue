@@ -31,7 +31,7 @@
     .step(v-show="$route.params.sId == 2")
       {{timeline}}
       {{polis_link}}
-      //Discussion(:urllink="polis_link")
+      Discussion(:urllink="polis_link")
       //iframe from polis
       // .ui.container
       //   .polis(:data-conversation_id=" t.polisId || fooPolisId")
@@ -112,15 +112,14 @@ export default {
            for(var j = 3; j < link.length; j++ ){
              if(detail_info[i]['raw'].split(regex)[j].indexOf("pol.is")>-1){
                
-               polis =  "polis"+detail_info[i]['raw'].split(regex)[j];
-               this.polis_link.push(polis);
+               polis = detail_info[i]['raw'].split(regex)[j];
                this.polis_link.push(polis);
              } 
              links.push(detail_info[i]['raw'].split(regex)[j]);
            }
            timeline_content['link'] = links;
           //  timeline_content['polis'] = polis;
-           console.log(this.polis_link); 
+           //console.log(this.polis_link); 
            this.timeline.push(timeline_content);
          }
          

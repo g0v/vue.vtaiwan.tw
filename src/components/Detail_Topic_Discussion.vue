@@ -1,7 +1,12 @@
 <template lang="jade">  
-  .urllink(v-if = "ulinkall.length > 0")
-    span.urllink(v-for="(item, index) in ulinkall")
-    span(v-html = "ulinkall[index]")
+ 
+h1 123132
+  //.polis(:data-conversation_id="tt")
+  //script(async='true', src='https://pol.is/embed.js')
+ 
+  // .urllink(v-if = "ulinkall.length > 0")
+  //   span.urllink(v-for="(item, index) in ulinkall")
+  //   span(v-html = "ulinkall[index]")
     
 </template>
 
@@ -21,9 +26,13 @@ export default {
 watch: { // 確認資訊是否已經傳進來
     urllink:function (val, oldVal) {
      
-        console.log(oldVal);
+   
+        if(val[0].indexOf('pol.is')!=-1){
+        //   this.ulinkall.push("<a href= "+this.urllink[i]+" target='_blank'><img src="+this.data_base[j].icon+" width='50'' height='50'></a>");
+        console.log('123123132213');
+        }
         
-        console.log(val);
+        
 
     }
   }
