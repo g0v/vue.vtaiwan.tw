@@ -30,9 +30,9 @@
             // {{ev.link}}
             Plink(:urllink="ev.link")
     // 參與討論
-    .step(v-if="$route.params.sId == 2 && article.id !== undefined")
-      {{timeline}}
-      {{polis_link}}
+    .step(v-if="$route.params.sId == 2 && polis_link[0] !== undefined")
+      // {{timeline}}
+      // {{polis_link}}
       Discussion(:urllink="polis_link")
       //iframe from polis
       // .ui.container
