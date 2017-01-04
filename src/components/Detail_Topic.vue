@@ -12,7 +12,7 @@
 
       br
     .step(v-if = "$route.params.sId == 0")
-      Description(:allTopics="allTopics")
+      Description(:allTopics="allTopics",:article="article")
     .step(v-if = "$route.params.sId == 1")
       br
       .event-list
@@ -29,7 +29,7 @@
             SocialMediaLink(:urllink="ev.link")
             {{ev.link}}
     // 參與討論
-    .step(v-show="$route.params.sId == 2")
+    .step(v-if="$route.params.sId == 2")
       {{timeline}}
       {{polis_link}}
       // SocialMediaLink(:urllink="polis_link.polis")
@@ -155,7 +155,7 @@ video {
 .steps {
   display: inline-flex;
   width: 66vw;
-  justify-content: center;
+  // justify-content: center;
   a {
     flex: 1;
     padding: .5em .5em;
