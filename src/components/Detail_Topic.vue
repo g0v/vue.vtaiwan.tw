@@ -19,9 +19,9 @@
       br
       Timeline(:article="article")
     // 參與討論
-    .step(v-if="$route.params.sId == 2 && article.id !== undefined")
-      {{timeline}}
-      {{polis_link}}
+    .step(v-if="$route.params.sId == 2 && polis_link[0] !== undefined")
+      // {{timeline}}
+      // {{polis_link}}
       Discussion(:urllink="polis_link")
       //iframe from polis
       // .ui.container
@@ -101,16 +101,15 @@ export default {
            }
            
            for(var j = 3; j < link.length; j++ ){
-             if(detail_info[i]['raw'].split(regex)[j].indexOf("pol.is")>-1){
-               
-               polis =  "polis"+detail_info[i]['raw'].split(regex)[j];
+             if(detail_info[i]['raw'].split(regex)[j].indexOf("pol.is")>-1){               
+               polis = detail_info[i]['raw'].split(regex)[j];
                this.polis_link.push(polis);
              } 
              links.push(detail_info[i]['raw'].split(regex)[j]);
            }
            timeline_content['link'] = links;
           //  timeline_content['polis'] = polis;
-           console.log(this.polis_link); 
+           //console.log(this.polis_link); 
            this.timeline.push(timeline_content);
          }
          
