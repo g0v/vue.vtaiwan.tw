@@ -26,12 +26,12 @@
             br
             br
             // {{ev.link}}
-            SocialMediaLink(:urllink="ev.link")
+            Timeline(:urllink="ev.link")
     // 參與討論
     .step(v-show="$route.params.sId == 2")
       {{timeline}}
       {{polis_link}}
-      SocialMediaLink(:urllink="polis_link")
+      //SocialMediaLink(:urllink="polis_link")
       //iframe from polis
       // .ui.container
       //   .polis(:data-conversation_id=" t.polisId || fooPolisId")
@@ -45,14 +45,14 @@
 
 import axios from 'axios'
 import Description from './Detail_Topic_Description.vue'
-import SocialMediaLink from './Social_Media_Link.vue'
+import Timeline from './Detail_Topic_Timeline.vue'
 
 export default {
   name: 'Detial_Topic',
   props: ['allTopics'],
   components: {
       Description,
-      SocialMediaLink
+      Timeline
   },
   data () {
     return {

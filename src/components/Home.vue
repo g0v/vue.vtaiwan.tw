@@ -8,7 +8,7 @@
     ProposalTab.proposalTab(:allTopics="allTopics")
     Catagories(:catagories="catagories").catagories
     
-    //SocialMediaLink(:urllink="'test'")
+
     
 
 </template>
@@ -20,7 +20,7 @@ import StepGuide from './home_StepGuide.vue'
 import HotProposal from './home_HotProposal.vue'
 import ProposalTab from './home_ProposalTab.vue'
 import Catagories from './home_Catagories.vue'
-import SocialMediaLink from './Social_Media_Link.vue'
+
 
 export default {
   name: 'Home',
@@ -30,7 +30,7 @@ export default {
     HotProposal,
     ProposalTab,
     Catagories,
-    SocialMediaLink
+
   },
   props:['allTopics', 'catagories'],
   data () {
