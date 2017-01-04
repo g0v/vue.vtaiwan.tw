@@ -8,7 +8,7 @@
     ProposalTab.proposalTab(:allTopics="allTopics")
     Catagories(:catagories="catagories").catagories
     
-    // SocialMediaLink.socialmedialink
+    //SocialMediaLink(:urllink="'test'")
     
 
 </template>

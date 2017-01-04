@@ -27,12 +27,11 @@
             br
             // {{ev.link}}
             SocialMediaLink(:urllink="ev.link")
-            {{ev.link}}
     // 參與討論
     .step(v-show="$route.params.sId == 2")
       {{timeline}}
       {{polis_link}}
-      SocialMediaLink(:urllink="polis_link.polis")
+      SocialMediaLink(:urllink="polis_link")
       //iframe from polis
       // .ui.container
       //   .polis(:data-conversation_id=" t.polisId || fooPolisId")
@@ -110,7 +109,8 @@ export default {
            for(var j = 3; j < link.length; j++ ){
              if(detail_info[i]['raw'].split(regex)[j].indexOf("pol.is")>-1){
                
-               polis['polis'] = detail_info[i]['raw'].split(regex)[j];
+               polis =  "polis"+detail_info[i]['raw'].split(regex)[j];
+               this.polis_link.push(polis);
                this.polis_link.push(polis);
              } 
              links.push(detail_info[i]['raw'].split(regex)[j]);
