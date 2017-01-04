@@ -15,20 +15,9 @@
     .step(v-if = "$route.params.sId == 0 && article.id !== undefined") 
       Description(:article="article")
       //時間軸
-    .step(v-if = "$route.params.sId == 1")
+    .step(v-if = "$route.params.sId == 1 && article.id !== undefined")
       br
-      .event-list
-        .item(v-for = "(ev,idx) in timeline", :class="['dark','gloom','light'][idx % 3]")
-          .big 從 {{ev.start}} 開始 {{ev.end}}
-          .small 進度
-            br
-            br  
-            | {{ ev.title }} 
-          .small 相關連結
-            br
-            br
-            // {{ev.link}}
-            Plink(:urllink="ev.link")
+      Timeline(:article="article")
     // 參與討論
     .step(v-if="$route.params.sId == 2 && article.id !== undefined")
       {{timeline}}
@@ -47,8 +36,8 @@
 
 import axios from 'axios'
 import Description from './Detail_Topic_Description.vue'
-import Plink from './ParticipationLink.vue'
 import Discussion from './Detail_Topic_Discussion.vue'
+import Timeline from './Detail_Topic_Timeline.vue'
 
 
 export default {
@@ -56,8 +45,8 @@ export default {
   props: ['allTopics'],
   components: {
       Description,
-      Plink,
       Discussion,
+      Timeline
   },
   data () {
     return {
@@ -115,7 +104,6 @@ export default {
              if(detail_info[i]['raw'].split(regex)[j].indexOf("pol.is")>-1){
                
                polis =  "polis"+detail_info[i]['raw'].split(regex)[j];
-               this.polis_link.push(polis);
                this.polis_link.push(polis);
              } 
              links.push(detail_info[i]['raw'].split(regex)[j]);

@@ -43,7 +43,7 @@ export default {
     }
   },
   created:function(a,b){
-    console.log(this.data_base.length)
+    console.log(this.urllink.length)
     for(var i=0;i<this.urllink.length;i++){
       for(var j=0; j<this.data_base.length ;j++){
         if(this.urllink[i].indexOf(this.data_base[j].key)!=-1){

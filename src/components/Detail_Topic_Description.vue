@@ -8,7 +8,7 @@
 import axios from 'axios'
 
 export default {
-  props: ['allTopics','article'],
+  props: ['article'],
   data () {
     return {
       information:"" // 詳細內容
