@@ -2,10 +2,6 @@
 
 nav.component
 
-  router-link.logo(to='/', exact='')
-    img(width='30', height='30', src='../assets/logo.png', alt='logo')
-    span.fat-only vTaiwan
-
   // router-link.explore.fat-only(to='/', exact='')
     // | 探索
 
@@ -13,6 +9,10 @@ nav.component
     i.search.icon
     input(type="search", v-model="myKey", placeholder="探索")
     SearchResult(v-show="myKey", :allTopics="allTopics", :myKey = "myKey", :myIdx="myIdx")
+
+  router-link.logo(to='/', exact='')
+    img(width='30', height='30', src='../assets/logo.png', alt='logo')
+    span.fat-only vTaiwan
 
   .null
 
