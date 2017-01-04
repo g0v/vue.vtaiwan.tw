@@ -2,9 +2,9 @@
   .component
     .slide-page      
       a.pre(@click="c = cycle(-1)")
-        i.huge.chevron.black.left.icon
+        i.huge.caret.black.left.icon
       a.next(@click="c = cycle(1)")
-        i.huge.chevron.black.right.icon
+        i.huge.caret.black.right.icon
       router-link.slide-item(v-for="(t,idx) in mySlideTopics",
         :to="'/topic/'+t.routeName",
         :style="{ 'z-index': t.zIndex, opacity: t.opacity, transform: t.transform, '-ms-transform': t.transform, '-webkit-transform': t.transform  }")
@@ -124,8 +124,17 @@ export default {
     top: 50%;
     left: 50%;
     @include transform(translate(-50%, -50%));
-    width: 100%;
-    background: hsla(0,0,0%,0.1);
+    // width: 100%;
+    // background: hsla(0,0,0%,0.1);
+    justify-content: center;
+    display: flex;
+    flex-flow: column;
+    width: 30rem;
+    height: 30rem;
+    border-radius: 30rem;
+    border: 1px solid lightgray;
+    background: rgba(240, 240, 240, 0.9);
+    
     .slogan, .title, .status {
       // margin-left: auto;
       // margin-right: auto;
@@ -134,8 +143,8 @@ export default {
     }
     .slogan.ui.header {
       font-family: $main_font;
-      text-shadow: 0 0px 1em white;
       font-size: 3rem;
+      // text-shadow: 0 0px 1em white;
       // text-shadow: 0 2px 2px #fff, 0 0 2px #fff;
       // width: 250px;
     }
@@ -164,7 +173,7 @@ export default {
       position: absolute;
       z-index: 5;
       top: 44vh;
-      text-shadow: 0px 2px 1px #ccc;
+      text-shadow: 0 0 1em white;
     }
     &.pre {
       left: 5px;
