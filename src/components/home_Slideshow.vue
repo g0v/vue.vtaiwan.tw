@@ -129,8 +129,10 @@ export default {
     display: flex;
     justify-content: center;
     flex-flow: column;
-    width: 30rem;
-    height: 30rem;
+    width: 30em;
+    // max-width: 100%;
+    height: 30em;
+    // max-height: 100%;
     border-radius: 30rem;
     // border: 1px solid lightgray;
     background: hsla(0, 79%, 72%, 0.9);

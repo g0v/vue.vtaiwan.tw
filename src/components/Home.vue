@@ -5,7 +5,7 @@
 
     StepGuide.stepguide
 
-    .ui.divider
+    // .ui.divider
 
     // HotProposal(:hotProposal="hotTopics", header="熱門議題").hotproposal
 

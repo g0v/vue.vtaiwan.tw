@@ -91,9 +91,10 @@ export default {
     .label {
       // background: #000;
       // color: #FFF;
-      font-size: 2rem;
-      border: 1px #000 solid;
       display: inline-block;
+      font-size: 2rem;
+      line-height: 1em;
+      border-bottom: 1px #000 solid;
       padding: 3px 7px;
     }
 
