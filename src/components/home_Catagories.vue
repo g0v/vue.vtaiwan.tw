@@ -22,50 +22,61 @@ export default {
 
 
 <style lang="scss" scoped>
-  @import "bourbon";
+  @import "../sass/global.scss";
   
   .component {
     width: 100%;
-    margin-top: 4em;
-    padding: 3em;
+    max-width: 1200px;
+    margin: 2em auto 0 auto;
+    padding: 0 3em;
+
     .inner {
-      border: 1px solid black;
-      min-height: 6em;
+      // border: 1px solid black;
+/*      min-height: 6em;
       height: calc(25vw - 4em);
       @media only screen and (max-width: 767px) {
         height: calc(50vw - 5em);        
       }
       @media only screen and (max-width: 991px) and (min-width: 768px) {
         height: calc(50vw - 5em);
-      }
+      }*/
       a {
-        display : flex;
-        align-items : center;
+        display: flex;
+        align-items: center;
         justify-content: center;
         position: relative;
-        width: 100%;
-        height: 100%;
+        // width: 100%;
+        // height: 100%;
         overflow: hidden;
-        @include transition(all 0.3s);
         .txt {
-          display: inline;
           position: relative;
           z-index: 1;
-          color: white;
-          text-shadow: 0 2px 0 black;
-          font-size: 2em;
-          font-weight: lighter;
+          display: inline;
+          font-size: 3rem;
+          line-height: 5em;
+          @include transition(all 0.3s);
+          text-shadow: 1px 1px 1em black;
+          color: black;
+          // font-weight: lighter;
         }
         img {
           position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-        }
-        &:hover {
+          top: 50%;
+          left: 50%;
+          @include transform(translate(-50%,-50%));
+          max-width: 100%;
+          height: auto;
+          @include transition(all 0.3s);
           opacity: 0.5;
+        }
 
+        &:hover {
+          .txt {
+            color: white;
+          }
+          img {
+            opacity: 1;
+          }
         }
       }
     }

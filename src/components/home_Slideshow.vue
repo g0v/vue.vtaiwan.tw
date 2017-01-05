@@ -133,7 +133,7 @@ export default {
     height: 30rem;
     border-radius: 30rem;
     // border: 1px solid lightgray;
-    background: lightcoral;
+    background: hsla(0, 79%, 72%, 0.9);
     box-shadow: 2px 4px 5px hsla(0,0,0%,0.5);
     
     .slogan, .title, .status {

@@ -79,6 +79,7 @@
 
   .nav-tabs {
     display: flex;
+    justify-content: center;
     cursor: pointer;
     font-size: 0.8rem;
     a {

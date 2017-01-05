@@ -1,15 +1,21 @@
 <template lang="jade">
   .home
-    Slideshow(:hotTopics="hotTopics", :allTopics="allTopics").slideshow
-    StepGuide.stepguide
-    .ui.divider
-    HotProposal(:hotProposal="hotTopics", header="熱門議題").hotproposal
-    .ui.divider
-    ProposalTab.proposalTab(:allTopics="allTopics")
-    Catagories(:catagories="catagories").catagories
-    
 
-    
+    Slideshow(:hotTopics="hotTopics", :allTopics="allTopics").slideshow
+
+    StepGuide.stepguide
+
+    .ui.divider
+
+    // HotProposal(:hotProposal="hotTopics", header="熱門議題").hotproposal
+
+    // .ui.divider
+
+    ProposalTab.proposalTab(:allTopics="allTopics")
+
+    .ui.divider
+
+    Catagories(:catagories="catagories").catagories
 
 </template>
 
