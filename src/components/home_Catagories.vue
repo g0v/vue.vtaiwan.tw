@@ -45,6 +45,7 @@ export default {
         align-items: center;
         justify-content: center;
         position: relative;
+        box-shadow: 0 3px 1em rgba(0, 0, 0, 0.2);
         // width: 100%;
         // height: 100%;
         overflow: hidden;
@@ -53,11 +54,11 @@ export default {
           z-index: 1;
           display: inline;
           font-size: 3rem;
-          line-height: 5em;
+          line-height: 3em;
           @include transition(all 0.3s);
-          text-shadow: 1px 1px 1em black;
+          text-shadow: 1px 1px 1em white;
           color: black;
-          // font-weight: lighter;
+          font-weight: 700;
         }
         img {
           position: absolute;
@@ -72,6 +73,7 @@ export default {
 
         &:hover {
           .txt {
+            text-shadow: 1px 1px 1em black;
             color: white;
           }
           img {

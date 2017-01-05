@@ -8,7 +8,7 @@
           img(:src ="t.cover || 'http://lorempixel.com/320/240/sports'")
           // .null
           h3.header {{ t.title }}
-            .sub.header {{ t.owner }} 
+            // .sub.header {{ t.owner }} 
 
           .progress_bar
             .progress(v-bind:style="{ width: (t.progress / t.total * 100) + '%' }")
@@ -58,11 +58,11 @@
       // flex: 1 1;
       color: black;
       font-family: $main_font;
-      font-size: .8rem;
+      // font-size: .8rem;
       margin: .5em;
       // margin-top: .5em;
       // flex: 1;
-      text-align: left;
+      // text-align: left;
       .sub.header {
         color: #999;
         font-size: .5em;
@@ -79,6 +79,10 @@
         // border-radius: 0 5px 0 0;
       }
       margin-bottom: 4px;
+    }
+    .progress_text {
+      font-size: .8rem;
+      text-align: right;
     }
   }
   

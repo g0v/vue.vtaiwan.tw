@@ -82,7 +82,7 @@ export default {
       background: #AAA;
       // border: 1px #000 solid;
       font-size: 5rem;
-      // font-weight: 100;
+      font-weight: 700;
       // font-style: oblique;
       line-height: 1.2em;
       width: 1.2em;
@@ -93,8 +93,9 @@ export default {
       // color: #FFF;
       display: inline-block;
       font-size: 2rem;
+      font-weight: 700;
       line-height: 1em;
-      border-bottom: 1px #000 solid;
+      border-bottom: 3px #000 solid;
       padding: 3px 7px;
     }
 
