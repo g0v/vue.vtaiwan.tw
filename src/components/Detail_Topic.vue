@@ -20,16 +20,10 @@
       Timeline(:article="article")
     // 參與討論
     .step(v-if="$route.params.sId == 2 && polis_link[0] !== undefined")
-      // {{timeline}}
-      // {{polis_link}}
-      Discussion(:urllink="polis_link")
-      //iframe from polis
-      // .ui.container
-      //   .polis(:data-conversation_id=" t.polisId || fooPolisId")
-      //   script(async='true', src='https://pol.is/embed.js')
+      Discussion(:urllink="polis_link") 
     // 下一階段
     .step(v-if="$route.params.sId == 3")
-      h2 be continued
+      // <div class="ui top attached tabular menu"></div>
 </template>
 
 <script>
@@ -51,10 +45,7 @@ export default {
   data () {
     return {
       steps: ['詳細內容', '議題時間軸', '參與討論', '下一階段'],
-      // myS: '詳細內容'
-      fooPolisId: '89bzf78kbn',
       article:{}, // title & status
-      information:{}, // 詳細內容
       timeline:[], // 時間軸
       polis_link:[] // polis連結
     }
@@ -69,9 +60,6 @@ export default {
       else{return t};
     }
   },
-  created:function(){
-    console.log("created");
-  },
   beforeUpdate:function(){
 
      axios.get('https://talk.vtaiwan.tw/t/'+ this.article.id +'.json?include_raw=1')
@@ -83,46 +71,22 @@ export default {
        if(this.timeline.length === 0){
          for(var i in detail_info){
            var regex = /(?: (?:init )?)|\n/g;
-           var timeline_content = {};
            var link = {};
            var links = [];
            var polis = {};
-           timeline_content['title'] = detail_info[i]['raw'].split(regex)[0]; // 進度
-           timeline_content['start'] = detail_info[i]['raw'].split(regex)[1]; // 開始日期
 
-           link= detail_info[i]['raw'].split(regex); // 第二行後連結
-           console.log(detail_info[i]['raw'].split(regex,3));
-           if(timeline_content['start'].length <detail_info[i]['raw'].split(regex)[2].length){ // 若為"寫草案" 則無結束日期 僅開始日期
-             timeline_content['start'] = timeline_content['start'] + " " + detail_info[i]['raw'].split(regex)[2];
-             timeline_content['end'] = null;
-           }
-           else{
-             timeline_content['end'] = "至"+ detail_info[i]['raw'].split(regex)[2]; // 結束日期
-           }
-           
+           link= detail_info[i]['raw'].split(regex); // 連結集合
+
            for(var j = 3; j < link.length; j++ ){
-             if(detail_info[i]['raw'].split(regex)[j].indexOf("pol.is")>-1){               
+             if(detail_info[i]['raw'].split(regex)[j].indexOf("pol.is")>-1){ //篩出含有polis的連結                
                polis = detail_info[i]['raw'].split(regex)[j];
                this.polis_link.push(polis);
              } 
-             links.push(detail_info[i]['raw'].split(regex)[j]);
            }
-           timeline_content['link'] = links;
-          //  timeline_content['polis'] = polis;
-           //console.log(this.polis_link); 
-           this.timeline.push(timeline_content);
-         }
-         
-       }
-
-       
-       
-     })
-      
+         }       
+       }      
+     })    
   },
-  watch:{
-    
-  }
 }
 
 </script>
