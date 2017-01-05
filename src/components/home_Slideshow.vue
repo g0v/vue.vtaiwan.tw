@@ -134,8 +134,8 @@ export default {
     height: 30em;
     // max-height: 100%;
     border-radius: 30rem;
-    // border: 1px solid lightgray;
-    background: hsla(0, 79%, 72%, 0.9);
+    border: 5px solid lightcoral;
+    background: hsla(0, 0, 100%, 0.75);
     box-shadow: 2px 4px 5px hsla(0,0,0%,0.5);
     
     .slogan, .title, .status {

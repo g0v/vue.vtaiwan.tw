@@ -78,8 +78,8 @@ export default {
     }
     .number {
       border-radius: 1em;
-      color: #FFF;
-      background: #AAA;
+      color: white;
+      background: lightcoral;
       // border: 1px #000 solid;
       font-size: 5rem;
       font-weight: 700;

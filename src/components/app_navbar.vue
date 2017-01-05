@@ -149,7 +149,7 @@ form.search {
       color: #030;
     }
     &:hover {
-  //    border-bottom: 3px solid green;
+      background: lightcoral;
     }
     &.active, &.router-link-active {
       background-color: $main;

@@ -96,7 +96,7 @@
       border-bottom: 0px;
       // background: white;
       &:hover, &:active, &.active {
-        border-bottom: 5px gray solid;
+        border-bottom: 5px lightcoral solid;
       }
     }    
   }
