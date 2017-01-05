@@ -17,7 +17,7 @@ export default {
   },
   created:function(){
     if(this.urllink[0].indexOf('pol.is')!=-1){
-      this.polis_id = this.urllink[0].replace(/.*\//,"");
+      this.polis_id = this.urllink[0].replace(/.*\//,""); //擷取pol.is網址 字串
     }
   }
 }
