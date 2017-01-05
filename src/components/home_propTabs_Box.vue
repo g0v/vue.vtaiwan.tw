@@ -2,13 +2,11 @@
   .component
     .ui.grid.four.column.padded.doubling
       .box.column(v-for="t in list")
-        .inner
+        // .inner
         router-link.topic(:to="'/topic/' + t.routeName")
 
           img(:src ="t.cover || 'http://lorempixel.com/320/240/sports'")
-
           // .null
-
           h3.header {{ t.title }}
             .sub.header {{ t.owner }} 
 
@@ -35,7 +33,7 @@
   @import "../sass/global.scss";
 
   .box {
-    display:flex !important;
+    display: flex !important;
   }
 
   a {
@@ -44,6 +42,10 @@
     // flex: 1 1 20%;
     display: flex;
     flex-flow: column nowrap;
+    @include transition(all .1s ease);
+    &:hover {
+      margin: 3px -3px -3px 3px;
+    }
     img {
       flex: 1 1;
       max-width: 100%;

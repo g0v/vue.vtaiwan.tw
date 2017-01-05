@@ -83,7 +83,7 @@ export default {
       // border: 1px #000 solid;
       font-size: 5rem;
       // font-weight: 100;
-      font-style: italic;
+      // font-style: oblique;
       line-height: 1.2em;
       width: 1.2em;
       height: 1.2em;
@@ -91,6 +91,7 @@ export default {
     .label {
       // background: #000;
       // color: #FFF;
+      font-size: 2rem;
       border: 1px #000 solid;
       display: inline-block;
       padding: 3px 7px;
