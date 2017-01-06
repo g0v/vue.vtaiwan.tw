@@ -1,6 +1,6 @@
 <template lang="jade">
   .component
-    .ui.grid.four.column.padded.doubling
+    .ui.grid.four.column.padded.doubling.emptyable
       .box.column(v-for="t in list")
         // .inner
         router-link.topic(:to="'/topic/' + t.routeName")
@@ -31,6 +31,22 @@
 
 <style lang="scss" scoped>
   @import "../sass/global.scss";
+
+  // @keyframes spin {
+  //     from { transform: rotate(0deg); }
+  //     to { transform: rotate(360deg); }
+  // }
+  @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+  .emptyable:empty::after {
+    margin: 1em auto;
+    content: "*";
+    width: 25px;
+    height: 25px;
+    color: lightcoral;
+    
+    animation:spin 3s linear infinite;
+    // background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAMAAADzN3VRAAAA8FBMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABmRfStAAAAT3RSTlMAAQIDBAUGBwkLDA0PEBEUFhkaHiAjJikqKy4vMDE4PD9BRUZHS01QV1ldZ2t3eHuOmp2mqqutr7K1usHHyMrM0dXX2dzk5ujt8fP19/n90SbjHAAAAOVJREFUGBmFwYlSgmAAhdH7I2lWomVZmZqV7ftuqxJpC9D3/m8TOTgC40zn6F/W2vmzT/h04ijF7H8SW1JSqc/YhSJGseUQeGzPGVnzOUnGrWukHMJgQxN7/FQUsTzoF5RwDe9G0gEM8kqyPTiU7ABqSluBb0vbcKOsLjR0B3VlteFMq82GUVYRXjWVBV+aDtBUFgzVaLWMshy41y00lbULR+pAV1kuLGoGqCltC3qSjuGjqKRSAOuSch68zSrhAa70pxyAv6mJGq6tkaoP9HacnLEreUVOC4otvDB2qTTTGRKrKvYL2GMwO8IkLjAAAAAASUVORK5CYII=);
+  }
 
   .box {
     display: flex !important;
@@ -75,7 +91,7 @@
       // margin: 3px 0;
       .progress {
         height: 5px;
-        background-color: #426;
+        background-color: lightcoral;
         // border-radius: 0 5px 0 0;
       }
       margin-bottom: 4px;

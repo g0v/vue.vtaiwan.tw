@@ -108,10 +108,10 @@ export default {
     left: 0;
     @include transition(transform .5s ease-in-out, z-index .3s ease-in-out);
     img.full-page {
-      min-height: 80vh;
       width: 100vw;
+      min-height: 99.9vh;
       background-color: #999;
-      opacity: 0.6;
+      // opacity: 0.6;
     }
     overflow: hidden;
     // height: 80%;
@@ -124,44 +124,42 @@ export default {
     top: 50%;
     left: 50%;
     @include transform(translate(-50%, -50%));
-    // width: 100%;
-    // background: hsla(0,0,0%,0.1);
     display: flex;
     justify-content: center;
     flex-flow: column;
-    width: 30em;
+    align-items: center;
+    width: 100%;
     // max-width: 100%;
-    height: 30em;
-    // max-height: 100%;
-    border-radius: 30rem;
-    border: 5px solid lightcoral;
-    background: hsla(0, 0, 100%, 0.75);
-    box-shadow: 2px 4px 5px hsla(0,0,0%,0.5);
+    height: 100%;
+    // box-shadow: 2px 4px 5px hsla(0,0,0%,0.5);
+    // border-radius: 30rem;
+    // background: linear-gradient(to bottom, transparent, hsla(0, 0, 0%, 0.8), transparent);
+    background: radial-gradient(circle, hsla(0, 0, 0%, 0.8), transparent);
     
     .slogan, .title, .status {
-      // margin-left: auto;
-      // margin-right: auto;
-      margin: 1em auto;
-      display: box;
+      // margin: 1em auto;
     }
     .slogan.ui.header {
       font-family: $main_font;
       font-size: 3rem;
-      // text-shadow: 0 0px 1em white;
-      // text-shadow: 0 2px 2px #fff, 0 0 2px #fff;
-      // width: 250px;
+      color: white;
+      letter-spacing: .3em;
+      text-shadow: 0 0 5px gray;
     }
     .title {
-      width: 250px;
-      border: 2px solid black;
+      font-size: 1.2rem;
+      width: 15em;
       background-color: white;
-      padding: 0.8em;
+      letter-spacing: .3em;
+      padding: 1em;
+      margin: 1em;
     }
     .status {
-      color: white;
-      background-color: black;
-      width: 100px;
-      padding: 0.5em;
+      font-size: 2rem;
+      font-weight: 700;
+      color: lightcoral;
+      border-bottom: 6px double lightcoral;
+      padding: 0.1em;
     }
   }
 
@@ -176,7 +174,7 @@ export default {
       position: absolute;
       z-index: 5;
       top: 44vh;
-      text-shadow: 0 0 1em white;
+      text-shadow: 0 0 5px lightgray;
     }
     &.pre {
       left: 5px;
