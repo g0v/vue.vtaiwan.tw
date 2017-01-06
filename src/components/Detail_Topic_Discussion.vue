@@ -8,22 +8,37 @@
 <script>
 import axios from 'axios'
 export default {
-  props:['urllink'],
+  props:['article'],
   data () {
     return {
           polis_id:[],
-          ulinkall:[],
     }
   },
   created:function(){
-    if(this.urllink[0].indexOf('pol.is')!=-1){
-      this.polis_id = this.urllink[0].replace(/.*\//,""); //擷取pol.is網址 字串
-    }
+    
+    axios.get('https://talk.vtaiwan.tw/t/'+ this.article.id +'.json?include_raw=1')
+     .then((response)=>{
+       var detail_info = response.data;
+
+       detail_info = detail_info['post_stream']['posts'].slice(1); // 取得議題時間軸內容
+      
+       for(var i in detail_info){
+           var regex = /(?: (?:init )?)|\n/g;
+           var link = {};
+
+           link= detail_info[i]['raw'].split(regex); // 連結集合
+
+           for(var j = 3; j < link.length; j++ ){
+             if(detail_info[i]['raw'].split(regex)[j].indexOf("pol.is")>-1){ //篩出含有polis的連結                
+               this.polis_id = detail_info[i]['raw'].split(regex)[j].replace(/.*\//,"");
+             }
+           }
+       }       
+            
+     })    
   }
 }
 </script>
 
-
 <style lang="scss" scoped>
-  
 </style>

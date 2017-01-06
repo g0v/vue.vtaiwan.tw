@@ -48,7 +48,7 @@ export default {
             timeline_content['start'] = detail_info[i]['raw'].split(regex)[1]; // 開始日期
 
             link= detail_info[i]['raw'].split(regex); // 第二行後連結
-            console.log(detail_info[i]['raw'].split(regex,3));
+
             if(timeline_content['start'].length <detail_info[i]['raw'].split(regex)[2].length){ // 若為"寫草案" 則無結束日期 僅開始日期
                 timeline_content['start'] = timeline_content['start'] + " " + detail_info[i]['raw'].split(regex)[2];
                 timeline_content['end'] = null;
@@ -57,14 +57,9 @@ export default {
                 timeline_content['end'] = "至"+ detail_info[i]['raw'].split(regex)[2]; // 結束日期
             }
             for(var j = 3; j < link.length; j++ ){
-             if(detail_info[i]['raw'].split(regex)[j].indexOf("pol.is")>-1){
-               
-               polis =  "polis"+detail_info[i]['raw'].split(regex)[j];
-               this.polis_link.push(polis);
-             } 
-             links.push(detail_info[i]['raw'].split(regex)[j]);
-           }
-           timeline_content['link'] = links; 
+                links.push(detail_info[i]['raw'].split(regex)[j]);
+            }
+            timeline_content['link'] = links; 
             this.timeline.push(timeline_content);
          }        
        }      
