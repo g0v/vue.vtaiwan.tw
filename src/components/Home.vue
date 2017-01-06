@@ -17,6 +17,7 @@
 
     Catagories(:catagories="catagories").catagories
 
+
 </template>
 
 
@@ -28,6 +29,7 @@ import ProposalTab from './home_ProposalTab.vue'
 import Catagories from './home_Catagories.vue'
 
 
+
 export default {
   name: 'Home',
   components: {
@@ -36,6 +38,7 @@ export default {
     HotProposal,
     ProposalTab,
     Catagories,
+
 
   },
   props:['allTopics', 'catagories'],
