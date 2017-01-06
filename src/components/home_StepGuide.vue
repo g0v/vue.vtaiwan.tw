@@ -48,16 +48,21 @@ export default {
   }
 
   .container {
+    border-top: 1px solid #DDD;
     display: flex;
     justify-content: space-between;
     text-align: center;
-    margin: 0 -2vw;
+    flex-flow: row wrap;
+    // margin: 0 -2vw;
     @media only screen and (max-width: 767px) {
-      flex-direction: column;        
+      flex-flow: column wrap;        
     } 
     .step {
       flex: 1;
-      margin: 0 -2vw;
+      margin: 0 1em;
+      padding: 1em;
+      // height: 10em;
+      // margin: 0 -2vw;
       @media only screen and (max-width: 600px) {
         min-width: 100vw;        
       } 
@@ -66,21 +71,31 @@ export default {
     .label,
     .description {
       margin: 0 auto;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      // display: flex;
+      // justify-content: center;
+      // align-items: center;
       margin-top: 15px;
     }
     .number {
-      border-radius: 99px;
-      border: 1px #000 solid;
-      width: 26px;
-      height: 26px;
+      border-radius: 1em;
+      color: white;
+      background: lightcoral;
+      // border: 1px #000 solid;
+      font-size: 5rem;
+      font-weight: 700;
+      // font-style: oblique;
+      line-height: 1.2em;
+      width: 1.2em;
+      height: 1.2em;
     }
     .label {
-      background: #000;
-      color: #FFF;
+      // background: #000;
+      // color: #FFF;
       display: inline-block;
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1em;
+      border-bottom: 3px #000 solid;
       padding: 3px 7px;
     }
 

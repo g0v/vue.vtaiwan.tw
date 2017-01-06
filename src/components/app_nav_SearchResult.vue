@@ -48,9 +48,9 @@ export default {
   max-height: 66vh;
   overflow: auto;
   background-color: rgba(255,255,255,0.8);
-  border-bottom: 2px solid black;
-  border-left: 1px solid black;
-  border-right: 1px solid black;
+  // border-bottom: 2px solid black;
+  // border-left: 1px solid black;
+  // border-right: 1px solid black;
   font-size: .7rem;
 }
 

@@ -69,24 +69,34 @@
 </script>
 
 <style lang="scss" scoped>
+  @import "../sass/global.scss";
+
   .component {
     width: 100%;
     max-width: 1200px;
+    min-height: 20em;
     margin: 0 auto;
     padding: 0 20px;
-    font-size: 0.8rem;
+    // font-size: 0.8rem;
   }
 
   .nav-tabs {
     display: flex;
-    cursor: pointer;
-    font-size: 0.8rem;
+    justify-content: center;
+    // cursor: pointer;
+    // font-size: 0.8rem;
+    border-bottom: 1px solid gray;
     a {
       color: black;
-      padding: .2em .5em;
+      padding: .2em 1em;
       margin: 0 1em;
+      border: 1px solid gray;
+
+      @include transition(all 0.1s ease);
+      border-bottom: 0px;
+      // background: white;
       &:hover, &:active, &.active {
-        border-bottom: 4px black solid;
+        border-bottom: 5px lightcoral solid;
       }
     }    
   }
