@@ -1,28 +1,27 @@
 <template lang="jade">
   .component    
     .ui.container
-      h2.ui.header {{article.title}}
-        .sub.header {{article.status}}
+      h1.ui.huge.header {{article.title}}
+      h4.ui.medium.header {{article.status}}
       br
-      video(controls, :style="{'background-image': 'url('+article.cover+')'}")
-        // source(:src = "https://github.com/g0v/vue.vtaiwan.tw/blob/master/vTaiwan%20v4%20record.mov", type="video/mov")
+      video(:style="{'background-image': 'url('+article.cover+')'}")
       br
       .tab_container
         input#tab1(type='radio', name='tabs', checked='')
         label(for='tab1')
-          i.fa.fa-code
+          i.fa.fa-info-circle
           span 詳細內容
         input#tab2(type='radio', name='tabs')
         label(for='tab2')
-          i.fa.fa-pencil-square-o
+          i.fa.fa-calendar
           span 議題時間軸
         input#tab3(type='radio', name='tabs')
         label(for='tab3')
-          i.fa.fa-bar-chart-o
+          i.fa.fa-users
           span 參與討論
         input#tab4(type='radio', name='tabs')
         label(for='tab4')
-          i.fa.fa-folder-open-o
+          i.fa.fa-arrow-circle-right
           span 下一階段
         section#content1.tab-content(v-if = "article.id !== undefined")
           Description(:article="article")
@@ -51,7 +50,6 @@ export default {
   },
   data () {
     return {
-      steps: ['詳細內容', '議題時間軸', '參與討論', '下一階段'],
       article:{}, // title & status
       timeline:[], // 時間軸
       polis_link:[] // polis連結
@@ -82,44 +80,14 @@ p {
 }
 
 video {
-  min-width: 80%;
+  min-width: 75%;
   min-height: 50vh;
   background-color: #ccc;
   background-size: cover;
 }
-
-.steps {
-  display: inline-flex;
-  width: 66vw;
-  // justify-content: center;
-  a {
-    flex: 1;
-    padding: .5em .5em;
-    color: black;
-    font-size: 1.2rem;
-    line-height: 1.1;
-    &:hover, &:active, &.active {
-      border-bottom: 2px solid black;
-    }
-    &.router-link-active {
-      border-bottom: 2px solid black;  
-    }
-  }
+.ui.medium.header{
+  color:#db2828;
 }
-
-@media only screen and (max-width: 767px) {
-  .steps {
-    flex-direction: column;  
-    a {
-      max-width: 50vw; 
-      flex: 1 1 5vh;      
-    }      
-  }
-} 
-
-
-
-
 .event-list {
   display: flex;
   flex-flow: column nowrap;
@@ -151,7 +119,7 @@ video {
   display: none !important;
 }*/
 
-@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css');
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 
 *,
 *:after,
@@ -184,14 +152,14 @@ h1 {
 a {
   color: #ccc;
   text-decoration: none;
-  outline: none;
+  outline: none;  
 }
 
 /*Fun begins*/
 .tab_container {
 	width: 90%;
 	margin: 0 auto;
-	padding-top: 10px;
+	padding-top: 25px;
 	position: relative;
 }
 
@@ -221,11 +189,11 @@ label {
 #tab4:checked ~ #content4, {
   display: block;
   padding: 20px;
-  background: #f0fff0;
+  background: rgba(204,114,0,0.28);
   color: #1b1c1d;
   border-bottom: 2px solid #f0f0f0;
 }
-
+.tab_container .tab-content,
 .tab_container .tab-content p,
 .tab_container .tab-content h3 {
   -webkit-animation: fadeInScale 0.7s ease-in-out;
@@ -236,13 +204,13 @@ label {
   text-align: center;
 }
 
-.tab_container [id^="tab"]:checked + label {
-  background: #f0fff0;
-  box-shadow: inset 0 3px #0CE;
+.tab_container [id^="tab"]:checked + label { // icon bar 
+  background: rgba(204,114,0,0.28);
+  box-shadow: inset 0 3px #f2711c;
 }
 
-.tab_container [id^="tab"]:checked + label .fa {
-  color: #0CE;
+.tab_container [id^="tab"]:checked + label .fa { // icon color
+  color: #f2711c;
 }
 
 label .fa {
