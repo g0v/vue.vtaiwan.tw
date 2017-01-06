@@ -1,6 +1,6 @@
 <template lang="jade">
   .component
-    .subtitle 階段說明
+    // .subtitle 階段說明
     .container
       .step(v-for='(item, index) in step')
         .number {{index+1}}
@@ -14,15 +14,23 @@ export default {
     return {
       step: [
         {
-          label: '討論中',
+          label: '即將開始',
           description: '在草案未形成前\n跳脫時間空間限制\n擴大搜集\n利害相關人之意見',
         },
         {
-          label: '寫草案',
+          label: '意見徵集',
           description: '邀請核心利害相關者\n參與諮詢會議\n加入實體見面討論\n一同將意見化為草案',
         },
         {
-          label: '已送審',
+          label: '研擬草案',
+          description: '將成熟的草案加強\n寫成定案\n送交立法院\n追蹤審查進度與結果',
+        },
+        {
+          label: '送交院會',
+          description: '將成熟的草案加強\n寫成定案\n送交立法院\n追蹤審查進度與結果',
+        },
+        {
+          label: '歷史案件',
           description: '將成熟的草案加強\n寫成定案\n送交立法院\n追蹤審查進度與結果',
         },
       ],
@@ -33,9 +41,11 @@ export default {
 
 
 <style lang="scss" scoped>
+  @import "../sass/global.scss";
+
   .component {
     width: 100%;
-    max-width: 640px;
+    max-width: $comp_max_width;
     margin: 2em auto;
     font-size: 0.8rem;
   }
@@ -48,11 +58,11 @@ export default {
   }
 
   .container {
-    border-top: 1px solid #DDD;
+    // border-top: 1px solid #DDD;
     display: flex;
     justify-content: space-between;
     text-align: center;
-    flex-flow: row wrap;
+    flex-flow: row nowrap;
     // margin: 0 -2vw;
     @media only screen and (max-width: 767px) {
       flex-flow: column wrap;        
