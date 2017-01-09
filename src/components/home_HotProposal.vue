@@ -11,7 +11,7 @@
           .owner {{item.owner}}
           .progress_bar
             .progress(v-bind:style="{ width: (item.progress / item.total * 100) + '%' }")
-          .progress_text 還有{{item.total - item.progress}}天
+          .progress_text(v-if="item.status==='討論中'") 還有{{Math.floor(item.total - item.progress)}}天
 </template>
 
 <script>
@@ -20,7 +20,7 @@ export default {
   props: ['hotProposal', 'header'],
   data () {
     return {
-      //...
+      //...'/step/0'
     }
   }
 }

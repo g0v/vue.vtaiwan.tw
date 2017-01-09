@@ -2,9 +2,9 @@
   .component
     .slide-page      
       a.pre(@click="c = cycle(-1)")
-        i.huge.chevron.black.left.icon
+        i.huge.caret.black.left.icon
       a.next(@click="c = cycle(1)")
-        i.huge.chevron.black.right.icon
+        i.huge.caret.black.right.icon
       router-link.slide-item(v-for="(t,idx) in mySlideTopics",
         :to="'/topic/'+t.routeName",
         :style="{ 'z-index': t.zIndex, opacity: t.opacity, transform: t.transform, '-ms-transform': t.transform, '-webkit-transform': t.transform  }")
@@ -84,7 +84,7 @@ export default {
 
 
 <style lang="scss" scoped>
-  @import "bourbon";
+  @import "../sass/global.scss";
 
   .component {
     position: relative;
@@ -99,7 +99,7 @@ export default {
   .slide-page {
     display: block;
     height: 90%;
-    height: 90vh;
+    height: 99.9vh;
   }
 
   .slide-item {
@@ -108,13 +108,59 @@ export default {
     left: 0;
     @include transition(transform .5s ease-in-out, z-index .3s ease-in-out);
     img.full-page {
-      min-height: 80vh;
       width: 100vw;
+      min-height: 99.9vh;
       background-color: #999;
+      // opacity: 0.6;
     }
     overflow: hidden;
-    height: 80%;
-    height: 80vh;
+    // height: 80%;
+    height: 99.9vh;
+  }
+
+  .box {
+    font-size: 1rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include transform(translate(-50%, -50%));
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+    align-items: center;
+    width: 100%;
+    // max-width: 100%;
+    height: 100%;
+    // box-shadow: 2px 4px 5px hsla(0,0,0%,0.5);
+    // border-radius: 30rem;
+    // background: linear-gradient(to bottom, transparent, hsla(0, 0, 0%, 0.8), transparent);
+    background: radial-gradient(circle, hsla(0, 0, 0%, 0.8), transparent);
+    
+    .slogan, .title, .status {
+      // margin: 1em auto;
+    }
+    .slogan.ui.header {
+      font-family: $main_font;
+      font-size: 3rem;
+      color: white;
+      letter-spacing: .3em;
+      text-shadow: 0 0 5px gray;
+    }
+    .title {
+      font-size: 1.2rem;
+      width: 15em;
+      background-color: white;
+      letter-spacing: .3em;
+      padding: 1em;
+      margin: 1em;
+    }
+    .status {
+      font-size: 2rem;
+      font-weight: 700;
+      color: lightcoral;
+      border-bottom: 6px double lightcoral;
+      padding: 0.1em;
+    }
   }
 
   a {
@@ -127,8 +173,8 @@ export default {
     &.pre, &.next {      
       position: absolute;
       z-index: 5;
-      top: 33vh;
-      text-shadow: 0px 2px 1px #ccc;
+      top: 44vh;
+      text-shadow: 0 0 5px lightgray;
     }
     &.pre {
       left: 5px;
@@ -138,34 +184,6 @@ export default {
     }    
     i {
       @include transition(all 0.3s);
-    }
-  }
-
-  .box {
-    position: absolute;
-    top: 33vh;
-    width: 100%;
-    font-size: 1rem;
-    .slogan, .title, .status {
-      margin-left: auto;
-      margin-right: auto;
-      display: box;
-    }
-    .slogan {
-      text-shadow: 0 2px 2px #fff, 0 0 2px #fff;
-      width: 250px;
-    }
-    .title {
-      width: 250px;
-      border: 2px solid black;
-      background-color: white;
-      padding: 0.8em;
-    }
-    .status {
-      color: white;
-      background-color: black;
-      width: 100px;
-      padding: 0.5em;
     }
   }
 

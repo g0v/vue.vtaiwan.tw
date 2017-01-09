@@ -1,15 +1,21 @@
 <template lang="jade">
+
 nav.component
+
+  // router-link.explore.fat-only(to='/', exact='')
+    // | 探索
+
+  form.search(:class="{active: myKey}", @keyup.down="onKeyDown()")
+    i.search.icon
+    input(type="search", v-model="myKey", placeholder="探索")
+    SearchResult(v-show="myKey", :allTopics="allTopics", :myKey = "myKey", :myIdx="myIdx")
+
   router-link.logo(to='/', exact='')
     img(width='30', height='30', src='../assets/logo.png', alt='logo')
     span.fat-only vTaiwan
-  router-link.explore.fat-only(to='/', exact='')
-    | 探索
-  form.search(:class="{active: myKey}", @keyup.down="onKeyDown()")
-    i.search.icon
-    input(type="search", v-model="myKey")
-    SearchResult(v-show="myKey", :allTopics="allTopics", :myKey = "myKey", :myIdx="myIdx")
+
   .null
+
   .more.thin-only
     a(@click="showDropDown = !showDropDown")
       | 更多
@@ -59,7 +65,7 @@ export default {
 @import "../sass/global.scss";
 
 $navHeight: 55px;
-$navBgColor: hsla(60, 0%, 90%, 0.75);
+$navBgColor: hsla(0, 0%, 100%, 0.95);
 
 nav.component {
   display: flex;
@@ -67,6 +73,7 @@ nav.component {
   overflow: visible;
   align-items: center;
   background: $navBgColor;
+  border-bottom: 1px solid lightgray;
 }
 
 .logo, .explore {
@@ -97,14 +104,14 @@ form.search {
   i.search.icon {
     position: absolute;
     z-index: -1;
-    left: 0.5em;
-    top: 0.5em;
-    color: white;
-    font-size: 1.4em;
+    right: 0.5em;
+    line-height: 2em;
+    color: gray;
   }
   input {
-    height: 2.5em;
-    border: 1px solid white;
+    color: black;
+    height: 2em;
+    border: 1px solid gray;
     border-radius: 1em;
     padding: 0 .6em;
     background-color: transparent;
@@ -142,7 +149,7 @@ form.search {
       color: #030;
     }
     &:hover {
-  //    border-bottom: 3px solid green;
+      background: lightcoral;
     }
     &.active, &.router-link-active {
       background-color: $main;

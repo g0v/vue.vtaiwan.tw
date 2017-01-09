@@ -1,65 +1,72 @@
-
 <template lang="jade">
   .component    
     .ui.container
-      h2.ui.header {{t.title}}
-        .sub.header {{t.status}}
+      h1.ui.huge.header {{article.title}}
+      h4.ui.medium.header {{article.status}}
       br
-      video(controls, :style="{'background-image': 'url('+t.cover+')'}")
-        source(:src = "t.video || 'https://github.com/g0v/vue.vtaiwan.tw/blob/master/vTaiwan%20v4%20record.mov'", type="video/mov")
+      video(:style="{'background-image': 'url('+article.cover+')'}")
       br
-      .steps
-        router-link(v-for="(s,idx) in steps", :to="'/topic/'+$route.params.tRouteName+'/step/'+idx", exact='') {{s}}
-
-      br
-    .step(v-if="$route.params.sId == 0")
-    .step(v-if="$route.params.sId == 1")
-      // 時間軸
-      .event-list
-        .item(v-for = "(ev,idx) in (t.eventList || fooList)", :class="['dark','gloom','light'][idx % 3]")
-          .big {{ ev.y }}年{{ ev.m }}月
-          .small {{ ev.d }}日
-            br
-            | {{ ev.title }}
-          .null
-    .step(v-show="$route.params.sId == 2")
-      //iframe from polis
-      .ui.container
-        .polis(:data-conversation_id=" t.polisId || fooPolisId")
-        script(async='true', src='https://pol.is/embed.js')
-    .step(v-if="$route.params.sId == 3")
-
-
+      .tab_container
+        input#tab1(type='radio', name='tabs', checked='')
+        label(for='tab1')
+          i.fa.fa-info-circle
+          span 詳細內容
+        input#tab2(type='radio', name='tabs')
+        label(for='tab2')
+          i.fa.fa-calendar
+          span 議題時間軸
+        input#tab3(type='radio', name='tabs')
+        label(for='tab3')
+          i.fa.fa-users
+          span 參與討論
+        input#tab4(type='radio', name='tabs')
+        label(for='tab4')
+          i.fa.fa-arrow-circle-right
+          span 下一階段
+        section#content1.tab-content(v-if = "article.id !== undefined")
+          Description(:article="article")
+        section#content2.tab-content(v-if = "article.id !== undefined")
+          Timeline(:article="article")
+        section#content3.tab-content(v-if = "article.id !== undefined")
+          Discussion(:article="article")  
+        section#content4.tab-content
+          h2 unfinished!!!
 </template>
 
 <script>
+
+import axios from 'axios'
+import Description from './Detail_Topic_Description.vue'
+import Discussion from './Detail_Topic_Discussion.vue'
+import Timeline from './Detail_Topic_Timeline.vue'
+
 export default {
   name: 'Detial_Topic',
   props: ['allTopics'],
+  components: {
+      Description,
+      Discussion,
+      Timeline
+  },
   data () {
     return {
-      steps: ['詳細內容', '議題時間軸', '參與討論', '下一階段'],
-      // myS: '詳細內容'
-      fooPolisId: '89bzf78kbn',
-      fooList: [
-        {y: 2016, m:10, d: 8, title: '工作組會議' },
-        {y: 2016, m:10, d: 8, title: '工作組會議' },
-        {y: 2016, m:10, d: 8, title: '工作組會議' },
-        {y: 2016, m:9, d: 30, title: '進入草案階段' },
-        {y: 2016, m:8, d: 11, title: '討論爭點出現' }
-      ]
+      article:{}, // title & status
+      timeline:[], // 時間軸
+      polis_link:[] // polis連結
     }
   },
   computed: {
-    t: function () {
+    article:function(){
       var rtName = this.$route.params.tRouteName;
-      return this.allTopics.filter(function (o) {
+      var t = this.allTopics.filter( (o)=> {
         return o.routeName == rtName;
-      })[0]
-      // return this.allTopics[this.$route.params.tId]
+      })[0];
+      if(t===undefined){return new Object()}
+      else{return t};
     }
-  }
+  },
 }
+
 </script>
 
 <style scoped lang="scss">
@@ -69,48 +76,18 @@ export default {
 }
 
 p {
-  text-align: left;
+  text-align: center;
 }
 
 video {
-  min-width: 80%;
+  min-width: 75%;
   min-height: 50vh;
   background-color: #ccc;
   background-size: cover;
 }
-
-.steps {
-  display: inline-flex;
-  width: 66vw;
-  justify-content: center;
-  a {
-    flex: 1;
-    padding: .5em .5em;
-    color: black;
-    font-size: 1.2rem;
-    line-height: 1.1;
-    &:hover, &:active, &.active {
-      border-bottom: 2px solid black;
-    }
-    &.router-link-active {
-      border-bottom: 2px solid black;  
-    }
-  }
+.ui.medium.header{
+  color:#db2828;
 }
-
-@media only screen and (max-width: 767px) {
-  .steps {
-    flex-direction: column;  
-    a {
-      max-width: 50vw; 
-      flex: 1 1 5vh;      
-    }      
-  }
-} 
-
-
-
-
 .event-list {
   display: flex;
   flex-flow: column nowrap;
@@ -128,11 +105,11 @@ video {
       flex: 1 0 6em;
     }
     .small {
-      flex: 1 0 6em;
-      font-size: 0.8em;
+      flex: 2 0 6em;
+      font-size: 1.0em;
     }
     .null {
-      flex: 5 2;
+      flex: 4 2;
     }
   }
 }
@@ -142,6 +119,136 @@ video {
   display: none !important;
 }*/
 
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+*,
+*:after,
+*:before {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.clearfix:before,
+.clearfix:after {
+	content: " ";
+	display: table;
+}
+
+.clearfix:after {
+	clear: both;
+}
+
+body {
+	font-family: sans-serif;
+	background: #f6f9fa;
+}
+
+h1 {
+	color: #ccc;
+	text-align: center;
+}
+
+a {
+  color: #ccc;
+  text-decoration: none;
+  outline: none;  
+}
+
+/*Fun begins*/
+.tab_container {
+	width: 90%;
+	margin: 0 auto;
+	padding-top: 25px;
+	position: relative;
+}
+
+input, section {
+  clear: both;
+  padding-top: 10px;
+  display: none;
+}
+
+label {
+  font-weight: 700;
+  font-size: 18px;
+  display: block;
+  float: left;
+  width: 25%;
+  padding: 1.5em;
+  color: #1b1c1d;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  background: #f0f0f0;
+}
+
+#tab1:checked ~ #content1,
+#tab2:checked ~ #content2,
+#tab3:checked ~ #content3,
+#tab4:checked ~ #content4, {
+  display: block;
+  padding: 20px;
+  background: rgba(204,114,0,0.28);
+  color: #1b1c1d;
+  border-bottom: 2px solid #f0f0f0;
+}
+.tab_container .tab-content,
+.tab_container .tab-content p,
+.tab_container .tab-content h3 {
+  -webkit-animation: fadeInScale 0.7s ease-in-out;
+  -moz-animation: fadeInScale 0.7s ease-in-out;
+  animation: fadeInScale 0.7s ease-in-out;
+}
+.tab_container .tab-content h3  {
+  text-align: center;
+}
+
+.tab_container [id^="tab"]:checked + label { // icon bar 
+  background: rgba(204,114,0,0.28);
+  box-shadow: inset 0 3px #f2711c;
+}
+
+.tab_container [id^="tab"]:checked + label .fa { // icon color
+  color: #f2711c;
+}
+
+label .fa {
+  font-size: 1.3em;
+  margin: 0 0.4em 0 0;
+}
+
+/*Media query*/
+@media only screen and (max-width: 900px) {
+  label span {
+    display: none;
+  }
+  
+  .tab_container {
+    width: 98%;
+  }
+}
+
+/*Content Animation*/
+@keyframes fadeInScale {
+  0% {
+  	transform: scale(0.9);
+  	opacity: 0;
+  }
+  
+  100% {
+  	transform: scale(1);
+  	opacity: 1;
+  }
+}
+
+.no_wrap {
+  text-align:center;
+  color: #0ce;
+}
+.link {
+  text-align:center;
+}
 
 
 </style>

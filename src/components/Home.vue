@@ -1,12 +1,22 @@
 <template lang="jade">
   .home
+
     Slideshow(:hotTopics="hotTopics", :allTopics="allTopics").slideshow
+
     StepGuide.stepguide
-    .ui.divider
-    HotProposal(:hotProposal="hotTopics", header="熱門議題").hotproposal
-    .ui.divider
+
+    // .ui.divider
+
+    // HotProposal(:hotProposal="hotTopics", header="熱門議題").hotproposal
+
+    // .ui.divider
+
     ProposalTab.proposalTab(:allTopics="allTopics")
+
+    .ui.divider
+
     Catagories(:catagories="catagories").catagories
+
 
 </template>
 
@@ -18,6 +28,8 @@ import HotProposal from './home_HotProposal.vue'
 import ProposalTab from './home_ProposalTab.vue'
 import Catagories from './home_Catagories.vue'
 
+
+
 export default {
   name: 'Home',
   components: {
@@ -25,7 +37,9 @@ export default {
     StepGuide,
     HotProposal,
     ProposalTab,
-    Catagories
+    Catagories,
+
+
   },
   props:['allTopics', 'catagories'],
   data () {

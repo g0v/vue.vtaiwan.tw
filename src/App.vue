@@ -3,7 +3,7 @@
   Navbar.navbar(:routes = "myRoutes", :allTopics = "allTopics")
 
   #main.main
-    transition(name='fade-out-speard-in', mode='out-in')
+    transition(name='fade-in', mode='out-in')
       router-view.view(:allTopics="allTopics", :catagories="catagories")
 
   MyFooter.footer
@@ -13,6 +13,7 @@
 
 import Navbar from './components/app_Navbar.vue'
 import MyFooter from './components/MyFooter.vue'
+import axios from 'axios'
 
 export default {
   components: {
@@ -27,135 +28,8 @@ export default {
         {en:'About',t:'關於 vTaiwan',r:'intro'},
         {en:'Login', t:'登入',r:'login'},
       ],
-      catagories: [
-        {t: '科技', routeName: 'technology'},
-        {t: '文化', routeName: 'culture'},
-        {t: '教育', routeName: 'education'},
-        {t: '勞動', routeName: 'labor'},
-        {t: '社會', routeName: 'social_policy'},
-        {t: '農業', routeName: 'agriculture'},
-        {t: '工業', routeName: 'industry'},
-        {t: '商業', routeName: 'commerce'},
-        {t: '生態', routeName: 'ecology'},
-        {t: '經濟', routeName: 'economy'},
-        {t: '財稅', routeName: 'tax'},
-        {t: '交通', routeName: 'transport'},
-        {t: '健康', routeName: 'health_care'},
-        {t: '體育', routeName: 'sports', 
-          cover: 'http://lorempixel.com/320/240/sports'},
-      ],
-      allTopics: [
-        {   slogan:'邁向世界的舞台', 
-            routeName: 'english_company_name',
-            title:'公司英文名稱登記', 
-            status:'討論中',
-            progress: 10,
-            total: 30,
-            owner: '內政部',
-            catas: ['科技','文化'],
-            cover:'http://static.thousandwonders.net/Taiwan.original.3738.jpg',
-            likes: 7569
-        },        
-        {   slogan:'理想與現實',
-            routeName: 'social_enterprise_company_law',
-            title:'公司法中的社會企業',
-            status:'討論中',
-            progress: 24,
-            total: 30,
-            owner: '經濟部',
-            catas: ['經濟','文化'],
-            cover:'http://lorempixel.com/320/240/transport',
-            likes: 4543
-        },        
-        {   slogan: '事做不夠假放不夠',
-            routeName: 'labor_vacation_draft',
-            title:'一例一休草案', 
-            status:'已送審', 
-            progress: 6,
-            total: 30,
-            owner: '勞動部',
-            catas: ['社會','工業','文化'],
-            cover:'http://lorempixel.com/320/240/sports',
-            likes: 2543
-        },        
-        {   slogan: '那一天，遠方辦公',
-            routeName: 'labor_vacation_draft',
-            title:'那一天，遠方辦公', 
-            status:'已送審', 
-            progress: 24,
-            total: 30,
-            owner: '勞動部',
-            catas: ['社會','工業','文化'],
-            cover:'http://lorempixel.com/320/240/sports',
-            likes: 2543
-        },        
-        {   slogan: '那一天，遠方辦公',
-            routeName: 'labor_vacation_draft',
-            title:'那一天，遠方辦公', 
-            status:'已送審', 
-            progress: 24,
-            total: 30,
-            owner: '勞動部',
-            catas: ['社會','工業','文化'],
-            cover:'http://lorempixel.com/320/240/sports',
-            likes: 2543
-        },        
-        {   slogan:'那一天，遠方辦公',
-            routeName: 'test0',
-            title:'那一天，遠方辦公', 
-            status:'已送審', 
-            progress: 24,
-            total: 30,
-            owner: '不管部',
-            catas: ['教育','文化'],
-            cover: 'http://lorempixel.com/320/240/sports',
-            likes: 143
-        },        
-        {   slogan:'談場戀愛吧',
-            routeName: 'test1',
-            title:'談場戀愛吧', 
-            status:'已送審', 
-            progress: 24,
-            total: 30,
-            owner: '不管部',
-            catas: ['教育','文化'],
-            cover: 'http://lorempixel.com/320/240/sports',
-            likes: 143
-        },        
-        {   slogan:'發達起來',
-            routeName: 'test2',
-            title:'發達起來', 
-            status:'已送審', 
-            progress: 24,
-            total: 30,
-            owner: '不管部',
-            catas: ['教育','文化'],
-            cover: 'http://lorempixel.com/320/240/sports',
-            likes: 143
-        },        
-        {   slogan:'發達起來',
-            routeName: 'test2',
-            title:'發達起來', 
-            status:'已送審', 
-            progress: 24,
-            total: 30,
-            owner: '不管部',
-            catas: ['教育','文化'],
-            cover: 'http://lorempixel.com/320/240/sports',
-            likes: 143
-        },        
-        {   slogan:'發達起來',
-            routeName: 'test2',
-            title:'發達起來', 
-            status:'已送審', 
-            progress: 24,
-            total: 30,
-            owner: '不管部',
-            catas: ['教育','文化'],
-            cover: 'http://lorempixel.com/320/240/sports',
-            likes: 143
-        }
-      ]
+      catagories: [],
+      allTopics: []
     }
   },
   methods: {
@@ -164,43 +38,80 @@ export default {
         return '/'+o.r == path;
       })[0]
       return obj ? obj.r : ''
+    },
+    getProgress(raw) {
+      var regex = /(?: (?:init )?)|\n/g;
+      var start = new Date(raw.split(regex)[1]+"T00:00:00+08:00");
+      var end = new Date(raw.split(regex)[2]+"T00:00:00+08:00");
+      var now = new Date();
+      if (now > end) {
+        return (end - start)/(24*60*60*1000);
+      }
+      else{
+        return (now - start)/(24*60*60*1000);
+      }
+    },
+    getTotal(raw) {
+      var regex = /(?: (?:init )?)|\n/g;
+      var start = new Date(raw.split(regex)[1]+"T00:00:00+08:00");
+      var end = new Date(raw.split(regex)[2]+"T00:00:00+08:00");
+      return (end - start)/(24*60*60*1000)
     }
+  },
+  mounted: function(){
+    axios.get('https://talk.vtaiwan.tw/c/meta-data.json')
+    .then((response)=>{
+      var topics = response.data.topic_list.topics.slice(1);
+      topics.forEach((topic)=>{
+        axios.get('https://talk.vtaiwan.tw/t/'+topic.id+'.json?include_raw=1')
+        .then((response)=>{
+          var topic = response.data;
+
+          var tmp = {};
+
+          tmp['id'] = topic['id'];
+          tmp['routeName'] = topic['title'].split(" ")[1];
+          tmp['title'] = topic['title'].split(" ")[0];
+          tmp['catas'] = topic['tags'];
+          tmp['likes'] = 0 ;
+
+          var firstPost = topic.post_stream.posts[0];
+          var lastPost = topic.post_stream.posts.slice(-1)[0]; 
+
+          tmp['slogan'] = /slogan *: *(.*)/g.exec(firstPost.raw)[1];
+          tmp['status'] = (firstPost.id===lastPost.id) ? "即將開始" : lastPost.raw.split(" ")[0];
+          if(tmp['status'] === "討論中")
+          {
+            tmp['progress'] = this.getProgress(lastPost.raw);
+            tmp['total'] = this.getTotal(lastPost.raw);
+          }
+
+          tmp['owner'] = /@(\w+)/g.exec(firstPost.raw)[1];
+          tmp['cover'] = /cover *: *(.*)/g.exec(firstPost.raw)[1];
+
+          this.allTopics.push(tmp);
+
+        })
+      })
+    })
+
+    axios.get('https://talk.vtaiwan.tw/posts/2094.json?include_raw=1')
+    .then((response)=>{
+      var configs = response.data.raw.split('\n')
+      configs.forEach((config)=>{
+        var tmp = {};
+        tmp['t'] = config.split(" ")[0];
+        tmp['routeName'] = config.split(" ")[1];
+        tmp['cover'] = config.split(" ")[2];
+        this.catagories.push(tmp);
+      })
+    })
   }
 }
 
 </script>
 
-<style lang="scss">
-
-@import "./sass/global.scss";
-
-* {  box-sizing: border-box }
-a, button {
-  cursor: pointer !important;
-}
-
-html {
-  font-size: 16px;
-  font-size: 2.5vm;
-  font-size: 2.5vmin;
-}
-
-body {
-  visibility: visible;
-  opacity: 1;
-  @include transition(opacity 0.5s ease);
-  padding: 0;
-  margin: 0;
-}
-
-strong {
-  font-weight: 900;
-  color: black;
-}
-
-</style>
-
-<style lang="scss" scoped>
+<style lang="scss" >
 
 @import "./sass/global.scss";
 
@@ -210,7 +121,7 @@ strong {
   margin: 0;
   @include transition(border-color 0.5s ease);
   &.join {    border-color: $join  }
-  &.intro {    border-color: $intro  }
+  &.intro {   border-color: $intro  }
   &.live {    border-color: $live  }
   &.track {   border-color: $track  }
 }
@@ -222,22 +133,25 @@ strong {
   text-align: center;
 }
 
+// ********************** transition
 
-.fade-out-speard-in-enter, .fade-out-speard-in-leave-active {
+.fade-in-enter, .fade-in-leave-active {
   opacity: 0
 }
 
-.fade-out-speard-in-leave-active {
+.fade-in-leave-active {
   // @include transition(all .3s);
 }
 
-.fade-out-speard-in-enter-active {
+.fade-in-enter-active {
   @include transition(all .5s ease-in);
 }
 
-.fade-out-speard-in-enter {
-  @include transform(rotateY(45deg));
+.fade-in-enter {
+  // @include transform(rotateY(45deg));
 }
+
+// ********************** 
 
 .navbar {
   position: fixed;
