@@ -29,8 +29,8 @@
           Timeline(:article="article")
         section#content3.tab-content(v-if = "article.id !== undefined")
           Discussion(:article="article")  
-        section#content4.tab-content
-          h2 unfinished!!!
+        section#content4.tab-content(v-if = "article.id !== undefined")
+          NextStage(:article="article")
 </template>
 
 <script>
@@ -39,6 +39,7 @@ import axios from 'axios'
 import Description from './Detail_Topic_Description.vue'
 import Discussion from './Detail_Topic_Discussion.vue'
 import Timeline from './Detail_Topic_Timeline.vue'
+import NextStage from './Detail_Topic_NextStage.vue'
 
 export default {
   name: 'Detial_Topic',
@@ -46,7 +47,8 @@ export default {
   components: {
       Description,
       Discussion,
-      Timeline
+      Timeline,
+      NextStage
   },
   data () {
     return {

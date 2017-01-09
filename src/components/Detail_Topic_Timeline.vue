@@ -26,8 +26,7 @@ export default {
     },
     data(){
         return{
-            timeline:[], // 時間軸
-            polis_link:[] // polis連結
+            timeline:[] // 時間軸
         }
     },
     created:function(){
@@ -35,8 +34,9 @@ export default {
         .then((response)=>{
         var detail_info = response.data;
         console.log(detail_info);
+        var test = detail_info['post_stream']['posts'];
         detail_info = detail_info['post_stream']['posts'].slice(1); // 取得議題時間軸內容
-
+        console.log(test);
         if(this.timeline.length === 0){
             for(var i in detail_info){
             var regex = /(?: (?:init )?)|\n/g;
