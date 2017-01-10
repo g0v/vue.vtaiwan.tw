@@ -76,7 +76,7 @@ export default {
             }
             else if(detail_info[i]['raw'].split(regex)[j].indexOf("talk.vtaiwan.tw")>-1){
               this.discourse_id=detail_info[i]['raw'].split(regex)[j].replace(/.*\//,"");
-              this.discourse_id=887; //test
+             // this.discourse_id=887; //test
               console.log(this.discourse_id)
             }
           }      
