@@ -88,9 +88,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.header{
-      text-align: left,
-}
+
 .container {
     position: relative;
     max-width: 900px;
