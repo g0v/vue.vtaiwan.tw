@@ -8,28 +8,29 @@ div
     script(async='true', src='https://pol.is/embed.js')
 
    div(v-if = "discourse_id !== undefined && discourse_id >0")
-     div.ui.piled.blue.segment
-      h2.ui.header
-        i.icon.inverted.circular.blue.comment 
-        | Comments
-      #discourse-comments
-      script.
-        var discourseUrl = "https://talk.vtaiwan.tw";
-        function showDiscourseTopic(topic) {
-          var comments = document.getElementById('discourse-comments');
-          var iframe = document.getElementById('discourse-embed-frame');
-          if (iframe) { iframe.remove(); }
-          iframe = document.createElement('iframe');
-          iframe.src = 'https://talk.vtaiwan.tw/embed/comments?topic_id='+topic;
-          iframe.id = 'discourse-embed-frame';
-          iframe.width = '100%';
-          iframe.height = '500px';
-          iframe.frameBorder = '0';
-          iframe.scrolling = 'yes';
-          console.log(iframe);
-          comments.appendChild(iframe);
-        };
-        showDiscourseTopic({{discourse_id}});
+      
+        div.container
+          h2.ui.header
+          i.icon.inverted.circular.blue.comment 
+          | Comments
+          #discourse-comments
+          script.
+            var discourseUrl = "https://talk.vtaiwan.tw";
+            function showDiscourseTopic(topic) {
+              var comments = document.getElementById('discourse-comments');
+              var iframe = document.getElementById('discourse-embed-frame');
+              if (iframe) { iframe.remove(); }
+              iframe = document.createElement('iframe');
+              iframe.src = 'https://talk.vtaiwan.tw/embed/comments?topic_id='+topic;
+              iframe.id = 'discourse-embed-frame';
+              iframe.width = '100%';
+              iframe.height = '500px';
+              iframe.frameBorder = '0';
+              iframe.scrolling = 'yes';
+              console.log(iframe);
+              comments.appendChild(iframe);
+            };
+            showDiscourseTopic({{discourse_id}});
         // DiscourseEmbed = { discourseUrl: 'https://talk.vtaiwan.tw/',topicId: 887 };
         // (function() {
         // var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
@@ -76,7 +77,7 @@ export default {
             }
             else if(detail_info[i]['raw'].split(regex)[j].indexOf("talk.vtaiwan.tw")>-1){
               this.discourse_id=detail_info[i]['raw'].split(regex)[j].replace(/.*\//,"");
-             // this.discourse_id=887; //test
+              this.discourse_id=887; //test
               console.log(this.discourse_id)
             }
           }      
@@ -89,6 +90,17 @@ export default {
 <style lang="scss" scoped>
 .header{
       text-align: left,
+}
+.container {
+    position: relative;
+    max-width: 900px;
+    margin: 20px auto 0 auto;
+    background-color: #f5f5f5;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    padding-top: 15px;
+    padding-bottom: 60px;
+    margin-bottom: 30px;
 }
 
 </style>
