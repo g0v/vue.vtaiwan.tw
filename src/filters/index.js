@@ -28,26 +28,11 @@ function pluralize (time, label) {
 }
 
 module.exports = {
-    huha: function(article){
-      var urllink=[];
+    getiframe: function(article){
       var parser = new DOMParser ();
       var xmlDoc = parser.parseFromString (article, "text/html");
-      var re = xmlDoc.getElementsByClassName("onebox");
-      var hackpad = xmlDoc.getElementsByClassName("source");
-      var youtubrlink = xmlDoc.getElementsByClassName("lazyYT");
-      if(hackpad.length !== 0){
-        urllink.push(hackpad[0].firstChild.nextElementSibling.href);
-      }
-      if(youtubrlink.length !== 0){
-        urllink.push("<iframe src=https://www.youtube.com/embed/"+youtubrlink[0].dataset.youtubeId+" width="+youtubrlink[0].dataset.width+" height="+youtubrlink[0].dataset.height+"><\/iframe>");
-      }
-      if(re.length!==0){
-        for(var i=0; i< re.length; i++){
-          urllink.push(re[i].href);
-        }               
-      }      
-      console.log(re);
-    return urllink;
+      var slide = xmlDoc.getElementsByTagName("iframe")[0];
+      return slide;
     }
 };
 

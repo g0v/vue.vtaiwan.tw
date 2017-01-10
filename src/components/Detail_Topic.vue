@@ -4,7 +4,8 @@
       h1.ui.huge.header {{article.title}}
       h4.ui.medium.header {{article.status}}
       br
-      video(:style="{'background-image': 'url('+article.cover+')'}")
+      Slide(:article="article")
+      // video(:style="{'background-image': 'url('+article.cover+')'}")
       br
       .tab_container
         input#tab1(type='radio', name='tabs', checked='')
@@ -35,7 +36,9 @@
 
 <script>
 
+
 import axios from 'axios'
+import Slide from './Detail_Topic_Slide.vue'
 import Description from './Detail_Topic_Description.vue'
 import Discussion from './Detail_Topic_Discussion.vue'
 import Timeline from './Detail_Topic_Timeline.vue'
@@ -48,13 +51,14 @@ export default {
       Description,
       Discussion,
       Timeline,
-      NextStage
+      NextStage,
+      Slide
   },
   data () {
     return {
       article:{}, // title & status
       timeline:[], // 時間軸
-      polis_link:[] // polis連結
+      polis_link:[], // polis連結
     }
   },
   computed: {
@@ -66,7 +70,7 @@ export default {
       if(t===undefined){return new Object()}
       else{return t};
     }
-  },
+  }
 }
 
 </script>
