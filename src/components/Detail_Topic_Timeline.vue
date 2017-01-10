@@ -1,16 +1,16 @@
-<template lang="jade"> 
- {{timeline}}
- .event-list
-  .item(v-for = "(ev,idx) in timeline", :class="['dark','gloom','light'][idx % 3]")
-    .big 從 {{ev.start}} 開始 {{ev.end}}
-    .small 進度
-      br
-      br  
-      | {{ ev.title }} 
-    .small 相關連結
-      br
-      br
-      Plink(:urllink="ev.link")
+<template lang="jade">
+    | {{timeline}}
+    .event-list
+      .item(v-for = "(ev,idx) in timeline", :class="['dark','gloom','light'][idx % 3]")
+        .big 從 {{ev.start}} 開始 {{ev.end}}
+        .small 進度
+          br
+          br  
+          | {{ ev.title }} 
+        .small 相關連結
+          br
+          br
+          Plink(:urllink="ev.link")
 </template>
 
 <script>
