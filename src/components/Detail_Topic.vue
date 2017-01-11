@@ -2,9 +2,11 @@
   .component    
     .ui.container
       h1.ui.huge.header {{article.title}}
-      h4.ui.medium.header {{article.status}}
+      // h4.ui.medium.header {{article.status}}
+      NextStage(:article="article")
       br
-      Slide(:article="article")
+      br
+      Slide(v-if = "article.id !== undefined", :article="article")
       // video(:style="{'background-image': 'url('+article.cover+')'}")
       br
       .tab_container
@@ -20,18 +22,18 @@
         label(for='tab3')
           i.fa.fa-users
           span 參與討論
-        input#tab4(type='radio', name='tabs')
-        label(for='tab4')
-          i.fa.fa-arrow-circle-right
-          span 下一階段
+        // input#tab4(type='radio', name='tabs')
+        // label(for='tab4')
+        //   i.fa.fa-arrow-circle-right
+        //   span 下一階段
         section#content1.tab-content(v-if = "article.id !== undefined")
           Description(:article="article")
         section#content2.tab-content(v-if = "article.id !== undefined")
           Timeline(:article="article")
         section#content3.tab-content(v-if = "article.id !== undefined")
           Discussion(:article="article")  
-        section#content4.tab-content(v-if = "article.id !== undefined")
-          NextStage(:article="article")
+        // section#content4.tab-content(v-if = "article.id !== undefined")
+        //   NextStage(:article="article")
 </template>
 
 <script>
@@ -180,7 +182,7 @@ label {
   font-size: 18px;
   display: block;
   float: left;
-  width: 25%;
+  width: 33.33%;
   padding: 1.5em;
   color: #1b1c1d;
   cursor: pointer;
@@ -226,8 +228,15 @@ label .fa {
 
 /*Media query*/
 @media only screen and (max-width: 900px) {
-  label span {
-    display: none;
+  label {
+    // display: none;
+    span {
+      font-size: 12px;
+    }
+    .fa {
+      display: block;
+      margin: 0;
+    }
   }
   
   .tab_container {

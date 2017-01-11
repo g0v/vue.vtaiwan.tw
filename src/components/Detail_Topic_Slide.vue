@@ -38,5 +38,6 @@ export default {
 <style scoped lang="scss">
 p {
   text-align: center;
+  margin-top: 40px;
 }
 </style>
