@@ -60,7 +60,7 @@ export default {
 }
 
 </script>
-<style lang="scss">
+<style lang="scss" >
   i.con {
         padding: 0.3em 0.5em 0.3em 0.5em;
         font-size: 25px;
@@ -69,4 +69,11 @@ export default {
         background: #49A3DD;
         border-radius: 0.5em;
   }
+//   @media only screen and (max-width: 767px) {
+              
+// i{
+//   display: flex;
+//   margin-bottom: 26px;  
+// }
+//   }
 </style>
