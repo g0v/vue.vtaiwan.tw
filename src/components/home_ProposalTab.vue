@@ -76,7 +76,7 @@
 
         var discuss = this.allTopics.slice()
           .filter((topic)=>{
-            return topic.status==="討論中"
+            return topic.status==="意見徵集"
           })
           .sort(function(a,b) {
             return 1; // replace this by other logic...
@@ -84,7 +84,7 @@
 
         var curate = this.allTopics.slice()
           .filter((topic)=>{
-            return topic.status==="寫草案"
+            return topic.status==="研擬草案"
           })
           .sort(function(a,b) {
             return 1; // replace this by other logic...
@@ -92,7 +92,7 @@
 
         var deploy = this.allTopics.slice()
           .filter((topic)=>{
-            return 1
+            return topic.status==="送交院會"
           })
           .sort(function(a,b) {
             return 1; // replace this by other logic...
@@ -100,7 +100,7 @@
 
         var history = this.allTopics.slice()
           .filter((topic)=>{
-            return 1
+            return topic.status==="歷史案件"
           })
           .sort(function(a,b) {
             return 1; // replace this by other logic...

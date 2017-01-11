@@ -3,58 +3,54 @@
 div
   div(v-if = "slido_id !== undefined && slido_id.length >0")
     span(v-html="slido_id")
+
   div(v-if = "polis_id !== undefined && polis_id.length >0") 
     .polis(:data-conversation_id="polis_id")
     script(async='true', src='https://pol.is/embed.js')
 
-   div(v-if = "discourse_id !== undefined && discourse_id >0")
-      
-        div.container
-          h2.ui.header
-          i.icon.inverted.circular.blue.comment 
-          | Comments
-          #discourse-comments
-          script.
-            var discourseUrl = "https://talk.vtaiwan.tw";
-            function showDiscourseTopic(topic) {
-              var comments = document.getElementById('discourse-comments');
-              var iframe = document.getElementById('discourse-embed-frame');
-              if (iframe) { iframe.remove(); }
-              iframe = document.createElement('iframe');
-              iframe.src = 'https://talk.vtaiwan.tw/embed/comments?topic_id='+topic;
-              iframe.id = 'discourse-embed-frame';
-              iframe.width = '100%';
-              iframe.height = '500px';
-              iframe.frameBorder = '0';
-              iframe.scrolling = 'yes';
-              console.log(iframe);
-              comments.appendChild(iframe);
-            };
-            showDiscourseTopic({{discourse_id}});
-        // DiscourseEmbed = { discourseUrl: 'https://talk.vtaiwan.tw/',topicId: 887 };
-        // (function() {
-        // var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
-        // d.src = this.DiscourseEmbed.discourseUrl + 'javascripts/embed.js';
-        // (document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(d);
-        // })();       
+  div(v-if = "discourse_id !== undefined && discourse_id >0")
+    //Discussion_Comment       
+    div(v-for = "(item, index) in discourse_title")
+      .ui.accordion(style="display: block;")
+        div(v-if = "index==0")
+          .active.title
+            i.dropdown.icon  
+            |{{discourse_title[index]}} 
+          .active.content
+            Discussion_Comment
+        div(v-if = "index!=0")
+          .title
+            i.dropdown.icon  
+            |{{discourse_title[index]}} 
+          .content
+            Discussion_Comment
+    script.
+      $('.ui.accordion').accordion();  
+
+  
   
 </template>
 
 <script>
 import axios from 'axios'
+import Discussion_Comment from './Detail_Topic_Discussion_Comment.vue'
+
+
 export default {
   props:['article'],
+  components: {
+      Discussion_Comment,
+  },
   data () {
     return {
           test:"<iframe src='https://talk.vtaiwan.tw/embed/comments?topic_id=886' id='discourse-embed-frame' width='100%' frameborder='0' scrolling='no' height='4790px'></iframe>",
           polis_id:[],
           slido_id:[],
           discourse_id:[],
+          discourse_title:[],
     }
   },
   created:function(){
-        
-   
     axios.get('https://talk.vtaiwan.tw/t/'+ this.article.id +'.json?include_raw=1')
      .then((response)=>{
        var detail_info = response.data;
@@ -76,29 +72,36 @@ export default {
                //this.slido_id="<iframe src='https://app.sli.do/event/m35dexjd' frameborder='0' width='100%' height='1000px' data-reactid='.0.2.0.0.0'></iframe>";
             }
             else if(detail_info[i]['raw'].split(regex)[j].indexOf("talk.vtaiwan.tw")>-1){
-              this.discourse_id=detail_info[i]['raw'].split(regex)[j].replace(/.*\//,"");
+              //this.discourse_id=detail_info[i]['raw'].split(regex)[j].replace(/.*\//,"");
               //this.discourse_id=887; //test
-              console.log(this.discourse_id)
+              console.log( this.discourse_id=detail_info[i]['raw'].split(regex)[j])
+              axios.get(this.discourse_id=detail_info[i]['raw'].split(regex)[j] +'.json')
+              .then((response_discourse)=>{
+
+                var title = response_discourse.data.topic_list.topics;
+                for(i=0;i<title.length;i++){
+                  this.discourse_title[i] = title[i].title
+                }
+                console.log( this.discourse_title);
+                this.discourse_id=887;
+                
+              })
             }
           }      
         }
      })    
-  }
+  },
+ 
+  // updated:function(){
+
+  //    // $('.ui.accordion').accordion('close all');    
+  //     $('.ui.accordion').accordion();  
+
+  // }
 }
 </script>
 
 <style lang="scss" scoped>
 
-.container {
-    position: relative;
-    max-width: 900px;
-    margin: 20px auto 0 auto;
-    background-color: #f5f5f5;
-    border-radius: 20px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
-    padding-top: 15px;
-    padding-bottom: 60px;
-    margin-bottom: 30px;
-}
 
 </style>

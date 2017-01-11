@@ -80,7 +80,7 @@ export default {
 
           tmp['slogan'] = /slogan *: *(.*)/g.exec(firstPost.raw)[1];
           tmp['status'] = (firstPost.id===lastPost.id) ? "即將開始" : lastPost.raw.split(" ")[0];
-          if(tmp['status'] === "討論中")
+          if(tmp['status'] === "意見徵集")
           {
             tmp['progress'] = this.getProgress(lastPost.raw);
             tmp['total'] = this.getTotal(lastPost.raw);
