@@ -1,6 +1,6 @@
 <template lang="jade">
 #app.app
-  Navbar.navbar(:routes = "myRoutes", :allTopics = "allTopics")
+  Navbar(:routes = "myRoutes", :allTopics = "allTopics")
 
   #main.main
     transition(name='fade-in', mode='out-in')

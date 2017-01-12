@@ -1,6 +1,6 @@
 
 <template lang="jade">  
-div
+div.textleft
   div(v-if = "slido_id !== undefined && slido_id.length >0")
     span(v-html="slido_id")
 
@@ -15,15 +15,15 @@ div
         div(v-if = "index==0")
           .active.title
             i.dropdown.icon  
-            |{{discourse_title[index]}} 
+            |{{discourse_title[index].title}} 
           .active.content
-            Discussion_Comment
+            Discussion_Comment(:comment_id="discourse_title[index].id")
         div(v-if = "index!=0")
           .title
             i.dropdown.icon  
-            |{{discourse_title[index]}} 
+            |{{discourse_title[index].title}} 
           .content
-            Discussion_Comment
+            Discussion_Comment(:comment_id="discourse_title[index].id")
     script.
       $('.ui.accordion').accordion();  
 
@@ -80,7 +80,7 @@ export default {
 
                 var title = response_discourse.data.topic_list.topics;
                 for(i=0;i<title.length;i++){
-                  this.discourse_title[i] = title[i].title
+                  this.discourse_title[i] = title[i]
                 }
                 console.log( this.discourse_title);
                 this.discourse_id=887;
@@ -102,6 +102,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.textleft{
+  text-align: left;
+}
 
 </style>
