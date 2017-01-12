@@ -1,11 +1,16 @@
 <template lang="jade">
 .checkout-wrap
  ul.checkout-bar
-  li.visited.first 即將開始
-  li.active(v-if = "article.id !== undefined") {{status}}
-  li.next(v-if = "article.id !== undefined") {{next}}
-  li 送交院會
-  li 歷史案件
+  // li.visited.first
+  //  span 即將開始
+  li(v-for="(s,idx) in steps", v-bind:class='{active:(status === s),next:(next === s),visited:(last === s)}') 
+   span {{s}}
+  // li.active
+  //  span {{status}}
+  // li.next
+  //  span {{next}}
+  // li 送交院會
+  // li 歷史案件
 </template>
 
 <script>
@@ -15,13 +20,13 @@ var getiframe = require('./../filters/index.js')
 export default {
 
     props:['article'],
-    components:{
-        
-    },
+
     data(){
         return{
+            steps:['即將開始','意見徵集','研擬草案','送交院會','歷史案件'],
             next:"", // 下一階段字串
-            status:""
+            status:"",// 現在階段
+            last:""// 上一階段
         }
     },
     created:function(){
@@ -40,19 +45,28 @@ export default {
                 var init  = detail_info[end]['raw'].split(" ")[1]; // if init
 
                 for (var j in steps){
+                    
                     if(steps[j] === current && init === 'init'){ //如果是"意見徵集 init",就回傳下一階段"研擬草案"
                         var nextIdx =Number(j)+1;
+                        var lastIdx = Number(j)-1;
+                        this.last = steps[lastIdx]
                         this.next = steps[nextIdx];
+                        console.log(this.last);
                         console.log(this.next);
                     }
                     if(steps[j] === current){ //如果是"意見徵集",就回傳下一階段"研擬草案"
-                        var nextIdx =Number(j)+1;
+                        var nextIdx = Number(j)+1;
+                        var lastIdx = Number(j)-1;
+                        this.last = steps[lastIdx]
                         this.next = steps[nextIdx];
+                        console.log(this.last);
                         console.log(this.next);
                     }
                 }
                 if(steps[4] === current){ //如果是"歷史案件",就直接回傳
                         this.next = current;
+                        this.last = steps[3];
+                        console.log(this.last);
                         console.log(this.next);
                 }
             }
@@ -209,9 +223,6 @@ ul.checkout-bar {
   }
 }
 
-
-
-@media all and (min-width: 800px) {
  .checkout-bar li.active:after {
     -webkit-animation: myanimation 3s 0;
     @include green-stripe;
@@ -226,8 +237,8 @@ ul.checkout-bar {
   }
   .checkout-wrap {
     //margin: 80px auto;
-    margin-bottom: 80px;
-    margin-top: 40px;
+    margin-bottom: 100px;
+    margin-top: 50px;
   }
   ul.checkout-bar {
   @include inner-shadow;
@@ -247,7 +258,7 @@ ul.checkout-bar {
     height: 15px;
     left: 0;
     position: absolute;
-    width: 10%;
+    width: 11%;
   }
    li {
       display: inline-block;
@@ -280,6 +291,60 @@ ul.checkout-bar {
       }
     }
   }
+
+@media all and (max-width: 900px) {
+    ul.checkout-bar {
+  @include inner-shadow;
+  @include gray-stripe;
+  border-radius: 15px;
+  height: 15px;
+  margin: 0 auto;
+  //margin-left: 10px;
+  padding: 0;
+  position: absolute;
+  width: 100%;
+  &:before {
+    @include blue-stripe;
+    @include inner-shadow;
+    border-radius: 15px;
+    content: " ";
+    height: 15px;
+    left: 0;
+    position: absolute;
+    width: 11%;
+  }
+   li {
+      display: inline-block;
+      margin: 50px 0 0;
+      padding: 0;
+      text-align: center;
+      width: 19%;
+      &:before {
+        height: 45px;
+        left: 20%;
+        line-height: 45px;
+        position: absolute;
+        top: -65px;
+        width: 45px;
+        z-index: 99;
+      }
+      &.visited {
+        background: none;
+        &:after {
+          @include blue-stripe;
+          @include inner-shadow;
+          content: "";
+          height: 15px;
+          left: 50%;
+          position: absolute;
+          top: -50px;
+          width: 100%;
+          z-index: 99;
+        }
+      }
+    }
+  }
+
 }
 
 </style>

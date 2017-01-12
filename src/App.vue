@@ -155,7 +155,7 @@ export default {
 
 .navbar {
   position: fixed;
-  z-index: 50000;
+  z-index: 100000;
   top: 0;
   left: 0;
   right: 0;
