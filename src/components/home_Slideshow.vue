@@ -1,19 +1,26 @@
 <template lang="jade">
   .component
-    .slide-page      
-      a.pre(@click="c = cycle(-1)")
-        i.huge.caret.black.left.icon
-      a.next(@click="c = cycle(1)")
-        i.huge.caret.black.right.icon
-      router-link.slide-item(v-for="(t,idx) in mySlideTopics",
-        :to="'/topic/'+t.routeName",
-        :style="{ 'z-index': t.zIndex, opacity: t.opacity, transform: t.transform, '-ms-transform': t.transform, '-webkit-transform': t.transform  }")
-        img.full-page(:src="t.cover")
-        .box
-          .slogan.ui.header {{t.slogan}}
-          .title {{t.title}}
-          .status {{t.status}}
-
+    .desktop-container
+      .slide-page.fat-only 
+        a.pre(@click="c = cycle(-1)")
+          i.huge.caret.black.left.icon
+        a.next(@click="c = cycle(1)")
+          i.huge.caret.black.right.icon
+        router-link.slide-item(v-for="(t,idx) in mySlideTopics",
+          :to="'/topic/'+t.routeName",
+          :style="{ 'z-index': t.zIndex, opacity: t.opacity, transform: t.transform, '-ms-transform': t.transform, '-webkit-transform': t.transform  }")
+          img.full-page(:src="t.cover")
+          .box
+            .slogan.ui.header {{t.slogan}}
+            .title {{t.title}}
+            .status {{t.status}}
+    .mobile-container
+      .m-slide-page.thin-only
+        router-link.m-slide-item(v-for="(t,idx) in mySlideTopics",:to="'/topic/'+t.routeName",:style="{'background-image':'url('+t.cover+')'}")
+          .box
+            // .slogan.ui.header {{t.slogan}}
+            .title {{t.title}}
+            .status {{t.status}}
 
 </template>
 
@@ -82,19 +89,38 @@ export default {
 
 </script>
 
-
 <style lang="scss" scoped>
-  @import "../sass/global.scss";
 
-  .component {
+  .mobile-container {
     position: relative;
-    width: 100%;
+    overflow: scroll;
     img {
       position: relative;
       width: 100%;
       z-index: -3;
     }
   }
+
+  .desktop-container {
+    position: relative;
+    overflow: hidden;
+    img {
+      position: relative;
+      width: 100%;
+      z-index: -3;
+    }
+  }
+
+  .mobile-container::-webkit-scrollbar {
+    height:0px;
+    width:0px;
+  }
+
+</style>
+
+// Desktop CSS
+<style lang="scss" scoped>
+  @import "../sass/global.scss";
 
   .slide-page {
     display: block;
@@ -116,9 +142,8 @@ export default {
     overflow: hidden;
     // height: 80%;
     height: 99.9vh;
-  }
 
-  .box {
+    .box {
     font-size: 1rem;
     position: absolute;
     top: 50%;
@@ -162,6 +187,9 @@ export default {
       padding: 0.1em;
     }
   }
+  }
+
+  
 
   a {
     cursor: pointer;
@@ -188,4 +216,42 @@ export default {
   }
 
   
+</style>
+
+// Mobile CSS
+<style lang="scss" scoped>
+  .m-slide-page {
+    display: -webkit-inline-box;
+  }
+
+  .m-slide-item {
+    display:block;
+    width:98vw;
+    height:400px;
+    margin:0 0.5px;    
+    overflow: hidden;
+    background-size: auto 100%;
+    background-position: center;
+    img{
+      width: auto;
+      height: 100%;
+      left: -50%;
+    }
+    .box{
+      .status{
+        position: relative;
+        top: 105px;
+        width: 100%;
+        color: black;
+        font-size: 1.5rem;
+      }
+      .title{
+        position: relative;
+        top: 170px;
+        width: 100%;
+        color: black;
+        font-size: 1.5rem;
+      }
+    }
+  }
 </style>
