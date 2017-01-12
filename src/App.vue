@@ -1,6 +1,6 @@
 <template lang="jade">
 #app.app
-  Navbar.navbar(:routes = "myRoutes", :allTopics = "allTopics")
+  Navbar(:routes = "myRoutes", :allTopics = "allTopics")
 
   #main.main
     transition(name='fade-in', mode='out-in')
@@ -152,14 +152,6 @@ export default {
 }
 
 // ********************** 
-
-.navbar {
-  position: fixed;
-  z-index: 50000;
-  top: 0;
-  left: 0;
-  right: 0;
-}
 
 .footer {
   position: relative;
