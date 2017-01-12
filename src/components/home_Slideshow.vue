@@ -21,6 +21,7 @@
             // .slogan.ui.header {{t.slogan}}
             .title {{t.title}}
             .status {{t.status}}
+            .button 進入議題
 
 </template>
 
@@ -243,14 +244,24 @@ export default {
         top: 105px;
         width: 100%;
         color: black;
-        font-size: 1.5rem;
+        font-size: 1.3rem;
       }
       .title{
         position: relative;
         top: 170px;
         width: 100%;
         color: black;
-        font-size: 1.5rem;
+        font-size: 1.3rem;
+      }
+      .button{
+        position: relative;
+        top: 235px;
+        color: white;
+        font-size: 1.4rem;
+        padding:14px 30px;
+        margin:0 calc(50% - 75px);
+        background-color:#3EACC6;
+        border-radius:8px;
       }
     }
   }
