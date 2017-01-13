@@ -56,7 +56,7 @@ export default {
         this.username= this.comment[i]['avatar_template']
       }
        console.log(this.comment)
-      //console.log(username)
+      console.log(username)
     
     })
    // ['post_stream']['posts'].slice(1)
