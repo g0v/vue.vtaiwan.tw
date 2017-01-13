@@ -1,31 +1,57 @@
 <template lang="jade">
   .component
-    .ui.grid.four.column.padded.doubling.emptyable
-      .box.column(v-for="t in list")
-        // .inner
-        router-link.topic(:to="'/topic/' + t.routeName")
+    .fat-only
+      .ui.grid.four.column.padded.doubling.emptyable
+        .box.column(v-for="t in list")
+          // .inner
+          router-link.topic(:to="'/topic/' + t.routeName")
 
-          img(:src ="t.cover || 'http://lorempixel.com/320/240/sports'")
-          // .null
-          h3.header {{ t.title }}
-            // .sub.header {{ t.owner }} 
+            img(:src ="t.cover || 'http://lorempixel.com/320/240/sports'")
+            // .null
+            h3.header {{ t.title }}
+              // .sub.header {{ t.owner }} 
 
-          .progress_bar
-            .progress(v-bind:style="{ width: (t.progress / t.total * 100) + '%' }")
-          .progress_text(v-if="t.status==='討論中'") 還有{{Math.floor(t.total - t.progress)}}天
-          .progress_text(v-else) 討論已結束
+            .progress_bar
+              .progress(v-bind:style="{ width: (t.progress / t.total * 100) + '%' }")
+            .progress_text(v-if="t.status==='討論中'") 還有{{Math.floor(t.total - t.progress)}}天
+            .progress_text(v-else) 討論已結束
+    .thin-only(v-if="step!==undefined")
+      .ui
+        .m-step-title.ui.sticky(v-bind:id="step+'-title'") {{step}}
+      .ui.grid.four.column.padded.stackable.emptyable(v-bind:id="step+'-context'")
+        .box.column(v-for="t in list")
+          // .inner
+          router-link.topic(:to="'/topic/' + t.routeName")
+
+            img(:src ="t.cover || 'http://lorempixel.com/320/240/sports'")
+            // .null
+            h3.header {{ t.title }}
+              // .sub.header {{ t.owner }} 
+
+            .progress_bar
+              .progress(v-bind:style="{ width: (t.progress / t.total * 100) + '%' }")
+            .progress_text(v-if="t.status==='討論中'") 還有{{Math.floor(t.total - t.progress)}}天
+            .progress_text(v-else) 討論已結束
           
 </template>
 
 <script>
   export default {
     name: 'box',
-    props: ['list'],
+    props: ['list','step'],
     data() {
       return {
         //...
       }
-    }
+    },
+    // updated:function(){
+    //   if(list!==undefined && list.length>0)
+    //   {
+    //     list.forEach((topic)=>{
+    //       topic.title
+    //     })
+    //   }
+    // }
   }
 </script>
 
@@ -97,4 +123,13 @@
     }
   }
   
+</style>
+
+<style lang="scss" scoped>
+  .m-step-title{
+    background-color: #E6E6E6;
+    text-align: left;
+    padding:1rem;
+    font-size:1.3rem;
+  }
 </style>
