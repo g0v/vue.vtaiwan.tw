@@ -21,18 +21,13 @@
         label(for='tab3')
           i.fa.fa-users
           span 參與討論
-        // input#tab4(type='radio', name='tabs')
-        // label(for='tab4')
-        //   i.fa.fa-arrow-circle-right
-        //   span 下一階段
         section#content1.tab-content(v-if = "article.id !== undefined")
           Description(:article="article")
         section#content2.tab-content(v-if = "article.id !== undefined")
           Timeline(:article="article")
         section#content3.tab-content(v-if = "article.id !== undefined")
           Discussion(:article="article")  
-        // section#content4.tab-content(v-if = "article.id !== undefined")
-        //   NextStage(:article="article")
+
 </template>
 
 <script>
@@ -129,10 +124,7 @@ video {
   }
 }
 
-/*
-.clickDeselectsHull {
-  display: none !important;
-}*/
+
 
 @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 
@@ -211,9 +203,9 @@ label {
 .tab_container .tab-content,
 .tab_container .tab-content p,
 .tab_container .tab-content h3 {
-  -webkit-animation: fadeInScale 0.7s ease-in-out;
-  -moz-animation: fadeInScale 0.7s ease-in-out;
-  animation: fadeInScale 0.7s ease-in-out;
+  -webkit-animation: fadeInScale 0.5s ease-in-out;
+  -moz-animation: fadeInScale 0.5s ease-in-out;
+  animation: fadeInScale 0.5s ease-in-out;
 }
 .tab_container .tab-content h3  {
   text-align: center;
@@ -234,7 +226,13 @@ label .fa {
 }
 
 /*Media query*/
-@media only screen and (max-width: 900px) {
+@media screen and (min-width: 768px){
+  .ui.huge.header {
+    font-family: $main_font;
+    font-size:2.2em;
+  }
+}
+@media screen and (max-width: 768px) {
   .component {
     width:98%;
   }
@@ -242,7 +240,7 @@ label .fa {
     // display: none;
     padding: 1em;
     span {
-      font-size: 12px;
+      font-size: 0.8em;
     }
     .fa {
       display: block;
@@ -250,7 +248,8 @@ label .fa {
     }
   }
   .ui.huge.header {
-    font-size:3em;
+    font-family: $main_font;
+    font-size:2.2em;
   }
   .tab_container {
     width: 98%;
@@ -269,14 +268,5 @@ label .fa {
   	opacity: 1;
   }
 }
-
-.no_wrap {
-  text-align:center;
-  color: #0ce;
-}
-.link {
-  text-align:center;
-}
-
 
 </style>

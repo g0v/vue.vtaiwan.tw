@@ -1,4 +1,5 @@
 <template lang="jade">
+.description
   div.styles.content(v-html='information')
 </template>
 
@@ -18,12 +19,6 @@ export default {
       .then((response)=>{
         var detail_info = response.data['post_stream']['posts'][0]['cooked'].split("<hr>")[1]; // 取得詳細內容(第一篇)
         this.information = detail_info;
-        // if(detail_info.indexOf("425")>-1 && window.innerWidth<425){
-        //   this.information = detail_info.replace("425","100%");
-        // }
-        // else {
-        //     this.information = detail_info;
-        // }
       })
   },
 }
@@ -32,9 +27,21 @@ export default {
 
 <style lang="scss" modules="styles">
 
-@media only screen and (max-width: 900px) {
+@import "../sass/global.scss";
 
+@media screen and (min-width: 768px){
+  .content{
+    h1,p,a {
+      font-family: $main_font
+    }
+  }
+}
+@media screen and (max-width: 768px) {
   .content {
+    font-family: $main_font
+    h1 {
+      font-family: $main_font
+    }
     iframe {
       width:100%;
     }
