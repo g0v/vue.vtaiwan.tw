@@ -1,17 +1,17 @@
 <style scoped lang="scss">
-.component {
-  position: relative;
-  top: 66px;
-}
+  @import "../sass/global.scss";
+  .component {
+    padding-top: 6rem;
+  }
 </style>
 
 <template lang="jade">
-.component    
+  .component
     h1
-      i.login.icon
+      i.user.icon
       | 登入
-    .ui.divider
-    .ui.buttons
+    // .ui.divider
+    .ui.huge.buttons
       .ui.orange.button
         i.google.icon
         | Google
@@ -19,7 +19,6 @@
       .ui.blue.button 
         i.facebook.icon
         | Facebook
-</div>
 
 </template>
 
