@@ -9,8 +9,8 @@
             img(:src="c.cover || 'http://lorempixel.com/320/240/transport'")
 
         .fat-only
-          router-link.ui.massive.label(:to="'/catagory/'+c.routeName") 
-            img.ui.right.spaced.avatar.image(:src="c.cover || 'http://lorempixel.com/100/100/transport'")
+          router-link.ui.image.massive.label(:to="'/catagory/'+c.routeName") 
+            img(:src="c.cover || 'http://lorempixel.com/320/240/transport'")
             | {{c.t}}
 </template>
 

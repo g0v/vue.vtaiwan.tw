@@ -1,18 +1,21 @@
 <template lang="jade">
   .component
 
-    .thin-only.nav-tabs
-      a.step(v-for="(step, idx) in steps", :class="{'active': idx == myIdx}", @click="myIdx = idx")
-        .number {{idx + 1}}
-        .label {{step.label}}
-
-    .fat-only.ui.big.steps.top.attached
-      a.step(v-for="(step, idx) in steps", :class="{'active': idx == myIdx}", @click="myIdx = idx")
-        .number {{idx + 1}}
-        .label {{step.label}}
-
-    .ui.segment.attached
+    .thin-only
+      .nav-tabs
+        a.step(v-for="(step, idx) in steps", :class="{'active': idx == myIdx}", @click="myIdx = idx")
+          .number {{idx + 1}}
+          .label {{step.label}}
       Box(v-for="(step, idx) in steps", :list = "mySort(step.dataName)", :desc = "step.description", v-show="idx == myIdx")
+
+    .fat-only
+      .ui.big.steps.top.attached
+        a.step(v-for="(step, idx) in steps", :class="{'active': idx == myIdx}", @click="myIdx = idx")
+          .number {{idx + 1}}
+          .label {{step.label}}
+
+      .ui.segment.attached
+        Box(v-for="(step, idx) in steps", :list = "mySort(step.dataName)", :desc = "step.description", v-show="idx == myIdx")
 
 </template>
 
@@ -202,7 +205,7 @@
     a {
       color: black;
       padding: .2em 1em;
-      margin: 0 1em;
+      margin: 0 .1em;
       border: 1px solid gray;
 
       @include transition(all 0.1s ease);

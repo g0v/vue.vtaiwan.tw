@@ -25,17 +25,25 @@ body {
   @include transition(opacity 0.5s ease);
 }
 
-h1, h2, h3, h4, h5, h6{
-  font-family: $main_font;
-}
 
-a, button {
-  cursor: pointer !important;
-}
+// ********************** default style for each component
 
-strong {
-  font-weight: 900;
-  color: black;
+.component {
+  position: relative;
+
+  h1, h2, h3, h4, h5, h6, p{
+    font-family: $main_font;
+  }
+
+  a, button {
+    cursor: pointer !important;
+  }
+
+  strong {
+    font-weight: 900;
+    color: black;
+  }
+
 }
 
 // ********************** 2-way layout settings
@@ -50,11 +58,4 @@ strong {
 	@media only screen and (min-width: $breakpoint+1) {
     display: none !important;        
   }	
-}
-
-// ********************** default style for each component
-
-.component {
-  position: relative;
-  // top: 66px;
 }
