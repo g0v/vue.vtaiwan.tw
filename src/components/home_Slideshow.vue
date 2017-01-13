@@ -16,7 +16,7 @@
             .status {{t.status}}
     .mobile-container
       .m-slide-page.thin-only
-        router-link.m-slide-item(v-for="(t,idx) in mySlideTopics",:to="'/topic/'+t.routeName",:style="{'background-image':'url('+t.cover+')'}")
+        router-link.m-slide-item(v-for="(t,idx) in allTopics",:to="'/topic/'+t.routeName",:style="{'background-image':'url('+t.cover+')'}")
           .box
             // .slogan.ui.header {{t.slogan}}
             .title {{t.title}}
