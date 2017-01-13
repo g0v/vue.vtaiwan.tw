@@ -77,14 +77,14 @@ export default {
 
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 
 @import "../sass/global.scss";
 
 
 .component {
   position: relative;
-  top: 66px;
+  //top: 66px;
   width: $comp_max_width;
   margin: auto;
 }
