@@ -58,12 +58,12 @@
           },
           {
             label: '送交院會',
-            description: '將成熟的草案加強\n寫成定案\n送交立法院\n追蹤審查進度與結果',
+            description: 'test\n寫成定案\n送交立法院\n追蹤審查進度與結果',
             dataName: 'deploy'
           },
           {
             label: '歷史案件',
-            description: '將成熟的草案加強\n寫成定案\n送交立法院\n追蹤審查進度與結果',
+            description: 'test\n寫成定案\n送交立法院\ntest',
             dataName: 'history'
           },
         ]
