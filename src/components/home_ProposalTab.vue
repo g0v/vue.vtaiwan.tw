@@ -1,11 +1,20 @@
 <template lang="jade">
-  .component
+div
+  .component.fat-only
     .nav-tabs
       a(v-for="(tab, idx) in tablist", :class="{'active': idx == myIdx}", @click="myIdx = idx")
         | {{tab.title}}
-
     Box(v-for="(tab, idx) in tablist", :list = "mySort[tab.dataName]", v-show="idx == myIdx")
-
+    
+  .thin-only(style="position: relative;")
+    .m-nav-tabs.ui.left.rail
+      .ui.sticky
+        a(v-for="(tab, idx) in tablist", :class="{'active': idx == myIdx}", @click="myIdx = idx")
+          p {{tab.title}}
+    .m-context(id="context")
+      Box(v-for="(tab, idx) in tablist", :list = "mySort[tab.dataName]")
+    div(v-if="allTopics!==undefined && allTopics.length>0")
+      script $('.ui.sticky').sticky({context:"#context"});
 </template>
 
 <script>
@@ -22,10 +31,6 @@
         myIdx: 0,
         // myTab: {dataName: 'news'},
         tablist: [
-/*          {title: '最新議題', dataName: 'news'},
-          {title: '討論階段', dataName: 'running'},
-          {title: '草案階段', dataName: 'drafts'},
-          {title: '即將開始', dataName: 'soon'}*/
           {title: '即將開始', dataName: 'soon'},
           {title: '意見徵集', dataName: 'discuss'},
           {title: '研擬草案', dataName: 'curate'},
@@ -36,36 +41,6 @@
     },
     computed: {
       mySort: function () { 
-
-/*        var news = this.allTopics.slice()
-          .sort(function(a,b) {
-            return a.progress - b.progress;
-          }).slice(0,8);
-
-        var running = this.allTopics.slice()
-          .filter((topic)=>{
-            return topic.status==="討論中"
-          })
-          .sort(function(a,b) {
-            return a.progress - b.progress;
-          }).slice(0,8);
-
-        var drafts = this.allTopics.slice()
-          .filter((topic)=>{
-            return topic.status==="寫草案"
-          })
-          .sort(function(a,b) {
-            return 1; // replace this by other logic...
-          }).slice(0,8);
-
-        var soon = this.allTopics.slice()
-          .filter((topic)=>{
-            return topic.status==="即將開始"
-          })
-          .sort(function(a,b) {
-            return 1; // replace this by other logic...
-          }).slice(0,8);
-*/
         var soon = this.allTopics.slice()
           .filter((topic)=>{
             return topic.status==="即將開始"
@@ -107,10 +82,6 @@
           }).slice(0,8);
 
         return {
-/*          news: news,
-          running: running,
-          drafts: drafts,
-          soon: soon*/
           soon: soon,
           discuss: discuss,
           curate: curate,
@@ -154,4 +125,26 @@
       }
     }    
   }
+</style>
+
+<style lang="scss" scoped>
+.m-nav-tabs{
+  left: 0px !important;
+  width: 0px;
+  a{
+    cursor: pointer !important;
+    height: 20vh;
+    display: table-row;
+      p{
+        width: 1rem;
+        display: table-cell;
+        vertical-align: middle;
+        font-size: 1.3rem;
+        color: #3EACC6;
+    }
+  }
+}
+.m-context{
+  margin-left:2rem;
+}
 </style>
