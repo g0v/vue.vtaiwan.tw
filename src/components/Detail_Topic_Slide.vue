@@ -1,5 +1,5 @@
 <template lang="jade">
-  p(v-html = "slide")
+  div.styles.content(v-html = "slide")
 </template>
 
 <script>
@@ -35,9 +35,14 @@ export default {
 
 </script>
 
-<style scoped lang="scss">
-p {
-  text-align: center;
-  margin-top: 40px;
+<style lang="scss" modules="styles">
+
+@media only screen and (max-width: 900px) {
+
+  .content {
+    iframe {
+      width:100%;
+    }
+  }
 }
 </style>

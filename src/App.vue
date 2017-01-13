@@ -153,6 +153,14 @@ export default {
 
 // ********************** 
 
+.navbar {
+  position: fixed;
+  z-index: 100000;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
 .footer {
   position: relative;
   margin: 0 auto;

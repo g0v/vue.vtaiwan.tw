@@ -2,8 +2,7 @@
   .component    
     .ui.container
       h1.ui.huge.header {{article.title}}
-      // h4.ui.medium.header {{article.status}}
-      NextStage(:article="article")
+      NextStage(v-if = "article.id !== undefined", :article="article")
       br
       br
       Slide(v-if = "article.id !== undefined", :article="article")
@@ -78,11 +77,19 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
+@import "../sass/global.scss";
+
+
 .component {
   position: relative;
   top: 66px;
+  width: $comp_max_width;
+  margin: auto;
 }
-
+.ui.container {
+  width:100%;
+}
 p {
   text-align: center;
 }
@@ -228,8 +235,12 @@ label .fa {
 
 /*Media query*/
 @media only screen and (max-width: 900px) {
+  .component {
+    width:98%;
+  }
   label {
     // display: none;
+    padding: 1em;
     span {
       font-size: 12px;
     }
@@ -238,7 +249,9 @@ label .fa {
       margin: 0;
     }
   }
-  
+  .ui.huge.header {
+    font-size:3em;
+  }
   .tab_container {
     width: 98%;
   }
