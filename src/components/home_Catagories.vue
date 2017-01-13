@@ -2,10 +2,16 @@
   .component
     .ui.four.column.doubling.grid
       .column(v-for="(c,idx) in catagories")
-        .inner
+
+        .thin-only.inner
           router-link(:to="'/catagory/'+c.routeName") 
             .txt {{c.t}}
             img(:src="c.cover || 'http://lorempixel.com/320/240/transport'")
+
+        .fat-only
+          router-link.ui.massive.label(:to="'/catagory/'+c.routeName") 
+            img.ui.right.spaced.avatar.image(:src="c.cover || 'http://lorempixel.com/100/100/transport'")
+            | {{c.t}}
 </template>
 
 <script>
