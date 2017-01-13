@@ -3,7 +3,7 @@
 
     Slideshow(:hotTopics="hotTopics", :allTopics="allTopics").slideshow
 
-    StepGuide.stepguide
+    // StepGuide.stepguide
 
     // .ui.divider
 
@@ -24,7 +24,7 @@
 <script>
 import Slideshow from './home_Slideshow.vue'
 import StepGuide from './home_StepGuide.vue'
-import HotProposal from './home_HotProposal.vue'
+// import HotProposal from './home_HotProposal.vue'
 import ProposalTab from './home_ProposalTab.vue'
 import Catagories from './home_Catagories.vue'
 
@@ -35,7 +35,7 @@ export default {
   components: {
     Slideshow,
     StepGuide,
-    HotProposal,
+    // HotProposal,
     ProposalTab,
     Catagories,
 
