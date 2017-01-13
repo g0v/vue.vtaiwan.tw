@@ -1,12 +1,12 @@
 <style lang="scss" scoped>
   .component {
-    position: relative;
-    top: 50px;
-    width: 100%;
-    padding: 7px;
+    // position: relative;
+    // top: 50px;
     text-align: center;
+    // width: 100%;
+    padding: 1em;
     border-top: 1px #AAA solid;
-    margin-top: 12vh;
+    // margin-top: 12vh;
   }
 </style>
 

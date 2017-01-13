@@ -5,27 +5,28 @@ $join: hsla(340,85%,70%,1);
 $intro: hsla(30,85%,50%,1);
 $live: hsla(240,85%,50%,1);
 $track: hsla(60,85%,30%,1);
+
 $breakpoint: 767px;
 $comp_max_width: 1200px;
 $main_font: Roboto, 'Microsoft JhengHei', 'Heiti TC', sans-serif;
 
 // ********************** global reset
 
-* {  box-sizing: border-box }
-
-html {
-  // font-size: 16px;
-  // font-size: 2.5vm;
-}
+* { box-sizing: border-box }
 
 body {
   font-family: $main_font;
   font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+
   visibility: visible;
   opacity: 1;
   @include transition(opacity 0.5s ease);
-  padding: 0;
-  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6{
+  font-family: $main_font;
 }
 
 a, button {
@@ -37,7 +38,7 @@ strong {
   color: black;
 }
 
-// ********************** 
+// ********************** 2-way layout settings
 
 .fat-only {
 	@media only screen and (max-width: $breakpoint) {
@@ -49,4 +50,11 @@ strong {
 	@media only screen and (min-width: $breakpoint+1) {
     display: none !important;        
   }	
+}
+
+// ********************** default style for each component
+
+.component {
+  position: relative;
+  // top: 66px;
 }
