@@ -1,21 +1,12 @@
 <template lang="jade">
-.checkout-wrap
- ul.checkout-bar
-  // li.visited.first
-  //  span 即將開始
-  li(v-for="(s,idx) in steps", v-bind:class='{active:(status === s),next:(next === s),visited:(last === s)}') 
-   span {{s}}
-  // li.active
-  //  span {{status}}
-  // li.next
-  //  span {{next}}
-  // li 送交院會
-  // li 歷史案件
+.NextStage
+ ul.NextStage-Prgress
+  li(v-for="(s,idx) in steps", v-bind:class='{active:s.active,visited:s.visited}') 
+   span {{s.title}}
 </template>
 
 <script>
 import axios from 'axios'
-var getiframe = require('./../filters/index.js')
 
 export default {
 
@@ -23,63 +14,70 @@ export default {
 
     data(){
         return{
-            steps:['即將開始','意見徵集','研擬草案','送交院會','歷史案件'],
-            next:"", // 下一階段字串
-            status:"",// 現在階段
-            last:""// 上一階段
+            steps:[],
         }
     },
     created:function(){
         axios.get('https://talk.vtaiwan.tw/t/'+ this.article.id +'.json?include_raw=1')
         .then((response=>{
-            var regex = /(?: (?:init )?)|\n/g;
             var detail_info = response.data;
-            var steps = ['即將開始','意見徵集','研擬草案','送交院會','歷史案件'];
+            var steps = [
+              {
+                title:"即將開始",
+                visited:false,
+                active:false
+              },
+              {
+                title:"意見徵集",
+                visited:false,
+                active:false
+              },
+              {
+                title:"研擬草案",
+                visited:false,
+                active:false
+              },
+              {
+                title:"送交院會",
+                visited:false,
+                active:false
+              },
+              {
+                title:"歷史案件",
+                visited:false,
+                active:false
+              }
+            ];
             detail_info = detail_info['post_stream']['posts'].slice(1); // 取得議題時間軸內容
 
             var end = detail_info.length-1;
 
             var current = detail_info[end]['raw'].split(" ")[0]; //目前進展
             this.status = current;
+            console.log(current);
             for(var i in detail_info){ //簡介底下每篇回文
                 var init  = detail_info[end]['raw'].split(" ")[1]; // if init
 
                 for (var j in steps){
-                    
-                    if(steps[j] === current && init === 'init'){ //如果是"意見徵集 init",就回傳下一階段"研擬草案"
-                        var nextIdx =Number(j)+1;
-                        var lastIdx = Number(j)-1;
-                        this.last = steps[lastIdx]
-                        this.next = steps[nextIdx];
-                        console.log(this.last);
-                        console.log(this.next);
+                    steps[j]['visited'] = true;
+                    if(steps[j]['title'] === current && init === 'init'){ //如果是"意見徵集 init",就將active啟動並取消visited
+                        steps[j]['active'] = true;
+                        steps[j]['visited'] = false;
+                        return this.steps = steps; // 回傳五階段array
                     }
-                    if(steps[j] === current){ //如果是"意見徵集",就回傳下一階段"研擬草案"
-                        var nextIdx = Number(j)+1;
-                        var lastIdx = Number(j)-1;
-                        this.last = steps[lastIdx]
-                        this.next = steps[nextIdx];
-                        console.log(this.last);
-                        console.log(this.next);
+                    if(steps[j]['title'] === current){ //如果是"意見徵集",就將active啟動並取消visited
+                        steps[j]['active'] = true;
+                        steps[j]['visited'] = false;
+                        this.steps = steps;
+                        return this.steps = steps;// 回傳五階段array
                     }
-                }
-                if(steps[4] === current){ //如果是"歷史案件",就直接回傳
-                        this.next = current;
-                        this.last = steps[3];
-                        console.log(this.last);
-                        console.log(this.next);
                 }
             }
-           
-           
         }))
     }
 
 
 }
-
-
-
     
 </script>
 
@@ -88,7 +86,6 @@ export default {
 .ui.medium.header {
   color:#db2828;
 }
-
 
 @mixin gray-stripe {
 background-size: 35px 35px;
@@ -114,41 +111,21 @@ background-image: -moz-linear-gradient(-45deg, rgba(255, 255, 255, .2) 25%, tran
 @mixin inner-shadow {
 -webkit-box-shadow: inset 2px 2px 2px 0px rgba(0, 0, 0, .2); box-shadow: inset 2px 2px 2px 0px rgba(0, 0, 0, .2);
 }
-@-webkit-keyframes myanimation {
-	from {
-		left: 0%;
-	}
-	to {
-		left: 50%;
-	}
-}
 
-h1 {
- text-align:center;
-  font-family: 'PT Sans Caption', sans-serif;
-  font-weight: 400;
-  font-size: 30px;
-  padding: 20px 0;
-  
-  color: #777;
-}
-
-.checkout-wrap {
+.NextStage {
   color: #444;
-  font-family: 'PT Sans Caption', sans-serif;
   margin: 40px auto;
   max-width: 1200px;
   position: relative;
 }
-ul.checkout-bar {
+ul.NextStage-Prgress {
   margin: 0 20px;
   li {
     color: #ccc;
     display: block;
     font-size: 16px;
-    font-weight: 600;
-    padding: 14px 20px 14px 80px;
     position: relative;
+    padding-left:14px;
     &:before {
       @include inner-shadow;
       background: #ddd;
@@ -165,11 +142,13 @@ ul.checkout-bar {
       text-shadow: 1px 1px rgba(0, 0, 0, 0.2);
       top: 4px;
       width: 35px;
-      z-index: 999;      
+      z-index: 99999;      
     }
      &.active {
       color: #8bc53f;
       font-weight: bold;
+      font-size:18px;
+      padding-left:14px; // span padding
       &:before {
         background: #8bc53f; 
         z-index: 99999;
@@ -179,6 +158,7 @@ ul.checkout-bar {
       background: #ECECEC;
       color: #57aed1;
       z-index: 99999;
+      padding-left:14px; // span padding
       &:before {
        background: #57aed1; 
         z-index: 99999;
@@ -209,11 +189,6 @@ ul.checkout-bar {
         content: "5";
       }
     }
-    &:nth-child(6) {
-      &:before {
-        content: "6";
-      }
-    }
   }
   a {
     color: #57aed1;
@@ -223,8 +198,7 @@ ul.checkout-bar {
   }
 }
 
- .checkout-bar li.active:after {
-    -webkit-animation: myanimation 3s 0;
+ .NextStage-Prgress li.active:after {
     @include green-stripe;
     @include inner-shadow;
     content:"";
@@ -235,35 +209,32 @@ ul.checkout-bar {
     top: -50px;
     z-index: 0;
   }
-  .checkout-wrap {
-    //margin: 80px auto;
+  .NextStage {
     margin-bottom: 100px;
     margin-top: 50px;
   }
-  ul.checkout-bar {
-  @include inner-shadow;
-  @include gray-stripe;
-  border-radius: 15px;
-  height: 15px;
- // margin: 0 auto;
-  margin-left: 225px;
-  padding: 0;
-  position: absolute;
-  width: 60%;
-  &:before {
-    @include blue-stripe;
+  ul.NextStage-Prgress {
     @include inner-shadow;
+    @include gray-stripe;
     border-radius: 15px;
-    content: " ";
     height: 15px;
-    left: 0;
-    position: absolute;
-    width: 11%;
-  }
+    margin:auto;
+    padding: 0;
+    // position: absolute;
+    width: 60%;
+    &:before {
+      @include blue-stripe;
+      @include inner-shadow;
+      border-radius: 15px;
+      content: " ";
+      height: 15px;
+      left: 240px;
+      position: absolute;
+      width: 10%;
+    }
    li {
       display: inline-block;
       margin: 50px 0 0;
-      padding: 0;
       text-align: center;
       width: 19%;
       &:before {
@@ -277,6 +248,7 @@ ul.checkout-bar {
       }
       &.visited {
         background: none;
+        
         &:after {
           @include blue-stripe;
           @include inner-shadow;
@@ -292,59 +264,32 @@ ul.checkout-bar {
     }
   }
 
-@media all and (max-width: 900px) {
-    ul.checkout-bar {
-  @include inner-shadow;
-  @include gray-stripe;
-  border-radius: 15px;
-  height: 15px;
-  margin: 0 auto;
-  //margin-left: 10px;
-  padding: 0;
-  position: absolute;
-  width: 100%;
-  &:before {
-    @include blue-stripe;
-    @include inner-shadow;
-    border-radius: 15px;
-    content: " ";
-    height: 15px;
-    left: 0;
-    position: absolute;
-    width: 11%;
-  }
-   li {
-      display: inline-block;
-      margin: 50px 0 0;
-      padding: 0;
-      text-align: center;
-      width: 19%;
-      &:before {
-        height: 45px;
-        left: 20%;
-        line-height: 45px;
-        position: absolute;
-        top: -65px;
-        width: 45px;
-        z-index: 99;
+@media only screen and (max-width: 768px) { // 小於ipad尺寸
+    ul.NextStage-Prgress {
+      margin: 0 auto;
+      width: 100%;
+      margin-bottom:50px;
+      &:before{
+        left:0;
       }
-      &.visited {
-        background: none;
-        &:after {
-          @include blue-stripe;
-          @include inner-shadow;
-          content: "";
-          height: 15px;
-          left: 50%;
-          position: absolute;
-          top: -50px;
-          width: 100%;
-          z-index: 99;
-        }
-      }
-    }
-  }
-
+      li {
+          padding: 0;
+          font-size: 14px;
+          &:before {
+            left: 20%;
+          }
+          &.visited {
+            padding: 0;
+          }
+          &.active {
+            padding: 0;
+            font-size:16px;
+          }
+     }
+   }
+   .NextStage {
+      margin:50px 0 50px 0;
+   }
 }
 
 </style>
