@@ -5,6 +5,7 @@
         | {{tab.title}}
 
     Box(v-for="(tab, idx) in tablist", :list = "mySort[tab.dataName]", v-show="idx == myIdx")
+      
 
 </template>
 

@@ -33,6 +33,7 @@
           Discussion(:article="article")  
         // section#content4.tab-content(v-if = "article.id !== undefined")
         //   NextStage(:article="article")
+        
 </template>
 
 <script>

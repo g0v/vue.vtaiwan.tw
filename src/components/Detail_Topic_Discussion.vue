@@ -1,6 +1,6 @@
 
 <template lang="jade">  
-div.textleft
+.component.textleft
   div(v-if = "slido_id !== undefined && slido_id.length >0")
     span(v-html="slido_id")
 
@@ -8,20 +8,22 @@ div.textleft
     .polis(:data-conversation_id="polis_id")
     script(async='true', src='https://pol.is/embed.js')
 
-  div(v-if = "discourse_id !== undefined && discourse_id >0")
+  div.commentboxall(v-if = "discourse_id !== undefined && discourse_id >0")
     //Discussion_Comment       
     div(v-for = "(item, index) in discourse_title")
       .ui.accordion(style="display: block;")
-        div(v-if = "index==0")
+        div.commentbox(v-if = "index==0")
           .active.title
             i.dropdown.icon  
-            |{{discourse_title[index].title}} 
+            |{{discourse_title[index].title}}
+            .line 
           .active.content
             Discussion_Comment(:comment_id="discourse_title[index].id")
-        div(v-if = "index!=0")
+        div.commentbox(v-if = "index!=0")
           .title
             i.dropdown.icon  
             |{{discourse_title[index].title}} 
+            .line
           .content
             Discussion_Comment(:comment_id="discourse_title[index].id")
     script.
@@ -105,5 +107,34 @@ export default {
 .textleft{
   text-align: left;
 }
+.ui.accordion .active.title {                  //選單變化顏色
+    background-color: rgba(69, 74, 74, 0.1);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.commentbox{
+     background-color: #f5f5f5;
+    
+    padding: 0;
+    border-radius: 10px;
+}
+.commentboxall{
+     background-color: #f5f5f5;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    padding: 0;
+    border-radius: 10px;
+}
 
+.line{
+  border-bottom: 1px solid rgba(0,0,0,.1);
+  margin: 1em 0 0 0 ;
+}
+// .ui.accordion .active.title {
+//     background-color: rgba(0, 181, 173, 0.1);
+//     border-top-left-radius: 20px;
+//     border-top-right-radius: 20px;
+// }
+.ui.accordion .title:not(.ui) {
+    padding: 1em 0em 0em 0em;
+}
 </style>
