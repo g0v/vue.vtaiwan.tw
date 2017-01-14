@@ -1,5 +1,5 @@
 <template lang="jade">
-  .component
+  .component(@keyup.left = "c = cycle(-1)")
     .desktop-container
       .slide-page.fat-only 
         a.pre(@click="c = cycle(-1)")
