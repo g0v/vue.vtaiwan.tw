@@ -26,8 +26,10 @@
         section#content2.tab-content(v-if = "article.id !== undefined")
           Timeline(:article="article")
         section#content3.tab-content(v-if = "article.id !== undefined")
-          Discussion(:article="article")  
-
+          Discussion(:article="article")     
+        // section#content4.tab-content(v-if = "article.id !== undefined")
+        //   NextStage(:article="article")
+        
 </template>
 
 <script>
