@@ -62,12 +62,14 @@ export default {
 </script>
 <style lang="scss" >
   i.con {
-        padding: 0.3em 0.5em 0.3em 0.5em;
-        font-size: 25px;
+        padding: 0.6em 0.5em 1.5em 0.5em;
+        font-size: 1rem;
         color: rgba(255, 255, 255, 0.82);
-        display: inline;
+        display: static;
         background: #49A3DD;
         border-radius: 0.5em;
+        width: 70%;
+        margin: 0em 0em 0.5em 0em;
   }
 //   @media only screen and (max-width: 767px) {
               

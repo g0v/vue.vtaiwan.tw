@@ -1,43 +1,43 @@
 <template lang="jade">
-div
-  nav.component.fat-only.navbar
-    
-    // router-link.explore.fat-only(to='/', exact='')
-      // | 探索
+  .component
 
-    form.search(:class="{active: myKey}", @keyup.down="onKeyDown()")
-      i.search.icon
-      input(type="search", v-model="myKey", placeholder="探索")
-      SearchResult(v-show="myKey", :allTopics="allTopics", :myKey = "myKey", :myIdx="myIdx")
+    nav.fat-only.navbar
+      // router-link.explore.fat-only(to='/', exact='')
+        // | 探索
 
-    router-link.logo(to='/', exact='')
-      img(width='30', height='30', src='../assets/logo.png', alt='logo')
-      span.fat-only vTaiwan
+      form.search(:class="{active: myKey}", @keyup.down="onKeyDown()")
+        i.search.icon
+        input(type="search", v-model="myKey", placeholder="探索")
+        SearchResult(v-show="myKey", :allTopics="allTopics", :myKey = "myKey", :myIdx="myIdx")
 
-    .null
+      router-link.logo(to='/', exact='')
+        img(width='30', height='30', src='../assets/logo.png', alt='logo')
+        span.fat-only vTaiwan
 
-    // .more.thin-only
-    //   a(@click="showDropDown = !showDropDown")
-    //     | 更多
-    //     i.caret.down.icon(v-if="!showDropDown")
-    //     i.caret.up.icon(v-else)
-    //   .dropdown.menu(v-if="showDropDown")
-    //     router-link.item(v-for='r in routes', v-if="r.r", :to="'/'+r.r", :class='r.r', exact='')
-    //       | {{ r.t }}
+      // .null
 
-    .tab.fat-only    
-      router-link.item(v-for='r in routes', v-if="r.r", :to="'/'+r.r", :class='r.r', exact='')
-        | {{ r.t }}
-        //.sub {{r.en | uppercase}}
+      // .more.thin-only
+      //   a(@click="showDropDown = !showDropDown")
+      //     | 更多
+      //     i.caret.down.icon(v-if="!showDropDown")
+      //     i.caret.up.icon(v-else)
+      //   .dropdown.menu(v-if="showDropDown")
+      //     router-link.item(v-for='r in routes', v-if="r.r", :to="'/'+r.r", :class='r.r', exact='')
+      //       | {{ r.t }}
 
-  nav.thin-only
-    .m-logo
-      img(width='30', height='30', src='../assets/logo.png', alt='logo')
-      span vTaiwan
-    .menu
-      router-link.m-item(:to="'/how-to-use'") 使用手冊
-      router-link.m-item(:to="'/'") 探索議題
-      router-link.m-item(:to="'/'") 搜尋議題
+      .tab
+        router-link.item(v-for='r in routes', v-if="r.r", :to="'/'+r.r", :class='r.r', exact='')
+          | {{ r.t }}
+          //.sub {{r.en | uppercase}}
+
+    nav.thin-only
+      .m-logo
+        img(width='30', height='30', src='../assets/logo.png', alt='logo')
+        span vTaiwan
+      .menu
+        router-link.m-item(:to="'/how-to-use'") 使用手冊
+        router-link.m-item(:to="'/'") 探索議題
+        router-link.m-item(:to="'/'") 搜尋議題
         
 </template>
 
@@ -78,13 +78,10 @@ export default {
 
   .navbar {
     position: fixed;
-    z-index: 50000;
+    z-index: 999999;
     top: 0;
     left: 0;
     right: 0;
-  }
-
-  nav.component {
     display: flex;
     height: $navHeight;
     overflow: visible;
@@ -93,41 +90,23 @@ export default {
     border-bottom: 1px solid lightgray;
   }
 
-  .logo, .explore {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-  }
-
-  .logo {
-    padding-left: 1em;
-    padding-right: 1em;
-    span {
-      margin-left: 0.5em;
-    }
-  }
-
-  .explore {
-    height: $navHeight;
-    min-width: 4em;
-    &.router-link-active {
-      background-color: white;
-    }
-  }
-
   form.search {
+    flex: 0 1 auto;
+
     position: relative;
-    padding: 0.2em;
+    padding: .5em;
+
     i.search.icon {
       position: absolute;
       z-index: -1;
-      right: 0.5em;
-      line-height: 2em;
+      right: .75em;
+      line-height: 1.75em;
       color: gray;
     }
+
     input {
       color: black;
-      height: 2em;
+      height: 1.75em;
       border: 1px solid gray;
       border-radius: 1em;
       padding: 0 .6em;
@@ -136,18 +115,47 @@ export default {
         outline: none;
       }
     }
+
     &.active {
       i.icon {
         visibility: hidden;
       }
     }
+
   }
 
-  .null {
-    flex: 1;
+  .logo {
+    flex: 0 1 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding-left: 1em;
+    padding-right: 1em;
+    span {
+      margin-left: 0.5em;
+    }
   }
+
+  // .explore {
+  // display: flex;
+  // align-items: center;
+  // justify-content: space-around;
+  //   height: $navHeight;
+  //   min-width: 4em;
+  //   &.router-link-active {
+  //     background-color: white;
+  //   }
+  // }
+
+
+  // .null {
+  //   flex: 1;
+  // }
 
   .tab {
+    flex: 0 1 auto;
+
     display: flex;
     margin-left: auto !important;
     a.item {
