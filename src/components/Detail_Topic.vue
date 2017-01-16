@@ -223,11 +223,11 @@ label .fa {
   margin: 0 0.4em 0 0;
 }
 
-/*Media query*/
-@media screen and (min-width: 768px){
+
+@media screen and (min-width: 768px){ // 小於ipad尺寸
   .ui.huge.header {
     font-family: $main_font;
-    font-size:2.2em;
+    font-size:2.5em;
   }
 }
 @media screen and (max-width: 768px) {
