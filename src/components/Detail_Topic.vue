@@ -27,13 +27,6 @@
           Timeline(:article="article")
         section#content3.tab-content(v-if = "article.id !== undefined")
           Discussion(:article="article")  
-<<<<<<< HEAD
-
-=======
-        // section#content4.tab-content(v-if = "article.id !== undefined")
-        //   NextStage(:article="article")
-        
->>>>>>> c90964737d7a86d999c26f3acceed1a82cfe4d98
 </template>
 
 <script>
@@ -84,8 +77,7 @@ export default {
 
 .component {
   position: relative;
-  top: 66px;
-  width: $comp_max_width;
+  max-width: $comp_max_width;
   margin: auto;
 }
 .ui.container {

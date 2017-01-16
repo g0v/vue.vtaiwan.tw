@@ -75,7 +75,9 @@ export default {
 
   $navHeight: 55px;
   $navBgColor: hsla(0, 0%, 100%, 0.95);
-
+  .component{
+    padding-bottom: 66px;
+  }
   .navbar {
     position: fixed;
     z-index: 999999;
