@@ -41,10 +41,10 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .component {
   position: relative;
-  top: 66px;
+  //top: 66px;
 }
 
 p {

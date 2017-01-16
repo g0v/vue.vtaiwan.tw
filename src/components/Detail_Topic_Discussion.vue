@@ -104,6 +104,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../sass/global.scss";
 .textleft{
   text-align: left;
 }
@@ -124,16 +125,14 @@ export default {
     padding: 0;
     border-radius: 10px;
 }
-
+.ui.accordion:not(.styled) .title~.content:not(.ui):last-child { //comment 內容padding1em
+    padding: 1em;
+}
 .line{
   border-bottom: 1px solid rgba(0,0,0,.1);
   margin: 1em 0 0 0 ;
 }
-// .ui.accordion .active.title {
-//     background-color: rgba(0, 181, 173, 0.1);
-//     border-top-left-radius: 20px;
-//     border-top-right-radius: 20px;
-// }
+
 .ui.accordion .title:not(.ui) {
     padding: 1em 0em 0em 0em;
 }

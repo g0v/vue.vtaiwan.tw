@@ -11,8 +11,6 @@
           | 觀看 {{views['views']}}
         div.ui.label
           | 用戶 {{views['participant_count']}}
-
-          
       div(v-for="(item, index) in comment")
         div.discussioncomment.ui.comments
           div.discussioncomment.comment
@@ -73,13 +71,12 @@ export default {
 
 </script>
 
-<style lang="scss" modules="discussioncomment">
-
-.ui.large.labels{   //資訊列
-  margin-bottom:1em;
-  font-size: 1em;
+<style lang="scss" scoped modules="discussioncomment">
+@import "../sass/global.scss";
+.ui.large.label, .ui.large.labels .label {//資訊列
+    font-size: 0.5rem;
+    margin-bottom:2em;
 }
-
 .ui.green.button,  { //我要留言按鈕
     background-color: rgba(0, 181, 173, 0.6);
 }
@@ -87,30 +84,25 @@ export default {
     width: 100%;
     margin: auto;
     margin-bottom: 1em;
-    font-size: 1em;
+    font-size: 0.6rem;
 }
 .textleft{
       text-align: left;
 }
 .line{
-  border-bottom: 3px solid rgba(0,0,0,.1);
-  margin: 20px 0px 20px 0px;
+  border-bottom: 2px solid rgba(0,0,0,.1);
+  margin: 2em -2em 2em -3.5em;
 }
 
 .ui.header:first-child { ////comment icon
     margin-bottom: 1em;
-    font-size: 1em;
+    font-size: 0.6rem;
 }
 
 .ui.comments {
      max-width: 93%;
 }
-// .commentbox{
-//      background-color: #f5f5f5;
-//     border-radius: 20px;
-//     box-shadow: 0 2px 4px rgba(0,0,0,0.3);
-//     padding: 0.5em;
-// }
+
 .ui.comments .comment img.avatar {
   width: inherit;
 }
