@@ -1,8 +1,8 @@
 <template lang="jade">  
 
     .component
-      h2.discussioncomment.ui.header
-        i.discussioncomment.icon.inverted.circular.blue.comment 
+      h2.ui.header
+        i.icon.inverted.circular.blue.comment 
         |Comments
       div.ui.large.labels
         div.ui.label
@@ -11,23 +11,25 @@
           | 觀看 {{views['views']}}
         div.ui.label
           | 用戶 {{views['participant_count']}}
+        div.ui.label
+          | 最新回復 {{date}}
       div(v-for="(item, index) in comment")
-        div.discussioncomment.ui.comments
-          div.discussioncomment.comment
-            a.discussioncomment.avatar
+        div.ui.comments
+          div.comment
+            a.avatar
               img(:src="comment[index]['avatar_template']")
-            div.discussioncomment.content
-              a.discussioncomment.author
+            div.content
+              a.author
               {{comment[index]['username']}}
-              div.discussioncomment.metadata               
-                span.discussioncomment.date
+              div.metadata               
+                span.date
                   div(v-html="comment[index]['created_at']")
-              div.discussioncomment.text
+              div.text
                 div(v-html="comment[index]['cooked']")
-              div.discussioncomment.line
+              div.line
       a(v-bind:href="'https://talk.vtaiwan.tw/t/topic/'+comment_id" target="_blank")
-        div.discussioncomment.ui.fluid.green.labeled.submit.icon.button
-          i.discussioncomment.icon.edit
+        div.ui.fluid.green.labeled.submit.icon.button
+          i.icon.edit
           |我要留言
       
 
@@ -46,13 +48,13 @@ export default {
       comment:[],
       username:[],
       views:[],
-    
+      date:[],
     }
   },
   created:function(a,b){
     axios.get('https://talk.vtaiwan.tw/t/topic/'+ this.comment_id +'.json')
     .then((response_comment)=>{
-     this.views = response_comment['data'];
+     this.views = response_comment['data']['last_posted_at'];
       this.comment = response_comment['data']['post_stream']['posts'].slice(1);
       for(var i=0; i<this.comment.length; i++){
         this.username =this.comment[i]['avatar_template'].replace(/{size}/,"100");
@@ -60,12 +62,20 @@ export default {
         this.comment[i]['created_at']=this.comment[i]['created_at'].replace(/T.*/,"");
         this.username= this.comment[i]['avatar_template']
       }
-      console.log(this.comment_id)
-      //console.log(username)
-    console.log(this.views)
+      var today = new Date();
+      var lastpostday = new Date(this.views);
+      this.date=(today-lastpostday)/(1000*60*60*24);
+      if(this.date>1){
+        this.date=Math.floor(this.date)+"天";
+      }
+      else if(this.date>0.041){
+        this.date=Math.floor(this.date*24)+"小時";
+      }
+      else{
+        this.date=Math.floor(this.date*24*60)+"分鐘";
+      }
+    
     })
-   // ['post_stream']['posts'].slice(1)
-
   }
 }
 
@@ -81,10 +91,13 @@ export default {
     background-color: rgba(0, 181, 173, 0.6);
 }
 .ui.fluid.button, { //我要留言按鈕大小
-    width: 100%;
+    width: 76%;
     margin: auto;
     margin-bottom: 1em;
-    font-size: 0.6rem;
+    font-size: 1.5rem;
+    @media only screen and (max-width: 767px){
+      font-size: 0.8rem;
+    }
 }
 .textleft{
       text-align: left;
@@ -96,7 +109,12 @@ export default {
 
 .ui.header:first-child { ////comment icon
     margin-bottom: 1em;
-    font-size: 0.6rem;
+    font-size: 1.5rem;
+    @media only screen and (max-width: 767px){
+      font-size: 1rem;
+    }
+    
+
 }
 
 .ui.comments {
