@@ -20,7 +20,7 @@
           .active.content
             Discussion_Comment(:comment_id="discourse_title[index].id")
         div.commentbox(v-if = "index!=0")
-          .title
+          .title.titleborder
             i.dropdown.icon  
             |{{discourse_title[index].title}} 
             .line
@@ -112,6 +112,11 @@ export default {
     background-color: rgba(69, 74, 74, 0.1);
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+}
+.ui.accordion .active.title.titleborder {                  //選單變化顏色
+    background-color: rgba(69, 74, 74, 0.1);
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
 }
 .commentbox{
      background-color: #f5f5f5;

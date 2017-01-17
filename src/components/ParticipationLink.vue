@@ -3,7 +3,7 @@
  
  .urllink(v-if = "ulinkall.length > 0")
   span.urllink(v-for="(item, index) in ulinkall")
-     span(v-html = "ulinkall[index]")
+    span(v-html = "ulinkall[index]")
 </template>
 
 <script>
@@ -14,35 +14,34 @@ export default {
   data () {
     return {
       ulinkall:[],
-     gg:"<div class='column'><i class='archive icon'></i>Archive</div>",
       data_base:[
         {
           key: 'hackpad',
-          icon:"<i class='con edit icon'> 共筆</i>"
+          icon:"<a class='ui teal button'><i class='pencil icon'></i>共筆</a>"
         },
         {
           key: 'sayit',
-          icon:"<i class='con book icon'> 記錄</i>"
+          icon:"<a class='ui teal button'><i class='book icon'></i>記錄</a>"
         },
         {
           key: 'youtube',
-          icon:"<i class='con play icon'> 影片</i>",
+          icon:"<a class='ui teal button'><i class='youtube play icon'></i>影片</a>",
         },
         {
           key: 'pol.is',
-          icon:"<i class='con users icon'> 討論</i>"
+          icon:"<a class='ui teal button'><i class='users icon'></i>討論</a>"
         },
         {
           key: 'talk.vtaiwan.tw',
-          icon:"<i class='con comment outline icon'> 留言</i>"
+          icon:"<a class='ui teal button'><i class='edit icon'></i>留言</a>"
         },
         {
           key: 'app.sli.do',
-          icon:"<i class='con bullhorn icon'> 提問</i>"
+          icon:"<a class='ui teal button'><i class='bullhorn icon'></i>提問</a>"
         },
         {
           key: 'PDF',
-          icon:"<i class='con text file outline icon'> PDF</i>"
+          icon:"<a class='ui teal button'><i class='download disk icon'></i>PDF</a>"
         },
         
       ]
@@ -61,21 +60,10 @@ export default {
 
 </script>
 <style lang="scss" >
-  i.con {
-        padding: 0.6em 0.5em 1.5em 0.5em;
-        font-size: 1rem;
-        color: rgba(255, 255, 255, 0.82);
-        display: static;
-        background: #49A3DD;
-        border-radius: 0.5em;
-        width: 70%;
-        margin: 0em 0em 0.5em 0em;
+  .ui.teal.button{
+    margin-bottom: 0.5em;
+    @media only screen and (max-width: 767px){
+      padding: 0.7em;
+    }
   }
-//   @media only screen and (max-width: 767px) {
-              
-// i{
-//   display: flex;
-//   margin-bottom: 26px;  
-// }
-//   }
 </style>
