@@ -8,25 +8,32 @@
       Slide(v-if = "article.id !== undefined", :article="article")
       // video(:style="{'background-image': 'url('+article.cover+')'}")
       br
-      .tab_container
-        input#tab1(type='radio', name='tabs', checked='')
-        label(for='tab1')
-          i.fa.fa-info-circle
-          span 詳細內容
-        input#tab2(type='radio', name='tabs')
-        label(for='tab2')
-          i.fa.fa-calendar
-          span 議題時間軸
-        input#tab3(type='radio', name='tabs')
-        label(for='tab3')
-          i.fa.fa-users
-          span 參與討論
-        section#content1.tab-content(v-if = "article.id !== undefined")
-          Description(:article="article")
-        section#content2.tab-content(v-if = "article.id !== undefined")
-          Timeline(:article="article")
-        section#content3.tab-content(v-if = "article.id !== undefined")
-          Discussion(:article="article")  
+      .ui.big.steps.top.attached
+        a.step(v-for="(step, idx) in tabcontent", :class="{'active': idx == myIdx}", @click="myIdx = idx")
+         .lable
+          .fa(v-bind:class="{'fa-info-circle': step === '詳細內容','fa-calendar': step === '議題時間軸','fa-users': step === '參與討論' }")
+          span {{step}}
+      .ui.segment.attached(v-if = "article.id !== undefined")
+        info(v-for="(step, idx) in tabcontent",:article="article", :desc = "step", v-show="idx == myIdx")
+      // .tab_container
+      //   input#tab1(type='radio', name='tabs', checked='')
+      //   label(for='tab1')
+      //     i.fa.fa-info-circle
+      //     span 詳細內容
+      //   input#tab2(type='radio', name='tabs')
+      //   label(for='tab2')
+      //     i.fa.fa-calendar
+      //     span 議題時間軸
+      //   input#tab3(type='radio', name='tabs')
+      //   label(for='tab3')
+      //     i.fa.fa-users
+      //     span 參與討論
+      //   section#content1.tab-content(v-if = "article.id !== undefined")
+      //     Description(:article="article")
+      //   section#content2.tab-content(v-if = "article.id !== undefined")
+      //     Timeline(:article="article")
+      //   section#content3.tab-content(v-if = "article.id !== undefined")
+      //     Discussion(:article="article")  
 </template>
 
 <script>
@@ -38,6 +45,7 @@ import Description from './Detail_Topic_Description.vue'
 import Discussion from './Detail_Topic_Discussion.vue'
 import Timeline from './Detail_Topic_Timeline.vue'
 import NextStage from './Detail_Topic_NextStage.vue'
+import info from './Detail_info.vue'
 
 export default {
   name: 'Detial_Topic',
@@ -47,10 +55,13 @@ export default {
       Discussion,
       Timeline,
       NextStage,
-      Slide
+      Slide,
+      info
   },
   data () {
     return {
+      myIdx: 0,
+      tabcontent:["詳細內容","議題時間軸","參與討論"],
       article:{}, // title & status
       timeline:[], // 時間軸
       polis_link:[], // polis連結
@@ -187,7 +198,9 @@ label {
   text-align: center;
   background: #f0f0f0;
 }
-
+.fa {
+  padding-right:0.3rem;
+}
 #tab1:checked ~ #content1,
 #tab2:checked ~ #content2,
 #tab3:checked ~ #content3,
@@ -224,13 +237,13 @@ label .fa {
 }
 
 
-@media screen and (min-width: 768px){ // 小於ipad尺寸
+@media screen and (min-width: 768px){ 
   .ui.huge.header {
     font-family: $main_font;
     font-size:2.5em;
   }
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 768px) { // 小於ipad尺寸
   .component {
     width:98%;
   }
