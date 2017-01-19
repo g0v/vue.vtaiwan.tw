@@ -75,7 +75,12 @@ export default {
 
   $navHeight: 55px;
   $navBgColor: hsla(0, 0%, 100%, 0.95);
-
+  .component{
+    @media screen and (min-width:$breakpoint){
+      padding-bottom: 5%;
+    }
+    
+  }
   .navbar {
     position: fixed;
     z-index: 999999;
@@ -89,7 +94,7 @@ export default {
     background: $navBgColor;
     border-bottom: 1px solid lightgray;
   }
-
+  
   form.search {
     flex: 0 1 auto;
 
@@ -217,6 +222,7 @@ export default {
 
 <style lang="scss" scoped>
   .thin-only{
+    padding-bottom: 5%;
     .menu{
       display: flex;
       .m-item{

@@ -1,8 +1,5 @@
 <style scoped lang="scss">
   @import "../sass/global.scss";
-  .component {
-    padding-top: 6rem;
-  }
 </style>
 
 <template lang="jade">

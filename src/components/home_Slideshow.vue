@@ -91,7 +91,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+  .component{
+    padding-bottom: -66px;
+  }
   .mobile-container {
     position: relative;
     overflow: scroll;
@@ -122,7 +124,7 @@ export default {
 // Desktop CSS
 <style lang="scss" scoped>
   @import "../sass/global.scss";
-
+  
   .slide-page {
     display: block;
     height: 90%;

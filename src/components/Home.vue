@@ -64,6 +64,7 @@ export default {
         margin-left: auto;
         margin-right: auto;
         padding-bottom: 5vh;
+        margin-top:-5%;
     }
     p {
         font-size: 1rem;

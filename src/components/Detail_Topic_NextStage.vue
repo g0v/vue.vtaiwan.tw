@@ -1,6 +1,6 @@
 <template lang="jade">
 .NextStage
- ul.NextStage-Prgress
+ ul.NextStage-Progress
   li(v-for="(s,idx) in steps", v-bind:class='{active:s.active,visited:s.visited}') 
    span {{s.title}}
 </template>
@@ -118,7 +118,7 @@ background-image: -moz-linear-gradient(-45deg, rgba(255, 255, 255, .2) 25%, tran
   max-width: 1200px;
   position: relative;
 }
-ul.NextStage-Prgress {
+ul.NextStage-Progress {
   margin: 0 20px;
   li {
     color: #ccc;
@@ -198,7 +198,7 @@ ul.NextStage-Prgress {
   }
 }
 
- .NextStage-Prgress li.active:after {
+ .NextStage-Progress li.active:after {
     @include green-stripe;
     @include inner-shadow;
     content:"";
@@ -210,10 +210,10 @@ ul.NextStage-Prgress {
     z-index: 0;
   }
   .NextStage {
-    margin-bottom: 100px;
+    // margin-bottom: 100px;
     margin-top: 50px;
   }
-  ul.NextStage-Prgress {
+  ul.NextStage-Progress {
     @include inner-shadow;
     @include gray-stripe;
     border-radius: 15px;
@@ -228,10 +228,10 @@ ul.NextStage-Prgress {
       border-radius: 15px;
       content: " ";
       height: 15px;
-      left: 240px;
+      left: 20%;
       position: absolute;
       width: 10%;
-    }
+   }
    li {
       display: inline-block;
       margin: 50px 0 0;
@@ -265,7 +265,7 @@ ul.NextStage-Prgress {
   }
 
 @media only screen and (max-width: 768px) { // 小於ipad尺寸
-    ul.NextStage-Prgress {
+    ul.NextStage-Progress {
       margin: 0 auto;
       width: 100%;
       margin-bottom:50px;
