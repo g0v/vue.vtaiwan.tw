@@ -1,25 +1,18 @@
 <template lang="jade">
 
   .component
-    .thin-only(style="position: relative;")
-      .m-nav-tabs.ui.left.rail
-        .ui.sticky
-          a(v-for="(step, idx) in steps", :class="{'active': idx == myIdx}", @click="myIdx = idx")
-            p {{step.title}}
-      .m-context(id="context")
-        Box(v-for="(step, idx) in steps", :list = "mySort(step.dataName)", :desc = "step.description", :label = "step.label")
-      div(v-if="allTopics!==undefined && allTopics.length>0")
-        script $('.ui.sticky').sticky({context:"#context"});
+    .ui.big.steps.top.attached.fat-only
+      a.step(v-for="(step, idx) in steps", :class="{'active': idx == myIdx}", @click="myIdx = idx")
+        .number {{idx + 1}}
+        .label {{step.label}}
 
-    .fat-only
-      .ui.big.steps.top.attached
-        a.step(v-for="(step, idx) in steps", :class="{'active': idx == myIdx}", @click="myIdx = idx")
-          .number {{idx + 1}}
-          .label {{step.label}}
+    .ui.big.steps.top.attached.mobile-step.sticky.thin-only(id="mobile-step")
+      a.step(v-for="(step, idx) in steps", :class="{'active': idx == myIdx}", @click="myIdx = idx", v-bind:href="'#'+step.dataName")
+        .label {{step.label}}
 
-      .ui.segment.attached
-        Box(v-for="(step, idx) in steps", :list = "mySort(step.dataName)", :desc = "step.description", :label = "step.label", v-show="idx == myIdx")
-
+    .ui.segment.attached(id="context")
+      Box(v-for="(step, idx) in steps", v-bind:id="step.dataName", :list = "mySort(step.dataName)", :desc = "step.description", :label = "step.label", v-show="idx == myIdx || onMobile")
+    
 </template>
 
 <script>
@@ -64,6 +57,20 @@
           },
         ]
       }
+    },
+    computed:{
+      onMobile:function(){
+        if(typeof screen!== 'undefined')
+          return screen.width<=768;
+        else
+          return false;
+      }
+    },
+    created:function(){
+    },
+    mounted () {
+      $("#mobile-step").sticky({context:"#context"})
+      window.addEventListener('scroll', this.handleScroll);
     },
     methods: {
       mySort: function (dataName) { 
@@ -127,6 +134,10 @@
         }
 
         return boxes;
+      },
+      handleScroll: function(){
+        $(".ui.mobile-step").sticky('refresh');
+        $(".ui.mobile-step")[0].style.left="0px"
       }
     }
   }
@@ -138,54 +149,9 @@
   .component {
     width: 100%;
     max-width: $comp_max_width;
-    // min-height: 20em;
     margin: 0 auto;
     padding: 1em;
-    // font-size: 0.8rem;
   }
-
-  .nav-tabs {
-    display: flex;
-    justify-content: center;
-    // cursor: pointer;
-    // font-size: 0.8rem;
-    border-bottom: 1px solid gray;
-    a {
-      color: black;
-      padding: .2em 1em;
-      margin: 0 .1em;
-      border: 1px solid gray;
-
-      @include transition(all 0.1s ease);
-      border-bottom: 0px;
-      // background: white;
-      &:hover, &:active, &.active {
-        border-bottom: 5px lightcoral solid;
-      }
-    }    
-  }
-</style>
-
-<style lang="scss" scoped>
-.m-nav-tabs{
-  left: 0px !important;
-  width: 0px;
-  a{
-    cursor: pointer !important;
-    height: 20vh;
-    display: table-row;
-      p{
-        width: 1rem;
-        display: table-cell;
-        vertical-align: middle;
-        font-size: 1.3rem;
-        color: #3EACC6;
-    }
-  }
-}
-.m-context{
-  margin-left:2rem;
-}
 
   .number {
     border-radius: 1em;
@@ -198,4 +164,28 @@
     height: 1.2em;
     margin: 0 .2em 0 0;
   }
+
+  @media only screen and (max-width: 767px) {
+  .component{
+      padding:0px;
+      border: 0px;
+      .bound{
+        left:0
+      }
+    }
+  .mobile-step{
+        .step,.step.active{
+          width: 0.5em !important;
+          height: 20vh;
+          padding: 0.5em;
+          line-height: 1.5rem;
+          border: 0px;
+        }
+        left: 0;
+        z-index: 10;
+        position: absolute;
+      }
+  }	
+
+
 </style>
