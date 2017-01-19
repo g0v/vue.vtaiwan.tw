@@ -1,57 +1,25 @@
 <template lang="jade">
   .component
 
-    pre.ui.basic.segment
-      p {{ desc }}
-    
-    .thin-only.ui.grid.four.column.padded.doubling.emptyable
+      pre.ui.basic.segment(v-if="!onMobile")
+        p {{ desc }}
+      
+      .m-title(v-if="onMobile") {{ label }}
 
-      .box.column(v-for="t in list")
-        // .inner
-        router-link.topic(:to="'/topic/' + t.routeName")
+      .ui.four.column.grid.stackable
 
-            img(:src ="t.cover || 'http://lorempixel.com/320/240/sports'")
-            // .null
-            h3.header {{ t.title }}
-              // .sub.header {{ t.owner }} 
-
-            .progress_bar
-              .progress(v-bind:style="{ width: (t.progress / t.total * 100) + '%' }")
-            .progress_text(v-if="t.status==='討論中'") 還有{{Math.floor(t.total - t.progress)}}天
-            .progress_text(v-else) 討論已結束
-    .thin-only(v-if="label!==undefined")
-      .ui
-        .m-step-title.ui.sticky(v-bind:id="label+'-title'") {{label}}
-      .ui.grid.four.column.padded.stackable.emptyable(v-bind:id="label+'-context'")
         .box.column(v-for="t in list")
-          // .inner
-          router-link.topic(:to="'/topic/' + t.routeName")
-
+          router-link.ui.segment(:to="'/topic/' + t.routeName")
+            
             img(:src ="t.cover || 'http://lorempixel.com/320/240/sports'")
-            // .null
-            h3.header {{ t.title }}
-              // .sub.header {{ t.owner }} 
+
+            h3.ui.header {{ t.title }}
 
             .progress_bar
               .progress(v-bind:style="{ width: (t.progress / t.total * 100) + '%' }")
-            .progress_text(v-if="t.status==='討論中'") 還有{{Math.floor(t.total - t.progress)}}天
-            .progress_text(v-else) 討論已結束
-          
 
-    .fat-only.ui.four.column.grid.stackable
-
-      .box.column(v-for="t in list")
-        router-link.ui.segment(:to="'/topic/' + t.routeName")
-          
-          img(:src ="t.cover || 'http://lorempixel.com/320/240/sports'")
-
-          h3.ui.header {{ t.title }}
-
-          .progress_bar
-            .progress(v-bind:style="{ width: (t.progress / t.total * 100) + '%' }")
-
-          .progress_text.ui.top.right.attached.teal.large.label(v-if="t.status==='討論中'") 還有{{Math.floor(t.total - t.progress)}}天
-          .progress_text.ui.top.right.attached.blue.large.label(v-else) 討論已結束
+            .progress_text.ui.top.right.attached.teal.large.label(v-if="t.status==='討論中'") 還有{{Math.floor(t.total - t.progress)}}天
+            .progress_text.ui.top.right.attached.blue.large.label(v-else) 討論已結束
 
 </template>
 
@@ -64,14 +32,17 @@
         //...
       }
     },
-    // updated:function(){
-    //   if(list!==undefined && list.length>0)
-    //   {
-    //     list.forEach((topic)=>{
-    //       topic.title
-    //     })
-    //   }
-    // }
+    computed:{
+      onMobile:{
+        cache: false,
+        get: function() {
+          if(typeof screen!== 'undefined')
+            return screen.width<768;
+          else
+            return false;
+        }
+      }
+    }
   }
 </script>
 
@@ -151,5 +122,22 @@
     text-align: left;
     padding:1rem;
     font-size:1.3rem;
+    margin-right: -2rem;
+    position: absolute;
+    z-index: 1;
+    width: 120%;
+  }
+  .thin-only{
+    margin-top: -1em;
+  }
+  .m-context{
+    padding-top: 50px;
+  }
+  .m-title{
+    text-align: left;
+    margin: 1.5rem -2rem 1.5rem 1rem;
+    font-size: 2rem;
+    padding: 20px;
+    background-color: #E6E6E6;
   }
 </style>

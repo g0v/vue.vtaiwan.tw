@@ -10,7 +10,7 @@
       a.step(v-for="(step, idx) in steps", :class="{'active': idx == myIdx}", @click="myIdx = idx", v-bind:href="'#'+step.dataName")
         .label {{step.label}}
 
-    .ui.segment.attached(id="context")
+    .ui.segment.attached(id="context" v-bind:class="{ 'mobile-context': onMobile }")
       Box(v-for="(step, idx) in steps", v-bind:id="step.dataName", :list = "mySort(step.dataName)", :desc = "step.description", :label = "step.label", v-show="idx == myIdx || onMobile")
     
 </template>
@@ -59,11 +59,14 @@
       }
     },
     computed:{
-      onMobile:function(){
-        if(typeof screen!== 'undefined')
-          return screen.width<=768;
-        else
-          return false;
+      onMobile:{
+        cache: false,
+        get: function() {
+          if(typeof screen!== 'undefined')
+            return screen.width<768;
+          else
+            return false;
+        }
       }
     },
     created:function(){
@@ -174,18 +177,24 @@
       }
     }
   .mobile-step{
-        .step,.step.active{
-          width: 0.5em !important;
+        .step,.step.active, .step:first-child{
+          width: 0 !important;
           height: 20vh;
-          padding: 0.5em;
-          line-height: 1.5rem;
+          padding: 4vw;
           border: 0px;
+        },
+        .label{
+          font-size: 5vw;
+          line-height: 6vw;
         }
         left: 0;
         z-index: 10;
         position: absolute;
       }
   }	
+  .mobile-context{
+    padding-left: calc(4vw + 1em);
+  }
 
 
 </style>
