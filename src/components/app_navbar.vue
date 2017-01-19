@@ -32,7 +32,7 @@
 
     nav.thin-only
       .m-logo
-        img(width='30', height='30', src='../assets/logo.png', alt='logo')
+        img(width='30', height='30', src='../assets/vTaiwan_logo_2017.png', alt='logo')
         span vTaiwan
       .menu
         router-link.m-item(:to="'/how-to-use'") 使用手冊
