@@ -3,7 +3,7 @@
     .component
       h2.ui.header
         i.icon.inverted.circular.blue.comment 
-        |Comments
+        | Comments
       div.ui.large.labels
         div.ui.label
           | 回復 {{comment.length}}
@@ -20,7 +20,7 @@
               img(:src="comment[index]['avatar_template']")
             div.content
               a.author
-              {{comment[index]['username']}}
+                | {{comment[index]['username']}}
               div.metadata               
                 span.date
                   div(v-html="comment[index]['created_at']")
@@ -30,7 +30,7 @@
       a(v-bind:href="'https://talk.vtaiwan.tw/t/topic/'+comment_id" target="_blank")
         div.ui.fluid.green.labeled.submit.icon.button
           i.icon.edit
-          |我要留言
+          | 我要留言
       
 
         
