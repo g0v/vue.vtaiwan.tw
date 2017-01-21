@@ -2,6 +2,8 @@
 #app.app
   Navbar(:routes = "myRoutes", :allTopics = "allTopics")
 
+  #test0 test jQuery
+
   #main.main
     transition(name='fade-in', mode='out-in')
       router-view.view(:allTopics="allTopics", :catagories="catagories")
@@ -14,6 +16,11 @@
 import Navbar from './components/app_Navbar.vue'
 import MyFooter from './components/MyFooter.vue'
 import axios from 'axios'
+
+import $ from 'jquery'
+import jQuery from 'jquery'
+
+// window.jQuery = jQuery
 
 export default {
   components: {
@@ -59,6 +66,8 @@ export default {
     }
   },
   mounted: function(){
+    $('#test0').hide(); // tester
+
     axios.get('https://talk.vtaiwan.tw/c/meta-data.json')
     .then((response)=>{
       var topics = response.data.topic_list.topics.slice(1);

@@ -13,6 +13,7 @@
           .box
             .slogan.ui.header {{t.slogan}}
             .title {{t.title}}
+              span#test1 jQuery Test
             .status {{t.status}}
     .mobile-container
       .m-slide-page.thin-only
@@ -28,7 +29,8 @@
 
 <script type="text/javascript">
 
-// import slide from 'vue-slide'
+import $ from 'jquery'
+import jQuery from 'jquery'
 
 export default {
   name: 'SlideShow',
@@ -67,6 +69,9 @@ export default {
       this.isBusy = false;
     },
     cycle: function (n) {
+
+      $('#test1').toggle();
+
       var c = this.c;
       var ts = this.hotTopics;
 
@@ -85,6 +90,9 @@ export default {
       }
       return c;
     }
+  },
+  mounted: function () {
+    $('#test1').hide();
   }
 }
 
