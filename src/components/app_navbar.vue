@@ -11,7 +11,7 @@
         SearchResult(v-show="myKey", :allTopics="allTopics", :myKey = "myKey", :myIdx="myIdx")
 
       router-link.logo(to='/', exact='')
-        img(width='30', height='30', src='../assets/logo.png', alt='logo')
+        img(width='30', height='30', src='../assets/vTaiwan_logo_2017.png', alt='logo')
         span.fat-only vTaiwan
 
       // .null
@@ -31,7 +31,7 @@
           //.sub {{r.en | uppercase}}
 
     nav.thin-only
-      router-link.m-logo(to="/", exact='')
+      router-link.m-logo(to='/', exact='')
         // img(width='30', height='30', src='../assets/vTaiwan_logo_2017.png', alt='logo')
         img(src='../assets/vTaiwan_logo_2017.png', alt='logo')
         span vTaiwan
@@ -80,24 +80,25 @@ export default {
 
 $navHeight: 55px;
 $navBgColor: hsla(0, 0%, 100%, 0.95);
-.component{
+
+.component {
   @media screen and (min-width:$breakpoint){
     padding-bottom: 5%;
   }
   
-}
-.navbar {
-  position: fixed;
-  z-index: 999999;
-  top: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  height: $navHeight;
-  overflow: visible;
-  align-items: center;
-  background: $navBgColor;
-  border-bottom: 1px solid lightgray;
+  .navbar {
+    position: fixed;
+    z-index: 999999;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    height: $navHeight;
+    overflow: visible;
+    align-items: center;
+    background: $navBgColor;
+    border-bottom: 1px solid lightgray;
+  }
 }
 
 form.search {
@@ -227,6 +228,11 @@ form.search {
 
 <style lang="scss" scoped>
 @import "../sass/global.scss";
+@media screen and (max-width: $breakpoint){
+  .thin-only {
+    padding-bottom: 65px;
+  }
+}
 
 .m-logo {
   width: 50%;

@@ -29,21 +29,50 @@ export default {
 
 @import "../sass/global.scss";
 
-@media screen and (min-width: 768px){
+@media screen and (min-width: $breakpoint){
   .content{
-    h1,p,a {
-      font-family: $main_font
+    font-family: $main_font;
+    max-width: 800px;
+    margin:0 auto;
+    h1,h2,h3,h4,h5,h6 {
+      text-align: center;
+    }
+    p,li,ol {
+      text-align: left;
+    }
+    blockquote{
+      margin:0 0 10px 0;
+      text-align: left;
+      padding: 5px;
+      border: 2px solid rgba(34,36,38,.50);
+      p{
+        text-align: center;
+        font-weight: 600;
+      }
     }
   }
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: $breakpoint) { //小於ipad尺寸
   .content {
-    font-family: $main_font
-    h1 {
-      font-family: $main_font
-    }
+    font-family: $main_font;
     iframe {
       width:100%;
+    }
+    h1,h2,h3,h4,h5,h6 {
+      text-align: center;
+    }
+    p,li,ol {
+      text-align: left;
+    }
+    blockquote {
+      margin:0 0 10px 0;
+      text-align: left;
+      padding: 5px;
+      border: 2px solid rgba(34,36,38,.50);
+      p {
+        // text-align: center;
+        font-weight: 600;
+      }
     }
   }
 }

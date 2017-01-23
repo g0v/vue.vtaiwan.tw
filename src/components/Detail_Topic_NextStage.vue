@@ -48,8 +48,8 @@ export default {
                 active:false
               }
             ];
-            detail_info = detail_info['post_stream']['posts'].slice(1); // 取得議題時間軸內容
-
+            detail_info = detail_info['post_stream']['posts'].slice(1); // 取得簡介底下內容
+            console.log(detail_info);
             var end = detail_info.length-1;
 
             var current = detail_info[end]['raw'].split(" ")[0]; //目前進展
@@ -83,6 +83,8 @@ export default {
 
 <style lang="scss" scoped>
 
+@import "../sass/global.scss";
+
 .ui.medium.header {
   color:#db2828;
 }
@@ -96,21 +98,18 @@ background-image: -moz-linear-gradient(-45deg, rgba(255, 255, 255, .4) 25%, tran
 
 @mixin blue-stripe {
 background-size: 35px 35px;
-background-color: #57aed1;
+background-color: #40B3BF;
 background-image: -webkit-linear-gradient(-45deg, rgba(255, 255, 255, .2) 25%, transparent 25%,transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%,transparent 75%, transparent);
 background-image: -moz-linear-gradient(-45deg, rgba(255, 255, 255, .2) 25%, transparent 25%,transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%,transparent 75%, transparent);
 }
 
-@mixin green-stripe {
+@mixin red-stripe {
 background-size: 35px 35px;
-background-color: #8bc53f;
+background-color: #DB5252;
 background-image: -webkit-linear-gradient(-45deg, rgba(255, 255, 255, .2) 25%, transparent 25%,transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%,transparent 75%, transparent);
 background-image: -moz-linear-gradient(-45deg, rgba(255, 255, 255, .2) 25%, transparent 25%,transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%,transparent 75%, transparent);
 }
 
-@mixin inner-shadow {
--webkit-box-shadow: inset 2px 2px 2px 0px rgba(0, 0, 0, .2); box-shadow: inset 2px 2px 2px 0px rgba(0, 0, 0, .2);
-}
 
 .NextStage {
   color: #444;
@@ -127,7 +126,6 @@ ul.NextStage-Progress {
     position: relative;
     padding-left:14px;
     &:before {
-      @include inner-shadow;
       background: #ddd;
       border: 2px solid #FFF;
       border-radius: 50%;
@@ -145,22 +143,22 @@ ul.NextStage-Progress {
       z-index: 99999;      
     }
      &.active {
-      color: #8bc53f;
+      color: #DB5252;
       font-weight: bold;
       font-size:18px;
       padding-left:14px; // span padding
       &:before {
-        background: #8bc53f; 
+        background: #DB5252; 
         z-index: 99999;
       }
     }
     &.visited {
       background: #ECECEC;
-      color: #57aed1;
+      color: #40B3BF;
       z-index: 99999;
       padding-left:14px; // span padding
       &:before {
-       background: #57aed1; 
+       background: #40B3BF; 
         z-index: 99999;
       }
     }
@@ -191,7 +189,7 @@ ul.NextStage-Progress {
     }
   }
   a {
-    color: #57aed1;
+    color: #40B3BF;
     font-size: 16px;
     font-weight: 600;
     text-decoration: none;  
@@ -199,8 +197,7 @@ ul.NextStage-Progress {
 }
 
  .NextStage-Progress li.active:after {
-    @include green-stripe;
-    @include inner-shadow;
+    @include red-stripe;
     content:"";
     height: 15px;
     width: 100%;
@@ -210,21 +207,17 @@ ul.NextStage-Progress {
     z-index: 0;
   }
   .NextStage {
-    // margin-bottom: 100px;
     margin-top: 50px;
   }
   ul.NextStage-Progress {
-    @include inner-shadow;
     @include gray-stripe;
     border-radius: 15px;
     height: 15px;
     margin:auto;
     padding: 0;
-    // position: absolute;
     width: 60%;
     &:before {
       @include blue-stripe;
-      @include inner-shadow;
       border-radius: 15px;
       content: " ";
       height: 15px;
@@ -251,7 +244,6 @@ ul.NextStage-Progress {
         
         &:after {
           @include blue-stripe;
-          @include inner-shadow;
           content: "";
           height: 15px;
           left: 50%;
@@ -264,7 +256,7 @@ ul.NextStage-Progress {
     }
   }
 
-@media only screen and (max-width: 768px) { // 小於ipad尺寸
+@media only screen and (max-width: $breakpoint) { // 小於ipad尺寸
     ul.NextStage-Progress {
       margin: 0 auto;
       width: 100%;
