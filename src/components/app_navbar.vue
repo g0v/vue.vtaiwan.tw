@@ -31,7 +31,7 @@
           //.sub {{r.en | uppercase}}
 
     nav.thin-only
-      .m-logo
+      router-link.m-logo(to="/", exact='')
         // img(width='30', height='30', src='../assets/vTaiwan_logo_2017.png', alt='logo')
         img(src='../assets/vTaiwan_logo_2017.png', alt='logo')
         span vTaiwan
@@ -40,6 +40,10 @@
         router-link.m-item(to='/') 探索議題
         router-link.m-item(to='/') 搜尋議題
         
+      // .ui.three.item.menu
+      //   router-link.item(to='/how-to-use') 使用手冊
+      //   router-link.item(to='/') 探索議題
+      //   router-link.item(to='/') 搜尋議題
 </template>
 
 <script>
@@ -224,19 +228,9 @@ form.search {
 <style lang="scss" scoped>
 @import "../sass/global.scss";
 
-.menu {
-  height: 10vh;
-  display: flex;
-  .m-item {
-    cursor: pointer !important;
-    flex: 1;
-    text-align: center;
-    font-size: 1.3rem;
-    padding: 10px;
-    color: black;
-  }
-}
 .m-logo {
+  width: 50%;
+  margin: 0 auto;
   height: 20vh;
   display: flex;
   flex-flow: row nowrap;
@@ -250,10 +244,30 @@ form.search {
     // margin-top: 50px;
   }
   span {
+    color: black;
     font-family: $logo_font;
     font-size: 1.6rem;
     // padding-top: 50px;
-    padding: .2em;
+    padding: 0 0 0 .3em;
+  }
+}
+
+.menu {
+  height: 10vh;
+  display: flex;
+  a.m-item, a.item {
+    cursor: pointer !important;
+    flex: 1;
+    text-align: center;
+    font-size: 1.3rem;
+    // padding: 10px;
+    // vertical-align: bottom;
+    color: black;
+
+    &:hover {
+      color: white;
+      background: $main_color;
+    }
   }
 }
 </style>
