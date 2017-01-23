@@ -37,22 +37,42 @@ export default {
     h1,h2,h3,h4,h5,h6 {
       text-align: center;
     }
-    p,li{
+    p,li,ol {
       text-align: left;
+    }
+    blockquote{
+      margin:0 0 10px 0;
+      text-align: left;
+      padding: 5px;
+      border: 2px solid rgba(34,36,38,.50);
+      p{
+        text-align: center;
+        font-weight: 600;
+      }
     }
   }
 }
-@media screen and (max-width: $breakpoint) {
+@media screen and (max-width: $breakpoint) { //小於ipad尺寸
   .content {
     font-family: $main_font;
     iframe {
       width:100%;
     }
-    h1,h2,h3,h4,h5,h6{
+    h1,h2,h3,h4,h5,h6 {
       text-align: center;
     }
-    p,li,ol{
+    p,li,ol {
       text-align: left;
+    }
+    blockquote {
+      margin:0 0 10px 0;
+      text-align: left;
+      padding: 5px;
+      border: 2px solid rgba(34,36,38,.50);
+      p {
+        // text-align: center;
+        font-weight: 600;
+      }
     }
   }
 }
