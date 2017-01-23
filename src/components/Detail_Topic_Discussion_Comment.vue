@@ -1,9 +1,7 @@
 <template lang="jade">  
 
     .component
-      h2.ui.header
-        i.icon.inverted.circular.blue.comment 
-        | Comments
+      
       div.ui.large.labels
         div.ui.label
           | 回復 {{comment.length}}
@@ -54,7 +52,7 @@ export default {
   created:function(a,b){
     axios.get('https://talk.vtaiwan.tw/t/topic/'+ this.comment_id +'.json')
     .then((response_comment)=>{
-     this.views = response_comment['data']['last_posted_at'];
+     this.views = response_comment['data'];
       this.comment = response_comment['data']['post_stream']['posts'].slice(1);
       for(var i=0; i<this.comment.length; i++){
         this.username =this.comment[i]['avatar_template'].replace(/{size}/,"100");
@@ -62,19 +60,25 @@ export default {
         this.comment[i]['created_at']=this.comment[i]['created_at'].replace(/T.*/,"");
         this.username= this.comment[i]['avatar_template']
       }
+      
       var today = new Date();
-      var lastpostday = new Date(this.views);
-      this.date=(today-lastpostday)/(1000*60*60*24);
-      if(this.date>1){
-        this.date=Math.floor(this.date)+"天";
-      }
-      else if(this.date>0.041){
-        this.date=Math.floor(this.date*24)+"小時";
+      if(this.views['last_posted_at']!=null){
+        var lastpostday = new Date(this.views['last_posted_at']);
+        this.date=(today-lastpostday)/(1000*60*60*24);
+        if(this.date>1){
+          this.date=Math.floor(this.date)+"天";
+        }
+        else if(this.date>0.041){
+          this.date=Math.floor(this.date*24)+"小時";
+        }
+        else{
+          this.date=Math.floor(this.date*24*60)+"分鐘";
+        }
       }
       else{
-        this.date=Math.floor(this.date*24*60)+"分鐘";
+        this.date="0";
       }
-    
+      console.log(this.date)
     })
   }
 }
@@ -88,7 +92,7 @@ export default {
     margin-bottom:2em;
 }
 .ui.green.button,  { //我要留言按鈕
-    background-color: rgba(0, 181, 173, 0.6);
+    background-color: #40B3BF;
 }
 .ui.fluid.button, { //我要留言按鈕大小
     width: 76%;

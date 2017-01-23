@@ -43,7 +43,10 @@ export default {
           key: 'PDF',
           icon:"<a class='ui teal button'><i class='download disk icon'></i>PDF</a>"
         },
-        
+        {
+          key: 'g0v.github',
+          icon:"<a class='ui teal button'><i class='github alternate icon'></i>GitBook</a>"
+        },
       ]
     }
   },
@@ -62,6 +65,7 @@ export default {
 <style lang="scss" >
   .ui.teal.button{
     margin-bottom: 0.5em;
+    background-color: #40B3BF;
     @media only screen and (max-width: 767px){
       padding: 0.7em;
     }
