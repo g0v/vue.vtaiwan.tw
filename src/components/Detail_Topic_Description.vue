@@ -29,21 +29,30 @@ export default {
 
 @import "../sass/global.scss";
 
-@media screen and (min-width: 768px){
+@media screen and (min-width: $breakpoint){
   .content{
-    h1,p,a {
-      font-family: $main_font
+    font-family: $main_font;
+    max-width: 800px;
+    margin:0 auto;
+    h1,h2,h3,h4,h5,h6 {
+      text-align: center;
+    }
+    p,li{
+      text-align: left;
     }
   }
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: $breakpoint) {
   .content {
-    font-family: $main_font
-    h1 {
-      font-family: $main_font
-    }
+    font-family: $main_font;
     iframe {
       width:100%;
+    }
+    h1,h2,h3,h4,h5,h6{
+      text-align: center;
+    }
+    p,li,ol{
+      text-align: left;
     }
   }
 }

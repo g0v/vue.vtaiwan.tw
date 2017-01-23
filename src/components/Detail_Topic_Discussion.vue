@@ -8,22 +8,17 @@
     .polis(:data-conversation_id="polis_id")
     script(async='true', src='https://pol.is/embed.js')
 
-  div.commentboxall(v-if = "discourse_id !== undefined && discourse_id >0")
-    //Discussion_Comment       
+  div.commentboxall(v-if = "check >0")     
     div(v-for = "(item, index) in discourse_title")
       .ui.accordion(style="display: block;")
-        div.commentbox(v-if = "index==0")
-          .active.title
+        div.commentbox
+          .title
             i.dropdown.icon  
             |{{discourse_title[index].title}}
-            .line 
-          .active.content
-            Discussion_Comment(:comment_id="discourse_title[index].id")
-        div.commentbox(v-if = "index!=0")
-          .title.titleborder
-            i.dropdown.icon  
-            |{{discourse_title[index].title}} 
-            .line
+            div(v-if = "discourse_title.length!=index+1")
+              .line 
+            div(v-else)
+              .margin-bott
           .content
             Discussion_Comment(:comment_id="discourse_title[index].id")
     script.
@@ -48,58 +43,40 @@ export default {
           test:"<iframe src='https://talk.vtaiwan.tw/embed/comments?topic_id=886' id='discourse-embed-frame' width='100%' frameborder='0' scrolling='no' height='4790px'></iframe>",
           polis_id:[],
           slido_id:[],
-          discourse_id:[],
+          check:[],
           discourse_title:[],
     }
   },
-  created:function(){
+    created:function(){
     axios.get('https://talk.vtaiwan.tw/t/'+ this.article.id +'.json?include_raw=1')
-     .then((response)=>{
-       var detail_info = response.data;
-       detail_info = detail_info['post_stream']['posts'].slice(1); // 取得議題時間軸內容
-      
-        for(var i in detail_info){
-          var regex = /(?: (?:init )?)|\n/g;
-          var link = {};
-
-          link = detail_info[i]['raw'].split(regex); // 連結集合
-
-          for(var j = 3; j < link.length; j++ ){
-            if(detail_info[i]['raw'].split(regex)[j].indexOf("pol.is")>-1){ //篩出含有polis的連結  
-              this.polis_id = detail_info[i]['raw'].split(regex)[j].replace(/.*\//,"");
-            }
-            else if(detail_info[i]['raw'].split(regex)[j].indexOf("sli.do")>-1){ //篩出含有slido的連結    
-              this.slido_id="<iframe src="+detail_info[i]['raw'].split(regex)[j]+ "frameborder='0' width='100%' height='1000px' data-reactid='.0.2.0.0.0'></iframe>";
-               //測試
-               //this.slido_id="<iframe src='https://app.sli.do/event/m35dexjd' frameborder='0' width='100%' height='1000px' data-reactid='.0.2.0.0.0'></iframe>";
-            }
-            else if(detail_info[i]['raw'].split(regex)[j].indexOf("talk.vtaiwan.tw")>-1){
-              //this.discourse_id=detail_info[i]['raw'].split(regex)[j].replace(/.*\//,"");
-              //this.discourse_id=887; //test
-              console.log( this.discourse_id=detail_info[i]['raw'].split(regex)[j])
-              axios.get(this.discourse_id=detail_info[i]['raw'].split(regex)[j] +'.json')
-              .then((response_discourse)=>{
-
-                var title = response_discourse.data.topic_list.topics;
-                for(i=0;i<title.length;i++){
-                  this.discourse_title[i] = title[i]
-                }
-                console.log( this.discourse_title);
-                this.discourse_id=887;
-                
-              })
-            }
-          }      
+    .then((response)=>{
+      var detail_info = response.data;
+      var regex = /(?: (?:init )?)|\n/g;
+      var link;
+      detail_info = detail_info['post_stream']['posts'].slice(1); // 取得議題時間軸內容
+      for(var i in detail_info){
+        if(detail_info[i]['raw'].indexOf("意見徵集")==0){
+          link=detail_info[i]['raw'].replace(/.*[0-9]/,"");
         }
-     })    
+      } 
+      if(link.indexOf("pol.is")>-1){ //篩出含有polis的連結  
+        this.polis_id = link.replace(/.*\//,"");
+      }
+      else if(link.indexOf("sli.do")>-1){ //篩出含有slido的連結    
+        this.slido_id="<iframe src="+link+ "frameborder='0' width='100%' height='1000px' data-reactid='.0.2.0.0.0'></iframe>";
+      }
+      else if(link.indexOf("talk.vtaiwan.tw")>-1){//篩出含有discourse的連結 
+        axios.get(link+'.json')
+        .then((response_discourse)=>{
+          var title = response_discourse.data.topic_list.topics;
+          for(i=0;i<title.length;i++){
+            this.discourse_title[i] = title[i]
+          }
+          this.check=1;
+        })
+      }    
+    })    
   },
- 
-  // updated:function(){
-
-  //    // $('.ui.accordion').accordion('close all');    
-  //     $('.ui.accordion').accordion();  
-
-  // }
 }
 </script>
 
@@ -110,14 +87,8 @@ export default {
 }
 .ui.accordion .active.title {                  //選單變化顏色
     background-color: rgba(69, 74, 74, 0.1);
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
 }
-.ui.accordion .active.title.titleborder {                  //選單變化顏色
-    background-color: rgba(69, 74, 74, 0.1);
-    border-top-left-radius: 0px;
-    border-top-right-radius: 0px;
-}
+
 .commentbox{
      background-color: #f5f5f5;
     
@@ -125,10 +96,9 @@ export default {
     border-radius: 10px;
 }
 .commentboxall{
-     background-color: #f5f5f5;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    border: solid 0.1em rgba(0,0,0,.1);
+    background-color: #f5f5f5;
     padding: 0;
-    border-radius: 10px;
 }
 .ui.accordion:not(.styled) .title~.content:not(.ui):last-child { //comment 內容padding1em
     padding: 1em;
@@ -137,8 +107,12 @@ export default {
   border-bottom: 1px solid rgba(0,0,0,.1);
   margin: 1em 0 0 0 ;
 }
+.margin-bott{
+  margin: 1em 0 0 0 ;
+}
 
 .ui.accordion .title:not(.ui) {
-    padding: 1em 0em 0em 0em;
+    padding: 1em 0em 0em 1em;
+    
 }
 </style>
