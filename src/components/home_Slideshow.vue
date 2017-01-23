@@ -1,7 +1,7 @@
 <template lang="jade">
   .component
     .desktop-container
-      .slide-page.fat-only 
+      .slide-page.fat-only
         a.pre(@click="c = cycle(-1)")
           i.huge.caret.black.left.icon
         a.next(@click="c = cycle(1)")
@@ -99,7 +99,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .component{
+
+  .component {
     padding-bottom: -66px;
   }
   .mobile-container {
@@ -129,33 +130,39 @@ export default {
 
 </style>
 
-// Desktop CSS
 <style lang="scss" scoped>
-  @import "../sass/global.scss";
-  
-  .slide-page {
-    display: block;
-    height: 90%;
-    height: 99.9vh;
+// Desktop CSS
+@import "../sass/global.scss";
+
+.slide-page {
+  display: block;
+  // height: 90%;
+  height: 100vh;
+}
+
+.slide-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  @include transition(transform .5s ease-in-out, z-index .3s ease-in-out);
+  img.full-page {
+    // **************** to keep image ratio
+    min-height: 100%;
+    min-width: 100%;
+    width: auto;
+    // **************** to let image center
+    display: absolute;
+    left: 50%;
+    @include transform(translate(-50%, 0));
+    // background-color: gray;
+    // opacity: 0.6;
   }
-
-  .slide-item {
-    position: absolute;
-    top: 0;
-    left: 0;
-    @include transition(transform .5s ease-in-out, z-index .3s ease-in-out);
-    img.full-page {
-      width: 100vw;
-      min-height: 99.9vh;
-      background-color: #999;
-      // opacity: 0.6;
-    }
-    overflow: hidden;
-    // height: 80%;
-    height: 99.9vh;
-
-    .box {
-    font-size: 1rem;
+  overflow: hidden;
+  // height: 80%;
+  height: 100%;
+  .box {
+    // font-size: 1rem;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -171,8 +178,9 @@ export default {
     // border-radius: 30rem;
     // background: linear-gradient(to bottom, transparent, hsla(0, 0, 0%, 0.8), transparent);
     background: radial-gradient(circle, hsla(0, 0, 0%, 0.8), transparent);
-    
-    .slogan, .title, .status {
+    .slogan,
+    .title,
+    .status {
       // margin: 1em auto;
     }
     .slogan.ui.header {
@@ -198,81 +206,83 @@ export default {
       padding: 0.1em;
     }
   }
-  }
+}
 
-  
-
-  a {
-    cursor: pointer;
-    &:hover {
-      i {
-        color: white !important;
-      }
-    }
-    &.pre, &.next {      
-      position: absolute;
-      z-index: 5;
-      top: 44vh;
-      text-shadow: 0 0 5px lightgray;
-    }
-    &.pre {
-      left: 5px;
-    }
-    &.next {
-      right: 5px;
-    }    
+a {
+  cursor: pointer;
+  &:hover {
     i {
-      @include transition(all 0.3s);
+      color: white !important;
     }
   }
-
-  
+  &.pre,
+  &.next {
+    position: absolute;
+    z-index: 5;
+    top: 44vh;
+    text-shadow: 0 0 5px lightgray;
+  }
+  &.pre {
+    left: 5px;
+  }
+  &.next {
+    right: 5px;
+  }
+  i {
+    @include transition(all 0.3s);
+  }
+}
 </style>
 
-// Mobile CSS
 <style lang="scss" scoped>
-  .m-slide-page {
-    display: -webkit-inline-box;
-  }
+// Mobile CSS
+@import "../sass/global.scss";
 
-  .m-slide-item {
-    display:block;
-    width:98vw;
-    height:400px;
-    margin:0 0.5px;    
-    overflow: hidden;
-    background-size: auto 100%;
-    background-position: center;
-    img{
-      width: auto;
-      height: 100%;
-      left: -50%;
+.m-slide-page {
+  display: -webkit-inline-box;
+}
+
+.m-slide-item {
+  display: block;
+  width: 98vw;
+  // logo:10vh, nav:20vh
+  height: 70vh;
+  margin: 0 0.5px;
+  overflow: hidden;
+  background-size: auto 100%;
+  background-position: center;
+  img {
+    width: auto;
+    height: 100%;
+    left: -50%;
+  }
+  .box {
+    height: 100%;
+    background: radial-gradient(circle, hsla(0, 0, 0%, 0.8), transparent);
+    .status {
+      position: relative;
+      top: 105px;
+      width: 100%;
+      color: $join_color;
+      font-size: 1.3rem;
     }
-    .box{
-      .status{
-        position: relative;
-        top: 105px;
-        width: 100%;
-        color: black;
-        font-size: 1.3rem;
-      }
-      .title{
-        position: relative;
-        top: 170px;
-        width: 100%;
-        color: black;
-        font-size: 1.3rem;
-      }
-      .button{
-        position: relative;
-        top: 235px;
-        color: white;
-        font-size: 1.4rem;
-        padding:14px 30px;
-        margin:0 calc(50% - 75px);
-        background-color:#3EACC6;
-        border-radius:8px;
-      }
+    .title {
+      position: relative;
+      top: 170px;
+      width: 100%;
+      color: white;
+      font-size: 1.3rem;
+    }
+    .button {
+      position: relative;
+      top: 235px;
+      color: white;
+      font-size: 1.4rem;
+      padding: 14px 30px;
+      margin: 0 calc(50% - 75px);
+      background-color: $main_color;
+      border-radius: 8px;
     }
   }
+}
 </style>
