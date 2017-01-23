@@ -38,10 +38,12 @@ export default {
 
 <style lang="scss" modules="styles">
 
+@import "../sass/global.scss";
+
 .content {
   margin-top:10px;
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: $breakpoint) {
 
   .content {
     iframe {

@@ -76,8 +76,8 @@ export default {
   $navHeight: 55px;
   $navBgColor: hsla(0, 0%, 100%, 0.95);
   .component{
-    @media screen and (min-width:$breakpoint){
-      padding-bottom: 5%;
+    @media screen and (min-width:$breakpoint){ //大於ipad尺寸
+      padding-bottom: 65px; 
     }
     
   }
@@ -221,8 +221,14 @@ export default {
 </style>
 
 <style lang="scss" scoped>
+
+@import "../sass/global.scss";
+@media screen and (max-width: $breakpoint){
   .thin-only{
     padding-bottom: 5%;
+  }
+}
+  .thin-only{
     .menu{
       display: flex;
       .m-item{
