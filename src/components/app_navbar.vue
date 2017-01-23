@@ -11,7 +11,7 @@
         SearchResult(v-show="myKey", :allTopics="allTopics", :myKey = "myKey", :myIdx="myIdx")
 
       router-link.logo(to='/', exact='')
-        img(width='30', height='30', src='../assets/logo.png', alt='logo')
+        img(width='30', height='30', src='../assets/vTaiwan_logo_2017.png', alt='logo')
         span.fat-only vTaiwan
 
       // .null
@@ -31,7 +31,7 @@
           //.sub {{r.en | uppercase}}
 
     nav.thin-only
-      .m-logo
+      router-link.m-logo(to='/', exact='')
         img(width='30', height='30', src='../assets/vTaiwan_logo_2017.png', alt='logo')
         span vTaiwan
       .menu
@@ -223,11 +223,11 @@ export default {
 <style lang="scss" scoped>
 
 @import "../sass/global.scss";
-@media screen and (max-width: $breakpoint){
-  .thin-only{
-    padding-bottom: 5%;
+  @media screen and (max-width: $breakpoint){
+    .thin-only{
+      padding-bottom: 65px;
+    }
   }
-}
   .thin-only{
     .menu{
       display: flex;
