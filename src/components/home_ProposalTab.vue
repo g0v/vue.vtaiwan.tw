@@ -139,8 +139,12 @@
         return boxes;
       },
       handleScroll: function(){
-        $(".ui.mobile-step").sticky('refresh');
-        $(".ui.mobile-step")[0].style.left="0px"
+        var mobile_steps = $(".ui.mobile-step");
+        if(mobile_steps.length>0)
+        {
+          mobile_steps.sticky('refresh');
+          mobile_steps[0].style.left="0px"
+        }
       }
     }
   }
