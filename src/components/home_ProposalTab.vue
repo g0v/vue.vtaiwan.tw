@@ -29,7 +29,7 @@
       return {
         myIdx: 0,
         // myTab: {dataName: 'news'},
-
+        onMobile: false,
         steps: [
           {
             label: '即將開始',
@@ -59,22 +59,13 @@
         ]
       }
     },
-    computed:{
-      onMobile:{
-        cache: false,
-        get: function() {
-          if(typeof screen !== 'undefined')
-            return screen.width < 768;
-          else
-            return false;
-        }
-      }
-    },
     created:function(){
+      this.handleResize();
     },
     mounted () {
       $("#mobile-step").sticky({context:"#context"})
       window.addEventListener('scroll', this.handleScroll);
+      window.addEventListener('resize', this.handleResize);
     },
     methods: {
       mySort: function (dataName) { 
@@ -146,6 +137,12 @@
           mobile_steps.sticky('refresh');
           // mobile_steps[0].style.left="0px"
         }
+      },
+      handleResize: function(){
+        if(typeof screen !== 'undefined')
+            this.onMobile = screen.width < 768;
+        else
+            this.onMobile = false;
       }
     }
   }
