@@ -83,7 +83,7 @@ $navBgColor: hsla(0, 0%, 100%, 0.95);
 
 .component {
   @media screen and (min-width:$breakpoint){
-    padding-bottom: 5%;
+    // padding-bottom: 5%;
   }
   
   .navbar {
@@ -230,7 +230,7 @@ form.search {
 @import "../sass/global.scss";
 @media screen and (max-width: $breakpoint){
   .thin-only {
-    padding-bottom: 65px;
+    // padding-bottom: 65px;
   }
 }
 
@@ -260,6 +260,7 @@ form.search {
 
 .menu {
   height: 10vh;
+  line-height: 10vh;
   display: flex;
   a.m-item, a.item {
     cursor: pointer !important;
