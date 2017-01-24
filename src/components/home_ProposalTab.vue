@@ -169,6 +169,10 @@
   margin: 0 .2em 0 0;
 }
 
+.ui.steps .step{
+  flex:1 1 auto;
+}
+
 @media only screen and (max-width: $breakpoint) {
   .component {
     padding: 0px;
