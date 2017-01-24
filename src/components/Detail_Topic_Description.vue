@@ -41,6 +41,12 @@ export default {
     p,li,ol {
       text-align: left;
     }
+    p {
+      iframe{
+        display: block;
+        margin: 0 auto;
+      }
+    }
     blockquote{
       margin:0 0 10px 0;
       text-align: left;
