@@ -139,8 +139,8 @@
         }
       },
       handleResize: function(){
-        if(typeof screen !== 'undefined')
-            this.onMobile = screen.width < 768;
+        if(typeof window !== 'undefined')
+            this.onMobile = window.innerWidth < 768;
         else
             this.onMobile = false;
       }

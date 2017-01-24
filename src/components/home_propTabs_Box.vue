@@ -29,18 +29,19 @@
     props: ['list', 'desc', 'label'],
     data() {
       return {
-        //...
+        onMobile:false
       }
     },
-    computed:{
-      onMobile:{
-        cache: false,
-        get: function() {
-          if(typeof screen!== 'undefined')
-            return screen.width<768;
-          else
-            return false;
-        }
+    created:function(){
+      this.handleResize();
+      window.addEventListener('resize', this.handleResize);
+    },
+    methods:{
+      handleResize: function(){
+        if(typeof window !== 'undefined')
+            this.onMobile = window.innerWidth < 768;
+        else
+            this.onMobile = false;
       }
     }
   }
