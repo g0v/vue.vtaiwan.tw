@@ -32,7 +32,7 @@ export default {
 @media screen and (min-width: $breakpoint){
   .content{
     font-family: $main_font;
-    max-width: 800px;
+    max-width: 100%;
     margin:0 auto;
     h1,h2,h3,h4,h5,h6 {
       text-align: center;

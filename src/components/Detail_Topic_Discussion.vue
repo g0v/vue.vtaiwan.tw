@@ -56,24 +56,26 @@ export default {
       detail_info = detail_info['post_stream']['posts'].slice(1); // 取得議題時間軸內容
       for(var i in detail_info){
         if(detail_info[i]['raw'].indexOf("意見徵集")==0){
-          link=detail_info[i]['raw'].replace(/.*[0-9]/,"");
+          link=detail_info[i]['raw'].replace(/.*[0-9]/,"").split(/\s/g);
         }
       } 
-      if(link.indexOf("pol.is")>-1){ //篩出含有polis的連結  
-        this.polis_id = link.replace(/.*\//,"");
-      }
-      else if(link.indexOf("sli.do")>-1){ //篩出含有slido的連結    
-        this.slido_id="<iframe src="+link+ "frameborder='0' width='100%' height='1000px' data-reactid='.0.2.0.0.0'></iframe>";
-      }
-      else if(link.indexOf("talk.vtaiwan.tw")>-1){//篩出含有discourse的連結 
-        axios.get(link+'.json')
-        .then((response_discourse)=>{
-          var title = response_discourse.data.topic_list.topics;
-          for(i=0;i<title.length;i++){
-            this.discourse_title[i] = title[i]
-          }
-          this.check=1;
-        })
+      for(var i=0; i<link.length;i++){
+        if(link[i].indexOf("pol.is")>-1){ //篩出含有polis的連結  
+          this.polis_id = link[i].replace(/.*\//,"");
+        }
+        else if(link[i].indexOf("sli.do")>-1){ //篩出含有slido的連結    
+          this.slido_id="<iframe src="+link[i]+ "frameborder='0' width='100%' height='1000px' data-reactid='.0.2.0.0.0'></iframe>";
+        }
+        else if(link[i].indexOf("talk.vtaiwan.tw")>-1){//篩出含有discourse的連結 
+          axios.get(link[i]+'.json')
+          .then((response_discourse)=>{
+            var title = response_discourse.data.topic_list.topics;
+            for(i=0;i<title.length;i++){
+              this.discourse_title[i] = title[i]
+            }
+            this.check=1;
+          })
+        }
       }    
     })    
   },
@@ -102,6 +104,7 @@ export default {
 }
 .ui.accordion:not(.styled) .title~.content:not(.ui):last-child { //comment 內容padding1em
     padding: 1em;
+    margin-left: 1.5em;
 }
 .line{
   border-bottom: 1px solid rgba(0,0,0,.1);
