@@ -1,7 +1,9 @@
 <template lang="jade">
+
   .component
-    .desktop-container
-      .slide-page.fat-only
+
+    .desktop-container.fat-only
+      .slide-page
         a.pre(@click="c = cycle(-1)")
           i.huge.caret.black.left.icon
         a.next(@click="c = cycle(1)")
@@ -11,12 +13,13 @@
           :style="{ 'z-index': t.zIndex, opacity: t.opacity, transform: t.transform, '-ms-transform': t.transform, '-webkit-transform': t.transform  }")
           img.full-page(:src="t.cover")
           .box
-            .slogan.ui.header {{t.slogan}}
+            .status {{t.status}}
+            .slogan {{t.slogan}}
             .title {{t.title}}
               span#test1 jQuery Test
-            .status {{t.status}}
-    .mobile-container
-      .m-slide-page.thin-only
+
+    .mobile-container.thin-only
+      .m-slide-page
         router-link.m-slide-item(v-for="(t,idx) in allTopics",:to="'/topic/'+t.routeName",:style="{'background-image':'url('+t.cover+')'}")
           .box
             // .slogan.ui.header {{t.slogan}}
@@ -101,7 +104,7 @@ export default {
 <style lang="scss" scoped>
 
   .component {
-    padding-bottom: -66px;
+    // padding-bottom: -66px;
   }
   .mobile-container {
     position: relative;
@@ -111,6 +114,10 @@ export default {
       width: 100%;
       z-index: -3;
     }
+  }
+  .mobile-container::-webkit-scrollbar {
+    height:0px;
+    width:0px;
   }
 
   .desktop-container {
@@ -123,15 +130,8 @@ export default {
     }
   }
 
-  .mobile-container::-webkit-scrollbar {
-    height:0px;
-    width:0px;
-  }
 
-</style>
-
-<style lang="scss" scoped>
-// Desktop CSS
+// ******************************* Desktop CSS
 @import "../sass/global.scss";
 
 .slide-page {
@@ -181,10 +181,10 @@ export default {
     .slogan,
     .title,
     .status {
-      // margin: 1em auto;
     }
-    .slogan.ui.header {
-      font-family: $main_font;
+    .slogan {
+      // font-family: $main_font;
+      margin: 1em 0;
       font-size: 3rem;
       color: white;
       letter-spacing: .3em;
@@ -199,10 +199,9 @@ export default {
       margin: 1em;
     }
     .status {
+      color: $step_color;
       font-size: 2rem;
       font-weight: 700;
-      color: lightcoral;
-      border-bottom: 6px double lightcoral;
       padding: 0.1em;
     }
   }
@@ -232,11 +231,8 @@ a {
     @include transition(all 0.3s);
   }
 }
-</style>
 
-<style lang="scss" scoped>
-// Mobile CSS
-@import "../sass/global.scss";
+// ******************************* Mobile CSS
 
 .m-slide-page {
   display: -webkit-inline-box;
@@ -263,7 +259,7 @@ a {
       position: relative;
       top: 105px;
       width: 100%;
-      color: $join_color;
+      color: $step_color;
       font-size: 1.3rem;
     }
     .title {

@@ -34,6 +34,8 @@
     },
     created:function(){
       this.handleResize();
+    },
+    mounted:function(){
       window.addEventListener('resize', this.handleResize);
     },
     methods:{
