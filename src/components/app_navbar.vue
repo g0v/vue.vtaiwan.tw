@@ -1,18 +1,26 @@
 <template lang="jade">
   .component
 
-    nav.fat-only.navbar
+    nav.fat-only
       // router-link.explore.fat-only(to='/', exact='')
         // | 探索
+      .ui.grid.equal.width
+        .column
+          form.search(:class="{active: myKey}", @keyup.down="onKeyDown()")
+            i.search.icon
+            input(type="search", v-model="myKey", placeholder="探索")
+            SearchResult(v-show="myKey", :allTopics="allTopics", :myKey = "myKey", :myIdx="myIdx")
 
-      form.search(:class="{active: myKey}", @keyup.down="onKeyDown()")
-        i.search.icon
-        input(type="search", v-model="myKey", placeholder="探索")
-        SearchResult(v-show="myKey", :allTopics="allTopics", :myKey = "myKey", :myIdx="myIdx")
+        .column
+          router-link.logo(to='/', exact='')
+            img(width='30', height='30', src='../assets/vTaiwan_logo_2017.png', alt='logo')
+            span.fat-only vTaiwan
 
-      router-link.logo(to='/', exact='')
-        img(width='30', height='30', src='../assets/vTaiwan_logo_2017.png', alt='logo')
-        span.fat-only vTaiwan
+        .column
+          .ui.equal.width.grid
+            router-link.item.column(v-for='r in routes', v-if="r.r", :to="'/'+r.r", :class='r.r', exact='')
+              | {{ r.t }}
+              //.sub {{r.en | uppercase}}
 
       // .null
 
@@ -24,11 +32,6 @@
       //   .dropdown.menu(v-if="showDropDown")
       //     router-link.item(v-for='r in routes', v-if="r.r", :to="'/'+r.r", :class='r.r', exact='')
       //       | {{ r.t }}
-
-      .tab
-        router-link.item(v-for='r in routes', v-if="r.r", :to="'/'+r.r", :class='r.r', exact='')
-          | {{ r.t }}
-          //.sub {{r.en | uppercase}}
 
     nav.thin-only
       router-link.m-logo(to='/', exact='')
@@ -86,38 +89,39 @@ $navBgColor: hsla(0, 0%, 100%, 0.95);
     // padding-bottom: 5%;
   }
   
-  .navbar {
+  nav.fat-only {
     position: fixed;
     z-index: 999999;
     top: 0;
     left: 0;
     right: 0;
-    display: flex;
+    // display: flex;
+    // align-items: center;
     height: $navHeight;
     overflow: visible;
-    align-items: center;
     background: $navBgColor;
     border-bottom: 1px solid lightgray;
   }
 }
 
 form.search {
-  flex: 0 1 auto;
+  // flex: 0 1 auto;
 
   position: relative;
   padding: .5em;
+  display: inline-block;
 
   i.search.icon {
     position: absolute;
     z-index: -1;
     right: .75em;
-    line-height: 1.75em;
+    line-height: calc( #{$navHeight} * 0.7);
     color: gray;
   }
 
   input {
     color: black;
-    height: 1.75em;
+    height: calc( #{$navHeight} * 0.7);
     border: 1px solid gray;
     border-radius: 1em;
     padding: 0 .6em;
@@ -136,11 +140,11 @@ form.search {
 }
 
 .logo {
-  flex: 0 1 auto;
-
+  // flex: 0 1 auto;
+  height: $navHeight;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   padding-left: 1em;
   padding-right: 1em;
   span {
@@ -164,48 +168,49 @@ form.search {
 //   flex: 1;
 // }
 
-.tab {
-  flex: 0 1 auto;
+// .right {
+  // flex: 0 1 auto;
 
-  display: flex;
-  margin-left: auto !important;
-  a.item {
-    display: flex;
-    align-items: center;
-    -webkit-box-align: center;
-    vertical-align: middle;
-    justify-content: center;
-    color: #333;
-    height: $navHeight;
-    cursor: pointer;
-    font-size: 1rem;
-    text-decoration: none;
+  // display: flex;
+  // margin-left: auto !important;
+a.item {
+  // display: flex;
+  // flex-flow: row nowrap;
+  // align-items: center;
+  // -webkit-box-align: center;
+  // vertical-align: middle;
+  // justify-content: center;
+  text-align: center;
+  line-height: $navHeight;
+  color: #333;
+  cursor: pointer;
+  font-size: 1rem;
+  text-decoration: none;
+  @include transition(background-color 0.5s ease);
+  // padding: 10px;
+  // border-left: 1px solid #ccc;
 
-    &:visited {
-      color: #030;
-    }
-    &:hover {
-      background: lightcoral;
-    }
-    &.active, &.router-link-active {
-      background-color: $main;
-      color: white;
-      &.join { background-color: $join }
-      &.intro { background-color: $intro }
-      &.live { background-color: $live }
-      &.track { background-color: $track }
-    }
-    @include transition(background-color 0.5s ease);
-    padding: 10px;
+  &:visited {
+    color: #030;
+  }
+  &:hover {
+    background: lightcoral;
+  }
+  &.active, &.router-link-active {
+    background-color: $main;
+    color: white;
+    &.join { background-color: $join }
+    &.intro { background-color: $intro }
+    &.live { background-color: $live }
+    &.track { background-color: $track }
+  }
 
-    border-left: 1px solid #ccc;
-
-    .sub {
-      font-size: 0.7rem;
-      line-height: 1rem;
-    }
+  .sub {
+    font-size: 0.7rem;
+    line-height: 1rem;
   }
 }
+// }
 
 .more {
   position:relative;
