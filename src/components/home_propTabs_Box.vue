@@ -1,8 +1,10 @@
 <template lang="jade">
   .component
 
-      h3.ui.header(v-if="!onMobile")
-        | 『{{ desc }}』
+      h3.ui.container(v-if="!onMobile")
+        i.quote.left.icon 
+        |{{ desc }} 
+        i.quote.right.icon
       
       .m-title(v-if="onMobile") {{ label }}
 
