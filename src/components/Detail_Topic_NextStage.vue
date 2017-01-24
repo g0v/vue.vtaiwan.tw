@@ -266,7 +266,7 @@ ul.NextStage-Progress {
       }
       li {
           padding: 0;
-          font-size: 14px;
+          
           &:before {
             left: 20%;
           }
@@ -275,7 +275,9 @@ ul.NextStage-Progress {
           }
           &.active {
             padding: 0;
-            font-size:16px;
+          }
+          span {
+            font-size: 14px;
           }
      }
    }
