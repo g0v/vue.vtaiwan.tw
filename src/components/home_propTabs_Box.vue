@@ -1,8 +1,8 @@
 <template lang="jade">
   .component
 
-      pre.ui.basic.segment(v-if="!onMobile")
-        p {{ desc }}
+      h3.ui.header(v-if="!onMobile")
+        | 『{{ desc }}』
       
       .m-title(v-if="onMobile") {{ label }}
 
