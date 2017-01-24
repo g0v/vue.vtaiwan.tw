@@ -50,18 +50,23 @@ export default {
 </script>
 
 <style scoped lang="scss">
-    .home {
-        width: 100%;
-        min-width: 320px;
-        margin-left: auto;
-        margin-right: auto;
-        padding-bottom: 5vh;
-        // margin-top:-65px;
+@import "../sass/global.scss";
+.home {
+    // ****************** push back home by nav height
+    @media screen and (min-width: $breakpoint){
+        margin-top: -$navHeight;
     }
-    p {
-        font-size: 1rem;
-        text-align: left;
-        line-height: 155%;
-        padding: 5px;
-    }
+    width: 100%;
+    min-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 5vh;
+    // margin-top:-65px;
+}
+p {
+    font-size: 1rem;
+    text-align: left;
+    line-height: 155%;
+    padding: 5px;
+}
 </style>

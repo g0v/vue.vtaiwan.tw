@@ -80,12 +80,13 @@ export default {
 
 @import "../sass/global.scss";
 
-$navHeight: 55px;
-$navBgColor: hsla(0, 0%, 100%, 0.95);
+// $navHeight: 55px;
+// $navBgColor: hsla(0, 0%, 100%, 0.95);
 
 .component {
-  @media screen and (min-width:$breakpoint){
-    // padding-bottom: 5%;
+  // ****************** push home by nav height
+  @media screen and (min-width: $breakpoint){
+    height: $navHeight;
   }
   
   nav.fat-only {

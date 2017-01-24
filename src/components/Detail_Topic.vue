@@ -2,12 +2,14 @@
   .component    
     .ui.container
       h1.ui.huge.header {{article.title}}
-      NextStage(v-if = "article.id !== undefined", :article="article")
-      br
-      br
-      Slide(v-if = "article.id !== undefined", :article="article")
-      // video(:style="{'background-image': 'url('+article.cover+')'}")
-      br
+      .ui.basic.segment
+        NextStage(v-if = "article.id !== undefined", :article="article")
+      // br
+      // br
+      .ui.basic.segment
+        Slide(v-if = "article.id !== undefined", :article="article")
+        // video(:style="{'background-image': 'url('+article.cover+')'}")
+      // br
       .ui.big.steps.top.attached
         a.step(v-for="(step, idx) in tabcontent", :class="{'active': idx == myIdx}", @click="myIdx = idx")
          .lable
@@ -60,16 +62,17 @@ export default {
 @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 
 .component {
-  position: relative;
-  max-width: $comp_max_width;
+  // padding-top: $navHeight;
+  // position: relative;
+  // max-width: $comp_max_width;
   margin: auto;
 }
 .ui.container {
-  width:100%;
+  // width:100%;
 }
 
-.ui.medium.header{
-  color:#db2828;
+.ui.medium.header {
+  // color:#db2828;
 }
 
 label {
