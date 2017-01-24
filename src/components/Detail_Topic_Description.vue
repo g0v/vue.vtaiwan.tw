@@ -32,7 +32,8 @@ export default {
 @media screen and (min-width: $breakpoint){
   .content{
     font-family: $main_font;
-    max-width: 100%;
+    font-size:1.2rem;
+    max-width: 800px;
     margin:0 auto;
     h1,h2,h3,h4,h5,h6 {
       text-align: center;
@@ -44,17 +45,16 @@ export default {
       margin:0 0 10px 0;
       text-align: left;
       padding: 5px;
-      border: 2px solid rgba(34,36,38,.50);
-      p{
-        text-align: center;
-        font-weight: 600;
-      }
+      border-left: 5px solid #e9e9e9;
+      background-color: #f8f8f8;
+      font-weight: 600;
     }
   }
 }
 @media screen and (max-width: $breakpoint) { //小於ipad尺寸
   .content {
     font-family: $main_font;
+    // font-size:1.2rem;
     iframe {
       width:100%;
     }
@@ -68,11 +68,9 @@ export default {
       margin:0 0 10px 0;
       text-align: left;
       padding: 5px;
-      border: 2px solid rgba(34,36,38,.50);
-      p {
-        // text-align: center;
-        font-weight: 600;
-      }
+      border-left: 5px solid #e9e9e9;
+      background-color: #f8f8f8;
+      font-weight: 600;
     }
   }
 }

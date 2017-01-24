@@ -1,8 +1,10 @@
 <template lang="jade">
   .component
 
-      pre.ui.basic.segment.fat-only
-        p {{ desc }}
+      h3.ui.container.fat-only
+        i.quote.left.icon 
+        |{{ desc }} 
+        i.quote.right.icon
       
       .ui.basic.segment.thin-only
         h2.m-title {{ label }}

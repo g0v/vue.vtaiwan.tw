@@ -4,23 +4,22 @@
     nav.fat-only
       // router-link.explore.fat-only(to='/', exact='')
         // | 探索
-      .ui.grid.equal.width
-        .column
+      .ui.grid
+        .seven.wide.column
           form.search(:class="{active: myKey}", @keyup.down="onKeyDown()")
             i.search.icon
             input(type="search", v-model="myKey", placeholder="探索")
             SearchResult(v-show="myKey", :allTopics="allTopics", :myKey = "myKey", :myIdx="myIdx")
 
-        .column
+        .two.wide.column
           router-link.logo(to='/', exact='')
-            img(width='30', height='30', src='../assets/vTaiwan_logo_2017.png', alt='logo')
-            span.fat-only vTaiwan
+            img(src='../assets/vTaiwan_logo_2017.png', alt='logo')
+            span vTaiwan
 
-        .column
-          .ui.equal.width.grid
-            router-link.item.column(v-for='r in routes', v-if="r.r", :to="'/'+r.r", :class='r.r', exact='')
-              | {{ r.t }}
-              //.sub {{r.en | uppercase}}
+        .seven.wide.column.right
+          router-link.item(v-for='r in routes', v-if="r.r", :to="'/'+r.r", :class='r.r', exact='')
+            | {{ r.t }}
+            //.sub {{r.en | uppercase}}
 
       // .null
 
@@ -81,12 +80,13 @@ export default {
 
 @import "../sass/global.scss";
 
-$navHeight: 55px;
-$navBgColor: hsla(0, 0%, 100%, 0.95);
+// $navHeight: 55px;
+// $navBgColor: hsla(0, 0%, 100%, 0.95);
 
 .component {
-  @media screen and (min-width:$breakpoint){
-    // padding-bottom: 5%;
+  // ****************** push home by nav height
+  @media screen and (min-width: $breakpoint){
+    height: $navHeight;
   }
   
   nav.fat-only {
@@ -106,22 +106,23 @@ $navBgColor: hsla(0, 0%, 100%, 0.95);
 
 form.search {
   // flex: 0 1 auto;
-
+  font-size: 1.5rem;
   position: relative;
-  padding: .5em;
   display: inline-block;
+  line-height: $navHeight;
+  padding: 0 0 0 1em;
 
   i.search.icon {
     position: absolute;
     z-index: -1;
-    right: .75em;
-    line-height: calc( #{$navHeight} * 0.7);
+    right: .55em;
+    line-height: $navHeight;
     color: gray;
   }
 
   input {
     color: black;
-    height: calc( #{$navHeight} * 0.7);
+    height: calc( #{$navHeight} * 0.55);
     border: 1px solid gray;
     border-radius: 1em;
     padding: 0 .6em;
@@ -141,13 +142,20 @@ form.search {
 
 .logo {
   // flex: 0 1 auto;
+  color: black;
+  font-family: $logo_font;
   height: $navHeight;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-left: 1em;
-  padding-right: 1em;
+  // padding-left: 1em;
+  // padding-right: 1em;
+  img {
+    width: auto;
+    max-height: 80%;
+  }
   span {
+    font-size: 2rem;
     margin-left: 0.5em;
   }
 }
@@ -173,41 +181,45 @@ form.search {
 
   // display: flex;
   // margin-left: auto !important;
-a.item {
-  // display: flex;
-  // flex-flow: row nowrap;
-  // align-items: center;
-  // -webkit-box-align: center;
-  // vertical-align: middle;
-  // justify-content: center;
-  text-align: center;
-  line-height: $navHeight;
-  color: #333;
-  cursor: pointer;
-  font-size: 1rem;
-  text-decoration: none;
-  @include transition(background-color 0.5s ease);
-  // padding: 10px;
-  // border-left: 1px solid #ccc;
+.right {
+  text-align: right;
+  a.item {
+    // display: flex;
+    // flex-flow: row nowrap;
+    // align-items: center;
+    // -webkit-box-align: center;
+    // vertical-align: middle;
+    // justify-content: center;
+    font-size: 1.2rem;
+    display: inline-block;
+    line-height: $navHeight;
+    padding: 0 1em;
+    color: #333;
+    cursor: pointer;
+    text-decoration: none;
+    @include transition(background-color 0.5s ease);
+    // padding: 10px;
+    // border-left: 1px solid #ccc;
 
-  &:visited {
-    color: #030;
-  }
-  &:hover {
-    background: lightcoral;
-  }
-  &.active, &.router-link-active {
-    background-color: $main;
-    color: white;
-    &.join { background-color: $join }
-    &.intro { background-color: $intro }
-    &.live { background-color: $live }
-    &.track { background-color: $track }
-  }
+    &:visited {
+      color: #030;
+    }
+    &:hover {
+      background: $main_color;
+    }
+    &.active, &.router-link-active {
+      background-color: $main;
+      color: white;
+      &.join { background-color: $join }
+      &.intro { background-color: $intro }
+      &.live { background-color: $live }
+      &.track { background-color: $track }
+    }
 
-  .sub {
-    font-size: 0.7rem;
-    line-height: 1rem;
+    // .sub {
+    //   font-size: 0.7rem;
+    //   line-height: 1rem;
+    // }
   }
 }
 // }
