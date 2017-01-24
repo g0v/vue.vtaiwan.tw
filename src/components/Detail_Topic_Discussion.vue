@@ -1,6 +1,6 @@
 
 <template lang="jade">  
-.component.textleft
+.Discoussioncomponent.textleft
   div(v-if = "slido_id !== undefined && slido_id.length >0")
     span(v-html="slido_id")
 
@@ -18,7 +18,6 @@
             div(v-if = "discourse_title.length!=index+1")
               .line 
             div(v-else)
-              .margin-bott
           .content
             Discussion_Comment(:comment_id="discourse_title[index].id")
     script.
@@ -82,18 +81,21 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" >
 @import "../sass/global.scss";
-.textleft{
+.Discoussioncomponent{                         //內文文字P大小
+  font-size: 1.5rem;
+  font-family: $main_font; 
+  line-height: 1.5em;
+}
+.textleft{                                     //內文置左
   text-align: left;
 }
 .ui.accordion .active.title {                  //選單變化顏色
     background-color: rgba(69, 74, 74, 0.1);
 }
-
-.commentbox{
-     background-color: #f5f5f5;
-    
+.commentbox{                                    
+    background-color: #f5f5f5;
     padding: 0;
     border-radius: 10px;
 }
@@ -105,13 +107,14 @@ export default {
 .ui.accordion:not(.styled) .title~.content:not(.ui):last-child { //comment 內容padding1em
     padding: 1em;
     margin-left: 1.5em;
+    @media only screen and (max-width: 767px){
+      padding: 0em;
+      margin-left: 0.5em;
+    }
 }
-.line{
+.line{                                         //內文隔線
   border-bottom: 1px solid rgba(0,0,0,.1);
-  margin: 1em 0 0 0 ;
-}
-.margin-bott{
-  margin: 1em 0 0 0 ;
+  margin: 1em 0 0 -1em ;
 }
 
 .ui.accordion .title:not(.ui) {
