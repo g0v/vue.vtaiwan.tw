@@ -33,7 +33,7 @@ export default {
         {en:'Home',t:'首頁',r:''},
         {en:'User manual',t:'使用手冊',r:'how-to-use'},
         {en:'About',t:'關於 vTaiwan',r:'intro'},
-        {en:'Login', t:'登入',r:'login'},
+        // {en:'Login', t:'登入',r:'login'},
       ],
       catagories: [],
       allTopics: []
