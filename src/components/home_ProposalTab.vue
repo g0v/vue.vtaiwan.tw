@@ -6,7 +6,8 @@
         .number {{idx + 1}}
         .label {{step.label}}
 
-    .ui.big.steps.top.attached.mobile-step.sticky.thin-only(id="mobile-step")
+    // .ui.big.steps.top.attached.mobile-step.sticky.thin-only(id="mobile-step")
+    #mobile-step.ui.sticky.mobile-step.thin-only
       a.step(v-for="(step, idx) in steps", :class="{'active': idx == myIdx}", @click="myIdx = idx", v-bind:href="'#'+step.dataName")
         .label {{step.label}}
 
@@ -62,8 +63,8 @@
       onMobile:{
         cache: false,
         get: function() {
-          if(typeof screen!== 'undefined')
-            return screen.width<768;
+          if(typeof screen !== 'undefined')
+            return screen.width < 768;
           else
             return false;
         }
@@ -143,7 +144,7 @@
         if(mobile_steps.length>0)
         {
           mobile_steps.sticky('refresh');
-          mobile_steps[0].style.left="0px"
+          // mobile_steps[0].style.left="0px"
         }
       }
     }
@@ -151,54 +152,60 @@
 </script>
 
 <style lang="scss" scoped>
-  @import "../sass/global.scss";
+@import "../sass/global.scss";
 
+.component {
+  width: 100%;
+  max-width: $comp_max_width;
+  margin: 0 auto;
+  padding: 1em;
+}
+
+.number {
+  border-radius: 1em;
+  color: white;
+  background: lightcoral;
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.2em;
+  width: 1.2em;
+  height: 1.2em;
+  margin: 0 .2em 0 0;
+}
+
+@media only screen and (max-width: $breakpoint) {
   .component {
-    width: 100%;
-    max-width: $comp_max_width;
-    margin: 0 auto;
-    padding: 1em;
+    padding: 0px;
+    border: 0px;
+    // .bound {
+    //   left: 0
+    // }
   }
+  .mobile-step {
+    position: absolute;
+    // left: 0;
+    // z-index: 10;
+    // background: lightcoral;
+    // opacity: 0.5;
+    .step,
+    .step.active,
+    .step:first-child {
+      display: block;
+      width: 5vw !important;
+      height: calc(100vh / 5);
+      // padding: 1em;
+      border: 0;
 
-  .number {
-    border-radius: 1em;
-    color: white;
-    background: lightcoral;
-    font-size: 3rem;
-    font-weight: 700;
-    line-height: 1.2em;
-    width: 1.2em;
-    height: 1.2em;
-    margin: 0 .2em 0 0;
-  }
-
-  @media only screen and (max-width: 767px) {
-  .component{
-      padding:0px;
-      border: 0px;
-      .bound{
-        left:0
+      .label {
+        display: inline;
+        font-size: 5vw;
+        line-height: 1.2em;
       }
     }
-  .mobile-step{
-        .step,.step.active, .step:first-child{
-          width: 0 !important;
-          height: 20vh;
-          padding: 4vw;
-          border: 0px;
-        },
-        .label{
-          font-size: 5vw;
-          line-height: 6vw;
-        }
-        left: 0;
-        z-index: 10;
-        position: absolute;
-      }
-  }	
-  .mobile-context{
-    padding-left: calc(4vw + 1em);
   }
+}
 
-
+.mobile-context {
+  // padding-left: calc(4vw + 1em);
+}
 </style>
