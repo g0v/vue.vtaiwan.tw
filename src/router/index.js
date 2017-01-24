@@ -37,6 +37,7 @@ export default new Router({
       name: 'topic_step', 
       component: Detail_Topic },
     { path: '/catagory/:cRouteName',  
-      name: 'catagory', component: Detail_Catagory }
+      name: 'catagory', 
+      component: Detail_Catagory }
   ]
 })

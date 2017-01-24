@@ -1,8 +1,8 @@
 <template lang="jade">
   .component
 
-      pre.ui.basic.segment(v-if="!onMobile")
-        p {{ desc }}
+      h3.ui.header(v-if="!onMobile")
+        | 『{{ desc }}』
       
       .m-title(v-if="onMobile") {{ label }}
 
@@ -29,18 +29,21 @@
     props: ['list', 'desc', 'label'],
     data() {
       return {
-        //...
+        onMobile:false
       }
     },
-    computed:{
-      onMobile:{
-        cache: false,
-        get: function() {
-          if(typeof screen!== 'undefined')
-            return screen.width<768;
-          else
-            return false;
-        }
+    created:function(){
+      this.handleResize();
+    },
+    mounted:function(){
+      window.addEventListener('resize', this.handleResize);
+    },
+    methods:{
+      handleResize: function(){
+        if(typeof window !== 'undefined')
+            this.onMobile = window.innerWidth < 768;
+        else
+            this.onMobile = false;
       }
     }
   }

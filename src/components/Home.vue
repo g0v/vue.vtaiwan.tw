@@ -1,22 +1,14 @@
 <template lang="jade">
+
   .home
-
     Slideshow(:hotTopics="hotTopics", :allTopics="allTopics").slideshow
-
     // StepGuide.stepguide
-
     // .ui.divider
-
     // HotProposal(:hotProposal="hotTopics", header="熱門議題").hotproposal
-
     // .ui.divider
-
     ProposalTab.proposalTab(:allTopics="allTopics")
-
     .ui.divider
-
     Catagories(:catagories="catagories").catagories
-
 
 </template>
 
@@ -64,7 +56,7 @@ export default {
         margin-left: auto;
         margin-right: auto;
         padding-bottom: 5vh;
-        margin-top:-65px;
+        // margin-top:-65px;
     }
     p {
         font-size: 1rem;
