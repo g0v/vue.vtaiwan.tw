@@ -6,7 +6,6 @@
         .number {{idx + 1}}
         .label {{step.label}}
 
-    // .ui.big.steps.top.attached.mobile-step.sticky.thin-only(id="mobile-step")
     #mobile-step.ui.sticky.mobile-step.thin-only
       a.step(v-for="(step, idx) in steps", :class="{'active': idx == myIdx}", @click="myIdx = idx", v-bind:href="'#'+step.dataName")
         .label {{step.label}}
@@ -170,39 +169,45 @@
   margin: 0 .2em 0 0;
 }
 
+.ui.steps .step{
+  flex:1 1 auto;
+}
+
 @media only screen and (max-width: $breakpoint) {
   .component {
     padding: 0px;
     border: 0px;
-    // .bound {
-    //   left: 0
-    // }
   }
   .mobile-step {
     position: absolute;
-    // left: 0;
-    // z-index: 10;
-    // background: lightcoral;
-    // opacity: 0.5;
+    padding-left: 1vh;
     .step,
-    .step.active,
     .step:first-child {
       display: block;
-      width: 5vw !important;
+      width: 5vh !important;
       height: calc(100vh / 5);
-      // padding: 1em;
-      border: 0;
-
+      border-left: solid 1px rgba(0, 0, 0, 0.2);
+      border-bottom-left-radius: 10px;
+      border-top-left-radius: 10px;
+      padding: 3.33vh 0px;
+      border-top: solid 1px rgba(0, 0, 0, 0.2);
+      border-right: solid 1px rgba(0, 0, 0, 0.2);
+      box-shadow: inset -2px 0px 1px rgba(0, 0, 0, 0.1);
       .label {
-        display: inline;
-        font-size: 5vw;
-        line-height: 1.2em;
+        font-size: 2.5vh;
+        line-height: 3.3vh;
       }
     }
+    .step.active{
+      border-right: 0px;
+      box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.2);
+    }
   }
-}
-
-.mobile-context {
-  // padding-left: calc(4vw + 1em);
+  .mobile-context {
+    margin-left: 6vh !important;
+    width: auto !important;
+    padding: 0 !important;
+    border-left: 0px !important;
+  }
 }
 </style>
