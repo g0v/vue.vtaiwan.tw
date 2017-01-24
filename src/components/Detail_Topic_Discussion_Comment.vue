@@ -15,25 +15,25 @@
         div.ui.comments
           div.comment
             a.avatar
-              img(:src="comment[index]['avatar_template']")
+              //回復icon
+              img(:src="comment[index]['avatar_template']") 
             div.content
+              //作者姓名
               a.author
                 | {{comment[index]['username']}}
               div.metadata               
                 span.date
+                  //日期
                   div(v-html="comment[index]['created_at']")
               div.text
+                //內容
                 div(v-html="comment[index]['cooked']")
               div.line
       a(v-bind:href="'https://talk.vtaiwan.tw/t/topic/'+comment_id" target="_blank")
         div.ui.fluid.green.labeled.submit.icon.button
           i.icon.edit
           | 我要留言
-      
-
-        
-              
-            
+   
 </template>
 
 <script>
@@ -58,7 +58,8 @@ export default {
         this.username =this.comment[i]['avatar_template'].replace(/{size}/,"100");
         this.comment[i]['avatar_template']=this.comment[i]['avatar_template'].replace(/.*/,'https://talk.vtaiwan.tw'+this.username);
         this.comment[i]['created_at']=this.comment[i]['created_at'].replace(/T.*/,"");
-        this.username= this.comment[i]['avatar_template']
+        this.username= this.comment[i]['avatar_template'];
+        this.comment[i]['cooked'] = this.comment[i]['cooked'].replace(/<img src="/,'<img src="https://talk.vtaiwan.tw')
       }
       
       var today = new Date();
