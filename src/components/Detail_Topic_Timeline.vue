@@ -1,7 +1,7 @@
 <template lang="jade">
     | {{timeline}}
     .event-list
-      .item(v-for = "(ev,idx) in timeline", :class="['dark','gloom','light'][idx % 3]")
+      .item(v-for = "(ev,idx) in timeline", :class="['light','gloom','dark'][idx % 3]")
         .big 從 {{ev.start}} 開始 {{ev.end}}
         .small 
           p 進度  
@@ -84,9 +84,9 @@ export default {
     text-align: left;
     padding: 1em;
     font-size: 1.2rem;
-    &.dark { background-color: #ccc }
-    &.gloom { background-color: #ddd }
-    &.light { background-color: #eee }
+    &.dark { background-color: #eeeeee }
+    &.gloom { background-color: #f4f4f4 }
+    &.light { background-color: #fbfbfb }
     .big {
       display: flex;
       align-items: center;
