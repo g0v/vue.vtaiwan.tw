@@ -18,7 +18,7 @@ export default {
       axios.get('https://talk.vtaiwan.tw/t/'+ this.article.id +'.json?include_raw=1')
       .then((response)=>{
         var detail_info = response.data['post_stream']['posts'][0]['cooked'].split("<hr>")[1]; // 取得詳細內容(第一篇)
-        this.information = detail_info;
+        this.information = detail_info.replace(/<if.*slideshare.*e>/,""); //詳細內容slideshare拿掉
       })
   },
 }
