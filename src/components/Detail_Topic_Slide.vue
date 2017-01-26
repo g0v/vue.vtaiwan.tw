@@ -29,7 +29,6 @@ export default {
         var detail_info = response.data;
         detail_info = detail_info['post_stream']['posts'][0]['cooked']; // 取得議題時間軸內容
         this.slide = this.getiframe(detail_info);
-        console.log(this.slide);
       }))
   }
 }
