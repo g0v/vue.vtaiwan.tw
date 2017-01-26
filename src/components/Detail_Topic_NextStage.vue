@@ -85,8 +85,8 @@ export default {
 @import "../sass/global.scss";
 
 .step-progress-bar {
-  position: relative;
-  left: -20px;
+  // position: relative;
+  // left: -20px;
   width: 600px;
   margin: 0 auto;
   display: block;
@@ -95,6 +95,7 @@ export default {
 }
 ul.progress-bar {
   counter-reset: step;
+  padding:0;
 }
 .step-progress-bar li {
   list-style-type: none;
@@ -104,7 +105,7 @@ ul.progress-bar {
   position: relative;
   text-align: center;
   font-weight: 600;
-  font-size:1.1rem;
+  font-size:1.2rem;
 }
 .step-progress-bar li:before {
   content: counter(step);
@@ -147,8 +148,10 @@ ul.progress-bar {
 
 .thin-only { 
   .step-progress-bar {
-    width:375px;
-    left: -72px;
+    width:100%;
+    li {
+      font-size:1rem;
+    }
   }
 }
 
