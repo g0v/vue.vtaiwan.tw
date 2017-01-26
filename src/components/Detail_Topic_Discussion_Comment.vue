@@ -1,24 +1,48 @@
 <template lang="jade">  
 
   .Commentcomponent
-    div(v-if = "check == 1") 
-      div.ui.large.labels
-        div.ui.label
+      div.ui.compact.menu
+        a.item
           i.reply.icon
-            //回復
-            |  {{comment.length}}
-        div.ui.label
+          //| 回復
+          |  {{comment.length}}
+        a.item
           i.unhide.icon
-            //觀看
-            |  {{views['views']}}
-        div.ui.label
+          //| 觀看
+          |  {{views['views']}}
+        a.item
           i.user.icon
-            //用戶
-            |  {{views['participant_count']}}
-        div.ui.label
+          //| 用戶
+          |  {{views['participant_count']}}   
+        a.item
           i.calendar.icon
-            //最新回復
-            |  {{date}}
+          //| 最新回復
+          |  {{date}} 
+
+    
+    
+    
+      //div(v-if = "check == 1") 
+        div.ui.large.labels
+          div.ui.label
+            i.reply.icon
+              //回復
+              |  {{comment.length}}
+          div.ui.label
+            i.unhide.icon
+              //觀看
+              |  {{views['views']}}
+          div.ui.label
+            i.user.icon
+              //用戶
+              |  {{views['participant_count']}}
+          div.ui.label
+            i.calendar.icon
+              //最新回復
+              |  {{date}}
+
+
+
       div(v-for="(item, index) in comment")
         div.discussioncomment.ui.comments
           div.comment
@@ -77,13 +101,13 @@ export default {
         var lastpostday = new Date(this.views['last_posted_at']);
         this.date=(today-lastpostday)/(1000*60*60*24);
         if(this.date>1){
-          this.date=Math.floor(this.date)+" 天";
+          this.date=Math.floor(this.date)+" 天 ";
         }
         else if(this.date>0.041){
-          this.date=Math.floor(this.date*24)+" 小時";
+          this.date=Math.floor(this.date*24)+" 小時 ";
         }
         else{
-          this.date=Math.floor(this.date*24*60)+" 分鐘";
+          this.date=Math.floor(this.date*24*60)+" 分鐘 ";
         }
       }
       else{
@@ -103,14 +127,11 @@ export default {
   font-family: $main_font;
 }
 
-.ui.large.label, .ui.large.labels .label {   //資訊列
-  font-size: 1.5 rem;
-  margin-bottom:2em;
-  @media only screen and (max-width: 767px){
-    
-    margin-bottom: 2em;
-  }
-    
+.ui.compact.menu {                          //資訊列
+  margin-bottom: 2em;
+}
+.ui.menu .item {                            //資訊列
+  padding: 0.5em 0.8em;
 }
 .ui.green.button,  {                         //我要留言按鈕
   background-color: #40B3BF;
@@ -151,13 +172,10 @@ export default {
     margin: 0em 1em 0em 0.5em;
 }
 .ui.comments .comment img.avatar {            //使用者icon大小
-  width: 3%;
+  width: 2em;
 
 }
 
-.ui.label>.icon {
-    width: auto;
-    margin: 0 0 0;
-}
+
 
 </style>

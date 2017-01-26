@@ -16,12 +16,8 @@
           | {{discourse_title[index].title}}
         div.content
           Discussion_Comment(:comment_id="discourse_title[index].id")
-      
-      
   
 
-  
-  
 </template>
 
 <script>
@@ -91,7 +87,11 @@ export default {
   text-align: left;
 }
 .ui.styled.accordion {                        //討論串框大小
-    width: 100%;
+  width: 100%;
+}
+.ui.styled.accordion .title {                 //討論串標題顏色
+  color: rgba(0, 0, 0, 0.60);
+  font-family: $main_font; 
 }
 
 
