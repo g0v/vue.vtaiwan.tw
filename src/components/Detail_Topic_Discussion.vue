@@ -8,20 +8,17 @@
     .polis(:data-conversation_id="polis_id")
     script(async='true', src='https://pol.is/embed.js')
 
-  div.commentboxall(v-if = "check >0")     
+  div(v-if = "check >0")
     div(v-for = "(item, index) in discourse_title")
-      .ui.accordion(style="display: block;")
-        div.commentbox
-          .title
-            i.dropdown.icon  
-            |{{discourse_title[index].title}}
-            div(v-if = "discourse_title.length!=index+1")
-              .line 
-            div(v-else)
-          .content
-            Discussion_Comment(:comment_id="discourse_title[index].id")
-    //script.
-      $('.ui.accordion').accordion();  
+      div.ui.styled.accordion
+        div.title
+          i.dropdown.icon
+          | {{discourse_title[index].title}}
+        div.content
+          Discussion_Comment(:comment_id="discourse_title[index].id")
+      
+      
+  
 
   
   
@@ -30,8 +27,6 @@
 <script>
 import axios from 'axios'
 import Discussion_Comment from './Detail_Topic_Discussion_Comment.vue'
-// import $ from 'jquery'
-// import jQuery from 'jquery'
 
 export default {
   props:['article'],
@@ -83,7 +78,6 @@ export default {
     $('.ui.accordion').accordion();
   } 
 }
-
 </script>
 
 <style lang="scss" >
@@ -96,34 +90,9 @@ export default {
 .textleft{                                     //內文置左
   text-align: left;
 }
-.ui.accordion .active.title {                  //選單變化顏色
-    background-color: rgba(69, 74, 74, 0.1);
-}
-.commentbox{                                    
-    background-color: #f5f5f5;
-    padding: 0;
-    border-radius: 10px;
-}
-.commentboxall{
-    border: solid 0.1em rgba(0,0,0,.1);
-    background-color: #f5f5f5;
-    padding: 0;
-}
-.ui.accordion:not(.styled) .title~.content:not(.ui):last-child { //comment 內容padding1em
-    padding: 1em;
-    margin-left: 1.5em;
-    @media only screen and (max-width: 767px){
-      padding: 0em;
-      margin-left: 0.5em;
-    }
-}
-.line{                                         //內文隔線
-  border-bottom: 1px solid rgba(0,0,0,.1);
-  margin: 1em 0 0 -1em ;
+.ui.styled.accordion {                        //討論串框大小
+    width: 100%;
 }
 
-.ui.accordion .title:not(.ui) {
-    padding: 1em 0em 0em 1em;
-    
-}
+
 </style>

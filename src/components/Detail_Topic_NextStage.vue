@@ -104,6 +104,7 @@ ul.progress-bar {
   position: relative;
   text-align: center;
   font-weight: 600;
+  font-size:1.1rem;
 }
 .step-progress-bar li:before {
   content: counter(step);
@@ -146,8 +147,8 @@ ul.progress-bar {
 
 .thin-only { 
   .step-progress-bar {
-    width:400px;
-    left: -55px;
+    width:375px;
+    left: -72px;
   }
 }
 
