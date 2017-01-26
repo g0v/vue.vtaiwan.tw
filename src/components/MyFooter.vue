@@ -12,7 +12,7 @@
 
 <template lang="jade">
   .component
-    a(href="https://github.com/g0v/vue.vtaiwan.tw" target="_blank")
+    a.ui.labeled.icon.basic.big.button(href="https://github.com/g0v/vue.vtaiwan.tw" target="_blank")
       i.github.alternate.icon
       | Code on Github
 </template>
