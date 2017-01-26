@@ -142,8 +142,6 @@ form.search {
 
 .logo {
   // flex: 0 1 auto;
-  color: dimgray;
-  font-family: $logo_font;
   height: $navHeight;
   display: flex;
   align-items: center;
@@ -155,6 +153,8 @@ form.search {
     max-height: 75%;
   }
   span {
+    color: black;
+    font-family: $logo_font;
     font-size: 2rem;
     margin-left: .3em;
   }

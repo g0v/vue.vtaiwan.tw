@@ -4,28 +4,36 @@
 
     .desktop-container.fat-only
       .slide-page
+        // left & right arrow
         a.pre(@click="c = cycle(-1)")
           i.huge.caret.black.left.icon
         a.next(@click="c = cycle(1)")
           i.huge.caret.black.right.icon
-        router-link.slide-item(v-for="(t,idx) in mySlideTopics",
-          :to="'/topic/'+t.routeName",
-          :style="{ 'z-index': t.zIndex, opacity: t.opacity, transform: t.transform, '-ms-transform': t.transform, '-webkit-transform': t.transform  }")
-          img.full-page(:src="t.cover")
+        // bg-img & content box
+        .slide-item(v-for="(t, idx) in mySlideTopics", :style="t.style")
+          // img.full-page(:src="t.cover")
           .box
-            .status {{t.status}}
-            .slogan {{t.slogan}}
-            .title {{t.title}}
-              span#test1 jQuery Test
+            .status.ui.pointing.below.massive.label 
+              | {{t.status}}
+            h1.slogan.ui.header
+              | {{t.slogan}}
+            router-link.title.ui.right.labeled.icon.teal.massive.button(:to="'/topic/' + t.routeName")
+              i.right.arrow.icon
+              p {{t.title}}
+                // span #test1 jQuery Test
 
     .mobile-container.thin-only
       .m-slide-page
-        router-link.m-slide-item(v-for="(t,idx) in allTopics",:to="'/topic/'+t.routeName",:style="{'background-image':'url('+t.cover+')'}")
+        .m-slide-item(v-for="(t,idx) in allTopics",:style="{'background-image':'url('+t.cover+')'}")
           .box
             // .slogan.ui.header {{t.slogan}}
-            .title {{t.title}}
-            .status {{t.status}}
-            .button 進入議題
+            .status.ui.pointing.below.big.label
+              | {{t.status}}
+            h2.title.ui.header
+              | {{t.title}}
+            router-link.ui.right.labeled.icon.teal.big.button(:to="'/topic/'+t.routeName")
+              i.right.arrow.icon
+              p 進入議題
 
 </template>
 
@@ -33,7 +41,7 @@
 <script type="text/javascript">
 
 import $ from 'jquery'
-import jQuery from 'jquery'
+// import jQuery from 'jquery'
 
 export default {
   name: 'SlideShow',
@@ -63,6 +71,16 @@ export default {
         }
         o.zIndex = (idx == c || idx == lastC) ? 4 : 3;
         o.opacity = (idx == c || idx == lastC) ? 1 : 0;
+        // combine styles into single 
+        o.style = {
+          'z-index': o.zIndex, 
+          opacity: o.opacity, 
+          transform: o.transform, 
+          '-ms-transform': o.transform, 
+          '-webkit-transform': o.transform, 
+          background: 'url(' + o.cover + ')', 
+          'background-size': 'cover'
+        };
         return o
       })
     }
@@ -73,7 +91,7 @@ export default {
     },
     cycle: function (n) {
 
-      $('#test1').toggle();
+      // $('#test1').toggle();
 
       var c = this.c;
       var ts = this.hotTopics;
@@ -95,48 +113,36 @@ export default {
     }
   },
   mounted: function () {
-    $('#test1').hide();
+    // $('#test1').hide();
   }
 }
 
 </script>
 
 <style lang="scss" scoped>
+@import "../sass/global.scss";
 
-  .component {
-    // padding-bottom: -66px;
-  }
-  .mobile-container {
+.desktop-container, .mobile-container {
+  position: relative;
+  overflow: hidden;
+  img {
     position: relative;
-    overflow: scroll;
-    img {
-      position: relative;
-      width: 100%;
-      z-index: -3;
-    }
+    width: 100%;
+    z-index: -3;
   }
-  .mobile-container::-webkit-scrollbar {
-    height:0px;
-    width:0px;
-  }
+}
 
-  .desktop-container {
-    position: relative;
-    overflow: hidden;
-    img {
-      position: relative;
-      width: 100%;
-      z-index: -3;
-    }
+.mobile-container {
+  overflow: scroll;
+  &::-webkit-scrollbar {
+    display: none;
   }
-
+}
 
 // ******************************* Desktop CSS
-@import "../sass/global.scss";
 
 .slide-page {
   display: block;
-  // height: 90%;
   height: 100vh;
 }
 
@@ -145,8 +151,10 @@ export default {
   top: 0;
   left: 0;
   width: 100vw;
+  overflow: hidden;
+  height: 100%;
   @include transition(transform .5s ease-in-out, z-index .3s ease-in-out);
-  img.full-page {
+/*  img.full-page {
     // **************** to keep image ratio
     min-height: 100%;
     min-width: 100%;
@@ -157,52 +165,53 @@ export default {
     @include transform(translate(-50%, 0));
     // background-color: gray;
     // opacity: 0.6;
-  }
-  overflow: hidden;
-  // height: 80%;
-  height: 100%;
+  }*/
   .box {
     // font-size: 1rem;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    @include transform(translate(-50%, -50%));
+    // *********************
+    // position: absolute;
+    // top: 50%;
+    // left: 50%;
+    // @include transform(translate(-50%, -50%));
+    // ********************* centering
     display: flex;
     justify-content: center;
     flex-flow: column;
     align-items: center;
+    // ********************* 
     width: 100%;
-    // max-width: 100%;
     height: 100%;
+    background: radial-gradient(circle, hsla(0, 0, 0%, 0.8), transparent);
+    // max-width: 100%;
     // box-shadow: 2px 4px 5px hsla(0,0,0%,0.5);
     // border-radius: 30rem;
     // background: linear-gradient(to bottom, transparent, hsla(0, 0, 0%, 0.8), transparent);
-    background: radial-gradient(circle, hsla(0, 0, 0%, 0.8), transparent);
-    .slogan,
-    .title,
+    // .slogan,
+    // .title,
+    // .status {
+    // }
     .status {
+      background: $step_color;
+      color: white;
+      // font-size: 2rem;
+      // font-weight: 700;
+      // padding: 0.1em;
     }
     .slogan {
-      // font-family: $main_font;
       margin: 1em 0;
       font-size: 3rem;
       color: white;
-      letter-spacing: .3em;
       text-shadow: 0 0 5px gray;
+      // font-family: $main_font;
+      // letter-spacing: .3em;
     }
     .title {
-      font-size: 1.2rem;
-      width: 15em;
-      background-color: white;
-      letter-spacing: .3em;
-      padding: 1em;
-      margin: 1em;
-    }
-    .status {
-      color: $step_color;
-      font-size: 2rem;
-      font-weight: 700;
-      padding: 0.1em;
+      // font-size: 1.2rem;
+      // width: 15em;
+      // background-color: white;
+      // letter-spacing: .3em;
+      // padding: 1em;
+      // margin: 1em;
     }
   }
 }
@@ -235,49 +244,58 @@ a {
 // ******************************* Mobile CSS
 
 .m-slide-page {
-  display: -webkit-inline-box;
+  // display: -webkit-inline-box;
+  white-space: nowrap;
 }
 
 .m-slide-item {
-  display: block;
+  display: inline-block;
   width: 98vw;
-  // logo:10vh, nav:20vh
+  // logo=10vh, nav=20vh
   height: 70vh;
+  // min-height: 70vh;
   margin: 0 0.5px;
-  overflow: hidden;
-  background-size: auto 100%;
+  // overflow: hidden;
+  background-size: cover;
   background-position: center;
-  img {
-    width: auto;
-    height: 100%;
-    left: -50%;
-  }
+  // img {
+    // width: auto;
+    // min-height: 100%;
+    // left: -50%;
+  // }
   .box {
-    height: 100%;
+    min-height: 100%;
     background: radial-gradient(circle, hsla(0, 0, 0%, 0.8), transparent);
+    // ********************* centering
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+    align-items: center;
     .status {
-      position: relative;
-      top: 105px;
-      width: 100%;
-      color: $step_color;
-      font-size: 1.3rem;
+      // position: relative;
+      // top: 105px;
+      // width: 100%;
+      color: white;
+      background-color: $step_color;
+      // font-size: 1.3rem;
     }
     .title {
-      position: relative;
-      top: 170px;
-      width: 100%;
+      // position: relative;
+      // top: 170px;
+      // width: 100%;
+      // margin: 1em 0;
       color: white;
-      font-size: 1.3rem;
+      // font-size: 1.3rem;
     }
     .button {
-      position: relative;
-      top: 235px;
-      color: white;
-      font-size: 1.4rem;
-      padding: 14px 30px;
-      margin: 0 calc(50% - 75px);
-      background-color: $main_color;
-      border-radius: 8px;
+      // position: relative;
+      // top: 235px;
+      // color: white;
+      // font-size: 1.4rem;
+      // padding: 14px 30px;
+      // margin: 0 calc(50% - 75px);
+      // background-color: $main_color;
+      // border-radius: 8px;
     }
   }
 }
