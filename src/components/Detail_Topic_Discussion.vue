@@ -20,7 +20,7 @@
             div(v-else)
           .content
             Discussion_Comment(:comment_id="discourse_title[index].id")
-    script.
+    //script.
       $('.ui.accordion').accordion();  
 
   
@@ -30,7 +30,8 @@
 <script>
 import axios from 'axios'
 import Discussion_Comment from './Detail_Topic_Discussion_Comment.vue'
-
+// import $ from 'jquery'
+// import jQuery from 'jquery'
 
 export default {
   props:['article'],
@@ -78,7 +79,11 @@ export default {
       }    
     })    
   },
+  updated:function(){
+    $('.ui.accordion').accordion();
+  } 
 }
+
 </script>
 
 <style lang="scss" >
