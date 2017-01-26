@@ -1,10 +1,16 @@
 <template lang="jade">
+  .component
 
-.NextStage
-  ul.NextStage-Progress
-    li(v-for="(s,idx) in steps", v-bind:class='{active:s.active,visited:s.visited}') 
-      | {{s.title}}
-      
+    .fat-only
+      .step-progress-bar
+        ul.progress-bar
+          li(v-for="(s,idx) in steps", v-bind:class='{active:s.active}') {{s.title}}
+
+    .thin-only
+      .step-progress-bar
+        ul.progress-bar
+          li(v-for="(s,idx) in steps", v-bind:class='{active:s.active}') {{s.title}}
+     
 </template>
 
 <script>
@@ -26,27 +32,22 @@ export default {
             var steps = [
               {
                 title:"即將開始",
-                visited:false,
                 active:false
               },
               {
                 title:"意見徵集",
-                visited:false,
                 active:false
               },
               {
                 title:"研擬草案",
-                visited:false,
                 active:false
               },
               {
                 title:"送交院會",
-                visited:false,
                 active:false
               },
               {
                 title:"歷史案件",
-                visited:false,
                 active:false
               }
             ];
@@ -61,15 +62,11 @@ export default {
                 var init  = detail_info[end]['raw'].split(" ")[1]; // if init
 
                 for (var j in steps){
-                    steps[j]['visited'] = true;
+                    steps[j]['active'] = true;
                     if(steps[j]['title'] === current && init === 'init'){ //如果是"意見徵集 init",就將active啟動並取消visited
-                        steps[j]['active'] = true;
-                        steps[j]['visited'] = false;
                         return this.steps = steps; // 回傳五階段array
                     }
                     if(steps[j]['title'] === current){ //如果是"意見徵集",就將active啟動並取消visited
-                        steps[j]['active'] = true;
-                        steps[j]['visited'] = false;
                         this.steps = steps;
                         return this.steps = steps;// 回傳五階段array
                     }
@@ -87,205 +84,71 @@ export default {
 
 @import "../sass/global.scss";
 
-.ui.medium.header {
-  // color:#db2828;
-}
-
-@mixin gray-stripe {
-  background-size: 35px 35px;
-  background-color: #EcEcEc;
-  background-image: -webkit-linear-gradient(-45deg, rgba(255, 255, 255, .4) 25%, transparent 25%,transparent 50%, rgba(255, 255, 255, .4) 50%, rgba(255, 255, 255, .4) 75%,transparent 75%, transparent);
-  background-image: -moz-linear-gradient(-45deg, rgba(255, 255, 255, .4) 25%, transparent 25%,transparent 50%, rgba(255, 255, 255, .4) 50%, rgba(255, 255, 255, .4) 75%,transparent 75%, transparent);
-}
-
-@mixin blue-stripe {
-  background-size: 35px 35px;
-  background-color: #40B3BF;
-  background-image: -webkit-linear-gradient(-45deg, rgba(255, 255, 255, .2) 25%, transparent 25%,transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%,transparent 75%, transparent);
-  background-image: -moz-linear-gradient(-45deg, rgba(255, 255, 255, .2) 25%, transparent 25%,transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%,transparent 75%, transparent);
-}
-
-@mixin red-stripe {
-  background-size: 35px 35px;
-  background-color: #DB5252;
-  background-image: -webkit-linear-gradient(-45deg, rgba(255, 255, 255, .2) 25%, transparent 25%,transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%,transparent 75%, transparent);
-  background-image: -moz-linear-gradient(-45deg, rgba(255, 255, 255, .2) 25%, transparent 25%,transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%,transparent 75%, transparent);
-}
-
-
-.NextStage {
-  color: #444;
-  margin: 40px auto;
-  max-width: 1200px;
+.step-progress-bar {
   position: relative;
+  left: -20px;
+  width: 600px;
+  margin: 0 auto;
+  display: block;
+  height: 100px; 
+  padding: 10px;
 }
-ul.NextStage-Progress {
-  margin: 0 20px;
-  li {
-    color: #ccc;
-    display: block;
-    font-size: 16px;
-    position: relative;
-    padding-left:14px;
-    &:before {
-      background: #ddd;
-      border: 2px solid #FFF;
-      border-radius: 50%;
-      color: #fff;
-      font-size: 16px;
-      font-weight: 700;
-      left: 20px;
-      line-height: 37px;
-      height: 35px;
-      position: absolute;
-      text-align: center;
-      text-shadow: 1px 1px rgba(0, 0, 0, 0.2);
-      top: 4px;
-      width: 35px;
-      z-index: 99999;      
-    }
-     &.active {
-      color: #DB5252;
-      font-weight: bold;
-      font-size:18px;
-      padding-left:14px; // span padding
-      &:before {
-        background: #DB5252; 
-        z-index: 99999;
-      }
-    }
-    &.visited {
-      background: #ECECEC;
-      color: #40B3BF;
-      z-index: 99999;
-      padding-left:14px; // span padding
-      &:before {
-       background: #40B3BF; 
-        z-index: 99999;
-      }
-    }
-    &:nth-child(1) {
-      &:before {
-        content: "1";
-      }
-    }
-     &:nth-child(2) {
-      &:before {
-        content: "2";
-      }
-    }
-    &:nth-child(3) {
-      &:before {
-        content: "3";
-      }
-    }
-     &:nth-child(4) {
-      &:before {
-        content: "4";
-      }
-    }
-    &:nth-child(5) {
-      &:before {
-        content: "5";
-      }
-    }
-  }
-  a {
-    color: #40B3BF;
-    font-size: 16px;
-    font-weight: 600;
-    text-decoration: none;  
-  }
+ul.progress-bar {
+  counter-reset: step;
+}
+.step-progress-bar li {
+  list-style-type: none;
+  float: left;
+  color: #40B3BF;
+  width: 20%;
+  position: relative;
+  text-align: center;
+  font-weight: 600;
+}
+.step-progress-bar li:before {
+  content: counter(step);
+  counter-increment: step;
+  width: 30px;
+  height: 30px;
+  border: 2px solid #40B3BF;
+  border-radius: 50%;
+  display: block;
+  text-align: center;
+  line-height: 30px;
+  margin: 0 auto 10px auto;
+  z-index: 9;
+  background-color: white;
+  font-weight: 600;
+}
+.step-progress-bar li:after {
+  content: "";
+  width: 100%;
+  position: absolute;
+  height: 2px;
+  background-color: #40B3BF;
+  top: 16px;
+  left: 50%;
+  z-index: -1;
+}
+.step-progress-bar li:last-child:after {
+  content: none;
+}
+.step-progress-bar li.active {
+  color: #DB5252;
+
+}
+.step-progress-bar li.active:before{
+  border-color: #DB5252;
+}
+.step-progress-bar li.active:after{
+  background-color: #DB5252;
 }
 
- .NextStage-Progress li.active:after {
-    @include red-stripe;
-    content:"";
-    height: 15px;
-    width: 100%;
-    left: 50%;
-    position: absolute;
-    top: -50px;
-    z-index: 0;
+.thin-only { 
+  .step-progress-bar {
+    width:400px;
+    left: -55px;
   }
-  .NextStage {
-    margin-top: 50px;
-  }
-  ul.NextStage-Progress {
-    @include gray-stripe;
-    border-radius: 15px;
-    height: 15px;
-    margin:auto;
-    padding: 0;
-    width: 60%;
-    &:before {
-      @include blue-stripe;
-      border-radius: 15px;
-      content: " ";
-      height: 15px;
-      left: 20%;
-      position: absolute;
-      width: 10%;
-   }
-   li {
-      display: inline-block;
-      margin: 50px 0 0;
-      text-align: center;
-      width: 19%;
-      &:before {
-        height: 45px;
-        left: 40%;
-        line-height: 45px;
-        position: absolute;
-        top: -65px;
-        width: 45px;
-        z-index: 99;
-      }
-      &.visited {
-        background: none;
-        
-        &:after {
-          @include blue-stripe;
-          content: "";
-          height: 15px;
-          left: 50%;
-          position: absolute;
-          top: -50px;
-          width: 100%;
-          z-index: 99;
-        }
-      }
-    }
-  }
-
-@media only screen and (max-width: $breakpoint) { // 小於ipad尺寸
-    ul.NextStage-Progress {
-      margin: 0 auto;
-      width: 100%;
-      margin-bottom:50px;
-      &:before{
-        left:0;
-      }
-      li {
-          padding: 0;
-          
-          &:before {
-            left: 20%;
-          }
-          &.visited {
-            padding: 0;
-          }
-          &.active {
-            padding: 0;
-          }
-          span {
-            font-size: 14px;
-          }
-     }
-   }
-   .NextStage {
-      margin:50px 0 50px 0;
-   }
 }
 
 </style>

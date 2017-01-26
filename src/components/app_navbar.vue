@@ -247,7 +247,7 @@ form.search {
 @import "../sass/global.scss";
 @media screen and (max-width: $breakpoint){
   .thin-only {
-    // padding-bottom: 65px;
+    border-bottom: 1px solid #ccc;
   }
 }
 
