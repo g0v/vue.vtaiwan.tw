@@ -92,8 +92,8 @@ export default {
   .item {
     display: flex;
     text-align: left;
-    padding: 1em 0 1em 0.5em;
-    font-size: 1.1rem;
+    padding: 1em;
+    font-size: 1.2rem;
     &.dark { background-color: #eeeeee }
     &.gloom { background-color: #f4f4f4 }
     &.light { background-color: #fbfbfb }
@@ -116,9 +116,13 @@ export default {
   }
 }
 .thin-only {
-  .big {
-        flex: 1 0 6em;
-  }
+  .item {
+    padding: 1em 0 1em 0.5em;
+     font-size:1.1rem;
+    .big {
+          flex: 1 0 6em;
+    }
+  }  
 }
 
 
