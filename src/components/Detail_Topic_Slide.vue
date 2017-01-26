@@ -1,6 +1,12 @@
 <template lang="jade">
-  .slidecomponent
-    div.styles.content(v-html = "slide")
+  .component
+
+    .thin-only
+     div.styles.content(v-html = "slide")
+
+    .fat-only
+     div.styles.content(v-html = "slide")
+
 </template>
 
 <script>
@@ -42,12 +48,15 @@ export default {
 .content {
   margin-top:10px;
 }
-@media only screen and (max-width: $breakpoint) {
 
+.fat-only {
+  margin-bottom: 25px;
+}
+.thin-only {
   .content {
-    iframe {
-      width:100%;
-    }
+      iframe {
+        width:100%;
+      }
   }
 }
 </style>
