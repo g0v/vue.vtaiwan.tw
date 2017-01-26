@@ -8,7 +8,7 @@
           .big 從 {{ev.start}} 開始 {{ev.end}}
           .small 
             p 進度  
-            p2 {{ ev.title }} 
+            .title {{ ev.title }} 
           .small 
             p 相關連結
             Plink(:urllink="ev.link")
@@ -19,7 +19,7 @@
           .big 從 {{ev.start}} 開始 {{ev.end}}
           .small 
             p 進度  
-            p2 {{ ev.title }} 
+            .title {{ ev.title }} 
           .small 
             p 相關連結
             Plink(:urllink="ev.link")
@@ -46,10 +46,8 @@ export default {
         axios.get('https://talk.vtaiwan.tw/t/'+ this.article.id +'.json?include_raw=1')
         .then((response)=>{
         var detail_info = response.data;
-        console.log(detail_info);
         var test = detail_info['post_stream']['posts'];
         detail_info = detail_info['post_stream']['posts'].slice(1); // 取得議題時間軸內容
-        console.log(test);
         if(this.timeline.length === 0){
             for(var i in detail_info){
             var regex = /(?: (?:init )?)|\n/g;
@@ -68,7 +66,6 @@ export default {
             }
             else{
                 timeline_content['end'] = "至 "+ detail_info[i]['raw'].split(regex)[2]; // 結束日期
-                console.log(detail_info[i]['raw'].split(regex)[2].length);
             }
             if(detail_info[i]['raw'].split(regex)[2].length > 10){
                 timeline_content['end'] = null;
@@ -89,16 +86,14 @@ export default {
 
 <style lang="scss" scoped>
 
-@import "../sass/global.scss";
-
 .event-list {
   display: flex;
   flex-flow: column nowrap;
   .item {
     display: flex;
     text-align: left;
-    padding: 1em;
-    font-size: 1.2rem;
+    padding: 1em 0 1em 0.5em;
+    font-size: 1.1rem;
     &.dark { background-color: #eeeeee }
     &.gloom { background-color: #f4f4f4 }
     &.light { background-color: #fbfbfb }
@@ -120,12 +115,12 @@ export default {
         flex: 1 0 15em;
   }
 }
-
 .thin-only {
   .big {
         flex: 1 0 6em;
   }
 }
+
 
 
 </style>

@@ -66,12 +66,12 @@ export default {
   margin: auto;
 }
 
-@media only screen and (min-width: $breakpoint+1)  { 
+@media only screen and (max-width: $breakpoint+1)  { 
 
   .ui.steps .step {
     border-right-width:0;
   }
-  .ui.huge.header {
+  h1.ui.huge.header {
     margin-top:0;
     font-size:1.5rem;
   }
