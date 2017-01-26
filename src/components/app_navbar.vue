@@ -277,9 +277,9 @@ form.search {
     flex: 1;
     text-align: center;
     font-size: 1.3rem;
+    color: dimgray;
     // padding: 10px;
     // vertical-align: bottom;
-    color: black;
 
     &:hover {
       color: white;

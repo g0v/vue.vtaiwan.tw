@@ -1,17 +1,28 @@
 <template lang="jade">
   .component
-    .ui.four.column.doubling.grid
-      .column(v-for="(c,idx) in catagories")
-
-        .thin-only.inner
+    .ui.container
+      // .ui.four.column.doubling.grid
+      .ui.massive.horizontal.celled.selection.list
+        // .column(v-for="(c,idx) in catagories")
+        .item(v-for="(c,idx) in catagories")
           router-link(:to="'/catagory/'+c.routeName") 
-            .txt {{c.t}}
-            img(:src="c.cover || 'http://lorempixel.com/320/240/transport'")
-
-        .fat-only
-          router-link.ui.image.massive.label(:to="'/catagory/'+c.routeName") 
-            img(:src="c.cover || 'http://lorempixel.com/320/240/transport'")
+            img.ui.avatar.image(:src="c.cover || 'http://lorempixel.com/320/240/transport'")
             | {{c.t}}
+
+          // .thin-only
+          //   router-link(:to="'/catagory/'+c.routeName") 
+          //     img.ui.avatar.image(:src="c.cover || 'http://lorempixel.com/320/240/transport'")
+          //     | {{c.t}}
+          // .thin-only.inner
+          //   router-link(:to="'/catagory/'+c.routeName") 
+          //     .txt {{c.t}}
+          //     img(:src="c.cover || 'http://lorempixel.com/320/240/transport'")
+
+          // .fat-only
+            router-link.ui.image.massive.label(:to="'/catagory/'+c.routeName") 
+              img(:src="c.cover || 'http://lorempixel.com/320/240/transport'")
+              | {{c.t}}
+
 </template>
 
 <script>
@@ -31,21 +42,21 @@ export default {
   @import "../sass/global.scss";
   
   .component {
-    width: 100%;
-    max-width: 1200px;
-    margin: 2em auto 0 auto;
-    padding: 0 3em;
-
+    // width: 100%;
+    // max-width: 1200px;
+    // margin: 2em auto 0 auto;
+    // padding: 0 3em;
+/*
     .inner {
       // border: 1px solid black;
-/*      min-height: 6em;
-      height: calc(25vw - 4em);
-      @media only screen and (max-width: 767px) {
-        height: calc(50vw - 5em);        
-      }
-      @media only screen and (max-width: 991px) and (min-width: 768px) {
-        height: calc(50vw - 5em);
-      }*/
+      // min-height: 6em;
+      // height: calc(25vw - 4em);
+      // @media only screen and (max-width: 767px) {
+      //   height: calc(50vw - 5em);        
+      // }
+      // @media only screen and (max-width: 991px) and (min-width: 768px) {
+      //   height: calc(50vw - 5em);
+      // }
       a {
         display: flex;
         align-items: center;
@@ -87,6 +98,6 @@ export default {
           }
         }
       }
-    }
+    }*/
   }
 </style>

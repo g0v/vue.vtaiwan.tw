@@ -4,11 +4,6 @@
 
     .desktop-container.fat-only
       .slide-page
-        // left & right arrow
-        a.pre(@click="c = cycle(-1)")
-          i.huge.caret.black.left.icon
-        a.next(@click="c = cycle(1)")
-          i.huge.caret.black.right.icon
         // bg-img & content box
         .slide-item(v-for="(t, idx) in mySlideTopics", :style="t.style")
           // img.full-page(:src="t.cover")
@@ -17,10 +12,16 @@
               | {{t.status}}
             h1.slogan.ui.header
               | {{t.slogan}}
-            router-link.title.ui.right.labeled.icon.teal.massive.button(:to="'/topic/' + t.routeName")
+            router-link.ui.right.labeled.icon.teal.massive.button(:to="'/topic/' + t.routeName")
               i.right.arrow.icon
               p {{t.title}}
                 // span #test1 jQuery Test
+
+        // left & right arrow
+        a.pre(@click="c = cycle(-1)")
+          i.huge.black.caret.left.icon
+        a.next(@click="c = cycle(1)")
+          i.huge.black.caret.right.icon
 
     .mobile-container.thin-only
       .m-slide-page
@@ -205,14 +206,14 @@ export default {
       // font-family: $main_font;
       // letter-spacing: .3em;
     }
-    .title {
+    // .title {
       // font-size: 1.2rem;
       // width: 15em;
       // background-color: white;
       // letter-spacing: .3em;
       // padding: 1em;
       // margin: 1em;
-    }
+    // }
   }
 }
 
@@ -251,13 +252,13 @@ a {
 .m-slide-item {
   display: inline-block;
   width: 98vw;
-  // logo=10vh, nav=20vh
+  // ************** logo=10vh, nav=20vh
   height: 70vh;
-  // min-height: 70vh;
   margin: 0 0.5px;
-  // overflow: hidden;
   background-size: cover;
   background-position: center;
+  // overflow: hidden;
+  // min-height: 70vh;
   // img {
     // width: auto;
     // min-height: 100%;
@@ -272,22 +273,22 @@ a {
     flex-flow: column;
     align-items: center;
     .status {
+      color: white;
+      background-color: $step_color;
       // position: relative;
       // top: 105px;
       // width: 100%;
-      color: white;
-      background-color: $step_color;
       // font-size: 1.3rem;
     }
     .title {
+      color: white;
       // position: relative;
       // top: 170px;
       // width: 100%;
       // margin: 1em 0;
-      color: white;
       // font-size: 1.3rem;
     }
-    .button {
+    // .button {
       // position: relative;
       // top: 235px;
       // color: white;
@@ -296,7 +297,7 @@ a {
       // margin: 0 calc(50% - 75px);
       // background-color: $main_color;
       // border-radius: 8px;
-    }
+    // }
   }
 }
 </style>
