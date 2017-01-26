@@ -121,9 +121,9 @@ form.search {
   }
 
   input {
-    color: black;
+    color: gray;
     height: calc( #{$navHeight} * 0.55);
-    border: 1px solid gray;
+    border: 1px solid lightgray;
     border-radius: 1em;
     padding: 0 .6em;
     background-color: transparent;
@@ -142,7 +142,7 @@ form.search {
 
 .logo {
   // flex: 0 1 auto;
-  color: black;
+  color: dimgray;
   font-family: $logo_font;
   height: $navHeight;
   display: flex;
@@ -152,11 +152,11 @@ form.search {
   // padding-right: 1em;
   img {
     width: auto;
-    max-height: 80%;
+    max-height: 75%;
   }
   span {
     font-size: 2rem;
-    margin-left: 0.5em;
+    margin-left: .3em;
   }
 }
 
@@ -189,7 +189,7 @@ form.search {
     display: inline-block;
     line-height: $navHeight;
     padding: 0 1em;
-    color: #333;
+    color: dimgray;
     cursor: pointer;
     text-decoration: none;
     @include transition(background-color 0.5s ease);
@@ -197,18 +197,19 @@ form.search {
     // border-left: 1px solid #ccc;
 
     &:visited {
-      color: #030;
+      // color: #030;
     }
     &:hover {
+      color: white;
       background: $main_color;
     }
     &.active, &.router-link-active {
-      background-color: $main;
-      color: white;
-      &.join { background-color: $join }
-      &.intro { background-color: $intro }
-      &.live { background-color: $live }
-      &.track { background-color: $track }
+      background-color: $intro_color;
+      // color: black;
+      // &.join { background-color: $join }
+      // &.intro { background-color: $intro }
+      // &.live { background-color: $live }
+      // &.track { background-color: $track }
     }
 
     // .sub {
@@ -238,9 +239,9 @@ form.search {
 // ************************* m-obile version
 
 @media screen and (max-width: $breakpoint){
-  .thin-only {
+  // .thin-only {
     // padding-bottom: 65px;
-  }
+  // }
 }
 
 .m-logo {
