@@ -193,7 +193,7 @@ export default {
     // padding-left: 1vh;
 
     .ui.menu {
-      width: 5vh;
+      width: 2em;
       .item {
         padding: 1em 0;
         &.active {
