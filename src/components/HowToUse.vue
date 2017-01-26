@@ -19,7 +19,7 @@
         p 第三，若您單純只是認同某個建議，可以直接為它按「讚」，而不用再說一次一樣的東西。若您不認同某個建議，或是某段說明的內容，可以提出建議或詢問，但請避免加入過多的個人情緒，例如直接的批評或是嘲諷，這樣無助於您意見的被採納。
 
       h2.ui.icon.header
-        i.comment.outline.icon
+        i.comments.outline.icon
         | 為何有些發言被標示？
 
       .ui.left.aligned.text.container
