@@ -239,9 +239,9 @@ form.search {
 // ************************* m-obile version
 
 @media screen and (max-width: $breakpoint){
-  // .thin-only {
-    // padding-bottom: 65px;
-  // }
+  .thin-only {
+    border-bottom: 1px solid #ccc;
+  }
 }
 
 .m-logo {

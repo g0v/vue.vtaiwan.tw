@@ -1,14 +1,29 @@
 <template lang="jade">
-    | {{timeline}}
-    .event-list
-      .item(v-for = "(ev,idx) in timeline", :class="['light','gloom','dark'][idx % 3]")
-        .big 從 {{ev.start}} 開始 {{ev.end}}
-        .small 
-          p 進度  
-          p2 {{ ev.title }} 
-        .small 
-          p 相關連結
-          Plink(:urllink="ev.link")
+
+  .component  
+  
+    .fat-only
+      .event-list
+        .item(v-for = "(ev,idx) in timeline", :class="['dark','gloom','light'][idx % 3]")
+          .big 從 {{ev.start}} 開始 {{ev.end}}
+          .small 
+            p 進度  
+            p2 {{ ev.title }} 
+          .small 
+            p 相關連結
+            Plink(:urllink="ev.link")
+
+    .thin-only
+      .event-list
+        .item(v-for = "(ev,idx) in timeline", :class="['dark','gloom','light'][idx % 3]")
+          .big 從 {{ev.start}} 開始 {{ev.end}}
+          .small 
+            p 進度  
+            p2 {{ ev.title }} 
+          .small 
+            p 相關連結
+            Plink(:urllink="ev.link")
+            
 </template>
 
 <script>
@@ -100,13 +115,13 @@ export default {
     }
   }
 }
-@media screen and (min-width:$breakpoint){
+.fat-only {
   .big {
         flex: 1 0 15em;
   }
 }
 
-@media screen and (max-width:$breakpoint){
+.thin-only {
   .big {
         flex: 1 0 6em;
   }
