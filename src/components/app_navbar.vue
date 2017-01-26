@@ -176,11 +176,6 @@ form.search {
 //   flex: 1;
 // }
 
-// .right {
-  // flex: 0 1 auto;
-
-  // display: flex;
-  // margin-left: auto !important;
 .right {
   text-align: right;
   a.item {
@@ -222,29 +217,26 @@ form.search {
     // }
   }
 }
+
+// .more {
+//   position:relative;
+//   .dropdown.menu {
+//     position: absolute;
+//     z-index: 10;
+//     top: $navHeight - 20px;
+//     left: -4em;
+//     width: 10em;
+//     background-color: $navBgColor;
+//     padding: 0.5em;
+//     a {
+//       display: block;
+//       margin-top: 0.5em;
+//     }
+//   }
 // }
 
-.more {
-  position:relative;
-  .dropdown.menu {
-    position: absolute;
-    z-index: 10;
-    top: $navHeight - 20px;
-    left: -4em;
-    width: 10em;
-    background-color: $navBgColor;
-    padding: 0.5em;
-    a {
-      display: block;
-      margin-top: 0.5em;
-    }
-  }
-}
+// ************************* m-obile version
 
-</style>
-
-<style lang="scss" scoped>
-@import "../sass/global.scss";
 @media screen and (max-width: $breakpoint){
   .thin-only {
     border-bottom: 1px solid #ccc;

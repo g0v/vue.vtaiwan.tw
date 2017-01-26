@@ -1,4 +1,5 @@
 <template lang="jade">
+
   .component  
   
     .fat-only
@@ -22,6 +23,7 @@
           .small 
             p 相關連結
             Plink(:urllink="ev.link")
+            
 </template>
 
 <script>
@@ -97,9 +99,9 @@ export default {
     text-align: left;
     padding: 1em;
     font-size: 1.2rem;
-    &.dark { background-color: #ccc }
-    &.gloom { background-color: #ddd }
-    &.light { background-color: #eee }
+    &.dark { background-color: #eeeeee }
+    &.gloom { background-color: #f4f4f4 }
+    &.light { background-color: #fbfbfb }
     .big {
       display: flex;
       align-items: center;
