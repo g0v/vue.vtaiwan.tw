@@ -18,31 +18,6 @@
           i.calendar.icon
           //| 最新回復
           |  {{date}} 
-
-    
-    
-    
-      //div(v-if = "check == 1") 
-        div.ui.large.labels
-          div.ui.label
-            i.reply.icon
-              //回復
-              |  {{comment.length}}
-          div.ui.label
-            i.unhide.icon
-              //觀看
-              |  {{views['views']}}
-          div.ui.label
-            i.user.icon
-              //用戶
-              |  {{views['participant_count']}}
-          div.ui.label
-            i.calendar.icon
-              //最新回復
-              |  {{date}}
-
-
-
       div(v-for="(item, index) in comment")
         div.discussioncomment.ui.comments
           div.comment
@@ -93,7 +68,9 @@ export default {
         this.comment[i]['avatar_template']=this.comment[i]['avatar_template'].replace(/.*/,'https://talk.vtaiwan.tw'+this.username);
         this.comment[i]['created_at']=this.comment[i]['created_at'].replace(/T.*/,"");
         this.username= this.comment[i]['avatar_template'];
-        this.comment[i]['cooked'] = this.comment[i]['cooked'].replace(/<img src="/,'<img src="https://talk.vtaiwan.tw')
+        if(this.comment[i]['cooked'].indexOf("htpp")>-1){ //判斷從discourse 來的圖片是否為完整網址
+          this.comment[i]['cooked'] = this.comment[i]['cooked'].replace(/<img src="/,'<img src="https://talk.vtaiwan.tw') //不完整的話加入https://talk.vtaiwan.tw
+        }
       }
       
       var today = new Date();

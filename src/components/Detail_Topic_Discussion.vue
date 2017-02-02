@@ -8,6 +8,9 @@
     .polis(:data-conversation_id="polis_id")
     script(async='true', src='https://pol.is/embed.js')
 
+  div(v-if = "hackpad_id !== undefined && hackpad_id.length >0")
+    div.hackpad(v-html="hackpad_id")
+
   div(v-if = "check >0")
     div(v-for = "(item, index) in discourse_title")
       div.ui.styled.accordion
@@ -16,7 +19,6 @@
           | {{discourse_title[index].title}}
         div.content
           Discussion_Comment(:comment_id="discourse_title[index].id")
-  
 
 </template>
 
@@ -31,11 +33,12 @@ export default {
   },
   data () {
     return {
-          test:"<iframe src='https://talk.vtaiwan.tw/embed/comments?topic_id=886' id='discourse-embed-frame' width='100%' frameborder='0' scrolling='no' height='4790px'></iframe>",
           polis_id:[],
           slido_id:[],
+          hackpad_id:[],
           check:[],
           discourse_title:[],
+
     }
   },
     created:function(){
@@ -56,6 +59,10 @@ export default {
         }
         else if(link[i].indexOf("sli.do")>-1){ //篩出含有slido的連結    
           this.slido_id="<iframe src="+link[i]+ "frameborder='0' width='100%' height='1000px' data-reactid='.0.2.0.0.0'></iframe>";
+        }
+        else if(link[i].indexOf("hackpad.com")>-1){ //篩出含有hackpad的連結    
+          var hack = link[i].replace(/https.*-/,"");
+          this.hackpad_id="<iframe id=hackpad-"+hack+" src=https://hackpad.com/"+hack+ " scrolling='yes' height='1000px' width='100%' frameborder='0'></iframe>";//https://hackpad.com/ep/api/embed-pad?padId=
         }
         else if(link[i].indexOf("talk.vtaiwan.tw")>-1){//篩出含有discourse的連結 
           axios.get(link[i]+'.json')
@@ -92,6 +99,10 @@ export default {
 .ui.styled.accordion .title {                 //討論串標題顏色
   color: rgba(0, 0, 0, 0.60);
   font-family: $main_font; 
+}
+.ui.accordion .active.content {             //內文寬度為100%
+    display: block;
+    max-width: 100%;
 }
 
 
