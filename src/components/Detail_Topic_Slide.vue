@@ -2,10 +2,10 @@
   .component
 
     .thin-only
-     div.styles.content(v-html = "slide")
+     .content(v-html = "slide")
 
     .fat-only
-     div.styles.content(v-html = "slide")
+     .content(v-html = "slide")
 
 </template>
 
@@ -41,7 +41,7 @@ export default {
 
 </script>
 
-<style lang="scss" modules="styles">
+<style lang="scss" scoped>
 
 @import "../sass/global.scss";
 
@@ -52,11 +52,5 @@ export default {
 .fat-only {
   margin-bottom: 25px;
 }
-.thin-only {
-  .content {
-      iframe {
-        width:100%;
-      }
-  }
-}
+
 </style>

@@ -31,7 +31,7 @@ export default {
 
 </script>
 
-<style lang="scss" modules="styles">
+<style lang="scss" module="styles">
 
 @import "../sass/global.scss";
 
@@ -66,7 +66,6 @@ export default {
 .thin-only { 
     .content {
       font-family: $main_font;
-      // font-size:1.2rem;
       iframe {
         width:100%;
       }

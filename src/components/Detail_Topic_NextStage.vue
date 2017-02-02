@@ -85,8 +85,6 @@ export default {
 @import "../sass/global.scss";
 
 .step-progress-bar {
-  // position: relative;
-  // left: -20px;
   width: 600px;
   margin: 0 auto;
   display: block;
