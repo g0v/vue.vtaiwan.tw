@@ -14,6 +14,11 @@ export default {
   data () {
     return {
       ulinkall:[],
+      data_base_non:[
+        {
+          icon:"<a class='ui teal button'><i class='linkify icon'></i>相關</a>"
+        }
+      ],
       data_base:[
         {
           key: 'hackpad',
@@ -51,12 +56,19 @@ export default {
     }
   },
   created:function(a,b){
-    console.log(this.urllink)
+    
+    
     for(var i=0;i<this.urllink.length;i++){
+      var tag=0;
       for(var j=0; j<this.data_base.length ;j++){
         if(this.urllink[i].indexOf(this.data_base[j].key)!=-1){
-          this.ulinkall.push("<a href= "+this.urllink[i]+" target='_blank'"+this.data_base[j].icon+"</a>");
+          this.ulinkall.push("<a href= "+this.urllink[i]+" target='_blank'"+this.data_base[j].icon+"</a>"); //判斷是否為data_base中的連結
+          tag = 1;
         }
+      }
+      if(tag != 1)  //如果不是為data_base的連結 則變成相關連結
+      {
+        this.ulinkall.push("<a href= "+this.urllink[i]+" target='_blank'"+this.data_base_non[0].icon+"</a>");
       }            
     }
   }

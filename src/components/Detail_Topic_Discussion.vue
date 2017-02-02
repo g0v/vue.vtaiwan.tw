@@ -10,6 +10,7 @@
 
   div(v-if = "hackpad_id !== undefined && hackpad_id.length >0")
     div.hackpad(v-html="hackpad_id")
+
   div(v-if = "check >0")
     div(v-for = "(item, index) in discourse_title")
       div.ui.styled.accordion
@@ -18,7 +19,6 @@
           | {{discourse_title[index].title}}
         div.content
           Discussion_Comment(:comment_id="discourse_title[index].id")
-  
 
 </template>
 
@@ -104,9 +104,6 @@ export default {
     display: block;
     max-width: 100%;
 }
-// .hackpad{
-//   height:10em;
-//   overflow:auto;
-// }
+
 
 </style>
