@@ -93,7 +93,9 @@ export default {
         this.comment[i]['avatar_template']=this.comment[i]['avatar_template'].replace(/.*/,'https://talk.vtaiwan.tw'+this.username);
         this.comment[i]['created_at']=this.comment[i]['created_at'].replace(/T.*/,"");
         this.username= this.comment[i]['avatar_template'];
-        this.comment[i]['cooked'] = this.comment[i]['cooked'].replace(/<img src="/,'<img src="https://talk.vtaiwan.tw')
+        if(this.comment[i]['cooked'].indexOf("htpp")>-1){ //判斷從discourse 來的圖片是否為完整網址
+          this.comment[i]['cooked'] = this.comment[i]['cooked'].replace(/<img src="/,'<img src="https://talk.vtaiwan.tw') //不完整的話加入https://talk.vtaiwan.tw
+        }
       }
       
       var today = new Date();
