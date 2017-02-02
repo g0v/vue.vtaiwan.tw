@@ -37,7 +37,7 @@ export default {
         },
         {
           key: 'app.sli.do',
-          icon:"<a class='ui teal button'><i class='bullhorn icon'></i>提問"
+          icon:"<a class='ui teal button'><i class='bullhorn icon'></i>提問</a>"
         },
         {
           key: 'PDF',
@@ -51,6 +51,7 @@ export default {
     }
   },
   created:function(a,b){
+    console.log(this.urllink)
     for(var i=0;i<this.urllink.length;i++){
       for(var j=0; j<this.data_base.length ;j++){
         if(this.urllink[i].indexOf(this.data_base[j].key)!=-1){
