@@ -18,31 +18,6 @@
           i.calendar.icon
           //| 最新回復
           |  {{date}} 
-
-    
-    
-    
-      //div(v-if = "check == 1") 
-        div.ui.large.labels
-          div.ui.label
-            i.reply.icon
-              //回復
-              |  {{comment.length}}
-          div.ui.label
-            i.unhide.icon
-              //觀看
-              |  {{views['views']}}
-          div.ui.label
-            i.user.icon
-              //用戶
-              |  {{views['participant_count']}}
-          div.ui.label
-            i.calendar.icon
-              //最新回復
-              |  {{date}}
-
-
-
       div(v-for="(item, index) in comment")
         div.discussioncomment.ui.comments
           div.comment

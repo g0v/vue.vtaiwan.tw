@@ -93,6 +93,10 @@ export default {
   color: rgba(0, 0, 0, 0.60);
   font-family: $main_font; 
 }
+.ui.accordion .active.content {             //內文寬度為100%
+    display: block;
+    max-width: 100%;
+}
 
 
 </style>
