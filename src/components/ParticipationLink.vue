@@ -1,13 +1,14 @@
 <template lang="jade">  
- //<div class='column'><i class='con edit icon'>Archive</i></div>
- 
- .urllink(v-if = "ulinkall.length > 0")
-  span.urllink(v-for="(item, index) in ulinkall")
-    span(v-html = "ulinkall[index]")
+
+  .ParticipationLink_components
+    .urllink(v-if = "ulinkall.length > 0")
+      span.urllink(v-for="(item, index) in ulinkall")
+        span(v-html = "ulinkall[index]")
 </template>
 
 <script>
 import axios from 'axios'
+// import $ from 'jQuery'
 var main = require('./../filters/index.js')
 export default {
   props:['urllink'],
@@ -55,9 +56,9 @@ export default {
       ]
     }
   },
+
   created:function(a,b){
-    
-    
+        
     for(var i=0;i<this.urllink.length;i++){
       var tag=0;
       for(var j=0; j<this.data_base.length ;j++){
