@@ -39,3 +39,11 @@
 * Source: http://audreyt.org/tmp/vTaiwan%20v4.xd
 * mobile: https://xd.adobe.com/view/ee22173d-47c1-43ad-8020-cd6c210b84e3/
 
+# Deploy 方式
+
+```
+./deploy
+```
+
+接著到 http://vue.vtaiwan.tw
+
