@@ -1,33 +1,40 @@
 <template lang="jade">
-  .component
-
-    .fat-only
-      div.styles.content(v-html='information')
-
-    .thin-only
+  .component 
+    .fat-only 
+      div.styles.content(v-html='information') 
+    .thin-only 
       div.styles.content(v-html='information')
 
 </template>
 
 <script>
 
-import axios from 'axios'
+  import axios from 'axios'
 
-export default {
-  props: ['article'],
-  data () {
-    return {
-      information:"" // 詳細內容
-    }  
-  },
-  created:function(){
-      axios.get('https://talk.vtaiwan.tw/t/'+ this.article.id +'.json?include_raw=1')
-      .then((response)=>{
-        var detail_info = response.data['post_stream']['posts'][0]['cooked'].split("<hr>")[1]; // 取得詳細內容(第一篇)
-        this.information = detail_info.replace(/<if.*slideshare.*e>/,""); //詳細內容slideshare拿掉
-      })
-  },
-}
+  export default {
+    props: ['article'],
+    data() {
+      return {
+        information: "" // 詳細內容
+      }
+    },
+    methods: {
+      getDescription(id) {
+        axios.get('https://talk.vtaiwan.tw/t/' + id + '.json?include_raw=1')
+          .then((response) => {
+            var detail_info = response.data['post_stream']['posts'][0]['cooked'].split("<hr>")[1]; // 取得詳細內容(第一篇)
+            this.information = detail_info.replace(/<if.*slideshare.*e>/, ""); //詳細內容slideshare拿掉
+            return this.information;
+          })
+      }
+    },
+    created: function () {
+      this.getDescription(this.article.id);
+    },
+    updated: function () {
+      this.getDescription(this.article.id);
+    }
+  }
 
 </script>
 

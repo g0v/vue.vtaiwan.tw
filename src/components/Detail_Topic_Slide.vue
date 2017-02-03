@@ -21,21 +21,24 @@ export default {
     }  
   },
   methods:{
-      getiframe(iframe){
-        var parser = new DOMParser ();
-        var xmlDoc = parser.parseFromString (iframe, "text/html");
-        var result = xmlDoc.getElementsByTagName("iframe")[0].outerHTML;
-        return result;
-      },
-  },
-  created:function(){
-     
-      axios.get('https://talk.vtaiwan.tw/t/'+ this.article.id +'.json?include_raw=1')
+    getSlide(id){
+      axios.get('https://talk.vtaiwan.tw/t/'+ id +'.json?include_raw=1')
       .then((response=>{
         var detail_info = response.data;
+        var parser = new DOMParser ();
         detail_info = detail_info['post_stream']['posts'][0]['cooked']; // 取得議題時間軸內容
-        this.slide = this.getiframe(detail_info);
+        var xmlDoc = parser.parseFromString (detail_info, "text/html");
+        var result = xmlDoc.getElementsByTagName("iframe")[0].outerHTML;
+        this.slide = result;
+        return this.slide
       }))
+    }
+  },
+  created:function(){
+    this.getSlide(this.article.id);
+  },
+  updated:function(){
+    this.getSlide(this.article.id);
   }
 }
 
