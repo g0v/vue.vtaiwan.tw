@@ -28,6 +28,7 @@ export default {
         }
     },
     created:function(){
+        console.log('info')
         if(this.desc === "詳細內容"){
             this.des = true;
         }
