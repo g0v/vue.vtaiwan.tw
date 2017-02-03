@@ -308,10 +308,1362 @@ form.search.active i.icon[data-v-2a4fae16] {
   padding: 1em;
   border-top: 1px #AAA solid;
 }
+</style><style type="text/css">
+*[data-v-467fb687] {
+  box-sizing: border-box;
+}
+body[data-v-467fb687] {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component[data-v-467fb687] {
+  position: relative;
+}
+.component h1[data-v-467fb687], .component h2[data-v-467fb687], .component h3[data-v-467fb687], .component h4[data-v-467fb687], .component h5[data-v-467fb687], .component h6[data-v-467fb687], .component p[data-v-467fb687] {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component a[data-v-467fb687], .component button[data-v-467fb687] {
+    cursor: pointer !important;
+    color: dimgray;
+}
+.component strong[data-v-467fb687] {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only[data-v-467fb687] {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only[data-v-467fb687] {
+    display: none !important;
+}
+}
+.home[data-v-467fb687] {
+  width: 100%;
+  min-width: 320px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 5vh;
+}
+@media screen and (min-width: 767px) {
+.home[data-v-467fb687] {
+      margin-top: -55px;
+}
+}
+p[data-v-467fb687] {
+  font-size: 1rem;
+  text-align: left;
+  line-height: 155%;
+  padding: 5px;
+}
+</style><style type="text/css">
+*[data-v-b215a294] {
+  box-sizing: border-box;
+}
+body[data-v-b215a294] {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component[data-v-b215a294] {
+  position: relative;
+}
+.component h1[data-v-b215a294], .component h2[data-v-b215a294], .component h3[data-v-b215a294], .component h4[data-v-b215a294], .component h5[data-v-b215a294], .component h6[data-v-b215a294], .component p[data-v-b215a294] {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component a[data-v-b215a294], .component button[data-v-b215a294] {
+    cursor: pointer !important;
+    color: dimgray;
+}
+.component strong[data-v-b215a294] {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only[data-v-b215a294] {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only[data-v-b215a294] {
+    display: none !important;
+}
+}
+.desktop-container[data-v-b215a294], .mobile-container[data-v-b215a294] {
+  position: relative;
+  overflow: hidden;
+}
+.desktop-container img[data-v-b215a294], .mobile-container img[data-v-b215a294] {
+    position: relative;
+    width: 100%;
+    z-index: -3;
+}
+.mobile-container[data-v-b215a294] {
+  overflow: scroll;
+}
+.mobile-container[data-v-b215a294]::-webkit-scrollbar {
+    display: none;
+}
+.slide-page[data-v-b215a294] {
+  display: block;
+  height: 100vh;
+}
+.slide-item[data-v-b215a294] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  overflow: hidden;
+  height: 100%;
+  transition: transform 0.5s ease-in-out, z-index 0.3s ease-in-out;
+  /*  img.full-page {
+    // **************** to keep image ratio
+    min-height: 100%;
+    min-width: 100%;
+    width: auto;
+    // **************** to let image center
+    display: absolute;
+    left: 50%;
+    @include transform(translate(-50%, 0));
+    // background-color: gray;
+    // opacity: 0.6;
+  }*/
+}
+.slide-item .box[data-v-b215a294] {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+        justify-content: center;
+    -ms-flex-flow: column;
+        flex-flow: column;
+    -ms-flex-align: center;
+        align-items: center;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.8), transparent);
+}
+.slide-item .box .status[data-v-b215a294] {
+      background: #db4f4f;
+      color: white;
+}
+.slide-item .box .slogan[data-v-b215a294] {
+      margin: 1em 0;
+      font-size: 3rem;
+      color: white;
+      text-shadow: 0 0 5px gray;
+}
+a[data-v-b215a294] {
+  cursor: pointer;
+}
+a:hover i[data-v-b215a294] {
+    color: white !important;
+}
+a.pre[data-v-b215a294], a.next[data-v-b215a294] {
+    position: absolute;
+    z-index: 5;
+    top: 44vh;
+    text-shadow: 0 0 5px lightgray;
+}
+a.pre[data-v-b215a294] {
+    left: 5px;
+}
+a.next[data-v-b215a294] {
+    right: 5px;
+}
+a i[data-v-b215a294] {
+    transition: all 0.3s;
+}
+.m-slide-page[data-v-b215a294] {
+  white-space: nowrap;
+}
+.m-slide-item[data-v-b215a294] {
+  display: inline-block;
+  width: 98vw;
+  height: 70vh;
+  margin: 0 0.5px;
+  background-size: cover;
+  background-position: center;
+}
+.m-slide-item .box[data-v-b215a294] {
+    min-height: 100%;
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.8), transparent);
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+        justify-content: center;
+    -ms-flex-flow: column;
+        flex-flow: column;
+    -ms-flex-align: center;
+        align-items: center;
+}
+.m-slide-item .box .status[data-v-b215a294] {
+      color: white;
+      background-color: #db4f4f;
+}
+.m-slide-item .box .title[data-v-b215a294] {
+      color: white;
+}
+</style><style type="text/css">
+*[data-v-d57d0dd0] {
+  box-sizing: border-box;
+}
+body[data-v-d57d0dd0] {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component[data-v-d57d0dd0] {
+  position: relative;
+}
+.component h1[data-v-d57d0dd0], .component h2[data-v-d57d0dd0], .component h3[data-v-d57d0dd0], .component h4[data-v-d57d0dd0], .component h5[data-v-d57d0dd0], .component h6[data-v-d57d0dd0], .component p[data-v-d57d0dd0] {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component a[data-v-d57d0dd0], .component button[data-v-d57d0dd0] {
+    cursor: pointer !important;
+    color: dimgray;
+}
+.component strong[data-v-d57d0dd0] {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only[data-v-d57d0dd0] {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only[data-v-d57d0dd0] {
+    display: none !important;
+}
+}
+.component[data-v-d57d0dd0] {
+  width: 100%;
+  max-width: 1200px;
+  margin: 2em auto;
+  font-size: 0.8rem;
+}
+.subtitle[data-v-d57d0dd0] {
+  text-align: center;
+  font-size: 2em;
+  font-weight: bold;
+  margin: 1em 0;
+}
+.container[data-v-d57d0dd0] {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  text-align: center;
+  -ms-flex-flow: row nowrap;
+      flex-flow: row nowrap;
+}
+@media only screen and (max-width: 767px) {
+.container[data-v-d57d0dd0] {
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+}
+}
+.container .step[data-v-d57d0dd0] {
+    -ms-flex: 1;
+        flex: 1;
+    margin: 0 1em;
+    padding: 1em;
+}
+@media only screen and (max-width: 600px) {
+.container .step[data-v-d57d0dd0] {
+        min-width: 100vw;
+}
+}
+.container .number[data-v-d57d0dd0],
+  .container .label[data-v-d57d0dd0],
+  .container .description[data-v-d57d0dd0] {
+    margin: 0 auto;
+    margin-top: 15px;
+}
+.container .number[data-v-d57d0dd0] {
+    border-radius: 1em;
+    color: white;
+    background: lightcoral;
+    font-size: 5rem;
+    font-weight: 700;
+    line-height: 1.2em;
+    width: 1.2em;
+    height: 1.2em;
+}
+.container .label[data-v-d57d0dd0] {
+    display: inline-block;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1em;
+    border-bottom: 3px #000 solid;
+    padding: 3px 7px;
+}
+.container .description[data-v-d57d0dd0] {
+    text-align: center;
+    line-height: 1.4;
+    white-space: pre;
+}
+</style><style type="text/css">
+*[data-v-d5ab316a] {
+  box-sizing: border-box;
+}
+body[data-v-d5ab316a] {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component[data-v-d5ab316a] {
+  position: relative;
+}
+.component h1[data-v-d5ab316a], .component h2[data-v-d5ab316a], .component h3[data-v-d5ab316a], .component h4[data-v-d5ab316a], .component h5[data-v-d5ab316a], .component h6[data-v-d5ab316a], .component p[data-v-d5ab316a] {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component a[data-v-d5ab316a], .component button[data-v-d5ab316a] {
+    cursor: pointer !important;
+    color: dimgray;
+}
+.component strong[data-v-d5ab316a] {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only[data-v-d5ab316a] {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only[data-v-d5ab316a] {
+    display: none !important;
+}
+}
+.component[data-v-d5ab316a] {
+  padding: 1em 0;
+}
+.number[data-v-d5ab316a] {
+  border-radius: 1em;
+  color: white;
+  background: #db4f4f;
+  font-size: 2em;
+  font-weight: 700;
+  line-height: 1.2em;
+  width: 1.2em;
+  height: 1.2em;
+}
+.label[data-v-d5ab316a] {
+  padding: .3em 0 0 .3em;
+}
+.ui.steps .step[data-v-d5ab316a] {
+  -ms-flex: 1 1 auto;
+      flex: 1 1 auto;
+}
+@media only screen and (max-width: 767px) {
+.component[data-v-d5ab316a] {
+    padding: 0px;
+    border: 0px;
+}
+.ui.container[data-v-d5ab316a] {
+    margin: 0 !important;
+}
+.mobile-step[data-v-d5ab316a] {
+    position: absolute;
+    /*    a.step {
+      color: white;
+      background: $step_color;
+      border: 1px solid white;
+      border-width: 1px 0;
+      display: block;
+      width: 5vh !important;
+      height: calc(100vh / 5);
+      padding: 3px;
+      opacity: 0.7;
+      font-size: 2.5vh;
+      line-height: 3.3vh;
+      padding: 3.33vh 0px;
+      border-left: solid 1px rgba(0, 0, 0, 0.2);
+      border-bottom-left-radius: 10px;
+      border-top-left-radius: 10px;
+      border-top: solid 1px rgba(0, 0, 0, 0.2);
+      border-right: solid 1px rgba(0, 0, 0, 0.2);
+      box-shadow: inset -2px 0px 1px rgba(0, 0, 0, 0.1);
+      &:hover {
+        opacity: 1;
+      }
+      .active {
+        border-right: 0px;
+        box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.2);
+      }
+      .label {
+        font-size: 2.5vh;
+        line-height: 3.3vh;
+      }
+    }*/
+}
+.mobile-step .ui.menu[data-v-d5ab316a] {
+      width: 2em;
+}
+.mobile-step .ui.menu .item[data-v-d5ab316a] {
+        padding: 1em 0;
+}
+.mobile-step .ui.menu .item.active[data-v-d5ab316a] {
+          color: white;
+          background: #db4f4f;
+}
+}
+</style><style type="text/css">
+*[data-v-25a28cf5] {
+  box-sizing: border-box;
+}
+body[data-v-25a28cf5] {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component[data-v-25a28cf5] {
+  position: relative;
+}
+.component h1[data-v-25a28cf5], .component h2[data-v-25a28cf5], .component h3[data-v-25a28cf5], .component h4[data-v-25a28cf5], .component h5[data-v-25a28cf5], .component h6[data-v-25a28cf5], .component p[data-v-25a28cf5] {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component a[data-v-25a28cf5], .component button[data-v-25a28cf5] {
+    cursor: pointer !important;
+    color: dimgray;
+}
+.component strong[data-v-25a28cf5] {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only[data-v-25a28cf5] {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only[data-v-25a28cf5] {
+    display: none !important;
+}
+}
+.box[data-v-25a28cf5] {
+  display: -ms-flexbox !important;
+  display: flex !important;
+}
+a[data-v-25a28cf5] {
+  box-shadow: 0 3px 1em rgba(0, 0, 0, 0.1);
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: column nowrap;
+      flex-flow: column nowrap;
+}
+a img[data-v-25a28cf5] {
+    -ms-flex: 1 1;
+        flex: 1 1;
+    max-width: 100%;
+    height: auto;
+}
+a .progress_bar[data-v-25a28cf5] {
+    background-color: #CCC;
+    padding: 0;
+    margin-bottom: 4px;
+}
+a .progress_bar .progress[data-v-25a28cf5] {
+      height: 5px;
+      background-color: lightcoral;
+}
+</style><style type="text/css">
+.m-step-title[data-v-25a28cf5] {
+  background-color: #E6E6E6;
+  text-align: left;
+  padding: 1rem;
+  font-size: 1.3rem;
+  margin-right: -2rem;
+  position: absolute;
+  z-index: 1;
+  width: 120%;
+}
+.thin-only[data-v-25a28cf5] {
+  margin-top: -1em;
+}
+.m-context[data-v-25a28cf5] {
+  padding-top: 50px;
+}
+.m-title[data-v-25a28cf5] {
+  text-align: left;
+  background-color: #E6E6E6;
+  margin-right: -1rem;
+  padding: 1rem;
+}
+</style><style type="text/css">
+*[data-v-83fa9a80] {
+  box-sizing: border-box;
+}
+body[data-v-83fa9a80] {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component[data-v-83fa9a80] {
+  position: relative;
+}
+.component h1[data-v-83fa9a80], .component h2[data-v-83fa9a80], .component h3[data-v-83fa9a80], .component h4[data-v-83fa9a80], .component h5[data-v-83fa9a80], .component h6[data-v-83fa9a80], .component p[data-v-83fa9a80] {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component a[data-v-83fa9a80], .component button[data-v-83fa9a80] {
+    cursor: pointer !important;
+    color: dimgray;
+}
+.component strong[data-v-83fa9a80] {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only[data-v-83fa9a80] {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only[data-v-83fa9a80] {
+    display: none !important;
+}
+}
+.component[data-v-83fa9a80] {
+  /*
+    .inner {
+      // border: 1px solid black;
+      // min-height: 6em;
+      // height: calc(25vw - 4em);
+      // @media only screen and (max-width: 767px) {
+      //   height: calc(50vw - 5em);        
+      // }
+      // @media only screen and (max-width: 991px) and (min-width: 768px) {
+      //   height: calc(50vw - 5em);
+      // }
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        box-shadow: 0 3px 1em rgba(0, 0, 0, 0.2);
+        // width: 100%;
+        // height: 100%;
+        overflow: hidden;
+        .txt {
+          position: relative;
+          z-index: 1;
+          display: inline;
+          font-size: 3rem;
+          line-height: 3em;
+          @include transition(all 0.3s);
+          text-shadow: 1px 1px 1em white;
+          color: black;
+          font-weight: 700;
+        }
+        img {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          @include transform(translate(-50%,-50%));
+          max-width: 100%;
+          height: auto;
+          @include transition(all 0.3s);
+          opacity: 0.5;
+        }
+
+        &:hover {
+          .txt {
+            text-shadow: 1px 1px 1em black;
+            color: white;
+          }
+          img {
+            opacity: 1;
+          }
+        }
+      }
+    }*/
+}
+</style><style type="text/css">
+*[data-v-38a1e9c4] {
+  box-sizing: border-box;
+}
+body[data-v-38a1e9c4] {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component[data-v-38a1e9c4] {
+  position: relative;
+}
+.component h1[data-v-38a1e9c4], .component h2[data-v-38a1e9c4], .component h3[data-v-38a1e9c4], .component h4[data-v-38a1e9c4], .component h5[data-v-38a1e9c4], .component h6[data-v-38a1e9c4], .component p[data-v-38a1e9c4] {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component a[data-v-38a1e9c4], .component button[data-v-38a1e9c4] {
+    cursor: pointer !important;
+    color: dimgray;
+}
+.component strong[data-v-38a1e9c4] {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only[data-v-38a1e9c4] {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only[data-v-38a1e9c4] {
+    display: none !important;
+}
+}
+</style><style type="text/css">
+*[data-v-41c83e74] {
+  box-sizing: border-box;
+}
+body[data-v-41c83e74] {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component[data-v-41c83e74] {
+  position: relative;
+}
+.component h1[data-v-41c83e74], .component h2[data-v-41c83e74], .component h3[data-v-41c83e74], .component h4[data-v-41c83e74], .component h5[data-v-41c83e74], .component h6[data-v-41c83e74], .component p[data-v-41c83e74] {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component a[data-v-41c83e74], .component button[data-v-41c83e74] {
+    cursor: pointer !important;
+    color: dimgray;
+}
+.component strong[data-v-41c83e74] {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only[data-v-41c83e74] {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only[data-v-41c83e74] {
+    display: none !important;
+}
+}
+</style><style type="text/css">
+*[data-v-b147fe1e] {
+  box-sizing: border-box;
+}
+body[data-v-b147fe1e] {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component[data-v-b147fe1e] {
+  position: relative;
+}
+.component h1[data-v-b147fe1e], .component h2[data-v-b147fe1e], .component h3[data-v-b147fe1e], .component h4[data-v-b147fe1e], .component h5[data-v-b147fe1e], .component h6[data-v-b147fe1e], .component p[data-v-b147fe1e] {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component a[data-v-b147fe1e], .component button[data-v-b147fe1e] {
+    cursor: pointer !important;
+    color: dimgray;
+}
+.component strong[data-v-b147fe1e] {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only[data-v-b147fe1e] {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only[data-v-b147fe1e] {
+    display: none !important;
+}
+}
+</style><style type="text/css">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style><style type="text/css">
+*[data-v-c235cf6e] {
+  box-sizing: border-box;
+}
+body[data-v-c235cf6e] {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component[data-v-c235cf6e] {
+  position: relative;
+}
+.component h1[data-v-c235cf6e], .component h2[data-v-c235cf6e], .component h3[data-v-c235cf6e], .component h4[data-v-c235cf6e], .component h5[data-v-c235cf6e], .component h6[data-v-c235cf6e], .component p[data-v-c235cf6e] {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component a[data-v-c235cf6e], .component button[data-v-c235cf6e] {
+    cursor: pointer !important;
+    color: dimgray;
+}
+.component strong[data-v-c235cf6e] {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only[data-v-c235cf6e] {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only[data-v-c235cf6e] {
+    display: none !important;
+}
+}
+.component[data-v-c235cf6e] {
+  margin: auto;
+}
+.fat-only h1.ui.huge.header[data-v-c235cf6e] {
+  margin: 25px 0 25px 0;
+  font-size: 2rem;
+}
+.thin-only .ui.steps .step[data-v-c235cf6e] {
+  border-right-width: 0;
+}
+.thin-only h1.ui.huge.header[data-v-c235cf6e] {
+  margin-top: 0;
+  font-size: 1.5rem;
+}
+.thin-only .tab_container[data-v-c235cf6e] {
+  width: 98%;
+}
+.thin-only .ui.big.steps.top.attached a.step[data-v-c235cf6e] {
+  border-bottom: inherit;
+}
+</style><style type="text/css">
+*[data-v-2406671b] {
+  box-sizing: border-box;
+}
+body[data-v-2406671b] {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component[data-v-2406671b] {
+  position: relative;
+}
+.component h1[data-v-2406671b], .component h2[data-v-2406671b], .component h3[data-v-2406671b], .component h4[data-v-2406671b], .component h5[data-v-2406671b], .component h6[data-v-2406671b], .component p[data-v-2406671b] {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component a[data-v-2406671b], .component button[data-v-2406671b] {
+    cursor: pointer !important;
+    color: dimgray;
+}
+.component strong[data-v-2406671b] {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only[data-v-2406671b] {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only[data-v-2406671b] {
+    display: none !important;
+}
+}
+.content[data-v-2406671b] {
+  margin-top: 10px;
+}
+.fat-only[data-v-2406671b] {
+  margin-bottom: 25px;
+}
+</style><style type="text/css">
+*[data-v-099cbb35] {
+  box-sizing: border-box;
+}
+body[data-v-099cbb35] {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component[data-v-099cbb35] {
+  position: relative;
+}
+.component h1[data-v-099cbb35], .component h2[data-v-099cbb35], .component h3[data-v-099cbb35], .component h4[data-v-099cbb35], .component h5[data-v-099cbb35], .component h6[data-v-099cbb35], .component p[data-v-099cbb35] {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component a[data-v-099cbb35], .component button[data-v-099cbb35] {
+    cursor: pointer !important;
+    color: dimgray;
+}
+.component strong[data-v-099cbb35] {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only[data-v-099cbb35] {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only[data-v-099cbb35] {
+    display: none !important;
+}
+}
+.step-progress-bar[data-v-099cbb35] {
+  width: 600px;
+  margin: 0 auto;
+  display: block;
+  height: 100px;
+  padding: 10px;
+}
+ul.progress-bar[data-v-099cbb35] {
+  counter-reset: step;
+  padding: 0;
+}
+.step-progress-bar li[data-v-099cbb35] {
+  list-style-type: none;
+  float: left;
+  color: #40B3BF;
+  width: 20%;
+  position: relative;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+.step-progress-bar li[data-v-099cbb35]:before {
+  content: counter(step);
+  counter-increment: step;
+  width: 30px;
+  height: 30px;
+  border: 2px solid #40B3BF;
+  border-radius: 50%;
+  display: block;
+  text-align: center;
+  line-height: 30px;
+  margin: 0 auto 10px auto;
+  z-index: 9;
+  background-color: white;
+  font-weight: 600;
+}
+.step-progress-bar li[data-v-099cbb35]:after {
+  content: "";
+  width: 100%;
+  position: absolute;
+  height: 2px;
+  background-color: #40B3BF;
+  top: 16px;
+  left: 50%;
+  z-index: -1;
+}
+.step-progress-bar li[data-v-099cbb35]:last-child:after {
+  content: none;
+}
+.step-progress-bar li.active[data-v-099cbb35] {
+  color: #DB5252;
+}
+.step-progress-bar li.active[data-v-099cbb35]:before {
+  border-color: #DB5252;
+}
+.step-progress-bar li.active[data-v-099cbb35]:after {
+  background-color: #DB5252;
+}
+.thin-only .step-progress-bar[data-v-099cbb35] {
+  width: 100%;
+}
+.thin-only .step-progress-bar li[data-v-099cbb35] {
+    font-size: 1rem;
+}
+</style><style type="text/css">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style><style type="text/css">
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component {
+  position: relative;
+}
+.component h1, .component h2, .component h3, .component h4, .component h5, .component h6, .component p {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component a, .component button {
+    cursor: pointer !important;
+    color: dimgray;
+}
+.component strong {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only {
+    display: none !important;
+}
+}
+.fat-only .content {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.fat-only .content h1, .fat-only .content h2, .fat-only .content h3, .fat-only .content h4, .fat-only .content h5, .fat-only .content h6 {
+    text-align: center;
+}
+.fat-only .content p, .fat-only .content li, .fat-only .content ol {
+    text-align: left;
+}
+.fat-only .content p iframe {
+    display: block;
+    margin: 0 auto;
+}
+.fat-only .content blockquote {
+    margin: 0 0 10px 0;
+    text-align: left;
+    padding: 5px;
+    border-left: 5px solid #e9e9e9;
+    background-color: #f8f8f8;
+    font-weight: 600;
+}
+.thin-only .content {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.thin-only .content iframe {
+    width: 100%;
+}
+.thin-only .content h1, .thin-only .content h2, .thin-only .content h3, .thin-only .content h4, .thin-only .content h5, .thin-only .content h6 {
+    text-align: center;
+}
+.thin-only .content p, .thin-only .content li, .thin-only .content ol {
+    text-align: left;
+}
+.thin-only .content blockquote {
+    margin: 0 0 10px 0;
+    text-align: left;
+    padding: 5px;
+    border-left: 5px solid #e9e9e9;
+    background-color: #f8f8f8;
+    font-weight: 600;
+}
+</style><style type="text/css">
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component {
+  position: relative;
+}
+.component h1, .component h2, .component h3, .component h4, .component h5, .component h6, .component p {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component a, .component button {
+    cursor: pointer !important;
+    color: dimgray;
+}
+.component strong {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only {
+    display: none !important;
+}
+}
+.Discoussioncomponent {
+  font-size: 1.5rem;
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  line-height: 1.5em;
+}
+.textleft {
+  text-align: left;
+}
+.ui.styled.accordion {
+  width: 100%;
+}
+.ui.styled.accordion .title {
+  color: rgba(0, 0, 0, 0.6);
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.ui.accordion .active.content {
+  display: block;
+  max-width: 100%;
+}
+</style><style type="text/css">
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component {
+  position: relative;
+}
+.component h1, .component h2, .component h3, .component h4, .component h5, .component h6, .component p {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component a, .component button {
+    cursor: pointer !important;
+    color: dimgray;
+}
+.component strong {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only {
+    display: none !important;
+}
+}
+.Commentcomponent {
+  font-size: 1.5rem;
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.ui.compact.menu {
+  margin-bottom: 2em;
+}
+.ui.menu .item {
+  padding: 0.5em 0.8em;
+}
+.ui.green.button {
+  background-color: #40B3BF;
+}
+.ui.fluid.button {
+  width: 76%;
+  margin: auto;
+  margin-bottom: 1em;
+  font-size: 1.5rem;
+}
+@media only screen and (max-width: 767px) {
+.ui.fluid.button {
+      font-size: 0.8rem;
+}
+}
+.commentline {
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+  margin: 2em 0em 2em 0em;
+}
+.ui.comments .comment .text {
+  margin: 0.5em 0em 0em 3em;
+}
+@media only screen and (max-width: 767px) {
+.ui.comments .comment .text {
+      margin: 2em 0em 0em 0.5em;
+}
+}
+.ui.comments {
+  max-width: 93%;
+}
+.discussioncontent blockquote {
+  margin: 0 0 10px 0;
+  text-align: left;
+  padding: 5px;
+  border: 0px;
+}
+.discussioncontent blockquote p {
+    text-align: left;
+    font-weight: normal;
+}
+.ui.comments .comment a.author {
+  margin: 0em 1em 0em 0.5em;
+}
+.ui.comments .comment img.avatar {
+  width: 2em;
+}
+</style><style type="text/css">
+.event-list[data-v-25c2a472] {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: column nowrap;
+      flex-flow: column nowrap;
+}
+.event-list .item[data-v-25c2a472] {
+    display: -ms-flexbox;
+    display: flex;
+    text-align: left;
+    padding: 1em;
+    font-size: 1.2rem;
+}
+.event-list .item.dark[data-v-25c2a472] {
+      background-color: #eeeeee;
+}
+.event-list .item.gloom[data-v-25c2a472] {
+      background-color: #f4f4f4;
+}
+.event-list .item.light[data-v-25c2a472] {
+      background-color: #fbfbfb;
+}
+.event-list .item .big[data-v-25c2a472] {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.event-list .item .small[data-v-25c2a472] {
+      -ms-flex: 2 0 6em;
+          flex: 2 0 6em;
+}
+.event-list .item .small p[data-v-25c2a472] {
+        font-weight: 600;
+        margin-bottom: 1.2rem;
+}
+.fat-only .big[data-v-25c2a472] {
+  -ms-flex: 1 0 15em;
+      flex: 1 0 15em;
+}
+.thin-only .item[data-v-25c2a472] {
+  padding: 1em 0 1em 0.5em;
+  font-size: 1.1rem;
+}
+.thin-only .item .big[data-v-25c2a472] {
+    -ms-flex: 1 0 6em;
+        flex: 1 0 6em;
+}
+</style><style type="text/css">
+.ui.teal.button {
+  margin-bottom: 0.5em;
+  background-color: #40B3BF;
+}
+@media only screen and (max-width: 767px) {
+.ui.teal.button {
+      padding: 0.7em;
+}
+}
+</style><style type="text/css">
+.component[data-v-55012550] {
+  position: relative;
+}
+p[data-v-55012550] {
+  text-align: left;
+}
+</style><style type="text/css">
+.component[data-v-10aca067] {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  font-size: 0.8rem;
+}
+.subtitle[data-v-10aca067] {
+  text-align: left;
+  font-size: 1.2rem;
+}
+.container[data-v-10aca067] {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: row wrap;
+      flex-flow: row wrap;
+  text-align: left;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin: 0 -10px;
+}
+.container .item[data-v-10aca067] {
+    -ms-flex: 1;
+        flex: 1;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-flow: column nowrap;
+        flex-flow: column nowrap;
+    position: relative;
+    margin: 10px;
+    min-width: 22vw;
+    max-width: 40vw;
+}
+@media only screen and (max-width: 420px) {
+.container .item[data-v-10aca067] {
+        min-width: 40vw;
+}
+}
+.container .item a[data-v-10aca067] {
+      -ms-flex: 0 0 6em;
+          flex: 0 0 6em;
+}
+.container .item a[data-v-10aca067]:hover {
+        opacity: 0.5;
+}
+.container .item a img.cover[data-v-10aca067] {
+        width: 100%;
+        transition: all 0.3s;
+}
+.container .item .null[data-v-10aca067] {
+      -ms-flex: 1 1 0;
+          flex: 1 1 0;
+}
+.container .item .foot[data-v-10aca067] {
+      -ms-flex: 0 0 10em;
+          flex: 0 0 10em;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+}
+.container .item .foot .title[data-v-10aca067] {
+        font-size: 2vw;
+        line-height: 1.1;
+        margin: .5em 0;
+}
+.container .item .foot .owner[data-v-10aca067] {
+        color: #AAA;
+        margin: 5px;
+}
+.container .item .foot .progress_bar[data-v-10aca067] {
+        background-color: #CCC;
+        padding: 2px 0;
+        margin-bottom: 4px;
+}
+.container .item .foot .progress_bar .progress[data-v-10aca067] {
+          height: 6px;
+          background-color: #000;
+          border-radius: 0 5px 0 0;
+}
 </style></head>
 
 <body>
-    <div id="app"></div>
+    <div id="app" class="app"><div data-v-2a4fae16="" class="component"><nav data-v-2a4fae16="" class="fat-only"><div data-v-2a4fae16="" class="ui grid"><div data-v-2a4fae16="" class="seven wide column"><form data-v-2a4fae16="" class="search"><i data-v-2a4fae16="" class="search icon"></i><input data-v-2a4fae16="" type="search" placeholder="探索"><div data-v-0a5a84f2="" class="component" data-v-2a4fae16="" style="display: none;"><div data-v-0a5a84f2="" class="ui list"></div></div></form></div><div data-v-2a4fae16="" class="two wide column"><a href="/" class="logo" data-v-2a4fae16=""><img data-v-2a4fae16="" src="/vTaiwan_logo_2017.png" alt="logo"><span data-v-2a4fae16="">vTaiwan</span></a></div><div data-v-2a4fae16="" class="seven wide column right"><!----><a href="/how-to-use" class="item how-to-use" data-v-2a4fae16="">使用手冊</a><a href="/intro" class="item intro" data-v-2a4fae16="">關於 vTaiwan</a></div></div></nav><nav data-v-2a4fae16="" class="thin-only"><a href="/" class="m-logo" data-v-2a4fae16=""><img data-v-2a4fae16="" src="/vTaiwan_logo_2017.png" alt="logo"><span data-v-2a4fae16="">vTaiwan</span></a><div data-v-2a4fae16="" class="menu"><a href="/how-to-use" class="m-item" data-v-2a4fae16="">使用手冊</a><a href="/" class="m-item router-link-active" data-v-2a4fae16="">探索議題</a><a href="/" class="m-item router-link-active" data-v-2a4fae16="">搜尋議題</a></div></nav></div><div id="test0" style="display: none;">test jQuery</div><div id="main" class="main"><div data-v-c235cf6e="" class="component view" catagories=""><div data-v-c235cf6e="" class="fat-only"><div data-v-c235cf6e="" class="ui container"><!----><h1 data-v-c235cf6e="" class="ui huge header"></h1><!----><div data-v-c235cf6e="" class="ui big steps top attached"><a data-v-c235cf6e="" class="step active"><i data-v-c235cf6e="" class="icon info circle"></i>詳細內容</a><a data-v-c235cf6e="" class="step"><i data-v-c235cf6e="" class="icon calendar"></i>議題時間軸</a><a data-v-c235cf6e="" class="step"><i data-v-c235cf6e="" class="icon comments"></i>參與討論</a></div><!----></div></div><div data-v-c235cf6e="" class="thin-only"><div data-v-c235cf6e="" class="ui container"><!----><h1 data-v-c235cf6e="" class="ui huge header"></h1><!----><div data-v-c235cf6e="" class="ui big steps top attached"><a data-v-c235cf6e="" class="step active"><i data-v-c235cf6e="" class="icon info circle"></i>詳細內容</a><a data-v-c235cf6e="" class="step"><i data-v-c235cf6e="" class="icon calendar"></i>議題時間軸</a><a data-v-c235cf6e="" class="step"><i data-v-c235cf6e="" class="icon comments"></i>參與討論</a></div><!----></div></div></div></div><div data-v-61e6b40f="" class="component footer"><a data-v-61e6b40f="" href="https://github.com/g0v/vue.vtaiwan.tw" target="_blank" class="ui labeled icon basic big button"><i data-v-61e6b40f="" class="github alternate icon"></i>Code on Github</a></div></div>
 <script type="text/javascript" src="/app.js"></script><script type="text/javascript" src="/vendor.js"></script>
 
 </body></html>
