@@ -1,8 +1,8 @@
 <template lang="jade">
- .info
-   Description(v-if="des === true", :article="article")
-   Timeline(v-if="tim === true", :article="article")
-   Discussion(v-if="dis === true", :article="article")
+.info
+    Description(v-if="des === true", :article="article")
+    Timeline(v-if="tim === true", :article="article")
+    Discussion(v-if="dis === true", :article="article")
 
 
 </template>
@@ -28,7 +28,7 @@ export default {
         }
     },
     created:function(){
-        console.log('info')
+        // console.log('info')
         if(this.desc === "詳細內容"){
             this.des = true;
         }

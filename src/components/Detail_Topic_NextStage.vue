@@ -80,7 +80,7 @@ export default {
         this.getProgress(this.article.id);
     },
     updated:function(){
-        this.getProgress(this.article.id);
+        // this.getProgress(this.article.id);
     }
 
 
