@@ -2,7 +2,10 @@
 
   .ui.container
     .ui.left.sidebar.inverted.vertical.menu
-      router-link.item(v-for = "(obj,idx) in allTopics",:to="'/topic/' + obj.routeName"){{obj.title}} 
+      .item(v-for = "(step,idx) in stage")
+       .header {{step}}
+       .menu
+        router-link.item(v-for = "(obj,idx) in allTopics",v-if="step === obj.status",:to="'/topic/' + obj.routeName"){{obj.title}} 
     .pusher
       .fat-only
           .ui.container
@@ -69,8 +72,15 @@ export default {
     return {
       myIdx: 0,
       tabcontent:["詳細內容","議題時間軸","參與討論"],
-      // article:{}, // title 
+      stage:["即將開始","意見徵集","研擬草案","送交院會","歷史案件"]
     }
+  },
+  methods:{
+    // menuClick: function (e){ 
+      
+    //   $(e.target.parentNode.childNodes).removeClass('is hidden') 
+    //   $(e.target).addClass('is show')  
+    //   // e.target.classList.add('active') } 
   },
   computed: {
     article:function(){
@@ -81,20 +91,20 @@ export default {
       if(t===undefined){return new Object()}
       else{return t};
     }
+    
   },
-  updated:function() {
-    // $('.ui.sidebar').sidebar('toggle');
-    $('.ui.left.sidebar').sidebar({
-    dimPage: false,
-    transition: 'push',
-    exclusive: false,
-    closable: true,
-    scrollLock: true
-    });
+  mounted:function() {
 
-    $('.ui.left.sidebar')
-    .sidebar('attach events', '#left-sidebar-toggle');
-      }
+    $('.ui.left.sidebar').sidebar({
+      dimPage: false,
+      transition: 'overlay',
+      closable: true,
+      scrollLock: true
+    });
+    $('.ui.left.sidebar').sidebar('attach events','#left-sidebar-toggle');
+    
+
+  }
 }
 
 </script>
