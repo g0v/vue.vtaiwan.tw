@@ -25,8 +25,9 @@ export default {
             steps:[],
         }
     },
-    created:function(){
-        axios.get('https://talk.vtaiwan.tw/t/'+ this.article.id +'.json?include_raw=1')
+    methods:{
+      getProgress(id){
+        axios.get('https://talk.vtaiwan.tw/t/'+ id +'.json?include_raw=1')
         .then((response=>{
             var detail_info = response.data;
             var steps = [
@@ -73,6 +74,13 @@ export default {
                 }
             }
         }))
+      }
+    },
+    created:function(){
+        this.getProgress(this.article.id);
+    },
+    updated:function(){
+        this.getProgress(this.article.id);
     }
 
 
