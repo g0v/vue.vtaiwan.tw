@@ -1,5 +1,5 @@
 <template lang="jade">
-  .component
+  // .component
     .subtitle {{header}}
     .container
       .item(v-for='(item, idx) in hotProposal')

@@ -1,11 +1,11 @@
 <template lang="jade">
 .component
   .ui.container
-
+    
     #mobile-step.ui.sticky.mobile-step.thin-only
       // a.step(v-for="(step, idx) in steps", :class="{'active': idx == myIdx}", @click="myIdx = idx", v-bind:href="'#'+step.dataName")
       .ui.vertical.menu
-        a.fitted.item(v-for="(step, idx) in steps", :class="{'active': idx == myIdx}", @click="myIdx = idx", v-bind:href="'#'+step.dataName")
+        a.fitted.item(v-for="(step, idx) in steps", :class="{'active': idx == myIdx}", @click="myIdx = idx", :href="'#'+step.dataName")
           p {{step.label}}
     
     .ui.steps.top.attached.fat-only
@@ -13,8 +13,8 @@
         .number {{idx + 1}}
         .label {{step.label}}
 
-    .ui.segment(id="context" v-bind:class="{ 'basic': onMobile }")
-      Box(v-for="(step, idx) in steps", v-bind:id="step.dataName", :list = "mySort(step.dataName)", :desc = "step.description", :label = "step.label", v-show="idx == myIdx || onMobile")
+    .ui.attached.segment(id="context" v-bind:class="{ 'basic': onMobile }")
+      Box(v-for="(step, idx) in steps", v-bind:id="step.dataName", :list = "mySort(step.dataName)", :desc = "step.description", :label = "step.label", :name = "step.dataName", v-show="idx == myIdx || onMobile")
   
 </template>
 
@@ -65,8 +65,11 @@ export default {
     this.handleResize();
   },
   mounted () {
-    $("#mobile-step").sticky({context:"#context"})
-    window.addEventListener('scroll', this.handleScroll);
+    $("#mobile-step").sticky({
+      context: "#context",
+      observeChanges: true
+    })
+    // window.addEventListener('scroll', this.handleScroll);
     window.addEventListener('resize', this.handleResize);
   },
   methods: {
@@ -190,6 +193,8 @@ export default {
   }
   .mobile-step {
     position: absolute;
+    top: 1em;
+    z-index: 1000; // default sticky z-index = 800
     // padding-left: 1vh;
 
     .ui.menu {

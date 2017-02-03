@@ -1,6 +1,6 @@
 <template lang="jade">
-  .component
-    // .subtitle 階段說明
+  // .component
+    .subtitle 階段說明
     .container
       .step(v-for='(item, index) in step')
         .number {{index+1}}
