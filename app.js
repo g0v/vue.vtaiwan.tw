@@ -22617,6 +22617,13 @@ module.exports = function spread(callback) {
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -22635,8 +22642,8 @@ module.exports = function spread(callback) {
   data: function data() {
     return {
       myIdx: 0,
-      tabcontent: ["詳細內容", "議題時間軸", "參與討論"],
-      article: {} };
+      tabcontent: ["詳細內容", "議題時間軸", "參與討論"]
+    };
   },
 
   computed: {
@@ -22651,6 +22658,18 @@ module.exports = function spread(callback) {
         return t;
       };
     }
+  },
+  updated: function updated() {
+    // $('.ui.sidebar').sidebar('toggle');
+    $('.ui.left.sidebar').sidebar({
+      dimPage: false,
+      transition: 'push',
+      exclusive: false,
+      closable: true,
+      scrollLock: true
+    });
+
+    $('.ui.left.sidebar').sidebar('attach events', '#left-sidebar-toggle');
   }
 };
 
@@ -22661,8 +22680,6 @@ module.exports = function spread(callback) {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
-//
-//
 //
 //
 //
@@ -22684,13 +22701,22 @@ module.exports = function spread(callback) {
     };
   },
 
-  created: function created() {
-    var _this = this;
+  methods: {
+    getDescription: function getDescription(id) {
+      var _this = this;
 
-    __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('https://talk.vtaiwan.tw/t/' + this.article.id + '.json?include_raw=1').then(function (response) {
-      var detail_info = response.data['post_stream']['posts'][0]['cooked'].split("<hr>")[1]; // 取得詳細內容(第一篇)
-      _this.information = detail_info.replace(/<if.*slideshare.*e>/, ""); //詳細內容slideshare拿掉
-    });
+      __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('https://talk.vtaiwan.tw/t/' + id + '.json?include_raw=1').then(function (response) {
+        var detail_info = response.data['post_stream']['posts'][0]['cooked'].split("<hr>")[1]; // 取得詳細內容(第一篇)
+        _this.information = detail_info.replace(/<if.*slideshare.*e>/, ""); //詳細內容slideshare拿掉
+        return _this.information;
+      });
+    }
+  },
+  created: function created() {
+    this.getDescription(this.article.id);
+  },
+  updated: function updated() {
+    this.getDescription(this.article.id);
   }
 };
 
@@ -22928,52 +22954,60 @@ module.exports = function spread(callback) {
         };
     },
 
-    created: function created() {
-        var _this = this;
+    methods: {
+        getProgress: function getProgress(id) {
+            var _this = this;
 
-        __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('https://talk.vtaiwan.tw/t/' + this.article.id + '.json?include_raw=1').then(function (response) {
-            var detail_info = response.data;
-            var steps = [{
-                title: "即將開始",
-                active: false
-            }, {
-                title: "意見徵集",
-                active: false
-            }, {
-                title: "研擬草案",
-                active: false
-            }, {
-                title: "送交院會",
-                active: false
-            }, {
-                title: "歷史案件",
-                active: false
-            }];
-            detail_info = detail_info['post_stream']['posts'].slice(1); // 取得簡介底下內容
-            console.log(detail_info);
-            var end = detail_info.length - 1;
+            __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('https://talk.vtaiwan.tw/t/' + id + '.json?include_raw=1').then(function (response) {
+                var detail_info = response.data;
+                var steps = [{
+                    title: "即將開始",
+                    active: false
+                }, {
+                    title: "意見徵集",
+                    active: false
+                }, {
+                    title: "研擬草案",
+                    active: false
+                }, {
+                    title: "送交院會",
+                    active: false
+                }, {
+                    title: "歷史案件",
+                    active: false
+                }];
+                detail_info = detail_info['post_stream']['posts'].slice(1); // 取得簡介底下內容
+                console.log(detail_info);
+                var end = detail_info.length - 1;
 
-            var current = detail_info[end]['raw'].split(" ")[0]; //目前進展
-            _this.status = current;
-            console.log(current);
-            for (var i in detail_info) {
-                //簡介底下每篇回文
-                var init = detail_info[end]['raw'].split(" ")[1]; // if init
+                var current = detail_info[end]['raw'].split(" ")[0]; //目前進展
+                _this.status = current;
+                console.log(current);
+                for (var i in detail_info) {
+                    //簡介底下每篇回文
+                    var init = detail_info[end]['raw'].split(" ")[1]; // if init
 
-                for (var j in steps) {
-                    steps[j]['active'] = true;
-                    if (steps[j]['title'] === current && init === 'init') {
-                        //如果是"意見徵集 init",就將active啟動並取消visited
-                        return _this.steps = steps; // 回傳五階段array
-                    }
-                    if (steps[j]['title'] === current) {
-                        //如果是"意見徵集",就將active啟動並取消visited
-                        _this.steps = steps;
-                        return _this.steps = steps; // 回傳五階段array
+                    for (var j in steps) {
+                        steps[j]['active'] = true;
+                        if (steps[j]['title'] === current && init === 'init') {
+                            //如果是"意見徵集 init",就將active啟動並取消visited
+                            return _this.steps = steps; // 回傳五階段array
+                        }
+                        if (steps[j]['title'] === current) {
+                            //如果是"意見徵集",就將active啟動並取消visited
+                            _this.steps = steps;
+                            return _this.steps = steps; // 回傳五階段array
+                        }
                     }
                 }
-            }
-        });
+            });
+        }
+    },
+    created: function created() {
+        this.getProgress(this.article.id);
+    },
+    updated: function updated() {
+        this.getProgress(this.article.id);
     }
 
 };
@@ -23009,21 +23043,25 @@ module.exports = function spread(callback) {
   },
 
   methods: {
-    getiframe: function getiframe(iframe) {
-      var parser = new DOMParser();
-      var xmlDoc = parser.parseFromString(iframe, "text/html");
-      var result = xmlDoc.getElementsByTagName("iframe")[0].outerHTML;
-      return result;
+    getSlide: function getSlide(id) {
+      var _this = this;
+
+      __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('https://talk.vtaiwan.tw/t/' + id + '.json?include_raw=1').then(function (response) {
+        var detail_info = response.data;
+        var parser = new DOMParser();
+        detail_info = detail_info['post_stream']['posts'][0]['cooked']; // 取得議題時間軸內容
+        var xmlDoc = parser.parseFromString(detail_info, "text/html");
+        var result = xmlDoc.getElementsByTagName("iframe")[0].outerHTML;
+        _this.slide = result;
+        return _this.slide;
+      });
     }
   },
   created: function created() {
-    var _this = this;
-
-    __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('https://talk.vtaiwan.tw/t/' + this.article.id + '.json?include_raw=1').then(function (response) {
-      var detail_info = response.data;
-      detail_info = detail_info['post_stream']['posts'][0]['cooked']; // 取得議題時間軸內容
-      _this.slide = _this.getiframe(detail_info);
-    });
+    this.getSlide(this.article.id);
+  },
+  updated: function updated() {
+    this.getSlide(this.article.id);
   }
 };
 
@@ -23071,63 +23109,69 @@ module.exports = function spread(callback) {
 
 /* harmony default export */ exports["default"] = {
 
-    props: ['article'],
-    components: {
-        Plink: __WEBPACK_IMPORTED_MODULE_1__ParticipationLink_vue___default.a
-    },
-    data: function data() {
-        return {
-            timeline: [] // 時間軸
-        };
-    },
+  props: ['article'],
+  components: {
+    Plink: __WEBPACK_IMPORTED_MODULE_1__ParticipationLink_vue___default.a
+  },
+  data: function data() {
+    return {
+      timeline: [] // 時間軸
+    };
+  },
 
-    created: function created() {
-        var _this = this;
+  methods: {
+    getTimeline: function getTimeline(id) {
+      var _this = this;
 
-        __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('https://talk.vtaiwan.tw/t/' + this.article.id + '.json?include_raw=1').then(function (response) {
-            var detail_info = response.data;
-            detail_info = detail_info['post_stream']['posts'].slice(1); // 取得議題時間軸內容
+      __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('https://talk.vtaiwan.tw/t/' + id + '.json?include_raw=1').then(function (response) {
+        var detail_info = response.data;
+        detail_info = detail_info['post_stream']['posts'].slice(1); // 取得議題時間軸內容
 
-            for (var i in detail_info) {
-                var regex = /(?: (?:init )?)|\n/g; // 用來分開字串
-                var date_regex = /^\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$/g; //yyyy-mm-dd(ex:2016-10-31)
-                var time_regex = /^(2[0-3]|1[0-9]|0[0-9]|[^0-9][0-9]):([0-5][0-9]|[0-9]):([0-5][0-9]|[0-9])$/g; // hh:mm:ss(ex:19:00:00)
-                var timeline_content = {}; // 時間軸內容
-                var comment = {}; // 暫存處理回覆內容
-                var links = []; // 回覆中的連結
-                timeline_content['title'] = detail_info[i]['raw'].split(regex)[0]; // 進度
-                timeline_content['start'] = detail_info[i]['raw'].split(regex)[1]; // 開始日期
+        for (var i in detail_info) {
+          var regex = /(?: (?:init )?)|\n/g; // 用來分開字串
+          var date_regex = /^\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$/g; //yyyy-mm-dd(ex:2016-10-31)
+          var time_regex = /^(2[0-3]|1[0-9]|0[0-9]|[^0-9][0-9]):([0-5][0-9]|[0-9]):([0-5][0-9]|[0-9])$/g; // hh:mm:ss(ex:19:00:00)
+          var timeline_content = {}; // 時間軸內容
+          var comment = {}; // 暫存處理回覆內容
+          var links = []; // 回覆中的連結
+          timeline_content['title'] = detail_info[i]['raw'].split(regex)[0]; // 進度
+          timeline_content['start'] = detail_info[i]['raw'].split(regex)[1]; // 開始日期
 
-                comment = detail_info[i]['raw'].split(regex); // 每一個議題簡介(第一篇)底下回覆內容
+          comment = detail_info[i]['raw'].split(regex); // 每一個議題簡介(第一篇)底下回覆內容
 
-                if (timeline_content['start'].length > detail_info[i]['raw'].split(regex)[2].length) {
-                    // 若為"寫草案" 則無結束日期 僅開始日期
-                    timeline_content['start'] = timeline_content['start'] + " " + detail_info[i]['raw'].split(regex)[2];
-                    timeline_content['end'] = null;
-                } else {
-                    // 有結束日期
-                    timeline_content['end'] = "至 " + detail_info[i]['raw'].split(regex)[2]; // 結束日期
-                }
-                if (detail_info[i]['raw'].split(regex)[2].length > 10) {
-                    // 無結束日期
-                    timeline_content['end'] = null;
-                }
-                for (var j = 1; j < comment.length; j++) {
-                    // 回覆中的連結處理
-                    if (comment[j].indexOf("http") > -1) {
-                        // 字串含有"http" -> 連結
-                        links.push(detail_info[i]['raw'].split(regex)[j]);
-                    }
-                    if (comment[j].indexOf("http") == -1 && comment[j].match(date_regex) == null && comment[j].match(time_regex) == null) {
-                        // 字串不符合網址、日期、時間等格式 ->  簡介
-                        timeline_content['info'] = comment[j];
-                    }
-                }
-                timeline_content['link'] = links;
-                _this.timeline.push(timeline_content);
+          if (timeline_content['start'].length > detail_info[i]['raw'].split(regex)[2].length) {
+            // 若為"寫草案" 則無結束日期 僅開始日期
+            timeline_content['start'] = timeline_content['start'] + " " + detail_info[i]['raw'].split(regex)[2];
+            timeline_content['end'] = null;
+          } else {
+            // 有結束日期
+            timeline_content['end'] = "至 " + detail_info[i]['raw'].split(regex)[2]; // 結束日期
+          }
+          if (detail_info[i]['raw'].split(regex)[2].length > 10) {
+            // 無結束日期
+            timeline_content['end'] = null;
+          }
+          for (var j = 1; j < comment.length; j++) {
+            // 回覆中的連結處理
+            if (comment[j].indexOf("http") > -1) {
+              // 字串含有"http" -> 連結
+              links.push(detail_info[i]['raw'].split(regex)[j]);
             }
-        });
+            if (comment[j].indexOf("http") == -1 && comment[j].match(date_regex) == null && comment[j].match(time_regex) == null) {
+              // 字串不符合網址、日期、時間等格式 ->  簡介
+              timeline_content['info'] = comment[j];
+            }
+          }
+          timeline_content['link'] = links;
+          _this.timeline.push(timeline_content);
+        }
+        return _this.timeline;
+      });
     }
+  },
+  created: function created() {
+    this.getTimeline(this.article.id);
+  }
 };
 
 /***/ },
@@ -24458,7 +24502,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n*[data-v-c235cf6e] {\n  box-sizing: border-box;\n}\nbody[data-v-c235cf6e] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.component[data-v-c235cf6e] {\n  position: relative;\n}\n.component h1[data-v-c235cf6e], .component h2[data-v-c235cf6e], .component h3[data-v-c235cf6e], .component h4[data-v-c235cf6e], .component h5[data-v-c235cf6e], .component h6[data-v-c235cf6e], .component p[data-v-c235cf6e] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component a[data-v-c235cf6e], .component button[data-v-c235cf6e] {\n    cursor: pointer !important;\n    color: dimgray;\n}\n.component strong[data-v-c235cf6e] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-c235cf6e] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-c235cf6e] {\n    display: none !important;\n}\n}\n.component[data-v-c235cf6e] {\n  margin: auto;\n}\n.fat-only h1.ui.huge.header[data-v-c235cf6e] {\n  margin: 25px 0 25px 0;\n  font-size: 2rem;\n}\n.thin-only .ui.steps .step[data-v-c235cf6e] {\n  border-right-width: 0;\n}\n.thin-only h1.ui.huge.header[data-v-c235cf6e] {\n  margin-top: 0;\n  font-size: 1.5rem;\n}\n.thin-only .tab_container[data-v-c235cf6e] {\n  width: 98%;\n}\n.thin-only .ui.big.steps.top.attached a.step[data-v-c235cf6e] {\n  border-bottom: inherit;\n}\n", ""]);
+exports.push([module.i, "\n*[data-v-c235cf6e] {\n  box-sizing: border-box;\n}\nbody[data-v-c235cf6e] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.component[data-v-c235cf6e] {\n  position: relative;\n}\n.component h1[data-v-c235cf6e], .component h2[data-v-c235cf6e], .component h3[data-v-c235cf6e], .component h4[data-v-c235cf6e], .component h5[data-v-c235cf6e], .component h6[data-v-c235cf6e], .component p[data-v-c235cf6e] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component a[data-v-c235cf6e], .component button[data-v-c235cf6e] {\n    cursor: pointer !important;\n    color: dimgray;\n}\n.component strong[data-v-c235cf6e] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-c235cf6e] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-c235cf6e] {\n    display: none !important;\n}\n}\n.component[data-v-c235cf6e] {\n  margin: auto;\n}\n.ui.left.sidebar[data-v-c235cf6e] {\n  top: 55px;\n}\n.fat-only h1.ui.huge.header[data-v-c235cf6e] {\n  margin: 25px 0 25px 0;\n  font-size: 2rem;\n}\n.thin-only .ui.steps .step[data-v-c235cf6e] {\n  border-right-width: 0;\n}\n.thin-only h1.ui.huge.header[data-v-c235cf6e] {\n  margin-top: 0;\n  font-size: 1.5rem;\n}\n.thin-only .tab_container[data-v-c235cf6e] {\n  width: 98%;\n}\n.thin-only .ui.big.steps.top.attached a.step[data-v-c235cf6e] {\n  border-bottom: inherit;\n}\n", ""]);
 
 // exports
 
@@ -25515,11 +25559,11 @@ module.exports={render:function (){with(this) {
       class: ['dark', 'gloom', 'light'][idx % 3]
     }, [_h('div', {
       staticClass: "big"
-    }, ["從 " + _s(ev.start) + " 開始 " + _s(ev.end)]), _h('div', {
+    }, ["從" + _s(ev.start) + " 開始 " + _s(ev.end) + " "]), _h('div', {
       staticClass: "small"
-    }, [_h('p', [_s(ev.title) + "  "]), _h('div', {
+    }, [_h('p', [_s(ev.title) + " "]), _h('div', {
       staticClass: "title"
-    }, [_s(ev.info)])]), _h('div', {
+    }, [_s(ev.info) + " "])]), _h('div', {
       staticClass: "small"
     }, [_m(0, true), _h('Plink', {
       attrs: {
@@ -25536,9 +25580,9 @@ module.exports={render:function (){with(this) {
       class: ['dark', 'gloom', 'light'][idx % 3]
     }, [_h('div', {
       staticClass: "big"
-    }, ["從 " + _s(ev.start) + " 開始 " + _s(ev.end)]), _h('div', {
+    }, ["從" + _s(ev.start) + " 開始 " + _s(ev.end) + " "]), _h('div', {
       staticClass: "small"
-    }, [_h('p', [_s(ev.title) + "  "]), _h('div', {
+    }, [_h('p', [_s(ev.title) + " "]), _h('div', {
       staticClass: "title"
     }, [_s(ev.info) + " "])]), _h('div', {
       staticClass: "small"
@@ -25549,9 +25593,9 @@ module.exports={render:function (){with(this) {
     })])])
   })])])])
 }},staticRenderFns: [function (){with(this) {
-  return _h('p', ["相關連結"])
+  return _h('p', ["相關連結 "])
 }},function (){with(this) {
-  return _h('p', ["相關連結"])
+  return _h('p', ["相關連結 "])
 }}]}
 
 /***/ },
@@ -26127,12 +26171,23 @@ module.exports={render:function (){with(this) {
 
 module.exports={render:function (){with(this) {
   return _h('div', {
-    staticClass: "component"
+    staticClass: "ui container"
+  }, [_h('div', {
+    staticClass: "ui left sidebar inverted vertical menu"
+  }, [_l((allTopics), function(obj, idx) {
+    return _h('router-link', {
+      staticClass: "item",
+      attrs: {
+        "to": '/topic/' + obj.routeName
+      }
+    }, [_s(obj.title) + " "])
+  })]), _h('div', {
+    staticClass: "pusher"
   }, [_h('div', {
     staticClass: "fat-only"
   }, [_h('div', {
     staticClass: "ui container"
-  }, [(article.id !== undefined) ? _h('NextStage', {
+  }, [_m(0), (article.id !== undefined) ? _h('NextStage', {
     attrs: {
       "article": article
     }
@@ -26224,8 +26279,14 @@ module.exports={render:function (){with(this) {
         "desc": step
       }
     })
-  })]) : _e()])])])
-}},staticRenderFns: []}
+  })]) : _e()])])])])
+}},staticRenderFns: [function (){with(this) {
+  return _h('button', {
+    attrs: {
+      "id": "left-sidebar-toggle"
+    }
+  }, ["show sidebar"])
+}}]}
 
 /***/ },
 /* 143 */
