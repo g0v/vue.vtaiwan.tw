@@ -53,12 +53,12 @@ export default {
               }
             ];
             detail_info = detail_info['post_stream']['posts'].slice(1); // 取得簡介底下內容
-            //console.log(detail_info);
+
             var end = detail_info.length-1;
 
             var current = detail_info[end]['raw'].split(" ")[0]; //目前進展
             this.status = current;
-            //console.log(current);
+
             for(var i in detail_info){ //簡介底下每篇回文
                 var init  = detail_info[end]['raw'].split(" ")[1]; // if init
 
