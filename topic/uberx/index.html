@@ -1,0 +1,317 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="utf-8">
+    <title>vTaiwan Next</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700|Lobster" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/semantic.min.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/semantic.min.js"></script>
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+    <style>
+        body {
+            visibility: hidden;
+            opacity: 0;
+        }
+    </style>
+<style type="text/css">
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component {
+  position: relative;
+}
+.component h1, .component h2, .component h3, .component h4, .component h5, .component h6, .component p {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component a, .component button {
+    cursor: pointer !important;
+    color: dimgray;
+}
+.component strong {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only {
+    display: none !important;
+}
+}
+.app {
+  min-height: 100vh;
+  width: 100%;
+  margin: 0;
+  transition: border-color 0.5s ease;
+}
+.app.join {
+    border-color: #f4719d;
+}
+.app.intro {
+    border-color: #ec8013;
+}
+.app.live {
+    border-color: #1313ec;
+}
+.app.track {
+    border-color: #8e8e0b;
+}
+.main {
+  position: relative;
+  top: 0;
+  width: 100%;
+  text-align: center;
+}
+.fade-in-enter, .fade-in-leave-active {
+  opacity: 0;
+}
+.fade-in-enter-active {
+  transition: all 0.5s ease-in;
+}
+.navbar {
+  position: fixed;
+  z-index: 999999;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+.footer {
+  position: relative;
+  margin: 0 auto;
+  margin-top: 40px;
+  max-width: 1170px;
+}
+</style><style type="text/css">
+*[data-v-2a4fae16] {
+  box-sizing: border-box;
+}
+body[data-v-2a4fae16] {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component[data-v-2a4fae16] {
+  position: relative;
+}
+.component h1[data-v-2a4fae16], .component h2[data-v-2a4fae16], .component h3[data-v-2a4fae16], .component h4[data-v-2a4fae16], .component h5[data-v-2a4fae16], .component h6[data-v-2a4fae16], .component p[data-v-2a4fae16] {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component a[data-v-2a4fae16], .component button[data-v-2a4fae16] {
+    cursor: pointer !important;
+    color: dimgray;
+}
+.component strong[data-v-2a4fae16] {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only[data-v-2a4fae16] {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only[data-v-2a4fae16] {
+    display: none !important;
+}
+}
+@media screen and (min-width: 767px) {
+.component[data-v-2a4fae16] {
+    height: 55px;
+}
+}
+.component nav.fat-only[data-v-2a4fae16] {
+  position: fixed;
+  z-index: 999999;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 55px;
+  overflow: visible;
+  background: rgba(255, 255, 255, 0.95);
+  border-bottom: 1px solid lightgray;
+}
+form.search[data-v-2a4fae16] {
+  font-size: 1.5rem;
+  position: relative;
+  display: inline-block;
+  line-height: 55px;
+  padding: 0 0 0 1em;
+}
+form.search i.search.icon[data-v-2a4fae16] {
+    position: absolute;
+    z-index: -1;
+    right: .55em;
+    line-height: 55px;
+    color: gray;
+}
+form.search input[data-v-2a4fae16] {
+    color: gray;
+    height: calc( 55px * 0.55);
+    border: 1px solid lightgray;
+    border-radius: 1em;
+    padding: 0 .6em;
+    background-color: transparent;
+}
+form.search input[data-v-2a4fae16]:focus {
+      outline: none;
+}
+form.search.active i.icon[data-v-2a4fae16] {
+    visibility: hidden;
+}
+.logo[data-v-2a4fae16] {
+  height: 55px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+}
+.logo img[data-v-2a4fae16] {
+    width: auto;
+    max-height: 75%;
+}
+.logo span[data-v-2a4fae16] {
+    color: black;
+    font-family: Lobster, "Microsoft JhengHei", "Heiti TC", serif;
+    font-size: 2rem;
+    margin-left: .3em;
+}
+.right[data-v-2a4fae16] {
+  text-align: right;
+}
+.right a.item[data-v-2a4fae16] {
+    font-size: 1.2rem;
+    display: inline-block;
+    line-height: 55px;
+    padding: 0 1em;
+    color: dimgray;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.5s ease;
+}
+.right a.item[data-v-2a4fae16]:hover {
+      color: white;
+      background: #3fadc7;
+}
+.right a.item.active[data-v-2a4fae16], .right a.item.router-link-active[data-v-2a4fae16] {
+      background-color: #f4e025;
+}
+@media screen and (max-width: 767px) {
+.thin-only[data-v-2a4fae16] {
+    border-bottom: 1px solid #ccc;
+}
+}
+.m-logo[data-v-2a4fae16] {
+  width: 50%;
+  margin: 0 auto;
+  height: 20vh;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: row nowrap;
+      flex-flow: row nowrap;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+}
+.m-logo img[data-v-2a4fae16] {
+    width: 60px;
+    height: 60px;
+    margin: 0;
+}
+.m-logo span[data-v-2a4fae16] {
+    color: black;
+    font-family: Lobster, "Microsoft JhengHei", "Heiti TC", serif;
+    font-size: 1.6rem;
+    padding: 0 0 0 .3em;
+}
+.menu[data-v-2a4fae16] {
+  height: 10vh;
+  line-height: 10vh;
+  display: -ms-flexbox;
+  display: flex;
+}
+.menu a.m-item[data-v-2a4fae16], .menu a.item[data-v-2a4fae16] {
+    cursor: pointer !important;
+    -ms-flex: 1;
+        flex: 1;
+    text-align: center;
+    font-size: 1.3rem;
+    color: dimgray;
+}
+.menu a.m-item[data-v-2a4fae16]:hover, .menu a.item[data-v-2a4fae16]:hover {
+      color: white;
+      background: #3fadc7;
+}
+</style><style type="text/css">
+@charset "UTF-8";
+.component[data-v-0a5a84f2] {
+  position: absolute;
+  z-index: 11;
+  width: 33vw;
+  max-height: 66vh;
+  overflow: auto;
+  background-color: rgba(255, 255, 255, 0.8);
+  font-size: .7rem;
+}
+.list[data-v-0a5a84f2] {
+  padding: .5em 0;
+}
+.list .item[data-v-0a5a84f2] {
+    margin: 0 0;
+    padding: 0 0;
+}
+.list .item a[data-v-0a5a84f2] {
+      display: -ms-flexbox;
+      display: flex;
+}
+.list .item a.active[data-v-0a5a84f2] {
+        background-color: #ccf;
+}
+.list .item a .icon[data-v-0a5a84f2] {
+        -ms-flex: 0 0 3em;
+            flex: 0 0 3em;
+        width: 3em;
+        height: 3em;
+        border-left: 3px solid #fff;
+}
+.list .item a .text[data-v-0a5a84f2] {
+        -ms-flex: 1 1;
+            flex: 1 1;
+        text-align: left;
+        padding: .2em .5em;
+        border-bottom: 1px solid #ccc;
+}
+.list .item a .text strong[data-v-0a5a84f2] {
+          /* scoped css 無法 bind 到，所以寫在App.vue的全域css中*/
+}
+</style><style type="text/css">
+.component[data-v-61e6b40f] {
+  text-align: center;
+  padding: 1em;
+  border-top: 1px #AAA solid;
+}
+</style></head>
+
+<body>
+    <div id="app"></div>
+<script type="text/javascript" src="/app.js"></script><script type="text/javascript" src="/vendor.js"></script>
+
+</body></html>

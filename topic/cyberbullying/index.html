@@ -1,0 +1,1817 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="utf-8">
+    <title>vTaiwan Next</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700|Lobster" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/semantic.min.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/semantic.min.js"></script>
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+    <style>
+        body {
+            visibility: hidden;
+            opacity: 0;
+        }
+    </style>
+<style type="text/css">
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component {
+  position: relative;
+}
+.component h1, .component h2, .component h3, .component h4, .component h5, .component h6, .component p {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component a, .component button {
+    cursor: pointer !important;
+    color: dimgray;
+}
+.component strong {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only {
+    display: none !important;
+}
+}
+.app {
+  min-height: 100vh;
+  width: 100%;
+  margin: 0;
+  transition: border-color 0.5s ease;
+}
+.app.join {
+    border-color: #f4719d;
+}
+.app.intro {
+    border-color: #ec8013;
+}
+.app.live {
+    border-color: #1313ec;
+}
+.app.track {
+    border-color: #8e8e0b;
+}
+.main {
+  position: relative;
+  top: 0;
+  width: 100%;
+  text-align: center;
+}
+.fade-in-enter, .fade-in-leave-active {
+  opacity: 0;
+}
+.fade-in-enter-active {
+  transition: all 0.5s ease-in;
+}
+.navbar {
+  position: fixed;
+  z-index: 999999;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+.footer {
+  position: relative;
+  margin: 0 auto;
+  margin-top: 40px;
+  max-width: 1170px;
+}
+</style><style type="text/css">
+*[data-v-2a4fae16] {
+  box-sizing: border-box;
+}
+body[data-v-2a4fae16] {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component[data-v-2a4fae16] {
+  position: relative;
+}
+.component h1[data-v-2a4fae16], .component h2[data-v-2a4fae16], .component h3[data-v-2a4fae16], .component h4[data-v-2a4fae16], .component h5[data-v-2a4fae16], .component h6[data-v-2a4fae16], .component p[data-v-2a4fae16] {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component a[data-v-2a4fae16], .component button[data-v-2a4fae16] {
+    cursor: pointer !important;
+    color: dimgray;
+}
+.component strong[data-v-2a4fae16] {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only[data-v-2a4fae16] {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only[data-v-2a4fae16] {
+    display: none !important;
+}
+}
+@media screen and (min-width: 767px) {
+.component[data-v-2a4fae16] {
+    height: 55px;
+}
+}
+.component nav.fat-only[data-v-2a4fae16] {
+  position: fixed;
+  z-index: 999999;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 55px;
+  overflow: visible;
+  background: rgba(255, 255, 255, 0.95);
+  border-bottom: 1px solid lightgray;
+}
+form.search[data-v-2a4fae16] {
+  font-size: 1.5rem;
+  position: relative;
+  display: inline-block;
+  line-height: 55px;
+  padding: 0 0 0 1em;
+}
+form.search i.search.icon[data-v-2a4fae16] {
+    position: absolute;
+    z-index: -1;
+    right: .55em;
+    line-height: 55px;
+    color: gray;
+}
+form.search input[data-v-2a4fae16] {
+    color: gray;
+    height: calc( 55px * 0.55);
+    border: 1px solid lightgray;
+    border-radius: 1em;
+    padding: 0 .6em;
+    background-color: transparent;
+}
+form.search input[data-v-2a4fae16]:focus {
+      outline: none;
+}
+form.search.active i.icon[data-v-2a4fae16] {
+    visibility: hidden;
+}
+.logo[data-v-2a4fae16] {
+  height: 55px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+}
+.logo img[data-v-2a4fae16] {
+    width: auto;
+    max-height: 75%;
+}
+.logo span[data-v-2a4fae16] {
+    color: black;
+    font-family: Lobster, "Microsoft JhengHei", "Heiti TC", serif;
+    font-size: 2rem;
+    margin-left: .3em;
+}
+.right[data-v-2a4fae16] {
+  text-align: right;
+}
+.right a.item[data-v-2a4fae16] {
+    font-size: 1.2rem;
+    display: inline-block;
+    line-height: 55px;
+    padding: 0 1em;
+    color: dimgray;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.5s ease;
+}
+.right a.item[data-v-2a4fae16]:hover {
+      color: white;
+      background: #3fadc7;
+}
+.right a.item.active[data-v-2a4fae16], .right a.item.router-link-active[data-v-2a4fae16] {
+      background-color: #f4e025;
+}
+@media screen and (max-width: 767px) {
+.thin-only[data-v-2a4fae16] {
+    border-bottom: 1px solid #ccc;
+}
+}
+.m-logo[data-v-2a4fae16] {
+  width: 50%;
+  margin: 0 auto;
+  height: 20vh;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: row nowrap;
+      flex-flow: row nowrap;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+}
+.m-logo img[data-v-2a4fae16] {
+    width: 60px;
+    height: 60px;
+    margin: 0;
+}
+.m-logo span[data-v-2a4fae16] {
+    color: black;
+    font-family: Lobster, "Microsoft JhengHei", "Heiti TC", serif;
+    font-size: 1.6rem;
+    padding: 0 0 0 .3em;
+}
+.menu[data-v-2a4fae16] {
+  height: 10vh;
+  line-height: 10vh;
+  display: -ms-flexbox;
+  display: flex;
+}
+.menu a.m-item[data-v-2a4fae16], .menu a.item[data-v-2a4fae16] {
+    cursor: pointer !important;
+    -ms-flex: 1;
+        flex: 1;
+    text-align: center;
+    font-size: 1.3rem;
+    color: dimgray;
+}
+.menu a.m-item[data-v-2a4fae16]:hover, .menu a.item[data-v-2a4fae16]:hover {
+      color: white;
+      background: #3fadc7;
+}
+</style><style type="text/css">
+@charset "UTF-8";
+.component[data-v-0a5a84f2] {
+  position: absolute;
+  z-index: 11;
+  width: 33vw;
+  max-height: 66vh;
+  overflow: auto;
+  background-color: rgba(255, 255, 255, 0.8);
+  font-size: .7rem;
+}
+.list[data-v-0a5a84f2] {
+  padding: .5em 0;
+}
+.list .item[data-v-0a5a84f2] {
+    margin: 0 0;
+    padding: 0 0;
+}
+.list .item a[data-v-0a5a84f2] {
+      display: -ms-flexbox;
+      display: flex;
+}
+.list .item a.active[data-v-0a5a84f2] {
+        background-color: #ccf;
+}
+.list .item a .icon[data-v-0a5a84f2] {
+        -ms-flex: 0 0 3em;
+            flex: 0 0 3em;
+        width: 3em;
+        height: 3em;
+        border-left: 3px solid #fff;
+}
+.list .item a .text[data-v-0a5a84f2] {
+        -ms-flex: 1 1;
+            flex: 1 1;
+        text-align: left;
+        padding: .2em .5em;
+        border-bottom: 1px solid #ccc;
+}
+.list .item a .text strong[data-v-0a5a84f2] {
+          /* scoped css 無法 bind 到，所以寫在App.vue的全域css中*/
+}
+</style><style type="text/css">
+.component[data-v-61e6b40f] {
+  text-align: center;
+  padding: 1em;
+  border-top: 1px #AAA solid;
+}
+</style><style type="text/css">
+*[data-v-467fb687] {
+  box-sizing: border-box;
+}
+body[data-v-467fb687] {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component[data-v-467fb687] {
+  position: relative;
+}
+.component h1[data-v-467fb687], .component h2[data-v-467fb687], .component h3[data-v-467fb687], .component h4[data-v-467fb687], .component h5[data-v-467fb687], .component h6[data-v-467fb687], .component p[data-v-467fb687] {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component a[data-v-467fb687], .component button[data-v-467fb687] {
+    cursor: pointer !important;
+    color: dimgray;
+}
+.component strong[data-v-467fb687] {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only[data-v-467fb687] {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only[data-v-467fb687] {
+    display: none !important;
+}
+}
+.home[data-v-467fb687] {
+  width: 100%;
+  min-width: 320px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 5vh;
+}
+@media screen and (min-width: 767px) {
+.home[data-v-467fb687] {
+      margin-top: -55px;
+}
+}
+p[data-v-467fb687] {
+  font-size: 1rem;
+  text-align: left;
+  line-height: 155%;
+  padding: 5px;
+}
+</style><style type="text/css">
+*[data-v-b215a294] {
+  box-sizing: border-box;
+}
+body[data-v-b215a294] {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component[data-v-b215a294] {
+  position: relative;
+}
+.component h1[data-v-b215a294], .component h2[data-v-b215a294], .component h3[data-v-b215a294], .component h4[data-v-b215a294], .component h5[data-v-b215a294], .component h6[data-v-b215a294], .component p[data-v-b215a294] {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component a[data-v-b215a294], .component button[data-v-b215a294] {
+    cursor: pointer !important;
+    color: dimgray;
+}
+.component strong[data-v-b215a294] {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only[data-v-b215a294] {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only[data-v-b215a294] {
+    display: none !important;
+}
+}
+.desktop-container[data-v-b215a294], .mobile-container[data-v-b215a294] {
+  position: relative;
+  overflow: hidden;
+}
+.desktop-container img[data-v-b215a294], .mobile-container img[data-v-b215a294] {
+    position: relative;
+    width: 100%;
+    z-index: -3;
+}
+.mobile-container[data-v-b215a294] {
+  overflow: scroll;
+}
+.mobile-container[data-v-b215a294]::-webkit-scrollbar {
+    display: none;
+}
+.slide-page[data-v-b215a294] {
+  display: block;
+  height: 100vh;
+}
+.slide-item[data-v-b215a294] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  overflow: hidden;
+  height: 100%;
+  transition: transform 0.5s ease-in-out, z-index 0.3s ease-in-out;
+  /*  img.full-page {
+    // **************** to keep image ratio
+    min-height: 100%;
+    min-width: 100%;
+    width: auto;
+    // **************** to let image center
+    display: absolute;
+    left: 50%;
+    @include transform(translate(-50%, 0));
+    // background-color: gray;
+    // opacity: 0.6;
+  }*/
+}
+.slide-item .box[data-v-b215a294] {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+        justify-content: center;
+    -ms-flex-flow: column;
+        flex-flow: column;
+    -ms-flex-align: center;
+        align-items: center;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.8), transparent);
+}
+.slide-item .box .status[data-v-b215a294] {
+      background: #db4f4f;
+      color: white;
+}
+.slide-item .box .slogan[data-v-b215a294] {
+      margin: 1em 0;
+      font-size: 3rem;
+      color: white;
+      text-shadow: 0 0 5px gray;
+}
+a[data-v-b215a294] {
+  cursor: pointer;
+}
+a:hover i[data-v-b215a294] {
+    color: white !important;
+}
+a.pre[data-v-b215a294], a.next[data-v-b215a294] {
+    position: absolute;
+    z-index: 5;
+    top: 44vh;
+    text-shadow: 0 0 5px lightgray;
+}
+a.pre[data-v-b215a294] {
+    left: 5px;
+}
+a.next[data-v-b215a294] {
+    right: 5px;
+}
+a i[data-v-b215a294] {
+    transition: all 0.3s;
+}
+.m-slide-page[data-v-b215a294] {
+  white-space: nowrap;
+}
+.m-slide-item[data-v-b215a294] {
+  display: inline-block;
+  width: 98vw;
+  height: 70vh;
+  margin: 0 0.5px;
+  background-size: cover;
+  background-position: center;
+}
+.m-slide-item .box[data-v-b215a294] {
+    min-height: 100%;
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.8), transparent);
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+        justify-content: center;
+    -ms-flex-flow: column;
+        flex-flow: column;
+    -ms-flex-align: center;
+        align-items: center;
+}
+.m-slide-item .box .status[data-v-b215a294] {
+      color: white;
+      background-color: #db4f4f;
+}
+.m-slide-item .box .title[data-v-b215a294] {
+      color: white;
+}
+</style><style type="text/css">
+*[data-v-d57d0dd0] {
+  box-sizing: border-box;
+}
+body[data-v-d57d0dd0] {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component[data-v-d57d0dd0] {
+  position: relative;
+}
+.component h1[data-v-d57d0dd0], .component h2[data-v-d57d0dd0], .component h3[data-v-d57d0dd0], .component h4[data-v-d57d0dd0], .component h5[data-v-d57d0dd0], .component h6[data-v-d57d0dd0], .component p[data-v-d57d0dd0] {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component a[data-v-d57d0dd0], .component button[data-v-d57d0dd0] {
+    cursor: pointer !important;
+    color: dimgray;
+}
+.component strong[data-v-d57d0dd0] {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only[data-v-d57d0dd0] {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only[data-v-d57d0dd0] {
+    display: none !important;
+}
+}
+.component[data-v-d57d0dd0] {
+  width: 100%;
+  max-width: 1200px;
+  margin: 2em auto;
+  font-size: 0.8rem;
+}
+.subtitle[data-v-d57d0dd0] {
+  text-align: center;
+  font-size: 2em;
+  font-weight: bold;
+  margin: 1em 0;
+}
+.container[data-v-d57d0dd0] {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  text-align: center;
+  -ms-flex-flow: row nowrap;
+      flex-flow: row nowrap;
+}
+@media only screen and (max-width: 767px) {
+.container[data-v-d57d0dd0] {
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+}
+}
+.container .step[data-v-d57d0dd0] {
+    -ms-flex: 1;
+        flex: 1;
+    margin: 0 1em;
+    padding: 1em;
+}
+@media only screen and (max-width: 600px) {
+.container .step[data-v-d57d0dd0] {
+        min-width: 100vw;
+}
+}
+.container .number[data-v-d57d0dd0],
+  .container .label[data-v-d57d0dd0],
+  .container .description[data-v-d57d0dd0] {
+    margin: 0 auto;
+    margin-top: 15px;
+}
+.container .number[data-v-d57d0dd0] {
+    border-radius: 1em;
+    color: white;
+    background: lightcoral;
+    font-size: 5rem;
+    font-weight: 700;
+    line-height: 1.2em;
+    width: 1.2em;
+    height: 1.2em;
+}
+.container .label[data-v-d57d0dd0] {
+    display: inline-block;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1em;
+    border-bottom: 3px #000 solid;
+    padding: 3px 7px;
+}
+.container .description[data-v-d57d0dd0] {
+    text-align: center;
+    line-height: 1.4;
+    white-space: pre;
+}
+</style><style type="text/css">
+*[data-v-d5ab316a] {
+  box-sizing: border-box;
+}
+body[data-v-d5ab316a] {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component[data-v-d5ab316a] {
+  position: relative;
+}
+.component h1[data-v-d5ab316a], .component h2[data-v-d5ab316a], .component h3[data-v-d5ab316a], .component h4[data-v-d5ab316a], .component h5[data-v-d5ab316a], .component h6[data-v-d5ab316a], .component p[data-v-d5ab316a] {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component a[data-v-d5ab316a], .component button[data-v-d5ab316a] {
+    cursor: pointer !important;
+    color: dimgray;
+}
+.component strong[data-v-d5ab316a] {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only[data-v-d5ab316a] {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only[data-v-d5ab316a] {
+    display: none !important;
+}
+}
+.component[data-v-d5ab316a] {
+  padding: 1em 0;
+}
+.number[data-v-d5ab316a] {
+  border-radius: 1em;
+  color: white;
+  background: #db4f4f;
+  font-size: 2em;
+  font-weight: 700;
+  line-height: 1.2em;
+  width: 1.2em;
+  height: 1.2em;
+}
+.label[data-v-d5ab316a] {
+  padding: .3em 0 0 .3em;
+}
+.ui.steps .step[data-v-d5ab316a] {
+  -ms-flex: 1 1 auto;
+      flex: 1 1 auto;
+}
+@media only screen and (max-width: 767px) {
+.component[data-v-d5ab316a] {
+    padding: 0px;
+    border: 0px;
+}
+.ui.container[data-v-d5ab316a] {
+    margin: 0 !important;
+}
+.mobile-step[data-v-d5ab316a] {
+    position: absolute;
+    /*    a.step {
+      color: white;
+      background: $step_color;
+      border: 1px solid white;
+      border-width: 1px 0;
+      display: block;
+      width: 5vh !important;
+      height: calc(100vh / 5);
+      padding: 3px;
+      opacity: 0.7;
+      font-size: 2.5vh;
+      line-height: 3.3vh;
+      padding: 3.33vh 0px;
+      border-left: solid 1px rgba(0, 0, 0, 0.2);
+      border-bottom-left-radius: 10px;
+      border-top-left-radius: 10px;
+      border-top: solid 1px rgba(0, 0, 0, 0.2);
+      border-right: solid 1px rgba(0, 0, 0, 0.2);
+      box-shadow: inset -2px 0px 1px rgba(0, 0, 0, 0.1);
+      &:hover {
+        opacity: 1;
+      }
+      .active {
+        border-right: 0px;
+        box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.2);
+      }
+      .label {
+        font-size: 2.5vh;
+        line-height: 3.3vh;
+      }
+    }*/
+}
+.mobile-step .ui.menu[data-v-d5ab316a] {
+      width: 2em;
+}
+.mobile-step .ui.menu .item[data-v-d5ab316a] {
+        padding: 1em 0;
+}
+.mobile-step .ui.menu .item.active[data-v-d5ab316a] {
+          color: white;
+          background: #db4f4f;
+}
+}
+</style><style type="text/css">
+*[data-v-25a28cf5] {
+  box-sizing: border-box;
+}
+body[data-v-25a28cf5] {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component[data-v-25a28cf5] {
+  position: relative;
+}
+.component h1[data-v-25a28cf5], .component h2[data-v-25a28cf5], .component h3[data-v-25a28cf5], .component h4[data-v-25a28cf5], .component h5[data-v-25a28cf5], .component h6[data-v-25a28cf5], .component p[data-v-25a28cf5] {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component a[data-v-25a28cf5], .component button[data-v-25a28cf5] {
+    cursor: pointer !important;
+    color: dimgray;
+}
+.component strong[data-v-25a28cf5] {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only[data-v-25a28cf5] {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only[data-v-25a28cf5] {
+    display: none !important;
+}
+}
+.box[data-v-25a28cf5] {
+  display: -ms-flexbox !important;
+  display: flex !important;
+}
+a[data-v-25a28cf5] {
+  box-shadow: 0 3px 1em rgba(0, 0, 0, 0.1);
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: column nowrap;
+      flex-flow: column nowrap;
+}
+a img[data-v-25a28cf5] {
+    -ms-flex: 1 1;
+        flex: 1 1;
+    max-width: 100%;
+    height: auto;
+}
+a .progress_bar[data-v-25a28cf5] {
+    background-color: #CCC;
+    padding: 0;
+    margin-bottom: 4px;
+}
+a .progress_bar .progress[data-v-25a28cf5] {
+      height: 5px;
+      background-color: lightcoral;
+}
+</style><style type="text/css">
+.m-step-title[data-v-25a28cf5] {
+  background-color: #E6E6E6;
+  text-align: left;
+  padding: 1rem;
+  font-size: 1.3rem;
+  margin-right: -2rem;
+  position: absolute;
+  z-index: 1;
+  width: 120%;
+}
+.thin-only[data-v-25a28cf5] {
+  margin-top: -1em;
+}
+.m-context[data-v-25a28cf5] {
+  padding-top: 50px;
+}
+.m-title[data-v-25a28cf5] {
+  text-align: left;
+  background-color: #E6E6E6;
+  margin-right: -1rem;
+  padding: 1rem;
+}
+</style><style type="text/css">
+*[data-v-83fa9a80] {
+  box-sizing: border-box;
+}
+body[data-v-83fa9a80] {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component[data-v-83fa9a80] {
+  position: relative;
+}
+.component h1[data-v-83fa9a80], .component h2[data-v-83fa9a80], .component h3[data-v-83fa9a80], .component h4[data-v-83fa9a80], .component h5[data-v-83fa9a80], .component h6[data-v-83fa9a80], .component p[data-v-83fa9a80] {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component a[data-v-83fa9a80], .component button[data-v-83fa9a80] {
+    cursor: pointer !important;
+    color: dimgray;
+}
+.component strong[data-v-83fa9a80] {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only[data-v-83fa9a80] {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only[data-v-83fa9a80] {
+    display: none !important;
+}
+}
+.component[data-v-83fa9a80] {
+  /*
+    .inner {
+      // border: 1px solid black;
+      // min-height: 6em;
+      // height: calc(25vw - 4em);
+      // @media only screen and (max-width: 767px) {
+      //   height: calc(50vw - 5em);        
+      // }
+      // @media only screen and (max-width: 991px) and (min-width: 768px) {
+      //   height: calc(50vw - 5em);
+      // }
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        box-shadow: 0 3px 1em rgba(0, 0, 0, 0.2);
+        // width: 100%;
+        // height: 100%;
+        overflow: hidden;
+        .txt {
+          position: relative;
+          z-index: 1;
+          display: inline;
+          font-size: 3rem;
+          line-height: 3em;
+          @include transition(all 0.3s);
+          text-shadow: 1px 1px 1em white;
+          color: black;
+          font-weight: 700;
+        }
+        img {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          @include transform(translate(-50%,-50%));
+          max-width: 100%;
+          height: auto;
+          @include transition(all 0.3s);
+          opacity: 0.5;
+        }
+
+        &:hover {
+          .txt {
+            text-shadow: 1px 1px 1em black;
+            color: white;
+          }
+          img {
+            opacity: 1;
+          }
+        }
+      }
+    }*/
+}
+</style><style type="text/css">
+*[data-v-38a1e9c4] {
+  box-sizing: border-box;
+}
+body[data-v-38a1e9c4] {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component[data-v-38a1e9c4] {
+  position: relative;
+}
+.component h1[data-v-38a1e9c4], .component h2[data-v-38a1e9c4], .component h3[data-v-38a1e9c4], .component h4[data-v-38a1e9c4], .component h5[data-v-38a1e9c4], .component h6[data-v-38a1e9c4], .component p[data-v-38a1e9c4] {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component a[data-v-38a1e9c4], .component button[data-v-38a1e9c4] {
+    cursor: pointer !important;
+    color: dimgray;
+}
+.component strong[data-v-38a1e9c4] {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only[data-v-38a1e9c4] {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only[data-v-38a1e9c4] {
+    display: none !important;
+}
+}
+</style><style type="text/css">
+*[data-v-41c83e74] {
+  box-sizing: border-box;
+}
+body[data-v-41c83e74] {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component[data-v-41c83e74] {
+  position: relative;
+}
+.component h1[data-v-41c83e74], .component h2[data-v-41c83e74], .component h3[data-v-41c83e74], .component h4[data-v-41c83e74], .component h5[data-v-41c83e74], .component h6[data-v-41c83e74], .component p[data-v-41c83e74] {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component a[data-v-41c83e74], .component button[data-v-41c83e74] {
+    cursor: pointer !important;
+    color: dimgray;
+}
+.component strong[data-v-41c83e74] {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only[data-v-41c83e74] {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only[data-v-41c83e74] {
+    display: none !important;
+}
+}
+</style><style type="text/css">
+*[data-v-b147fe1e] {
+  box-sizing: border-box;
+}
+body[data-v-b147fe1e] {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component[data-v-b147fe1e] {
+  position: relative;
+}
+.component h1[data-v-b147fe1e], .component h2[data-v-b147fe1e], .component h3[data-v-b147fe1e], .component h4[data-v-b147fe1e], .component h5[data-v-b147fe1e], .component h6[data-v-b147fe1e], .component p[data-v-b147fe1e] {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component a[data-v-b147fe1e], .component button[data-v-b147fe1e] {
+    cursor: pointer !important;
+    color: dimgray;
+}
+.component strong[data-v-b147fe1e] {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only[data-v-b147fe1e] {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only[data-v-b147fe1e] {
+    display: none !important;
+}
+}
+</style><style type="text/css">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style><style type="text/css">
+*[data-v-c235cf6e] {
+  box-sizing: border-box;
+}
+body[data-v-c235cf6e] {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component[data-v-c235cf6e] {
+  position: relative;
+}
+.component h1[data-v-c235cf6e], .component h2[data-v-c235cf6e], .component h3[data-v-c235cf6e], .component h4[data-v-c235cf6e], .component h5[data-v-c235cf6e], .component h6[data-v-c235cf6e], .component p[data-v-c235cf6e] {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component a[data-v-c235cf6e], .component button[data-v-c235cf6e] {
+    cursor: pointer !important;
+    color: dimgray;
+}
+.component strong[data-v-c235cf6e] {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only[data-v-c235cf6e] {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only[data-v-c235cf6e] {
+    display: none !important;
+}
+}
+.component[data-v-c235cf6e] {
+  margin: auto;
+}
+.fat-only h1.ui.huge.header[data-v-c235cf6e] {
+  margin: 25px 0 25px 0;
+  font-size: 2rem;
+}
+.thin-only .ui.steps .step[data-v-c235cf6e] {
+  border-right-width: 0;
+}
+.thin-only h1.ui.huge.header[data-v-c235cf6e] {
+  margin-top: 0;
+  font-size: 1.5rem;
+}
+.thin-only .tab_container[data-v-c235cf6e] {
+  width: 98%;
+}
+.thin-only .ui.big.steps.top.attached a.step[data-v-c235cf6e] {
+  border-bottom: inherit;
+}
+</style><style type="text/css">
+*[data-v-2406671b] {
+  box-sizing: border-box;
+}
+body[data-v-2406671b] {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component[data-v-2406671b] {
+  position: relative;
+}
+.component h1[data-v-2406671b], .component h2[data-v-2406671b], .component h3[data-v-2406671b], .component h4[data-v-2406671b], .component h5[data-v-2406671b], .component h6[data-v-2406671b], .component p[data-v-2406671b] {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component a[data-v-2406671b], .component button[data-v-2406671b] {
+    cursor: pointer !important;
+    color: dimgray;
+}
+.component strong[data-v-2406671b] {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only[data-v-2406671b] {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only[data-v-2406671b] {
+    display: none !important;
+}
+}
+.content[data-v-2406671b] {
+  margin-top: 10px;
+}
+.fat-only[data-v-2406671b] {
+  margin-bottom: 25px;
+}
+</style><style type="text/css">
+*[data-v-099cbb35] {
+  box-sizing: border-box;
+}
+body[data-v-099cbb35] {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component[data-v-099cbb35] {
+  position: relative;
+}
+.component h1[data-v-099cbb35], .component h2[data-v-099cbb35], .component h3[data-v-099cbb35], .component h4[data-v-099cbb35], .component h5[data-v-099cbb35], .component h6[data-v-099cbb35], .component p[data-v-099cbb35] {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component a[data-v-099cbb35], .component button[data-v-099cbb35] {
+    cursor: pointer !important;
+    color: dimgray;
+}
+.component strong[data-v-099cbb35] {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only[data-v-099cbb35] {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only[data-v-099cbb35] {
+    display: none !important;
+}
+}
+.step-progress-bar[data-v-099cbb35] {
+  width: 600px;
+  margin: 0 auto;
+  display: block;
+  height: 100px;
+  padding: 10px;
+}
+ul.progress-bar[data-v-099cbb35] {
+  counter-reset: step;
+  padding: 0;
+}
+.step-progress-bar li[data-v-099cbb35] {
+  list-style-type: none;
+  float: left;
+  color: #40B3BF;
+  width: 20%;
+  position: relative;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+.step-progress-bar li[data-v-099cbb35]:before {
+  content: counter(step);
+  counter-increment: step;
+  width: 30px;
+  height: 30px;
+  border: 2px solid #40B3BF;
+  border-radius: 50%;
+  display: block;
+  text-align: center;
+  line-height: 30px;
+  margin: 0 auto 10px auto;
+  z-index: 9;
+  background-color: white;
+  font-weight: 600;
+}
+.step-progress-bar li[data-v-099cbb35]:after {
+  content: "";
+  width: 100%;
+  position: absolute;
+  height: 2px;
+  background-color: #40B3BF;
+  top: 16px;
+  left: 50%;
+  z-index: -1;
+}
+.step-progress-bar li[data-v-099cbb35]:last-child:after {
+  content: none;
+}
+.step-progress-bar li.active[data-v-099cbb35] {
+  color: #DB5252;
+}
+.step-progress-bar li.active[data-v-099cbb35]:before {
+  border-color: #DB5252;
+}
+.step-progress-bar li.active[data-v-099cbb35]:after {
+  background-color: #DB5252;
+}
+.thin-only .step-progress-bar[data-v-099cbb35] {
+  width: 100%;
+}
+.thin-only .step-progress-bar li[data-v-099cbb35] {
+    font-size: 1rem;
+}
+</style><style type="text/css">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style><style type="text/css">
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component {
+  position: relative;
+}
+.component h1, .component h2, .component h3, .component h4, .component h5, .component h6, .component p {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component a, .component button {
+    cursor: pointer !important;
+    color: dimgray;
+}
+.component strong {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only {
+    display: none !important;
+}
+}
+.fat-only .content {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.fat-only .content h1, .fat-only .content h2, .fat-only .content h3, .fat-only .content h4, .fat-only .content h5, .fat-only .content h6 {
+    text-align: center;
+}
+.fat-only .content p, .fat-only .content li, .fat-only .content ol {
+    text-align: left;
+}
+.fat-only .content p iframe {
+    display: block;
+    margin: 0 auto;
+}
+.fat-only .content blockquote {
+    margin: 0 0 10px 0;
+    text-align: left;
+    padding: 5px;
+    border-left: 5px solid #e9e9e9;
+    background-color: #f8f8f8;
+    font-weight: 600;
+}
+.thin-only .content {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.thin-only .content iframe {
+    width: 100%;
+}
+.thin-only .content h1, .thin-only .content h2, .thin-only .content h3, .thin-only .content h4, .thin-only .content h5, .thin-only .content h6 {
+    text-align: center;
+}
+.thin-only .content p, .thin-only .content li, .thin-only .content ol {
+    text-align: left;
+}
+.thin-only .content blockquote {
+    margin: 0 0 10px 0;
+    text-align: left;
+    padding: 5px;
+    border-left: 5px solid #e9e9e9;
+    background-color: #f8f8f8;
+    font-weight: 600;
+}
+</style><style type="text/css">
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component {
+  position: relative;
+}
+.component h1, .component h2, .component h3, .component h4, .component h5, .component h6, .component p {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component a, .component button {
+    cursor: pointer !important;
+    color: dimgray;
+}
+.component strong {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only {
+    display: none !important;
+}
+}
+.Discoussioncomponent {
+  font-size: 1.5rem;
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  line-height: 1.5em;
+}
+.textleft {
+  text-align: left;
+}
+.ui.styled.accordion {
+  width: 100%;
+}
+.ui.styled.accordion .title {
+  color: rgba(0, 0, 0, 0.6);
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.ui.accordion .active.content {
+  display: block;
+  max-width: 100%;
+}
+</style><style type="text/css">
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component {
+  position: relative;
+}
+.component h1, .component h2, .component h3, .component h4, .component h5, .component h6, .component p {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component a, .component button {
+    cursor: pointer !important;
+    color: dimgray;
+}
+.component strong {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only {
+    display: none !important;
+}
+}
+.Commentcomponent {
+  font-size: 1.5rem;
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.ui.compact.menu {
+  margin-bottom: 2em;
+}
+.ui.menu .item {
+  padding: 0.5em 0.8em;
+}
+.ui.green.button {
+  background-color: #40B3BF;
+}
+.ui.fluid.button {
+  width: 76%;
+  margin: auto;
+  margin-bottom: 1em;
+  font-size: 1.5rem;
+}
+@media only screen and (max-width: 767px) {
+.ui.fluid.button {
+      font-size: 0.8rem;
+}
+}
+.commentline {
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+  margin: 2em 0em 2em 0em;
+}
+.ui.comments .comment .text {
+  margin: 0.5em 0em 0em 3em;
+}
+@media only screen and (max-width: 767px) {
+.ui.comments .comment .text {
+      margin: 2em 0em 0em 0.5em;
+}
+}
+.ui.comments {
+  max-width: 93%;
+}
+.discussioncontent blockquote {
+  margin: 0 0 10px 0;
+  text-align: left;
+  padding: 5px;
+  border: 0px;
+}
+.discussioncontent blockquote p {
+    text-align: left;
+    font-weight: normal;
+}
+.ui.comments .comment a.author {
+  margin: 0em 1em 0em 0.5em;
+}
+.ui.comments .comment img.avatar {
+  width: 2em;
+}
+</style><style type="text/css">
+.event-list[data-v-25c2a472] {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: column nowrap;
+      flex-flow: column nowrap;
+}
+.event-list .item[data-v-25c2a472] {
+    display: -ms-flexbox;
+    display: flex;
+    text-align: left;
+    padding: 1em;
+    font-size: 1.2rem;
+}
+.event-list .item.dark[data-v-25c2a472] {
+      background-color: #eeeeee;
+}
+.event-list .item.gloom[data-v-25c2a472] {
+      background-color: #f4f4f4;
+}
+.event-list .item.light[data-v-25c2a472] {
+      background-color: #fbfbfb;
+}
+.event-list .item .big[data-v-25c2a472] {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.event-list .item .small[data-v-25c2a472] {
+      -ms-flex: 2 0 6em;
+          flex: 2 0 6em;
+}
+.event-list .item .small p[data-v-25c2a472] {
+        font-weight: 600;
+        margin-bottom: 1.2rem;
+}
+.fat-only .big[data-v-25c2a472] {
+  -ms-flex: 1 0 15em;
+      flex: 1 0 15em;
+}
+.thin-only .item[data-v-25c2a472] {
+  padding: 1em 0 1em 0.5em;
+  font-size: 1.1rem;
+}
+.thin-only .item .big[data-v-25c2a472] {
+    -ms-flex: 1 0 6em;
+        flex: 1 0 6em;
+}
+</style><style type="text/css">
+.ui.teal.button {
+  margin-bottom: 0.5em;
+  background-color: #40B3BF;
+}
+@media only screen and (max-width: 767px) {
+.ui.teal.button {
+      padding: 0.7em;
+}
+}
+</style><style type="text/css">
+.component[data-v-55012550] {
+  position: relative;
+}
+p[data-v-55012550] {
+  text-align: left;
+}
+</style><style type="text/css">
+.component[data-v-10aca067] {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  font-size: 0.8rem;
+}
+.subtitle[data-v-10aca067] {
+  text-align: left;
+  font-size: 1.2rem;
+}
+.container[data-v-10aca067] {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: row wrap;
+      flex-flow: row wrap;
+  text-align: left;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin: 0 -10px;
+}
+.container .item[data-v-10aca067] {
+    -ms-flex: 1;
+        flex: 1;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-flow: column nowrap;
+        flex-flow: column nowrap;
+    position: relative;
+    margin: 10px;
+    min-width: 22vw;
+    max-width: 40vw;
+}
+@media only screen and (max-width: 420px) {
+.container .item[data-v-10aca067] {
+        min-width: 40vw;
+}
+}
+.container .item a[data-v-10aca067] {
+      -ms-flex: 0 0 6em;
+          flex: 0 0 6em;
+}
+.container .item a[data-v-10aca067]:hover {
+        opacity: 0.5;
+}
+.container .item a img.cover[data-v-10aca067] {
+        width: 100%;
+        transition: all 0.3s;
+}
+.container .item .null[data-v-10aca067] {
+      -ms-flex: 1 1 0;
+          flex: 1 1 0;
+}
+.container .item .foot[data-v-10aca067] {
+      -ms-flex: 0 0 10em;
+          flex: 0 0 10em;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+}
+.container .item .foot .title[data-v-10aca067] {
+        font-size: 2vw;
+        line-height: 1.1;
+        margin: .5em 0;
+}
+.container .item .foot .owner[data-v-10aca067] {
+        color: #AAA;
+        margin: 5px;
+}
+.container .item .foot .progress_bar[data-v-10aca067] {
+        background-color: #CCC;
+        padding: 2px 0;
+        margin-bottom: 4px;
+}
+.container .item .foot .progress_bar .progress[data-v-10aca067] {
+          height: 6px;
+          background-color: #000;
+          border-radius: 0 5px 0 0;
+}
+</style></head>
+
+<body>
+    <div id="app" class="app"><div data-v-2a4fae16="" class="component"><nav data-v-2a4fae16="" class="fat-only"><div data-v-2a4fae16="" class="ui grid"><div data-v-2a4fae16="" class="seven wide column"><form data-v-2a4fae16="" class="search"><i data-v-2a4fae16="" class="search icon"></i><input data-v-2a4fae16="" type="search" placeholder="探索"><div data-v-0a5a84f2="" class="component" data-v-2a4fae16="" style="display: none;"><div data-v-0a5a84f2="" class="ui list"><div data-v-0a5a84f2="" class="item"><a href="/topic/securitization" class="active" data-v-0a5a84f2=""><img data-v-0a5a84f2="" src="http://image.slidesharecdn.com/c8s7nxdwrwook9zljomq-signature-ec5edf5b8d62ee9ad208e4446437b7c1fc16efb6db28685b63bb2604d25236c7-poli-161203074816/95/-1-1024.jpg" class="icon"><div data-v-0a5a84f2="" class="text"><div data-v-0a5a84f2="" class="title"><strong></strong>企<strong></strong>業<strong></strong>資<strong></strong>產<strong></strong>擔<strong></strong>保<strong></strong>法<strong></strong></div><div data-v-0a5a84f2="" class="route-name"><strong></strong>s<strong></strong>e<strong></strong>c<strong></strong>u<strong></strong>r<strong></strong>i<strong></strong>t<strong></strong>i<strong></strong>z<strong></strong>a<strong></strong>t<strong></strong>i<strong></strong>o<strong></strong>n<strong></strong></div></div></a></div><div data-v-0a5a84f2="" class="item"><a href="/topic/directors-election" class="" data-v-0a5a84f2=""><img data-v-0a5a84f2="" src="https://images.unsplash.com/photo-1431540015161-0bf868a2d407?dpr=1.25&amp;auto=format&amp;fit=crop&amp;w=767&amp;h=511&amp;q=80&amp;cs=tinysrgb&amp;crop=" class="icon"><div data-v-0a5a84f2="" class="text"><div data-v-0a5a84f2="" class="title"><strong></strong>董<strong></strong>監<strong></strong>事<strong></strong>選<strong></strong>任<strong></strong></div><div data-v-0a5a84f2="" class="route-name"><strong></strong>d<strong></strong>i<strong></strong>r<strong></strong>e<strong></strong>c<strong></strong>t<strong></strong>o<strong></strong>r<strong></strong>s<strong></strong>-<strong></strong>e<strong></strong>l<strong></strong>e<strong></strong>c<strong></strong>t<strong></strong>i<strong></strong>o<strong></strong>n<strong></strong></div></div></a></div><div data-v-0a5a84f2="" class="item"><a href="/topic/social-enterprise" class="" data-v-0a5a84f2=""><img data-v-0a5a84f2="" src="http://static.thousandwonders.net/Taiwan.original.3738.jpg" class="icon"><div data-v-0a5a84f2="" class="text"><div data-v-0a5a84f2="" class="title"><strong></strong>社<strong></strong>會<strong></strong>企<strong></strong>業<strong></strong>公<strong></strong>司<strong></strong>法<strong></strong></div><div data-v-0a5a84f2="" class="route-name"><strong></strong>s<strong></strong>o<strong></strong>c<strong></strong>i<strong></strong>a<strong></strong>l<strong></strong>-<strong></strong>e<strong></strong>n<strong></strong>t<strong></strong>e<strong></strong>r<strong></strong>p<strong></strong>r<strong></strong>i<strong></strong>s<strong></strong>e<strong></strong></div></div></a></div><div data-v-0a5a84f2="" class="item"><a href="/topic/closelyheld" class="" data-v-0a5a84f2=""><img data-v-0a5a84f2="" src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?dpr=1.25&amp;auto=format&amp;fit=crop&amp;w=767&amp;h=512&amp;q=80&amp;cs=tinysrgb&amp;crop=" class="icon"><div data-v-0a5a84f2="" class="text"><div data-v-0a5a84f2="" class="title"><strong></strong>閉<strong></strong>鎖<strong></strong>型<strong></strong>公<strong></strong>司<strong></strong></div><div data-v-0a5a84f2="" class="route-name"><strong></strong>c<strong></strong>l<strong></strong>o<strong></strong>s<strong></strong>e<strong></strong>l<strong></strong>y<strong></strong>h<strong></strong>e<strong></strong>l<strong></strong>d<strong></strong></div></div></a></div><div data-v-0a5a84f2="" class="item"><a href="/topic/eliquor" class="" data-v-0a5a84f2=""><img data-v-0a5a84f2="" src="http://image.slidesharecdn.com/zbxi01iqoy2zrsqzsu1a-signature-a2c1b04c1b0e46e92533427e0ed861b29a57eaa126a150b1594cb3e1174531a0-poli-160329231814/95/-1-1024.jpg" class="icon"><div data-v-0a5a84f2="" class="text"><div data-v-0a5a84f2="" class="title"><strong></strong>網<strong></strong>路<strong></strong>賣<strong></strong>酒<strong></strong>配<strong></strong>套<strong></strong>措<strong></strong>施<strong></strong></div><div data-v-0a5a84f2="" class="route-name"><strong></strong>e<strong></strong>l<strong></strong>i<strong></strong>q<strong></strong>u<strong></strong>o<strong></strong>r<strong></strong></div></div></a></div><div data-v-0a5a84f2="" class="item"><a href="/topic/data-levy" class="" data-v-0a5a84f2=""><img data-v-0a5a84f2="" src="https://images.unsplash.com/photo-1482859602406-7659b00979fb" class="icon"><div data-v-0a5a84f2="" class="text"><div data-v-0a5a84f2="" class="title"><strong></strong>開<strong></strong>放<strong></strong>資<strong></strong>料<strong></strong>例<strong></strong>外<strong></strong>收<strong></strong>費<strong></strong>原<strong></strong>則<strong></strong></div><div data-v-0a5a84f2="" class="route-name"><strong></strong>d<strong></strong>a<strong></strong>t<strong></strong>a<strong></strong>-<strong></strong>l<strong></strong>e<strong></strong>v<strong></strong>y<strong></strong></div></div></a></div><div data-v-0a5a84f2="" class="item"><a href="/topic/distant-education" class="" data-v-0a5a84f2=""><img data-v-0a5a84f2="" src="https://upload.wikimedia.org/wikipedia/commons/2/2a/American%2C_Indonesian_Students_Link_Hands_Via_Distance_Learning.jpg" class="icon"><div data-v-0a5a84f2="" class="text"><div data-v-0a5a84f2="" class="title"><strong></strong>遠<strong></strong>距<strong></strong>教<strong></strong>育<strong></strong></div><div data-v-0a5a84f2="" class="route-name"><strong></strong>d<strong></strong>i<strong></strong>s<strong></strong>t<strong></strong>a<strong></strong>n<strong></strong>t<strong></strong>-<strong></strong>e<strong></strong>d<strong></strong>u<strong></strong>c<strong></strong>a<strong></strong>t<strong></strong>i<strong></strong>o<strong></strong>n<strong></strong></div></div></a></div><div data-v-0a5a84f2="" class="item"><a href="/topic/crowdfunding" class="" data-v-0a5a84f2=""><img data-v-0a5a84f2="" src="https://c1.staticflickr.com/9/8124/8661000014_cb0056d718_z.jpg" class="icon"><div data-v-0a5a84f2="" class="text"><div data-v-0a5a84f2="" class="title"><strong></strong>群<strong></strong>眾<strong></strong>募<strong></strong>資<strong></strong></div><div data-v-0a5a84f2="" class="route-name"><strong></strong>c<strong></strong>r<strong></strong>o<strong></strong>w<strong></strong>d<strong></strong>f<strong></strong>u<strong></strong>n<strong></strong>d<strong></strong>i<strong></strong>n<strong></strong>g<strong></strong></div></div></a></div><div data-v-0a5a84f2="" class="item"><a href="/topic/etax" class="" data-v-0a5a84f2=""><img data-v-0a5a84f2="" src="https://images.unsplash.com/photo-1483239546567-ccc4ce2b344a?dpr=2&amp;auto=format&amp;fit=crop&amp;w=1500&amp;h=877&amp;q=80&amp;cs=tinysrgb&amp;crop=" class="icon"><div data-v-0a5a84f2="" class="text"><div data-v-0a5a84f2="" class="title"><strong></strong>網<strong></strong>路<strong></strong>交<strong></strong>易<strong></strong>課<strong></strong>稅<strong></strong></div><div data-v-0a5a84f2="" class="route-name"><strong></strong>e<strong></strong>t<strong></strong>a<strong></strong>x<strong></strong></div></div></a></div><div data-v-0a5a84f2="" class="item"><a href="/topic/personal-data-protection" class="" data-v-0a5a84f2=""><img data-v-0a5a84f2="" src="https://images.unsplash.com/photo-1457682524032-465ef406d105?dpr=1.25&amp;auto=format&amp;fit=crop&amp;w=767&amp;h=511&amp;q=80&amp;cs=tinysrgb&amp;crop=" class="icon"><div data-v-0a5a84f2="" class="text"><div data-v-0a5a84f2="" class="title"><strong></strong>個<strong></strong>資<strong></strong>利<strong></strong>用<strong></strong>與<strong></strong>去<strong></strong>識<strong></strong>別<strong></strong>化<strong></strong></div><div data-v-0a5a84f2="" class="route-name"><strong></strong>p<strong></strong>e<strong></strong>r<strong></strong>s<strong></strong>o<strong></strong>n<strong></strong>a<strong></strong>l<strong></strong>-<strong></strong>d<strong></strong>a<strong></strong>t<strong></strong>a<strong></strong>-<strong></strong>p<strong></strong>r<strong></strong>o<strong></strong>t<strong></strong>e<strong></strong>c<strong></strong>t<strong></strong>i<strong></strong>o<strong></strong>n<strong></strong></div></div></a></div><div data-v-0a5a84f2="" class="item"><a href="/topic/telemedicine" class="" data-v-0a5a84f2=""><img data-v-0a5a84f2="" src="https://upload.wikimedia.org/wikipedia/commons/c/c9/%E8%95%AD%E4%B8%AD%E6%AD%A3%E9%99%A2%E9%95%B7%E9%80%B2%E8%A1%8CTelecare_conference.jpg" class="icon"><div data-v-0a5a84f2="" class="text"><div data-v-0a5a84f2="" class="title"><strong></strong>遠<strong></strong>距<strong></strong>健<strong></strong>康<strong></strong>照<strong></strong>護<strong></strong></div><div data-v-0a5a84f2="" class="route-name"><strong></strong>t<strong></strong>e<strong></strong>l<strong></strong>e<strong></strong>m<strong></strong>e<strong></strong>d<strong></strong>i<strong></strong>c<strong></strong>i<strong></strong>n<strong></strong>e<strong></strong></div></div></a></div><div data-v-0a5a84f2="" class="item"><a href="/topic/consumer-protection" class="" data-v-0a5a84f2=""><img data-v-0a5a84f2="" src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Walmartmexicaninteriors.jpg" class="icon"><div data-v-0a5a84f2="" class="text"><div data-v-0a5a84f2="" class="title"><strong></strong>零<strong></strong>售<strong></strong>業<strong></strong>網<strong></strong>路<strong></strong>定<strong></strong>型<strong></strong>化<strong></strong>契<strong></strong>約<strong></strong></div><div data-v-0a5a84f2="" class="route-name"><strong></strong>c<strong></strong>o<strong></strong>n<strong></strong>s<strong></strong>u<strong></strong>m<strong></strong>e<strong></strong>r<strong></strong>-<strong></strong>p<strong></strong>r<strong></strong>o<strong></strong>t<strong></strong>e<strong></strong>c<strong></strong>t<strong></strong>i<strong></strong>o<strong></strong>n<strong></strong></div></div></a></div><div data-v-0a5a84f2="" class="item"><a href="/topic/infosecurity" class="" data-v-0a5a84f2=""><img data-v-0a5a84f2="" src="https://images.unsplash.com/photo-1452796907770-ad6cd374b12d" class="icon"><div data-v-0a5a84f2="" class="text"><div data-v-0a5a84f2="" class="title"><strong></strong>資<strong></strong>安<strong></strong>管<strong></strong>理<strong></strong></div><div data-v-0a5a84f2="" class="route-name"><strong></strong>i<strong></strong>n<strong></strong>f<strong></strong>o<strong></strong>s<strong></strong>e<strong></strong>c<strong></strong>u<strong></strong>r<strong></strong>i<strong></strong>t<strong></strong>y<strong></strong></div></div></a></div><div data-v-0a5a84f2="" class="item"><a href="/topic/telework" class="" data-v-0a5a84f2=""><img data-v-0a5a84f2="" src="https://c2.staticflickr.com/6/5295/5447249284_45af289868_b.jpg" class="icon"><div data-v-0a5a84f2="" class="text"><div data-v-0a5a84f2="" class="title"><strong></strong>電<strong></strong>傳<strong></strong>勞<strong></strong>動<strong></strong></div><div data-v-0a5a84f2="" class="route-name"><strong></strong>t<strong></strong>e<strong></strong>l<strong></strong>e<strong></strong>w<strong></strong>o<strong></strong>r<strong></strong>k<strong></strong></div></div></a></div><div data-v-0a5a84f2="" class="item"><a href="/topic/cyberbullying" class="router-link-active" data-v-0a5a84f2=""><img data-v-0a5a84f2="" src="https://images.unsplash.com/photo-1459983001447-eea6d4fbfbb1" class="icon"><div data-v-0a5a84f2="" class="text"><div data-v-0a5a84f2="" class="title"><strong></strong>網<strong></strong>路<strong></strong>霸<strong></strong>凌<strong></strong></div><div data-v-0a5a84f2="" class="route-name"><strong></strong>c<strong></strong>y<strong></strong>b<strong></strong>e<strong></strong>r<strong></strong>b<strong></strong>u<strong></strong>l<strong></strong>l<strong></strong>y<strong></strong>i<strong></strong>n<strong></strong>g<strong></strong></div></div></a></div><div data-v-0a5a84f2="" class="item"><a href="/topic/sandbox" class="" data-v-0a5a84f2=""><img data-v-0a5a84f2="" src="https://images.unsplash.com/photo-1465414829459-d228b58caf6e" class="icon"><div data-v-0a5a84f2="" class="text"><div data-v-0a5a84f2="" class="title"><strong></strong>金<strong></strong>融<strong></strong>監<strong></strong>理<strong></strong>沙<strong></strong>盒<strong></strong></div><div data-v-0a5a84f2="" class="route-name"><strong></strong>s<strong></strong>a<strong></strong>n<strong></strong>d<strong></strong>b<strong></strong>o<strong></strong>x<strong></strong></div></div></a></div><div data-v-0a5a84f2="" class="item"><a href="/topic/naming" class="" data-v-0a5a84f2=""><img data-v-0a5a84f2="" src="http://static.thousandwonders.net/Taiwan.original.3738.jpg" class="icon"><div data-v-0a5a84f2="" class="text"><div data-v-0a5a84f2="" class="title"><strong></strong>公<strong></strong>司<strong></strong>英<strong></strong>文<strong></strong>名<strong></strong>稱<strong></strong>登<strong></strong>記<strong></strong></div><div data-v-0a5a84f2="" class="route-name"><strong></strong>n<strong></strong>a<strong></strong>m<strong></strong>i<strong></strong>n<strong></strong>g<strong></strong></div></div></a></div><div data-v-0a5a84f2="" class="item"><a href="/topic/uberx" class="" data-v-0a5a84f2=""><img data-v-0a5a84f2="" src="https://c2.staticflickr.com/8/7043/27806414001_70bd4302de_z.jpg" class="icon"><div data-v-0a5a84f2="" class="text"><div data-v-0a5a84f2="" class="title"><strong></strong>U<strong></strong>b<strong></strong>e<strong></strong>r<strong></strong>X<strong></strong>自<strong></strong>用<strong></strong>車<strong></strong>載<strong></strong>客<strong></strong></div><div data-v-0a5a84f2="" class="route-name"><strong></strong>u<strong></strong>b<strong></strong>e<strong></strong>r<strong></strong>x<strong></strong></div></div></a></div><div data-v-0a5a84f2="" class="item"><a href="/topic/airbnb" class="" data-v-0a5a84f2=""><img data-v-0a5a84f2="" src="https://c1.staticflickr.com/1/430/19915395410_611f840957_b.jpg" class="icon"><div data-v-0a5a84f2="" class="text"><div data-v-0a5a84f2="" class="title"><strong></strong>A<strong></strong>i<strong></strong>r<strong></strong>b<strong></strong>n<strong></strong>b<strong></strong>自<strong></strong>用<strong></strong>住<strong></strong>宅<strong></strong>招<strong></strong>租<strong></strong></div><div data-v-0a5a84f2="" class="route-name"><strong></strong>a<strong></strong>i<strong></strong>r<strong></strong>b<strong></strong>n<strong></strong>b<strong></strong></div></div></a></div></div></div></form></div><div data-v-2a4fae16="" class="two wide column"><a href="/" class="logo" data-v-2a4fae16=""><img data-v-2a4fae16="" src="/vTaiwan_logo_2017.png" alt="logo"><span data-v-2a4fae16="">vTaiwan</span></a></div><div data-v-2a4fae16="" class="seven wide column right"><!----><a href="/how-to-use" class="item how-to-use" data-v-2a4fae16="">使用手冊</a><a href="/intro" class="item intro" data-v-2a4fae16="">關於 vTaiwan</a></div></div></nav><nav data-v-2a4fae16="" class="thin-only"><a href="/" class="m-logo" data-v-2a4fae16=""><img data-v-2a4fae16="" src="/vTaiwan_logo_2017.png" alt="logo"><span data-v-2a4fae16="">vTaiwan</span></a><div data-v-2a4fae16="" class="menu"><a href="/how-to-use" class="m-item" data-v-2a4fae16="">使用手冊</a><a href="/" class="m-item router-link-active" data-v-2a4fae16="">探索議題</a><a href="/" class="m-item router-link-active" data-v-2a4fae16="">搜尋議題</a></div></nav></div><div id="test0" style="display: none;">test jQuery</div><div id="main" class="main"><div data-v-c235cf6e="" class="component view" catagories=""><div data-v-c235cf6e="" class="fat-only"><div data-v-c235cf6e="" class="ui container"><div data-v-099cbb35="" class="component" data-v-c235cf6e=""><div data-v-099cbb35="" class="fat-only"><div data-v-099cbb35="" class="step-progress-bar"><ul data-v-099cbb35="" class="progress-bar"><li data-v-099cbb35="" class="active">即將開始</li><li data-v-099cbb35="" class="active">意見徵集</li><li data-v-099cbb35="" class="active">研擬草案</li><li data-v-099cbb35="" class="active">送交院會</li><li data-v-099cbb35="" class="active">歷史案件</li></ul></div></div><div data-v-099cbb35="" class="thin-only"><div data-v-099cbb35="" class="step-progress-bar"><ul data-v-099cbb35="" class="progress-bar"><li data-v-099cbb35="" class="active">即將開始</li><li data-v-099cbb35="" class="active">意見徵集</li><li data-v-099cbb35="" class="active">研擬草案</li><li data-v-099cbb35="" class="active">送交院會</li><li data-v-099cbb35="" class="active">歷史案件</li></ul></div></div></div><h1 data-v-c235cf6e="" class="ui huge header">網路霸凌</h1><div data-v-2406671b="" class="component" data-v-c235cf6e=""><div data-v-2406671b="" class="thin-only"><div data-v-2406671b="" class="content"></div></div><div data-v-2406671b="" class="fat-only"><div data-v-2406671b="" class="content"></div></div></div><div data-v-c235cf6e="" class="ui big steps top attached"><a data-v-c235cf6e="" class="step active"><i data-v-c235cf6e="" class="icon info circle"></i>詳細內容</a><a data-v-c235cf6e="" class="step"><i data-v-c235cf6e="" class="icon calendar"></i>議題時間軸</a><a data-v-c235cf6e="" class="step"><i data-v-c235cf6e="" class="icon comments"></i>參與討論</a></div><div data-v-c235cf6e="" class="ui segment attached"><div data-v-5da5dbe4="" class="info" data-v-c235cf6e=""><div class="component" data-v-5da5dbe4=""><div class="fat-only"><div class="styles content">
+
+<h1>簡介</h1>
+
+ <div style="margin-bottom:5px"> <strong> <a href="https://www.slideshare.net/vtaiwan/cyberbullying-49304122" title="防杜網路霸凌事件因應措施" target="_blank">防杜網路霸凌事件因應措施</a> </strong> from <strong><a target="_blank" href="https://www.slideshare.net/vtaiwan">vTaiwan.tw</a></strong> </div>
+
+</div></div><div class="thin-only"><div class="styles content">
+
+<h1>簡介</h1>
+
+ <div style="margin-bottom:5px"> <strong> <a href="https://www.slideshare.net/vtaiwan/cyberbullying-49304122" title="防杜網路霸凌事件因應措施" target="_blank">防杜網路霸凌事件因應措施</a> </strong> from <strong><a target="_blank" href="https://www.slideshare.net/vtaiwan">vTaiwan.tw</a></strong> </div>
+
+</div></div></div><!----><!----></div><div data-v-5da5dbe4="" class="info" data-v-c235cf6e="" style="display: none;"><!----><div data-v-25c2a472="" class="component" data-v-5da5dbe4=""><div data-v-25c2a472="" class="fat-only"><div data-v-25c2a472="" class="event-list"><div data-v-25c2a472="" class="item dark"><div data-v-25c2a472="" class="big">從 2015-06-16 開始 至 2015-08-31</div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">意見徵集  </p><div data-v-25c2a472="" class="title"></div></div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">相關連結</p><div class="urllink" data-v-25c2a472=""><span class="urllink"><span><a href="https://talk.vtaiwan.tw/c/cyberbullying" target="_blank" <a="" class="ui teal button"><i class="edit icon"></i>留言</a></span></span></div></div></div><div data-v-25c2a472="" class="item gloom"><div data-v-25c2a472="" class="big">從 2015-08-14 00:00:00 開始 </div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">研擬草案  </p><div data-v-25c2a472="" class="title">諮詢會議：網路霸凌</div></div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">相關連結</p><div class="urllink" data-v-25c2a472=""><span class="urllink"><span><a href="https://hackpad.com/2015-08-13--p8VAnQ24OqO" target="_blank" <a="" class="ui teal button"><i class="pencil icon"></i>共筆</a></span></span><span class="urllink"><span><a href="https://www.youtube.com/watch?v=D5bwEja0-O0" target="_blank" <a="" class="ui teal button"><i class="youtube play icon"></i>影片</a></span></span></div></div></div><div data-v-25c2a472="" class="item light"><div data-v-25c2a472="" class="big">從 2015-08-14 00:00:00 開始 </div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">歷史案件  </p><div data-v-25c2a472="" class="title">皆有配套措施，暫不修法</div></div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">相關連結</p><!----></div></div></div></div><div data-v-25c2a472="" class="thin-only"><div data-v-25c2a472="" class="event-list"><div data-v-25c2a472="" class="item dark"><div data-v-25c2a472="" class="big">從 2015-06-16 開始 至 2015-08-31</div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">意見徵集  </p><div data-v-25c2a472="" class="title"> </div></div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">相關連結</p><div class="urllink" data-v-25c2a472=""><span class="urllink"><span><a href="https://talk.vtaiwan.tw/c/cyberbullying" target="_blank" <a="" class="ui teal button"><i class="edit icon"></i>留言</a></span></span></div></div></div><div data-v-25c2a472="" class="item gloom"><div data-v-25c2a472="" class="big">從 2015-08-14 00:00:00 開始 </div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">研擬草案  </p><div data-v-25c2a472="" class="title">諮詢會議：網路霸凌 </div></div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">相關連結</p><div class="urllink" data-v-25c2a472=""><span class="urllink"><span><a href="https://hackpad.com/2015-08-13--p8VAnQ24OqO" target="_blank" <a="" class="ui teal button"><i class="pencil icon"></i>共筆</a></span></span><span class="urllink"><span><a href="https://www.youtube.com/watch?v=D5bwEja0-O0" target="_blank" <a="" class="ui teal button"><i class="youtube play icon"></i>影片</a></span></span></div></div></div><div data-v-25c2a472="" class="item light"><div data-v-25c2a472="" class="big">從 2015-08-14 00:00:00 開始 </div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">歷史案件  </p><div data-v-25c2a472="" class="title">皆有配套措施，暫不修法 </div></div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">相關連結</p><!----></div></div></div></div></div><!----></div><div data-v-5da5dbe4="" class="info" data-v-c235cf6e="" style="display: none;"><!----><!----><div class="Discoussioncomponent textleft" data-v-5da5dbe4=""><!----><!----><!----><div><div><div class="ui styled accordion"><div class="title"><i class="dropdown icon"></i>網路霸凌</div><div class="content"><div class="Commentcomponent"><div class="ui compact menu"><a class="item"><i class="reply icon"></i> 2</a><a class="item"><i class="unhide icon"></i> 720</a><a class="item"><i class="user icon"></i> 2   </a><a class="item"><i class="calendar icon"></i> 534 天  </a></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/vtaiwan/100/44_1.png"></a><div class="discussioncontent"><a class="author">vtaiwan</a><div class="metadata"><span class="date"><div>2015-08-13</div></span></div><div class="text"><div><p>在 2015/8/3 的線上諮詢會議中，Ming 詢問 <a class="mention" href="/users/moe">@MOE</a> 的朋友：</p>
+
+<blockquote><p>[教育部對此議題製作文宣] 有點好奇實際上執行的效果？</p></blockquote>
+
+<p>如果教育部有追蹤成效的方式，請回覆讓我們知道，感謝。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/clhung/100/163_1.png"></a><div class="discussioncontent"><a class="author">clhung</a><div class="metadata"><span class="date"><div>2015-08-18</div></span></div><div class="text"><div><p>教育部長期致力於資訊素養教育推動，並積極防制校園霸凌事件的發生，故會持續透過課程教授、數位教案研發、宣導手冊、宣導單及製播公益廣告等宣導，以讓第一線教師了解何謂網路霸凌，培養教師具備即時發現網路霸凌之能力，進而做妥適之處理並杜絕霸凌行為擴大。</p>
+
+<p>網路霸凌的成因及形式較傳統霸凌更為多元，我們期待藉由不斷的提醒及宣導，讓孩子、家長及教師提高對網路霸凌的敏感度，避免孩子被網路霸凌或霸凌他人。另事件發生及成效皆需要長期觀察，並透過不間斷「教育宣導」來內化成個人的基本態度及解決問題的能力，教育部期許藉由建立多元管道，以防護網的概念建立多元管道，達到預防之功效。</p></div></div><div class="commentline"></div></div></div></div></div><a href="https://talk.vtaiwan.tw/t/topic/546" target="_blank"><div class="ui fluid green labeled submit icon button"><i class="icon edit"></i>我要留言</div></a></div></div></div></div><div><div class="ui styled accordion"><div class="title"><i class="dropdown icon"></i>放寬通訊保障及監察法對調取通信紀錄之限制</div><div class="content"><div class="Commentcomponent"><div class="ui compact menu"><a class="item"><i class="reply icon"></i> 19</a><a class="item"><i class="unhide icon"></i> 3121</a><a class="item"><i class="user icon"></i> 7   </a><a class="item"><i class="calendar icon"></i> 143 天  </a></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/ifulita/100/57_1.png"></a><div class="discussioncontent"><a class="author">ifulita</a><div class="metadata"><span class="date"><div>2015-06-12</div></span></div><div class="text"><div><p>比較支持第二項，<br>也就是刪除三年之限制讓所有犯罪均得調取但仍應由法院審核，<br>如果調取資料不必經法院同意的話會讓人有侵犯隱私權的疑慮。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/pofeng/100/11_1.png"></a><div class="discussioncontent"><a class="author">pofeng</a><div class="metadata"><span class="date"><div>2015-06-13</div></span></div><div class="text"><div><p>其他建議:</p>
+
+<p>明確列出可請調閱通信紀錄的犯罪類型 (不可空白授權)</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/nchild/100/141_1.png"></a><div class="discussioncontent"><a class="author">nchild</a><div class="metadata"><span class="date"><div>2015-06-16</div></span></div><div class="text"><div><p>2.</p>
+
+<p>但應有配套措施，定期將調取資料的各案件與統計，去識別化後以開放資料方式釋出，供公眾監督。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/will_chang/100/32_1.png"></a><div class="discussioncontent"><a class="author">Will_Chang</a><div class="metadata"><span class="date"><div>2015-07-09</div></span></div><div class="text"><div><p>1、不必經法院同意：</p>
+
+<p>調取資料並不會涉及到通訊的內容，與監聽並不相同，至多就是與個資蒐集與利用類似的問題，允許檢察官及司法警察調閱在刑事犯罪偵查上確實有公益性的必要，若擔心司法警察調閱過於浮濫，也可規定由檢察官審核之。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/vtaiwan/100/44_1.png"></a><div class="discussioncontent"><a class="author">vtaiwan</a><div class="metadata"><span class="date"><div>2015-07-09</div></span></div><div class="text"><div><p>感謝 <a class="mention" href="/users/will_chang">@Will_Chang</a>  的意見。</p>
+
+<p><a href="http://law.moj.gov.tw/LawClass/LawSingle.aspx?Pcode=K0060044&amp;FLNO=11-1">第11條之1</a> 對「發送方、接收方之電信號碼、通信時間、使用長度、位址、服務型態、信箱或位置資訊」等通信紀錄，目前已有司法警察須報請檢察官許可的程序。所以您的意思，是支持將「偵查最重本刑三年以上有期徒刑之罪」的限制刪除？</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/will_chang/100/32_1.png"></a><div class="discussioncontent"><a class="author">Will_Chang</a><div class="metadata"><span class="date"><div>2015-07-10</div></span></div><div class="text"><div><p>目前的第11條之1 檢察官許可的程序是指送法院聲請調取票的前提要件，其主要的功能是在透過檢察官審核減輕法院的負擔而已。所以我是建議刪除這條的規定。<br>若要由檢察官審核（但我個人認為這並不是最好的選項），可能就是要規定「司法警察調閱通信紀錄，需經檢察官核發調取票」（或類似的條文）才行。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/vtaiwan/100/44_1.png"></a><div class="discussioncontent"><a class="author">vtaiwan</a><div class="metadata"><span class="date"><div>2015-07-11</div></span></div><div class="text"><div><p>感謝回覆。確認您的意思，您認為因公益性的必要，在司法警察調閱通信紀錄時：</p>
+
+<ol>
+<li>是除了由檢察官審核之外，還有較好的審核選項（請說明），或是</li>
+<li>實務上並不會有過於浮濫的問題，或是</li>
+<li>兩者皆是/其他？</li>
+</ol></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/will_chang/100/32_1.png"></a><div class="discussioncontent"><a class="author">Will_Chang</a><div class="metadata"><span class="date"><div>2015-07-11</div></span></div><div class="text"><div><p>我個人是認為實務上並不會有過於浮濫的問題，一方面因為司法警察向電信業者調閱通信紀錄時，必須支付費用，而預算有限；另一方面調閱資料需要發公文，也需要經過司法警察機關內部的審核，並不是毫無節制，任由司法警察隨意調取的。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/pofeng/100/11_1.png"></a><div class="discussioncontent"><a class="author">pofeng</a><div class="metadata"><span class="date"><div>2015-08-11</div></span></div><div class="text"><div><p>先代貼台權會 何明諠 意見</p>
+
+<p>"稍微看了一下法務部和衛福部的意見，以及四個部會的簡報後，大概有以下三點問題。<br>1. 除了法務部稍微對「霸凌」做了一點不是很網路的定義以外，好像都沒有看到各部會對「網路霸凌」的定義。這樣有案件轉進來（畢竟總不會每個案件當事人都想跑法院），各部會要進行處理時，要怎麼在程序上或實質上去認定該案件內容是否就是霸凌？<br>2. 和前一個問題也有點關係。iWIN看來就是各部會的保命丹，但iWIN理當只能受理兒少不宜的申訴，兒少不宜的內容和可能形成霸凌的內容，應該還是兩件不相同的事。所以各部會打算要拓展iWIN的受案範圍到多廣，又是依據什麼法源？然後跑去找iWIN，應該就不會上法院，所以就會回到第一個問題，那各部會處理案件的判準是？<br>3. 僅僅因為網路霸凌就說要刪通保法11-1，改成所有犯罪都能調取通信紀錄也太怪......，我們的警察是都沒有基本的犯罪偵查能力了嗎...<br>不知道這些問題之前有沒有討論過，但總之是看了這些資料的困惑"</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/vtaiwan/100/44_1.png"></a><div class="discussioncontent"><a class="author">vtaiwan</a><div class="metadata"><span class="date"><div>2015-08-12</div></span></div><div class="text"><div><p>感謝 <a class="mention" href="/users/pofeng">@pofeng</a> 代貼的意見。以此次討論，「網路霸凌」的定義是這樣：</p>
+
+<blockquote><p>隨著電腦網路與通訊科技的普及，使傳統校園霸凌行為得以透過電子郵件、網路貼文、手機簡訊等方式實施之新興問題，相關行為可能是「校園霸凌」之部分行為，也可能不屬「校園霸凌」但仍造成他人身心或財產之損害。</p></blockquote>
+
+<p>至於各部會處理案件的判準，程序或實質之認定，請 <a class="mention" href="/users/moj">@moj</a> 協助回應，感謝！</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/letter_avatar_proxy/v2/letter/m/f0a364/100.png"></a><div class="discussioncontent"><a class="author">Ming_Hsuan_He</a><div class="metadata"><span class="date"><div>2015-08-12</div></span></div><div class="text"><div><p>這個定義隨便都可以舉出反例吧...像是最近台大最夯的彭文正，完全就符合這個定義。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/pofeng/100/11_1.png"></a><div class="discussioncontent"><a class="author">pofeng</a><div class="metadata"><span class="date"><div>2015-08-12</div></span></div><div class="text"><div><p>說實話我不相信 "司法警察機關內部的審核" 會否決自己人的申請</p>
+
+<p>所以我個人沒辦法接受隨便放寬調取通信紀錄及通信使用者資料，不必經法院同意。</p>
+
+<p>美國國會衆議院5月13日通過《美國自由法案》需取得法院許可，才能取得通話紀錄。</p>
+
+<p>補: 6/2 美國參議院也通過了</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/pofeng/100/11_1.png"></a><div class="discussioncontent"><a class="author">pofeng</a><div class="metadata"><span class="date"><div>2015-08-12</div></span></div><div class="text"><div><p>這定義還滿有趣的 ... </p>
+
+<p>"相關行為可能是 ...也可能不是 ..."</p>
+
+<p>把定義濃縮一下變成,  "網路上造成他人身心或財產之損害之行為"</p>
+
+<p>這管得也太寬了吧 .... </p>
+
+<p>網路詐騙也算霸凌 <img src="/images/emoji/emoji_one/stuck_out_tongue.png?v=0" title=":stuck_out_tongue:" class="emoji" alt="stuck_out_tongue"> 連署要求某人下台, 也算霸凌喔 <img src="/images/emoji/emoji_one/stuck_out_tongue.png?v=0" title=":stuck_out_tongue:" class="emoji" alt="stuck_out_tongue"></p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/pofeng/100/11_1.png"></a><div class="discussioncontent"><a class="author">pofeng</a><div class="metadata"><span class="date"><div>2015-08-12</div></span></div><div class="text"><div><p>由於定義如此的模糊, 目前立場改為強烈反對放寬, 希望能 "3. 維持目前規定"</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/ifulita/100/57_1.png"></a><div class="discussioncontent"><a class="author">ifulita</a><div class="metadata"><span class="date"><div>2015-08-12</div></span></div><div class="text"><div><p>總覺得網路霸凌與網路上的虛擬人格權有相關聯，<br>目前的法律只認可使用本名上網才有人格權，<br>但我用暱稱、ID應該也要保障我有人格權才對啊，<br>比方說PTT或者一些討論區當中的使用者都不是使用本名，<br>如果網路霸凌不能夠保障到這一塊的話感覺起來就會稍嫌不足。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/vtaiwan/100/44_1.png"></a><div class="discussioncontent"><a class="author">vtaiwan</a><div class="metadata"><span class="date"><div>2015-08-12</div></span></div><div class="text"><div><p>目前單純「霸凌」討論，依「校園霸凌」的定義是這樣：</p>
+
+<blockquote><p>個人或集體持續以言語、文字、圖畫、符號、肢體動作或其他方式，直接或間接對他人為貶抑、排擠、欺負、騷擾或戲弄等行為，使他人處於具有敵意或不友善之環境，或難以抗拒，產生精神上、生理上或財產上之損害，或影響正常活動之進行。</p></blockquote>
+
+<p>詐騙或連署可能有持續性，但如果並非以「貶抑、排擠、欺負、騷擾或戲弄」為之，應不成立為霸凌。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/pofeng/100/11_1.png"></a><div class="discussioncontent"><a class="author">pofeng</a><div class="metadata"><span class="date"><div>2015-08-12</div></span></div><div class="text"><div><p>是阿是阿, 所以 "也可能不屬「(校園)霸凌」" 這句要刪掉吧<br>要不然管太寬了 </p>
+
+<p>網路霸凌, 直覺就是霸凌在網路上呈現吧 ?<br>幹麼強調 "也可能不屬「(校園)霸凌」" ?</p>
+
+<p>多加個 "也可能不屬「校園霸凌」" 令人有錯誤的聯想</p>
+
+<p>難免想到政府當局想要用 iWin 來 "順便" 箝制言論, </p>
+
+<p>著作權代理人團體, 則是私下遊說政府的時候, 都會說邊境管制有言論管制的"好處"</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/vtaiwan/100/44_1.png"></a><div class="discussioncontent"><a class="author">vtaiwan</a><div class="metadata"><span class="date"><div>2015-08-13</div></span></div><div class="text"><div><p>理解了，所以 <a class="mention" href="/users/pofeng">@pofeng</a> 的意見是，可以改成這樣，避免文義混淆：</p>
+
+<blockquote><p>相關行為可能隨同「校園霸凌」發生，也可能是發生在「校園」之外，但性質相同之霸凌行為。</p></blockquote></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/pofeng/100/11_1.png"></a><div class="discussioncontent"><a class="author">pofeng</a><div class="metadata"><span class="date"><div>2015-08-13</div></span></div><div class="text"><div><p>啊啊, 這樣很好, 才不會被擴大解釋 !!</p>
+
+<p>還是要強調一下, 目前個人反對隨便放寬 (1)<br>也不贊成空白授權 (2) =&gt; <strong>怕政府濫用權力</strong> </p>
+
+<p>最好是 (3)  維持目前規定<br>底線是 (4) 其他建議: 單獨列出霸凌行為造成犯罪, 則可調閱, 但仍應由法院審核</p>
+
+<p>但是有空應該查一下 《美國自由法案》參考一下相關規定</p></div></div><div class="commentline"></div></div></div></div></div><a href="https://talk.vtaiwan.tw/t/topic/554" target="_blank"><div class="ui fluid green labeled submit icon button"><i class="icon edit"></i>我要留言</div></a></div></div></div></div><div><div class="ui styled accordion"><div class="title"><i class="dropdown icon"></i>網站業者自律機制是否需強制入法規範？</div><div class="content"><div class="Commentcomponent"><div class="ui compact menu"><a class="item"><i class="reply icon"></i> 4</a><a class="item"><i class="unhide icon"></i> 1213</a><a class="item"><i class="user icon"></i> 5   </a><a class="item"><i class="calendar icon"></i> 574 天  </a></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/ifulita/100/57_1.png"></a><div class="discussioncontent"><a class="author">ifulita</a><div class="metadata"><span class="date"><div>2015-06-12</div></span></div><div class="text"><div><p>合理，<br>這是因為就算在PTT上各板也都會有板主制定板規以維護板上秩序，<br>不過如果由各網路業者各自建立自律機制及審議委員會，<br>讓政府部會與各網路業者共同建立半官半民的自律機制及審議委員會會不會更好?</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/pofeng/100/11_1.png"></a><div class="discussioncontent"><a class="author">pofeng</a><div class="metadata"><span class="date"><div>2015-06-13</div></span></div><div class="text"><div><p>不合理,  有害身心健康內容定義不明, 沒有共識, 卻又強迫成立審議委員會, 徒增行政成本而已</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/nchild/100/141_1.png"></a><div class="discussioncontent"><a class="author">nchild</a><div class="metadata"><span class="date"><div>2015-06-16</div></span></div><div class="text"><div><p>不合理，若要各網站自行建立自律機制，等於是將言論審查的權力交付給各業者，除非能有完善的救濟與第三方檢驗方式，但要對以指數型態成長的網路內容要做到這種程度，就好像各公共場所要對一般人言論隨時監控實施自律，若非選擇性執行就是成本無法想像，倡議自律機制強制入法者應先負起方案可行的舉證責任。</p>
+
+<p>以電影管制為例進一步說明，現在台灣電影強制分級，皆會於電影分級審核文件標明刪剪處及原因，但電視電影台的自律卻留於恣意，既未有任何方式說明刪剪處，且經常粗暴斷片，斧鑿甚深嚴重戕害觀影經驗。電影數量有限尚屬可行，且真要檢驗刪剪是否合理，仍可比對國外上映之影片，反觀平台網站之內容是所有平台參與者所產生，一來數量龐大，自律難以貫徹，再來，除非作者自行存放他處，否則經自律機制採取必要措施後，可能既無法回復亦無法檢驗，他人無法得知有什麼必要措施處理了什麼內容，又怎能確保言論自由未受侵害呢？</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/will_chang/100/32_1.png"></a><div class="discussioncontent"><a class="author">Will_Chang</a><div class="metadata"><span class="date"><div>2015-07-09</div></span></div><div class="text"><div><p>不合理<br>理由如下：<br>1、如此可能會有管制言論的問題，並不妥當。<br>2、目前的自律機制是網路長年發展下來自行衍生的機制，板主執行板規也相對地受到其他網友的監督，若法律規定強制建立自律機制，當發生爭議時，因為是法律賦予的義務，但網站並無公權力，公信力可能也會遭到質疑，可能因而產生更多爭議。而為解決這些紛爭，又需建立紛爭解決機制或由司法機關處理，成本過高。</p></div></div><div class="commentline"></div></div></div></div></div><a href="https://talk.vtaiwan.tw/t/topic/548" target="_blank"><div class="ui fluid green labeled submit icon button"><i class="icon edit"></i>我要留言</div></a></div></div></div></div><div><div class="ui styled accordion"><div class="title"><i class="dropdown icon"></i>兒少法第46條修法之建議</div><div class="content"><div class="Commentcomponent"><div class="ui compact menu"><a class="item"><i class="reply icon"></i> 1</a><a class="item"><i class="unhide icon"></i> 832</a><a class="item"><i class="user icon"></i> 2   </a><a class="item"><i class="calendar icon"></i> 601 天  </a></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/ifulita/100/57_1.png"></a><div class="discussioncontent"><a class="author">ifulita</a><div class="metadata"><span class="date"><div>2015-06-12</div></span></div><div class="text"><div><p>關於三、四這二個事項似乎不適合強制規定?<br>這原本是屬於家庭教育的範圍也就是父母本身就該管好了，<br>如果父母有管好、教好的話還怕小孩上不適合的網站看到不適合的內容嗎?<br>因此這二個事項不宜放進來。</p></div></div><div class="commentline"></div></div></div></div></div><a href="https://talk.vtaiwan.tw/t/topic/549" target="_blank"><div class="ui fluid green labeled submit icon button"><i class="icon edit"></i>我要留言</div></a></div></div></div></div></div></div></div></div></div></div><div data-v-c235cf6e="" class="thin-only"><div data-v-c235cf6e="" class="ui container"><div data-v-099cbb35="" class="component" data-v-c235cf6e=""><div data-v-099cbb35="" class="fat-only"><div data-v-099cbb35="" class="step-progress-bar"><ul data-v-099cbb35="" class="progress-bar"><li data-v-099cbb35="" class="active">即將開始</li><li data-v-099cbb35="" class="active">意見徵集</li><li data-v-099cbb35="" class="active">研擬草案</li><li data-v-099cbb35="" class="active">送交院會</li><li data-v-099cbb35="" class="active">歷史案件</li></ul></div></div><div data-v-099cbb35="" class="thin-only"><div data-v-099cbb35="" class="step-progress-bar"><ul data-v-099cbb35="" class="progress-bar"><li data-v-099cbb35="" class="active">即將開始</li><li data-v-099cbb35="" class="active">意見徵集</li><li data-v-099cbb35="" class="active">研擬草案</li><li data-v-099cbb35="" class="active">送交院會</li><li data-v-099cbb35="" class="active">歷史案件</li></ul></div></div></div><h1 data-v-c235cf6e="" class="ui huge header">網路霸凌</h1><div data-v-2406671b="" class="component" data-v-c235cf6e=""><div data-v-2406671b="" class="thin-only"><div data-v-2406671b="" class="content"></div></div><div data-v-2406671b="" class="fat-only"><div data-v-2406671b="" class="content"></div></div></div><div data-v-c235cf6e="" class="ui big steps top attached"><a data-v-c235cf6e="" class="step active"><i data-v-c235cf6e="" class="icon info circle"></i>詳細內容</a><a data-v-c235cf6e="" class="step"><i data-v-c235cf6e="" class="icon calendar"></i>議題時間軸</a><a data-v-c235cf6e="" class="step"><i data-v-c235cf6e="" class="icon comments"></i>參與討論</a></div><div data-v-c235cf6e="" class="ui segment attached"><div data-v-5da5dbe4="" class="info" data-v-c235cf6e=""><div class="component" data-v-5da5dbe4=""><div class="fat-only"><div class="styles content">
+
+<h1>簡介</h1>
+
+ <div style="margin-bottom:5px"> <strong> <a href="https://www.slideshare.net/vtaiwan/cyberbullying-49304122" title="防杜網路霸凌事件因應措施" target="_blank">防杜網路霸凌事件因應措施</a> </strong> from <strong><a target="_blank" href="https://www.slideshare.net/vtaiwan">vTaiwan.tw</a></strong> </div>
+
+</div></div><div class="thin-only"><div class="styles content">
+
+<h1>簡介</h1>
+
+ <div style="margin-bottom:5px"> <strong> <a href="https://www.slideshare.net/vtaiwan/cyberbullying-49304122" title="防杜網路霸凌事件因應措施" target="_blank">防杜網路霸凌事件因應措施</a> </strong> from <strong><a target="_blank" href="https://www.slideshare.net/vtaiwan">vTaiwan.tw</a></strong> </div>
+
+</div></div></div><!----><!----></div><div data-v-5da5dbe4="" class="info" data-v-c235cf6e="" style="display: none;"><!----><div data-v-25c2a472="" class="component" data-v-5da5dbe4=""><div data-v-25c2a472="" class="fat-only"><div data-v-25c2a472="" class="event-list"><div data-v-25c2a472="" class="item dark"><div data-v-25c2a472="" class="big">從 2015-06-16 開始 至 2015-08-31</div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">意見徵集  </p><div data-v-25c2a472="" class="title"></div></div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">相關連結</p><div class="urllink" data-v-25c2a472=""><span class="urllink"><span><a href="https://talk.vtaiwan.tw/c/cyberbullying" target="_blank" <a="" class="ui teal button"><i class="edit icon"></i>留言</a></span></span></div></div></div><div data-v-25c2a472="" class="item gloom"><div data-v-25c2a472="" class="big">從 2015-08-14 00:00:00 開始 </div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">研擬草案  </p><div data-v-25c2a472="" class="title">諮詢會議：網路霸凌</div></div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">相關連結</p><div class="urllink" data-v-25c2a472=""><span class="urllink"><span><a href="https://hackpad.com/2015-08-13--p8VAnQ24OqO" target="_blank" <a="" class="ui teal button"><i class="pencil icon"></i>共筆</a></span></span><span class="urllink"><span><a href="https://www.youtube.com/watch?v=D5bwEja0-O0" target="_blank" <a="" class="ui teal button"><i class="youtube play icon"></i>影片</a></span></span></div></div></div><div data-v-25c2a472="" class="item light"><div data-v-25c2a472="" class="big">從 2015-08-14 00:00:00 開始 </div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">歷史案件  </p><div data-v-25c2a472="" class="title">皆有配套措施，暫不修法</div></div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">相關連結</p><!----></div></div></div></div><div data-v-25c2a472="" class="thin-only"><div data-v-25c2a472="" class="event-list"><div data-v-25c2a472="" class="item dark"><div data-v-25c2a472="" class="big">從 2015-06-16 開始 至 2015-08-31</div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">意見徵集  </p><div data-v-25c2a472="" class="title"> </div></div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">相關連結</p><div class="urllink" data-v-25c2a472=""><span class="urllink"><span><a href="https://talk.vtaiwan.tw/c/cyberbullying" target="_blank" <a="" class="ui teal button"><i class="edit icon"></i>留言</a></span></span></div></div></div><div data-v-25c2a472="" class="item gloom"><div data-v-25c2a472="" class="big">從 2015-08-14 00:00:00 開始 </div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">研擬草案  </p><div data-v-25c2a472="" class="title">諮詢會議：網路霸凌 </div></div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">相關連結</p><div class="urllink" data-v-25c2a472=""><span class="urllink"><span><a href="https://hackpad.com/2015-08-13--p8VAnQ24OqO" target="_blank" <a="" class="ui teal button"><i class="pencil icon"></i>共筆</a></span></span><span class="urllink"><span><a href="https://www.youtube.com/watch?v=D5bwEja0-O0" target="_blank" <a="" class="ui teal button"><i class="youtube play icon"></i>影片</a></span></span></div></div></div><div data-v-25c2a472="" class="item light"><div data-v-25c2a472="" class="big">從 2015-08-14 00:00:00 開始 </div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">歷史案件  </p><div data-v-25c2a472="" class="title">皆有配套措施，暫不修法 </div></div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">相關連結</p><!----></div></div></div></div></div><!----></div><div data-v-5da5dbe4="" class="info" data-v-c235cf6e="" style="display: none;"><!----><!----><div class="Discoussioncomponent textleft" data-v-5da5dbe4=""><!----><!----><!----><div><div><div class="ui styled accordion"><div class="title"><i class="dropdown icon"></i>網路霸凌</div><div class="content"><div class="Commentcomponent"><div class="ui compact menu"><a class="item"><i class="reply icon"></i> 2</a><a class="item"><i class="unhide icon"></i> 720</a><a class="item"><i class="user icon"></i> 2   </a><a class="item"><i class="calendar icon"></i> 534 天  </a></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/vtaiwan/100/44_1.png"></a><div class="discussioncontent"><a class="author">vtaiwan</a><div class="metadata"><span class="date"><div>2015-08-13</div></span></div><div class="text"><div><p>在 2015/8/3 的線上諮詢會議中，Ming 詢問 <a class="mention" href="/users/moe">@MOE</a> 的朋友：</p>
+
+<blockquote><p>[教育部對此議題製作文宣] 有點好奇實際上執行的效果？</p></blockquote>
+
+<p>如果教育部有追蹤成效的方式，請回覆讓我們知道，感謝。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/clhung/100/163_1.png"></a><div class="discussioncontent"><a class="author">clhung</a><div class="metadata"><span class="date"><div>2015-08-18</div></span></div><div class="text"><div><p>教育部長期致力於資訊素養教育推動，並積極防制校園霸凌事件的發生，故會持續透過課程教授、數位教案研發、宣導手冊、宣導單及製播公益廣告等宣導，以讓第一線教師了解何謂網路霸凌，培養教師具備即時發現網路霸凌之能力，進而做妥適之處理並杜絕霸凌行為擴大。</p>
+
+<p>網路霸凌的成因及形式較傳統霸凌更為多元，我們期待藉由不斷的提醒及宣導，讓孩子、家長及教師提高對網路霸凌的敏感度，避免孩子被網路霸凌或霸凌他人。另事件發生及成效皆需要長期觀察，並透過不間斷「教育宣導」來內化成個人的基本態度及解決問題的能力，教育部期許藉由建立多元管道，以防護網的概念建立多元管道，達到預防之功效。</p></div></div><div class="commentline"></div></div></div></div></div><a href="https://talk.vtaiwan.tw/t/topic/546" target="_blank"><div class="ui fluid green labeled submit icon button"><i class="icon edit"></i>我要留言</div></a></div></div></div></div><div><div class="ui styled accordion"><div class="title"><i class="dropdown icon"></i>放寬通訊保障及監察法對調取通信紀錄之限制</div><div class="content"><div class="Commentcomponent"><div class="ui compact menu"><a class="item"><i class="reply icon"></i> 19</a><a class="item"><i class="unhide icon"></i> 3121</a><a class="item"><i class="user icon"></i> 7   </a><a class="item"><i class="calendar icon"></i> 143 天  </a></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/ifulita/100/57_1.png"></a><div class="discussioncontent"><a class="author">ifulita</a><div class="metadata"><span class="date"><div>2015-06-12</div></span></div><div class="text"><div><p>比較支持第二項，<br>也就是刪除三年之限制讓所有犯罪均得調取但仍應由法院審核，<br>如果調取資料不必經法院同意的話會讓人有侵犯隱私權的疑慮。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/pofeng/100/11_1.png"></a><div class="discussioncontent"><a class="author">pofeng</a><div class="metadata"><span class="date"><div>2015-06-13</div></span></div><div class="text"><div><p>其他建議:</p>
+
+<p>明確列出可請調閱通信紀錄的犯罪類型 (不可空白授權)</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/nchild/100/141_1.png"></a><div class="discussioncontent"><a class="author">nchild</a><div class="metadata"><span class="date"><div>2015-06-16</div></span></div><div class="text"><div><p>2.</p>
+
+<p>但應有配套措施，定期將調取資料的各案件與統計，去識別化後以開放資料方式釋出，供公眾監督。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/will_chang/100/32_1.png"></a><div class="discussioncontent"><a class="author">Will_Chang</a><div class="metadata"><span class="date"><div>2015-07-09</div></span></div><div class="text"><div><p>1、不必經法院同意：</p>
+
+<p>調取資料並不會涉及到通訊的內容，與監聽並不相同，至多就是與個資蒐集與利用類似的問題，允許檢察官及司法警察調閱在刑事犯罪偵查上確實有公益性的必要，若擔心司法警察調閱過於浮濫，也可規定由檢察官審核之。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/vtaiwan/100/44_1.png"></a><div class="discussioncontent"><a class="author">vtaiwan</a><div class="metadata"><span class="date"><div>2015-07-09</div></span></div><div class="text"><div><p>感謝 <a class="mention" href="/users/will_chang">@Will_Chang</a>  的意見。</p>
+
+<p><a href="http://law.moj.gov.tw/LawClass/LawSingle.aspx?Pcode=K0060044&amp;FLNO=11-1">第11條之1</a> 對「發送方、接收方之電信號碼、通信時間、使用長度、位址、服務型態、信箱或位置資訊」等通信紀錄，目前已有司法警察須報請檢察官許可的程序。所以您的意思，是支持將「偵查最重本刑三年以上有期徒刑之罪」的限制刪除？</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/will_chang/100/32_1.png"></a><div class="discussioncontent"><a class="author">Will_Chang</a><div class="metadata"><span class="date"><div>2015-07-10</div></span></div><div class="text"><div><p>目前的第11條之1 檢察官許可的程序是指送法院聲請調取票的前提要件，其主要的功能是在透過檢察官審核減輕法院的負擔而已。所以我是建議刪除這條的規定。<br>若要由檢察官審核（但我個人認為這並不是最好的選項），可能就是要規定「司法警察調閱通信紀錄，需經檢察官核發調取票」（或類似的條文）才行。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/vtaiwan/100/44_1.png"></a><div class="discussioncontent"><a class="author">vtaiwan</a><div class="metadata"><span class="date"><div>2015-07-11</div></span></div><div class="text"><div><p>感謝回覆。確認您的意思，您認為因公益性的必要，在司法警察調閱通信紀錄時：</p>
+
+<ol>
+<li>是除了由檢察官審核之外，還有較好的審核選項（請說明），或是</li>
+<li>實務上並不會有過於浮濫的問題，或是</li>
+<li>兩者皆是/其他？</li>
+</ol></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/will_chang/100/32_1.png"></a><div class="discussioncontent"><a class="author">Will_Chang</a><div class="metadata"><span class="date"><div>2015-07-11</div></span></div><div class="text"><div><p>我個人是認為實務上並不會有過於浮濫的問題，一方面因為司法警察向電信業者調閱通信紀錄時，必須支付費用，而預算有限；另一方面調閱資料需要發公文，也需要經過司法警察機關內部的審核，並不是毫無節制，任由司法警察隨意調取的。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/pofeng/100/11_1.png"></a><div class="discussioncontent"><a class="author">pofeng</a><div class="metadata"><span class="date"><div>2015-08-11</div></span></div><div class="text"><div><p>先代貼台權會 何明諠 意見</p>
+
+<p>"稍微看了一下法務部和衛福部的意見，以及四個部會的簡報後，大概有以下三點問題。<br>1. 除了法務部稍微對「霸凌」做了一點不是很網路的定義以外，好像都沒有看到各部會對「網路霸凌」的定義。這樣有案件轉進來（畢竟總不會每個案件當事人都想跑法院），各部會要進行處理時，要怎麼在程序上或實質上去認定該案件內容是否就是霸凌？<br>2. 和前一個問題也有點關係。iWIN看來就是各部會的保命丹，但iWIN理當只能受理兒少不宜的申訴，兒少不宜的內容和可能形成霸凌的內容，應該還是兩件不相同的事。所以各部會打算要拓展iWIN的受案範圍到多廣，又是依據什麼法源？然後跑去找iWIN，應該就不會上法院，所以就會回到第一個問題，那各部會處理案件的判準是？<br>3. 僅僅因為網路霸凌就說要刪通保法11-1，改成所有犯罪都能調取通信紀錄也太怪......，我們的警察是都沒有基本的犯罪偵查能力了嗎...<br>不知道這些問題之前有沒有討論過，但總之是看了這些資料的困惑"</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/vtaiwan/100/44_1.png"></a><div class="discussioncontent"><a class="author">vtaiwan</a><div class="metadata"><span class="date"><div>2015-08-12</div></span></div><div class="text"><div><p>感謝 <a class="mention" href="/users/pofeng">@pofeng</a> 代貼的意見。以此次討論，「網路霸凌」的定義是這樣：</p>
+
+<blockquote><p>隨著電腦網路與通訊科技的普及，使傳統校園霸凌行為得以透過電子郵件、網路貼文、手機簡訊等方式實施之新興問題，相關行為可能是「校園霸凌」之部分行為，也可能不屬「校園霸凌」但仍造成他人身心或財產之損害。</p></blockquote>
+
+<p>至於各部會處理案件的判準，程序或實質之認定，請 <a class="mention" href="/users/moj">@moj</a> 協助回應，感謝！</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/letter_avatar_proxy/v2/letter/m/f0a364/100.png"></a><div class="discussioncontent"><a class="author">Ming_Hsuan_He</a><div class="metadata"><span class="date"><div>2015-08-12</div></span></div><div class="text"><div><p>這個定義隨便都可以舉出反例吧...像是最近台大最夯的彭文正，完全就符合這個定義。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/pofeng/100/11_1.png"></a><div class="discussioncontent"><a class="author">pofeng</a><div class="metadata"><span class="date"><div>2015-08-12</div></span></div><div class="text"><div><p>說實話我不相信 "司法警察機關內部的審核" 會否決自己人的申請</p>
+
+<p>所以我個人沒辦法接受隨便放寬調取通信紀錄及通信使用者資料，不必經法院同意。</p>
+
+<p>美國國會衆議院5月13日通過《美國自由法案》需取得法院許可，才能取得通話紀錄。</p>
+
+<p>補: 6/2 美國參議院也通過了</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/pofeng/100/11_1.png"></a><div class="discussioncontent"><a class="author">pofeng</a><div class="metadata"><span class="date"><div>2015-08-12</div></span></div><div class="text"><div><p>這定義還滿有趣的 ... </p>
+
+<p>"相關行為可能是 ...也可能不是 ..."</p>
+
+<p>把定義濃縮一下變成,  "網路上造成他人身心或財產之損害之行為"</p>
+
+<p>這管得也太寬了吧 .... </p>
+
+<p>網路詐騙也算霸凌 <img src="/images/emoji/emoji_one/stuck_out_tongue.png?v=0" title=":stuck_out_tongue:" class="emoji" alt="stuck_out_tongue"> 連署要求某人下台, 也算霸凌喔 <img src="/images/emoji/emoji_one/stuck_out_tongue.png?v=0" title=":stuck_out_tongue:" class="emoji" alt="stuck_out_tongue"></p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/pofeng/100/11_1.png"></a><div class="discussioncontent"><a class="author">pofeng</a><div class="metadata"><span class="date"><div>2015-08-12</div></span></div><div class="text"><div><p>由於定義如此的模糊, 目前立場改為強烈反對放寬, 希望能 "3. 維持目前規定"</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/ifulita/100/57_1.png"></a><div class="discussioncontent"><a class="author">ifulita</a><div class="metadata"><span class="date"><div>2015-08-12</div></span></div><div class="text"><div><p>總覺得網路霸凌與網路上的虛擬人格權有相關聯，<br>目前的法律只認可使用本名上網才有人格權，<br>但我用暱稱、ID應該也要保障我有人格權才對啊，<br>比方說PTT或者一些討論區當中的使用者都不是使用本名，<br>如果網路霸凌不能夠保障到這一塊的話感覺起來就會稍嫌不足。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/vtaiwan/100/44_1.png"></a><div class="discussioncontent"><a class="author">vtaiwan</a><div class="metadata"><span class="date"><div>2015-08-12</div></span></div><div class="text"><div><p>目前單純「霸凌」討論，依「校園霸凌」的定義是這樣：</p>
+
+<blockquote><p>個人或集體持續以言語、文字、圖畫、符號、肢體動作或其他方式，直接或間接對他人為貶抑、排擠、欺負、騷擾或戲弄等行為，使他人處於具有敵意或不友善之環境，或難以抗拒，產生精神上、生理上或財產上之損害，或影響正常活動之進行。</p></blockquote>
+
+<p>詐騙或連署可能有持續性，但如果並非以「貶抑、排擠、欺負、騷擾或戲弄」為之，應不成立為霸凌。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/pofeng/100/11_1.png"></a><div class="discussioncontent"><a class="author">pofeng</a><div class="metadata"><span class="date"><div>2015-08-12</div></span></div><div class="text"><div><p>是阿是阿, 所以 "也可能不屬「(校園)霸凌」" 這句要刪掉吧<br>要不然管太寬了 </p>
+
+<p>網路霸凌, 直覺就是霸凌在網路上呈現吧 ?<br>幹麼強調 "也可能不屬「(校園)霸凌」" ?</p>
+
+<p>多加個 "也可能不屬「校園霸凌」" 令人有錯誤的聯想</p>
+
+<p>難免想到政府當局想要用 iWin 來 "順便" 箝制言論, </p>
+
+<p>著作權代理人團體, 則是私下遊說政府的時候, 都會說邊境管制有言論管制的"好處"</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/vtaiwan/100/44_1.png"></a><div class="discussioncontent"><a class="author">vtaiwan</a><div class="metadata"><span class="date"><div>2015-08-13</div></span></div><div class="text"><div><p>理解了，所以 <a class="mention" href="/users/pofeng">@pofeng</a> 的意見是，可以改成這樣，避免文義混淆：</p>
+
+<blockquote><p>相關行為可能隨同「校園霸凌」發生，也可能是發生在「校園」之外，但性質相同之霸凌行為。</p></blockquote></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/pofeng/100/11_1.png"></a><div class="discussioncontent"><a class="author">pofeng</a><div class="metadata"><span class="date"><div>2015-08-13</div></span></div><div class="text"><div><p>啊啊, 這樣很好, 才不會被擴大解釋 !!</p>
+
+<p>還是要強調一下, 目前個人反對隨便放寬 (1)<br>也不贊成空白授權 (2) =&gt; <strong>怕政府濫用權力</strong> </p>
+
+<p>最好是 (3)  維持目前規定<br>底線是 (4) 其他建議: 單獨列出霸凌行為造成犯罪, 則可調閱, 但仍應由法院審核</p>
+
+<p>但是有空應該查一下 《美國自由法案》參考一下相關規定</p></div></div><div class="commentline"></div></div></div></div></div><a href="https://talk.vtaiwan.tw/t/topic/554" target="_blank"><div class="ui fluid green labeled submit icon button"><i class="icon edit"></i>我要留言</div></a></div></div></div></div><div><div class="ui styled accordion"><div class="title"><i class="dropdown icon"></i>網站業者自律機制是否需強制入法規範？</div><div class="content"><div class="Commentcomponent"><div class="ui compact menu"><a class="item"><i class="reply icon"></i> 4</a><a class="item"><i class="unhide icon"></i> 1213</a><a class="item"><i class="user icon"></i> 5   </a><a class="item"><i class="calendar icon"></i> 574 天  </a></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/ifulita/100/57_1.png"></a><div class="discussioncontent"><a class="author">ifulita</a><div class="metadata"><span class="date"><div>2015-06-12</div></span></div><div class="text"><div><p>合理，<br>這是因為就算在PTT上各板也都會有板主制定板規以維護板上秩序，<br>不過如果由各網路業者各自建立自律機制及審議委員會，<br>讓政府部會與各網路業者共同建立半官半民的自律機制及審議委員會會不會更好?</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/pofeng/100/11_1.png"></a><div class="discussioncontent"><a class="author">pofeng</a><div class="metadata"><span class="date"><div>2015-06-13</div></span></div><div class="text"><div><p>不合理,  有害身心健康內容定義不明, 沒有共識, 卻又強迫成立審議委員會, 徒增行政成本而已</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/nchild/100/141_1.png"></a><div class="discussioncontent"><a class="author">nchild</a><div class="metadata"><span class="date"><div>2015-06-16</div></span></div><div class="text"><div><p>不合理，若要各網站自行建立自律機制，等於是將言論審查的權力交付給各業者，除非能有完善的救濟與第三方檢驗方式，但要對以指數型態成長的網路內容要做到這種程度，就好像各公共場所要對一般人言論隨時監控實施自律，若非選擇性執行就是成本無法想像，倡議自律機制強制入法者應先負起方案可行的舉證責任。</p>
+
+<p>以電影管制為例進一步說明，現在台灣電影強制分級，皆會於電影分級審核文件標明刪剪處及原因，但電視電影台的自律卻留於恣意，既未有任何方式說明刪剪處，且經常粗暴斷片，斧鑿甚深嚴重戕害觀影經驗。電影數量有限尚屬可行，且真要檢驗刪剪是否合理，仍可比對國外上映之影片，反觀平台網站之內容是所有平台參與者所產生，一來數量龐大，自律難以貫徹，再來，除非作者自行存放他處，否則經自律機制採取必要措施後，可能既無法回復亦無法檢驗，他人無法得知有什麼必要措施處理了什麼內容，又怎能確保言論自由未受侵害呢？</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/will_chang/100/32_1.png"></a><div class="discussioncontent"><a class="author">Will_Chang</a><div class="metadata"><span class="date"><div>2015-07-09</div></span></div><div class="text"><div><p>不合理<br>理由如下：<br>1、如此可能會有管制言論的問題，並不妥當。<br>2、目前的自律機制是網路長年發展下來自行衍生的機制，板主執行板規也相對地受到其他網友的監督，若法律規定強制建立自律機制，當發生爭議時，因為是法律賦予的義務，但網站並無公權力，公信力可能也會遭到質疑，可能因而產生更多爭議。而為解決這些紛爭，又需建立紛爭解決機制或由司法機關處理，成本過高。</p></div></div><div class="commentline"></div></div></div></div></div><a href="https://talk.vtaiwan.tw/t/topic/548" target="_blank"><div class="ui fluid green labeled submit icon button"><i class="icon edit"></i>我要留言</div></a></div></div></div></div><div><div class="ui styled accordion"><div class="title"><i class="dropdown icon"></i>兒少法第46條修法之建議</div><div class="content"><div class="Commentcomponent"><div class="ui compact menu"><a class="item"><i class="reply icon"></i> 1</a><a class="item"><i class="unhide icon"></i> 832</a><a class="item"><i class="user icon"></i> 2   </a><a class="item"><i class="calendar icon"></i> 601 天  </a></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/ifulita/100/57_1.png"></a><div class="discussioncontent"><a class="author">ifulita</a><div class="metadata"><span class="date"><div>2015-06-12</div></span></div><div class="text"><div><p>關於三、四這二個事項似乎不適合強制規定?<br>這原本是屬於家庭教育的範圍也就是父母本身就該管好了，<br>如果父母有管好、教好的話還怕小孩上不適合的網站看到不適合的內容嗎?<br>因此這二個事項不宜放進來。</p></div></div><div class="commentline"></div></div></div></div></div><a href="https://talk.vtaiwan.tw/t/topic/549" target="_blank"><div class="ui fluid green labeled submit icon button"><i class="icon edit"></i>我要留言</div></a></div></div></div></div></div></div></div></div></div></div></div></div><div data-v-61e6b40f="" class="component footer"><a data-v-61e6b40f="" href="https://github.com/g0v/vue.vtaiwan.tw" target="_blank" class="ui labeled icon basic big button"><i data-v-61e6b40f="" class="github alternate icon"></i>Code on Github</a></div></div>
+<script type="text/javascript" src="/app.js"></script><script type="text/javascript" src="/vendor.js"></script>
+
+</body></html>

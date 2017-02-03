@@ -1,0 +1,1731 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="utf-8">
+    <title>vTaiwan Next</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700|Lobster" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/semantic.min.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/semantic.min.js"></script>
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+    <style>
+        body {
+            visibility: hidden;
+            opacity: 0;
+        }
+    </style>
+<style type="text/css">
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component {
+  position: relative;
+}
+.component h1, .component h2, .component h3, .component h4, .component h5, .component h6, .component p {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component a, .component button {
+    cursor: pointer !important;
+    color: dimgray;
+}
+.component strong {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only {
+    display: none !important;
+}
+}
+.app {
+  min-height: 100vh;
+  width: 100%;
+  margin: 0;
+  transition: border-color 0.5s ease;
+}
+.app.join {
+    border-color: #f4719d;
+}
+.app.intro {
+    border-color: #ec8013;
+}
+.app.live {
+    border-color: #1313ec;
+}
+.app.track {
+    border-color: #8e8e0b;
+}
+.main {
+  position: relative;
+  top: 0;
+  width: 100%;
+  text-align: center;
+}
+.fade-in-enter, .fade-in-leave-active {
+  opacity: 0;
+}
+.fade-in-enter-active {
+  transition: all 0.5s ease-in;
+}
+.navbar {
+  position: fixed;
+  z-index: 999999;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+.footer {
+  position: relative;
+  margin: 0 auto;
+  margin-top: 40px;
+  max-width: 1170px;
+}
+</style><style type="text/css">
+*[data-v-2a4fae16] {
+  box-sizing: border-box;
+}
+body[data-v-2a4fae16] {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component[data-v-2a4fae16] {
+  position: relative;
+}
+.component h1[data-v-2a4fae16], .component h2[data-v-2a4fae16], .component h3[data-v-2a4fae16], .component h4[data-v-2a4fae16], .component h5[data-v-2a4fae16], .component h6[data-v-2a4fae16], .component p[data-v-2a4fae16] {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component a[data-v-2a4fae16], .component button[data-v-2a4fae16] {
+    cursor: pointer !important;
+    color: dimgray;
+}
+.component strong[data-v-2a4fae16] {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only[data-v-2a4fae16] {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only[data-v-2a4fae16] {
+    display: none !important;
+}
+}
+@media screen and (min-width: 767px) {
+.component[data-v-2a4fae16] {
+    height: 55px;
+}
+}
+.component nav.fat-only[data-v-2a4fae16] {
+  position: fixed;
+  z-index: 999999;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 55px;
+  overflow: visible;
+  background: rgba(255, 255, 255, 0.95);
+  border-bottom: 1px solid lightgray;
+}
+form.search[data-v-2a4fae16] {
+  font-size: 1.5rem;
+  position: relative;
+  display: inline-block;
+  line-height: 55px;
+  padding: 0 0 0 1em;
+}
+form.search i.search.icon[data-v-2a4fae16] {
+    position: absolute;
+    z-index: -1;
+    right: .55em;
+    line-height: 55px;
+    color: gray;
+}
+form.search input[data-v-2a4fae16] {
+    color: gray;
+    height: calc( 55px * 0.55);
+    border: 1px solid lightgray;
+    border-radius: 1em;
+    padding: 0 .6em;
+    background-color: transparent;
+}
+form.search input[data-v-2a4fae16]:focus {
+      outline: none;
+}
+form.search.active i.icon[data-v-2a4fae16] {
+    visibility: hidden;
+}
+.logo[data-v-2a4fae16] {
+  height: 55px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+}
+.logo img[data-v-2a4fae16] {
+    width: auto;
+    max-height: 75%;
+}
+.logo span[data-v-2a4fae16] {
+    color: black;
+    font-family: Lobster, "Microsoft JhengHei", "Heiti TC", serif;
+    font-size: 2rem;
+    margin-left: .3em;
+}
+.right[data-v-2a4fae16] {
+  text-align: right;
+}
+.right a.item[data-v-2a4fae16] {
+    font-size: 1.2rem;
+    display: inline-block;
+    line-height: 55px;
+    padding: 0 1em;
+    color: dimgray;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.5s ease;
+}
+.right a.item[data-v-2a4fae16]:hover {
+      color: white;
+      background: #3fadc7;
+}
+.right a.item.active[data-v-2a4fae16], .right a.item.router-link-active[data-v-2a4fae16] {
+      background-color: #f4e025;
+}
+@media screen and (max-width: 767px) {
+.thin-only[data-v-2a4fae16] {
+    border-bottom: 1px solid #ccc;
+}
+}
+.m-logo[data-v-2a4fae16] {
+  width: 50%;
+  margin: 0 auto;
+  height: 20vh;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: row nowrap;
+      flex-flow: row nowrap;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+}
+.m-logo img[data-v-2a4fae16] {
+    width: 60px;
+    height: 60px;
+    margin: 0;
+}
+.m-logo span[data-v-2a4fae16] {
+    color: black;
+    font-family: Lobster, "Microsoft JhengHei", "Heiti TC", serif;
+    font-size: 1.6rem;
+    padding: 0 0 0 .3em;
+}
+.menu[data-v-2a4fae16] {
+  height: 10vh;
+  line-height: 10vh;
+  display: -ms-flexbox;
+  display: flex;
+}
+.menu a.m-item[data-v-2a4fae16], .menu a.item[data-v-2a4fae16] {
+    cursor: pointer !important;
+    -ms-flex: 1;
+        flex: 1;
+    text-align: center;
+    font-size: 1.3rem;
+    color: dimgray;
+}
+.menu a.m-item[data-v-2a4fae16]:hover, .menu a.item[data-v-2a4fae16]:hover {
+      color: white;
+      background: #3fadc7;
+}
+</style><style type="text/css">
+@charset "UTF-8";
+.component[data-v-0a5a84f2] {
+  position: absolute;
+  z-index: 11;
+  width: 33vw;
+  max-height: 66vh;
+  overflow: auto;
+  background-color: rgba(255, 255, 255, 0.8);
+  font-size: .7rem;
+}
+.list[data-v-0a5a84f2] {
+  padding: .5em 0;
+}
+.list .item[data-v-0a5a84f2] {
+    margin: 0 0;
+    padding: 0 0;
+}
+.list .item a[data-v-0a5a84f2] {
+      display: -ms-flexbox;
+      display: flex;
+}
+.list .item a.active[data-v-0a5a84f2] {
+        background-color: #ccf;
+}
+.list .item a .icon[data-v-0a5a84f2] {
+        -ms-flex: 0 0 3em;
+            flex: 0 0 3em;
+        width: 3em;
+        height: 3em;
+        border-left: 3px solid #fff;
+}
+.list .item a .text[data-v-0a5a84f2] {
+        -ms-flex: 1 1;
+            flex: 1 1;
+        text-align: left;
+        padding: .2em .5em;
+        border-bottom: 1px solid #ccc;
+}
+.list .item a .text strong[data-v-0a5a84f2] {
+          /* scoped css 無法 bind 到，所以寫在App.vue的全域css中*/
+}
+</style><style type="text/css">
+.component[data-v-61e6b40f] {
+  text-align: center;
+  padding: 1em;
+  border-top: 1px #AAA solid;
+}
+</style><style type="text/css">
+*[data-v-467fb687] {
+  box-sizing: border-box;
+}
+body[data-v-467fb687] {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component[data-v-467fb687] {
+  position: relative;
+}
+.component h1[data-v-467fb687], .component h2[data-v-467fb687], .component h3[data-v-467fb687], .component h4[data-v-467fb687], .component h5[data-v-467fb687], .component h6[data-v-467fb687], .component p[data-v-467fb687] {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component a[data-v-467fb687], .component button[data-v-467fb687] {
+    cursor: pointer !important;
+    color: dimgray;
+}
+.component strong[data-v-467fb687] {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only[data-v-467fb687] {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only[data-v-467fb687] {
+    display: none !important;
+}
+}
+.home[data-v-467fb687] {
+  width: 100%;
+  min-width: 320px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 5vh;
+}
+@media screen and (min-width: 767px) {
+.home[data-v-467fb687] {
+      margin-top: -55px;
+}
+}
+p[data-v-467fb687] {
+  font-size: 1rem;
+  text-align: left;
+  line-height: 155%;
+  padding: 5px;
+}
+</style><style type="text/css">
+*[data-v-b215a294] {
+  box-sizing: border-box;
+}
+body[data-v-b215a294] {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component[data-v-b215a294] {
+  position: relative;
+}
+.component h1[data-v-b215a294], .component h2[data-v-b215a294], .component h3[data-v-b215a294], .component h4[data-v-b215a294], .component h5[data-v-b215a294], .component h6[data-v-b215a294], .component p[data-v-b215a294] {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component a[data-v-b215a294], .component button[data-v-b215a294] {
+    cursor: pointer !important;
+    color: dimgray;
+}
+.component strong[data-v-b215a294] {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only[data-v-b215a294] {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only[data-v-b215a294] {
+    display: none !important;
+}
+}
+.desktop-container[data-v-b215a294], .mobile-container[data-v-b215a294] {
+  position: relative;
+  overflow: hidden;
+}
+.desktop-container img[data-v-b215a294], .mobile-container img[data-v-b215a294] {
+    position: relative;
+    width: 100%;
+    z-index: -3;
+}
+.mobile-container[data-v-b215a294] {
+  overflow: scroll;
+}
+.mobile-container[data-v-b215a294]::-webkit-scrollbar {
+    display: none;
+}
+.slide-page[data-v-b215a294] {
+  display: block;
+  height: 100vh;
+}
+.slide-item[data-v-b215a294] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  overflow: hidden;
+  height: 100%;
+  transition: transform 0.5s ease-in-out, z-index 0.3s ease-in-out;
+  /*  img.full-page {
+    // **************** to keep image ratio
+    min-height: 100%;
+    min-width: 100%;
+    width: auto;
+    // **************** to let image center
+    display: absolute;
+    left: 50%;
+    @include transform(translate(-50%, 0));
+    // background-color: gray;
+    // opacity: 0.6;
+  }*/
+}
+.slide-item .box[data-v-b215a294] {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+        justify-content: center;
+    -ms-flex-flow: column;
+        flex-flow: column;
+    -ms-flex-align: center;
+        align-items: center;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.8), transparent);
+}
+.slide-item .box .status[data-v-b215a294] {
+      background: #db4f4f;
+      color: white;
+}
+.slide-item .box .slogan[data-v-b215a294] {
+      margin: 1em 0;
+      font-size: 3rem;
+      color: white;
+      text-shadow: 0 0 5px gray;
+}
+a[data-v-b215a294] {
+  cursor: pointer;
+}
+a:hover i[data-v-b215a294] {
+    color: white !important;
+}
+a.pre[data-v-b215a294], a.next[data-v-b215a294] {
+    position: absolute;
+    z-index: 5;
+    top: 44vh;
+    text-shadow: 0 0 5px lightgray;
+}
+a.pre[data-v-b215a294] {
+    left: 5px;
+}
+a.next[data-v-b215a294] {
+    right: 5px;
+}
+a i[data-v-b215a294] {
+    transition: all 0.3s;
+}
+.m-slide-page[data-v-b215a294] {
+  white-space: nowrap;
+}
+.m-slide-item[data-v-b215a294] {
+  display: inline-block;
+  width: 98vw;
+  height: 70vh;
+  margin: 0 0.5px;
+  background-size: cover;
+  background-position: center;
+}
+.m-slide-item .box[data-v-b215a294] {
+    min-height: 100%;
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.8), transparent);
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+        justify-content: center;
+    -ms-flex-flow: column;
+        flex-flow: column;
+    -ms-flex-align: center;
+        align-items: center;
+}
+.m-slide-item .box .status[data-v-b215a294] {
+      color: white;
+      background-color: #db4f4f;
+}
+.m-slide-item .box .title[data-v-b215a294] {
+      color: white;
+}
+</style><style type="text/css">
+*[data-v-d57d0dd0] {
+  box-sizing: border-box;
+}
+body[data-v-d57d0dd0] {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component[data-v-d57d0dd0] {
+  position: relative;
+}
+.component h1[data-v-d57d0dd0], .component h2[data-v-d57d0dd0], .component h3[data-v-d57d0dd0], .component h4[data-v-d57d0dd0], .component h5[data-v-d57d0dd0], .component h6[data-v-d57d0dd0], .component p[data-v-d57d0dd0] {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component a[data-v-d57d0dd0], .component button[data-v-d57d0dd0] {
+    cursor: pointer !important;
+    color: dimgray;
+}
+.component strong[data-v-d57d0dd0] {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only[data-v-d57d0dd0] {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only[data-v-d57d0dd0] {
+    display: none !important;
+}
+}
+.component[data-v-d57d0dd0] {
+  width: 100%;
+  max-width: 1200px;
+  margin: 2em auto;
+  font-size: 0.8rem;
+}
+.subtitle[data-v-d57d0dd0] {
+  text-align: center;
+  font-size: 2em;
+  font-weight: bold;
+  margin: 1em 0;
+}
+.container[data-v-d57d0dd0] {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  text-align: center;
+  -ms-flex-flow: row nowrap;
+      flex-flow: row nowrap;
+}
+@media only screen and (max-width: 767px) {
+.container[data-v-d57d0dd0] {
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+}
+}
+.container .step[data-v-d57d0dd0] {
+    -ms-flex: 1;
+        flex: 1;
+    margin: 0 1em;
+    padding: 1em;
+}
+@media only screen and (max-width: 600px) {
+.container .step[data-v-d57d0dd0] {
+        min-width: 100vw;
+}
+}
+.container .number[data-v-d57d0dd0],
+  .container .label[data-v-d57d0dd0],
+  .container .description[data-v-d57d0dd0] {
+    margin: 0 auto;
+    margin-top: 15px;
+}
+.container .number[data-v-d57d0dd0] {
+    border-radius: 1em;
+    color: white;
+    background: lightcoral;
+    font-size: 5rem;
+    font-weight: 700;
+    line-height: 1.2em;
+    width: 1.2em;
+    height: 1.2em;
+}
+.container .label[data-v-d57d0dd0] {
+    display: inline-block;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1em;
+    border-bottom: 3px #000 solid;
+    padding: 3px 7px;
+}
+.container .description[data-v-d57d0dd0] {
+    text-align: center;
+    line-height: 1.4;
+    white-space: pre;
+}
+</style><style type="text/css">
+*[data-v-d5ab316a] {
+  box-sizing: border-box;
+}
+body[data-v-d5ab316a] {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component[data-v-d5ab316a] {
+  position: relative;
+}
+.component h1[data-v-d5ab316a], .component h2[data-v-d5ab316a], .component h3[data-v-d5ab316a], .component h4[data-v-d5ab316a], .component h5[data-v-d5ab316a], .component h6[data-v-d5ab316a], .component p[data-v-d5ab316a] {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component a[data-v-d5ab316a], .component button[data-v-d5ab316a] {
+    cursor: pointer !important;
+    color: dimgray;
+}
+.component strong[data-v-d5ab316a] {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only[data-v-d5ab316a] {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only[data-v-d5ab316a] {
+    display: none !important;
+}
+}
+.component[data-v-d5ab316a] {
+  padding: 1em 0;
+}
+.number[data-v-d5ab316a] {
+  border-radius: 1em;
+  color: white;
+  background: #db4f4f;
+  font-size: 2em;
+  font-weight: 700;
+  line-height: 1.2em;
+  width: 1.2em;
+  height: 1.2em;
+}
+.label[data-v-d5ab316a] {
+  padding: .3em 0 0 .3em;
+}
+.ui.steps .step[data-v-d5ab316a] {
+  -ms-flex: 1 1 auto;
+      flex: 1 1 auto;
+}
+@media only screen and (max-width: 767px) {
+.component[data-v-d5ab316a] {
+    padding: 0px;
+    border: 0px;
+}
+.ui.container[data-v-d5ab316a] {
+    margin: 0 !important;
+}
+.mobile-step[data-v-d5ab316a] {
+    position: absolute;
+    /*    a.step {
+      color: white;
+      background: $step_color;
+      border: 1px solid white;
+      border-width: 1px 0;
+      display: block;
+      width: 5vh !important;
+      height: calc(100vh / 5);
+      padding: 3px;
+      opacity: 0.7;
+      font-size: 2.5vh;
+      line-height: 3.3vh;
+      padding: 3.33vh 0px;
+      border-left: solid 1px rgba(0, 0, 0, 0.2);
+      border-bottom-left-radius: 10px;
+      border-top-left-radius: 10px;
+      border-top: solid 1px rgba(0, 0, 0, 0.2);
+      border-right: solid 1px rgba(0, 0, 0, 0.2);
+      box-shadow: inset -2px 0px 1px rgba(0, 0, 0, 0.1);
+      &:hover {
+        opacity: 1;
+      }
+      .active {
+        border-right: 0px;
+        box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.2);
+      }
+      .label {
+        font-size: 2.5vh;
+        line-height: 3.3vh;
+      }
+    }*/
+}
+.mobile-step .ui.menu[data-v-d5ab316a] {
+      width: 2em;
+}
+.mobile-step .ui.menu .item[data-v-d5ab316a] {
+        padding: 1em 0;
+}
+.mobile-step .ui.menu .item.active[data-v-d5ab316a] {
+          color: white;
+          background: #db4f4f;
+}
+}
+</style><style type="text/css">
+*[data-v-25a28cf5] {
+  box-sizing: border-box;
+}
+body[data-v-25a28cf5] {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component[data-v-25a28cf5] {
+  position: relative;
+}
+.component h1[data-v-25a28cf5], .component h2[data-v-25a28cf5], .component h3[data-v-25a28cf5], .component h4[data-v-25a28cf5], .component h5[data-v-25a28cf5], .component h6[data-v-25a28cf5], .component p[data-v-25a28cf5] {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component a[data-v-25a28cf5], .component button[data-v-25a28cf5] {
+    cursor: pointer !important;
+    color: dimgray;
+}
+.component strong[data-v-25a28cf5] {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only[data-v-25a28cf5] {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only[data-v-25a28cf5] {
+    display: none !important;
+}
+}
+.box[data-v-25a28cf5] {
+  display: -ms-flexbox !important;
+  display: flex !important;
+}
+a[data-v-25a28cf5] {
+  box-shadow: 0 3px 1em rgba(0, 0, 0, 0.1);
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: column nowrap;
+      flex-flow: column nowrap;
+}
+a img[data-v-25a28cf5] {
+    -ms-flex: 1 1;
+        flex: 1 1;
+    max-width: 100%;
+    height: auto;
+}
+a .progress_bar[data-v-25a28cf5] {
+    background-color: #CCC;
+    padding: 0;
+    margin-bottom: 4px;
+}
+a .progress_bar .progress[data-v-25a28cf5] {
+      height: 5px;
+      background-color: lightcoral;
+}
+</style><style type="text/css">
+.m-step-title[data-v-25a28cf5] {
+  background-color: #E6E6E6;
+  text-align: left;
+  padding: 1rem;
+  font-size: 1.3rem;
+  margin-right: -2rem;
+  position: absolute;
+  z-index: 1;
+  width: 120%;
+}
+.thin-only[data-v-25a28cf5] {
+  margin-top: -1em;
+}
+.m-context[data-v-25a28cf5] {
+  padding-top: 50px;
+}
+.m-title[data-v-25a28cf5] {
+  text-align: left;
+  background-color: #E6E6E6;
+  margin-right: -1rem;
+  padding: 1rem;
+}
+</style><style type="text/css">
+*[data-v-83fa9a80] {
+  box-sizing: border-box;
+}
+body[data-v-83fa9a80] {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component[data-v-83fa9a80] {
+  position: relative;
+}
+.component h1[data-v-83fa9a80], .component h2[data-v-83fa9a80], .component h3[data-v-83fa9a80], .component h4[data-v-83fa9a80], .component h5[data-v-83fa9a80], .component h6[data-v-83fa9a80], .component p[data-v-83fa9a80] {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component a[data-v-83fa9a80], .component button[data-v-83fa9a80] {
+    cursor: pointer !important;
+    color: dimgray;
+}
+.component strong[data-v-83fa9a80] {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only[data-v-83fa9a80] {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only[data-v-83fa9a80] {
+    display: none !important;
+}
+}
+.component[data-v-83fa9a80] {
+  /*
+    .inner {
+      // border: 1px solid black;
+      // min-height: 6em;
+      // height: calc(25vw - 4em);
+      // @media only screen and (max-width: 767px) {
+      //   height: calc(50vw - 5em);        
+      // }
+      // @media only screen and (max-width: 991px) and (min-width: 768px) {
+      //   height: calc(50vw - 5em);
+      // }
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        box-shadow: 0 3px 1em rgba(0, 0, 0, 0.2);
+        // width: 100%;
+        // height: 100%;
+        overflow: hidden;
+        .txt {
+          position: relative;
+          z-index: 1;
+          display: inline;
+          font-size: 3rem;
+          line-height: 3em;
+          @include transition(all 0.3s);
+          text-shadow: 1px 1px 1em white;
+          color: black;
+          font-weight: 700;
+        }
+        img {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          @include transform(translate(-50%,-50%));
+          max-width: 100%;
+          height: auto;
+          @include transition(all 0.3s);
+          opacity: 0.5;
+        }
+
+        &:hover {
+          .txt {
+            text-shadow: 1px 1px 1em black;
+            color: white;
+          }
+          img {
+            opacity: 1;
+          }
+        }
+      }
+    }*/
+}
+</style><style type="text/css">
+*[data-v-38a1e9c4] {
+  box-sizing: border-box;
+}
+body[data-v-38a1e9c4] {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component[data-v-38a1e9c4] {
+  position: relative;
+}
+.component h1[data-v-38a1e9c4], .component h2[data-v-38a1e9c4], .component h3[data-v-38a1e9c4], .component h4[data-v-38a1e9c4], .component h5[data-v-38a1e9c4], .component h6[data-v-38a1e9c4], .component p[data-v-38a1e9c4] {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component a[data-v-38a1e9c4], .component button[data-v-38a1e9c4] {
+    cursor: pointer !important;
+    color: dimgray;
+}
+.component strong[data-v-38a1e9c4] {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only[data-v-38a1e9c4] {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only[data-v-38a1e9c4] {
+    display: none !important;
+}
+}
+</style><style type="text/css">
+*[data-v-41c83e74] {
+  box-sizing: border-box;
+}
+body[data-v-41c83e74] {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component[data-v-41c83e74] {
+  position: relative;
+}
+.component h1[data-v-41c83e74], .component h2[data-v-41c83e74], .component h3[data-v-41c83e74], .component h4[data-v-41c83e74], .component h5[data-v-41c83e74], .component h6[data-v-41c83e74], .component p[data-v-41c83e74] {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component a[data-v-41c83e74], .component button[data-v-41c83e74] {
+    cursor: pointer !important;
+    color: dimgray;
+}
+.component strong[data-v-41c83e74] {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only[data-v-41c83e74] {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only[data-v-41c83e74] {
+    display: none !important;
+}
+}
+</style><style type="text/css">
+*[data-v-b147fe1e] {
+  box-sizing: border-box;
+}
+body[data-v-b147fe1e] {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component[data-v-b147fe1e] {
+  position: relative;
+}
+.component h1[data-v-b147fe1e], .component h2[data-v-b147fe1e], .component h3[data-v-b147fe1e], .component h4[data-v-b147fe1e], .component h5[data-v-b147fe1e], .component h6[data-v-b147fe1e], .component p[data-v-b147fe1e] {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component a[data-v-b147fe1e], .component button[data-v-b147fe1e] {
+    cursor: pointer !important;
+    color: dimgray;
+}
+.component strong[data-v-b147fe1e] {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only[data-v-b147fe1e] {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only[data-v-b147fe1e] {
+    display: none !important;
+}
+}
+</style><style type="text/css">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style><style type="text/css">
+*[data-v-c235cf6e] {
+  box-sizing: border-box;
+}
+body[data-v-c235cf6e] {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component[data-v-c235cf6e] {
+  position: relative;
+}
+.component h1[data-v-c235cf6e], .component h2[data-v-c235cf6e], .component h3[data-v-c235cf6e], .component h4[data-v-c235cf6e], .component h5[data-v-c235cf6e], .component h6[data-v-c235cf6e], .component p[data-v-c235cf6e] {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component a[data-v-c235cf6e], .component button[data-v-c235cf6e] {
+    cursor: pointer !important;
+    color: dimgray;
+}
+.component strong[data-v-c235cf6e] {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only[data-v-c235cf6e] {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only[data-v-c235cf6e] {
+    display: none !important;
+}
+}
+.component[data-v-c235cf6e] {
+  margin: auto;
+}
+.fat-only h1.ui.huge.header[data-v-c235cf6e] {
+  margin: 25px 0 25px 0;
+  font-size: 2rem;
+}
+.thin-only .ui.steps .step[data-v-c235cf6e] {
+  border-right-width: 0;
+}
+.thin-only h1.ui.huge.header[data-v-c235cf6e] {
+  margin-top: 0;
+  font-size: 1.5rem;
+}
+.thin-only .tab_container[data-v-c235cf6e] {
+  width: 98%;
+}
+.thin-only .ui.big.steps.top.attached a.step[data-v-c235cf6e] {
+  border-bottom: inherit;
+}
+</style><style type="text/css">
+*[data-v-2406671b] {
+  box-sizing: border-box;
+}
+body[data-v-2406671b] {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component[data-v-2406671b] {
+  position: relative;
+}
+.component h1[data-v-2406671b], .component h2[data-v-2406671b], .component h3[data-v-2406671b], .component h4[data-v-2406671b], .component h5[data-v-2406671b], .component h6[data-v-2406671b], .component p[data-v-2406671b] {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component a[data-v-2406671b], .component button[data-v-2406671b] {
+    cursor: pointer !important;
+    color: dimgray;
+}
+.component strong[data-v-2406671b] {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only[data-v-2406671b] {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only[data-v-2406671b] {
+    display: none !important;
+}
+}
+.content[data-v-2406671b] {
+  margin-top: 10px;
+}
+.fat-only[data-v-2406671b] {
+  margin-bottom: 25px;
+}
+</style><style type="text/css">
+*[data-v-099cbb35] {
+  box-sizing: border-box;
+}
+body[data-v-099cbb35] {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component[data-v-099cbb35] {
+  position: relative;
+}
+.component h1[data-v-099cbb35], .component h2[data-v-099cbb35], .component h3[data-v-099cbb35], .component h4[data-v-099cbb35], .component h5[data-v-099cbb35], .component h6[data-v-099cbb35], .component p[data-v-099cbb35] {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component a[data-v-099cbb35], .component button[data-v-099cbb35] {
+    cursor: pointer !important;
+    color: dimgray;
+}
+.component strong[data-v-099cbb35] {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only[data-v-099cbb35] {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only[data-v-099cbb35] {
+    display: none !important;
+}
+}
+.step-progress-bar[data-v-099cbb35] {
+  width: 600px;
+  margin: 0 auto;
+  display: block;
+  height: 100px;
+  padding: 10px;
+}
+ul.progress-bar[data-v-099cbb35] {
+  counter-reset: step;
+  padding: 0;
+}
+.step-progress-bar li[data-v-099cbb35] {
+  list-style-type: none;
+  float: left;
+  color: #40B3BF;
+  width: 20%;
+  position: relative;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+.step-progress-bar li[data-v-099cbb35]:before {
+  content: counter(step);
+  counter-increment: step;
+  width: 30px;
+  height: 30px;
+  border: 2px solid #40B3BF;
+  border-radius: 50%;
+  display: block;
+  text-align: center;
+  line-height: 30px;
+  margin: 0 auto 10px auto;
+  z-index: 9;
+  background-color: white;
+  font-weight: 600;
+}
+.step-progress-bar li[data-v-099cbb35]:after {
+  content: "";
+  width: 100%;
+  position: absolute;
+  height: 2px;
+  background-color: #40B3BF;
+  top: 16px;
+  left: 50%;
+  z-index: -1;
+}
+.step-progress-bar li[data-v-099cbb35]:last-child:after {
+  content: none;
+}
+.step-progress-bar li.active[data-v-099cbb35] {
+  color: #DB5252;
+}
+.step-progress-bar li.active[data-v-099cbb35]:before {
+  border-color: #DB5252;
+}
+.step-progress-bar li.active[data-v-099cbb35]:after {
+  background-color: #DB5252;
+}
+.thin-only .step-progress-bar[data-v-099cbb35] {
+  width: 100%;
+}
+.thin-only .step-progress-bar li[data-v-099cbb35] {
+    font-size: 1rem;
+}
+</style><style type="text/css">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style><style type="text/css">
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component {
+  position: relative;
+}
+.component h1, .component h2, .component h3, .component h4, .component h5, .component h6, .component p {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component a, .component button {
+    cursor: pointer !important;
+    color: dimgray;
+}
+.component strong {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only {
+    display: none !important;
+}
+}
+.fat-only .content {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.fat-only .content h1, .fat-only .content h2, .fat-only .content h3, .fat-only .content h4, .fat-only .content h5, .fat-only .content h6 {
+    text-align: center;
+}
+.fat-only .content p, .fat-only .content li, .fat-only .content ol {
+    text-align: left;
+}
+.fat-only .content p iframe {
+    display: block;
+    margin: 0 auto;
+}
+.fat-only .content blockquote {
+    margin: 0 0 10px 0;
+    text-align: left;
+    padding: 5px;
+    border-left: 5px solid #e9e9e9;
+    background-color: #f8f8f8;
+    font-weight: 600;
+}
+.thin-only .content {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.thin-only .content iframe {
+    width: 100%;
+}
+.thin-only .content h1, .thin-only .content h2, .thin-only .content h3, .thin-only .content h4, .thin-only .content h5, .thin-only .content h6 {
+    text-align: center;
+}
+.thin-only .content p, .thin-only .content li, .thin-only .content ol {
+    text-align: left;
+}
+.thin-only .content blockquote {
+    margin: 0 0 10px 0;
+    text-align: left;
+    padding: 5px;
+    border-left: 5px solid #e9e9e9;
+    background-color: #f8f8f8;
+    font-weight: 600;
+}
+</style><style type="text/css">
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component {
+  position: relative;
+}
+.component h1, .component h2, .component h3, .component h4, .component h5, .component h6, .component p {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component a, .component button {
+    cursor: pointer !important;
+    color: dimgray;
+}
+.component strong {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only {
+    display: none !important;
+}
+}
+.Discoussioncomponent {
+  font-size: 1.5rem;
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  line-height: 1.5em;
+}
+.textleft {
+  text-align: left;
+}
+.ui.styled.accordion {
+  width: 100%;
+}
+.ui.styled.accordion .title {
+  color: rgba(0, 0, 0, 0.6);
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.ui.accordion .active.content {
+  display: block;
+  max-width: 100%;
+}
+</style><style type="text/css">
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component {
+  position: relative;
+}
+.component h1, .component h2, .component h3, .component h4, .component h5, .component h6, .component p {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component a, .component button {
+    cursor: pointer !important;
+    color: dimgray;
+}
+.component strong {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only {
+    display: none !important;
+}
+}
+.Commentcomponent {
+  font-size: 1.5rem;
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.ui.compact.menu {
+  margin-bottom: 2em;
+}
+.ui.menu .item {
+  padding: 0.5em 0.8em;
+}
+.ui.green.button {
+  background-color: #40B3BF;
+}
+.ui.fluid.button {
+  width: 76%;
+  margin: auto;
+  margin-bottom: 1em;
+  font-size: 1.5rem;
+}
+@media only screen and (max-width: 767px) {
+.ui.fluid.button {
+      font-size: 0.8rem;
+}
+}
+.commentline {
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+  margin: 2em 0em 2em 0em;
+}
+.ui.comments .comment .text {
+  margin: 0.5em 0em 0em 3em;
+}
+@media only screen and (max-width: 767px) {
+.ui.comments .comment .text {
+      margin: 2em 0em 0em 0.5em;
+}
+}
+.ui.comments {
+  max-width: 93%;
+}
+.discussioncontent blockquote {
+  margin: 0 0 10px 0;
+  text-align: left;
+  padding: 5px;
+  border: 0px;
+}
+.discussioncontent blockquote p {
+    text-align: left;
+    font-weight: normal;
+}
+.ui.comments .comment a.author {
+  margin: 0em 1em 0em 0.5em;
+}
+.ui.comments .comment img.avatar {
+  width: 2em;
+}
+</style><style type="text/css">
+.event-list[data-v-25c2a472] {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: column nowrap;
+      flex-flow: column nowrap;
+}
+.event-list .item[data-v-25c2a472] {
+    display: -ms-flexbox;
+    display: flex;
+    text-align: left;
+    padding: 1em;
+    font-size: 1.2rem;
+}
+.event-list .item.dark[data-v-25c2a472] {
+      background-color: #eeeeee;
+}
+.event-list .item.gloom[data-v-25c2a472] {
+      background-color: #f4f4f4;
+}
+.event-list .item.light[data-v-25c2a472] {
+      background-color: #fbfbfb;
+}
+.event-list .item .big[data-v-25c2a472] {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.event-list .item .small[data-v-25c2a472] {
+      -ms-flex: 2 0 6em;
+          flex: 2 0 6em;
+}
+.event-list .item .small p[data-v-25c2a472] {
+        font-weight: 600;
+        margin-bottom: 1.2rem;
+}
+.fat-only .big[data-v-25c2a472] {
+  -ms-flex: 1 0 15em;
+      flex: 1 0 15em;
+}
+.thin-only .item[data-v-25c2a472] {
+  padding: 1em 0 1em 0.5em;
+  font-size: 1.1rem;
+}
+.thin-only .item .big[data-v-25c2a472] {
+    -ms-flex: 1 0 6em;
+        flex: 1 0 6em;
+}
+</style><style type="text/css">
+.ui.teal.button {
+  margin-bottom: 0.5em;
+  background-color: #40B3BF;
+}
+@media only screen and (max-width: 767px) {
+.ui.teal.button {
+      padding: 0.7em;
+}
+}
+</style><style type="text/css">
+.component[data-v-55012550] {
+  position: relative;
+}
+p[data-v-55012550] {
+  text-align: left;
+}
+</style><style type="text/css">
+.component[data-v-10aca067] {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  font-size: 0.8rem;
+}
+.subtitle[data-v-10aca067] {
+  text-align: left;
+  font-size: 1.2rem;
+}
+.container[data-v-10aca067] {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: row wrap;
+      flex-flow: row wrap;
+  text-align: left;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin: 0 -10px;
+}
+.container .item[data-v-10aca067] {
+    -ms-flex: 1;
+        flex: 1;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-flow: column nowrap;
+        flex-flow: column nowrap;
+    position: relative;
+    margin: 10px;
+    min-width: 22vw;
+    max-width: 40vw;
+}
+@media only screen and (max-width: 420px) {
+.container .item[data-v-10aca067] {
+        min-width: 40vw;
+}
+}
+.container .item a[data-v-10aca067] {
+      -ms-flex: 0 0 6em;
+          flex: 0 0 6em;
+}
+.container .item a[data-v-10aca067]:hover {
+        opacity: 0.5;
+}
+.container .item a img.cover[data-v-10aca067] {
+        width: 100%;
+        transition: all 0.3s;
+}
+.container .item .null[data-v-10aca067] {
+      -ms-flex: 1 1 0;
+          flex: 1 1 0;
+}
+.container .item .foot[data-v-10aca067] {
+      -ms-flex: 0 0 10em;
+          flex: 0 0 10em;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+}
+.container .item .foot .title[data-v-10aca067] {
+        font-size: 2vw;
+        line-height: 1.1;
+        margin: .5em 0;
+}
+.container .item .foot .owner[data-v-10aca067] {
+        color: #AAA;
+        margin: 5px;
+}
+.container .item .foot .progress_bar[data-v-10aca067] {
+        background-color: #CCC;
+        padding: 2px 0;
+        margin-bottom: 4px;
+}
+.container .item .foot .progress_bar .progress[data-v-10aca067] {
+          height: 6px;
+          background-color: #000;
+          border-radius: 0 5px 0 0;
+}
+</style></head>
+
+<body>
+    <div id="app" class="app"><div data-v-2a4fae16="" class="component"><nav data-v-2a4fae16="" class="fat-only"><div data-v-2a4fae16="" class="ui grid"><div data-v-2a4fae16="" class="seven wide column"><form data-v-2a4fae16="" class="search"><i data-v-2a4fae16="" class="search icon"></i><input data-v-2a4fae16="" type="search" placeholder="探索"><div data-v-0a5a84f2="" class="component" data-v-2a4fae16="" style="display: none;"><div data-v-0a5a84f2="" class="ui list"><div data-v-0a5a84f2="" class="item"><a href="/topic/directors-election" class="active" data-v-0a5a84f2=""><img data-v-0a5a84f2="" src="https://images.unsplash.com/photo-1431540015161-0bf868a2d407?dpr=1.25&amp;auto=format&amp;fit=crop&amp;w=767&amp;h=511&amp;q=80&amp;cs=tinysrgb&amp;crop=" class="icon"><div data-v-0a5a84f2="" class="text"><div data-v-0a5a84f2="" class="title"><strong></strong>董<strong></strong>監<strong></strong>事<strong></strong>選<strong></strong>任<strong></strong></div><div data-v-0a5a84f2="" class="route-name"><strong></strong>d<strong></strong>i<strong></strong>r<strong></strong>e<strong></strong>c<strong></strong>t<strong></strong>o<strong></strong>r<strong></strong>s<strong></strong>-<strong></strong>e<strong></strong>l<strong></strong>e<strong></strong>c<strong></strong>t<strong></strong>i<strong></strong>o<strong></strong>n<strong></strong></div></div></a></div><div data-v-0a5a84f2="" class="item"><a href="/topic/securitization" class="" data-v-0a5a84f2=""><img data-v-0a5a84f2="" src="http://image.slidesharecdn.com/c8s7nxdwrwook9zljomq-signature-ec5edf5b8d62ee9ad208e4446437b7c1fc16efb6db28685b63bb2604d25236c7-poli-161203074816/95/-1-1024.jpg" class="icon"><div data-v-0a5a84f2="" class="text"><div data-v-0a5a84f2="" class="title"><strong></strong>企<strong></strong>業<strong></strong>資<strong></strong>產<strong></strong>擔<strong></strong>保<strong></strong>法<strong></strong></div><div data-v-0a5a84f2="" class="route-name"><strong></strong>s<strong></strong>e<strong></strong>c<strong></strong>u<strong></strong>r<strong></strong>i<strong></strong>t<strong></strong>i<strong></strong>z<strong></strong>a<strong></strong>t<strong></strong>i<strong></strong>o<strong></strong>n<strong></strong></div></div></a></div><div data-v-0a5a84f2="" class="item"><a href="/topic/closelyheld" class="" data-v-0a5a84f2=""><img data-v-0a5a84f2="" src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?dpr=1.25&amp;auto=format&amp;fit=crop&amp;w=767&amp;h=512&amp;q=80&amp;cs=tinysrgb&amp;crop=" class="icon"><div data-v-0a5a84f2="" class="text"><div data-v-0a5a84f2="" class="title"><strong></strong>閉<strong></strong>鎖<strong></strong>型<strong></strong>公<strong></strong>司<strong></strong></div><div data-v-0a5a84f2="" class="route-name"><strong></strong>c<strong></strong>l<strong></strong>o<strong></strong>s<strong></strong>e<strong></strong>l<strong></strong>y<strong></strong>h<strong></strong>e<strong></strong>l<strong></strong>d<strong></strong></div></div></a></div><div data-v-0a5a84f2="" class="item"><a href="/topic/social-enterprise" class="" data-v-0a5a84f2=""><img data-v-0a5a84f2="" src="http://static.thousandwonders.net/Taiwan.original.3738.jpg" class="icon"><div data-v-0a5a84f2="" class="text"><div data-v-0a5a84f2="" class="title"><strong></strong>社<strong></strong>會<strong></strong>企<strong></strong>業<strong></strong>公<strong></strong>司<strong></strong>法<strong></strong></div><div data-v-0a5a84f2="" class="route-name"><strong></strong>s<strong></strong>o<strong></strong>c<strong></strong>i<strong></strong>a<strong></strong>l<strong></strong>-<strong></strong>e<strong></strong>n<strong></strong>t<strong></strong>e<strong></strong>r<strong></strong>p<strong></strong>r<strong></strong>i<strong></strong>s<strong></strong>e<strong></strong></div></div></a></div><div data-v-0a5a84f2="" class="item"><a href="/topic/crowdfunding" class="" data-v-0a5a84f2=""><img data-v-0a5a84f2="" src="https://c1.staticflickr.com/9/8124/8661000014_cb0056d718_z.jpg" class="icon"><div data-v-0a5a84f2="" class="text"><div data-v-0a5a84f2="" class="title"><strong></strong>群<strong></strong>眾<strong></strong>募<strong></strong>資<strong></strong></div><div data-v-0a5a84f2="" class="route-name"><strong></strong>c<strong></strong>r<strong></strong>o<strong></strong>w<strong></strong>d<strong></strong>f<strong></strong>u<strong></strong>n<strong></strong>d<strong></strong>i<strong></strong>n<strong></strong>g<strong></strong></div></div></a></div><div data-v-0a5a84f2="" class="item"><a href="/topic/data-levy" class="" data-v-0a5a84f2=""><img data-v-0a5a84f2="" src="https://images.unsplash.com/photo-1482859602406-7659b00979fb" class="icon"><div data-v-0a5a84f2="" class="text"><div data-v-0a5a84f2="" class="title"><strong></strong>開<strong></strong>放<strong></strong>資<strong></strong>料<strong></strong>例<strong></strong>外<strong></strong>收<strong></strong>費<strong></strong>原<strong></strong>則<strong></strong></div><div data-v-0a5a84f2="" class="route-name"><strong></strong>d<strong></strong>a<strong></strong>t<strong></strong>a<strong></strong>-<strong></strong>l<strong></strong>e<strong></strong>v<strong></strong>y<strong></strong></div></div></a></div><div data-v-0a5a84f2="" class="item"><a href="/topic/distant-education" class="" data-v-0a5a84f2=""><img data-v-0a5a84f2="" src="https://upload.wikimedia.org/wikipedia/commons/2/2a/American%2C_Indonesian_Students_Link_Hands_Via_Distance_Learning.jpg" class="icon"><div data-v-0a5a84f2="" class="text"><div data-v-0a5a84f2="" class="title"><strong></strong>遠<strong></strong>距<strong></strong>教<strong></strong>育<strong></strong></div><div data-v-0a5a84f2="" class="route-name"><strong></strong>d<strong></strong>i<strong></strong>s<strong></strong>t<strong></strong>a<strong></strong>n<strong></strong>t<strong></strong>-<strong></strong>e<strong></strong>d<strong></strong>u<strong></strong>c<strong></strong>a<strong></strong>t<strong></strong>i<strong></strong>o<strong></strong>n<strong></strong></div></div></a></div><div data-v-0a5a84f2="" class="item"><a href="/topic/eliquor" class="" data-v-0a5a84f2=""><img data-v-0a5a84f2="" src="http://image.slidesharecdn.com/zbxi01iqoy2zrsqzsu1a-signature-a2c1b04c1b0e46e92533427e0ed861b29a57eaa126a150b1594cb3e1174531a0-poli-160329231814/95/-1-1024.jpg" class="icon"><div data-v-0a5a84f2="" class="text"><div data-v-0a5a84f2="" class="title"><strong></strong>網<strong></strong>路<strong></strong>賣<strong></strong>酒<strong></strong>配<strong></strong>套<strong></strong>措<strong></strong>施<strong></strong></div><div data-v-0a5a84f2="" class="route-name"><strong></strong>e<strong></strong>l<strong></strong>i<strong></strong>q<strong></strong>u<strong></strong>o<strong></strong>r<strong></strong></div></div></a></div><div data-v-0a5a84f2="" class="item"><a href="/topic/etax" class="" data-v-0a5a84f2=""><img data-v-0a5a84f2="" src="https://images.unsplash.com/photo-1483239546567-ccc4ce2b344a?dpr=2&amp;auto=format&amp;fit=crop&amp;w=1500&amp;h=877&amp;q=80&amp;cs=tinysrgb&amp;crop=" class="icon"><div data-v-0a5a84f2="" class="text"><div data-v-0a5a84f2="" class="title"><strong></strong>網<strong></strong>路<strong></strong>交<strong></strong>易<strong></strong>課<strong></strong>稅<strong></strong></div><div data-v-0a5a84f2="" class="route-name"><strong></strong>e<strong></strong>t<strong></strong>a<strong></strong>x<strong></strong></div></div></a></div><div data-v-0a5a84f2="" class="item"><a href="/topic/personal-data-protection" class="" data-v-0a5a84f2=""><img data-v-0a5a84f2="" src="https://images.unsplash.com/photo-1457682524032-465ef406d105?dpr=1.25&amp;auto=format&amp;fit=crop&amp;w=767&amp;h=511&amp;q=80&amp;cs=tinysrgb&amp;crop=" class="icon"><div data-v-0a5a84f2="" class="text"><div data-v-0a5a84f2="" class="title"><strong></strong>個<strong></strong>資<strong></strong>利<strong></strong>用<strong></strong>與<strong></strong>去<strong></strong>識<strong></strong>別<strong></strong>化<strong></strong></div><div data-v-0a5a84f2="" class="route-name"><strong></strong>p<strong></strong>e<strong></strong>r<strong></strong>s<strong></strong>o<strong></strong>n<strong></strong>a<strong></strong>l<strong></strong>-<strong></strong>d<strong></strong>a<strong></strong>t<strong></strong>a<strong></strong>-<strong></strong>p<strong></strong>r<strong></strong>o<strong></strong>t<strong></strong>e<strong></strong>c<strong></strong>t<strong></strong>i<strong></strong>o<strong></strong>n<strong></strong></div></div></a></div><div data-v-0a5a84f2="" class="item"><a href="/topic/consumer-protection" class="" data-v-0a5a84f2=""><img data-v-0a5a84f2="" src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Walmartmexicaninteriors.jpg" class="icon"><div data-v-0a5a84f2="" class="text"><div data-v-0a5a84f2="" class="title"><strong></strong>零<strong></strong>售<strong></strong>業<strong></strong>網<strong></strong>路<strong></strong>定<strong></strong>型<strong></strong>化<strong></strong>契<strong></strong>約<strong></strong></div><div data-v-0a5a84f2="" class="route-name"><strong></strong>c<strong></strong>o<strong></strong>n<strong></strong>s<strong></strong>u<strong></strong>m<strong></strong>e<strong></strong>r<strong></strong>-<strong></strong>p<strong></strong>r<strong></strong>o<strong></strong>t<strong></strong>e<strong></strong>c<strong></strong>t<strong></strong>i<strong></strong>o<strong></strong>n<strong></strong></div></div></a></div><div data-v-0a5a84f2="" class="item"><a href="/topic/telework" class="" data-v-0a5a84f2=""><img data-v-0a5a84f2="" src="https://c2.staticflickr.com/6/5295/5447249284_45af289868_b.jpg" class="icon"><div data-v-0a5a84f2="" class="text"><div data-v-0a5a84f2="" class="title"><strong></strong>電<strong></strong>傳<strong></strong>勞<strong></strong>動<strong></strong></div><div data-v-0a5a84f2="" class="route-name"><strong></strong>t<strong></strong>e<strong></strong>l<strong></strong>e<strong></strong>w<strong></strong>o<strong></strong>r<strong></strong>k<strong></strong></div></div></a></div><div data-v-0a5a84f2="" class="item"><a href="/topic/telemedicine" class="" data-v-0a5a84f2=""><img data-v-0a5a84f2="" src="https://upload.wikimedia.org/wikipedia/commons/c/c9/%E8%95%AD%E4%B8%AD%E6%AD%A3%E9%99%A2%E9%95%B7%E9%80%B2%E8%A1%8CTelecare_conference.jpg" class="icon"><div data-v-0a5a84f2="" class="text"><div data-v-0a5a84f2="" class="title"><strong></strong>遠<strong></strong>距<strong></strong>健<strong></strong>康<strong></strong>照<strong></strong>護<strong></strong></div><div data-v-0a5a84f2="" class="route-name"><strong></strong>t<strong></strong>e<strong></strong>l<strong></strong>e<strong></strong>m<strong></strong>e<strong></strong>d<strong></strong>i<strong></strong>c<strong></strong>i<strong></strong>n<strong></strong>e<strong></strong></div></div></a></div><div data-v-0a5a84f2="" class="item"><a href="/topic/sandbox" class="" data-v-0a5a84f2=""><img data-v-0a5a84f2="" src="https://images.unsplash.com/photo-1465414829459-d228b58caf6e" class="icon"><div data-v-0a5a84f2="" class="text"><div data-v-0a5a84f2="" class="title"><strong></strong>金<strong></strong>融<strong></strong>監<strong></strong>理<strong></strong>沙<strong></strong>盒<strong></strong></div><div data-v-0a5a84f2="" class="route-name"><strong></strong>s<strong></strong>a<strong></strong>n<strong></strong>d<strong></strong>b<strong></strong>o<strong></strong>x<strong></strong></div></div></a></div><div data-v-0a5a84f2="" class="item"><a href="/topic/cyberbullying" class="" data-v-0a5a84f2=""><img data-v-0a5a84f2="" src="https://images.unsplash.com/photo-1459983001447-eea6d4fbfbb1" class="icon"><div data-v-0a5a84f2="" class="text"><div data-v-0a5a84f2="" class="title"><strong></strong>網<strong></strong>路<strong></strong>霸<strong></strong>凌<strong></strong></div><div data-v-0a5a84f2="" class="route-name"><strong></strong>c<strong></strong>y<strong></strong>b<strong></strong>e<strong></strong>r<strong></strong>b<strong></strong>u<strong></strong>l<strong></strong>l<strong></strong>y<strong></strong>i<strong></strong>n<strong></strong>g<strong></strong></div></div></a></div><div data-v-0a5a84f2="" class="item"><a href="/topic/infosecurity" class="router-link-active" data-v-0a5a84f2=""><img data-v-0a5a84f2="" src="https://images.unsplash.com/photo-1452796907770-ad6cd374b12d" class="icon"><div data-v-0a5a84f2="" class="text"><div data-v-0a5a84f2="" class="title"><strong></strong>資<strong></strong>安<strong></strong>管<strong></strong>理<strong></strong></div><div data-v-0a5a84f2="" class="route-name"><strong></strong>i<strong></strong>n<strong></strong>f<strong></strong>o<strong></strong>s<strong></strong>e<strong></strong>c<strong></strong>u<strong></strong>r<strong></strong>i<strong></strong>t<strong></strong>y<strong></strong></div></div></a></div><div data-v-0a5a84f2="" class="item"><a href="/topic/uberx" class="" data-v-0a5a84f2=""><img data-v-0a5a84f2="" src="https://c2.staticflickr.com/8/7043/27806414001_70bd4302de_z.jpg" class="icon"><div data-v-0a5a84f2="" class="text"><div data-v-0a5a84f2="" class="title"><strong></strong>U<strong></strong>b<strong></strong>e<strong></strong>r<strong></strong>X<strong></strong>自<strong></strong>用<strong></strong>車<strong></strong>載<strong></strong>客<strong></strong></div><div data-v-0a5a84f2="" class="route-name"><strong></strong>u<strong></strong>b<strong></strong>e<strong></strong>r<strong></strong>x<strong></strong></div></div></a></div><div data-v-0a5a84f2="" class="item"><a href="/topic/naming" class="" data-v-0a5a84f2=""><img data-v-0a5a84f2="" src="http://static.thousandwonders.net/Taiwan.original.3738.jpg" class="icon"><div data-v-0a5a84f2="" class="text"><div data-v-0a5a84f2="" class="title"><strong></strong>公<strong></strong>司<strong></strong>英<strong></strong>文<strong></strong>名<strong></strong>稱<strong></strong>登<strong></strong>記<strong></strong></div><div data-v-0a5a84f2="" class="route-name"><strong></strong>n<strong></strong>a<strong></strong>m<strong></strong>i<strong></strong>n<strong></strong>g<strong></strong></div></div></a></div><div data-v-0a5a84f2="" class="item"><a href="/topic/airbnb" class="" data-v-0a5a84f2=""><img data-v-0a5a84f2="" src="https://c1.staticflickr.com/1/430/19915395410_611f840957_b.jpg" class="icon"><div data-v-0a5a84f2="" class="text"><div data-v-0a5a84f2="" class="title"><strong></strong>A<strong></strong>i<strong></strong>r<strong></strong>b<strong></strong>n<strong></strong>b<strong></strong>自<strong></strong>用<strong></strong>住<strong></strong>宅<strong></strong>招<strong></strong>租<strong></strong></div><div data-v-0a5a84f2="" class="route-name"><strong></strong>a<strong></strong>i<strong></strong>r<strong></strong>b<strong></strong>n<strong></strong>b<strong></strong></div></div></a></div></div></div></form></div><div data-v-2a4fae16="" class="two wide column"><a href="/" class="logo" data-v-2a4fae16=""><img data-v-2a4fae16="" src="/vTaiwan_logo_2017.png" alt="logo"><span data-v-2a4fae16="">vTaiwan</span></a></div><div data-v-2a4fae16="" class="seven wide column right"><!----><a href="/how-to-use" class="item how-to-use" data-v-2a4fae16="">使用手冊</a><a href="/intro" class="item intro" data-v-2a4fae16="">關於 vTaiwan</a></div></div></nav><nav data-v-2a4fae16="" class="thin-only"><a href="/" class="m-logo" data-v-2a4fae16=""><img data-v-2a4fae16="" src="/vTaiwan_logo_2017.png" alt="logo"><span data-v-2a4fae16="">vTaiwan</span></a><div data-v-2a4fae16="" class="menu"><a href="/how-to-use" class="m-item" data-v-2a4fae16="">使用手冊</a><a href="/" class="m-item router-link-active" data-v-2a4fae16="">探索議題</a><a href="/" class="m-item router-link-active" data-v-2a4fae16="">搜尋議題</a></div></nav></div><div id="test0" style="display: none;">test jQuery</div><div id="main" class="main"><div data-v-c235cf6e="" class="component view" catagories=""><div data-v-c235cf6e="" class="fat-only"><div data-v-c235cf6e="" class="ui container"><div data-v-099cbb35="" class="component" data-v-c235cf6e=""><div data-v-099cbb35="" class="fat-only"><div data-v-099cbb35="" class="step-progress-bar"><ul data-v-099cbb35="" class="progress-bar"><li data-v-099cbb35="" class="active">即將開始</li><li data-v-099cbb35="" class="active">意見徵集</li><li data-v-099cbb35="" class="active">研擬草案</li><li data-v-099cbb35="" class="">送交院會</li><li data-v-099cbb35="" class="">歷史案件</li></ul></div></div><div data-v-099cbb35="" class="thin-only"><div data-v-099cbb35="" class="step-progress-bar"><ul data-v-099cbb35="" class="progress-bar"><li data-v-099cbb35="" class="active">即將開始</li><li data-v-099cbb35="" class="active">意見徵集</li><li data-v-099cbb35="" class="active">研擬草案</li><li data-v-099cbb35="" class="">送交院會</li><li data-v-099cbb35="" class="">歷史案件</li></ul></div></div></div><h1 data-v-c235cf6e="" class="ui huge header">資安管理</h1><div data-v-2406671b="" class="component" data-v-c235cf6e=""><div data-v-2406671b="" class="thin-only"><div data-v-2406671b="" class="content"></div></div><div data-v-2406671b="" class="fat-only"><div data-v-2406671b="" class="content"></div></div></div><div data-v-c235cf6e="" class="ui big steps top attached"><a data-v-c235cf6e="" class="step active"><i data-v-c235cf6e="" class="icon info circle"></i>詳細內容</a><a data-v-c235cf6e="" class="step"><i data-v-c235cf6e="" class="icon calendar"></i>議題時間軸</a><a data-v-c235cf6e="" class="step"><i data-v-c235cf6e="" class="icon comments"></i>參與討論</a></div><div data-v-c235cf6e="" class="ui segment attached"><div data-v-5da5dbe4="" class="info" data-v-c235cf6e=""><div class="component" data-v-5da5dbe4=""><div class="fat-only"><div class="styles content">
+
+<h1>簡介</h1>
+
+ <div style="margin-bottom:5px"> <strong> <a href="https://www.slideshare.net/vtaiwan/16b2b137-394241f19e1057284354f976" title="國家資通訊安全發展方案" target="_blank">國家資通訊安全發展方案</a> </strong> from <strong><a target="_blank" href="https://www.slideshare.net/vtaiwan">vTaiwan.tw</a></strong> </div>
+
+</div></div><div class="thin-only"><div class="styles content">
+
+<h1>簡介</h1>
+
+ <div style="margin-bottom:5px"> <strong> <a href="https://www.slideshare.net/vtaiwan/16b2b137-394241f19e1057284354f976" title="國家資通訊安全發展方案" target="_blank">國家資通訊安全發展方案</a> </strong> from <strong><a target="_blank" href="https://www.slideshare.net/vtaiwan">vTaiwan.tw</a></strong> </div>
+
+</div></div></div><!----><!----></div><div data-v-5da5dbe4="" class="info" data-v-c235cf6e="" style="display: none;"><!----><div data-v-25c2a472="" class="component" data-v-5da5dbe4=""><div data-v-25c2a472="" class="fat-only"><div data-v-25c2a472="" class="event-list"><div data-v-25c2a472="" class="item dark"><div data-v-25c2a472="" class="big">從 2015-05-08 開始 至 2015-06-30</div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">意見徵集  </p><div data-v-25c2a472="" class="title"></div></div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">相關連結</p><div class="urllink" data-v-25c2a472=""><span class="urllink"><span><a href="https://talk.vtaiwan.tw/c/infosecurity" target="_blank" <a="" class="ui teal button"><i class="edit icon"></i>留言</a></span></span></div></div></div><div data-v-25c2a472="" class="item gloom"><div data-v-25c2a472="" class="big">從 2016-08-01 00:00:00 開始 </div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">研擬草案  </p><div data-v-25c2a472="" class="title"></div></div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">相關連結</p><div class="urllink" data-v-25c2a472=""><span class="urllink"><span><a href="http://www.ey.gov.tw/policy2/cp.aspx?n=20C153D492FD4837" target="_blank" <a="" class="ui teal button"><i class="linkify icon"></i>相關</a></span></span></div></div></div></div></div><div data-v-25c2a472="" class="thin-only"><div data-v-25c2a472="" class="event-list"><div data-v-25c2a472="" class="item dark"><div data-v-25c2a472="" class="big">從 2015-05-08 開始 至 2015-06-30</div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">意見徵集  </p><div data-v-25c2a472="" class="title"> </div></div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">相關連結</p><div class="urllink" data-v-25c2a472=""><span class="urllink"><span><a href="https://talk.vtaiwan.tw/c/infosecurity" target="_blank" <a="" class="ui teal button"><i class="edit icon"></i>留言</a></span></span></div></div></div><div data-v-25c2a472="" class="item gloom"><div data-v-25c2a472="" class="big">從 2016-08-01 00:00:00 開始 </div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">研擬草案  </p><div data-v-25c2a472="" class="title"> </div></div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">相關連結</p><div class="urllink" data-v-25c2a472=""><span class="urllink"><span><a href="http://www.ey.gov.tw/policy2/cp.aspx?n=20C153D492FD4837" target="_blank" <a="" class="ui teal button"><i class="linkify icon"></i>相關</a></span></span></div></div></div></div></div></div><!----></div><div data-v-5da5dbe4="" class="info" data-v-c235cf6e="" style="display: none;"><!----><!----><div class="Discoussioncomponent textleft" data-v-5da5dbe4=""><!----><!----><!----><div><div><div class="ui styled accordion"><div class="title"><i class="dropdown icon"></i>資安管理</div><div class="content"><div class="Commentcomponent"><div class="ui compact menu"><a class="item"><i class="reply icon"></i> 2</a><a class="item"><i class="unhide icon"></i> 544</a><a class="item"><i class="user icon"></i> 2   </a><a class="item"><i class="calendar icon"></i> 320 天  </a></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/letter_avatar_proxy/v2/letter/a/91b2a8/100.png"></a><div class="discussioncontent"><a class="author">Archangel_Wu</a><div class="metadata"><span class="date"><div>2016-02-25</div></span></div><div class="text"><div><p>請問 DDoS 算不算是資安的範疇？</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/vtaiwan/100/44_1.png"></a><div class="discussioncontent"><a class="author">vtaiwan</a><div class="metadata"><span class="date"><div>2016-03-19</div></span></div><div class="text"><div><p>抱歉這麼晚回覆，但答案是肯定的。蓄意中斷服務（無論分散與否），都屬於資訊安全管理的一環。</p></div></div><div class="commentline"></div></div></div></div></div><a href="https://talk.vtaiwan.tw/t/topic/512" target="_blank"><div class="ui fluid green labeled submit icon button"><i class="icon edit"></i>我要留言</div></a></div></div></div></div><div><div class="ui styled accordion"><div class="title"><i class="dropdown icon"></i>是否訂定資安管理專法</div><div class="content"><div class="Commentcomponent"><div class="ui compact menu"><a class="item"><i class="reply icon"></i> 3</a><a class="item"><i class="unhide icon"></i> 1415</a><a class="item"><i class="user icon"></i> 4   </a><a class="item"><i class="calendar icon"></i> 346 天  </a></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/ifulita/100/57_1.png"></a><div class="discussioncontent"><a class="author">ifulita</a><div class="metadata"><span class="date"><div>2015-05-07</div></span></div><div class="text"><div><p>有訂定資安管理專法的話會比較適當，<br>但現行法令也應該要一併配合修正。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/letter_avatar_proxy/v2/letter/a/d2c977/100.png"></a><div class="discussioncontent"><a class="author">a10034384</a><div class="metadata"><span class="date"><div>2015-05-16</div></span></div><div class="text"><div><p>應訂定資安專法，成立專責主管機關並同步整併現有組織業務<br>同時，建立資安專法與其他相關法規的爭議處理程序與決策機關</p>
+
+<p>以及，建立統一的資安事件審理、受理窗口，方便與民間部門溝通</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/letter_avatar_proxy/v2/letter/s/958977/100.png"></a><div class="discussioncontent"><a class="author">Summers</a><div class="metadata"><span class="date"><div>2016-02-22</div></span></div><div class="text"><div><p>應訂定資安專法，原有的刑法第36章已難因應目前的資訊環境。</p></div></div><div class="commentline"></div></div></div></div></div><a href="https://talk.vtaiwan.tw/t/topic/520" target="_blank"><div class="ui fluid green labeled submit icon button"><i class="icon edit"></i>我要留言</div></a></div></div></div></div><div><div class="ui styled accordion"><div class="title"><i class="dropdown icon"></i>資安管理專法之主管機關</div><div class="content"><div class="Commentcomponent"><div class="ui compact menu"><a class="item"><i class="reply icon"></i> 6</a><a class="item"><i class="unhide icon"></i> 1683</a><a class="item"><i class="user icon"></i> 6   </a><a class="item"><i class="calendar icon"></i> 584 天  </a></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/ifulita/100/57_1.png"></a><div class="discussioncontent"><a class="author">ifulita</a><div class="metadata"><span class="date"><div>2015-05-07</div></span></div><div class="text"><div><p>由NCC來負責會不會比較好啊?</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/vtaiwan/100/44_1.png"></a><div class="discussioncontent"><a class="author">vtaiwan</a><div class="metadata"><span class="date"><div>2015-05-07</div></span></div><div class="text"><div><p>謝謝 <a class="mention" href="/users/ifulita">@ifulita</a> 的提問。有關<a href="http://ise.ncc.gov.tw/NccGIP/wSite/mp">國家通訊傳播委員會</a>的職掌，與通傳會在<a href="http://www.nicst.ey.gov.tw/cp.aspx?n=F1FB6AFC30C728EC">資安管理會報架構</a>裡，是否適合擔任政策法制推動主管機關之考量，請 <a class="mention" href="/users/nnicst">@nnicst</a> 撥冗回覆，感謝！</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/nnicst/100/158_1.png"></a><div class="discussioncontent"><a class="author">nnicst</a><div class="metadata"><span class="date"><div>2015-05-13</div></span></div><div class="text"><div><p>目前我國國家資訊通信安全政策與資訊通信安全環境之建構，由行政院國家資通安全會報所負責，相關之幕僚作業，由行政院資通安全辦公室辦理，下設網際防護及網際犯罪偵防二體系：</p>
+
+<ul>
+<li>網際防護體系由本院資通安全辦公室主辦，負責整合資安防護資源，推動資安相關政策，國家通訊傳播委員會（簡稱NCC）在此架構下，專責通訊傳播之事務；</li>
+<li>網際犯罪偵防體系由法務部主辦，負責防範網路犯罪、維護民眾隱私、建立資通訊基礎建設安全等工作。</li>
+</ul>
+
+<p>另外，行政院資通安全會報為建立產官學研資通安全技術交流平台，掌握資通安全技術發展趨勢，充實資通安全作業能量，特設資通安全技術交流小組，做為幕僚單位。</p>
+
+<p>謝謝 <a class="mention" href="/users/ifulita">@ifulita</a> 的意見，未來我們將審酌政府組織架構之特殊性、與其他各部會之業務分工等，來確認資安主管機關。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/ifulita/100/57_1.png"></a><div class="discussioncontent"><a class="author">ifulita</a><div class="metadata"><span class="date"><div>2015-05-13</div></span></div><div class="text"><div><p>如果就現有的架構來看，<br>由行政院資通安全辦公室來擔任資安管理專法之主管機關，<br>似乎比由NCC來擔任更為適當?</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/letter_avatar_proxy/v2/letter/a/d2c977/100.png"></a><div class="discussioncontent"><a class="author">a10034384</a><div class="metadata"><span class="date"><div>2015-05-16</div></span></div><div class="text"><div><p>建議是否成立一專責署級單位，整合專責網路隱私、資訊安全、犯罪偵防(協助)、網路交易等事件的單位。<br>統一虛擬世界事務的政府部門對民間事務的窗口，同時達到資源整合運用的效果</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/letter_avatar_proxy/v2/letter/g/47e85d/100.png"></a><div class="discussioncontent"><a class="author">gulivincent</a><div class="metadata"><span class="date"><div>2015-06-30</div></span></div><div class="text"><div><p>對於資安防護標準及去識化機制鑑定等工作均涉及民眾隱私,宜從權利保護及消費者隱私著眼,NCC與業界太接近,顯然不適合,同意以專責行政法人較合適</p></div></div><div class="commentline"></div></div></div></div></div><a href="https://talk.vtaiwan.tw/t/topic/514" target="_blank"><div class="ui fluid green labeled submit icon button"><i class="icon edit"></i>我要留言</div></a></div></div></div></div><div><div class="ui styled accordion"><div class="title"><i class="dropdown icon"></i>其他關於資安管理專法之基本架構建議</div><div class="content"><div class="Commentcomponent"><div class="ui compact menu"><a class="item"><i class="reply icon"></i> 2</a><a class="item"><i class="unhide icon"></i> 1464</a><a class="item"><i class="user icon"></i> 3   </a><a class="item"><i class="calendar icon"></i> 620 天  </a></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/ifulita/100/57_1.png"></a><div class="discussioncontent"><a class="author">ifulita</a><div class="metadata"><span class="date"><div>2015-05-07</div></span></div><div class="text"><div><p>應該將鼓勵加強資安教育及積極培養資安人才也納入資安管理專法的基本架構當中。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/letter_avatar_proxy/v2/letter/d/ac8455/100.png"></a><div class="discussioncontent"><a class="author">dala</a><div class="metadata"><span class="date"><div>2015-05-25</div></span></div><div class="text"><div><p>如果是政府成立資安部門，我會希望該部門能提供這些服務：<br>技術諮詢、產品資安檢測(市場抽樣、公司主動提供)、資安教育訓練、資安通報</p>
+
+<p>PS.目前就算產品本身沒有資安問題，但使用者資料的流向是不是該立法特別注明<br>太多app及社群網站應用所要求開放的權限超過應用本身，而風險使用者可能不自知<br>有無風險分級的可能？</p></div></div><div class="commentline"></div></div></div></div></div><a href="https://talk.vtaiwan.tw/t/topic/522" target="_blank"><div class="ui fluid green labeled submit icon button"><i class="icon edit"></i>我要留言</div></a></div></div></div></div><div><div class="ui styled accordion"><div class="title"><i class="dropdown icon"></i>資訊安全未考慮廠域因素造成穩定度不足之問題</div><div class="content"><div class="Commentcomponent"><div class="ui compact menu"><a class="item"><i class="reply icon"></i> 2</a><a class="item"><i class="unhide icon"></i> 718</a><a class="item"><i class="user icon"></i> 2   </a><a class="item"><i class="calendar icon"></i> 614 天  </a></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/vtaiwan/100/44_1.png"></a><div class="discussioncontent"><a class="author">vtaiwan</a><div class="metadata"><span class="date"><div>2015-05-26</div></span></div><div class="text"><div><p><a class="mention" href="/users/alexander_cobyyacawa">@alexander_cobyyacawa</a>  您好，感謝建議！因硬體因素產生之資安問題，可以舉實例來說明嗎？</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/letter_avatar_proxy/v2/letter/a/d2c977/100.png"></a><div class="discussioncontent"><a class="author">alexander_cobyyacawa</a><div class="metadata"><span class="date"><div>2015-05-30</div></span></div><div class="text"><div><ul>
+<li>車輛行徑間，因廠域之硬體因素，使得在伺服器選擇受限。</li>
+<li>將資安無法完全受保護而藉機解讀個資，以及無法將服務加值。</li>
+<li>接受基礎建設不足所限制資安、資服，都受限於基礎建置因素。</li>
+</ul></div></div><div class="commentline"></div></div></div></div></div><a href="https://talk.vtaiwan.tw/t/topic/539" target="_blank"><div class="ui fluid green labeled submit icon button"><i class="icon edit"></i>我要留言</div></a></div></div></div></div><div><div class="ui styled accordion"><div class="title"><i class="dropdown icon"></i>資安政策與法制推動相關機關之權責</div><div class="content"><div class="Commentcomponent"><div class="ui compact menu"><a class="item"><i class="reply icon"></i> 2</a><a class="item"><i class="unhide icon"></i> 1165</a><a class="item"><i class="user icon"></i> 3   </a><a class="item"><i class="calendar icon"></i> 629 天  </a></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/ifulita/100/57_1.png"></a><div class="discussioncontent"><a class="author">ifulita</a><div class="metadata"><span class="date"><div>2015-05-07</div></span></div><div class="text"><div><p>資安政策與法制推動相關機關所具備的權責當然需要有擬定全國資安政策之發展與推動、制定可供行政機關或民間企業之資安標準、處理資安事件之通報應變之各種程序，<br>該機關也應該要以法規保留一定預算及人力作為推動資安管理措施之用。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/letter_avatar_proxy/v2/letter/a/d2c977/100.png"></a><div class="discussioncontent"><a class="author">a10034384</a><div class="metadata"><span class="date"><div>2015-05-16</div></span></div><div class="text"><div><p>1.專門協調資安、網路虛擬世界事務的各項法規遵循、折衝<br>2.協助原有政府各業務部門推展資訊安全相關事務，例如協助農委會，對於農業資訊系統的建置資安相關議題</p></div></div><div class="commentline"></div></div></div></div></div><a href="https://talk.vtaiwan.tw/t/topic/515" target="_blank"><div class="ui fluid green labeled submit icon button"><i class="icon edit"></i>我要留言</div></a></div></div></div></div><div><div class="ui styled accordion"><div class="title"><i class="dropdown icon"></i>規定之範圍建議</div><div class="content"><div class="Commentcomponent"><div class="ui compact menu"><a class="item"><i class="reply icon"></i> 2</a><a class="item"><i class="unhide icon"></i> 1186</a><a class="item"><i class="user icon"></i> 3   </a><a class="item"><i class="calendar icon"></i> 629 天  </a></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/ifulita/100/57_1.png"></a><div class="discussioncontent"><a class="author">ifulita</a><div class="metadata"><span class="date"><div>2015-05-07</div></span></div><div class="text"><div><p>資安管理專法應該將公部門及私部門一併納入規範，<br>至於標準的話以行業別來決定應管理的私部門應該會較為適當，<br>在這個專法中最好也應該要明定機關應指定專責的人員或單位來負責資安的事。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/letter_avatar_proxy/v2/letter/a/d2c977/100.png"></a><div class="discussioncontent"><a class="author">a10034384</a><div class="metadata"><span class="date"><div>2015-05-16</div></span></div><div class="text"><div><p>1.應將公、私部門一同納入規範<br>2.以台灣證券交易所公開上市公司為主體，加計特殊行業類別營業額一定金額以上的公司<br> 還有政府標案的投標公司，將是否遵循相關規範納入評選標準<br>3.不須明定，建議於公開發行公司財務報表申報時，增設特定揭露事項。<br> 例如該公司的資安部門人力、資安認證、內部稽核機制等<br>對於政府計畫的投標廠商，提供制式表格說明公司資訊安全政策與水準</p></div></div><div class="commentline"></div></div></div></div></div><a href="https://talk.vtaiwan.tw/t/topic/521" target="_blank"><div class="ui fluid green labeled submit icon button"><i class="icon edit"></i>我要留言</div></a></div></div></div></div><div><div class="ui styled accordion"><div class="title"><i class="dropdown icon"></i>基金相關措施建議</div><div class="content"><div class="Commentcomponent"><div class="ui compact menu"><a class="item"><i class="reply icon"></i> 1</a><a class="item"><i class="unhide icon"></i> 1167</a><a class="item"><i class="user icon"></i> 2   </a><a class="item"><i class="calendar icon"></i> 629 天  </a></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/letter_avatar_proxy/v2/letter/a/d2c977/100.png"></a><div class="discussioncontent"><a class="author">a10034384</a><div class="metadata"><span class="date"><div>2015-05-16</div></span></div><div class="text"><div><p>基金來源<br>1.透過網路傳輸相關業者捐輸<br>2.特定頻道、頻寬等共有許可資源，其許可權利金撥入<br>3.以國防預算部分編入<br>4.提供特定企業資安防護服務</p>
+
+<p>用途<br>1.強化台灣整體關鍵軍、民用設施資案防護<br>2.跨國資安合作方案規劃與執行<br>3.先進資安技術研發<br>4.人才培育</p></div></div><div class="commentline"></div></div></div></div></div><a href="https://talk.vtaiwan.tw/t/topic/518" target="_blank"><div class="ui fluid green labeled submit icon button"><i class="icon edit"></i>我要留言</div></a></div></div></div></div><div><div class="ui styled accordion"><div class="title"><i class="dropdown icon"></i>資安管理與發展基金</div><div class="content"><div class="Commentcomponent"><div class="ui compact menu"><a class="item"><i class="reply icon"></i> 1</a><a class="item"><i class="unhide icon"></i> 1156</a><a class="item"><i class="user icon"></i> 2   </a><a class="item"><i class="calendar icon"></i> 637 天  </a></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/ifulita/100/57_1.png"></a><div class="discussioncontent"><a class="author">ifulita</a><div class="metadata"><span class="date"><div>2015-05-07</div></span></div><div class="text"><div><p>透過基本法規定預算比就可以了，<br>不需要再另外成立基金。</p></div></div><div class="commentline"></div></div></div></div></div><a href="https://talk.vtaiwan.tw/t/topic/517" target="_blank"><div class="ui fluid green labeled submit icon button"><i class="icon edit"></i>我要留言</div></a></div></div></div></div></div></div></div></div></div></div><div data-v-c235cf6e="" class="thin-only"><div data-v-c235cf6e="" class="ui container"><div data-v-099cbb35="" class="component" data-v-c235cf6e=""><div data-v-099cbb35="" class="fat-only"><div data-v-099cbb35="" class="step-progress-bar"><ul data-v-099cbb35="" class="progress-bar"><li data-v-099cbb35="" class="active">即將開始</li><li data-v-099cbb35="" class="active">意見徵集</li><li data-v-099cbb35="" class="active">研擬草案</li><li data-v-099cbb35="" class="">送交院會</li><li data-v-099cbb35="" class="">歷史案件</li></ul></div></div><div data-v-099cbb35="" class="thin-only"><div data-v-099cbb35="" class="step-progress-bar"><ul data-v-099cbb35="" class="progress-bar"><li data-v-099cbb35="" class="active">即將開始</li><li data-v-099cbb35="" class="active">意見徵集</li><li data-v-099cbb35="" class="active">研擬草案</li><li data-v-099cbb35="" class="">送交院會</li><li data-v-099cbb35="" class="">歷史案件</li></ul></div></div></div><h1 data-v-c235cf6e="" class="ui huge header">資安管理</h1><div data-v-2406671b="" class="component" data-v-c235cf6e=""><div data-v-2406671b="" class="thin-only"><div data-v-2406671b="" class="content"></div></div><div data-v-2406671b="" class="fat-only"><div data-v-2406671b="" class="content"></div></div></div><div data-v-c235cf6e="" class="ui big steps top attached"><a data-v-c235cf6e="" class="step active"><i data-v-c235cf6e="" class="icon info circle"></i>詳細內容</a><a data-v-c235cf6e="" class="step"><i data-v-c235cf6e="" class="icon calendar"></i>議題時間軸</a><a data-v-c235cf6e="" class="step"><i data-v-c235cf6e="" class="icon comments"></i>參與討論</a></div><div data-v-c235cf6e="" class="ui segment attached"><div data-v-5da5dbe4="" class="info" data-v-c235cf6e=""><div class="component" data-v-5da5dbe4=""><div class="fat-only"><div class="styles content">
+
+<h1>簡介</h1>
+
+ <div style="margin-bottom:5px"> <strong> <a href="https://www.slideshare.net/vtaiwan/16b2b137-394241f19e1057284354f976" title="國家資通訊安全發展方案" target="_blank">國家資通訊安全發展方案</a> </strong> from <strong><a target="_blank" href="https://www.slideshare.net/vtaiwan">vTaiwan.tw</a></strong> </div>
+
+</div></div><div class="thin-only"><div class="styles content">
+
+<h1>簡介</h1>
+
+ <div style="margin-bottom:5px"> <strong> <a href="https://www.slideshare.net/vtaiwan/16b2b137-394241f19e1057284354f976" title="國家資通訊安全發展方案" target="_blank">國家資通訊安全發展方案</a> </strong> from <strong><a target="_blank" href="https://www.slideshare.net/vtaiwan">vTaiwan.tw</a></strong> </div>
+
+</div></div></div><!----><!----></div><div data-v-5da5dbe4="" class="info" data-v-c235cf6e="" style="display: none;"><!----><div data-v-25c2a472="" class="component" data-v-5da5dbe4=""><div data-v-25c2a472="" class="fat-only"><div data-v-25c2a472="" class="event-list"><div data-v-25c2a472="" class="item dark"><div data-v-25c2a472="" class="big">從 2015-05-08 開始 至 2015-06-30</div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">意見徵集  </p><div data-v-25c2a472="" class="title"></div></div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">相關連結</p><div class="urllink" data-v-25c2a472=""><span class="urllink"><span><a href="https://talk.vtaiwan.tw/c/infosecurity" target="_blank" <a="" class="ui teal button"><i class="edit icon"></i>留言</a></span></span></div></div></div><div data-v-25c2a472="" class="item gloom"><div data-v-25c2a472="" class="big">從 2016-08-01 00:00:00 開始 </div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">研擬草案  </p><div data-v-25c2a472="" class="title"></div></div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">相關連結</p><div class="urllink" data-v-25c2a472=""><span class="urllink"><span><a href="http://www.ey.gov.tw/policy2/cp.aspx?n=20C153D492FD4837" target="_blank" <a="" class="ui teal button"><i class="linkify icon"></i>相關</a></span></span></div></div></div></div></div><div data-v-25c2a472="" class="thin-only"><div data-v-25c2a472="" class="event-list"><div data-v-25c2a472="" class="item dark"><div data-v-25c2a472="" class="big">從 2015-05-08 開始 至 2015-06-30</div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">意見徵集  </p><div data-v-25c2a472="" class="title"> </div></div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">相關連結</p><div class="urllink" data-v-25c2a472=""><span class="urllink"><span><a href="https://talk.vtaiwan.tw/c/infosecurity" target="_blank" <a="" class="ui teal button"><i class="edit icon"></i>留言</a></span></span></div></div></div><div data-v-25c2a472="" class="item gloom"><div data-v-25c2a472="" class="big">從 2016-08-01 00:00:00 開始 </div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">研擬草案  </p><div data-v-25c2a472="" class="title"> </div></div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">相關連結</p><div class="urllink" data-v-25c2a472=""><span class="urllink"><span><a href="http://www.ey.gov.tw/policy2/cp.aspx?n=20C153D492FD4837" target="_blank" <a="" class="ui teal button"><i class="linkify icon"></i>相關</a></span></span></div></div></div></div></div></div><!----></div><div data-v-5da5dbe4="" class="info" data-v-c235cf6e="" style="display: none;"><!----><!----><div class="Discoussioncomponent textleft" data-v-5da5dbe4=""><!----><!----><!----><div><div><div class="ui styled accordion"><div class="title"><i class="dropdown icon"></i>資安管理</div><div class="content"><div class="Commentcomponent"><div class="ui compact menu"><a class="item"><i class="reply icon"></i> 2</a><a class="item"><i class="unhide icon"></i> 544</a><a class="item"><i class="user icon"></i> 2   </a><a class="item"><i class="calendar icon"></i> 320 天  </a></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/letter_avatar_proxy/v2/letter/a/91b2a8/100.png"></a><div class="discussioncontent"><a class="author">Archangel_Wu</a><div class="metadata"><span class="date"><div>2016-02-25</div></span></div><div class="text"><div><p>請問 DDoS 算不算是資安的範疇？</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/vtaiwan/100/44_1.png"></a><div class="discussioncontent"><a class="author">vtaiwan</a><div class="metadata"><span class="date"><div>2016-03-19</div></span></div><div class="text"><div><p>抱歉這麼晚回覆，但答案是肯定的。蓄意中斷服務（無論分散與否），都屬於資訊安全管理的一環。</p></div></div><div class="commentline"></div></div></div></div></div><a href="https://talk.vtaiwan.tw/t/topic/512" target="_blank"><div class="ui fluid green labeled submit icon button"><i class="icon edit"></i>我要留言</div></a></div></div></div></div><div><div class="ui styled accordion"><div class="title"><i class="dropdown icon"></i>是否訂定資安管理專法</div><div class="content"><div class="Commentcomponent"><div class="ui compact menu"><a class="item"><i class="reply icon"></i> 3</a><a class="item"><i class="unhide icon"></i> 1415</a><a class="item"><i class="user icon"></i> 4   </a><a class="item"><i class="calendar icon"></i> 346 天  </a></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/ifulita/100/57_1.png"></a><div class="discussioncontent"><a class="author">ifulita</a><div class="metadata"><span class="date"><div>2015-05-07</div></span></div><div class="text"><div><p>有訂定資安管理專法的話會比較適當，<br>但現行法令也應該要一併配合修正。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/letter_avatar_proxy/v2/letter/a/d2c977/100.png"></a><div class="discussioncontent"><a class="author">a10034384</a><div class="metadata"><span class="date"><div>2015-05-16</div></span></div><div class="text"><div><p>應訂定資安專法，成立專責主管機關並同步整併現有組織業務<br>同時，建立資安專法與其他相關法規的爭議處理程序與決策機關</p>
+
+<p>以及，建立統一的資安事件審理、受理窗口，方便與民間部門溝通</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/letter_avatar_proxy/v2/letter/s/958977/100.png"></a><div class="discussioncontent"><a class="author">Summers</a><div class="metadata"><span class="date"><div>2016-02-22</div></span></div><div class="text"><div><p>應訂定資安專法，原有的刑法第36章已難因應目前的資訊環境。</p></div></div><div class="commentline"></div></div></div></div></div><a href="https://talk.vtaiwan.tw/t/topic/520" target="_blank"><div class="ui fluid green labeled submit icon button"><i class="icon edit"></i>我要留言</div></a></div></div></div></div><div><div class="ui styled accordion"><div class="title"><i class="dropdown icon"></i>資安管理專法之主管機關</div><div class="content"><div class="Commentcomponent"><div class="ui compact menu"><a class="item"><i class="reply icon"></i> 6</a><a class="item"><i class="unhide icon"></i> 1683</a><a class="item"><i class="user icon"></i> 6   </a><a class="item"><i class="calendar icon"></i> 584 天  </a></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/ifulita/100/57_1.png"></a><div class="discussioncontent"><a class="author">ifulita</a><div class="metadata"><span class="date"><div>2015-05-07</div></span></div><div class="text"><div><p>由NCC來負責會不會比較好啊?</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/vtaiwan/100/44_1.png"></a><div class="discussioncontent"><a class="author">vtaiwan</a><div class="metadata"><span class="date"><div>2015-05-07</div></span></div><div class="text"><div><p>謝謝 <a class="mention" href="/users/ifulita">@ifulita</a> 的提問。有關<a href="http://ise.ncc.gov.tw/NccGIP/wSite/mp">國家通訊傳播委員會</a>的職掌，與通傳會在<a href="http://www.nicst.ey.gov.tw/cp.aspx?n=F1FB6AFC30C728EC">資安管理會報架構</a>裡，是否適合擔任政策法制推動主管機關之考量，請 <a class="mention" href="/users/nnicst">@nnicst</a> 撥冗回覆，感謝！</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/nnicst/100/158_1.png"></a><div class="discussioncontent"><a class="author">nnicst</a><div class="metadata"><span class="date"><div>2015-05-13</div></span></div><div class="text"><div><p>目前我國國家資訊通信安全政策與資訊通信安全環境之建構，由行政院國家資通安全會報所負責，相關之幕僚作業，由行政院資通安全辦公室辦理，下設網際防護及網際犯罪偵防二體系：</p>
+
+<ul>
+<li>網際防護體系由本院資通安全辦公室主辦，負責整合資安防護資源，推動資安相關政策，國家通訊傳播委員會（簡稱NCC）在此架構下，專責通訊傳播之事務；</li>
+<li>網際犯罪偵防體系由法務部主辦，負責防範網路犯罪、維護民眾隱私、建立資通訊基礎建設安全等工作。</li>
+</ul>
+
+<p>另外，行政院資通安全會報為建立產官學研資通安全技術交流平台，掌握資通安全技術發展趨勢，充實資通安全作業能量，特設資通安全技術交流小組，做為幕僚單位。</p>
+
+<p>謝謝 <a class="mention" href="/users/ifulita">@ifulita</a> 的意見，未來我們將審酌政府組織架構之特殊性、與其他各部會之業務分工等，來確認資安主管機關。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/ifulita/100/57_1.png"></a><div class="discussioncontent"><a class="author">ifulita</a><div class="metadata"><span class="date"><div>2015-05-13</div></span></div><div class="text"><div><p>如果就現有的架構來看，<br>由行政院資通安全辦公室來擔任資安管理專法之主管機關，<br>似乎比由NCC來擔任更為適當?</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/letter_avatar_proxy/v2/letter/a/d2c977/100.png"></a><div class="discussioncontent"><a class="author">a10034384</a><div class="metadata"><span class="date"><div>2015-05-16</div></span></div><div class="text"><div><p>建議是否成立一專責署級單位，整合專責網路隱私、資訊安全、犯罪偵防(協助)、網路交易等事件的單位。<br>統一虛擬世界事務的政府部門對民間事務的窗口，同時達到資源整合運用的效果</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/letter_avatar_proxy/v2/letter/g/47e85d/100.png"></a><div class="discussioncontent"><a class="author">gulivincent</a><div class="metadata"><span class="date"><div>2015-06-30</div></span></div><div class="text"><div><p>對於資安防護標準及去識化機制鑑定等工作均涉及民眾隱私,宜從權利保護及消費者隱私著眼,NCC與業界太接近,顯然不適合,同意以專責行政法人較合適</p></div></div><div class="commentline"></div></div></div></div></div><a href="https://talk.vtaiwan.tw/t/topic/514" target="_blank"><div class="ui fluid green labeled submit icon button"><i class="icon edit"></i>我要留言</div></a></div></div></div></div><div><div class="ui styled accordion"><div class="title"><i class="dropdown icon"></i>其他關於資安管理專法之基本架構建議</div><div class="content"><div class="Commentcomponent"><div class="ui compact menu"><a class="item"><i class="reply icon"></i> 2</a><a class="item"><i class="unhide icon"></i> 1464</a><a class="item"><i class="user icon"></i> 3   </a><a class="item"><i class="calendar icon"></i> 620 天  </a></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/ifulita/100/57_1.png"></a><div class="discussioncontent"><a class="author">ifulita</a><div class="metadata"><span class="date"><div>2015-05-07</div></span></div><div class="text"><div><p>應該將鼓勵加強資安教育及積極培養資安人才也納入資安管理專法的基本架構當中。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/letter_avatar_proxy/v2/letter/d/ac8455/100.png"></a><div class="discussioncontent"><a class="author">dala</a><div class="metadata"><span class="date"><div>2015-05-25</div></span></div><div class="text"><div><p>如果是政府成立資安部門，我會希望該部門能提供這些服務：<br>技術諮詢、產品資安檢測(市場抽樣、公司主動提供)、資安教育訓練、資安通報</p>
+
+<p>PS.目前就算產品本身沒有資安問題，但使用者資料的流向是不是該立法特別注明<br>太多app及社群網站應用所要求開放的權限超過應用本身，而風險使用者可能不自知<br>有無風險分級的可能？</p></div></div><div class="commentline"></div></div></div></div></div><a href="https://talk.vtaiwan.tw/t/topic/522" target="_blank"><div class="ui fluid green labeled submit icon button"><i class="icon edit"></i>我要留言</div></a></div></div></div></div><div><div class="ui styled accordion"><div class="title"><i class="dropdown icon"></i>資訊安全未考慮廠域因素造成穩定度不足之問題</div><div class="content"><div class="Commentcomponent"><div class="ui compact menu"><a class="item"><i class="reply icon"></i> 2</a><a class="item"><i class="unhide icon"></i> 718</a><a class="item"><i class="user icon"></i> 2   </a><a class="item"><i class="calendar icon"></i> 614 天  </a></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/vtaiwan/100/44_1.png"></a><div class="discussioncontent"><a class="author">vtaiwan</a><div class="metadata"><span class="date"><div>2015-05-26</div></span></div><div class="text"><div><p><a class="mention" href="/users/alexander_cobyyacawa">@alexander_cobyyacawa</a>  您好，感謝建議！因硬體因素產生之資安問題，可以舉實例來說明嗎？</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/letter_avatar_proxy/v2/letter/a/d2c977/100.png"></a><div class="discussioncontent"><a class="author">alexander_cobyyacawa</a><div class="metadata"><span class="date"><div>2015-05-30</div></span></div><div class="text"><div><ul>
+<li>車輛行徑間，因廠域之硬體因素，使得在伺服器選擇受限。</li>
+<li>將資安無法完全受保護而藉機解讀個資，以及無法將服務加值。</li>
+<li>接受基礎建設不足所限制資安、資服，都受限於基礎建置因素。</li>
+</ul></div></div><div class="commentline"></div></div></div></div></div><a href="https://talk.vtaiwan.tw/t/topic/539" target="_blank"><div class="ui fluid green labeled submit icon button"><i class="icon edit"></i>我要留言</div></a></div></div></div></div><div><div class="ui styled accordion"><div class="title"><i class="dropdown icon"></i>資安政策與法制推動相關機關之權責</div><div class="content"><div class="Commentcomponent"><div class="ui compact menu"><a class="item"><i class="reply icon"></i> 2</a><a class="item"><i class="unhide icon"></i> 1165</a><a class="item"><i class="user icon"></i> 3   </a><a class="item"><i class="calendar icon"></i> 629 天  </a></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/ifulita/100/57_1.png"></a><div class="discussioncontent"><a class="author">ifulita</a><div class="metadata"><span class="date"><div>2015-05-07</div></span></div><div class="text"><div><p>資安政策與法制推動相關機關所具備的權責當然需要有擬定全國資安政策之發展與推動、制定可供行政機關或民間企業之資安標準、處理資安事件之通報應變之各種程序，<br>該機關也應該要以法規保留一定預算及人力作為推動資安管理措施之用。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/letter_avatar_proxy/v2/letter/a/d2c977/100.png"></a><div class="discussioncontent"><a class="author">a10034384</a><div class="metadata"><span class="date"><div>2015-05-16</div></span></div><div class="text"><div><p>1.專門協調資安、網路虛擬世界事務的各項法規遵循、折衝<br>2.協助原有政府各業務部門推展資訊安全相關事務，例如協助農委會，對於農業資訊系統的建置資安相關議題</p></div></div><div class="commentline"></div></div></div></div></div><a href="https://talk.vtaiwan.tw/t/topic/515" target="_blank"><div class="ui fluid green labeled submit icon button"><i class="icon edit"></i>我要留言</div></a></div></div></div></div><div><div class="ui styled accordion"><div class="title"><i class="dropdown icon"></i>規定之範圍建議</div><div class="content"><div class="Commentcomponent"><div class="ui compact menu"><a class="item"><i class="reply icon"></i> 2</a><a class="item"><i class="unhide icon"></i> 1186</a><a class="item"><i class="user icon"></i> 3   </a><a class="item"><i class="calendar icon"></i> 629 天  </a></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/ifulita/100/57_1.png"></a><div class="discussioncontent"><a class="author">ifulita</a><div class="metadata"><span class="date"><div>2015-05-07</div></span></div><div class="text"><div><p>資安管理專法應該將公部門及私部門一併納入規範，<br>至於標準的話以行業別來決定應管理的私部門應該會較為適當，<br>在這個專法中最好也應該要明定機關應指定專責的人員或單位來負責資安的事。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/letter_avatar_proxy/v2/letter/a/d2c977/100.png"></a><div class="discussioncontent"><a class="author">a10034384</a><div class="metadata"><span class="date"><div>2015-05-16</div></span></div><div class="text"><div><p>1.應將公、私部門一同納入規範<br>2.以台灣證券交易所公開上市公司為主體，加計特殊行業類別營業額一定金額以上的公司<br> 還有政府標案的投標公司，將是否遵循相關規範納入評選標準<br>3.不須明定，建議於公開發行公司財務報表申報時，增設特定揭露事項。<br> 例如該公司的資安部門人力、資安認證、內部稽核機制等<br>對於政府計畫的投標廠商，提供制式表格說明公司資訊安全政策與水準</p></div></div><div class="commentline"></div></div></div></div></div><a href="https://talk.vtaiwan.tw/t/topic/521" target="_blank"><div class="ui fluid green labeled submit icon button"><i class="icon edit"></i>我要留言</div></a></div></div></div></div><div><div class="ui styled accordion"><div class="title"><i class="dropdown icon"></i>基金相關措施建議</div><div class="content"><div class="Commentcomponent"><div class="ui compact menu"><a class="item"><i class="reply icon"></i> 1</a><a class="item"><i class="unhide icon"></i> 1167</a><a class="item"><i class="user icon"></i> 2   </a><a class="item"><i class="calendar icon"></i> 629 天  </a></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/letter_avatar_proxy/v2/letter/a/d2c977/100.png"></a><div class="discussioncontent"><a class="author">a10034384</a><div class="metadata"><span class="date"><div>2015-05-16</div></span></div><div class="text"><div><p>基金來源<br>1.透過網路傳輸相關業者捐輸<br>2.特定頻道、頻寬等共有許可資源，其許可權利金撥入<br>3.以國防預算部分編入<br>4.提供特定企業資安防護服務</p>
+
+<p>用途<br>1.強化台灣整體關鍵軍、民用設施資案防護<br>2.跨國資安合作方案規劃與執行<br>3.先進資安技術研發<br>4.人才培育</p></div></div><div class="commentline"></div></div></div></div></div><a href="https://talk.vtaiwan.tw/t/topic/518" target="_blank"><div class="ui fluid green labeled submit icon button"><i class="icon edit"></i>我要留言</div></a></div></div></div></div><div><div class="ui styled accordion"><div class="title"><i class="dropdown icon"></i>資安管理與發展基金</div><div class="content"><div class="Commentcomponent"><div class="ui compact menu"><a class="item"><i class="reply icon"></i> 1</a><a class="item"><i class="unhide icon"></i> 1156</a><a class="item"><i class="user icon"></i> 2   </a><a class="item"><i class="calendar icon"></i> 637 天  </a></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/ifulita/100/57_1.png"></a><div class="discussioncontent"><a class="author">ifulita</a><div class="metadata"><span class="date"><div>2015-05-07</div></span></div><div class="text"><div><p>透過基本法規定預算比就可以了，<br>不需要再另外成立基金。</p></div></div><div class="commentline"></div></div></div></div></div><a href="https://talk.vtaiwan.tw/t/topic/517" target="_blank"><div class="ui fluid green labeled submit icon button"><i class="icon edit"></i>我要留言</div></a></div></div></div></div></div></div></div></div></div></div></div></div><div data-v-61e6b40f="" class="component footer"><a data-v-61e6b40f="" href="https://github.com/g0v/vue.vtaiwan.tw" target="_blank" class="ui labeled icon basic big button"><i data-v-61e6b40f="" class="github alternate icon"></i>Code on Github</a></div></div>
+<script type="text/javascript" src="/app.js"></script><script type="text/javascript" src="/vendor.js"></script>
+
+</body></html>

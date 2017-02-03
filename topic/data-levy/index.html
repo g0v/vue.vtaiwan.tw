@@ -1,0 +1,2011 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="utf-8">
+    <title>vTaiwan Next</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700|Lobster" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/semantic.min.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/semantic.min.js"></script>
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+    <style>
+        body {
+            visibility: hidden;
+            opacity: 0;
+        }
+    </style>
+<style type="text/css">
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component {
+  position: relative;
+}
+.component h1, .component h2, .component h3, .component h4, .component h5, .component h6, .component p {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component a, .component button {
+    cursor: pointer !important;
+    color: dimgray;
+}
+.component strong {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only {
+    display: none !important;
+}
+}
+.app {
+  min-height: 100vh;
+  width: 100%;
+  margin: 0;
+  transition: border-color 0.5s ease;
+}
+.app.join {
+    border-color: #f4719d;
+}
+.app.intro {
+    border-color: #ec8013;
+}
+.app.live {
+    border-color: #1313ec;
+}
+.app.track {
+    border-color: #8e8e0b;
+}
+.main {
+  position: relative;
+  top: 0;
+  width: 100%;
+  text-align: center;
+}
+.fade-in-enter, .fade-in-leave-active {
+  opacity: 0;
+}
+.fade-in-enter-active {
+  transition: all 0.5s ease-in;
+}
+.navbar {
+  position: fixed;
+  z-index: 999999;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+.footer {
+  position: relative;
+  margin: 0 auto;
+  margin-top: 40px;
+  max-width: 1170px;
+}
+</style><style type="text/css">
+*[data-v-2a4fae16] {
+  box-sizing: border-box;
+}
+body[data-v-2a4fae16] {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component[data-v-2a4fae16] {
+  position: relative;
+}
+.component h1[data-v-2a4fae16], .component h2[data-v-2a4fae16], .component h3[data-v-2a4fae16], .component h4[data-v-2a4fae16], .component h5[data-v-2a4fae16], .component h6[data-v-2a4fae16], .component p[data-v-2a4fae16] {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component a[data-v-2a4fae16], .component button[data-v-2a4fae16] {
+    cursor: pointer !important;
+    color: dimgray;
+}
+.component strong[data-v-2a4fae16] {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only[data-v-2a4fae16] {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only[data-v-2a4fae16] {
+    display: none !important;
+}
+}
+@media screen and (min-width: 767px) {
+.component[data-v-2a4fae16] {
+    height: 55px;
+}
+}
+.component nav.fat-only[data-v-2a4fae16] {
+  position: fixed;
+  z-index: 999999;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 55px;
+  overflow: visible;
+  background: rgba(255, 255, 255, 0.95);
+  border-bottom: 1px solid lightgray;
+}
+form.search[data-v-2a4fae16] {
+  font-size: 1.5rem;
+  position: relative;
+  display: inline-block;
+  line-height: 55px;
+  padding: 0 0 0 1em;
+}
+form.search i.search.icon[data-v-2a4fae16] {
+    position: absolute;
+    z-index: -1;
+    right: .55em;
+    line-height: 55px;
+    color: gray;
+}
+form.search input[data-v-2a4fae16] {
+    color: gray;
+    height: calc( 55px * 0.55);
+    border: 1px solid lightgray;
+    border-radius: 1em;
+    padding: 0 .6em;
+    background-color: transparent;
+}
+form.search input[data-v-2a4fae16]:focus {
+      outline: none;
+}
+form.search.active i.icon[data-v-2a4fae16] {
+    visibility: hidden;
+}
+.logo[data-v-2a4fae16] {
+  height: 55px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+}
+.logo img[data-v-2a4fae16] {
+    width: auto;
+    max-height: 75%;
+}
+.logo span[data-v-2a4fae16] {
+    color: black;
+    font-family: Lobster, "Microsoft JhengHei", "Heiti TC", serif;
+    font-size: 2rem;
+    margin-left: .3em;
+}
+.right[data-v-2a4fae16] {
+  text-align: right;
+}
+.right a.item[data-v-2a4fae16] {
+    font-size: 1.2rem;
+    display: inline-block;
+    line-height: 55px;
+    padding: 0 1em;
+    color: dimgray;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.5s ease;
+}
+.right a.item[data-v-2a4fae16]:hover {
+      color: white;
+      background: #3fadc7;
+}
+.right a.item.active[data-v-2a4fae16], .right a.item.router-link-active[data-v-2a4fae16] {
+      background-color: #f4e025;
+}
+@media screen and (max-width: 767px) {
+.thin-only[data-v-2a4fae16] {
+    border-bottom: 1px solid #ccc;
+}
+}
+.m-logo[data-v-2a4fae16] {
+  width: 50%;
+  margin: 0 auto;
+  height: 20vh;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: row nowrap;
+      flex-flow: row nowrap;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+}
+.m-logo img[data-v-2a4fae16] {
+    width: 60px;
+    height: 60px;
+    margin: 0;
+}
+.m-logo span[data-v-2a4fae16] {
+    color: black;
+    font-family: Lobster, "Microsoft JhengHei", "Heiti TC", serif;
+    font-size: 1.6rem;
+    padding: 0 0 0 .3em;
+}
+.menu[data-v-2a4fae16] {
+  height: 10vh;
+  line-height: 10vh;
+  display: -ms-flexbox;
+  display: flex;
+}
+.menu a.m-item[data-v-2a4fae16], .menu a.item[data-v-2a4fae16] {
+    cursor: pointer !important;
+    -ms-flex: 1;
+        flex: 1;
+    text-align: center;
+    font-size: 1.3rem;
+    color: dimgray;
+}
+.menu a.m-item[data-v-2a4fae16]:hover, .menu a.item[data-v-2a4fae16]:hover {
+      color: white;
+      background: #3fadc7;
+}
+</style><style type="text/css">
+@charset "UTF-8";
+.component[data-v-0a5a84f2] {
+  position: absolute;
+  z-index: 11;
+  width: 33vw;
+  max-height: 66vh;
+  overflow: auto;
+  background-color: rgba(255, 255, 255, 0.8);
+  font-size: .7rem;
+}
+.list[data-v-0a5a84f2] {
+  padding: .5em 0;
+}
+.list .item[data-v-0a5a84f2] {
+    margin: 0 0;
+    padding: 0 0;
+}
+.list .item a[data-v-0a5a84f2] {
+      display: -ms-flexbox;
+      display: flex;
+}
+.list .item a.active[data-v-0a5a84f2] {
+        background-color: #ccf;
+}
+.list .item a .icon[data-v-0a5a84f2] {
+        -ms-flex: 0 0 3em;
+            flex: 0 0 3em;
+        width: 3em;
+        height: 3em;
+        border-left: 3px solid #fff;
+}
+.list .item a .text[data-v-0a5a84f2] {
+        -ms-flex: 1 1;
+            flex: 1 1;
+        text-align: left;
+        padding: .2em .5em;
+        border-bottom: 1px solid #ccc;
+}
+.list .item a .text strong[data-v-0a5a84f2] {
+          /* scoped css 無法 bind 到，所以寫在App.vue的全域css中*/
+}
+</style><style type="text/css">
+.component[data-v-61e6b40f] {
+  text-align: center;
+  padding: 1em;
+  border-top: 1px #AAA solid;
+}
+</style><style type="text/css">
+*[data-v-467fb687] {
+  box-sizing: border-box;
+}
+body[data-v-467fb687] {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component[data-v-467fb687] {
+  position: relative;
+}
+.component h1[data-v-467fb687], .component h2[data-v-467fb687], .component h3[data-v-467fb687], .component h4[data-v-467fb687], .component h5[data-v-467fb687], .component h6[data-v-467fb687], .component p[data-v-467fb687] {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component a[data-v-467fb687], .component button[data-v-467fb687] {
+    cursor: pointer !important;
+    color: dimgray;
+}
+.component strong[data-v-467fb687] {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only[data-v-467fb687] {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only[data-v-467fb687] {
+    display: none !important;
+}
+}
+.home[data-v-467fb687] {
+  width: 100%;
+  min-width: 320px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 5vh;
+}
+@media screen and (min-width: 767px) {
+.home[data-v-467fb687] {
+      margin-top: -55px;
+}
+}
+p[data-v-467fb687] {
+  font-size: 1rem;
+  text-align: left;
+  line-height: 155%;
+  padding: 5px;
+}
+</style><style type="text/css">
+*[data-v-b215a294] {
+  box-sizing: border-box;
+}
+body[data-v-b215a294] {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component[data-v-b215a294] {
+  position: relative;
+}
+.component h1[data-v-b215a294], .component h2[data-v-b215a294], .component h3[data-v-b215a294], .component h4[data-v-b215a294], .component h5[data-v-b215a294], .component h6[data-v-b215a294], .component p[data-v-b215a294] {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component a[data-v-b215a294], .component button[data-v-b215a294] {
+    cursor: pointer !important;
+    color: dimgray;
+}
+.component strong[data-v-b215a294] {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only[data-v-b215a294] {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only[data-v-b215a294] {
+    display: none !important;
+}
+}
+.desktop-container[data-v-b215a294], .mobile-container[data-v-b215a294] {
+  position: relative;
+  overflow: hidden;
+}
+.desktop-container img[data-v-b215a294], .mobile-container img[data-v-b215a294] {
+    position: relative;
+    width: 100%;
+    z-index: -3;
+}
+.mobile-container[data-v-b215a294] {
+  overflow: scroll;
+}
+.mobile-container[data-v-b215a294]::-webkit-scrollbar {
+    display: none;
+}
+.slide-page[data-v-b215a294] {
+  display: block;
+  height: 100vh;
+}
+.slide-item[data-v-b215a294] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  overflow: hidden;
+  height: 100%;
+  transition: transform 0.5s ease-in-out, z-index 0.3s ease-in-out;
+  /*  img.full-page {
+    // **************** to keep image ratio
+    min-height: 100%;
+    min-width: 100%;
+    width: auto;
+    // **************** to let image center
+    display: absolute;
+    left: 50%;
+    @include transform(translate(-50%, 0));
+    // background-color: gray;
+    // opacity: 0.6;
+  }*/
+}
+.slide-item .box[data-v-b215a294] {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+        justify-content: center;
+    -ms-flex-flow: column;
+        flex-flow: column;
+    -ms-flex-align: center;
+        align-items: center;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.8), transparent);
+}
+.slide-item .box .status[data-v-b215a294] {
+      background: #db4f4f;
+      color: white;
+}
+.slide-item .box .slogan[data-v-b215a294] {
+      margin: 1em 0;
+      font-size: 3rem;
+      color: white;
+      text-shadow: 0 0 5px gray;
+}
+a[data-v-b215a294] {
+  cursor: pointer;
+}
+a:hover i[data-v-b215a294] {
+    color: white !important;
+}
+a.pre[data-v-b215a294], a.next[data-v-b215a294] {
+    position: absolute;
+    z-index: 5;
+    top: 44vh;
+    text-shadow: 0 0 5px lightgray;
+}
+a.pre[data-v-b215a294] {
+    left: 5px;
+}
+a.next[data-v-b215a294] {
+    right: 5px;
+}
+a i[data-v-b215a294] {
+    transition: all 0.3s;
+}
+.m-slide-page[data-v-b215a294] {
+  white-space: nowrap;
+}
+.m-slide-item[data-v-b215a294] {
+  display: inline-block;
+  width: 98vw;
+  height: 70vh;
+  margin: 0 0.5px;
+  background-size: cover;
+  background-position: center;
+}
+.m-slide-item .box[data-v-b215a294] {
+    min-height: 100%;
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.8), transparent);
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+        justify-content: center;
+    -ms-flex-flow: column;
+        flex-flow: column;
+    -ms-flex-align: center;
+        align-items: center;
+}
+.m-slide-item .box .status[data-v-b215a294] {
+      color: white;
+      background-color: #db4f4f;
+}
+.m-slide-item .box .title[data-v-b215a294] {
+      color: white;
+}
+</style><style type="text/css">
+*[data-v-d57d0dd0] {
+  box-sizing: border-box;
+}
+body[data-v-d57d0dd0] {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component[data-v-d57d0dd0] {
+  position: relative;
+}
+.component h1[data-v-d57d0dd0], .component h2[data-v-d57d0dd0], .component h3[data-v-d57d0dd0], .component h4[data-v-d57d0dd0], .component h5[data-v-d57d0dd0], .component h6[data-v-d57d0dd0], .component p[data-v-d57d0dd0] {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component a[data-v-d57d0dd0], .component button[data-v-d57d0dd0] {
+    cursor: pointer !important;
+    color: dimgray;
+}
+.component strong[data-v-d57d0dd0] {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only[data-v-d57d0dd0] {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only[data-v-d57d0dd0] {
+    display: none !important;
+}
+}
+.component[data-v-d57d0dd0] {
+  width: 100%;
+  max-width: 1200px;
+  margin: 2em auto;
+  font-size: 0.8rem;
+}
+.subtitle[data-v-d57d0dd0] {
+  text-align: center;
+  font-size: 2em;
+  font-weight: bold;
+  margin: 1em 0;
+}
+.container[data-v-d57d0dd0] {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  text-align: center;
+  -ms-flex-flow: row nowrap;
+      flex-flow: row nowrap;
+}
+@media only screen and (max-width: 767px) {
+.container[data-v-d57d0dd0] {
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+}
+}
+.container .step[data-v-d57d0dd0] {
+    -ms-flex: 1;
+        flex: 1;
+    margin: 0 1em;
+    padding: 1em;
+}
+@media only screen and (max-width: 600px) {
+.container .step[data-v-d57d0dd0] {
+        min-width: 100vw;
+}
+}
+.container .number[data-v-d57d0dd0],
+  .container .label[data-v-d57d0dd0],
+  .container .description[data-v-d57d0dd0] {
+    margin: 0 auto;
+    margin-top: 15px;
+}
+.container .number[data-v-d57d0dd0] {
+    border-radius: 1em;
+    color: white;
+    background: lightcoral;
+    font-size: 5rem;
+    font-weight: 700;
+    line-height: 1.2em;
+    width: 1.2em;
+    height: 1.2em;
+}
+.container .label[data-v-d57d0dd0] {
+    display: inline-block;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1em;
+    border-bottom: 3px #000 solid;
+    padding: 3px 7px;
+}
+.container .description[data-v-d57d0dd0] {
+    text-align: center;
+    line-height: 1.4;
+    white-space: pre;
+}
+</style><style type="text/css">
+*[data-v-d5ab316a] {
+  box-sizing: border-box;
+}
+body[data-v-d5ab316a] {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component[data-v-d5ab316a] {
+  position: relative;
+}
+.component h1[data-v-d5ab316a], .component h2[data-v-d5ab316a], .component h3[data-v-d5ab316a], .component h4[data-v-d5ab316a], .component h5[data-v-d5ab316a], .component h6[data-v-d5ab316a], .component p[data-v-d5ab316a] {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component a[data-v-d5ab316a], .component button[data-v-d5ab316a] {
+    cursor: pointer !important;
+    color: dimgray;
+}
+.component strong[data-v-d5ab316a] {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only[data-v-d5ab316a] {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only[data-v-d5ab316a] {
+    display: none !important;
+}
+}
+.component[data-v-d5ab316a] {
+  padding: 1em 0;
+}
+.number[data-v-d5ab316a] {
+  border-radius: 1em;
+  color: white;
+  background: #db4f4f;
+  font-size: 2em;
+  font-weight: 700;
+  line-height: 1.2em;
+  width: 1.2em;
+  height: 1.2em;
+}
+.label[data-v-d5ab316a] {
+  padding: .3em 0 0 .3em;
+}
+.ui.steps .step[data-v-d5ab316a] {
+  -ms-flex: 1 1 auto;
+      flex: 1 1 auto;
+}
+@media only screen and (max-width: 767px) {
+.component[data-v-d5ab316a] {
+    padding: 0px;
+    border: 0px;
+}
+.ui.container[data-v-d5ab316a] {
+    margin: 0 !important;
+}
+.mobile-step[data-v-d5ab316a] {
+    position: absolute;
+    /*    a.step {
+      color: white;
+      background: $step_color;
+      border: 1px solid white;
+      border-width: 1px 0;
+      display: block;
+      width: 5vh !important;
+      height: calc(100vh / 5);
+      padding: 3px;
+      opacity: 0.7;
+      font-size: 2.5vh;
+      line-height: 3.3vh;
+      padding: 3.33vh 0px;
+      border-left: solid 1px rgba(0, 0, 0, 0.2);
+      border-bottom-left-radius: 10px;
+      border-top-left-radius: 10px;
+      border-top: solid 1px rgba(0, 0, 0, 0.2);
+      border-right: solid 1px rgba(0, 0, 0, 0.2);
+      box-shadow: inset -2px 0px 1px rgba(0, 0, 0, 0.1);
+      &:hover {
+        opacity: 1;
+      }
+      .active {
+        border-right: 0px;
+        box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.2);
+      }
+      .label {
+        font-size: 2.5vh;
+        line-height: 3.3vh;
+      }
+    }*/
+}
+.mobile-step .ui.menu[data-v-d5ab316a] {
+      width: 2em;
+}
+.mobile-step .ui.menu .item[data-v-d5ab316a] {
+        padding: 1em 0;
+}
+.mobile-step .ui.menu .item.active[data-v-d5ab316a] {
+          color: white;
+          background: #db4f4f;
+}
+}
+</style><style type="text/css">
+*[data-v-25a28cf5] {
+  box-sizing: border-box;
+}
+body[data-v-25a28cf5] {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component[data-v-25a28cf5] {
+  position: relative;
+}
+.component h1[data-v-25a28cf5], .component h2[data-v-25a28cf5], .component h3[data-v-25a28cf5], .component h4[data-v-25a28cf5], .component h5[data-v-25a28cf5], .component h6[data-v-25a28cf5], .component p[data-v-25a28cf5] {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component a[data-v-25a28cf5], .component button[data-v-25a28cf5] {
+    cursor: pointer !important;
+    color: dimgray;
+}
+.component strong[data-v-25a28cf5] {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only[data-v-25a28cf5] {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only[data-v-25a28cf5] {
+    display: none !important;
+}
+}
+.box[data-v-25a28cf5] {
+  display: -ms-flexbox !important;
+  display: flex !important;
+}
+a[data-v-25a28cf5] {
+  box-shadow: 0 3px 1em rgba(0, 0, 0, 0.1);
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: column nowrap;
+      flex-flow: column nowrap;
+}
+a img[data-v-25a28cf5] {
+    -ms-flex: 1 1;
+        flex: 1 1;
+    max-width: 100%;
+    height: auto;
+}
+a .progress_bar[data-v-25a28cf5] {
+    background-color: #CCC;
+    padding: 0;
+    margin-bottom: 4px;
+}
+a .progress_bar .progress[data-v-25a28cf5] {
+      height: 5px;
+      background-color: lightcoral;
+}
+</style><style type="text/css">
+.m-step-title[data-v-25a28cf5] {
+  background-color: #E6E6E6;
+  text-align: left;
+  padding: 1rem;
+  font-size: 1.3rem;
+  margin-right: -2rem;
+  position: absolute;
+  z-index: 1;
+  width: 120%;
+}
+.thin-only[data-v-25a28cf5] {
+  margin-top: -1em;
+}
+.m-context[data-v-25a28cf5] {
+  padding-top: 50px;
+}
+.m-title[data-v-25a28cf5] {
+  text-align: left;
+  background-color: #E6E6E6;
+  margin-right: -1rem;
+  padding: 1rem;
+}
+</style><style type="text/css">
+*[data-v-83fa9a80] {
+  box-sizing: border-box;
+}
+body[data-v-83fa9a80] {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component[data-v-83fa9a80] {
+  position: relative;
+}
+.component h1[data-v-83fa9a80], .component h2[data-v-83fa9a80], .component h3[data-v-83fa9a80], .component h4[data-v-83fa9a80], .component h5[data-v-83fa9a80], .component h6[data-v-83fa9a80], .component p[data-v-83fa9a80] {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component a[data-v-83fa9a80], .component button[data-v-83fa9a80] {
+    cursor: pointer !important;
+    color: dimgray;
+}
+.component strong[data-v-83fa9a80] {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only[data-v-83fa9a80] {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only[data-v-83fa9a80] {
+    display: none !important;
+}
+}
+.component[data-v-83fa9a80] {
+  /*
+    .inner {
+      // border: 1px solid black;
+      // min-height: 6em;
+      // height: calc(25vw - 4em);
+      // @media only screen and (max-width: 767px) {
+      //   height: calc(50vw - 5em);        
+      // }
+      // @media only screen and (max-width: 991px) and (min-width: 768px) {
+      //   height: calc(50vw - 5em);
+      // }
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        box-shadow: 0 3px 1em rgba(0, 0, 0, 0.2);
+        // width: 100%;
+        // height: 100%;
+        overflow: hidden;
+        .txt {
+          position: relative;
+          z-index: 1;
+          display: inline;
+          font-size: 3rem;
+          line-height: 3em;
+          @include transition(all 0.3s);
+          text-shadow: 1px 1px 1em white;
+          color: black;
+          font-weight: 700;
+        }
+        img {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          @include transform(translate(-50%,-50%));
+          max-width: 100%;
+          height: auto;
+          @include transition(all 0.3s);
+          opacity: 0.5;
+        }
+
+        &:hover {
+          .txt {
+            text-shadow: 1px 1px 1em black;
+            color: white;
+          }
+          img {
+            opacity: 1;
+          }
+        }
+      }
+    }*/
+}
+</style><style type="text/css">
+*[data-v-38a1e9c4] {
+  box-sizing: border-box;
+}
+body[data-v-38a1e9c4] {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component[data-v-38a1e9c4] {
+  position: relative;
+}
+.component h1[data-v-38a1e9c4], .component h2[data-v-38a1e9c4], .component h3[data-v-38a1e9c4], .component h4[data-v-38a1e9c4], .component h5[data-v-38a1e9c4], .component h6[data-v-38a1e9c4], .component p[data-v-38a1e9c4] {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component a[data-v-38a1e9c4], .component button[data-v-38a1e9c4] {
+    cursor: pointer !important;
+    color: dimgray;
+}
+.component strong[data-v-38a1e9c4] {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only[data-v-38a1e9c4] {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only[data-v-38a1e9c4] {
+    display: none !important;
+}
+}
+</style><style type="text/css">
+*[data-v-41c83e74] {
+  box-sizing: border-box;
+}
+body[data-v-41c83e74] {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component[data-v-41c83e74] {
+  position: relative;
+}
+.component h1[data-v-41c83e74], .component h2[data-v-41c83e74], .component h3[data-v-41c83e74], .component h4[data-v-41c83e74], .component h5[data-v-41c83e74], .component h6[data-v-41c83e74], .component p[data-v-41c83e74] {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component a[data-v-41c83e74], .component button[data-v-41c83e74] {
+    cursor: pointer !important;
+    color: dimgray;
+}
+.component strong[data-v-41c83e74] {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only[data-v-41c83e74] {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only[data-v-41c83e74] {
+    display: none !important;
+}
+}
+</style><style type="text/css">
+*[data-v-b147fe1e] {
+  box-sizing: border-box;
+}
+body[data-v-b147fe1e] {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component[data-v-b147fe1e] {
+  position: relative;
+}
+.component h1[data-v-b147fe1e], .component h2[data-v-b147fe1e], .component h3[data-v-b147fe1e], .component h4[data-v-b147fe1e], .component h5[data-v-b147fe1e], .component h6[data-v-b147fe1e], .component p[data-v-b147fe1e] {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component a[data-v-b147fe1e], .component button[data-v-b147fe1e] {
+    cursor: pointer !important;
+    color: dimgray;
+}
+.component strong[data-v-b147fe1e] {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only[data-v-b147fe1e] {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only[data-v-b147fe1e] {
+    display: none !important;
+}
+}
+</style><style type="text/css">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style><style type="text/css">
+*[data-v-c235cf6e] {
+  box-sizing: border-box;
+}
+body[data-v-c235cf6e] {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component[data-v-c235cf6e] {
+  position: relative;
+}
+.component h1[data-v-c235cf6e], .component h2[data-v-c235cf6e], .component h3[data-v-c235cf6e], .component h4[data-v-c235cf6e], .component h5[data-v-c235cf6e], .component h6[data-v-c235cf6e], .component p[data-v-c235cf6e] {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component a[data-v-c235cf6e], .component button[data-v-c235cf6e] {
+    cursor: pointer !important;
+    color: dimgray;
+}
+.component strong[data-v-c235cf6e] {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only[data-v-c235cf6e] {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only[data-v-c235cf6e] {
+    display: none !important;
+}
+}
+.component[data-v-c235cf6e] {
+  margin: auto;
+}
+.fat-only h1.ui.huge.header[data-v-c235cf6e] {
+  margin: 25px 0 25px 0;
+  font-size: 2rem;
+}
+.thin-only .ui.steps .step[data-v-c235cf6e] {
+  border-right-width: 0;
+}
+.thin-only h1.ui.huge.header[data-v-c235cf6e] {
+  margin-top: 0;
+  font-size: 1.5rem;
+}
+.thin-only .tab_container[data-v-c235cf6e] {
+  width: 98%;
+}
+.thin-only .ui.big.steps.top.attached a.step[data-v-c235cf6e] {
+  border-bottom: inherit;
+}
+</style><style type="text/css">
+*[data-v-2406671b] {
+  box-sizing: border-box;
+}
+body[data-v-2406671b] {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component[data-v-2406671b] {
+  position: relative;
+}
+.component h1[data-v-2406671b], .component h2[data-v-2406671b], .component h3[data-v-2406671b], .component h4[data-v-2406671b], .component h5[data-v-2406671b], .component h6[data-v-2406671b], .component p[data-v-2406671b] {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component a[data-v-2406671b], .component button[data-v-2406671b] {
+    cursor: pointer !important;
+    color: dimgray;
+}
+.component strong[data-v-2406671b] {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only[data-v-2406671b] {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only[data-v-2406671b] {
+    display: none !important;
+}
+}
+.content[data-v-2406671b] {
+  margin-top: 10px;
+}
+.fat-only[data-v-2406671b] {
+  margin-bottom: 25px;
+}
+</style><style type="text/css">
+*[data-v-099cbb35] {
+  box-sizing: border-box;
+}
+body[data-v-099cbb35] {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component[data-v-099cbb35] {
+  position: relative;
+}
+.component h1[data-v-099cbb35], .component h2[data-v-099cbb35], .component h3[data-v-099cbb35], .component h4[data-v-099cbb35], .component h5[data-v-099cbb35], .component h6[data-v-099cbb35], .component p[data-v-099cbb35] {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component a[data-v-099cbb35], .component button[data-v-099cbb35] {
+    cursor: pointer !important;
+    color: dimgray;
+}
+.component strong[data-v-099cbb35] {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only[data-v-099cbb35] {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only[data-v-099cbb35] {
+    display: none !important;
+}
+}
+.step-progress-bar[data-v-099cbb35] {
+  width: 600px;
+  margin: 0 auto;
+  display: block;
+  height: 100px;
+  padding: 10px;
+}
+ul.progress-bar[data-v-099cbb35] {
+  counter-reset: step;
+  padding: 0;
+}
+.step-progress-bar li[data-v-099cbb35] {
+  list-style-type: none;
+  float: left;
+  color: #40B3BF;
+  width: 20%;
+  position: relative;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+.step-progress-bar li[data-v-099cbb35]:before {
+  content: counter(step);
+  counter-increment: step;
+  width: 30px;
+  height: 30px;
+  border: 2px solid #40B3BF;
+  border-radius: 50%;
+  display: block;
+  text-align: center;
+  line-height: 30px;
+  margin: 0 auto 10px auto;
+  z-index: 9;
+  background-color: white;
+  font-weight: 600;
+}
+.step-progress-bar li[data-v-099cbb35]:after {
+  content: "";
+  width: 100%;
+  position: absolute;
+  height: 2px;
+  background-color: #40B3BF;
+  top: 16px;
+  left: 50%;
+  z-index: -1;
+}
+.step-progress-bar li[data-v-099cbb35]:last-child:after {
+  content: none;
+}
+.step-progress-bar li.active[data-v-099cbb35] {
+  color: #DB5252;
+}
+.step-progress-bar li.active[data-v-099cbb35]:before {
+  border-color: #DB5252;
+}
+.step-progress-bar li.active[data-v-099cbb35]:after {
+  background-color: #DB5252;
+}
+.thin-only .step-progress-bar[data-v-099cbb35] {
+  width: 100%;
+}
+.thin-only .step-progress-bar li[data-v-099cbb35] {
+    font-size: 1rem;
+}
+</style><style type="text/css">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style><style type="text/css">
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component {
+  position: relative;
+}
+.component h1, .component h2, .component h3, .component h4, .component h5, .component h6, .component p {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component a, .component button {
+    cursor: pointer !important;
+    color: dimgray;
+}
+.component strong {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only {
+    display: none !important;
+}
+}
+.fat-only .content {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.fat-only .content h1, .fat-only .content h2, .fat-only .content h3, .fat-only .content h4, .fat-only .content h5, .fat-only .content h6 {
+    text-align: center;
+}
+.fat-only .content p, .fat-only .content li, .fat-only .content ol {
+    text-align: left;
+}
+.fat-only .content p iframe {
+    display: block;
+    margin: 0 auto;
+}
+.fat-only .content blockquote {
+    margin: 0 0 10px 0;
+    text-align: left;
+    padding: 5px;
+    border-left: 5px solid #e9e9e9;
+    background-color: #f8f8f8;
+    font-weight: 600;
+}
+.thin-only .content {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.thin-only .content iframe {
+    width: 100%;
+}
+.thin-only .content h1, .thin-only .content h2, .thin-only .content h3, .thin-only .content h4, .thin-only .content h5, .thin-only .content h6 {
+    text-align: center;
+}
+.thin-only .content p, .thin-only .content li, .thin-only .content ol {
+    text-align: left;
+}
+.thin-only .content blockquote {
+    margin: 0 0 10px 0;
+    text-align: left;
+    padding: 5px;
+    border-left: 5px solid #e9e9e9;
+    background-color: #f8f8f8;
+    font-weight: 600;
+}
+</style><style type="text/css">
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component {
+  position: relative;
+}
+.component h1, .component h2, .component h3, .component h4, .component h5, .component h6, .component p {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component a, .component button {
+    cursor: pointer !important;
+    color: dimgray;
+}
+.component strong {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only {
+    display: none !important;
+}
+}
+.Discoussioncomponent {
+  font-size: 1.5rem;
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  line-height: 1.5em;
+}
+.textleft {
+  text-align: left;
+}
+.ui.styled.accordion {
+  width: 100%;
+}
+.ui.styled.accordion .title {
+  color: rgba(0, 0, 0, 0.6);
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.ui.accordion .active.content {
+  display: block;
+  max-width: 100%;
+}
+</style><style type="text/css">
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component {
+  position: relative;
+}
+.component h1, .component h2, .component h3, .component h4, .component h5, .component h6, .component p {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component a, .component button {
+    cursor: pointer !important;
+    color: dimgray;
+}
+.component strong {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only {
+    display: none !important;
+}
+}
+.Commentcomponent {
+  font-size: 1.5rem;
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.ui.compact.menu {
+  margin-bottom: 2em;
+}
+.ui.menu .item {
+  padding: 0.5em 0.8em;
+}
+.ui.green.button {
+  background-color: #40B3BF;
+}
+.ui.fluid.button {
+  width: 76%;
+  margin: auto;
+  margin-bottom: 1em;
+  font-size: 1.5rem;
+}
+@media only screen and (max-width: 767px) {
+.ui.fluid.button {
+      font-size: 0.8rem;
+}
+}
+.commentline {
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+  margin: 2em 0em 2em 0em;
+}
+.ui.comments .comment .text {
+  margin: 0.5em 0em 0em 3em;
+}
+@media only screen and (max-width: 767px) {
+.ui.comments .comment .text {
+      margin: 2em 0em 0em 0.5em;
+}
+}
+.ui.comments {
+  max-width: 93%;
+}
+.discussioncontent blockquote {
+  margin: 0 0 10px 0;
+  text-align: left;
+  padding: 5px;
+  border: 0px;
+}
+.discussioncontent blockquote p {
+    text-align: left;
+    font-weight: normal;
+}
+.ui.comments .comment a.author {
+  margin: 0em 1em 0em 0.5em;
+}
+.ui.comments .comment img.avatar {
+  width: 2em;
+}
+</style><style type="text/css">
+.event-list[data-v-25c2a472] {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: column nowrap;
+      flex-flow: column nowrap;
+}
+.event-list .item[data-v-25c2a472] {
+    display: -ms-flexbox;
+    display: flex;
+    text-align: left;
+    padding: 1em;
+    font-size: 1.2rem;
+}
+.event-list .item.dark[data-v-25c2a472] {
+      background-color: #eeeeee;
+}
+.event-list .item.gloom[data-v-25c2a472] {
+      background-color: #f4f4f4;
+}
+.event-list .item.light[data-v-25c2a472] {
+      background-color: #fbfbfb;
+}
+.event-list .item .big[data-v-25c2a472] {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.event-list .item .small[data-v-25c2a472] {
+      -ms-flex: 2 0 6em;
+          flex: 2 0 6em;
+}
+.event-list .item .small p[data-v-25c2a472] {
+        font-weight: 600;
+        margin-bottom: 1.2rem;
+}
+.fat-only .big[data-v-25c2a472] {
+  -ms-flex: 1 0 15em;
+      flex: 1 0 15em;
+}
+.thin-only .item[data-v-25c2a472] {
+  padding: 1em 0 1em 0.5em;
+  font-size: 1.1rem;
+}
+.thin-only .item .big[data-v-25c2a472] {
+    -ms-flex: 1 0 6em;
+        flex: 1 0 6em;
+}
+</style><style type="text/css">
+.ui.teal.button {
+  margin-bottom: 0.5em;
+  background-color: #40B3BF;
+}
+@media only screen and (max-width: 767px) {
+.ui.teal.button {
+      padding: 0.7em;
+}
+}
+</style><style type="text/css">
+.component[data-v-55012550] {
+  position: relative;
+}
+p[data-v-55012550] {
+  text-align: left;
+}
+</style><style type="text/css">
+.component[data-v-10aca067] {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  font-size: 0.8rem;
+}
+.subtitle[data-v-10aca067] {
+  text-align: left;
+  font-size: 1.2rem;
+}
+.container[data-v-10aca067] {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: row wrap;
+      flex-flow: row wrap;
+  text-align: left;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin: 0 -10px;
+}
+.container .item[data-v-10aca067] {
+    -ms-flex: 1;
+        flex: 1;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-flow: column nowrap;
+        flex-flow: column nowrap;
+    position: relative;
+    margin: 10px;
+    min-width: 22vw;
+    max-width: 40vw;
+}
+@media only screen and (max-width: 420px) {
+.container .item[data-v-10aca067] {
+        min-width: 40vw;
+}
+}
+.container .item a[data-v-10aca067] {
+      -ms-flex: 0 0 6em;
+          flex: 0 0 6em;
+}
+.container .item a[data-v-10aca067]:hover {
+        opacity: 0.5;
+}
+.container .item a img.cover[data-v-10aca067] {
+        width: 100%;
+        transition: all 0.3s;
+}
+.container .item .null[data-v-10aca067] {
+      -ms-flex: 1 1 0;
+          flex: 1 1 0;
+}
+.container .item .foot[data-v-10aca067] {
+      -ms-flex: 0 0 10em;
+          flex: 0 0 10em;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+}
+.container .item .foot .title[data-v-10aca067] {
+        font-size: 2vw;
+        line-height: 1.1;
+        margin: .5em 0;
+}
+.container .item .foot .owner[data-v-10aca067] {
+        color: #AAA;
+        margin: 5px;
+}
+.container .item .foot .progress_bar[data-v-10aca067] {
+        background-color: #CCC;
+        padding: 2px 0;
+        margin-bottom: 4px;
+}
+.container .item .foot .progress_bar .progress[data-v-10aca067] {
+          height: 6px;
+          background-color: #000;
+          border-radius: 0 5px 0 0;
+}
+</style></head>
+
+<body>
+    <div id="app" class="app"><div data-v-2a4fae16="" class="component"><nav data-v-2a4fae16="" class="fat-only"><div data-v-2a4fae16="" class="ui grid"><div data-v-2a4fae16="" class="seven wide column"><form data-v-2a4fae16="" class="search"><i data-v-2a4fae16="" class="search icon"></i><input data-v-2a4fae16="" type="search" placeholder="探索"><div data-v-0a5a84f2="" class="component" data-v-2a4fae16="" style="display: none;"><div data-v-0a5a84f2="" class="ui list"><div data-v-0a5a84f2="" class="item"><a href="/topic/directors-election" class="active" data-v-0a5a84f2=""><img data-v-0a5a84f2="" src="https://images.unsplash.com/photo-1431540015161-0bf868a2d407?dpr=1.25&amp;auto=format&amp;fit=crop&amp;w=767&amp;h=511&amp;q=80&amp;cs=tinysrgb&amp;crop=" class="icon"><div data-v-0a5a84f2="" class="text"><div data-v-0a5a84f2="" class="title"><strong></strong>董<strong></strong>監<strong></strong>事<strong></strong>選<strong></strong>任<strong></strong></div><div data-v-0a5a84f2="" class="route-name"><strong></strong>d<strong></strong>i<strong></strong>r<strong></strong>e<strong></strong>c<strong></strong>t<strong></strong>o<strong></strong>r<strong></strong>s<strong></strong>-<strong></strong>e<strong></strong>l<strong></strong>e<strong></strong>c<strong></strong>t<strong></strong>i<strong></strong>o<strong></strong>n<strong></strong></div></div></a></div><div data-v-0a5a84f2="" class="item"><a href="/topic/securitization" class="" data-v-0a5a84f2=""><img data-v-0a5a84f2="" src="http://image.slidesharecdn.com/c8s7nxdwrwook9zljomq-signature-ec5edf5b8d62ee9ad208e4446437b7c1fc16efb6db28685b63bb2604d25236c7-poli-161203074816/95/-1-1024.jpg" class="icon"><div data-v-0a5a84f2="" class="text"><div data-v-0a5a84f2="" class="title"><strong></strong>企<strong></strong>業<strong></strong>資<strong></strong>產<strong></strong>擔<strong></strong>保<strong></strong>法<strong></strong></div><div data-v-0a5a84f2="" class="route-name"><strong></strong>s<strong></strong>e<strong></strong>c<strong></strong>u<strong></strong>r<strong></strong>i<strong></strong>t<strong></strong>i<strong></strong>z<strong></strong>a<strong></strong>t<strong></strong>i<strong></strong>o<strong></strong>n<strong></strong></div></div></a></div><div data-v-0a5a84f2="" class="item"><a href="/topic/social-enterprise" class="" data-v-0a5a84f2=""><img data-v-0a5a84f2="" src="http://static.thousandwonders.net/Taiwan.original.3738.jpg" class="icon"><div data-v-0a5a84f2="" class="text"><div data-v-0a5a84f2="" class="title"><strong></strong>社<strong></strong>會<strong></strong>企<strong></strong>業<strong></strong>公<strong></strong>司<strong></strong>法<strong></strong></div><div data-v-0a5a84f2="" class="route-name"><strong></strong>s<strong></strong>o<strong></strong>c<strong></strong>i<strong></strong>a<strong></strong>l<strong></strong>-<strong></strong>e<strong></strong>n<strong></strong>t<strong></strong>e<strong></strong>r<strong></strong>p<strong></strong>r<strong></strong>i<strong></strong>s<strong></strong>e<strong></strong></div></div></a></div><div data-v-0a5a84f2="" class="item"><a href="/topic/closelyheld" class="" data-v-0a5a84f2=""><img data-v-0a5a84f2="" src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?dpr=1.25&amp;auto=format&amp;fit=crop&amp;w=767&amp;h=512&amp;q=80&amp;cs=tinysrgb&amp;crop=" class="icon"><div data-v-0a5a84f2="" class="text"><div data-v-0a5a84f2="" class="title"><strong></strong>閉<strong></strong>鎖<strong></strong>型<strong></strong>公<strong></strong>司<strong></strong></div><div data-v-0a5a84f2="" class="route-name"><strong></strong>c<strong></strong>l<strong></strong>o<strong></strong>s<strong></strong>e<strong></strong>l<strong></strong>y<strong></strong>h<strong></strong>e<strong></strong>l<strong></strong>d<strong></strong></div></div></a></div><div data-v-0a5a84f2="" class="item"><a href="/topic/crowdfunding" class="" data-v-0a5a84f2=""><img data-v-0a5a84f2="" src="https://c1.staticflickr.com/9/8124/8661000014_cb0056d718_z.jpg" class="icon"><div data-v-0a5a84f2="" class="text"><div data-v-0a5a84f2="" class="title"><strong></strong>群<strong></strong>眾<strong></strong>募<strong></strong>資<strong></strong></div><div data-v-0a5a84f2="" class="route-name"><strong></strong>c<strong></strong>r<strong></strong>o<strong></strong>w<strong></strong>d<strong></strong>f<strong></strong>u<strong></strong>n<strong></strong>d<strong></strong>i<strong></strong>n<strong></strong>g<strong></strong></div></div></a></div><div data-v-0a5a84f2="" class="item"><a href="/topic/distant-education" class="" data-v-0a5a84f2=""><img data-v-0a5a84f2="" src="https://upload.wikimedia.org/wikipedia/commons/2/2a/American%2C_Indonesian_Students_Link_Hands_Via_Distance_Learning.jpg" class="icon"><div data-v-0a5a84f2="" class="text"><div data-v-0a5a84f2="" class="title"><strong></strong>遠<strong></strong>距<strong></strong>教<strong></strong>育<strong></strong></div><div data-v-0a5a84f2="" class="route-name"><strong></strong>d<strong></strong>i<strong></strong>s<strong></strong>t<strong></strong>a<strong></strong>n<strong></strong>t<strong></strong>-<strong></strong>e<strong></strong>d<strong></strong>u<strong></strong>c<strong></strong>a<strong></strong>t<strong></strong>i<strong></strong>o<strong></strong>n<strong></strong></div></div></a></div><div data-v-0a5a84f2="" class="item"><a href="/topic/eliquor" class="" data-v-0a5a84f2=""><img data-v-0a5a84f2="" src="http://image.slidesharecdn.com/zbxi01iqoy2zrsqzsu1a-signature-a2c1b04c1b0e46e92533427e0ed861b29a57eaa126a150b1594cb3e1174531a0-poli-160329231814/95/-1-1024.jpg" class="icon"><div data-v-0a5a84f2="" class="text"><div data-v-0a5a84f2="" class="title"><strong></strong>網<strong></strong>路<strong></strong>賣<strong></strong>酒<strong></strong>配<strong></strong>套<strong></strong>措<strong></strong>施<strong></strong></div><div data-v-0a5a84f2="" class="route-name"><strong></strong>e<strong></strong>l<strong></strong>i<strong></strong>q<strong></strong>u<strong></strong>o<strong></strong>r<strong></strong></div></div></a></div><div data-v-0a5a84f2="" class="item"><a href="/topic/data-levy" class="router-link-active" data-v-0a5a84f2=""><img data-v-0a5a84f2="" src="https://images.unsplash.com/photo-1482859602406-7659b00979fb" class="icon"><div data-v-0a5a84f2="" class="text"><div data-v-0a5a84f2="" class="title"><strong></strong>開<strong></strong>放<strong></strong>資<strong></strong>料<strong></strong>例<strong></strong>外<strong></strong>收<strong></strong>費<strong></strong>原<strong></strong>則<strong></strong></div><div data-v-0a5a84f2="" class="route-name"><strong></strong>d<strong></strong>a<strong></strong>t<strong></strong>a<strong></strong>-<strong></strong>l<strong></strong>e<strong></strong>v<strong></strong>y<strong></strong></div></div></a></div><div data-v-0a5a84f2="" class="item"><a href="/topic/etax" class="" data-v-0a5a84f2=""><img data-v-0a5a84f2="" src="https://images.unsplash.com/photo-1483239546567-ccc4ce2b344a?dpr=2&amp;auto=format&amp;fit=crop&amp;w=1500&amp;h=877&amp;q=80&amp;cs=tinysrgb&amp;crop=" class="icon"><div data-v-0a5a84f2="" class="text"><div data-v-0a5a84f2="" class="title"><strong></strong>網<strong></strong>路<strong></strong>交<strong></strong>易<strong></strong>課<strong></strong>稅<strong></strong></div><div data-v-0a5a84f2="" class="route-name"><strong></strong>e<strong></strong>t<strong></strong>a<strong></strong>x<strong></strong></div></div></a></div><div data-v-0a5a84f2="" class="item"><a href="/topic/personal-data-protection" class="" data-v-0a5a84f2=""><img data-v-0a5a84f2="" src="https://images.unsplash.com/photo-1457682524032-465ef406d105?dpr=1.25&amp;auto=format&amp;fit=crop&amp;w=767&amp;h=511&amp;q=80&amp;cs=tinysrgb&amp;crop=" class="icon"><div data-v-0a5a84f2="" class="text"><div data-v-0a5a84f2="" class="title"><strong></strong>個<strong></strong>資<strong></strong>利<strong></strong>用<strong></strong>與<strong></strong>去<strong></strong>識<strong></strong>別<strong></strong>化<strong></strong></div><div data-v-0a5a84f2="" class="route-name"><strong></strong>p<strong></strong>e<strong></strong>r<strong></strong>s<strong></strong>o<strong></strong>n<strong></strong>a<strong></strong>l<strong></strong>-<strong></strong>d<strong></strong>a<strong></strong>t<strong></strong>a<strong></strong>-<strong></strong>p<strong></strong>r<strong></strong>o<strong></strong>t<strong></strong>e<strong></strong>c<strong></strong>t<strong></strong>i<strong></strong>o<strong></strong>n<strong></strong></div></div></a></div><div data-v-0a5a84f2="" class="item"><a href="/topic/telemedicine" class="" data-v-0a5a84f2=""><img data-v-0a5a84f2="" src="https://upload.wikimedia.org/wikipedia/commons/c/c9/%E8%95%AD%E4%B8%AD%E6%AD%A3%E9%99%A2%E9%95%B7%E9%80%B2%E8%A1%8CTelecare_conference.jpg" class="icon"><div data-v-0a5a84f2="" class="text"><div data-v-0a5a84f2="" class="title"><strong></strong>遠<strong></strong>距<strong></strong>健<strong></strong>康<strong></strong>照<strong></strong>護<strong></strong></div><div data-v-0a5a84f2="" class="route-name"><strong></strong>t<strong></strong>e<strong></strong>l<strong></strong>e<strong></strong>m<strong></strong>e<strong></strong>d<strong></strong>i<strong></strong>c<strong></strong>i<strong></strong>n<strong></strong>e<strong></strong></div></div></a></div><div data-v-0a5a84f2="" class="item"><a href="/topic/consumer-protection" class="" data-v-0a5a84f2=""><img data-v-0a5a84f2="" src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Walmartmexicaninteriors.jpg" class="icon"><div data-v-0a5a84f2="" class="text"><div data-v-0a5a84f2="" class="title"><strong></strong>零<strong></strong>售<strong></strong>業<strong></strong>網<strong></strong>路<strong></strong>定<strong></strong>型<strong></strong>化<strong></strong>契<strong></strong>約<strong></strong></div><div data-v-0a5a84f2="" class="route-name"><strong></strong>c<strong></strong>o<strong></strong>n<strong></strong>s<strong></strong>u<strong></strong>m<strong></strong>e<strong></strong>r<strong></strong>-<strong></strong>p<strong></strong>r<strong></strong>o<strong></strong>t<strong></strong>e<strong></strong>c<strong></strong>t<strong></strong>i<strong></strong>o<strong></strong>n<strong></strong></div></div></a></div><div data-v-0a5a84f2="" class="item"><a href="/topic/telework" class="" data-v-0a5a84f2=""><img data-v-0a5a84f2="" src="https://c2.staticflickr.com/6/5295/5447249284_45af289868_b.jpg" class="icon"><div data-v-0a5a84f2="" class="text"><div data-v-0a5a84f2="" class="title"><strong></strong>電<strong></strong>傳<strong></strong>勞<strong></strong>動<strong></strong></div><div data-v-0a5a84f2="" class="route-name"><strong></strong>t<strong></strong>e<strong></strong>l<strong></strong>e<strong></strong>w<strong></strong>o<strong></strong>r<strong></strong>k<strong></strong></div></div></a></div><div data-v-0a5a84f2="" class="item"><a href="/topic/infosecurity" class="" data-v-0a5a84f2=""><img data-v-0a5a84f2="" src="https://images.unsplash.com/photo-1452796907770-ad6cd374b12d" class="icon"><div data-v-0a5a84f2="" class="text"><div data-v-0a5a84f2="" class="title"><strong></strong>資<strong></strong>安<strong></strong>管<strong></strong>理<strong></strong></div><div data-v-0a5a84f2="" class="route-name"><strong></strong>i<strong></strong>n<strong></strong>f<strong></strong>o<strong></strong>s<strong></strong>e<strong></strong>c<strong></strong>u<strong></strong>r<strong></strong>i<strong></strong>t<strong></strong>y<strong></strong></div></div></a></div><div data-v-0a5a84f2="" class="item"><a href="/topic/sandbox" class="" data-v-0a5a84f2=""><img data-v-0a5a84f2="" src="https://images.unsplash.com/photo-1465414829459-d228b58caf6e" class="icon"><div data-v-0a5a84f2="" class="text"><div data-v-0a5a84f2="" class="title"><strong></strong>金<strong></strong>融<strong></strong>監<strong></strong>理<strong></strong>沙<strong></strong>盒<strong></strong></div><div data-v-0a5a84f2="" class="route-name"><strong></strong>s<strong></strong>a<strong></strong>n<strong></strong>d<strong></strong>b<strong></strong>o<strong></strong>x<strong></strong></div></div></a></div><div data-v-0a5a84f2="" class="item"><a href="/topic/cyberbullying" class="" data-v-0a5a84f2=""><img data-v-0a5a84f2="" src="https://images.unsplash.com/photo-1459983001447-eea6d4fbfbb1" class="icon"><div data-v-0a5a84f2="" class="text"><div data-v-0a5a84f2="" class="title"><strong></strong>網<strong></strong>路<strong></strong>霸<strong></strong>凌<strong></strong></div><div data-v-0a5a84f2="" class="route-name"><strong></strong>c<strong></strong>y<strong></strong>b<strong></strong>e<strong></strong>r<strong></strong>b<strong></strong>u<strong></strong>l<strong></strong>l<strong></strong>y<strong></strong>i<strong></strong>n<strong></strong>g<strong></strong></div></div></a></div><div data-v-0a5a84f2="" class="item"><a href="/topic/uberx" class="" data-v-0a5a84f2=""><img data-v-0a5a84f2="" src="https://c2.staticflickr.com/8/7043/27806414001_70bd4302de_z.jpg" class="icon"><div data-v-0a5a84f2="" class="text"><div data-v-0a5a84f2="" class="title"><strong></strong>U<strong></strong>b<strong></strong>e<strong></strong>r<strong></strong>X<strong></strong>自<strong></strong>用<strong></strong>車<strong></strong>載<strong></strong>客<strong></strong></div><div data-v-0a5a84f2="" class="route-name"><strong></strong>u<strong></strong>b<strong></strong>e<strong></strong>r<strong></strong>x<strong></strong></div></div></a></div><div data-v-0a5a84f2="" class="item"><a href="/topic/airbnb" class="" data-v-0a5a84f2=""><img data-v-0a5a84f2="" src="https://c1.staticflickr.com/1/430/19915395410_611f840957_b.jpg" class="icon"><div data-v-0a5a84f2="" class="text"><div data-v-0a5a84f2="" class="title"><strong></strong>A<strong></strong>i<strong></strong>r<strong></strong>b<strong></strong>n<strong></strong>b<strong></strong>自<strong></strong>用<strong></strong>住<strong></strong>宅<strong></strong>招<strong></strong>租<strong></strong></div><div data-v-0a5a84f2="" class="route-name"><strong></strong>a<strong></strong>i<strong></strong>r<strong></strong>b<strong></strong>n<strong></strong>b<strong></strong></div></div></a></div><div data-v-0a5a84f2="" class="item"><a href="/topic/naming" class="" data-v-0a5a84f2=""><img data-v-0a5a84f2="" src="http://static.thousandwonders.net/Taiwan.original.3738.jpg" class="icon"><div data-v-0a5a84f2="" class="text"><div data-v-0a5a84f2="" class="title"><strong></strong>公<strong></strong>司<strong></strong>英<strong></strong>文<strong></strong>名<strong></strong>稱<strong></strong>登<strong></strong>記<strong></strong></div><div data-v-0a5a84f2="" class="route-name"><strong></strong>n<strong></strong>a<strong></strong>m<strong></strong>i<strong></strong>n<strong></strong>g<strong></strong></div></div></a></div></div></div></form></div><div data-v-2a4fae16="" class="two wide column"><a href="/" class="logo" data-v-2a4fae16=""><img data-v-2a4fae16="" src="/vTaiwan_logo_2017.png" alt="logo"><span data-v-2a4fae16="">vTaiwan</span></a></div><div data-v-2a4fae16="" class="seven wide column right"><!----><a href="/how-to-use" class="item how-to-use" data-v-2a4fae16="">使用手冊</a><a href="/intro" class="item intro" data-v-2a4fae16="">關於 vTaiwan</a></div></div></nav><nav data-v-2a4fae16="" class="thin-only"><a href="/" class="m-logo" data-v-2a4fae16=""><img data-v-2a4fae16="" src="/vTaiwan_logo_2017.png" alt="logo"><span data-v-2a4fae16="">vTaiwan</span></a><div data-v-2a4fae16="" class="menu"><a href="/how-to-use" class="m-item" data-v-2a4fae16="">使用手冊</a><a href="/" class="m-item router-link-active" data-v-2a4fae16="">探索議題</a><a href="/" class="m-item router-link-active" data-v-2a4fae16="">搜尋議題</a></div></nav></div><div id="test0" style="display: none;">test jQuery</div><div id="main" class="main"><div data-v-c235cf6e="" class="component view" catagories=""><div data-v-c235cf6e="" class="fat-only"><div data-v-c235cf6e="" class="ui container"><div data-v-099cbb35="" class="component" data-v-c235cf6e=""><div data-v-099cbb35="" class="fat-only"><div data-v-099cbb35="" class="step-progress-bar"><ul data-v-099cbb35="" class="progress-bar"><li data-v-099cbb35="" class="active">即將開始</li><li data-v-099cbb35="" class="active">意見徵集</li><li data-v-099cbb35="" class="active">研擬草案</li><li data-v-099cbb35="" class="">送交院會</li><li data-v-099cbb35="" class="">歷史案件</li></ul></div></div><div data-v-099cbb35="" class="thin-only"><div data-v-099cbb35="" class="step-progress-bar"><ul data-v-099cbb35="" class="progress-bar"><li data-v-099cbb35="" class="active">即將開始</li><li data-v-099cbb35="" class="active">意見徵集</li><li data-v-099cbb35="" class="active">研擬草案</li><li data-v-099cbb35="" class="">送交院會</li><li data-v-099cbb35="" class="">歷史案件</li></ul></div></div></div><h1 data-v-c235cf6e="" class="ui huge header">開放資料例外收費原則</h1><div data-v-2406671b="" class="component" data-v-c235cf6e=""><div data-v-2406671b="" class="thin-only"><div data-v-2406671b="" class="content"></div></div><div data-v-2406671b="" class="fat-only"><div data-v-2406671b="" class="content"></div></div></div><div data-v-c235cf6e="" class="ui big steps top attached"><a data-v-c235cf6e="" class="step active"><i data-v-c235cf6e="" class="icon info circle"></i>詳細內容</a><a data-v-c235cf6e="" class="step"><i data-v-c235cf6e="" class="icon calendar"></i>議題時間軸</a><a data-v-c235cf6e="" class="step"><i data-v-c235cf6e="" class="icon comments"></i>參與討論</a></div><div data-v-c235cf6e="" class="ui segment attached"><div data-v-5da5dbe4="" class="info" data-v-c235cf6e=""><div class="component" data-v-5da5dbe4=""><div class="fat-only"><div class="styles content">
+
+<h1>簡介</h1>
+
+ <div style="margin-bottom:5px"> <strong> <a href="https://www.slideshare.net/vtaiwan/ndc-20150413" title="國發會簡報：資料開放例外收費原則" target="_blank">國發會簡報：資料開放例外收費原則</a> </strong> from <strong><a target="_blank" href="https://www.slideshare.net/vtaiwan">vTaiwan.tw</a></strong> </div>
+
+</div></div><div class="thin-only"><div class="styles content">
+
+<h1>簡介</h1>
+
+ <div style="margin-bottom:5px"> <strong> <a href="https://www.slideshare.net/vtaiwan/ndc-20150413" title="國發會簡報：資料開放例外收費原則" target="_blank">國發會簡報：資料開放例外收費原則</a> </strong> from <strong><a target="_blank" href="https://www.slideshare.net/vtaiwan">vTaiwan.tw</a></strong> </div>
+
+</div></div></div><!----><!----></div><div data-v-5da5dbe4="" class="info" data-v-c235cf6e="" style="display: none;"><!----><div data-v-25c2a472="" class="component" data-v-5da5dbe4=""><div data-v-25c2a472="" class="fat-only"><div data-v-25c2a472="" class="event-list"><div data-v-25c2a472="" class="item dark"><div data-v-25c2a472="" class="big">從 2015-03-01 開始 至 2015-04-24</div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">意見徵集  </p><div data-v-25c2a472="" class="title"></div></div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">相關連結</p><div class="urllink" data-v-25c2a472=""><span class="urllink"><span><a href="https://talk.vtaiwan.tw/c/data-levy" target="_blank" <a="" class="ui teal button"><i class="edit icon"></i>留言</a></span></span><span class="urllink"><span><a href="https://g0v.github.io/data-levy-gitbook" target="_blank" <a="" class="ui teal button"><i class="github alternate icon"></i>GitBook</a></span></span></div></div></div><div data-v-25c2a472="" class="item gloom"><div data-v-25c2a472="" class="big">從 2015-05-01 開始 至 2015-06-30</div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">研擬草案  </p><div data-v-25c2a472="" class="title"></div></div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">相關連結</p><div class="urllink" data-v-25c2a472=""><span class="urllink"><span><a href="https://talk.vtaiwan.tw/c/data-levy-spec" target="_blank" <a="" class="ui teal button"><i class="edit icon"></i>留言</a></span></span><span class="urllink"><span><a href="https://g0v.github.io/data-levy-spec-gitbook" target="_blank" <a="" class="ui teal button"><i class="github alternate icon"></i>GitBook</a></span></span></div></div></div><div data-v-25c2a472="" class="item light"><div data-v-25c2a472="" class="big">從 2015-04-25 14:05:00 開始 </div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">研擬草案  </p><div data-v-25c2a472="" class="title"></div></div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">相關連結</p><div class="urllink" data-v-25c2a472=""><span class="urllink"><span><a href="https://g0v.hackpad.com/vTaiwan--zjiELIjtDUc" target="_blank" <a="" class="ui teal button"><i class="pencil icon"></i>共筆</a></span></span><span class="urllink"><span><a href="https://livehouse.in/channel/vtaiwan/record/-Jnj9-4eG9dfh-D33RBK" target="_blank" <a="" class="ui teal button"><i class="linkify icon"></i>相關</a></span></span></div></div></div><div data-v-25c2a472="" class="item dark"><div data-v-25c2a472="" class="big">從 2015-07-17 開始 至 2015-08-17</div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">研擬草案  </p><div data-v-25c2a472="" class="title"></div></div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">相關連結</p><div class="urllink" data-v-25c2a472=""><span class="urllink"><span><a href="https://talk.vtaiwan.tw/c/data-levy-ref1" target="_blank" <a="" class="ui teal button"><i class="edit icon"></i>留言</a></span></span><span class="urllink"><span><a href="https://g0v.github.io/data-levy-ref1-gitbook" target="_blank" <a="" class="ui teal button"><i class="github alternate icon"></i>GitBook</a></span></span></div></div></div><div data-v-25c2a472="" class="item gloom"><div data-v-25c2a472="" class="big">從 2015-05-12 16:30:00 開始 </div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">研擬草案  </p><div data-v-25c2a472="" class="title"></div></div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">相關連結</p><div class="urllink" data-v-25c2a472=""><span class="urllink"><span><a href="https://hackpad.com/20150512--L4ijMKqXsnS" target="_blank" <a="" class="ui teal button"><i class="pencil icon"></i>共筆</a></span></span></div></div></div><div data-v-25c2a472="" class="item light"><div data-v-25c2a472="" class="big">從 2015-11-24 開始 至 2016-05-19</div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">送交院會  </p><div data-v-25c2a472="" class="title"></div></div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">相關連結</p><div class="urllink" data-v-25c2a472=""><span class="urllink"><span><a href="https://talk.vtaiwan.tw/c/data-levy-act1" target="_blank" <a="" class="ui teal button"><i class="edit icon"></i>留言</a></span></span><span class="urllink"><span><a href="https://g0v.github.io/data-levy-act1-gitbook" target="_blank" <a="" class="ui teal button"><i class="github alternate icon"></i>GitBook</a></span></span></div></div></div><div data-v-25c2a472="" class="item dark"><div data-v-25c2a472="" class="big">從 2015-07-23 00:00:00 開始 </div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">研擬草案  </p><div data-v-25c2a472="" class="title"></div></div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">相關連結</p><div class="urllink" data-v-25c2a472=""><span class="urllink"><span><a href="https://g0v.hackpad.com/2015-07-22-EY-Meeting-on-Open-Data-3RvGJjHbZ3Z" target="_blank" <a="" class="ui teal button"><i class="pencil icon"></i>共筆</a></span></span><span class="urllink"><span><a href="http://sayit.archive.tw/722-%E8%B3%87%E6%96%99%E5%88%86%E9%A1%9E%E5%8F%8A%E6%8E%88%E6%AC%8A%E5%88%A9%E7%94%A8%E6%94%B6%E8%B2%BB%E5%8E%9F%E5%89%87%E6%9C%83%E8%AD%B0" target="_blank" <a="" class="ui teal button"><i class="book icon"></i>記錄</a></span></span></div></div></div><div data-v-25c2a472="" class="item gloom"><div data-v-25c2a472="" class="big">從 2015-04-14 00:00:00 開始 </div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">研擬草案  </p><div data-v-25c2a472="" class="title"></div></div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">相關連結</p><div class="urllink" data-v-25c2a472=""><span class="urllink"><span><a href="https://hackpad.com/2015-04-14--JSea6WC3EdD" target="_blank" <a="" class="ui teal button"><i class="pencil icon"></i>共筆</a></span></span><span class="urllink"><span><a href="https://www.youtube.com/watch?v=DPNPZcfaQgs" target="_blank" <a="" class="ui teal button"><i class="youtube play icon"></i>影片</a></span></span><span class="urllink"><span><a href="http://www.vtaiwan.org.tw/download.aspx?path=public/20150413/9410fe0c-d6c4-4291-b5ff-5ed94400698b.pdf&amp;fn=%E9%81%A0%E8%B7%9D%E6%95%99%E8%82%B2%E8%AD%B0%E9%A1%8C-%E6%95%99%E8%82%B2%E9%83%A8.pdf" target="_blank" <a="" class="ui teal button"><i class="linkify icon"></i>相關</a></span></span><span class="urllink"><span><a href="http://www.vtaiwan.org.tw/download.aspx?path=public/20150413/66ef6192-eadd-497e-a517-a88bdaed50ad.pdf&amp;fn=%E8%B3%87%E6%96%99%E9%96%8B%E6%94%BE%E4%BE%8B%E5%A4%96%E6%94%B6%E8%B2%BB%E5%8E%9F%E5%89%87-%E5%9C%8B%E7%99%BC%E6%9C%83.pdf" target="_blank" <a="" class="ui teal button"><i class="linkify icon"></i>相關</a></span></span><span class="urllink"><span><a href="http://www.vtaiwan.org.tw/download.aspx?path=public/20150413/c9254249-aaa7-41bb-8368-8ef94bf2f139.pdf&amp;fn=20150414%E7%B7%9A%E4%B8%8A%E8%AB%AE%E8%A9%A2%E6%9C%83%E8%AD%B0%E8%88%87%E6%9C%83%E4%BA%BA%E5%93%A1%E5%90%8D%E5%96%AE.pdf" target="_blank" <a="" class="ui teal button"><i class="linkify icon"></i>相關</a></span></span><span class="urllink"><span><a href="http://www.vtaiwan.org.tw/download.aspx?path=public/20150420/74c71d05-be42-4394-b9dc-032a0992eb7b.pdf&amp;fn=20150414%E7%B7%9A%E4%B8%8A%E7%9B%B4%E6%92%AD%E7%95%99%E8%A8%80%E8%A8%98%E9%8C%84.pdf" target="_blank" <a="" class="ui teal button"><i class="linkify icon"></i>相關</a></span></span><span class="urllink"><span><a href="http://www.vtaiwan.org.tw/download.aspx?path=public/20150423/e8ee9f85-020c-4bde-b686-b8fac559f385.pdf&amp;fn=20150414%E8%99%9B%E6%93%AC%E4%B8%96%E7%95%8C%E7%99%BC%E5%B1%95%E6%B3%95%E8%A6%8F%E8%AA%BF%E9%81%A9%E7%B7%9A%E4%B8%8A%E8%AB%AE%E8%A9%A2%E6%9C%83%E8%AD%B0%E7%B4%80%E9%8C%84%EF%BC%88%E9%81%A0%E8%B7%9D%E6%95%99%E8%82%B2%E8%88%87%E9%96%8B%E6%94%BE%E8%B3%87%E6%96%99%E8%AD%B0%E9%A1%8C%EF%BC%89.pdf" target="_blank" <a="" class="ui teal button"><i class="linkify icon"></i>相關</a></span></span></div></div></div></div></div><div data-v-25c2a472="" class="thin-only"><div data-v-25c2a472="" class="event-list"><div data-v-25c2a472="" class="item dark"><div data-v-25c2a472="" class="big">從 2015-03-01 開始 至 2015-04-24</div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">意見徵集  </p><div data-v-25c2a472="" class="title"> </div></div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">相關連結</p><div class="urllink" data-v-25c2a472=""><span class="urllink"><span><a href="https://talk.vtaiwan.tw/c/data-levy" target="_blank" <a="" class="ui teal button"><i class="edit icon"></i>留言</a></span></span><span class="urllink"><span><a href="https://g0v.github.io/data-levy-gitbook" target="_blank" <a="" class="ui teal button"><i class="github alternate icon"></i>GitBook</a></span></span></div></div></div><div data-v-25c2a472="" class="item gloom"><div data-v-25c2a472="" class="big">從 2015-05-01 開始 至 2015-06-30</div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">研擬草案  </p><div data-v-25c2a472="" class="title"> </div></div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">相關連結</p><div class="urllink" data-v-25c2a472=""><span class="urllink"><span><a href="https://talk.vtaiwan.tw/c/data-levy-spec" target="_blank" <a="" class="ui teal button"><i class="edit icon"></i>留言</a></span></span><span class="urllink"><span><a href="https://g0v.github.io/data-levy-spec-gitbook" target="_blank" <a="" class="ui teal button"><i class="github alternate icon"></i>GitBook</a></span></span></div></div></div><div data-v-25c2a472="" class="item light"><div data-v-25c2a472="" class="big">從 2015-04-25 14:05:00 開始 </div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">研擬草案  </p><div data-v-25c2a472="" class="title"> </div></div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">相關連結</p><div class="urllink" data-v-25c2a472=""><span class="urllink"><span><a href="https://g0v.hackpad.com/vTaiwan--zjiELIjtDUc" target="_blank" <a="" class="ui teal button"><i class="pencil icon"></i>共筆</a></span></span><span class="urllink"><span><a href="https://livehouse.in/channel/vtaiwan/record/-Jnj9-4eG9dfh-D33RBK" target="_blank" <a="" class="ui teal button"><i class="linkify icon"></i>相關</a></span></span></div></div></div><div data-v-25c2a472="" class="item dark"><div data-v-25c2a472="" class="big">從 2015-07-17 開始 至 2015-08-17</div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">研擬草案  </p><div data-v-25c2a472="" class="title"> </div></div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">相關連結</p><div class="urllink" data-v-25c2a472=""><span class="urllink"><span><a href="https://talk.vtaiwan.tw/c/data-levy-ref1" target="_blank" <a="" class="ui teal button"><i class="edit icon"></i>留言</a></span></span><span class="urllink"><span><a href="https://g0v.github.io/data-levy-ref1-gitbook" target="_blank" <a="" class="ui teal button"><i class="github alternate icon"></i>GitBook</a></span></span></div></div></div><div data-v-25c2a472="" class="item gloom"><div data-v-25c2a472="" class="big">從 2015-05-12 16:30:00 開始 </div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">研擬草案  </p><div data-v-25c2a472="" class="title"> </div></div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">相關連結</p><div class="urllink" data-v-25c2a472=""><span class="urllink"><span><a href="https://hackpad.com/20150512--L4ijMKqXsnS" target="_blank" <a="" class="ui teal button"><i class="pencil icon"></i>共筆</a></span></span></div></div></div><div data-v-25c2a472="" class="item light"><div data-v-25c2a472="" class="big">從 2015-11-24 開始 至 2016-05-19</div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">送交院會  </p><div data-v-25c2a472="" class="title"> </div></div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">相關連結</p><div class="urllink" data-v-25c2a472=""><span class="urllink"><span><a href="https://talk.vtaiwan.tw/c/data-levy-act1" target="_blank" <a="" class="ui teal button"><i class="edit icon"></i>留言</a></span></span><span class="urllink"><span><a href="https://g0v.github.io/data-levy-act1-gitbook" target="_blank" <a="" class="ui teal button"><i class="github alternate icon"></i>GitBook</a></span></span></div></div></div><div data-v-25c2a472="" class="item dark"><div data-v-25c2a472="" class="big">從 2015-07-23 00:00:00 開始 </div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">研擬草案  </p><div data-v-25c2a472="" class="title"> </div></div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">相關連結</p><div class="urllink" data-v-25c2a472=""><span class="urllink"><span><a href="https://g0v.hackpad.com/2015-07-22-EY-Meeting-on-Open-Data-3RvGJjHbZ3Z" target="_blank" <a="" class="ui teal button"><i class="pencil icon"></i>共筆</a></span></span><span class="urllink"><span><a href="http://sayit.archive.tw/722-%E8%B3%87%E6%96%99%E5%88%86%E9%A1%9E%E5%8F%8A%E6%8E%88%E6%AC%8A%E5%88%A9%E7%94%A8%E6%94%B6%E8%B2%BB%E5%8E%9F%E5%89%87%E6%9C%83%E8%AD%B0" target="_blank" <a="" class="ui teal button"><i class="book icon"></i>記錄</a></span></span></div></div></div><div data-v-25c2a472="" class="item gloom"><div data-v-25c2a472="" class="big">從 2015-04-14 00:00:00 開始 </div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">研擬草案  </p><div data-v-25c2a472="" class="title"> </div></div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">相關連結</p><div class="urllink" data-v-25c2a472=""><span class="urllink"><span><a href="https://hackpad.com/2015-04-14--JSea6WC3EdD" target="_blank" <a="" class="ui teal button"><i class="pencil icon"></i>共筆</a></span></span><span class="urllink"><span><a href="https://www.youtube.com/watch?v=DPNPZcfaQgs" target="_blank" <a="" class="ui teal button"><i class="youtube play icon"></i>影片</a></span></span><span class="urllink"><span><a href="http://www.vtaiwan.org.tw/download.aspx?path=public/20150413/9410fe0c-d6c4-4291-b5ff-5ed94400698b.pdf&amp;fn=%E9%81%A0%E8%B7%9D%E6%95%99%E8%82%B2%E8%AD%B0%E9%A1%8C-%E6%95%99%E8%82%B2%E9%83%A8.pdf" target="_blank" <a="" class="ui teal button"><i class="linkify icon"></i>相關</a></span></span><span class="urllink"><span><a href="http://www.vtaiwan.org.tw/download.aspx?path=public/20150413/66ef6192-eadd-497e-a517-a88bdaed50ad.pdf&amp;fn=%E8%B3%87%E6%96%99%E9%96%8B%E6%94%BE%E4%BE%8B%E5%A4%96%E6%94%B6%E8%B2%BB%E5%8E%9F%E5%89%87-%E5%9C%8B%E7%99%BC%E6%9C%83.pdf" target="_blank" <a="" class="ui teal button"><i class="linkify icon"></i>相關</a></span></span><span class="urllink"><span><a href="http://www.vtaiwan.org.tw/download.aspx?path=public/20150413/c9254249-aaa7-41bb-8368-8ef94bf2f139.pdf&amp;fn=20150414%E7%B7%9A%E4%B8%8A%E8%AB%AE%E8%A9%A2%E6%9C%83%E8%AD%B0%E8%88%87%E6%9C%83%E4%BA%BA%E5%93%A1%E5%90%8D%E5%96%AE.pdf" target="_blank" <a="" class="ui teal button"><i class="linkify icon"></i>相關</a></span></span><span class="urllink"><span><a href="http://www.vtaiwan.org.tw/download.aspx?path=public/20150420/74c71d05-be42-4394-b9dc-032a0992eb7b.pdf&amp;fn=20150414%E7%B7%9A%E4%B8%8A%E7%9B%B4%E6%92%AD%E7%95%99%E8%A8%80%E8%A8%98%E9%8C%84.pdf" target="_blank" <a="" class="ui teal button"><i class="linkify icon"></i>相關</a></span></span><span class="urllink"><span><a href="http://www.vtaiwan.org.tw/download.aspx?path=public/20150423/e8ee9f85-020c-4bde-b686-b8fac559f385.pdf&amp;fn=20150414%E8%99%9B%E6%93%AC%E4%B8%96%E7%95%8C%E7%99%BC%E5%B1%95%E6%B3%95%E8%A6%8F%E8%AA%BF%E9%81%A9%E7%B7%9A%E4%B8%8A%E8%AB%AE%E8%A9%A2%E6%9C%83%E8%AD%B0%E7%B4%80%E9%8C%84%EF%BC%88%E9%81%A0%E8%B7%9D%E6%95%99%E8%82%B2%E8%88%87%E9%96%8B%E6%94%BE%E8%B3%87%E6%96%99%E8%AD%B0%E9%A1%8C%EF%BC%89.pdf" target="_blank" <a="" class="ui teal button"><i class="linkify icon"></i>相關</a></span></span></div></div></div></div></div></div><!----></div><div data-v-5da5dbe4="" class="info" data-v-c235cf6e="" style="display: none;"><!----><!----><div class="Discoussioncomponent textleft" data-v-5da5dbe4=""><!----><!----><!----><div><div><div class="ui styled accordion"><div class="title"><i class="dropdown icon"></i>開放資料例外收費原則</div><div class="content"><div class="Commentcomponent"><div class="ui compact menu"><a class="item"><i class="reply icon"></i> 0</a><a class="item"><i class="unhide icon"></i> 628</a><a class="item"><i class="user icon"></i> 1   </a><a class="item"><i class="calendar icon"></i> 0 </a></div><a href="https://talk.vtaiwan.tw/t/topic/148" target="_blank"><div class="ui fluid green labeled submit icon button"><i class="icon edit"></i>我要留言</div></a></div></div></div></div><div><div class="ui styled accordion"><div class="title"><i class="dropdown icon"></i>對政策方向的看法</div><div class="content"><div class="Commentcomponent"><div class="ui compact menu"><a class="item"><i class="reply icon"></i> 18</a><a class="item"><i class="unhide icon"></i> 3342</a><a class="item"><i class="user icon"></i> 8   </a><a class="item"><i class="calendar icon"></i> 650 天  </a></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/ifulita/100/57_1.png"></a><div class="discussioncontent"><a class="author">ifulita</a><div class="metadata"><span class="date"><div>2015-02-15</div></span></div><div class="text"><div><p>1，<br>一些涉及個人隱私的可以收費，<br>不過如果是自己要申請涉及隱私的那麼就不應該收費。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/letter_avatar_proxy/v2/letter/1/7993a0/100.png"></a><div class="discussioncontent"><a class="author">11118</a><div class="metadata"><span class="date"><div>2015-03-08</div></span></div><div class="text"><div><p>使用者付費的觀念是：資源有擁擠性的特性才需要以使用者付費來限制使用，以免資源過早消耗，例如停車位這種公共服務的提供。但目前的政府資料的使用有擁擠性的問題嗎？資料不若傳統實體公共財那種一旦被使用，同時間就不能有第二人使用的問題，且資料的複製幾乎沒有成本可言，政府資料若以使用者付費的精神收費，豈不昭告天下：政府為了怕資料被大量使用，因此要收費？這豈不墊高了知識傳播的門檻？</p>
+
+<p>一般說來，政府施政的經費所需來自稅收，政府施政所產生的資料，不就是施政的成果之一，不論當初建置的成本有多少，以使用者付費的原則收費就是誤解了使用者付費的精神，這個精神並非適用於所有公共財。</p>
+
+<p>政府資料並不是開放後就馬上能用的，有很多資料必須清理（這個問題來自於過去資料建置時缺乏橫向聯繫或標準，或有標準但非強制執行），而這個清理讓資料好用，可用的工作，若可以委外進行，此時，就衍生出讓原始政府資料好用可用的成本，再來談資料收費。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/audreyt/100/225_1.png"></a><div class="discussioncontent"><a class="author">audreyt</a><div class="metadata"><span class="date"><div>2015-03-08</div></span></div><div class="text"><div><p>經 whisky 同意，引用在 <a href="https://www.facebook.com/TajfunInsulo/posts/823238251045653">https://www.facebook.com/TajfunInsulo/posts/823238251045653</a> 的看法如下：</p>
+
+<p>收費與否應該要問的是 <strong>資料從匯集整理到釋出的成本</strong>，這也是規費法的精神。<br>但這也是我們挑戰政府的地方，在網路時代，這個成本怎麼還會是依照 A4 紙張大小或是光碟容量來計算。</p>
+
+<p>在這前提下，我們會希望開放資料能不收費。但是，這絕對不表示不可收費。只是政府要把收費的成本，清楚告訴我們。 一個簡單的概念 - 資料開放後，我是有權利重新製作與散佈，那這個收費的意義會是什麼？</p>
+
+<p>這應該對於那些無法重新散佈的資料才會有影響（不是因為授權，更可能是因為技術問題）？這些資料會是什麼？</p>
+
+<p>這也是為什麼目前開放資料在某些領域會特別難推動（除了因為法令解釋以外），因為有一些政府機關（尤其是會產出「有價值」的資料的），他們是需要自己販賣這些資料來尋求運作的經費。 所以，整個問題如果要問，應該是從成本上來談。但這個成本又會和政府的預算有關係。而這就是政府資源（預算）該如何分配，該如何期待（開放資料）回收的經濟效應，來做整體的規劃。</p>
+
+<p>例如，氣象資料到底該不該免費開放？從成本上來看，的確是需要收費（針對特定，非一般性需求時），從使用者的狀況來看，也應該是要收費。但是如果免費，我們是否可以創造出更多的經濟效應，甚至大過收費的盈餘？這的確是可能的，至少彭博士拿美歐來做比較時，的確是開放氣象資料有促成更多相關產業的發展。但是相同問題拿到台灣時，是否可行？尤其是，在相關產業出現前，政府願意投資多少進入這個產業與領域。</p>
+
+<p>又例如，一個更簡單直接的例子，公車的時刻資訊 - 每輛公車上安裝 GPS，政府要委外廠商做資料收集與處理（依照定點做計算，預估到站時間）等。從成本上來看，真的是非常可觀。這些資料該不該免費開放讓人使用（aka 賺錢）目前的作法是偏向開放不收費的（因為鄉民的力量大，收費讓我用習慣的 APP 不能動，我們就 call 爆你們的 1999）但是依照使用者付費的說法，這不也該收費才對？但這其實一樣是資源分配的問題。目前雙北每年給公車業者 30 億的補助金。我敢打賭因為公車時刻的開放，一定會增加搭乘公車的人數（多少是該做進一步統計的），那是否可以從這 30 億撥款過來做為市府營運公車資訊時刻的服務經費呢？其實，也應該如此不是嗎？ 所以收費與否，是成本問題，然後接下來該問的是，政府對開放資料政策與目的。因為這些成本絕對會受到政府開放資料政策的影響。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/opendata_mis_ndc/100/77_1.png"></a><div class="discussioncontent"><a class="author">opendata_mis_ndc</a><div class="metadata"><span class="date"><div>2015-03-10</div></span></div><div class="text"><div><p>謝謝<a class="mention" href="/users/11118">@11118</a>的建議，這也就是我們所希望的，能夠在眾多政府資料中取得一個收費與否的平衡點。若資料本身僅是業務執行過程中所蒐集，未經過客製化或整理過的資料，我們朝免費方式開放；如是屬於清理整理的才會衍生出收費問題。對於要收費的資料，<a class="mention" href="/users/11118">@11118</a>有沒有建議的計費模式或標準供我們參考。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/opendata_mis_ndc/100/77_1.png"></a><div class="discussioncontent"><a class="author">opendata_mis_ndc</a><div class="metadata"><span class="date"><div>2015-03-10</div></span></div><div class="text"><div><p>謝謝<a class="mention" href="/users/audreyt">@audreyt</a>的轉述建議，政府資料開放的目的，簡單的說就是充分將政府已經收集的且無法規限制的資料開放給民間使用，而且盡可能不收取費用，但是，有些資料的產製是需要較多行政成本有收費需求的。政府資料的收費與不收費之間，我們希望能夠訂出一個界線，<a class="mention" href="/users/audreyt">@audreyt</a>有沒有建議的界線訂定建議、計費模式或標準供我們參考。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/letter_avatar_proxy/v2/letter/1/7993a0/100.png"></a><div class="discussioncontent"><a class="author">11118</a><div class="metadata"><span class="date"><div>2015-03-10</div></span></div><div class="text"><div><p>謝謝回應。</p>
+
+<p>建議可以看這一篇，歐盟在2011年對於政府資訊計價的調查研究<br><a href="http://ec.europa.eu/information_society/newsroom/cf/dae/document.cfm?doc_id=1158" class="onebox" target="_blank" rel="nofollow">http://ec.europa.eu/information_society/newsroom/cf/dae/document.cfm?doc_id=1158</a><br>尤其是p7的結論，越低價越好，免費更好，對於數位資料來說，政府早已有基礎建設，為了開放資料要額外多做的努力或許可以用規費(因資料提供產生的額外費用)的方式轉嫁到使用者身上，而不是因為該資料可能會產生多少價值而將納稅後的成果當作商品的方式販售。在規費的精神下，這個費用應該是極低的。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/opendata_mis_ndc/100/77_1.png"></a><div class="discussioncontent"><a class="author">opendata_mis_ndc</a><div class="metadata"><span class="date"><div>2015-03-12</div></span></div><div class="text"><div><p>謝謝您提供的資訊。 <img src="/images/emoji/emoji_one/blush.png?v=0" title=":blush:" class="emoji" alt="blush" width="64" height="64"></p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/whisky/100/145_1.png"></a><div class="discussioncontent"><a class="author">whisky</a><div class="metadata"><span class="date"><div>2015-04-04</div></span></div><div class="text"><div><p>請問哪些資料的產製是需要較多行政成本？同時也不是政府本身有需求，而是為了開放資料而特別製作的？</p>
+
+<p>嗯，或許我們可以這樣說，目前所有開放的資料集，因為需要重新包裝，制訂 metadata 編寫，要求公務員額外作業（上傳等），所以全部都需要較多的行政成本。但這也讓人感到有趣，那就是開放資料到底對政府自己有什麼好處？將原本的公開資訊，業務資料轉為開放資料後，受益者只會是民間使用者嗎？還是政府本身？</p>
+
+<p>如果只是民間加值應用者（尤其是商業使用者）那當然收費似乎就沒什麼爭議。但是如果透過開放資料的程序，政府本身也是受益者，甚至是最直接，第一線的受益者時。那是否這個成本就該由政府自己吸收？而其他額外的需求，當然就是所謂客製化，所謂特別製作，會須要收費也很正常。反正在開放資料的原則下，你收費，就會有人把他 copy 出來放在其他地方免費讓人使用。</p>
+
+<p>在開放資料的原則下，那，是否就會發現，這個收費如果不是反應在資料公佈」 (data publishing) 時，就會顯得很可笑了？因為只有當資料為即時，大量，我們無法自動幫政府備份（就算備份出來，可能也沒能力讓很多人介接進來使用）時，政府要收費才有意義（不是有道理，是有意義）</p>
+
+<p>例如公車到站時刻的資料介接，例如 ETC 每五分鐘一次的資料介接等</p>
+
+<p>如果是這樣，那或許我們要反過來想一下。政府將這些資料開放後，他是希望透過收費，讓可能的使用者人數降低（能出得起價錢的，才能使用，當然也包含商業使用）。或是政府該把這視為他的建設成本之一。免費，讓更多人有機會使用，同時建立更高的市場價值。這一切都是政府資源分配的問題，也就是政府政策的問題。</p>
+
+<p>也因為如此，我們一直在問，政府的開放資料政策到底是什麼？這個政策不是什麼「免費為原則，或是開放為原則，其他是例外」。而是政府推動開放資料到底想看到的發展會是什麼，預期中需要投入的資源又是什麼？一個資料生態圈的出現，或是政府治理程序上的改變（開放資料的過程應該對政府的治理從內到外都會造成改變，這改變是什麼？）等。而這些正是到目前為止都沒有說清楚過的（這或許是目前白皮書內會提到的部分）</p>
+
+<p>當我們對開放資料政策都不是這麼清楚時，直接拋出這樣收費免費的議題，我認為是不妥同時也只是指出開放資料推動在台灣目前眾多說不清楚的議題之一。</p>
+
+<p>要問該不該收費，請先回答，政府自己需不需要開放資料。如果需要（這需要的答案絕對不是，需要，因為要讓民間可加值使用），那或許可以再問，政府需不需要三星以上等級的開放資料，如果需要，為什麼？如果不需要，也請問為什麼？</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/vtaiwan/100/44_1.png"></a><div class="discussioncontent"><a class="author">vtaiwan</a><div class="metadata"><span class="date"><div>2015-04-04</div></span></div><div class="text"><div><p>謝謝 <a class="mention" href="/users/whisky">@whisky</a> 的分享。稍微整理一下詢問，請 <a class="mention" href="/users/opendata_mis_ndc">@opendata_mis_ndc</a> 撥冗回答：</p>
+
+<ol>
+<li>是否考慮專為「即時、大量」資料收取維運費用，但不影響資料授權？</li>
+<li>目前的開放資料政策，是否有網址或紀錄可資參考？</li>
+<li>公部門跨部會、跨層級使用其他業務單位的開放資料，目有已知的例子嗎？<br>是否有三、四、五星的例子？</li>
+</ol></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/stella_hsieh/100/92_1.png"></a><div class="discussioncontent"><a class="author">Stella_Hsieh</a><div class="metadata"><span class="date"><div>2015-04-09</div></span></div><div class="text"><div><p>如因為行政成本考量，以使用者付費原則觀之，「免費為原則，收費為例外」這樣的大方向原則上可贊同。<br>如果這樣的方向確立，收費是否合理將顯得重要! 收費不應過高以致造成近用門檻，否則將有違資料開放的初衷。<br>再者，由於資料開放可以造福社會大眾，例如更好的政策建言，更方便的生活環境，然而當然也可能做為商業用途。因此考量開放資料對社會發展有益，在政策方向以及預算編列似也應考量這一點，由政府吸收大部份的資料處理成本，少部分由使用者付費。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/opendata_mis_ndc/100/77_1.png"></a><div class="discussioncontent"><a class="author">opendata_mis_ndc</a><div class="metadata"><span class="date"><div>2015-04-10</div></span></div><div class="text"><div><p>謝謝<a class="mention" href="/users/whisky">@whisky</a>的意見，<br>對政府資料開放的預期是希望讓政府資料都能預設為免費開放，透過民間的運用產生更符合人民使用的服務，進一步讓民間所產生的服務回饋給政府，提升政府決策品質。目前在推動政府資料開放過程中，各機關都盡量朝開放免收費方向處理，然而不可諱言的，亦存在資料要收費的意見。如何在資料中劃分出一條線，讓機關遵循以開放資料，而這條線是必須由大家一起討論出來的。您所提出的即時、大量資料才需收費，也是可以納入討論的一種判斷資料收費與否的方式。</p>
+
+<p>謝謝<a class="mention" href="/users/vtaiwan">@vtaiwan</a>的整理，<br>1.有關專為「即時、大量」資料收取維運費用，我們都將納為後續討論參考，歡迎大家多提供其他國家具體收費機制建議，期透過討論逐漸形成共識。<br>2.目前籌劃中的「網路智慧新臺灣政策白皮書」，已持續廣邀各界意見完備政府資料開放相關策略，可參考http://join.gov.tw/。另已頒訂「政府資料開放諮詢小組設置要點」，各級諮詢小組會議紀錄，將載明各方意見，並公開之。<br>3.在跨機關資料運用上，例如臺北市政府臺北旅遊網即是運用文化部所開放的資料等，目前尚無四、五星資料跨部會應用案例。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/opendata_mis_ndc/100/77_1.png"></a><div class="discussioncontent"><a class="author">opendata_mis_ndc</a><div class="metadata"><span class="date"><div>2015-04-10</div></span></div><div class="text"><div><p>謝謝<a class="mention" href="/users/stella_hsieh">@Stella_Hsieh</a>的意見。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/vtaiwan/100/44_1.png"></a><div class="discussioncontent"><a class="author">vtaiwan</a><div class="metadata"><span class="date"><div>2015-04-24</div></span></div><div class="text"><div><p>以下是 <a class="mention" href="/users/11118">@11118</a> 在 <a href="https://hackpad.com/2015-04-14--JSea6WC3EdD">4/14 諮詢會議</a>的意見分享摘要：</p>
+
+<ol>
+<li>反對政府開放資料收費。我已經繳過稅了，成本是我繳的稅製作的，為何還要收費？</li>
+<li>額外的資料清理，公務員是在上班時間處理，不應額外收費。</li>
+<li>星等是機器處理的難易度，不是資料品質的指標。資料品質應以精確度、整合性為主。</li>
+<li>以道路的資料為例，其實有許多主管機關（例如水道由水利署管），河川資料也是分散在各部會。</li>
+<li>需要各機關都開放才能整合應用。資料整合性提高乃是滿足政府施政需求，也不應該收費。</li>
+<li>資料是產生知識與智慧的源頭，不具有「擁擠性」。有擁擠性的公共建設，像公路停車位，才適用「使用者付費」原則。</li>
+<li>如果例外收費，誰來決定什麼是例外？會不會例外越來越多？</li>
+<li>德國的地政資料為事後有營利所得時收費。但是德國也正在檢討，真的能改善財政狀況嗎？免費提供資料造成的外溢效益是比較高的。</li>
+</ol></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/vtaiwan/100/44_1.png"></a><div class="discussioncontent"><a class="author">vtaiwan</a><div class="metadata"><span class="date"><div>2015-04-24</div></span></div><div class="text"><div><p>以下是戴豪君資訊長在 <a href="https://hackpad.com/2015-04-14--JSea6WC3EdD">4/14 諮詢會議</a>的意見分享摘要：</p>
+
+<ol>
+<li>在內政部實價登錄案時，國庫署發函，認為私法契約不涉及規費法。國庫署另外也說，無償提供即不適用規費法。</li>
+<li>以實價登錄為例，網路傳輸不收費，製作光碟才收工本費，這和<a href="https://talk.vtaiwan.tw/t/topic/165/7">林誠夏顧問提的概念</a>類似，實務操作也沒什麼問題。</li>
+<li>另外，也可以適用<a href="http://law.moj.gov.tw/LawClass/LawSingle.aspx?Pcode=G0340107&amp;FLNO=13">規費法第十三條</a>：像新加坡原則上要收費，但是目前停徵。澳洲說的是「最低合理成本」，大家都同意網路下載的成本為零，但看來和目前規費法的意旨有出入。</li>
+<li>想請國庫署說明，<a href="http://law.moj.gov.tw/LawClass/LawSingle.aspx?Pcode=G0340107&amp;FLNO=10">第十條的收費項目</a>是例示還是列舉？是否可以確立「以邊際成本為計費原則」？</li>
+</ol></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/vtaiwan/100/44_1.png"></a><div class="discussioncontent"><a class="author">vtaiwan</a><div class="metadata"><span class="date"><div>2015-04-24</div></span></div><div class="text"><div><p>以下是 <a class="mention" href="/users/whisky">@whisky</a>  在 <a href="https://hackpad.com/2015-04-14--JSea6WC3EdD">4/14 諮詢會議</a>的意見分享摘要：</p>
+
+<ol>
+<li>故宮以及氣象局目前其實都是在「賣」資料，來支應預算上沒有涵括到的經費。</li>
+<li>我相信絕大多數部會其實都是希望不要收費，但政府內的少數部會其實需要賣資料來養活自己，例如故宮、氣象局、圖資機關。</li>
+<li>
+<a href="http://opendefinition.org/od/2.0/zh-tw/">The Open Definition</a> 說得很清楚，開放資料就是要自由取得、散佈。</li>
+<li>當資料是即時、大量的時候，例如公車資訊，技術上可以透過 API 的使用收費。這些即時資訊的頻寬（邊際成本），即使透過網路傳輸，也許並不是零，也確實有建置成本。</li>
+<li>但是建置這些系統的目標，例如鼓勵搭乘大眾運輸（公車、路況），開放、免費造成的效益應超過其成本。</li>
+<li>總結：某些即時、大量的開放資料雖然原則上可以收費，但實務上沒有意義。</li>
+</ol></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/vtaiwan/100/44_1.png"></a><div class="discussioncontent"><a class="author">vtaiwan</a><div class="metadata"><span class="date"><div>2015-04-24</div></span></div><div class="text"><div><p>以下是 <a class="mention" href="/users/ifulita">@ifulita</a> 在 <a href="https://hackpad.com/2015-04-14--JSea6WC3EdD">4/14 諮詢會議</a>的意見分享摘要：</p>
+
+<ul>
+<li>每年政府都已經編列預算進行資訊維運，所以沒有收費的正當性。</li>
+<li>四星資料（使用固定網址發佈單筆資料），如果是作業流程的一部份，例如立法院會議影音紀錄的單筆網址，目前並不會因為這樣就要收費，請行政機關參考。</li>
+</ul></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/vtaiwan/100/44_1.png"></a><div class="discussioncontent"><a class="author">vtaiwan</a><div class="metadata"><span class="date"><div>2015-04-24</div></span></div><div class="text"><div><p>以下是國庫署陳明娟科長在 <a href="https://hackpad.com/2015-04-14--JSea6WC3EdD">4/14 諮詢會議</a>的綜合回應摘要：</p>
+
+<ol>
+<li>政府的收入來源：稅（約 1.2 兆）、費（550 億）、捐、債。其中規費也有一定的比重。</li>
+<li>如果只有少數人使用的資料，是否應由多數人的稅捐負擔？</li>
+<li>財政部原則上同意，適用政府資訊公開法<a href="http://law.moj.gov.tw/LawClass/LawSingle.aspx?Pcode=I0020026&amp;FLNO=7">第七條</a>、<a href="http://law.moj.gov.tw/LawClass/LawSingle.aspx?Pcode=I0020026&amp;FLNO=22">第二十二條</a>（得收取費用）的項目，在網路上公開時，應該是無償提供的。</li>
+<li>不過若非政府資訊公開法規範範圍，則回歸規費法 ，因此「有償」的<a href="http://law.moj.gov.tw/LawClass/LawSingle.aspx?Pcode=G0340107&amp;FLNO=10">使用規費項目</a>應包含興建、購置成本。</li>
+<li>個人覺得，如果資料是提供給廠商營利使用，則有收費的可能，例如用私法契約規定事後收費、有賺錢才收費。</li>
+<li>與民生有關的資料，像 G8 簽的 Charter 中規定「教育、氣象、醫藥」等資料應該要無償提供，但目前只有加拿大等少數國家做到。法國、日本正在往此方向推動。</li>
+<li>政府的財政狀況不是很好，在此情況下，收取規費是合理的。舉個例子：馬路不收費，為什麼高速公路要收費？其實有些國家高速公路也不收費，端視實際的財政狀況為準。</li>
+</ol></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/vtaiwan/100/44_1.png"></a><div class="discussioncontent"><a class="author">vtaiwan</a><div class="metadata"><span class="date"><div>2015-04-24</div></span></div><div class="text"><div><p>以下是 <a class="mention" href="/users/opendata_mis_ndc">@opendata_mis_ndc</a> 簡宏偉處長在 <a href="https://hackpad.com/2015-04-14--JSea6WC3EdD">4/14 諮詢會議</a>的綜合回應摘要：</p>
+
+<ol>
+<li>今天本來就是要討論，無償開放跟有償提供的線，應該畫在哪裡。</li>
+<li>個人看法：能不能拿資料做商業應用是各憑本事，能夠拿去賺錢，用繳稅的方式也能回到國庫。</li>
+<li>所以並不是說，開放資料拿去做營利使用，就要特別付費。</li>
+</ol></div></div><div class="commentline"></div></div></div></div></div><a href="https://talk.vtaiwan.tw/t/topic/164" target="_blank"><div class="ui fluid green labeled submit icon button"><i class="icon edit"></i>我要留言</div></a></div></div></div></div><div><div class="ui styled accordion"><div class="title"><i class="dropdown icon"></i>3星以下資料以免費為原則、4星5星得例外收費，是否合理？</div><div class="content"><div class="Commentcomponent"><div class="ui compact menu"><a class="item"><i class="reply icon"></i> 19</a><a class="item"><i class="unhide icon"></i> 6619</a><a class="item"><i class="user icon"></i> 6   </a><a class="item"><i class="calendar icon"></i> 650 天  </a></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/ifulita/100/57_1.png"></a><div class="discussioncontent"><a class="author">ifulita</a><div class="metadata"><span class="date"><div>2015-02-16</div></span></div><div class="text"><div><p>不知道3星以下資料是指哪一種類的資料?<br>而4星及4星的資料又是怎樣的資料?</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/vtaiwan/100/44_1.png"></a><div class="discussioncontent"><a class="author">vtaiwan</a><div class="metadata"><span class="date"><div>2015-02-16</div></span></div><div class="text"><div><p>您好，請參考<a href="https://talk.vtaiwan.tw/t/topic/161">收費原則</a>主題裡的定義。4 星表示資料集裡的單筆資料都有固定的網址，5 星則表示該網址也額外包含單筆資料與其他資料之間的關連。未達這兩個標準的開放資料，均為 3 星以下。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/ifulita/100/57_1.png"></a><div class="discussioncontent"><a class="author">ifulita</a><div class="metadata"><span class="date"><div>2015-02-16</div></span></div><div class="text"><div><p>在看過那裡面的定義後，<br>我會覺得4星及5星的資料可以部份收費、部分不收費耶，<br>涉及國家安全(如：外交機密、國防機密、…)及個人隱私的可以收費，<br>其他重要性沒那麼高或者只有包含申請者自己的個人隱私的可以不收費。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/clkao/100/91_1.png"></a><div class="discussioncontent"><a class="author">clkao</a><div class="metadata"><span class="date"><div>2015-03-03</div></span></div><div class="text"><div><p>若一份資料僅以 4 星或 5 星提供，且需收費，它就不再能稱為開放資料，因為他無法滿足開放及一星的基本要求 - 任何人皆可取得。因此本議題討論的前提應為：資料以3星以下提供，且同時也以 4 至 5 星提供者，後者收費的合理性。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/clkao/100/91_1.png"></a><div class="discussioncontent"><a class="author">clkao</a><div class="metadata"><span class="date"><div>2015-03-03</div></span></div><div class="text"><div><p>承上，若由此出發，則可視 4 至 5 星為「以較佳之載具提供資料」（不必一次取得全部資料，可僅取用資料應用所需的，等等），收費原因並非因為取用資料，而是因為使用較佳載具。</p>
+
+<p>我不認為政府本身應花太大力氣試圖提供此「較佳載具」並就此收費，而應鼓勵民間提供此加值服務，並自由競爭。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/vtaiwan/100/44_1.png"></a><div class="discussioncontent"><a class="author">vtaiwan</a><div class="metadata"><span class="date"><div>2015-03-05</div></span></div><div class="text"><div><p>感謝 <a class="mention" href="/users/clkao">@clkao</a> 的意見。請問 <a class="mention" href="/users/opendata_mis_ndc">@opendata_mis_ndc</a>，收費資料是否就不適用開放資料授權？</p>
+
+<p>或是雖然收費，但是也擬允許取用者可以自行複製（包含免費提供給其他人）、衍生改作，因此仍適用開放資料授權？</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/opendata_mis_ndc/100/77_1.png"></a><div class="discussioncontent"><a class="author">opendata_mis_ndc</a><div class="metadata"><span class="date"><div>2015-03-06</div></span></div><div class="text"><div><p><img src="/images/emoji/emoji_one/smile.png?v=1" title=":smile:" class="emoji" alt=":smile:"> 謝謝<a class="mention" href="/users/clkao">@clkao</a>，1至3星之政府資料，多是機關基於職權範圍內取得或做成，依法得公開予不特定對象之電子資料，僅轉換為開放格式供外界使用，規劃以免費為原則，4至5星則多為客製化或再整理後高品質資料，行政成本較高，將有收費的可能性，並非因提供較佳載具而收費；另外英國政府對開放資料若具收費需求也是採用收費約款的，我國正由經濟部工業局協助擬訂政府開放資料收費約款之參考版本（草案），謝謝您!</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/clkao/100/91_1.png"></a><div class="discussioncontent"><a class="author">clkao</a><div class="metadata"><span class="date"><div>2015-03-08</div></span></div><div class="text"><div><p>那麼我的意見如前，「若一份資料僅以 4 星或 5 星提供（其所有語意無法以同資料內涵之三星以下資料推導出），且需收費，且不允許取用者可以自行複製（包含免費提供給其他人）、衍生改作，它就不再能稱為開放資料，因為他無法滿足開放及一星的基本要求 - 任何人皆可取得」，政府當然可以研議針對「客製化或再整理後高品質資料」收費，但請不要稱之為開放資料，頂多稱之為開放格式介接資料，以免混淆。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/opendata_mis_ndc/100/77_1.png"></a><div class="discussioncontent"><a class="author">opendata_mis_ndc</a><div class="metadata"><span class="date"><div>2015-03-10</div></span></div><div class="text"><div><p>謝謝<a class="mention" href="/users/clkao">@clkao</a>的建議，資料開放確以不收費為原則，我們對需收費的資料，會另以收費約款處理，避免跟資料開放混淆。然而政府資料如何界定屬於免費開放或得收費，<a class="mention" href="/users/clkao">@clkao</a>是否可以進一步提供建議模式，讓我們的規劃能更加精確可行。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/pofeng/100/11_1.png"></a><div class="discussioncontent"><a class="author">pofeng</a><div class="metadata"><span class="date"><div>2015-04-07</div></span></div><div class="text"><div><p>open source 的定義沒有提到是否要收費, 但是因為可以自由複製, 所以市場機制會讓 provider 競爭, 進而提供一個比較合理的價位, 廠商也可能提供加值服務讓販售的價格不要太低</p>
+
+<p>不知道大家能不能同意, 也這樣看待 open data 的運作</p>
+
+<p>雖然是收費資料, 但若允許取用者可以自行複製（包含免費提供給其他人），衍生改作，與 "<strong>加值運用</strong>" <br>我個人可以接受，這樣的收費資料仍然可以稱作開放資料。</p>
+
+<p>但是最後還是要提一下美國的方向還是以免費為主, 希望有蓬勃的 open data 產業之後, 利用稅收來 cover 這些資料的產生成本</p>
+
+<p>"歐洲與美國在人口及社會活動的成熟度皆近似，但對提供公眾資訊的財務政策卻幾乎相反，美國為開放且低價成本回收由蓬勃的產業稅收來間接獲得；歐洲為成本直回政策。如此分歧的策略，帶來兩種不同的結果 ..."<br>資料來源: <a href="http://www.ndc.gov.tw/m1.aspx?sNo=0027929" rel="nofollow">http://www.ndc.gov.tw/m1.aspx?sNo=0027929</a></p>
+
+<a href="https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-xpf1/v/t1.0-9/p180x540/10530749_10150437012224949_868759620631779648_n.jpg?oh=a820b0074dd47ac7fffd703946008391&amp;oe=55B63241&amp;__gda__=1436692458_aefc5a4be60d39753a227b27e85cb11e" target="_blank"><img src="https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-xpf1/v/t1.0-9/p180x540/10530749_10150437012224949_868759620631779648_n.jpg?oh=a820b0074dd47ac7fffd703946008391&amp;oe=55B63241&amp;__gda__=1436692458_aefc5a4be60d39753a227b27e85cb11e" width="690" height="450"></a></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/muyueh/100/36_1.png"></a><div class="discussioncontent"><a class="author">muyueh</a><div class="metadata"><span class="date"><div>2015-04-07</div></span></div><div class="text"><div><p>五星開放資料是一個樓梯，資料品質是要一步一步往上爬的。</p>
+
+<p>「四星級」的資料，假如沒有以「三星級」釋出，就沒有辦法是「四星級」了。</p>
+
+<p>假如我們現在的共識是「三星級是免費釋出」，民間會利用「三星級」轉換為「四星級、五星級」利用。</p>
+
+<p>我不反對政府對「四星級」資料收費，在這樣的情況下，政府會跟民間競爭，看誰可以利用最低的成本提供最好的服務。</p>
+
+<p>只是如同 clkao 前述，假如資料「只以」四星級方式提供，那是回到以往的資料方式，連一顆星都沒有。</p>
+
+<p>利益揭露：<a href="https://sheethub.com/" rel="nofollow">SheetHub.com</a> 是一家民間資料公司，利用政府三顆星資料轉換為四星級、五星級資料</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/pofeng/100/11_1.png"></a><div class="discussioncontent"><a class="author">pofeng</a><div class="metadata"><span class="date"><div>2015-04-07</div></span></div><div class="text"><div><p>幫補一下誠夏的意見: </p>
+
+<p>"收費可以，但不能是「鏈索式(chained)」的收費模式。依據Open Definition 2.0： 該授權條款 不可 將任何收費協議、權利金，或其他補償及金錢報酬列為使用條件的一部份。</p>
+
+<p>簡單來說，一次性的收費可以，但不能要求付費使用者還要定期回報，定期續約才能繼續用，不然是手段有害於目的，不能促進Open Data的長期發展。</p>
+
+<p><a href="http://opendefinition.org/od/2.0/zh-tw/" rel="nofollow">http://opendefinition.org/od/2.0/zh-tw/</a>"</p>
+
+<p>原文 link: <a href="https://www.facebook.com/groups/odtwn/permalink/1187992864548463/?comment_id=1190922637588819&amp;offset=0&amp;total_comments=12&amp;comment_tracking=%7B%22tn%22%3A%22R0%22%7D" rel="nofollow">https://www.facebook.com/groups/odtwn/permalink/1187992864548463/?comment_id=1190922637588819&amp;offset=0&amp;total_comments=12&amp;comment_tracking=%7B%22tn%22%3A%22R0%22%7D</a></p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/opendata_mis_ndc/100/77_1.png"></a><div class="discussioncontent"><a class="author">opendata_mis_ndc</a><div class="metadata"><span class="date"><div>2015-04-10</div></span></div><div class="text"><div><p>謝謝<a class="mention" href="/users/pofeng">@pofeng</a>的建議，<br>資料開放原本即授權使用者可以衍生改作與加值利用，您所建議的收費資料可以轉提供給其他人使用，這建議會納到後續的資料授權條款討論。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/opendata_mis_ndc/100/77_1.png"></a><div class="discussioncontent"><a class="author">opendata_mis_ndc</a><div class="metadata"><span class="date"><div>2015-04-10</div></span></div><div class="text"><div><p>謝謝<a class="mention" href="/users/muyueh">@muyueh</a>的意見。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/opendata_mis_ndc/100/77_1.png"></a><div class="discussioncontent"><a class="author">opendata_mis_ndc</a><div class="metadata"><span class="date"><div>2015-04-10</div></span></div><div class="text"><div><p>謝謝<a class="mention" href="/users/pofeng">@pofeng</a>的建議。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/opendata_mis_ndc/100/77_1.png"></a><div class="discussioncontent"><a class="author">opendata_mis_ndc</a><div class="metadata"><span class="date"><div>2015-04-10</div></span></div><div class="text"><div><p><img src="/images/emoji/emoji_one/blush.png?v=0" title=":blush:" class="emoji" alt="blush" width="20" height="20"> 謝謝<a class="mention" href="/users/ifulita">@ifulita</a>與<a class="mention" href="/users/clkao">@clkao</a>的在這項討論話題的建議，財政部於103年9月12日以台財庫字第10303730400號函說明： 『 ...政府資料為「規費法」第8條第2款及第3款應徵收使用規費項目，其收費基準之訂定，依同法第10條「成本填補原則」，包括興建、 購置、營運、維護、管理及其他相關所有成本。建議按政府資料類型或品質分級，區分收費或不收費...』，於是，我們參考國外學者為鼓勵提升資料開放品質所倡議5星評等分級，來劃分政府資料是否需收費。請問 <a class="mention" href="/users/ifulita">@ifulita</a>與<a class="mention" href="/users/clkao">@clkao</a>，在財政部所說明的規定之下，您是否有其他可劃分資料收費的建議？國際上是否有可以參考的收費模式？</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/ifulita/100/57_1.png"></a><div class="discussioncontent"><a class="author">ifulita</a><div class="metadata"><span class="date"><div>2015-04-10</div></span></div><div class="text"><div><p>收費模式的話不知道是否能採用網路及實體並行的模式?<br>網路的部份就是使用網路銀行來進行繳費，<br>實體的話可以與國內四大便利商店的多媒體機台合作進行繳費的動作。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/clkao/100/91_1.png"></a><div class="discussioncontent"><a class="author">clkao</a><div class="metadata"><span class="date"><div>2015-04-13</div></span></div><div class="text"><div><p><a href="https://www.facebook.com/groups/odtwn/permalink/1195745757106507/" rel="nofollow">這邊有更多討論</a></p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/opendata_mis_ndc/100/77_1.png"></a><div class="discussioncontent"><a class="author">opendata_mis_ndc</a><div class="metadata"><span class="date"><div>2015-04-14</div></span></div><div class="text"><div><p>謝謝您提供的資訊 <img src="/images/emoji/emoji_one/relaxed.png?v=0" title=":relaxed:" class="emoji" alt="relaxed" width="64" height="64"> 。<img src="//talk.vtaiwan.tw/uploads/default/146/6f6d0d1c9dae388b.gif" width="12" height="12"></p></div></div><div class="commentline"></div></div></div></div></div><a href="https://talk.vtaiwan.tw/t/topic/166" target="_blank"><div class="ui fluid green labeled submit icon button"><i class="icon edit"></i>我要留言</div></a></div></div></div></div><div><div class="ui styled accordion"><div class="title"><i class="dropdown icon"></i>對於例外收費，您認為以下那種處理方式合理？</div><div class="content"><div class="Commentcomponent"><div class="ui compact menu"><a class="item"><i class="reply icon"></i> 4</a><a class="item"><i class="unhide icon"></i> 2569</a><a class="item"><i class="user icon"></i> 5   </a><a class="item"><i class="calendar icon"></i> 650 天  </a></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/ifulita/100/57_1.png"></a><div class="discussioncontent"><a class="author">ifulita</a><div class="metadata"><span class="date"><div>2015-02-24</div></span></div><div class="text"><div><p>個人認為2的方式較為適當，<br>這是因為政府不應該告訴人民只有哪些才免費而是應該告訴人民只有哪些才收費，<br>這樣子來推動開放資料才有意義。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/stella_hsieh/100/92_1.png"></a><div class="discussioncontent"><a class="author">Stella_Hsieh</a><div class="metadata"><span class="date"><div>2015-04-09</div></span></div><div class="text"><div><p>2.<br>既然是免費為原則，收費為例外，即應公告收費項目而非免費項目。<br>如果公告免費項目，表示免費為例外收費為原則。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/opendata_mis_ndc/100/77_1.png"></a><div class="discussioncontent"><a class="author">opendata_mis_ndc</a><div class="metadata"><span class="date"><div>2015-04-14</div></span></div><div class="text"><div><p>謝謝<a class="mention" href="/users/ifulita">@ifulita</a>及<a class="mention" href="/users/stella_hsieh">@Stella_Hsieh</a>的建議 <img src="/images/emoji/emoji_one/blush.png?v=0" title=":blush:" class="emoji" alt="blush" width="64" height="64"></p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/vtaiwan/100/44_1.png"></a><div class="discussioncontent"><a class="author">vtaiwan</a><div class="metadata"><span class="date"><div>2015-04-24</div></span></div><div class="text"><div></div></div><div class="commentline"></div></div></div></div></div><a href="https://talk.vtaiwan.tw/t/topic/162" target="_blank"><div class="ui fluid green labeled submit icon button"><i class="icon edit"></i>我要留言</div></a></div></div></div></div><div><div class="ui styled accordion"><div class="title"><i class="dropdown icon"></i>對收費項目的看法</div><div class="content"><div class="Commentcomponent"><div class="ui compact menu"><a class="item"><i class="reply icon"></i> 7</a><a class="item"><i class="unhide icon"></i> 2512</a><a class="item"><i class="user icon"></i> 5   </a><a class="item"><i class="calendar icon"></i> 650 天  </a></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/ifulita/100/57_1.png"></a><div class="discussioncontent"><a class="author">ifulita</a><div class="metadata"><span class="date"><div>2015-02-15</div></span></div><div class="text"><div><p>一些已無時效性的外交及國防機密預算都應該要收費。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/muyueh/100/36_1.png"></a><div class="discussioncontent"><a class="author">muyueh</a><div class="metadata"><span class="date"><div>2015-04-07</div></span></div><div class="text"><div><p>假如我們有一個好的收費原則，應該可以輕易決定每一筆資料可以收費多少。我覺得值得列出幾個範例，利用收費原則，來看看這些資料在這些原則下以下資料收費是多少：</p>
+
+<ul>
+<li><p>紫外線監測，即時介接資訊，每段時間更新一次。現在屬於免費，但假如有一個高品質的 api，可以提供每秒資訊</p></li>
+<li><p>房地資料，全台歷史</p></li>
+<li><p>政治獻金（目前去監察院列印，每一頁要兩元）</p></li>
+</ul>
+
+<p>我覺得可以多收集幾個 testing 的案例，接下來假如有一個好的收費原則的時候，我們應該馬上就知道這些資料集需要多少錢。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/vtaiwan/100/44_1.png"></a><div class="discussioncontent"><a class="author">vtaiwan</a><div class="metadata"><span class="date"><div>2015-04-07</div></span></div><div class="text"><div><p>感謝 <a class="mention" href="/users/muyueh">@muyueh</a> 的意見。也請 <a class="mention" href="/users/opendata_mis_ndc">@opendata_mis_ndc</a> 分享目前在討論草案時，主要考慮的大型資料集有哪些，感謝！</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/opendata_mis_ndc/100/77_1.png"></a><div class="discussioncontent"><a class="author">opendata_mis_ndc</a><div class="metadata"><span class="date"><div>2015-04-10</div></span></div><div class="text"><div><p>謝謝<a class="mention" href="/users/muyueh">@muyueh</a>的意見，<br>這也是我們目前的目標，希望大家能夠一起集思產出資料開放例外收費準則，接下來才能由各機關依照準則去訂出資料費用。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/opendata_mis_ndc/100/77_1.png"></a><div class="discussioncontent"><a class="author">opendata_mis_ndc</a><div class="metadata"><span class="date"><div>2015-04-10</div></span></div><div class="text"><div><p>謝謝<a class="mention" href="/users/vtaiwan">@vtaiwan</a>，<br>目前評估收費的資料多以現行國土測繪法所規定應收費之地理圖資資料，也請各位提供有關圖資收費建議，謝謝。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/vtaiwan/100/44_1.png"></a><div class="discussioncontent"><a class="author">vtaiwan</a><div class="metadata"><span class="date"><div>2015-04-24</div></span></div><div class="text"><div><p>以下是林誠夏在 <a href="https://hackpad.com/2015-04-14--JSea6WC3EdD">4/14 諮詢會議</a>的意見分享摘要：</p>
+
+<ol>
+<li>
+<a href="https://talk.vtaiwan.tw/t/topic/164/14">衷嵐焜的意見</a>我大致同意，但規費法的解讀我有不同的見解。</li>
+<li>開放資料有國際公認的定義，就是 The Open Definition，<a href="http://opendefinition.org/od/2.0/zh-tw/">2.0 中文版</a>是我翻譯的。</li>
+<li>因為規費法<a href="http://law.moj.gov.tw/LawClass/LawSingle.aspx?Pcode=G0340107&amp;FLNO=7">第七條</a>、<a href="http://law.moj.gov.tw/LawClass/LawSingle.aspx?Pcode=G0340107&amp;FLNO=8">第八條</a>都是「針對特定對象」。因為開放資料依定義就是向「不特定對象」開放，所以我主張不適用規費法，連但書都不用。請參考 <a class="mention" href="/users/clkao">@clkao</a> 提供的示意圖：<br><div class="lightbox-wrapper"><a data-download-href="//talk.vtaiwan.tw/uploads/default/913ba61dd453a2b8898807619bff28315ed21faa" href="//talk.vtaiwan.tw/uploads/default/150/1b4bbea59966e62b.jpg" class="lightbox" title="foo.jpg"><img src="//talk.vtaiwan.tw/uploads/default/_optimized/c7c/8e9/00111a8597_690x410.jpg" width="690" height="410"><div class="meta">
+<span class="filename">foo.jpg</span><span class="informations">768x457 59.3 KB</span><span class="expand"></span>
+</div></a></div> </li>
+<li>所以故宮目前提供的資料，應該只稱作 Releasing Data 而不稱「開放資料」（Open Data）。</li>
+<li>像 Linux、Android 等開放源碼軟體都免除授權金，重點是在建立新的商業物流、金流模式，它的產值遠大於授權金。</li>
+<li>規費法的有償開放解釋是以「成本回收」為原則，但這是以交付給特定人為對象為前提。所以請國庫署釋疑，向不特定人開放的 Open Data，交付對象是全民，為何要適用規費法？</li>
+<li>Open Definition 允許收一次性的工本費用，但是資料取得後，不能再限制取用人再複製給別人。所以「授權金」不能付，但是「燒光碟的成本費用」可以收取。</li>
+<li>參考 <a href="https://www.gnu.org/copyleft/gpl.html#section6">GPL 3.0 授權條文</a>，如果提供方式是透過網路傳輸，因為幾乎沒有成本，所以約定為零。</li>
+<li>英國有隱私疑慮，或是其他限制特定人使用的資料，不會冠以 Open 之名。</li>
+<li>總結關鍵：國庫署如何決定特定對象與不特定對象的標準？只有向「特定人」提供資料，例如技術門檻高、適用範圍窄，這才有規費法適用的位置。</li>
+</ol></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/vtaiwan/100/44_1.png"></a><div class="discussioncontent"><a class="author">vtaiwan</a><div class="metadata"><span class="date"><div>2015-04-24</div></span></div><div class="text"><div></div></div><div class="commentline"></div></div></div></div></div><a href="https://talk.vtaiwan.tw/t/topic/165" target="_blank"><div class="ui fluid green labeled submit icon button"><i class="icon edit"></i>我要留言</div></a></div></div></div></div><div><div class="ui styled accordion"><div class="title"><i class="dropdown icon"></i>除了5星評等，您認為劃分政府資料收費與否的最佳標準是？</div><div class="content"><div class="Commentcomponent"><div class="ui compact menu"><a class="item"><i class="reply icon"></i> 7</a><a class="item"><i class="unhide icon"></i> 2453</a><a class="item"><i class="user icon"></i> 4   </a><a class="item"><i class="calendar icon"></i> 650 天  </a></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/ifulita/100/57_1.png"></a><div class="discussioncontent"><a class="author">ifulita</a><div class="metadata"><span class="date"><div>2015-02-15</div></span></div><div class="text"><div><p>涉及個人隱私及國家安全的資料應該要收費，<br>但自己如果要申請關於自己個人隱私的資料就不應該收費，<br>比方說外交部及國防部均有機密預算，<br>一些已沒有時效性之機密預算可以開放資料出來，<br>但這些應該要有所收費，<br>而自己要申請自己的電子病歷時可以不收費。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/muyueh/100/36_1.png"></a><div class="discussioncontent"><a class="author">muyueh</a><div class="metadata"><span class="date"><div>2015-04-07</div></span></div><div class="text"><div><p>開放資料應該要讓所有人可以使用。假如需要收費的話，只有三種情況：</p>
+
+<p>第一：價格是 0，任何人都可以負擔，也是現狀。</p>
+
+<p>第二：價格太高，以致於沒有任何人可以 / 有興趣負擔。</p>
+
+<p>第三：價格介於前述兩者，有一些人可以負擔，有一些不行。</p>
+
+<p>我的問題是，在「二」，價格太高，以至於沒有任何人可以購買的情況下。似乎已經違反開放資料讓任何人可以取用的精神，這樣似乎就不算開放資料了。</p>
+
+<p>但更進一步的問題是在「三」，在這一個情況下，有一些人可以負擔，有一些人不能負擔。我們會說可以負擔的人應該是覺得自己創造的價值比這一個成本高，所以願意付錢。但就算是這樣的情況下，有部份人沒有辦法負擔，在實質意義上沒有辦法取得這些資料了，這樣是否會違反一星開放資料，這些東西事實上不是「available」？</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/vtaiwan/100/44_1.png"></a><div class="discussioncontent"><a class="author">vtaiwan</a><div class="metadata"><span class="date"><div>2015-04-07</div></span></div><div class="text"><div><p>謝謝 <a class="mention" href="/users/muyueh">@muyueh</a> 的意見，主要是擔心若是收取工本費，會使想要利用者難以負擔。</p>
+
+<p>進一步釐清這個意見：若以資料量計費（參照 <a href="http://www.hihosting.hinet.net/ec99/shop1204/old/promotion.asp">HiNet HiHosting</a>，每 GB 約 2-3 元），什麼程度下您覺得是一般大眾可以負擔的，什麼程度之上則不合理？也歡迎 <a class="mention" href="/users/opendata_mis_ndc">@opendata_mis_ndc</a> 和版上的各位提供想法。 </p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/opendata_mis_ndc/100/77_1.png"></a><div class="discussioncontent"><a class="author">opendata_mis_ndc</a><div class="metadata"><span class="date"><div>2015-04-10</div></span></div><div class="text"><div><p>謝謝<a class="mention" href="/users/muyueh">@muyueh</a>跟<a class="mention" href="/users/vtaiwan">@vtaiwan</a>的意見，承如前面幾則討論所提，若規劃改以資料量計費（參照 HiNet HiHosting，每 GB 約 2-3 元），大家認為合理的收費資料類型、品質、量、價格及收取機制為何？</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/ifulita/100/57_1.png"></a><div class="discussioncontent"><a class="author">ifulita</a><div class="metadata"><span class="date"><div>2015-04-10</div></span></div><div class="text"><div><p>收取模式的話不知道是否能採用網路及實體並行的模式?<br>網路的部份就是使用網路銀行來進行繳費，<br>實體的話可以與國內四大便利商店的多媒體機台合作進行繳費的動作。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/opendata_mis_ndc/100/77_1.png"></a><div class="discussioncontent"><a class="author">opendata_mis_ndc</a><div class="metadata"><span class="date"><div>2015-04-14</div></span></div><div class="text"><div><p>謝謝您的建議 <img src="/images/emoji/emoji_one/blush.png?v=0" title=":blush:" class="emoji" alt="blush" width="64" height="64"></p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/vtaiwan/100/44_1.png"></a><div class="discussioncontent"><a class="author">vtaiwan</a><div class="metadata"><span class="date"><div>2015-04-24</div></span></div><div class="text"><div></div></div><div class="commentline"></div></div></div></div></div><a href="https://talk.vtaiwan.tw/t/topic/167" target="_blank"><div class="ui fluid green labeled submit icon button"><i class="icon edit"></i>我要留言</div></a></div></div></div></div></div></div></div></div></div></div><div data-v-c235cf6e="" class="thin-only"><div data-v-c235cf6e="" class="ui container"><div data-v-099cbb35="" class="component" data-v-c235cf6e=""><div data-v-099cbb35="" class="fat-only"><div data-v-099cbb35="" class="step-progress-bar"><ul data-v-099cbb35="" class="progress-bar"><li data-v-099cbb35="" class="active">即將開始</li><li data-v-099cbb35="" class="active">意見徵集</li><li data-v-099cbb35="" class="active">研擬草案</li><li data-v-099cbb35="" class="">送交院會</li><li data-v-099cbb35="" class="">歷史案件</li></ul></div></div><div data-v-099cbb35="" class="thin-only"><div data-v-099cbb35="" class="step-progress-bar"><ul data-v-099cbb35="" class="progress-bar"><li data-v-099cbb35="" class="active">即將開始</li><li data-v-099cbb35="" class="active">意見徵集</li><li data-v-099cbb35="" class="active">研擬草案</li><li data-v-099cbb35="" class="">送交院會</li><li data-v-099cbb35="" class="">歷史案件</li></ul></div></div></div><h1 data-v-c235cf6e="" class="ui huge header">開放資料例外收費原則</h1><div data-v-2406671b="" class="component" data-v-c235cf6e=""><div data-v-2406671b="" class="thin-only"><div data-v-2406671b="" class="content"></div></div><div data-v-2406671b="" class="fat-only"><div data-v-2406671b="" class="content"></div></div></div><div data-v-c235cf6e="" class="ui big steps top attached"><a data-v-c235cf6e="" class="step active"><i data-v-c235cf6e="" class="icon info circle"></i>詳細內容</a><a data-v-c235cf6e="" class="step"><i data-v-c235cf6e="" class="icon calendar"></i>議題時間軸</a><a data-v-c235cf6e="" class="step"><i data-v-c235cf6e="" class="icon comments"></i>參與討論</a></div><div data-v-c235cf6e="" class="ui segment attached"><div data-v-5da5dbe4="" class="info" data-v-c235cf6e=""><div class="component" data-v-5da5dbe4=""><div class="fat-only"><div class="styles content">
+
+<h1>簡介</h1>
+
+ <div style="margin-bottom:5px"> <strong> <a href="https://www.slideshare.net/vtaiwan/ndc-20150413" title="國發會簡報：資料開放例外收費原則" target="_blank">國發會簡報：資料開放例外收費原則</a> </strong> from <strong><a target="_blank" href="https://www.slideshare.net/vtaiwan">vTaiwan.tw</a></strong> </div>
+
+</div></div><div class="thin-only"><div class="styles content">
+
+<h1>簡介</h1>
+
+ <div style="margin-bottom:5px"> <strong> <a href="https://www.slideshare.net/vtaiwan/ndc-20150413" title="國發會簡報：資料開放例外收費原則" target="_blank">國發會簡報：資料開放例外收費原則</a> </strong> from <strong><a target="_blank" href="https://www.slideshare.net/vtaiwan">vTaiwan.tw</a></strong> </div>
+
+</div></div></div><!----><!----></div><div data-v-5da5dbe4="" class="info" data-v-c235cf6e="" style="display: none;"><!----><div data-v-25c2a472="" class="component" data-v-5da5dbe4=""><div data-v-25c2a472="" class="fat-only"><div data-v-25c2a472="" class="event-list"><div data-v-25c2a472="" class="item dark"><div data-v-25c2a472="" class="big">從 2015-03-01 開始 至 2015-04-24</div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">意見徵集  </p><div data-v-25c2a472="" class="title"></div></div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">相關連結</p><div class="urllink" data-v-25c2a472=""><span class="urllink"><span><a href="https://talk.vtaiwan.tw/c/data-levy" target="_blank" <a="" class="ui teal button"><i class="edit icon"></i>留言</a></span></span><span class="urllink"><span><a href="https://g0v.github.io/data-levy-gitbook" target="_blank" <a="" class="ui teal button"><i class="github alternate icon"></i>GitBook</a></span></span></div></div></div><div data-v-25c2a472="" class="item gloom"><div data-v-25c2a472="" class="big">從 2015-05-01 開始 至 2015-06-30</div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">研擬草案  </p><div data-v-25c2a472="" class="title"></div></div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">相關連結</p><div class="urllink" data-v-25c2a472=""><span class="urllink"><span><a href="https://talk.vtaiwan.tw/c/data-levy-spec" target="_blank" <a="" class="ui teal button"><i class="edit icon"></i>留言</a></span></span><span class="urllink"><span><a href="https://g0v.github.io/data-levy-spec-gitbook" target="_blank" <a="" class="ui teal button"><i class="github alternate icon"></i>GitBook</a></span></span></div></div></div><div data-v-25c2a472="" class="item light"><div data-v-25c2a472="" class="big">從 2015-04-25 14:05:00 開始 </div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">研擬草案  </p><div data-v-25c2a472="" class="title"></div></div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">相關連結</p><div class="urllink" data-v-25c2a472=""><span class="urllink"><span><a href="https://g0v.hackpad.com/vTaiwan--zjiELIjtDUc" target="_blank" <a="" class="ui teal button"><i class="pencil icon"></i>共筆</a></span></span><span class="urllink"><span><a href="https://livehouse.in/channel/vtaiwan/record/-Jnj9-4eG9dfh-D33RBK" target="_blank" <a="" class="ui teal button"><i class="linkify icon"></i>相關</a></span></span></div></div></div><div data-v-25c2a472="" class="item dark"><div data-v-25c2a472="" class="big">從 2015-07-17 開始 至 2015-08-17</div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">研擬草案  </p><div data-v-25c2a472="" class="title"></div></div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">相關連結</p><div class="urllink" data-v-25c2a472=""><span class="urllink"><span><a href="https://talk.vtaiwan.tw/c/data-levy-ref1" target="_blank" <a="" class="ui teal button"><i class="edit icon"></i>留言</a></span></span><span class="urllink"><span><a href="https://g0v.github.io/data-levy-ref1-gitbook" target="_blank" <a="" class="ui teal button"><i class="github alternate icon"></i>GitBook</a></span></span></div></div></div><div data-v-25c2a472="" class="item gloom"><div data-v-25c2a472="" class="big">從 2015-05-12 16:30:00 開始 </div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">研擬草案  </p><div data-v-25c2a472="" class="title"></div></div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">相關連結</p><div class="urllink" data-v-25c2a472=""><span class="urllink"><span><a href="https://hackpad.com/20150512--L4ijMKqXsnS" target="_blank" <a="" class="ui teal button"><i class="pencil icon"></i>共筆</a></span></span></div></div></div><div data-v-25c2a472="" class="item light"><div data-v-25c2a472="" class="big">從 2015-11-24 開始 至 2016-05-19</div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">送交院會  </p><div data-v-25c2a472="" class="title"></div></div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">相關連結</p><div class="urllink" data-v-25c2a472=""><span class="urllink"><span><a href="https://talk.vtaiwan.tw/c/data-levy-act1" target="_blank" <a="" class="ui teal button"><i class="edit icon"></i>留言</a></span></span><span class="urllink"><span><a href="https://g0v.github.io/data-levy-act1-gitbook" target="_blank" <a="" class="ui teal button"><i class="github alternate icon"></i>GitBook</a></span></span></div></div></div><div data-v-25c2a472="" class="item dark"><div data-v-25c2a472="" class="big">從 2015-07-23 00:00:00 開始 </div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">研擬草案  </p><div data-v-25c2a472="" class="title"></div></div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">相關連結</p><div class="urllink" data-v-25c2a472=""><span class="urllink"><span><a href="https://g0v.hackpad.com/2015-07-22-EY-Meeting-on-Open-Data-3RvGJjHbZ3Z" target="_blank" <a="" class="ui teal button"><i class="pencil icon"></i>共筆</a></span></span><span class="urllink"><span><a href="http://sayit.archive.tw/722-%E8%B3%87%E6%96%99%E5%88%86%E9%A1%9E%E5%8F%8A%E6%8E%88%E6%AC%8A%E5%88%A9%E7%94%A8%E6%94%B6%E8%B2%BB%E5%8E%9F%E5%89%87%E6%9C%83%E8%AD%B0" target="_blank" <a="" class="ui teal button"><i class="book icon"></i>記錄</a></span></span></div></div></div><div data-v-25c2a472="" class="item gloom"><div data-v-25c2a472="" class="big">從 2015-04-14 00:00:00 開始 </div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">研擬草案  </p><div data-v-25c2a472="" class="title"></div></div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">相關連結</p><div class="urllink" data-v-25c2a472=""><span class="urllink"><span><a href="https://hackpad.com/2015-04-14--JSea6WC3EdD" target="_blank" <a="" class="ui teal button"><i class="pencil icon"></i>共筆</a></span></span><span class="urllink"><span><a href="https://www.youtube.com/watch?v=DPNPZcfaQgs" target="_blank" <a="" class="ui teal button"><i class="youtube play icon"></i>影片</a></span></span><span class="urllink"><span><a href="http://www.vtaiwan.org.tw/download.aspx?path=public/20150413/9410fe0c-d6c4-4291-b5ff-5ed94400698b.pdf&amp;fn=%E9%81%A0%E8%B7%9D%E6%95%99%E8%82%B2%E8%AD%B0%E9%A1%8C-%E6%95%99%E8%82%B2%E9%83%A8.pdf" target="_blank" <a="" class="ui teal button"><i class="linkify icon"></i>相關</a></span></span><span class="urllink"><span><a href="http://www.vtaiwan.org.tw/download.aspx?path=public/20150413/66ef6192-eadd-497e-a517-a88bdaed50ad.pdf&amp;fn=%E8%B3%87%E6%96%99%E9%96%8B%E6%94%BE%E4%BE%8B%E5%A4%96%E6%94%B6%E8%B2%BB%E5%8E%9F%E5%89%87-%E5%9C%8B%E7%99%BC%E6%9C%83.pdf" target="_blank" <a="" class="ui teal button"><i class="linkify icon"></i>相關</a></span></span><span class="urllink"><span><a href="http://www.vtaiwan.org.tw/download.aspx?path=public/20150413/c9254249-aaa7-41bb-8368-8ef94bf2f139.pdf&amp;fn=20150414%E7%B7%9A%E4%B8%8A%E8%AB%AE%E8%A9%A2%E6%9C%83%E8%AD%B0%E8%88%87%E6%9C%83%E4%BA%BA%E5%93%A1%E5%90%8D%E5%96%AE.pdf" target="_blank" <a="" class="ui teal button"><i class="linkify icon"></i>相關</a></span></span><span class="urllink"><span><a href="http://www.vtaiwan.org.tw/download.aspx?path=public/20150420/74c71d05-be42-4394-b9dc-032a0992eb7b.pdf&amp;fn=20150414%E7%B7%9A%E4%B8%8A%E7%9B%B4%E6%92%AD%E7%95%99%E8%A8%80%E8%A8%98%E9%8C%84.pdf" target="_blank" <a="" class="ui teal button"><i class="linkify icon"></i>相關</a></span></span><span class="urllink"><span><a href="http://www.vtaiwan.org.tw/download.aspx?path=public/20150423/e8ee9f85-020c-4bde-b686-b8fac559f385.pdf&amp;fn=20150414%E8%99%9B%E6%93%AC%E4%B8%96%E7%95%8C%E7%99%BC%E5%B1%95%E6%B3%95%E8%A6%8F%E8%AA%BF%E9%81%A9%E7%B7%9A%E4%B8%8A%E8%AB%AE%E8%A9%A2%E6%9C%83%E8%AD%B0%E7%B4%80%E9%8C%84%EF%BC%88%E9%81%A0%E8%B7%9D%E6%95%99%E8%82%B2%E8%88%87%E9%96%8B%E6%94%BE%E8%B3%87%E6%96%99%E8%AD%B0%E9%A1%8C%EF%BC%89.pdf" target="_blank" <a="" class="ui teal button"><i class="linkify icon"></i>相關</a></span></span></div></div></div></div></div><div data-v-25c2a472="" class="thin-only"><div data-v-25c2a472="" class="event-list"><div data-v-25c2a472="" class="item dark"><div data-v-25c2a472="" class="big">從 2015-03-01 開始 至 2015-04-24</div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">意見徵集  </p><div data-v-25c2a472="" class="title"> </div></div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">相關連結</p><div class="urllink" data-v-25c2a472=""><span class="urllink"><span><a href="https://talk.vtaiwan.tw/c/data-levy" target="_blank" <a="" class="ui teal button"><i class="edit icon"></i>留言</a></span></span><span class="urllink"><span><a href="https://g0v.github.io/data-levy-gitbook" target="_blank" <a="" class="ui teal button"><i class="github alternate icon"></i>GitBook</a></span></span></div></div></div><div data-v-25c2a472="" class="item gloom"><div data-v-25c2a472="" class="big">從 2015-05-01 開始 至 2015-06-30</div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">研擬草案  </p><div data-v-25c2a472="" class="title"> </div></div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">相關連結</p><div class="urllink" data-v-25c2a472=""><span class="urllink"><span><a href="https://talk.vtaiwan.tw/c/data-levy-spec" target="_blank" <a="" class="ui teal button"><i class="edit icon"></i>留言</a></span></span><span class="urllink"><span><a href="https://g0v.github.io/data-levy-spec-gitbook" target="_blank" <a="" class="ui teal button"><i class="github alternate icon"></i>GitBook</a></span></span></div></div></div><div data-v-25c2a472="" class="item light"><div data-v-25c2a472="" class="big">從 2015-04-25 14:05:00 開始 </div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">研擬草案  </p><div data-v-25c2a472="" class="title"> </div></div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">相關連結</p><div class="urllink" data-v-25c2a472=""><span class="urllink"><span><a href="https://g0v.hackpad.com/vTaiwan--zjiELIjtDUc" target="_blank" <a="" class="ui teal button"><i class="pencil icon"></i>共筆</a></span></span><span class="urllink"><span><a href="https://livehouse.in/channel/vtaiwan/record/-Jnj9-4eG9dfh-D33RBK" target="_blank" <a="" class="ui teal button"><i class="linkify icon"></i>相關</a></span></span></div></div></div><div data-v-25c2a472="" class="item dark"><div data-v-25c2a472="" class="big">從 2015-07-17 開始 至 2015-08-17</div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">研擬草案  </p><div data-v-25c2a472="" class="title"> </div></div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">相關連結</p><div class="urllink" data-v-25c2a472=""><span class="urllink"><span><a href="https://talk.vtaiwan.tw/c/data-levy-ref1" target="_blank" <a="" class="ui teal button"><i class="edit icon"></i>留言</a></span></span><span class="urllink"><span><a href="https://g0v.github.io/data-levy-ref1-gitbook" target="_blank" <a="" class="ui teal button"><i class="github alternate icon"></i>GitBook</a></span></span></div></div></div><div data-v-25c2a472="" class="item gloom"><div data-v-25c2a472="" class="big">從 2015-05-12 16:30:00 開始 </div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">研擬草案  </p><div data-v-25c2a472="" class="title"> </div></div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">相關連結</p><div class="urllink" data-v-25c2a472=""><span class="urllink"><span><a href="https://hackpad.com/20150512--L4ijMKqXsnS" target="_blank" <a="" class="ui teal button"><i class="pencil icon"></i>共筆</a></span></span></div></div></div><div data-v-25c2a472="" class="item light"><div data-v-25c2a472="" class="big">從 2015-11-24 開始 至 2016-05-19</div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">送交院會  </p><div data-v-25c2a472="" class="title"> </div></div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">相關連結</p><div class="urllink" data-v-25c2a472=""><span class="urllink"><span><a href="https://talk.vtaiwan.tw/c/data-levy-act1" target="_blank" <a="" class="ui teal button"><i class="edit icon"></i>留言</a></span></span><span class="urllink"><span><a href="https://g0v.github.io/data-levy-act1-gitbook" target="_blank" <a="" class="ui teal button"><i class="github alternate icon"></i>GitBook</a></span></span></div></div></div><div data-v-25c2a472="" class="item dark"><div data-v-25c2a472="" class="big">從 2015-07-23 00:00:00 開始 </div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">研擬草案  </p><div data-v-25c2a472="" class="title"> </div></div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">相關連結</p><div class="urllink" data-v-25c2a472=""><span class="urllink"><span><a href="https://g0v.hackpad.com/2015-07-22-EY-Meeting-on-Open-Data-3RvGJjHbZ3Z" target="_blank" <a="" class="ui teal button"><i class="pencil icon"></i>共筆</a></span></span><span class="urllink"><span><a href="http://sayit.archive.tw/722-%E8%B3%87%E6%96%99%E5%88%86%E9%A1%9E%E5%8F%8A%E6%8E%88%E6%AC%8A%E5%88%A9%E7%94%A8%E6%94%B6%E8%B2%BB%E5%8E%9F%E5%89%87%E6%9C%83%E8%AD%B0" target="_blank" <a="" class="ui teal button"><i class="book icon"></i>記錄</a></span></span></div></div></div><div data-v-25c2a472="" class="item gloom"><div data-v-25c2a472="" class="big">從 2015-04-14 00:00:00 開始 </div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">研擬草案  </p><div data-v-25c2a472="" class="title"> </div></div><div data-v-25c2a472="" class="small"><p data-v-25c2a472="">相關連結</p><div class="urllink" data-v-25c2a472=""><span class="urllink"><span><a href="https://hackpad.com/2015-04-14--JSea6WC3EdD" target="_blank" <a="" class="ui teal button"><i class="pencil icon"></i>共筆</a></span></span><span class="urllink"><span><a href="https://www.youtube.com/watch?v=DPNPZcfaQgs" target="_blank" <a="" class="ui teal button"><i class="youtube play icon"></i>影片</a></span></span><span class="urllink"><span><a href="http://www.vtaiwan.org.tw/download.aspx?path=public/20150413/9410fe0c-d6c4-4291-b5ff-5ed94400698b.pdf&amp;fn=%E9%81%A0%E8%B7%9D%E6%95%99%E8%82%B2%E8%AD%B0%E9%A1%8C-%E6%95%99%E8%82%B2%E9%83%A8.pdf" target="_blank" <a="" class="ui teal button"><i class="linkify icon"></i>相關</a></span></span><span class="urllink"><span><a href="http://www.vtaiwan.org.tw/download.aspx?path=public/20150413/66ef6192-eadd-497e-a517-a88bdaed50ad.pdf&amp;fn=%E8%B3%87%E6%96%99%E9%96%8B%E6%94%BE%E4%BE%8B%E5%A4%96%E6%94%B6%E8%B2%BB%E5%8E%9F%E5%89%87-%E5%9C%8B%E7%99%BC%E6%9C%83.pdf" target="_blank" <a="" class="ui teal button"><i class="linkify icon"></i>相關</a></span></span><span class="urllink"><span><a href="http://www.vtaiwan.org.tw/download.aspx?path=public/20150413/c9254249-aaa7-41bb-8368-8ef94bf2f139.pdf&amp;fn=20150414%E7%B7%9A%E4%B8%8A%E8%AB%AE%E8%A9%A2%E6%9C%83%E8%AD%B0%E8%88%87%E6%9C%83%E4%BA%BA%E5%93%A1%E5%90%8D%E5%96%AE.pdf" target="_blank" <a="" class="ui teal button"><i class="linkify icon"></i>相關</a></span></span><span class="urllink"><span><a href="http://www.vtaiwan.org.tw/download.aspx?path=public/20150420/74c71d05-be42-4394-b9dc-032a0992eb7b.pdf&amp;fn=20150414%E7%B7%9A%E4%B8%8A%E7%9B%B4%E6%92%AD%E7%95%99%E8%A8%80%E8%A8%98%E9%8C%84.pdf" target="_blank" <a="" class="ui teal button"><i class="linkify icon"></i>相關</a></span></span><span class="urllink"><span><a href="http://www.vtaiwan.org.tw/download.aspx?path=public/20150423/e8ee9f85-020c-4bde-b686-b8fac559f385.pdf&amp;fn=20150414%E8%99%9B%E6%93%AC%E4%B8%96%E7%95%8C%E7%99%BC%E5%B1%95%E6%B3%95%E8%A6%8F%E8%AA%BF%E9%81%A9%E7%B7%9A%E4%B8%8A%E8%AB%AE%E8%A9%A2%E6%9C%83%E8%AD%B0%E7%B4%80%E9%8C%84%EF%BC%88%E9%81%A0%E8%B7%9D%E6%95%99%E8%82%B2%E8%88%87%E9%96%8B%E6%94%BE%E8%B3%87%E6%96%99%E8%AD%B0%E9%A1%8C%EF%BC%89.pdf" target="_blank" <a="" class="ui teal button"><i class="linkify icon"></i>相關</a></span></span></div></div></div></div></div></div><!----></div><div data-v-5da5dbe4="" class="info" data-v-c235cf6e="" style="display: none;"><!----><!----><div class="Discoussioncomponent textleft" data-v-5da5dbe4=""><!----><!----><!----><div><div><div class="ui styled accordion"><div class="title"><i class="dropdown icon"></i>開放資料例外收費原則</div><div class="content"><div class="Commentcomponent"><div class="ui compact menu"><a class="item"><i class="reply icon"></i> 0</a><a class="item"><i class="unhide icon"></i> 628</a><a class="item"><i class="user icon"></i> 1   </a><a class="item"><i class="calendar icon"></i> 0 </a></div><a href="https://talk.vtaiwan.tw/t/topic/148" target="_blank"><div class="ui fluid green labeled submit icon button"><i class="icon edit"></i>我要留言</div></a></div></div></div></div><div><div class="ui styled accordion"><div class="title"><i class="dropdown icon"></i>對政策方向的看法</div><div class="content"><div class="Commentcomponent"><div class="ui compact menu"><a class="item"><i class="reply icon"></i> 18</a><a class="item"><i class="unhide icon"></i> 3342</a><a class="item"><i class="user icon"></i> 8   </a><a class="item"><i class="calendar icon"></i> 650 天  </a></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/ifulita/100/57_1.png"></a><div class="discussioncontent"><a class="author">ifulita</a><div class="metadata"><span class="date"><div>2015-02-15</div></span></div><div class="text"><div><p>1，<br>一些涉及個人隱私的可以收費，<br>不過如果是自己要申請涉及隱私的那麼就不應該收費。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/letter_avatar_proxy/v2/letter/1/7993a0/100.png"></a><div class="discussioncontent"><a class="author">11118</a><div class="metadata"><span class="date"><div>2015-03-08</div></span></div><div class="text"><div><p>使用者付費的觀念是：資源有擁擠性的特性才需要以使用者付費來限制使用，以免資源過早消耗，例如停車位這種公共服務的提供。但目前的政府資料的使用有擁擠性的問題嗎？資料不若傳統實體公共財那種一旦被使用，同時間就不能有第二人使用的問題，且資料的複製幾乎沒有成本可言，政府資料若以使用者付費的精神收費，豈不昭告天下：政府為了怕資料被大量使用，因此要收費？這豈不墊高了知識傳播的門檻？</p>
+
+<p>一般說來，政府施政的經費所需來自稅收，政府施政所產生的資料，不就是施政的成果之一，不論當初建置的成本有多少，以使用者付費的原則收費就是誤解了使用者付費的精神，這個精神並非適用於所有公共財。</p>
+
+<p>政府資料並不是開放後就馬上能用的，有很多資料必須清理（這個問題來自於過去資料建置時缺乏橫向聯繫或標準，或有標準但非強制執行），而這個清理讓資料好用，可用的工作，若可以委外進行，此時，就衍生出讓原始政府資料好用可用的成本，再來談資料收費。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/audreyt/100/225_1.png"></a><div class="discussioncontent"><a class="author">audreyt</a><div class="metadata"><span class="date"><div>2015-03-08</div></span></div><div class="text"><div><p>經 whisky 同意，引用在 <a href="https://www.facebook.com/TajfunInsulo/posts/823238251045653">https://www.facebook.com/TajfunInsulo/posts/823238251045653</a> 的看法如下：</p>
+
+<p>收費與否應該要問的是 <strong>資料從匯集整理到釋出的成本</strong>，這也是規費法的精神。<br>但這也是我們挑戰政府的地方，在網路時代，這個成本怎麼還會是依照 A4 紙張大小或是光碟容量來計算。</p>
+
+<p>在這前提下，我們會希望開放資料能不收費。但是，這絕對不表示不可收費。只是政府要把收費的成本，清楚告訴我們。 一個簡單的概念 - 資料開放後，我是有權利重新製作與散佈，那這個收費的意義會是什麼？</p>
+
+<p>這應該對於那些無法重新散佈的資料才會有影響（不是因為授權，更可能是因為技術問題）？這些資料會是什麼？</p>
+
+<p>這也是為什麼目前開放資料在某些領域會特別難推動（除了因為法令解釋以外），因為有一些政府機關（尤其是會產出「有價值」的資料的），他們是需要自己販賣這些資料來尋求運作的經費。 所以，整個問題如果要問，應該是從成本上來談。但這個成本又會和政府的預算有關係。而這就是政府資源（預算）該如何分配，該如何期待（開放資料）回收的經濟效應，來做整體的規劃。</p>
+
+<p>例如，氣象資料到底該不該免費開放？從成本上來看，的確是需要收費（針對特定，非一般性需求時），從使用者的狀況來看，也應該是要收費。但是如果免費，我們是否可以創造出更多的經濟效應，甚至大過收費的盈餘？這的確是可能的，至少彭博士拿美歐來做比較時，的確是開放氣象資料有促成更多相關產業的發展。但是相同問題拿到台灣時，是否可行？尤其是，在相關產業出現前，政府願意投資多少進入這個產業與領域。</p>
+
+<p>又例如，一個更簡單直接的例子，公車的時刻資訊 - 每輛公車上安裝 GPS，政府要委外廠商做資料收集與處理（依照定點做計算，預估到站時間）等。從成本上來看，真的是非常可觀。這些資料該不該免費開放讓人使用（aka 賺錢）目前的作法是偏向開放不收費的（因為鄉民的力量大，收費讓我用習慣的 APP 不能動，我們就 call 爆你們的 1999）但是依照使用者付費的說法，這不也該收費才對？但這其實一樣是資源分配的問題。目前雙北每年給公車業者 30 億的補助金。我敢打賭因為公車時刻的開放，一定會增加搭乘公車的人數（多少是該做進一步統計的），那是否可以從這 30 億撥款過來做為市府營運公車資訊時刻的服務經費呢？其實，也應該如此不是嗎？ 所以收費與否，是成本問題，然後接下來該問的是，政府對開放資料政策與目的。因為這些成本絕對會受到政府開放資料政策的影響。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/opendata_mis_ndc/100/77_1.png"></a><div class="discussioncontent"><a class="author">opendata_mis_ndc</a><div class="metadata"><span class="date"><div>2015-03-10</div></span></div><div class="text"><div><p>謝謝<a class="mention" href="/users/11118">@11118</a>的建議，這也就是我們所希望的，能夠在眾多政府資料中取得一個收費與否的平衡點。若資料本身僅是業務執行過程中所蒐集，未經過客製化或整理過的資料，我們朝免費方式開放；如是屬於清理整理的才會衍生出收費問題。對於要收費的資料，<a class="mention" href="/users/11118">@11118</a>有沒有建議的計費模式或標準供我們參考。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/opendata_mis_ndc/100/77_1.png"></a><div class="discussioncontent"><a class="author">opendata_mis_ndc</a><div class="metadata"><span class="date"><div>2015-03-10</div></span></div><div class="text"><div><p>謝謝<a class="mention" href="/users/audreyt">@audreyt</a>的轉述建議，政府資料開放的目的，簡單的說就是充分將政府已經收集的且無法規限制的資料開放給民間使用，而且盡可能不收取費用，但是，有些資料的產製是需要較多行政成本有收費需求的。政府資料的收費與不收費之間，我們希望能夠訂出一個界線，<a class="mention" href="/users/audreyt">@audreyt</a>有沒有建議的界線訂定建議、計費模式或標準供我們參考。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/letter_avatar_proxy/v2/letter/1/7993a0/100.png"></a><div class="discussioncontent"><a class="author">11118</a><div class="metadata"><span class="date"><div>2015-03-10</div></span></div><div class="text"><div><p>謝謝回應。</p>
+
+<p>建議可以看這一篇，歐盟在2011年對於政府資訊計價的調查研究<br><a href="http://ec.europa.eu/information_society/newsroom/cf/dae/document.cfm?doc_id=1158" class="onebox" target="_blank" rel="nofollow">http://ec.europa.eu/information_society/newsroom/cf/dae/document.cfm?doc_id=1158</a><br>尤其是p7的結論，越低價越好，免費更好，對於數位資料來說，政府早已有基礎建設，為了開放資料要額外多做的努力或許可以用規費(因資料提供產生的額外費用)的方式轉嫁到使用者身上，而不是因為該資料可能會產生多少價值而將納稅後的成果當作商品的方式販售。在規費的精神下，這個費用應該是極低的。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/opendata_mis_ndc/100/77_1.png"></a><div class="discussioncontent"><a class="author">opendata_mis_ndc</a><div class="metadata"><span class="date"><div>2015-03-12</div></span></div><div class="text"><div><p>謝謝您提供的資訊。 <img src="/images/emoji/emoji_one/blush.png?v=0" title=":blush:" class="emoji" alt="blush" width="64" height="64"></p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/whisky/100/145_1.png"></a><div class="discussioncontent"><a class="author">whisky</a><div class="metadata"><span class="date"><div>2015-04-04</div></span></div><div class="text"><div><p>請問哪些資料的產製是需要較多行政成本？同時也不是政府本身有需求，而是為了開放資料而特別製作的？</p>
+
+<p>嗯，或許我們可以這樣說，目前所有開放的資料集，因為需要重新包裝，制訂 metadata 編寫，要求公務員額外作業（上傳等），所以全部都需要較多的行政成本。但這也讓人感到有趣，那就是開放資料到底對政府自己有什麼好處？將原本的公開資訊，業務資料轉為開放資料後，受益者只會是民間使用者嗎？還是政府本身？</p>
+
+<p>如果只是民間加值應用者（尤其是商業使用者）那當然收費似乎就沒什麼爭議。但是如果透過開放資料的程序，政府本身也是受益者，甚至是最直接，第一線的受益者時。那是否這個成本就該由政府自己吸收？而其他額外的需求，當然就是所謂客製化，所謂特別製作，會須要收費也很正常。反正在開放資料的原則下，你收費，就會有人把他 copy 出來放在其他地方免費讓人使用。</p>
+
+<p>在開放資料的原則下，那，是否就會發現，這個收費如果不是反應在資料公佈」 (data publishing) 時，就會顯得很可笑了？因為只有當資料為即時，大量，我們無法自動幫政府備份（就算備份出來，可能也沒能力讓很多人介接進來使用）時，政府要收費才有意義（不是有道理，是有意義）</p>
+
+<p>例如公車到站時刻的資料介接，例如 ETC 每五分鐘一次的資料介接等</p>
+
+<p>如果是這樣，那或許我們要反過來想一下。政府將這些資料開放後，他是希望透過收費，讓可能的使用者人數降低（能出得起價錢的，才能使用，當然也包含商業使用）。或是政府該把這視為他的建設成本之一。免費，讓更多人有機會使用，同時建立更高的市場價值。這一切都是政府資源分配的問題，也就是政府政策的問題。</p>
+
+<p>也因為如此，我們一直在問，政府的開放資料政策到底是什麼？這個政策不是什麼「免費為原則，或是開放為原則，其他是例外」。而是政府推動開放資料到底想看到的發展會是什麼，預期中需要投入的資源又是什麼？一個資料生態圈的出現，或是政府治理程序上的改變（開放資料的過程應該對政府的治理從內到外都會造成改變，這改變是什麼？）等。而這些正是到目前為止都沒有說清楚過的（這或許是目前白皮書內會提到的部分）</p>
+
+<p>當我們對開放資料政策都不是這麼清楚時，直接拋出這樣收費免費的議題，我認為是不妥同時也只是指出開放資料推動在台灣目前眾多說不清楚的議題之一。</p>
+
+<p>要問該不該收費，請先回答，政府自己需不需要開放資料。如果需要（這需要的答案絕對不是，需要，因為要讓民間可加值使用），那或許可以再問，政府需不需要三星以上等級的開放資料，如果需要，為什麼？如果不需要，也請問為什麼？</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/vtaiwan/100/44_1.png"></a><div class="discussioncontent"><a class="author">vtaiwan</a><div class="metadata"><span class="date"><div>2015-04-04</div></span></div><div class="text"><div><p>謝謝 <a class="mention" href="/users/whisky">@whisky</a> 的分享。稍微整理一下詢問，請 <a class="mention" href="/users/opendata_mis_ndc">@opendata_mis_ndc</a> 撥冗回答：</p>
+
+<ol>
+<li>是否考慮專為「即時、大量」資料收取維運費用，但不影響資料授權？</li>
+<li>目前的開放資料政策，是否有網址或紀錄可資參考？</li>
+<li>公部門跨部會、跨層級使用其他業務單位的開放資料，目有已知的例子嗎？<br>是否有三、四、五星的例子？</li>
+</ol></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/stella_hsieh/100/92_1.png"></a><div class="discussioncontent"><a class="author">Stella_Hsieh</a><div class="metadata"><span class="date"><div>2015-04-09</div></span></div><div class="text"><div><p>如因為行政成本考量，以使用者付費原則觀之，「免費為原則，收費為例外」這樣的大方向原則上可贊同。<br>如果這樣的方向確立，收費是否合理將顯得重要! 收費不應過高以致造成近用門檻，否則將有違資料開放的初衷。<br>再者，由於資料開放可以造福社會大眾，例如更好的政策建言，更方便的生活環境，然而當然也可能做為商業用途。因此考量開放資料對社會發展有益，在政策方向以及預算編列似也應考量這一點，由政府吸收大部份的資料處理成本，少部分由使用者付費。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/opendata_mis_ndc/100/77_1.png"></a><div class="discussioncontent"><a class="author">opendata_mis_ndc</a><div class="metadata"><span class="date"><div>2015-04-10</div></span></div><div class="text"><div><p>謝謝<a class="mention" href="/users/whisky">@whisky</a>的意見，<br>對政府資料開放的預期是希望讓政府資料都能預設為免費開放，透過民間的運用產生更符合人民使用的服務，進一步讓民間所產生的服務回饋給政府，提升政府決策品質。目前在推動政府資料開放過程中，各機關都盡量朝開放免收費方向處理，然而不可諱言的，亦存在資料要收費的意見。如何在資料中劃分出一條線，讓機關遵循以開放資料，而這條線是必須由大家一起討論出來的。您所提出的即時、大量資料才需收費，也是可以納入討論的一種判斷資料收費與否的方式。</p>
+
+<p>謝謝<a class="mention" href="/users/vtaiwan">@vtaiwan</a>的整理，<br>1.有關專為「即時、大量」資料收取維運費用，我們都將納為後續討論參考，歡迎大家多提供其他國家具體收費機制建議，期透過討論逐漸形成共識。<br>2.目前籌劃中的「網路智慧新臺灣政策白皮書」，已持續廣邀各界意見完備政府資料開放相關策略，可參考http://join.gov.tw/。另已頒訂「政府資料開放諮詢小組設置要點」，各級諮詢小組會議紀錄，將載明各方意見，並公開之。<br>3.在跨機關資料運用上，例如臺北市政府臺北旅遊網即是運用文化部所開放的資料等，目前尚無四、五星資料跨部會應用案例。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/opendata_mis_ndc/100/77_1.png"></a><div class="discussioncontent"><a class="author">opendata_mis_ndc</a><div class="metadata"><span class="date"><div>2015-04-10</div></span></div><div class="text"><div><p>謝謝<a class="mention" href="/users/stella_hsieh">@Stella_Hsieh</a>的意見。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/vtaiwan/100/44_1.png"></a><div class="discussioncontent"><a class="author">vtaiwan</a><div class="metadata"><span class="date"><div>2015-04-24</div></span></div><div class="text"><div><p>以下是 <a class="mention" href="/users/11118">@11118</a> 在 <a href="https://hackpad.com/2015-04-14--JSea6WC3EdD">4/14 諮詢會議</a>的意見分享摘要：</p>
+
+<ol>
+<li>反對政府開放資料收費。我已經繳過稅了，成本是我繳的稅製作的，為何還要收費？</li>
+<li>額外的資料清理，公務員是在上班時間處理，不應額外收費。</li>
+<li>星等是機器處理的難易度，不是資料品質的指標。資料品質應以精確度、整合性為主。</li>
+<li>以道路的資料為例，其實有許多主管機關（例如水道由水利署管），河川資料也是分散在各部會。</li>
+<li>需要各機關都開放才能整合應用。資料整合性提高乃是滿足政府施政需求，也不應該收費。</li>
+<li>資料是產生知識與智慧的源頭，不具有「擁擠性」。有擁擠性的公共建設，像公路停車位，才適用「使用者付費」原則。</li>
+<li>如果例外收費，誰來決定什麼是例外？會不會例外越來越多？</li>
+<li>德國的地政資料為事後有營利所得時收費。但是德國也正在檢討，真的能改善財政狀況嗎？免費提供資料造成的外溢效益是比較高的。</li>
+</ol></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/vtaiwan/100/44_1.png"></a><div class="discussioncontent"><a class="author">vtaiwan</a><div class="metadata"><span class="date"><div>2015-04-24</div></span></div><div class="text"><div><p>以下是戴豪君資訊長在 <a href="https://hackpad.com/2015-04-14--JSea6WC3EdD">4/14 諮詢會議</a>的意見分享摘要：</p>
+
+<ol>
+<li>在內政部實價登錄案時，國庫署發函，認為私法契約不涉及規費法。國庫署另外也說，無償提供即不適用規費法。</li>
+<li>以實價登錄為例，網路傳輸不收費，製作光碟才收工本費，這和<a href="https://talk.vtaiwan.tw/t/topic/165/7">林誠夏顧問提的概念</a>類似，實務操作也沒什麼問題。</li>
+<li>另外，也可以適用<a href="http://law.moj.gov.tw/LawClass/LawSingle.aspx?Pcode=G0340107&amp;FLNO=13">規費法第十三條</a>：像新加坡原則上要收費，但是目前停徵。澳洲說的是「最低合理成本」，大家都同意網路下載的成本為零，但看來和目前規費法的意旨有出入。</li>
+<li>想請國庫署說明，<a href="http://law.moj.gov.tw/LawClass/LawSingle.aspx?Pcode=G0340107&amp;FLNO=10">第十條的收費項目</a>是例示還是列舉？是否可以確立「以邊際成本為計費原則」？</li>
+</ol></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/vtaiwan/100/44_1.png"></a><div class="discussioncontent"><a class="author">vtaiwan</a><div class="metadata"><span class="date"><div>2015-04-24</div></span></div><div class="text"><div><p>以下是 <a class="mention" href="/users/whisky">@whisky</a>  在 <a href="https://hackpad.com/2015-04-14--JSea6WC3EdD">4/14 諮詢會議</a>的意見分享摘要：</p>
+
+<ol>
+<li>故宮以及氣象局目前其實都是在「賣」資料，來支應預算上沒有涵括到的經費。</li>
+<li>我相信絕大多數部會其實都是希望不要收費，但政府內的少數部會其實需要賣資料來養活自己，例如故宮、氣象局、圖資機關。</li>
+<li>
+<a href="http://opendefinition.org/od/2.0/zh-tw/">The Open Definition</a> 說得很清楚，開放資料就是要自由取得、散佈。</li>
+<li>當資料是即時、大量的時候，例如公車資訊，技術上可以透過 API 的使用收費。這些即時資訊的頻寬（邊際成本），即使透過網路傳輸，也許並不是零，也確實有建置成本。</li>
+<li>但是建置這些系統的目標，例如鼓勵搭乘大眾運輸（公車、路況），開放、免費造成的效益應超過其成本。</li>
+<li>總結：某些即時、大量的開放資料雖然原則上可以收費，但實務上沒有意義。</li>
+</ol></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/vtaiwan/100/44_1.png"></a><div class="discussioncontent"><a class="author">vtaiwan</a><div class="metadata"><span class="date"><div>2015-04-24</div></span></div><div class="text"><div><p>以下是 <a class="mention" href="/users/ifulita">@ifulita</a> 在 <a href="https://hackpad.com/2015-04-14--JSea6WC3EdD">4/14 諮詢會議</a>的意見分享摘要：</p>
+
+<ul>
+<li>每年政府都已經編列預算進行資訊維運，所以沒有收費的正當性。</li>
+<li>四星資料（使用固定網址發佈單筆資料），如果是作業流程的一部份，例如立法院會議影音紀錄的單筆網址，目前並不會因為這樣就要收費，請行政機關參考。</li>
+</ul></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/vtaiwan/100/44_1.png"></a><div class="discussioncontent"><a class="author">vtaiwan</a><div class="metadata"><span class="date"><div>2015-04-24</div></span></div><div class="text"><div><p>以下是國庫署陳明娟科長在 <a href="https://hackpad.com/2015-04-14--JSea6WC3EdD">4/14 諮詢會議</a>的綜合回應摘要：</p>
+
+<ol>
+<li>政府的收入來源：稅（約 1.2 兆）、費（550 億）、捐、債。其中規費也有一定的比重。</li>
+<li>如果只有少數人使用的資料，是否應由多數人的稅捐負擔？</li>
+<li>財政部原則上同意，適用政府資訊公開法<a href="http://law.moj.gov.tw/LawClass/LawSingle.aspx?Pcode=I0020026&amp;FLNO=7">第七條</a>、<a href="http://law.moj.gov.tw/LawClass/LawSingle.aspx?Pcode=I0020026&amp;FLNO=22">第二十二條</a>（得收取費用）的項目，在網路上公開時，應該是無償提供的。</li>
+<li>不過若非政府資訊公開法規範範圍，則回歸規費法 ，因此「有償」的<a href="http://law.moj.gov.tw/LawClass/LawSingle.aspx?Pcode=G0340107&amp;FLNO=10">使用規費項目</a>應包含興建、購置成本。</li>
+<li>個人覺得，如果資料是提供給廠商營利使用，則有收費的可能，例如用私法契約規定事後收費、有賺錢才收費。</li>
+<li>與民生有關的資料，像 G8 簽的 Charter 中規定「教育、氣象、醫藥」等資料應該要無償提供，但目前只有加拿大等少數國家做到。法國、日本正在往此方向推動。</li>
+<li>政府的財政狀況不是很好，在此情況下，收取規費是合理的。舉個例子：馬路不收費，為什麼高速公路要收費？其實有些國家高速公路也不收費，端視實際的財政狀況為準。</li>
+</ol></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/vtaiwan/100/44_1.png"></a><div class="discussioncontent"><a class="author">vtaiwan</a><div class="metadata"><span class="date"><div>2015-04-24</div></span></div><div class="text"><div><p>以下是 <a class="mention" href="/users/opendata_mis_ndc">@opendata_mis_ndc</a> 簡宏偉處長在 <a href="https://hackpad.com/2015-04-14--JSea6WC3EdD">4/14 諮詢會議</a>的綜合回應摘要：</p>
+
+<ol>
+<li>今天本來就是要討論，無償開放跟有償提供的線，應該畫在哪裡。</li>
+<li>個人看法：能不能拿資料做商業應用是各憑本事，能夠拿去賺錢，用繳稅的方式也能回到國庫。</li>
+<li>所以並不是說，開放資料拿去做營利使用，就要特別付費。</li>
+</ol></div></div><div class="commentline"></div></div></div></div></div><a href="https://talk.vtaiwan.tw/t/topic/164" target="_blank"><div class="ui fluid green labeled submit icon button"><i class="icon edit"></i>我要留言</div></a></div></div></div></div><div><div class="ui styled accordion"><div class="title"><i class="dropdown icon"></i>3星以下資料以免費為原則、4星5星得例外收費，是否合理？</div><div class="content"><div class="Commentcomponent"><div class="ui compact menu"><a class="item"><i class="reply icon"></i> 19</a><a class="item"><i class="unhide icon"></i> 6619</a><a class="item"><i class="user icon"></i> 6   </a><a class="item"><i class="calendar icon"></i> 650 天  </a></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/ifulita/100/57_1.png"></a><div class="discussioncontent"><a class="author">ifulita</a><div class="metadata"><span class="date"><div>2015-02-16</div></span></div><div class="text"><div><p>不知道3星以下資料是指哪一種類的資料?<br>而4星及4星的資料又是怎樣的資料?</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/vtaiwan/100/44_1.png"></a><div class="discussioncontent"><a class="author">vtaiwan</a><div class="metadata"><span class="date"><div>2015-02-16</div></span></div><div class="text"><div><p>您好，請參考<a href="https://talk.vtaiwan.tw/t/topic/161">收費原則</a>主題裡的定義。4 星表示資料集裡的單筆資料都有固定的網址，5 星則表示該網址也額外包含單筆資料與其他資料之間的關連。未達這兩個標準的開放資料，均為 3 星以下。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/ifulita/100/57_1.png"></a><div class="discussioncontent"><a class="author">ifulita</a><div class="metadata"><span class="date"><div>2015-02-16</div></span></div><div class="text"><div><p>在看過那裡面的定義後，<br>我會覺得4星及5星的資料可以部份收費、部分不收費耶，<br>涉及國家安全(如：外交機密、國防機密、…)及個人隱私的可以收費，<br>其他重要性沒那麼高或者只有包含申請者自己的個人隱私的可以不收費。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/clkao/100/91_1.png"></a><div class="discussioncontent"><a class="author">clkao</a><div class="metadata"><span class="date"><div>2015-03-03</div></span></div><div class="text"><div><p>若一份資料僅以 4 星或 5 星提供，且需收費，它就不再能稱為開放資料，因為他無法滿足開放及一星的基本要求 - 任何人皆可取得。因此本議題討論的前提應為：資料以3星以下提供，且同時也以 4 至 5 星提供者，後者收費的合理性。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/clkao/100/91_1.png"></a><div class="discussioncontent"><a class="author">clkao</a><div class="metadata"><span class="date"><div>2015-03-03</div></span></div><div class="text"><div><p>承上，若由此出發，則可視 4 至 5 星為「以較佳之載具提供資料」（不必一次取得全部資料，可僅取用資料應用所需的，等等），收費原因並非因為取用資料，而是因為使用較佳載具。</p>
+
+<p>我不認為政府本身應花太大力氣試圖提供此「較佳載具」並就此收費，而應鼓勵民間提供此加值服務，並自由競爭。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/vtaiwan/100/44_1.png"></a><div class="discussioncontent"><a class="author">vtaiwan</a><div class="metadata"><span class="date"><div>2015-03-05</div></span></div><div class="text"><div><p>感謝 <a class="mention" href="/users/clkao">@clkao</a> 的意見。請問 <a class="mention" href="/users/opendata_mis_ndc">@opendata_mis_ndc</a>，收費資料是否就不適用開放資料授權？</p>
+
+<p>或是雖然收費，但是也擬允許取用者可以自行複製（包含免費提供給其他人）、衍生改作，因此仍適用開放資料授權？</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/opendata_mis_ndc/100/77_1.png"></a><div class="discussioncontent"><a class="author">opendata_mis_ndc</a><div class="metadata"><span class="date"><div>2015-03-06</div></span></div><div class="text"><div><p><img src="/images/emoji/emoji_one/smile.png?v=1" title=":smile:" class="emoji" alt=":smile:"> 謝謝<a class="mention" href="/users/clkao">@clkao</a>，1至3星之政府資料，多是機關基於職權範圍內取得或做成，依法得公開予不特定對象之電子資料，僅轉換為開放格式供外界使用，規劃以免費為原則，4至5星則多為客製化或再整理後高品質資料，行政成本較高，將有收費的可能性，並非因提供較佳載具而收費；另外英國政府對開放資料若具收費需求也是採用收費約款的，我國正由經濟部工業局協助擬訂政府開放資料收費約款之參考版本（草案），謝謝您!</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/clkao/100/91_1.png"></a><div class="discussioncontent"><a class="author">clkao</a><div class="metadata"><span class="date"><div>2015-03-08</div></span></div><div class="text"><div><p>那麼我的意見如前，「若一份資料僅以 4 星或 5 星提供（其所有語意無法以同資料內涵之三星以下資料推導出），且需收費，且不允許取用者可以自行複製（包含免費提供給其他人）、衍生改作，它就不再能稱為開放資料，因為他無法滿足開放及一星的基本要求 - 任何人皆可取得」，政府當然可以研議針對「客製化或再整理後高品質資料」收費，但請不要稱之為開放資料，頂多稱之為開放格式介接資料，以免混淆。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/opendata_mis_ndc/100/77_1.png"></a><div class="discussioncontent"><a class="author">opendata_mis_ndc</a><div class="metadata"><span class="date"><div>2015-03-10</div></span></div><div class="text"><div><p>謝謝<a class="mention" href="/users/clkao">@clkao</a>的建議，資料開放確以不收費為原則，我們對需收費的資料，會另以收費約款處理，避免跟資料開放混淆。然而政府資料如何界定屬於免費開放或得收費，<a class="mention" href="/users/clkao">@clkao</a>是否可以進一步提供建議模式，讓我們的規劃能更加精確可行。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/pofeng/100/11_1.png"></a><div class="discussioncontent"><a class="author">pofeng</a><div class="metadata"><span class="date"><div>2015-04-07</div></span></div><div class="text"><div><p>open source 的定義沒有提到是否要收費, 但是因為可以自由複製, 所以市場機制會讓 provider 競爭, 進而提供一個比較合理的價位, 廠商也可能提供加值服務讓販售的價格不要太低</p>
+
+<p>不知道大家能不能同意, 也這樣看待 open data 的運作</p>
+
+<p>雖然是收費資料, 但若允許取用者可以自行複製（包含免費提供給其他人），衍生改作，與 "<strong>加值運用</strong>" <br>我個人可以接受，這樣的收費資料仍然可以稱作開放資料。</p>
+
+<p>但是最後還是要提一下美國的方向還是以免費為主, 希望有蓬勃的 open data 產業之後, 利用稅收來 cover 這些資料的產生成本</p>
+
+<p>"歐洲與美國在人口及社會活動的成熟度皆近似，但對提供公眾資訊的財務政策卻幾乎相反，美國為開放且低價成本回收由蓬勃的產業稅收來間接獲得；歐洲為成本直回政策。如此分歧的策略，帶來兩種不同的結果 ..."<br>資料來源: <a href="http://www.ndc.gov.tw/m1.aspx?sNo=0027929" rel="nofollow">http://www.ndc.gov.tw/m1.aspx?sNo=0027929</a></p>
+
+<a href="https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-xpf1/v/t1.0-9/p180x540/10530749_10150437012224949_868759620631779648_n.jpg?oh=a820b0074dd47ac7fffd703946008391&amp;oe=55B63241&amp;__gda__=1436692458_aefc5a4be60d39753a227b27e85cb11e" target="_blank"><img src="https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-xpf1/v/t1.0-9/p180x540/10530749_10150437012224949_868759620631779648_n.jpg?oh=a820b0074dd47ac7fffd703946008391&amp;oe=55B63241&amp;__gda__=1436692458_aefc5a4be60d39753a227b27e85cb11e" width="690" height="450"></a></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/muyueh/100/36_1.png"></a><div class="discussioncontent"><a class="author">muyueh</a><div class="metadata"><span class="date"><div>2015-04-07</div></span></div><div class="text"><div><p>五星開放資料是一個樓梯，資料品質是要一步一步往上爬的。</p>
+
+<p>「四星級」的資料，假如沒有以「三星級」釋出，就沒有辦法是「四星級」了。</p>
+
+<p>假如我們現在的共識是「三星級是免費釋出」，民間會利用「三星級」轉換為「四星級、五星級」利用。</p>
+
+<p>我不反對政府對「四星級」資料收費，在這樣的情況下，政府會跟民間競爭，看誰可以利用最低的成本提供最好的服務。</p>
+
+<p>只是如同 clkao 前述，假如資料「只以」四星級方式提供，那是回到以往的資料方式，連一顆星都沒有。</p>
+
+<p>利益揭露：<a href="https://sheethub.com/" rel="nofollow">SheetHub.com</a> 是一家民間資料公司，利用政府三顆星資料轉換為四星級、五星級資料</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/pofeng/100/11_1.png"></a><div class="discussioncontent"><a class="author">pofeng</a><div class="metadata"><span class="date"><div>2015-04-07</div></span></div><div class="text"><div><p>幫補一下誠夏的意見: </p>
+
+<p>"收費可以，但不能是「鏈索式(chained)」的收費模式。依據Open Definition 2.0： 該授權條款 不可 將任何收費協議、權利金，或其他補償及金錢報酬列為使用條件的一部份。</p>
+
+<p>簡單來說，一次性的收費可以，但不能要求付費使用者還要定期回報，定期續約才能繼續用，不然是手段有害於目的，不能促進Open Data的長期發展。</p>
+
+<p><a href="http://opendefinition.org/od/2.0/zh-tw/" rel="nofollow">http://opendefinition.org/od/2.0/zh-tw/</a>"</p>
+
+<p>原文 link: <a href="https://www.facebook.com/groups/odtwn/permalink/1187992864548463/?comment_id=1190922637588819&amp;offset=0&amp;total_comments=12&amp;comment_tracking=%7B%22tn%22%3A%22R0%22%7D" rel="nofollow">https://www.facebook.com/groups/odtwn/permalink/1187992864548463/?comment_id=1190922637588819&amp;offset=0&amp;total_comments=12&amp;comment_tracking=%7B%22tn%22%3A%22R0%22%7D</a></p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/opendata_mis_ndc/100/77_1.png"></a><div class="discussioncontent"><a class="author">opendata_mis_ndc</a><div class="metadata"><span class="date"><div>2015-04-10</div></span></div><div class="text"><div><p>謝謝<a class="mention" href="/users/pofeng">@pofeng</a>的建議，<br>資料開放原本即授權使用者可以衍生改作與加值利用，您所建議的收費資料可以轉提供給其他人使用，這建議會納到後續的資料授權條款討論。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/opendata_mis_ndc/100/77_1.png"></a><div class="discussioncontent"><a class="author">opendata_mis_ndc</a><div class="metadata"><span class="date"><div>2015-04-10</div></span></div><div class="text"><div><p>謝謝<a class="mention" href="/users/muyueh">@muyueh</a>的意見。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/opendata_mis_ndc/100/77_1.png"></a><div class="discussioncontent"><a class="author">opendata_mis_ndc</a><div class="metadata"><span class="date"><div>2015-04-10</div></span></div><div class="text"><div><p>謝謝<a class="mention" href="/users/pofeng">@pofeng</a>的建議。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/opendata_mis_ndc/100/77_1.png"></a><div class="discussioncontent"><a class="author">opendata_mis_ndc</a><div class="metadata"><span class="date"><div>2015-04-10</div></span></div><div class="text"><div><p><img src="/images/emoji/emoji_one/blush.png?v=0" title=":blush:" class="emoji" alt="blush" width="20" height="20"> 謝謝<a class="mention" href="/users/ifulita">@ifulita</a>與<a class="mention" href="/users/clkao">@clkao</a>的在這項討論話題的建議，財政部於103年9月12日以台財庫字第10303730400號函說明： 『 ...政府資料為「規費法」第8條第2款及第3款應徵收使用規費項目，其收費基準之訂定，依同法第10條「成本填補原則」，包括興建、 購置、營運、維護、管理及其他相關所有成本。建議按政府資料類型或品質分級，區分收費或不收費...』，於是，我們參考國外學者為鼓勵提升資料開放品質所倡議5星評等分級，來劃分政府資料是否需收費。請問 <a class="mention" href="/users/ifulita">@ifulita</a>與<a class="mention" href="/users/clkao">@clkao</a>，在財政部所說明的規定之下，您是否有其他可劃分資料收費的建議？國際上是否有可以參考的收費模式？</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/ifulita/100/57_1.png"></a><div class="discussioncontent"><a class="author">ifulita</a><div class="metadata"><span class="date"><div>2015-04-10</div></span></div><div class="text"><div><p>收費模式的話不知道是否能採用網路及實體並行的模式?<br>網路的部份就是使用網路銀行來進行繳費，<br>實體的話可以與國內四大便利商店的多媒體機台合作進行繳費的動作。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/clkao/100/91_1.png"></a><div class="discussioncontent"><a class="author">clkao</a><div class="metadata"><span class="date"><div>2015-04-13</div></span></div><div class="text"><div><p><a href="https://www.facebook.com/groups/odtwn/permalink/1195745757106507/" rel="nofollow">這邊有更多討論</a></p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/opendata_mis_ndc/100/77_1.png"></a><div class="discussioncontent"><a class="author">opendata_mis_ndc</a><div class="metadata"><span class="date"><div>2015-04-14</div></span></div><div class="text"><div><p>謝謝您提供的資訊 <img src="/images/emoji/emoji_one/relaxed.png?v=0" title=":relaxed:" class="emoji" alt="relaxed" width="64" height="64"> 。<img src="//talk.vtaiwan.tw/uploads/default/146/6f6d0d1c9dae388b.gif" width="12" height="12"></p></div></div><div class="commentline"></div></div></div></div></div><a href="https://talk.vtaiwan.tw/t/topic/166" target="_blank"><div class="ui fluid green labeled submit icon button"><i class="icon edit"></i>我要留言</div></a></div></div></div></div><div><div class="ui styled accordion"><div class="title"><i class="dropdown icon"></i>對於例外收費，您認為以下那種處理方式合理？</div><div class="content"><div class="Commentcomponent"><div class="ui compact menu"><a class="item"><i class="reply icon"></i> 4</a><a class="item"><i class="unhide icon"></i> 2569</a><a class="item"><i class="user icon"></i> 5   </a><a class="item"><i class="calendar icon"></i> 650 天  </a></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/ifulita/100/57_1.png"></a><div class="discussioncontent"><a class="author">ifulita</a><div class="metadata"><span class="date"><div>2015-02-24</div></span></div><div class="text"><div><p>個人認為2的方式較為適當，<br>這是因為政府不應該告訴人民只有哪些才免費而是應該告訴人民只有哪些才收費，<br>這樣子來推動開放資料才有意義。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/stella_hsieh/100/92_1.png"></a><div class="discussioncontent"><a class="author">Stella_Hsieh</a><div class="metadata"><span class="date"><div>2015-04-09</div></span></div><div class="text"><div><p>2.<br>既然是免費為原則，收費為例外，即應公告收費項目而非免費項目。<br>如果公告免費項目，表示免費為例外收費為原則。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/opendata_mis_ndc/100/77_1.png"></a><div class="discussioncontent"><a class="author">opendata_mis_ndc</a><div class="metadata"><span class="date"><div>2015-04-14</div></span></div><div class="text"><div><p>謝謝<a class="mention" href="/users/ifulita">@ifulita</a>及<a class="mention" href="/users/stella_hsieh">@Stella_Hsieh</a>的建議 <img src="/images/emoji/emoji_one/blush.png?v=0" title=":blush:" class="emoji" alt="blush" width="64" height="64"></p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/vtaiwan/100/44_1.png"></a><div class="discussioncontent"><a class="author">vtaiwan</a><div class="metadata"><span class="date"><div>2015-04-24</div></span></div><div class="text"><div></div></div><div class="commentline"></div></div></div></div></div><a href="https://talk.vtaiwan.tw/t/topic/162" target="_blank"><div class="ui fluid green labeled submit icon button"><i class="icon edit"></i>我要留言</div></a></div></div></div></div><div><div class="ui styled accordion"><div class="title"><i class="dropdown icon"></i>對收費項目的看法</div><div class="content"><div class="Commentcomponent"><div class="ui compact menu"><a class="item"><i class="reply icon"></i> 7</a><a class="item"><i class="unhide icon"></i> 2512</a><a class="item"><i class="user icon"></i> 5   </a><a class="item"><i class="calendar icon"></i> 650 天  </a></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/ifulita/100/57_1.png"></a><div class="discussioncontent"><a class="author">ifulita</a><div class="metadata"><span class="date"><div>2015-02-15</div></span></div><div class="text"><div><p>一些已無時效性的外交及國防機密預算都應該要收費。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/muyueh/100/36_1.png"></a><div class="discussioncontent"><a class="author">muyueh</a><div class="metadata"><span class="date"><div>2015-04-07</div></span></div><div class="text"><div><p>假如我們有一個好的收費原則，應該可以輕易決定每一筆資料可以收費多少。我覺得值得列出幾個範例，利用收費原則，來看看這些資料在這些原則下以下資料收費是多少：</p>
+
+<ul>
+<li><p>紫外線監測，即時介接資訊，每段時間更新一次。現在屬於免費，但假如有一個高品質的 api，可以提供每秒資訊</p></li>
+<li><p>房地資料，全台歷史</p></li>
+<li><p>政治獻金（目前去監察院列印，每一頁要兩元）</p></li>
+</ul>
+
+<p>我覺得可以多收集幾個 testing 的案例，接下來假如有一個好的收費原則的時候，我們應該馬上就知道這些資料集需要多少錢。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/vtaiwan/100/44_1.png"></a><div class="discussioncontent"><a class="author">vtaiwan</a><div class="metadata"><span class="date"><div>2015-04-07</div></span></div><div class="text"><div><p>感謝 <a class="mention" href="/users/muyueh">@muyueh</a> 的意見。也請 <a class="mention" href="/users/opendata_mis_ndc">@opendata_mis_ndc</a> 分享目前在討論草案時，主要考慮的大型資料集有哪些，感謝！</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/opendata_mis_ndc/100/77_1.png"></a><div class="discussioncontent"><a class="author">opendata_mis_ndc</a><div class="metadata"><span class="date"><div>2015-04-10</div></span></div><div class="text"><div><p>謝謝<a class="mention" href="/users/muyueh">@muyueh</a>的意見，<br>這也是我們目前的目標，希望大家能夠一起集思產出資料開放例外收費準則，接下來才能由各機關依照準則去訂出資料費用。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/opendata_mis_ndc/100/77_1.png"></a><div class="discussioncontent"><a class="author">opendata_mis_ndc</a><div class="metadata"><span class="date"><div>2015-04-10</div></span></div><div class="text"><div><p>謝謝<a class="mention" href="/users/vtaiwan">@vtaiwan</a>，<br>目前評估收費的資料多以現行國土測繪法所規定應收費之地理圖資資料，也請各位提供有關圖資收費建議，謝謝。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/vtaiwan/100/44_1.png"></a><div class="discussioncontent"><a class="author">vtaiwan</a><div class="metadata"><span class="date"><div>2015-04-24</div></span></div><div class="text"><div><p>以下是林誠夏在 <a href="https://hackpad.com/2015-04-14--JSea6WC3EdD">4/14 諮詢會議</a>的意見分享摘要：</p>
+
+<ol>
+<li>
+<a href="https://talk.vtaiwan.tw/t/topic/164/14">衷嵐焜的意見</a>我大致同意，但規費法的解讀我有不同的見解。</li>
+<li>開放資料有國際公認的定義，就是 The Open Definition，<a href="http://opendefinition.org/od/2.0/zh-tw/">2.0 中文版</a>是我翻譯的。</li>
+<li>因為規費法<a href="http://law.moj.gov.tw/LawClass/LawSingle.aspx?Pcode=G0340107&amp;FLNO=7">第七條</a>、<a href="http://law.moj.gov.tw/LawClass/LawSingle.aspx?Pcode=G0340107&amp;FLNO=8">第八條</a>都是「針對特定對象」。因為開放資料依定義就是向「不特定對象」開放，所以我主張不適用規費法，連但書都不用。請參考 <a class="mention" href="/users/clkao">@clkao</a> 提供的示意圖：<br><div class="lightbox-wrapper"><a data-download-href="//talk.vtaiwan.tw/uploads/default/913ba61dd453a2b8898807619bff28315ed21faa" href="//talk.vtaiwan.tw/uploads/default/150/1b4bbea59966e62b.jpg" class="lightbox" title="foo.jpg"><img src="//talk.vtaiwan.tw/uploads/default/_optimized/c7c/8e9/00111a8597_690x410.jpg" width="690" height="410"><div class="meta">
+<span class="filename">foo.jpg</span><span class="informations">768x457 59.3 KB</span><span class="expand"></span>
+</div></a></div> </li>
+<li>所以故宮目前提供的資料，應該只稱作 Releasing Data 而不稱「開放資料」（Open Data）。</li>
+<li>像 Linux、Android 等開放源碼軟體都免除授權金，重點是在建立新的商業物流、金流模式，它的產值遠大於授權金。</li>
+<li>規費法的有償開放解釋是以「成本回收」為原則，但這是以交付給特定人為對象為前提。所以請國庫署釋疑，向不特定人開放的 Open Data，交付對象是全民，為何要適用規費法？</li>
+<li>Open Definition 允許收一次性的工本費用，但是資料取得後，不能再限制取用人再複製給別人。所以「授權金」不能付，但是「燒光碟的成本費用」可以收取。</li>
+<li>參考 <a href="https://www.gnu.org/copyleft/gpl.html#section6">GPL 3.0 授權條文</a>，如果提供方式是透過網路傳輸，因為幾乎沒有成本，所以約定為零。</li>
+<li>英國有隱私疑慮，或是其他限制特定人使用的資料，不會冠以 Open 之名。</li>
+<li>總結關鍵：國庫署如何決定特定對象與不特定對象的標準？只有向「特定人」提供資料，例如技術門檻高、適用範圍窄，這才有規費法適用的位置。</li>
+</ol></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/vtaiwan/100/44_1.png"></a><div class="discussioncontent"><a class="author">vtaiwan</a><div class="metadata"><span class="date"><div>2015-04-24</div></span></div><div class="text"><div></div></div><div class="commentline"></div></div></div></div></div><a href="https://talk.vtaiwan.tw/t/topic/165" target="_blank"><div class="ui fluid green labeled submit icon button"><i class="icon edit"></i>我要留言</div></a></div></div></div></div><div><div class="ui styled accordion"><div class="title"><i class="dropdown icon"></i>除了5星評等，您認為劃分政府資料收費與否的最佳標準是？</div><div class="content"><div class="Commentcomponent"><div class="ui compact menu"><a class="item"><i class="reply icon"></i> 7</a><a class="item"><i class="unhide icon"></i> 2453</a><a class="item"><i class="user icon"></i> 4   </a><a class="item"><i class="calendar icon"></i> 650 天  </a></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/ifulita/100/57_1.png"></a><div class="discussioncontent"><a class="author">ifulita</a><div class="metadata"><span class="date"><div>2015-02-15</div></span></div><div class="text"><div><p>涉及個人隱私及國家安全的資料應該要收費，<br>但自己如果要申請關於自己個人隱私的資料就不應該收費，<br>比方說外交部及國防部均有機密預算，<br>一些已沒有時效性之機密預算可以開放資料出來，<br>但這些應該要有所收費，<br>而自己要申請自己的電子病歷時可以不收費。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/muyueh/100/36_1.png"></a><div class="discussioncontent"><a class="author">muyueh</a><div class="metadata"><span class="date"><div>2015-04-07</div></span></div><div class="text"><div><p>開放資料應該要讓所有人可以使用。假如需要收費的話，只有三種情況：</p>
+
+<p>第一：價格是 0，任何人都可以負擔，也是現狀。</p>
+
+<p>第二：價格太高，以致於沒有任何人可以 / 有興趣負擔。</p>
+
+<p>第三：價格介於前述兩者，有一些人可以負擔，有一些不行。</p>
+
+<p>我的問題是，在「二」，價格太高，以至於沒有任何人可以購買的情況下。似乎已經違反開放資料讓任何人可以取用的精神，這樣似乎就不算開放資料了。</p>
+
+<p>但更進一步的問題是在「三」，在這一個情況下，有一些人可以負擔，有一些人不能負擔。我們會說可以負擔的人應該是覺得自己創造的價值比這一個成本高，所以願意付錢。但就算是這樣的情況下，有部份人沒有辦法負擔，在實質意義上沒有辦法取得這些資料了，這樣是否會違反一星開放資料，這些東西事實上不是「available」？</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/vtaiwan/100/44_1.png"></a><div class="discussioncontent"><a class="author">vtaiwan</a><div class="metadata"><span class="date"><div>2015-04-07</div></span></div><div class="text"><div><p>謝謝 <a class="mention" href="/users/muyueh">@muyueh</a> 的意見，主要是擔心若是收取工本費，會使想要利用者難以負擔。</p>
+
+<p>進一步釐清這個意見：若以資料量計費（參照 <a href="http://www.hihosting.hinet.net/ec99/shop1204/old/promotion.asp">HiNet HiHosting</a>，每 GB 約 2-3 元），什麼程度下您覺得是一般大眾可以負擔的，什麼程度之上則不合理？也歡迎 <a class="mention" href="/users/opendata_mis_ndc">@opendata_mis_ndc</a> 和版上的各位提供想法。 </p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/opendata_mis_ndc/100/77_1.png"></a><div class="discussioncontent"><a class="author">opendata_mis_ndc</a><div class="metadata"><span class="date"><div>2015-04-10</div></span></div><div class="text"><div><p>謝謝<a class="mention" href="/users/muyueh">@muyueh</a>跟<a class="mention" href="/users/vtaiwan">@vtaiwan</a>的意見，承如前面幾則討論所提，若規劃改以資料量計費（參照 HiNet HiHosting，每 GB 約 2-3 元），大家認為合理的收費資料類型、品質、量、價格及收取機制為何？</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/ifulita/100/57_1.png"></a><div class="discussioncontent"><a class="author">ifulita</a><div class="metadata"><span class="date"><div>2015-04-10</div></span></div><div class="text"><div><p>收取模式的話不知道是否能採用網路及實體並行的模式?<br>網路的部份就是使用網路銀行來進行繳費，<br>實體的話可以與國內四大便利商店的多媒體機台合作進行繳費的動作。</p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/opendata_mis_ndc/100/77_1.png"></a><div class="discussioncontent"><a class="author">opendata_mis_ndc</a><div class="metadata"><span class="date"><div>2015-04-14</div></span></div><div class="text"><div><p>謝謝您的建議 <img src="/images/emoji/emoji_one/blush.png?v=0" title=":blush:" class="emoji" alt="blush" width="64" height="64"></p></div></div><div class="commentline"></div></div></div></div></div><div><div class="discussioncomment ui comments"><div class="comment"><a class="avatar"><img src="https://talk.vtaiwan.tw/user_avatar/talk.vtaiwan.tw/vtaiwan/100/44_1.png"></a><div class="discussioncontent"><a class="author">vtaiwan</a><div class="metadata"><span class="date"><div>2015-04-24</div></span></div><div class="text"><div></div></div><div class="commentline"></div></div></div></div></div><a href="https://talk.vtaiwan.tw/t/topic/167" target="_blank"><div class="ui fluid green labeled submit icon button"><i class="icon edit"></i>我要留言</div></a></div></div></div></div></div></div></div></div></div></div></div></div><div data-v-61e6b40f="" class="component footer"><a data-v-61e6b40f="" href="https://github.com/g0v/vue.vtaiwan.tw" target="_blank" class="ui labeled icon basic big button"><i data-v-61e6b40f="" class="github alternate icon"></i>Code on Github</a></div></div>
+<script type="text/javascript" src="/app.js"></script><script type="text/javascript" src="/vendor.js"></script>
+
+</body></html>
