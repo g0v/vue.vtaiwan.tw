@@ -11,6 +11,8 @@
   div(v-if = "hackpad_id !== undefined && hackpad_id.length >0")
     div.hackpad(v-html="hackpad_id")
 
+  div(v-html='discourse_title')
+
   div(v-if = "check >0")
     div(v-for = "(item, index) in discourse_title")
       div.ui.styled.accordion
@@ -36,49 +38,58 @@ export default {
           polis_id:[],
           slido_id:[],
           hackpad_id:[],
-          check:[],
+          check: Number,
           discourse_title:[],
 
     }
   },
-    created:function(){
-    axios.get('https://talk.vtaiwan.tw/t/'+ this.article.id +'.json?include_raw=1')
-    .then((response)=>{
-      var detail_info = response.data;
-      var regex = /(?: (?:init )?)|\n/g;
-      var link;
-      detail_info = detail_info['post_stream']['posts'].slice(1); // 取得議題時間軸內容
-      for(var i in detail_info){
-        if(detail_info[i]['raw'].indexOf("意見徵集")==0){
-          link=detail_info[i]['raw'].replace(/.*[0-9]/,"").split(/\s/g);
-        }
-      } 
-      for(var i=0; i<link.length;i++){
-        if(link[i].indexOf("pol.is")>-1){ //篩出含有polis的連結  
-          this.polis_id = link[i].replace(/.*\//,"");
-        }
-        else if(link[i].indexOf("sli.do")>-1){ //篩出含有slido的連結    
-          this.slido_id="<iframe src="+link[i]+ "frameborder='0' width='100%' height='1000px' data-reactid='.0.2.0.0.0'></iframe>";
-        }
-        else if(link[i].indexOf("hackpad.com")>-1){ //篩出含有hackpad的連結    
-          var hack = link[i].replace(/https.*-/,"");
-          this.hackpad_id="<iframe id=hackpad-"+hack+" src=https://hackpad.com/"+hack+ " scrolling='yes' height='1000px' width='100%' frameborder='0'></iframe>";//https://hackpad.com/ep/api/embed-pad?padId=
-        }
-        else if(link[i].indexOf("talk.vtaiwan.tw")>-1){//篩出含有discourse的連結 
-          axios.get(link[i]+'.json')
-          .then((response_discourse)=>{
-            var title = response_discourse.data.topic_list.topics;
-            for(i=0;i<title.length;i++){
-              this.discourse_title[i] = title[i]
-            }
-            this.check=1;
-          })
-        }
-      }    
-    })    
+  methods: {
+    getDiscussion(articleid) {
+      axios.get('https://talk.vtaiwan.tw/t/'+ articleid +'.json?include_raw=1')
+      .then((response)=>{
+        var detail_info = response.data;
+        var regex = /(?: (?:init )?)|\n/g;
+        var link;
+        detail_info = detail_info['post_stream']['posts'].slice(1); // 取得議題時間軸內容
+        for(var i in detail_info){
+          if(detail_info[i]['raw'].indexOf("意見徵集")==0){
+            link=detail_info[i]['raw'].replace(/.*[0-9]/,"").split(/\s/g);
+          }
+        } 
+        for(var i=0; i<link.length;i++){
+          if(link[i].indexOf("pol.is")>-1){ //篩出含有polis的連結  
+            this.polis_id = link[i].replace(/.*\//,"");
+          }
+          else if(link[i].indexOf("sli.do")>-1){ //篩出含有slido的連結    
+            this.slido_id="<iframe src="+link[i]+ "frameborder='0' width='100%' height='1000px' data-reactid='.0.2.0.0.0'></iframe>";
+          }
+          else if(link[i].indexOf("hackpad.com")>-1){ //篩出含有hackpad的連結    
+            var hack = link[i].replace(/https.*-/,"");
+            this.hackpad_id="<iframe id=hackpad-"+hack+" src=https://hackpad.com/"+hack+ " scrolling='yes' height='1000px' width='100%' frameborder='0'></iframe>";//https://hackpad.com/ep/api/embed-pad?padId=
+          }
+          else if(link[i].indexOf("talk.vtaiwan.tw")>-1){//篩出含有discourse的連結 
+            axios.get(link[i]+'.json')
+            .then((response_discourse)=>{
+              var title = response_discourse.data.topic_list.topics;
+              for(i=0;i<title.length;i++){
+                this.discourse_title[i] = title[i]
+              }
+              this.check=1;
+              // return this.discourse_title
+            })
+          }
+        }    
+      })
+    }     
+  },
+  created:function(){
+    console.log('topic-create')
+    this.getDiscussion(this.article.id);
   },
   updated:function(){
-    $('.ui.accordion').accordion();
+    this.getDiscussion(this.article.id);
+    console.log('topic-update')
+    //$('.ui.accordion').accordion();
   } 
 }
 </script>

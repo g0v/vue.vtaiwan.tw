@@ -57,41 +57,52 @@ export default {
       check:[],
     }
   },
-  created:function(a,b){
-    this.check=0;
-    axios.get('https://talk.vtaiwan.tw/t/topic/'+ this.comment_id +'.json')
-    .then((response_comment)=>{
-     this.views = response_comment['data'];
-      this.comment = response_comment['data']['post_stream']['posts'].slice(1);
-      for(var i=0; i<this.comment.length; i++){
-        this.username =this.comment[i]['avatar_template'].replace(/{size}/,"100");
-        this.comment[i]['avatar_template']=this.comment[i]['avatar_template'].replace(/.*/,'https://talk.vtaiwan.tw'+this.username);
-        this.comment[i]['created_at']=this.comment[i]['created_at'].replace(/T.*/,"");
-        this.username= this.comment[i]['avatar_template'];
-        if(this.comment[i]['cooked'].indexOf("htpp")>-1){ //判斷從discourse 來的圖片是否為完整網址
-          this.comment[i]['cooked'] = this.comment[i]['cooked'].replace(/<img src="/,'<img src="https://talk.vtaiwan.tw') //不完整的話加入https://talk.vtaiwan.tw
-        }
-      }
+  methods: {
+    getDiscussion_Comment(comment_id) {
+      this.check=0;
+      axios.get('https://talk.vtaiwan.tw/t/topic/'+ comment_id +'.json')
+      .then((response_comment)=>{
+        let comment = {}
+        // this.views = response_comment['data'];
+        // this.comment = response_comment['data']['post_stream']['posts'].slice(1);
+        // for(var i=0; i<this.comment.length; i++){
+        //   this.username =this.comment[i]['avatar_template'].replace(/{size}/,"100");
+        //   this.comment[i]['avatar_template']=this.comment[i]['avatar_template'].replace(/.*/,'https://talk.vtaiwan.tw'+this.username);
+        //   this.comment[i]['created_at']=this.comment[i]['created_at'].replace(/T.*/,"");
+        //   this.username= this.comment[i]['avatar_template'];
+        //   if(this.comment[i]['cooked'].indexOf("htpp")>-1){ //判斷從discourse 來的圖片是否為完整網址
+        //     this.comment[i]['cooked'] = this.comment[i]['cooked'].replace(/<img src="/,'<img src="https://talk.vtaiwan.tw') //不完整的話加入https://talk.vtaiwan.tw
+        //   }
+        // }
       
-      var today = new Date();
-      if(this.views['last_posted_at']!=null){
-        var lastpostday = new Date(this.views['last_posted_at']);
-        this.date=(today-lastpostday)/(1000*60*60*24);
-        if(this.date>1){
-          this.date=Math.floor(this.date)+" 天 ";
-        }
-        else if(this.date>0.041){
-          this.date=Math.floor(this.date*24)+" 小時 ";
-        }
-        else{
-          this.date=Math.floor(this.date*24*60)+" 分鐘 ";
-        }
-      }
-      else{
-        this.date="0";
-      }
-    })
-    this.check=1;
+        // var today = new Date();
+        // if(this.views['last_posted_at']!=null){
+        //   var lastpostday = new Date(this.views['last_posted_at']);
+        //   this.date=(today-lastpostday)/(1000*60*60*24);
+        //   if(this.date>1){
+        //     this.date=Math.floor(this.date)+" 天 ";
+        //   }
+        //   else if(this.date>0.041){
+        //     this.date=Math.floor(this.date*24)+" 小時 ";
+        //   }
+        //   else{
+        //     this.date=Math.floor(this.date*24*60)+" 分鐘 ";
+        //   }
+        // }
+        // else{
+        //   this.date="0";
+        // }
+      })
+      return this.check=1;
+    }
+  },
+  created:function(){
+      // console.log('d-comment-create'+this.comment_id)
+    this.getDiscussion_Comment(this.comment_id);  
+  },
+  updated: function () {
+    // console.log('d-comment-updated')
+    this.getDiscussion_Comment(this.comment_id);
   }
 }
 

@@ -1,0 +1,29 @@
+#!/bin/sh
+# source: https://github.com/g0v/g0v.tw/blob/master/deploy
+
+set -e -x
+git --version
+upstream=$1
+: ${upstream:=origin}
+: ${REPO:=git@github.com:g0v/vue.vtaiwan.tw}
+git fetch $upstream
+if [ `git rev-list HEAD...$upstream/master --count` -ne 0 ]; then
+  echo "not deploying"
+  exit 1
+fi
+yarn install
+yarn build:static
+rm -rf _public
+# XXX: use --reference when not in shallow clone
+#git clone $REPO --reference . -b gh-pages _public
+git clone $REPO --depth 1 -b gh-pages _public
+
+REV=`git describe --always`
+
+cp -rf dist/* _public/
+cd _public
+git add -A .
+echo "regen for $REV" | git commit --file -
+git reset --hard
+git push origin gh-pages
+cd ..
