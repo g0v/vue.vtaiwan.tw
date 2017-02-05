@@ -62,15 +62,24 @@ export default {
     }
   },
   created:function(){
-    this.handleResize();
+    // this.handleResize();
   },
   mounted () {
+    // initialize sticky element
     $("#mobile-step").sticky({
       context: "#context",
       observeChanges: true
     })
     // window.addEventListener('scroll', this.handleScroll);
-    window.addEventListener('resize', this.handleResize);
+    // window.addEventListener('resize', this.handleResize);
+  },
+  computed: {
+    onMobile: function(){
+      if(typeof window !== 'undefined')
+          return window.innerWidth < 768;
+      else
+          return false;
+    }
   },
   methods: {
     mySort: function (dataName) { 
@@ -135,20 +144,20 @@ export default {
 
       return boxes;
     },
-    handleScroll: function(){
-      var mobile_steps = $("#mobile-step");
-      if(mobile_steps.length>0)
-      {
-        mobile_steps.sticky('refresh');
-        // mobile_steps[0].style.left="0px"
-      }
-    },
-    handleResize: function(){
-      if(typeof window !== 'undefined')
-          this.onMobile = window.innerWidth < 768;
-      else
-          this.onMobile = false;
-    }
+    // handleScroll: function(){
+    //   var mobile_steps = $("#mobile-step");
+    //   if(mobile_steps.length>0)
+    //   {
+    //     mobile_steps.sticky('refresh');
+    //     // mobile_steps[0].style.left="0px"
+    //   }
+    // },
+    // handleResize: function(){
+    //   if(typeof window !== 'undefined')
+    //       this.onMobile = window.innerWidth < 768;
+    //   else
+    //       this.onMobile = false;
+    // }
   }
 }
 </script>

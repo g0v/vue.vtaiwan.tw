@@ -6,9 +6,9 @@
       | {{ label }}
 
     .desc.ui.basic.center.aligned.segment
-      i.quote.left.icon 
+      i.quote.left.icon.thin-only
       | {{ desc }} 
-      i.quote.right.icon
+      i.quote.right.icon.thin-only
 
     .ui.four.column.grid.stackable
 
@@ -33,35 +33,34 @@
     props: ['list', 'desc', 'label', 'name'],
     data() {
       return {
-        onMobile:false
+        // onMobile:false
       }
     },
     created:function(){
-      this.handleResize();
+      // this.handleResize();
     },
     mounted:function(){
-      window.addEventListener('resize', this.handleResize);
+      // window.addEventListener('resize', this.handleResize);
 
       /* make mobile's m-title sticky to its own content */
       $('.m-title.sticky').sticky({
         observeChanges: true,
-        onStick: function(){
-          console.log( $(this).data('name') )
+        offset        : 1, // make tab change & tab click w/o conflict to each other
+        onStick       : function(){
           let btn_name = $(this).data('name')
-          $("#mobile-step a[href='#"+btn_name+"']").click()
+          $("#mobile-step a").removeClass('active')
+          $("#mobile-step a[href='#"+btn_name+"']").addClass('active')
+          // this.$emit('stick', btn_name) // this != vm
         }
       })
     },
     methods:{
-      handleResize: function(){
-        if(typeof window !== 'undefined')
-            this.onMobile = window.innerWidth < 768;
-        else
-            this.onMobile = false;
-      },
-      clickTab: function(){
-        console.log("click")
-      }
+      // handleResize: function(){
+      //   if(typeof window !== 'undefined')
+      //       this.onMobile = window.innerWidth < 768;
+      //   else
+      //       this.onMobile = false;
+      // }
     }
   }
 </script>
