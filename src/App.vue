@@ -17,8 +17,8 @@ import Navbar from './components/app_Navbar.vue'
 import MyFooter from './components/MyFooter.vue'
 import axios from 'axios'
 
-import $ from 'jquery'
-import jQuery from 'jquery'
+// import $ from 'jquery'
+// import jQuery from 'jquery'
 
 // window.jQuery = jQuery
 

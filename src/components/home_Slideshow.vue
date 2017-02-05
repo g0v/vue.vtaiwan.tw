@@ -75,12 +75,11 @@ export default {
         // combine styles into single 
         o.style = {
           'z-index': o.zIndex, 
-          opacity: o.opacity, 
-          transform: o.transform, 
+          'opacity': o.opacity, 
+          'transform': o.transform, 
           '-ms-transform': o.transform, 
           '-webkit-transform': o.transform, 
-          background: 'url(' + o.cover + ')', 
-          'background-size': 'cover'
+          'background': 'url(' + o.cover + ') 100% 100% / cover'
         };
         return o
       })
