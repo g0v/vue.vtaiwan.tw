@@ -12,8 +12,13 @@
 
     .ui.four.column.grid.stackable
 
+      .box.column(v-if="list.length == 0")
+        .box-inner.ui.segment
+          | nothing
+
       .box.column(v-for="t in list")
-        router-link.ui.segment(:to="'/topic/' + t.routeName")
+
+        router-link.box-inner.ui.segment(:to="'/topic/' + t.routeName")
           
           img(:src ="t.cover || 'http://lorempixel.com/320/240/sports'")
 
@@ -57,6 +62,7 @@
       // })
 
       /* bind event scroll to window */
+      // window.addEventListener('scroll', this.mTitleHitEvent);
       $(window).scroll(this.mTitleHitEvent)
 
     },
@@ -84,35 +90,35 @@
 <style lang="scss" scoped>
 @import "../sass/global.scss";
 
-.box {
-  display: flex !important;
-}
-
 .desc {
   width: 100%;
   margin-top: -1em;
 }
 
-a {
-  box-shadow: 0 3px 1em hsla(0,0,0%,0.1);
-  display: flex;
-  flex-flow: column nowrap;
-  img {
-    flex: 1 1;
-    max-width: 100%;
-    height: auto;
-  }
-  .progress_bar {
-    background-color: #CCC;
-    padding: 0;
-
-    .progress {
-      height: 5px;
-      background-color: lightcoral;
+.box {
+  display: flex !important;
+  .box-inner {
+    box-shadow: 0 3px 1em hsla(0,0,0%,0.1);
+    display: flex;
+    flex-flow: column nowrap;
+    img {
+      flex: 1 1;
+      max-width: 100%;
+      height: auto;
     }
-    margin-bottom: 4px;
+    .progress_bar {
+      background-color: #CCC;
+      padding: 0;
+
+      .progress {
+        height: 5px;
+        background-color: lightcoral;
+      }
+      margin-bottom: 4px;
+    }
   }
 }
+
 
 /********************************* mobile view */
 // .m-step-title {
