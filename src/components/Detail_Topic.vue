@@ -93,11 +93,9 @@ export default {
         closable: true,
         scrollLock: true
       }).sidebar('toggle');
-
-    }
-  }
+    })
+ }
 }
-
 </script>
 
 <style lang="scss" scoped>
