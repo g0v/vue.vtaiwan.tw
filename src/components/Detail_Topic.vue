@@ -99,7 +99,7 @@ export default {
 
     $('.ui.left.sidebar').sidebar({
       dimPage: false,
-      transition: 'overlay',
+      transition: 'push',
       closable: true,
       scrollLock: true
     });
