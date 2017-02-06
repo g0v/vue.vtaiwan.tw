@@ -66,7 +66,7 @@
 /************************************************************************/
 /******/ ({
 
-/***/ 12:
+/***/ 11:
 /***/ function(module, exports) {
 
 /* (ignored) */
@@ -446,13 +446,13 @@ function Node (value, prev, next, list) {
 __webpack_require__(5);
 __webpack_require__(8);
 __webpack_require__(9);
-__webpack_require__(21);
+__webpack_require__(20);
 module.exports = __webpack_require__(6);
 
 
 /***/ },
 
-/***/ 21:
+/***/ 20:
 /***/ function(module, exports, __webpack_require__) {
 
 module.exports = LRUCache
@@ -6872,7 +6872,7 @@ function flush() {
 function attemptVertx() {
   try {
     var r = require;
-    var vertx = __webpack_require__(12);
+    var vertx = __webpack_require__(11);
     vertxNext = vertx.runOnLoop || vertx.runOnContext;
     return useVertxTimer();
   } catch (e) {
