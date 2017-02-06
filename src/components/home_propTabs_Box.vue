@@ -5,10 +5,10 @@
     h2.ui.sticky.header.m-title.thin-only(:data-name="name")
       | {{ label }}
 
-    .desc.ui.basic.center.aligned.segment
-      i.quote.left.icon.thin-only
+    .desc.ui.basic.center.aligned.segment.fat-only
+      i.quote.left.icon
       | {{ desc }} 
-      i.quote.right.icon.thin-only
+      i.quote.right.icon
 
     .ui.four.column.grid.stackable
 
@@ -33,26 +33,32 @@
     props: ['list', 'desc', 'label', 'name'],
     data() {
       return {
+        mTop: 0 /* top offset of m-title */
         // onMobile:false
       }
     },
-    created:function(){
+    updated:function(){
+      let el = ".m-title[data-name='"+this.name+"']"
+      this.mTop = $(el).offset().top /* m-title position */
+      
       // this.handleResize();
     },
     mounted:function(){
       // window.addEventListener('resize', this.handleResize);
 
       /* make mobile's m-title sticky to its own content */
-      $('.m-title.sticky').sticky({
-        observeChanges: true,
-        offset        : 1, // make tab change & tab click w/o conflict to each other
-        onStick       : function(){
-          let btn_name = $(this).data('name')
-          $("#mobile-step a").removeClass('active')
-          $("#mobile-step a[href='#"+btn_name+"']").addClass('active')
-          // this.$emit('stick', btn_name) // this != vm
-        }
-      })
+      // let self = this /* save vm for later use */
+      // let btn_name = this.name
+      // $('.m-title.sticky[data-name="'+btn_name+'"]').sticky({
+      //   observeChanges: true,
+      //   onStick       : function(){
+      //     self.$emit('stickTo', btn_name)
+      //   }
+      // })
+
+      /* bind event scroll to window */
+      $(window).scroll(this.mTitleHitEvent)
+
     },
     methods:{
       // handleResize: function(){
@@ -61,6 +67,16 @@
       //   else
       //       this.onMobile = false;
       // }
+
+      mTitleHitEvent: function() {
+        let btn_name = this.name
+        let el = "#mobile-step a[href='#"+btn_name+"']"
+        let mTop = this.mTop
+        let wScroll = $(window).scrollTop() /* length window has scrolled */
+        if ( wScroll>mTop ){
+          this.$emit('stickTo', btn_name) /* sent event trigger to parent comp */
+        }
+      }
     }
   }
 </script>
