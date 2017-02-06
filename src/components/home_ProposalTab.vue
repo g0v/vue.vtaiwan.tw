@@ -29,7 +29,7 @@ export default {
   },
   data () {
     return {
-      myIdx: 0,
+      myIdx: 1,
       // myTab: {dataName: 'news'},
       onMobile: false,
       steps: [
