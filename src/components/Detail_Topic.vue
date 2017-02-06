@@ -84,6 +84,7 @@ export default {
     }
   },
   mounted:function() {
+
     $('#toggle').click(function(){
       $('.ui.left.sidebar').sidebar({
         context: $('.pusher'),
@@ -92,7 +93,8 @@ export default {
         closable: true,
         scrollLock: true
       }).sidebar('toggle');
-    });
+
+    }
   }
 }
 

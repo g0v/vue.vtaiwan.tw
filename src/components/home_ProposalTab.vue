@@ -14,7 +14,7 @@
         .label {{step.label}}
 
     .ui.attached.segment(id="context" v-bind:class="{ 'basic': onMobile }")
-      Box(v-for="(step, idx) in steps", v-bind:id="step.dataName", :list = "mySort(step.dataName)", :desc = "step.description", :label = "step.label", :name = "step.dataName", v-show="idx == myIdx || onMobile")
+      Box(v-for="(step, idx) in steps", v-bind:id="step.dataName", :list = "mySort(step.dataName)", :desc = "step.description", :label = "step.label", :name = "step.dataName", v-show="idx == myIdx || onMobile" v-on:stickTo="onStickTo(arguments[0])")
   
 </template>
 
@@ -29,7 +29,7 @@ export default {
   },
   data () {
     return {
-      myIdx: 0,
+      myIdx: 1,
       // myTab: {dataName: 'news'},
       onMobile: false,
       steps: [
@@ -66,7 +66,7 @@ export default {
   },
   mounted () {
     // initialize sticky element
-    $("#mobile-step").sticky({
+    $("#mobile-step.sticky").sticky({
       context: "#context",
       observeChanges: true
     })
@@ -144,6 +144,12 @@ export default {
 
       return boxes;
     },
+    onStickTo: function(arg){
+      let el = "#mobile-step a[href='#"+arg+"']"
+      $(el).parent().children().removeClass('active') 
+      $(el).addClass('active')
+
+    }
     // handleScroll: function(){
     //   var mobile_steps = $("#mobile-step");
     //   if(mobile_steps.length>0)
