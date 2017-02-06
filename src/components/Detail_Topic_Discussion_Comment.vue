@@ -2,22 +2,18 @@
 
   .Commentcomponent
       div.ui.compact.menu
-        a.item
+        a.item(title="回復人數")
           i.reply.icon
-          //| 回復
           |  {{comment.length}}
-        a.item
+        a.item(title="觀看人數")
           i.unhide.icon
-          //| 觀看
           |  {{views['views']}}
-        a.item
+        a.item(title="用戶人數")
           i.user.icon
-          //| 用戶
           |  {{views['participant_count']}}   
-        a.item
+        a.item(title="最新回復")
           i.calendar.icon
-          //| 最新回復
-          |  {{date}} 
+          |  {{this.views['last_posted_at']}} 
       div(v-for="(item, index) in comment")
         div.discussioncomment.ui.comments
           div.comment
@@ -51,59 +47,55 @@ export default {
   data () {
     return {
       comment:[],
-      username:[],
       views:[],
-      date:[],
       check:[],
     }
   },
   methods: {
-    getDiscussion_Comment(comment_id) {
+    getDiscussion_Comment: function(val){
       this.check=0;
-      axios.get('https://talk.vtaiwan.tw/t/topic/'+ comment_id +'.json')
+      axios.get('https://talk.vtaiwan.tw/t/topic/'+ val +'.json')
       .then((response_comment)=>{
-        let comment = {}
-        // this.views = response_comment['data'];
-        // this.comment = response_comment['data']['post_stream']['posts'].slice(1);
-        // for(var i=0; i<this.comment.length; i++){
-        //   this.username =this.comment[i]['avatar_template'].replace(/{size}/,"100");
-        //   this.comment[i]['avatar_template']=this.comment[i]['avatar_template'].replace(/.*/,'https://talk.vtaiwan.tw'+this.username);
-        //   this.comment[i]['created_at']=this.comment[i]['created_at'].replace(/T.*/,"");
-        //   this.username= this.comment[i]['avatar_template'];
-        //   if(this.comment[i]['cooked'].indexOf("htpp")>-1){ //判斷從discourse 來的圖片是否為完整網址
-        //     this.comment[i]['cooked'] = this.comment[i]['cooked'].replace(/<img src="/,'<img src="https://talk.vtaiwan.tw') //不完整的話加入https://talk.vtaiwan.tw
-        //   }
-        // }
-      
-        // var today = new Date();
-        // if(this.views['last_posted_at']!=null){
-        //   var lastpostday = new Date(this.views['last_posted_at']);
-        //   this.date=(today-lastpostday)/(1000*60*60*24);
-        //   if(this.date>1){
-        //     this.date=Math.floor(this.date)+" 天 ";
-        //   }
-        //   else if(this.date>0.041){
-        //     this.date=Math.floor(this.date*24)+" 小時 ";
-        //   }
-        //   else{
-        //     this.date=Math.floor(this.date*24*60)+" 分鐘 ";
-        //   }
-        // }
-        // else{
-        //   this.date="0";
-        // }
+        let dcomment = {}
+        this.views = response_comment['data']; //觀看人數
+        this.comment = response_comment['data']['post_stream']['posts'].slice(1);
+        for(let i=0; i<this.comment.length; i++){
+          this.comment[i]['avatar_template']=this.comment[i]['avatar_template'].replace(/.*/,'https://talk.vtaiwan.tw'+this.comment[i]['avatar_template']).replace(/{size}/,"100"); //抓取icon
+          this.comment[i]['created_at']=this.comment[i]['created_at'].replace(/T.*/,"");  //發文日期
+          if(this.comment[i]['cooked'].indexOf("htpp")>-1){ //判斷從discourse 來的圖片是否為完整網址
+            this.comment[i]['cooked'] = this.comment[i]['cooked'].replace(/<img src="/,'<img src="https://talk.vtaiwan.tw') //不完整的話加入https://talk.vtaiwan.tw
+          }
+        }
+        let today = new Date();
+        if(this.views['last_posted_at']!=null){
+          let lastpostday = new Date(this.views['last_posted_at']);
+          let date=(today-lastpostday)/(1000*60*60*24);
+          if(date>1){
+            this.views['last_posted_at']=Math.floor(date)+" 天 ";
+          }
+          else if(date>0.041){
+            this.views['last_posted_at']=Math.floor(date*24)+" 小時 ";
+          }
+          else{
+            this.views['last_posted_at']=Math.floor(date*24*60)+" 分鐘 ";
+          }
+        }
+        else{
+          this.views['last_posted_at']="0";
+        }
       })
       return this.check=1;
     }
   },
   created:function(){
-      // console.log('d-comment-create'+this.comment_id)
     this.getDiscussion_Comment(this.comment_id);  
   },
-  updated: function () {
-    // console.log('d-comment-updated')
-    this.getDiscussion_Comment(this.comment_id);
-  }
+  watch: {
+    comment_id: function(val){
+      this.getDiscussion_Comment(val);
+    }
+  },
+
 }
 
 </script>

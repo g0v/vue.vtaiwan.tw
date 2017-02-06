@@ -1,10 +1,10 @@
 <template lang="jade">
 
   .component 
-
+    
     .fat-only 
       .event-list 
-        .item(v-for = "(ev,idx) in timeline", :class="['dark','gloom','light'][idx % 3]") 
+        .item(v-for = "(ev,idx) in timeline.time", :class="['dark','gloom','light'][idx % 3]") 
           .big 從{{ev.start}} 開始 {{ev.end}} 
           .small 
             p {{ ev.title }} 
@@ -15,7 +15,7 @@
 
     .thin-only
       .event-list 
-        .item(v-for = "(ev,idx) in timeline", :class="['dark','gloom','light'][idx % 3]") 
+        .item(v-for = "(ev,idx) in timeline.time", :class="['dark','gloom','light'][idx % 3]") 
           .big 從{{ev.start}} 開始 {{ev.end}} 
           .small 
             p {{ ev.title }} 
@@ -39,16 +39,21 @@
     },
     data() {
       return {
-        timeline: [] // 時間軸
+        timeline:{} // 時間軸
       }
     },
     methods: {
-      getTimeline(id) {
+      getTimeline(val) {
+        let id = val.id
+        this.timeline = { // initialize dType
+         'time': []
+        } 
+        let line = this.timeline // just for alias
         axios.get('https://talk.vtaiwan.tw/t/' + id + '.json?include_raw=1')
           .then((response) => {
             var detail_info = response.data;
             detail_info = detail_info['post_stream']['posts'].slice(1); // 取得議題時間軸內容
-
+            
             for (var i in detail_info) {
               var regex = /(?: (?:init )?)|\n/g; // 用來分開字串
               var date_regex = /^\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$/g; //yyyy-mm-dd(ex:2016-10-31)
@@ -80,19 +85,26 @@
                 }
               }
               timeline_content['link'] = links;
-              this.timeline.push(timeline_content);
+              line.time.push(timeline_content);
               
             }
-            return this.timeline;
+             return line.time;
           })
       }
     },
-    created: function () {
-      this.getTimeline(this.article.id);
+    watch: {
+      article: function(val){
+        this.getTimeline(val);
+      }
     },
-    // updated: function () {
+    created: function () {
+      this.getTimeline(this.article);
+    }
+    
+    // mount: function () {
     //   this.getTimeline(this.article.id);
     // }
+    
 
   }
 
