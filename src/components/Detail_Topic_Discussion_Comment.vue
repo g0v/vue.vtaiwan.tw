@@ -2,21 +2,17 @@
 
   .Commentcomponent
       div.ui.compact.menu
-        a.item
+        a.item(title="回復人數")
           i.reply.icon
-          //| 回復
           |  {{comment.length}}
-        a.item
+        a.item(title="觀看人數")
           i.unhide.icon
-          //| 觀看
           |  {{views['views']}}
-        a.item
+        a.item(title="用戶人數")
           i.user.icon
-          //| 用戶
           |  {{views['participant_count']}}   
-        a.item
+        a.item(title="最新回復")
           i.calendar.icon
-          //| 最新回復
           |  {{this.views['last_posted_at']}} 
       div(v-for="(item, index) in comment")
         div.discussioncomment.ui.comments
