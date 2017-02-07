@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import { get } from '../request'
+import caxios from '../js/request'
 import Discussion_Comment from './Detail_Topic_Discussion_Comment.vue'
 
 export default {
@@ -43,7 +43,7 @@ export default {
       } 
       
       let dType = this.dType // just for alias
-      get('https://talk.vtaiwan.tw/t/'+ id +'.json?include_raw=1')
+      caxios.get('https://talk.vtaiwan.tw/t/'+ id +'.json?include_raw=1')
       .then((response)=>{
         let detail_info = response.data
         let regex = /(?: (?:init )?)|\n/g
@@ -71,7 +71,7 @@ export default {
           }
           else if(j.indexOf("talk.vtaiwan.tw") > -1){ //篩出含有discourse的連結
             j = j.replace(/(.*)\/$/, "$1") // discard last char '/'
-            get(j + '.json')
+            caxios.get(j + '.json')
             .then((response) => {
               let topics = response.data.topic_list.topics
               dType.type.push('discourse')

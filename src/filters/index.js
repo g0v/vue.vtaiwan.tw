@@ -27,12 +27,15 @@ function pluralize (time, label) {
   return time + label + 's'
 }
 
-module.exports = {
-    getiframe: function(article){
-      var parser = new DOMParser ();
-      var xmlDoc = parser.parseFromString (article, "text/html");
-      var slide = xmlDoc.getElementsByTagName("iframe")[0];
-      return slide;
-    }
-};
+// module.exports = {
+//     getiframe: function(article){
+//       var parser = new DOMParser ();
+//       var xmlDoc = parser.parseFromString (article, "text/html");
+//       var slide = xmlDoc.getElementsByTagName("iframe")[0];
+//       return slide;
+//     }
+// };
+
+/* http://www.2ality.com/2014/09/es6-modules-final.html */
+/* http://www.2ality.com/2015/07/es6-module-exports.html */
 

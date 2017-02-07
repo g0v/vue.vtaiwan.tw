@@ -15,7 +15,7 @@
 
 import Navbar from './components/app_Navbar.vue'
 import MyFooter from './components/MyFooter.vue'
-import { get } from './request'
+import caxios from './js/request'
 
 // import $ from 'jquery'
 // import jQuery from 'jquery'
@@ -68,11 +68,11 @@ export default {
   mounted: function(){
     $('#test0').hide(); // tester
 
-    get('https://talk.vtaiwan.tw/c/meta-data.json')
+    caxios.get('https://talk.vtaiwan.tw/c/meta-data.json')
     .then((response)=>{
       var topics = response.data.topic_list.topics.slice(1);
       topics.forEach((topic)=>{
-        get('https://talk.vtaiwan.tw/t/'+topic.id+'.json?include_raw=1')
+        caxios.get('https://talk.vtaiwan.tw/t/'+topic.id+'.json?include_raw=1')
         .then((response)=>{
           var topic = response.data;
 
@@ -104,7 +104,7 @@ export default {
       })
     })
 
-    get('https://talk.vtaiwan.tw/posts/2094.json?include_raw=1')
+    caxios.get('https://talk.vtaiwan.tw/posts/2094.json?include_raw=1')
     .then((response)=>{
       var configs = response.data.raw.split('\n')
       configs.forEach((config)=>{

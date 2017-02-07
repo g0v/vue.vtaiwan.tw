@@ -11,7 +11,7 @@
 
 <script>
 
-import { get } from '../request'
+import caxios from '../js/request'
 
 export default {
   props: ['article'],
@@ -22,7 +22,7 @@ export default {
   },
   methods:{
     getSlide(id){
-      get('https://talk.vtaiwan.tw/t/'+ id +'.json?include_raw=1')
+      caxios.get('https://talk.vtaiwan.tw/t/'+ id +'.json?include_raw=1')
       .then((response=>{
         var detail_info = response.data;
         var parser = new DOMParser ();

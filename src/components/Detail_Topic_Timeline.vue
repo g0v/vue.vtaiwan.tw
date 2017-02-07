@@ -28,7 +28,7 @@
 
 <script>
 
-  import { get } from '../request'
+  import caxios from '../js/request'
   import Plink from './ParticipationLink.vue'
 
   export default {
@@ -49,7 +49,7 @@
          'time': []
         } 
         let line = this.timeline // just for alias
-        get('https://talk.vtaiwan.tw/t/' + id + '.json?include_raw=1')
+        caxios.get('https://talk.vtaiwan.tw/t/' + id + '.json?include_raw=1')
           .then((response) => {
             var detail_info = response.data;
             detail_info = detail_info['post_stream']['posts'].slice(1); // 取得議題時間軸內容
