@@ -7,7 +7,7 @@
     // HotProposal(:hotProposal="hotTopics", header="熱門議題").hotproposal
     // .ui.divider
     ProposalTab.proposalTab(:allTopics="allTopics")
-    .ui.divider
+    // .ui.divider
    // Catagories(:catagories="catagories").catagories
 
 </template>
@@ -54,13 +54,13 @@ export default {
 .home {
     // ****************** push back home by nav height
     @media screen and (min-width: $breakpoint){
-        margin-top: -$navHeight;
+        margin-top: calc( -1 * #{$navHeight} );
     }
     width: 100%;
     min-width: 320px;
     margin-left: auto;
     margin-right: auto;
-    padding-bottom: 5vh;
+    // padding-bottom: 5vh;
     // margin-top:-65px;
 }
 p {
