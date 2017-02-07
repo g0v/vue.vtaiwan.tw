@@ -4,14 +4,14 @@
 set -e -x
 git --version
 upstream=$1
-: ${upstream:=origin}
+: ${upstream:=rodlee}
 : ${REPO:=git@github.com:rodlee1018/vue.vtaiwan.tw}
 git fetch $upstream
 if [ `git rev-list HEAD...$upstream/master --count` -ne 0 ]; then
   echo "not deploying"
   exit 1
 fi
-node get-route.js
+node build/get-route.js
 sleep 3
 yarn install
 yarn build:static

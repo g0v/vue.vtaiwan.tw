@@ -1,0 +1,1 @@
+module.exports = { routes : ['/','/how-to-use','/intro','/curitization','/curitization-ref1','/rectors-election','/cial-enterprise','/oselyheld','/owdfunding','/stant-education','/ax','/rsonal-data-protection','/iquor','/ta-levy','/nsumer-protection','/lemedicine','/lework','/fosecurity','/ndbox','/berbullying','/ming','/erx','/rbnb']}
