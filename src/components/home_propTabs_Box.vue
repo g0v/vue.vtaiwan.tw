@@ -1,6 +1,6 @@
 <template lang="jade">
 .component
-  .ui.container
+  .ui.container.basic.segment
 
     h2.ui.sticky.header.m-title.thin-only(:data-name="name")
       | {{ label }}
@@ -10,25 +10,23 @@
       | {{ desc }} 
       i.quote.right.icon
 
+    .ui.compact.message(v-if="!list.length")
+        p 目前還沒有正在進行的議案…
+
     .ui.four.column.grid.stackable
 
-      .box.column(v-if="list.length == 0")
-        .box-inner.ui.segment
-          | nothing
-
       .box.column(v-for="t in list")
-
         router-link.box-inner.ui.segment(:to="'/topic/' + t.routeName")
           
           img(:src ="t.cover || 'http://lorempixel.com/320/240/sports'")
 
           h3.ui.header {{ t.title }}
 
-          .progress_bar
-            .progress(v-bind:style="{ width: (t.progress / t.total * 100) + '%' }")
+          .progress_bar(:style="progressStyle(t)")
+            .progress_text.ui.bottom.attached.red.large.label(v-if="t.status==='討論中'") 還有{{Math.floor(t.total - t.progress)}}天
+            .progress_text.ui.bottom.attached.red.large.label(v-else) 討論已結束
 
-          .progress_text.ui.top.right.attached.teal.large.label(v-if="t.status==='討論中'") 還有{{Math.floor(t.total - t.progress)}}天
-          .progress_text.ui.top.right.attached.blue.large.label(v-else) 討論已結束
+          // .progress(v-if="t.total - t.progress", :style="{ width: (t.progress / t.total * 100) + '%' }")
 
 </template>
 
@@ -82,6 +80,12 @@
         if ( wScroll>mTop ){
           this.$emit('stickTo', btn_name) /* sent event trigger to parent comp */
         }
+      },
+
+      progressStyle: function(t) {
+        let color = $('.progress_bar').css('color')
+        let percent =  100
+        return {"background": "linear-gradient(to right, "+color+" 0%, "+color+" "+percent+"%, #AAA "+percent+".1%, #AAA 100%)"}
       }
     }
   }
@@ -97,24 +101,33 @@
 
 .box {
   display: flex !important;
+
   .box-inner {
     box-shadow: 0 3px 1em hsla(0,0,0%,0.1);
     display: flex;
     flex-flow: column nowrap;
+    overflow: hidden;
+
     img {
       flex: 1 1;
       max-width: 100%;
       height: auto;
     }
+    h3 {
+      margin: .5em 0 1em 0;
+    }
     .progress_bar {
-      background-color: #CCC;
-      padding: 0;
-
-      .progress {
-        height: 5px;
-        background-color: lightcoral;
+      margin: 0 -1em;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 2em;
+      color: $main_color;
+      
+      .progress_text {
+        padding: 0 0 .5em 0;
+        background: transparent !important;
       }
-      margin-bottom: 4px;
     }
   }
 }
