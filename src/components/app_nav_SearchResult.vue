@@ -1,8 +1,8 @@
 <template lang="jade">
-.component
+.component#searchresult
   .ui.list
-    .item(v-for="(r, idx) in results")
-      router-link(:to="'/topic/'+r.routeName", :class="{active: idx == myIdx}") 
+    .item(v-for="(r, idx) in results",v-on:click="sHide")
+      router-link(:to="'/topic/'+r.routeName", v-bind:class="{active: idx == myIdx }") 
         img.icon(:src="r.icon || r.cover")
         .text
           .title(v-html="toHTML(r.title, myKey)") 
@@ -33,6 +33,9 @@ export default {
       ans = ans.replace(/</g, '&lt;').replace(/>/g, '&gt;');      
       ans = ans.replace(reg, '<strong>' + k + '</strong>');
       return ans;
+    },
+    sHide:function(){
+      $("#searchresult").hide();
     }
   }
 }
@@ -45,7 +48,8 @@ export default {
   position: absolute;
   z-index: 11;
   width: 33vw;
-  max-height: 66vh;
+  // max-height:105px;
+  height: 105px;
   overflow: auto;
   background-color: rgba(255,255,255,0.8);
   // border-bottom: 2px solid black;
@@ -61,8 +65,11 @@ export default {
     padding: 0 0;
     a {
       display: flex;
-      &.active {
-        background-color: #ccf;
+      // &.active {
+      //   background-color: #ccf;
+      // }
+      &:hover{
+        background-color:#ccf;
       }
       .icon {
         flex: 0 0 3em;
@@ -75,6 +82,7 @@ export default {
         text-align: left;
         padding: .2em .5em;
         border-bottom: 1px solid #ccc;
+        font-size: 1.1rem;
         strong {
           /* scoped css 無法 bind 到，所以寫在App.vue的全域css中*/
         }

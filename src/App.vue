@@ -174,7 +174,7 @@ export default {
   position: relative;
   margin: 0 auto;
   margin-top: 40px;
-  max-width: 1170px;
+  max-width: 100%;
 }
 
 </style>

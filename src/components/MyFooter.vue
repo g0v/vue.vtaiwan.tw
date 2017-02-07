@@ -1,20 +1,31 @@
-<style lang="scss" scoped>
-  .component {
-    // position: relative;
-    // top: 50px;
-    text-align: center;
-    // width: 100%;
-    padding: 1em;
-    border-top: 1px #AAA solid;
-    // margin-top: 12vh;
-  }
-  .space{
-    margin-left:0.4em;
-  }
-</style>
-
 <template lang="jade">
   .component
+
+    .ui.grid
+      .three.column.row
+        .column
+          .row
+            a(href="https://github.com/g0v/vue.vtaiwan.tw" title="Github" target="_blank")
+              u code on github
+          .row
+            a(href="https://www.facebook.com/vtaiwan.tw/" title="Fackbook" target="_blank")
+              u vTaiwan官方臉書
+        .column
+          .row
+            a(href="https://www.youtube.com/channel/UChC85hbUuDAvFpc7Uuj69DA/" title="Youtube" target="_blank")
+              u 影音專區
+          .row
+            a
+              u 訂閱電子報
+        .column
+          .row
+            router-link.m-logo(to='/intro', exact='')
+              u 關於vTaiwan
+          .row
+            router-link.m-logo(to='/Contactus', exact='')
+              u 聯絡我們
+          
+
     //a.ui.labeled.icon.basic.big.button(href="https://github.com/g0v/vue.vtaiwan.tw" target="_blank")
       i.github.alternate.icon
       | Code on Github
@@ -30,3 +41,22 @@
       
     
 </template>
+<style lang="scss" scoped>
+@import "../sass/global.scss";
+
+  
+  .component { //設定整個footer 背景顏色
+    text-align: center;
+    padding: 1em;
+    background-color: #efefef;
+  }
+  .row{       //行間距 & 字型
+    margin-bottom: 1em;
+    font-family: $main_font;
+  }
+  u{            //文字顏色
+    color: black;
+    text-align: left;
+  }
+  
+</style>

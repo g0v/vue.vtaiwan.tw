@@ -1,20 +1,21 @@
 <template lang="jade">
 .component
   .fat-only
-    .ui.basic.button
-      a#toggle.item
-        i.sidebar.icon
-        span 議題目錄
     .ui.left.sidebar.inverted.vertical.menu
       .item(v-for = "(step,idx) in stage")
-        .header {{step}}
+        .header {{step}} 
         .menu
-          router-link.item(v-for = "(obj,idx) in allTopics",v-if="step === obj.status",:to="'/topic/' + obj.routeName") {{obj.title}}
+          router-link.item(v-for = "(obj,idx) in allTopics",v-if="step === obj.status",:to="'/topic/' + obj.routeName" ,v-bind:class="{'router-link-active': obj.routeName == routename }" v-on:click="routename = obj.routeName") 
+            {{obj.title}} 
     .pusher
-          .ui.container
-          
+      .ui.basic.button(v-on:click="tSidebar")
+        a.item
+          i.sidebar.icon
+          span 議題目錄
+      .ui.container
+            
             NextStage(v-if = "article.id !== undefined", :article="article")
-        
+            
             h1.ui.huge.header {{article.title}}
 
             // .ui.basic.segment
@@ -69,6 +70,7 @@ export default {
   data () {
     return {
       myIdx: 0,
+      // routename:this.$route.params.tRouteName,
       tabcontent:["詳細內容","議題時間軸","參與討論"],
       stage:["即將開始","意見徵集","研擬草案","送交院會","歷史案件"]
     }
@@ -81,20 +83,37 @@ export default {
       })[0];
       if(t===undefined){return new Object()}
       else{return t};
+    },
+    routename:function(){
+      return this.$route.params.tRouteName;
     }
-  },
-  mounted:function() {
+    // getroute:function(){
+    //   var rtName = this.$route.params.tRouteName;
+    //   for(var i=0;i<this.allTopics.length;i++){
+    //     if(this.allTopics[i].routeName == rtName){
+    //       return true;
+    //     }
+    //     else{
+    //       return false;
+    //     }
+    //   }
+    // }
+   
 
-    $('#toggle').click(function(){
-      $('.ui.left.sidebar').sidebar({
-        context: $('.pusher'),
-        dimPage: false,
-        transition: 'push',
-        closable: true,
-        scrollLock: true
-      }).sidebar('toggle');
-    })
- }
+  },
+  methods:{
+     tSidebar:function(){
+       $('.ui.left.sidebar').sidebar({
+              // context: $('.pusher'),
+              dimPage: true,
+              transition: 'overlay',
+              closable: true,
+              scrollLock: false,
+              returnScroll:true
+          }).sidebar('toggle');   
+    }
+  }
+
 }
 </script>
 
@@ -105,9 +124,9 @@ export default {
 .component {
   margin: auto;
 }
-// .ui.left.sidebar{
-//   top:55px;
-// }
+.ui.left.sidebar{
+  top:55px;
+}
 .fat-only {
   h1.ui.huge.header {
     margin:25px 0 25px 0;
@@ -115,20 +134,30 @@ export default {
   }
 }
 .ui.left.sidebar.inverted.vertical.menu {
-  width: 240px;
+  width: 220px;
+  text-align: left;
   .header {
     font-size:1.2em;
   }
   .menu a {
     font-size: 1em;
   }
+  .menu .router-link-active{
+    color:white;
+    font-weight: 600;
+    background: rgba(255,255,255,.08);
+  }
 }
 
 .ui.basic.button {
+    position: fixed;
+    top: 70px;
+    left: 0px;
     padding: 10px;
-    // width:80px;
-    float:left;
+    // float:left;
+    overflow: hidden;
     border-top: none;
+    white-space: nowrap;
     margin:1px 0 0 0;
 }
 

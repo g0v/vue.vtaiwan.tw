@@ -11,6 +11,8 @@ if [ `git rev-list HEAD...$upstream/master --count` -ne 0 ]; then
   echo "not deploying"
   exit 1
 fi
+node build/get-route.js
+sleep 3
 yarn install
 yarn build:static
 rm -rf _public

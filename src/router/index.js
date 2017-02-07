@@ -8,6 +8,7 @@ import Login from '../components/Login.vue'
 import Track from '../components/Track.vue'
 import Detail_Topic from '../components/Detail_Topic.vue'
 import Detail_Catagory from '../components/Detail_Catagory.vue'
+import Contactus from '../components/ContactUs.vue'
 
 Vue.use(Router)
 
@@ -38,6 +39,9 @@ export default new Router({
       component: Detail_Topic },
     { path: '/catagory/:cRouteName',  
       name: 'catagory', 
-      component: Detail_Catagory }
+      component: Detail_Catagory },
+      { path: '/Contactus',  
+      name: 'Contactus', 
+      component: Contactus }
   ]
 })

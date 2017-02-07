@@ -79,9 +79,9 @@ export default {
     created:function(){
         this.getProgress(this.article.id);
     },
-    updated:function(){
-        // this.getProgress(this.article.id);
-    }
+    // updated:function(){
+    //     this.getProgress(this.article.id);
+    // }
 
 
 }
