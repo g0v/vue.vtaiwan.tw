@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+import { get } from '../request'
 
 export default {
   props:['comment_id'],
@@ -54,7 +54,7 @@ export default {
   methods: {
     getDiscussion_Comment: function(val){
       this.check=0;
-      axios.get('https://talk.vtaiwan.tw/t/topic/'+ val +'.json')
+      get('https://talk.vtaiwan.tw/t/topic/'+ val +'.json')
       .then((response_comment)=>{
         let dcomment = {}
         this.views = response_comment['data']; //觀看人數
