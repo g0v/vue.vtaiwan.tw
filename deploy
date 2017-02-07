@@ -5,7 +5,7 @@ set -e -x
 git --version
 upstream=$1
 : ${upstream:=origin}
-: ${REPO:=git@github.com:g0v/vue.vtaiwan.tw}
+: ${REPO:=git@github.com:rodlee1018/vue.vtaiwan.tw}
 git fetch $upstream
 if [ `git rev-list HEAD...$upstream/master --count` -ne 0 ]; then
   echo "not deploying"
