@@ -8,7 +8,7 @@
         .slide-item(v-for="(t, idx) in mySlideTopics", :style="t.style")
           // img.full-page(:src="t.cover")
           .box
-            .status.ui.pointing.below.massive.label 
+            .status.ui.basic.massive.label 
               | {{t.status}}
             h1.slogan.ui.header
               | {{t.slogan}}
@@ -28,7 +28,7 @@
         .m-slide-item(v-for="(t,idx) in allTopics",:style="{'background-image':'url('+t.cover+')'}")
           .box
             // .slogan.ui.header {{t.slogan}}
-            .status.ui.pointing.below.big.label
+            .status.ui.basic.big.label 
               | {{t.status}}
             h2.title.ui.header
               | {{t.title}}
@@ -154,65 +154,34 @@ export default {
   overflow: hidden;
   height: 100%;
   @include transition(transform .5s ease-in-out, z-index .3s ease-in-out);
-/*  img.full-page {
-    // **************** to keep image ratio
-    min-height: 100%;
-    min-width: 100%;
-    width: auto;
-    // **************** to let image center
-    display: absolute;
-    left: 50%;
-    @include transform(translate(-50%, 0));
-    // background-color: gray;
-    // opacity: 0.6;
-  }*/
-  .box {
-    // font-size: 1rem;
-    // *********************
-    // position: absolute;
-    // top: 50%;
-    // left: 50%;
-    // @include transform(translate(-50%, -50%));
-    // ********************* centering
-    display: flex;
-    justify-content: center;
-    flex-flow: column;
-    align-items: center;
-    // ********************* 
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle, hsla(0, 0, 0%, 0.8), transparent);
-    // max-width: 100%;
-    // box-shadow: 2px 4px 5px hsla(0,0,0%,0.5);
-    // border-radius: 30rem;
-    // background: linear-gradient(to bottom, transparent, hsla(0, 0, 0%, 0.8), transparent);
-    // .slogan,
-    // .title,
-    // .status {
-    // }
-    .status {
-      background: $step_color;
-      color: white;
-      // font-size: 2rem;
-      // font-weight: 700;
-      // padding: 0.1em;
-    }
-    .slogan {
-      margin: 1em 0;
-      font-size: 3rem;
-      color: white;
-      text-shadow: 0 0 5px gray;
-      // font-family: $main_font;
-      // letter-spacing: .3em;
-    }
-    // .title {
-      // font-size: 1.2rem;
-      // width: 15em;
-      // background-color: white;
-      // letter-spacing: .3em;
-      // padding: 1em;
-      // margin: 1em;
-    // }
+}
+.box {
+  // font-size: 1rem;
+  // ********************* centering
+  display: flex;
+  justify-content: center;
+  flex-flow: column;
+  align-items: center;
+  // ********************* 
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, hsla(0, 0, 0%, 0.8), transparent);
+  .status {
+    color: $step_color;
+    border: 2px solid $step_color;
+    background: hsla(0,0,30,0.5);
+    // font-size: 2rem;
+    // font-weight: 700;
+    // padding: 0.1em;
+  }
+  .title {
+    color: white;
+  }
+  .slogan {
+    margin: 1em 0;
+    font-size: 3rem;
+    color: white;
+    text-shadow: 0 0 5px gray;
   }
 }
 
@@ -263,40 +232,40 @@ a {
     // min-height: 100%;
     // left: -50%;
   // }
-  .box {
-    min-height: 100%;
-    background: radial-gradient(circle, hsla(0, 0, 0%, 0.8), transparent);
-    // ********************* centering
-    display: flex;
-    justify-content: center;
-    flex-flow: column;
-    align-items: center;
-    .status {
-      color: white;
-      background-color: $step_color;
-      // position: relative;
-      // top: 105px;
-      // width: 100%;
-      // font-size: 1.3rem;
-    }
-    .title {
-      color: white;
-      // position: relative;
-      // top: 170px;
-      // width: 100%;
-      // margin: 1em 0;
-      // font-size: 1.3rem;
-    }
-    // .button {
-      // position: relative;
-      // top: 235px;
-      // color: white;
-      // font-size: 1.4rem;
-      // padding: 14px 30px;
-      // margin: 0 calc(50% - 75px);
-      // background-color: $main_color;
-      // border-radius: 8px;
-    // }
-  }
+  // .box {
+  //   min-height: 100%;
+  //   background: radial-gradient(circle, hsla(0, 0, 0%, 0.8), transparent);
+  //   // ********************* centering
+  //   display: flex;
+  //   justify-content: center;
+  //   flex-flow: column;
+  //   align-items: center;
+  //   .status {
+  //     color: white;
+  //     background-color: $step_color;
+  //     // position: relative;
+  //     // top: 105px;
+  //     // width: 100%;
+  //     // font-size: 1.3rem;
+  //   }
+  //   .title {
+  //     color: white;
+  //     // position: relative;
+  //     // top: 170px;
+  //     // width: 100%;
+  //     // margin: 1em 0;
+  //     // font-size: 1.3rem;
+  //   }
+  //   // .button {
+  //     // position: relative;
+  //     // top: 235px;
+  //     // color: white;
+  //     // font-size: 1.4rem;
+  //     // padding: 14px 30px;
+  //     // margin: 0 calc(50% - 75px);
+  //     // background-color: $main_color;
+  //     // border-radius: 8px;
+  //   // }
+  // }
 }
 </style>
