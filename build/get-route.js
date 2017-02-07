@@ -22,7 +22,7 @@ request(opts, function (error, response, results) {
 			var chk = title.lastIndexOf(' ');
 			var pinned = res.topic_list.topics[i].pinned;
 			if(chk > -1 && pinned==false){
-				title = title.substring(chk+3, title.length);
+				title = title.substring(chk+1, title.length);
 				prerender += ",'/"+title+"'";
 			}
 		}
