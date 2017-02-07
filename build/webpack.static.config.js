@@ -3,7 +3,7 @@ const webpack = require('webpack')
 const vueConfig = require('./vue-loader.config')
 const HTMLPlugin = require('html-webpack-plugin')
 var PrerenderSpaPlugin = require('prerender-spa-plugin')
-
+var PrerenderRoute = require('./prerender-route')
 var pathToBourbon = require('node-bourbon').includePaths //???
 
 module.exports = {
@@ -62,7 +62,9 @@ module.exports = {
         new PrerenderSpaPlugin(
             // Absolute path to compiled SPA 
             path.join(__dirname, '../dist'),
-            // List of routes to prerender 
+            // List of routes to prerender
+			PrerenderRoute.routes,
+			/*
             [
                 '/',
                 '/how-to-use',
@@ -79,7 +81,9 @@ module.exports = {
                 '/topic/data-levy',
                 '/topic/infosecurity',
                 '/topic/crowdfunding'
-            ], {
+            ],
+			*/
+			{
                 ignoreJSErrors: true,
                 captureAfterTime: 50000,
             }
