@@ -8,7 +8,7 @@
     // .ui.divider
     ProposalTab.proposalTab(:allTopics="allTopics")
     .ui.divider
-    Catagories(:catagories="catagories").catagories
+   // Catagories(:catagories="catagories").catagories
 
 </template>
 
