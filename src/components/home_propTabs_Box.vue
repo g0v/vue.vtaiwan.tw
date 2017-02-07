@@ -1,8 +1,8 @@
 <template lang="jade">
 .component
-  .ui.container.basic.segment
+  .ui.container.basic.segment(:id="name")
 
-    h2.ui.sticky.header.m-title.thin-only(:data-name="name")
+    h2.ui.sticky.header.m-title.thin-only
       | {{ label }}
 
     .desc.ui.basic.center.aligned.segment.fat-only
@@ -18,11 +18,11 @@
       .box.column(v-for="t in list")
         router-link.box-inner.ui.segment(:to="'/topic/' + t.routeName")
           
-          img(:src ="t.cover || 'http://lorempixel.com/320/240/sports'")
+          img.ui.rounded.bordered.image(:src ="t.cover || 'http://lorempixel.com/320/240/sports'")
 
           h3.ui.header {{ t.title }}
 
-          .progress_bar(:style="progressStyle(t)")
+          .progress_bar(v-if="name == 'discuss'", :style="progressStyle(t)")
             .progress_text.ui.bottom.attached.red.large.label(v-if="t.status==='討論中'") 還有{{Math.floor(t.total - t.progress)}}天
             .progress_text.ui.bottom.attached.red.large.label(v-else) 討論已結束
 
@@ -41,8 +41,7 @@
       }
     },
     updated:function(){
-      let el = ".m-title[data-name='"+this.name+"']"
-      this.mTop = $(el).offset().top /* m-title position */
+      this.mTop = $("#"+this.name).offset().top /* m-title position */
       
       // this.handleResize();
     },
@@ -60,8 +59,8 @@
       // })
 
       /* bind event scroll to window */
-      // window.addEventListener('scroll', this.mTitleHitEvent);
-      $(window).scroll(this.mTitleHitEvent)
+      window.addEventListener('scroll', this.mTitleHitEvent);
+      // $(window).scroll(this.mTitleHitEvent)
 
     },
     methods:{
@@ -77,14 +76,14 @@
         let el = "#mobile-step a[href='#"+btn_name+"']"
         let mTop = this.mTop
         let wScroll = $(window).scrollTop() /* length window has scrolled */
-        if ( wScroll>mTop ){
+        if ( wScroll > (mTop-1) ){ /* -1 in order to compromise with menu click */
           this.$emit('stickTo', btn_name) /* sent event trigger to parent comp */
         }
       },
 
       progressStyle: function(t) {
         let color = $('.progress_bar').css('color')
-        let percent =  100
+        let percent = t.progress / t.total * 100
         return {"background": "linear-gradient(to right, "+color+" 0%, "+color+" "+percent+"%, #AAA "+percent+".1%, #AAA 100%)"}
       }
     }
@@ -108,21 +107,18 @@
     flex-flow: column nowrap;
     overflow: hidden;
 
-    img {
+    img.ui {
       flex: 1 1;
-      max-width: 100%;
-      height: auto;
     }
-    h3 {
-      margin: .5em 0 1em 0;
+    h3.ui {
+      margin-top: 1em;
     }
     .progress_bar {
-      margin: 0 -1em;
-      position: absolute;
-      bottom: 0;
-      width: 100%;
+      margin: 0 -1em -1em -1em;
+      width: calc(2em+100%);
       height: 2em;
       color: $main_color;
+      position: relative;
       
       .progress_text {
         padding: 0 0 .5em 0;

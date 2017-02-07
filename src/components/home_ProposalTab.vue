@@ -13,8 +13,8 @@
         .number {{idx + 1}}
         .label {{step.label}}
 
-    .ui.attached.segment(id="context" v-bind:class="{ 'basic': onMobile }")
-      Box(v-for="(step, idx) in steps", v-bind:id="step.dataName", :list = "mySort(step.dataName)", :desc = "step.description", :label = "step.label", :name = "step.dataName", v-show="idx == myIdx || onMobile" v-on:stickTo="onStickTo(arguments[0])")
+    .ui.segment(id="context" v-bind:class="{ 'basic': onMobile, 'attached': !onMobile}")
+      Box(v-for="(step, idx) in steps", :list = "mySort(step.dataName)", :desc = "step.description", :label = "step.label", :name = "step.dataName", v-show="idx == myIdx || onMobile" @stickTo="onStickTo(arguments[0])")
   
 </template>
 
@@ -29,8 +29,7 @@ export default {
   },
   data () {
     return {
-      myIdx: 1,
-      // myTab: {dataName: 'news'},
+      myIdx: 1, /* default tab */
       onMobile: false,
       steps: [
         {
@@ -61,10 +60,7 @@ export default {
       ]
     }
   },
-  created:function(){
-    // this.handleResize();
-  },
-  mounted () {
+  mounted:function() {
     // initialize sticky element
     $("#mobile-step.sticky").sticky({
       context: "#context",
@@ -72,8 +68,7 @@ export default {
     })
     // window.addEventListener('scroll', this.handleScroll);
     window.addEventListener('resize', this.handleResize);
-  },
-  computed: {
+    this.handleResize();
   },
   methods: {
     mySort: function (dataName) { 
@@ -153,8 +148,10 @@ export default {
     //   }
     // },
     handleResize: function(){
-      if(typeof window !== 'undefined')
+      if(typeof window !== 'undefined') {
           this.onMobile = window.innerWidth < 768;
+          this.myIdx = 0 /* mobile default tab */
+      }
       else
           this.onMobile = false;
     }
@@ -166,9 +163,6 @@ export default {
 @import "../sass/global.scss";
 
 .component {
-  // width: 100%;
-  // max-width: $comp_max_width;
-  // margin: 0 auto;
   padding: 1em 0;
 }
 
@@ -200,11 +194,15 @@ export default {
   .ui.container {
     margin: 0 !important;
   }
+  .ui.segment.basic {
+    padding: 0;
+    margin-left: 1em;
+    width: 100%;
+  }
   .mobile-step {
     position: absolute;
     top: 1em;
-    z-index: 1000; // default sticky z-index = 800
-    // padding-left: 1vh;
+    // z-index: 1000; // default sticky z-index = 800
 
     .ui.menu {
       width: 2em;
@@ -216,44 +214,6 @@ export default {
         }
       }
     }
-    
-/*    a.step {
-      color: white;
-      background: $step_color;
-      border: 1px solid white;
-      border-width: 1px 0;
-      display: block;
-      width: 5vh !important;
-      height: calc(100vh / 5);
-      padding: 3px;
-      opacity: 0.7;
-      font-size: 2.5vh;
-      line-height: 3.3vh;
-      padding: 3.33vh 0px;
-      border-left: solid 1px rgba(0, 0, 0, 0.2);
-      border-bottom-left-radius: 10px;
-      border-top-left-radius: 10px;
-      border-top: solid 1px rgba(0, 0, 0, 0.2);
-      border-right: solid 1px rgba(0, 0, 0, 0.2);
-      box-shadow: inset -2px 0px 1px rgba(0, 0, 0, 0.1);
-      &:hover {
-        opacity: 1;
-      }
-      .active {
-        border-right: 0px;
-        box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.2);
-      }
-      .label {
-        font-size: 2.5vh;
-        line-height: 3.3vh;
-      }
-    }*/
   }
-  // .mobile-context {
-    // margin-left: 6vh !important;
-    // width: auto !important;
-    // padding: 0 !important;
-    // border-left: 0px !important;
-  // }
 }
 </style>

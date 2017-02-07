@@ -6,7 +6,7 @@
         .header {{step}} 
         .menu
           router-link.item(v-for = "(obj,idx) in allTopics",v-if="step === obj.status",:to="'/topic/' + obj.routeName" ,v-bind:class="{'router-link-active': obj.routeName == routename }" v-on:click="routename = obj.routeName") 
-            {{obj.title}} 
+            | {{obj.title}} 
     .pusher
       .ui.basic.button(v-on:click="tSidebar")
         a.item
