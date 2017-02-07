@@ -9,7 +9,7 @@
 
 <script>
 
-  import axios from 'axios'
+  import { get } from '../request'
 
   export default {
     props: ['article'],
@@ -20,7 +20,7 @@
     },
     methods: {
       getDescription(id) {
-        axios.get('https://talk.vtaiwan.tw/t/' + id + '.json?include_raw=1')
+        get('https://talk.vtaiwan.tw/t/' + id + '.json?include_raw=1')
           .then((response) => {
             var detail_info = response.data['post_stream']['posts'][0]['cooked'].split("<hr>")[1]; // 取得詳細內容(第一篇)
             this.information = detail_info.replace(/<if.*slideshare.*e>/, ""); //詳細內容slideshare拿掉
