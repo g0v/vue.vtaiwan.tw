@@ -134,8 +134,6 @@ export default {
       return boxes;
     },
     onStickTo: function(idx, e){
-      if (!this.onMobile || (this.myIdx == idx)) 
-        return 0 /* escape when not on mobile & current tab equal to trigger tab */
       let el = "#mobile-step a[href='#"+e[0]+"']"
       $(el).parent().children().removeClass('active') 
       $(el).addClass('active')

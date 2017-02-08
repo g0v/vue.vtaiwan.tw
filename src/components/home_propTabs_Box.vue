@@ -38,18 +38,10 @@
     props: ['list', 'desc', 'label', 'name'],
     data() {
       return {
-        mTop: 0 /* top offset of m-title */
-        // onMobile:false
+        isSent: false
       }
     },
-    updated:function(){
-      this.mTop = $("#"+this.name).offset().top /* m-title position */
-      
-      // this.handleResize();
-    },
     mounted:function(){
-      // window.addEventListener('resize', this.handleResize);
-
       /* make mobile's m-title sticky to its own content */
       // let self = this /* save vm for later use */
       // let btn_name = this.name
@@ -66,23 +58,25 @@
 
     },
     methods:{
-      // handleResize: function(){
-      //   if(typeof window !== 'undefined')
-      //       this.onMobile = window.innerWidth < 768;
-      //   else
-      //       this.onMobile = false;
-      // }
-
       mTitleHitEvent: function() {
         let btn_name = this.name
-        let el = "#mobile-step a[href='#"+btn_name+"']"
-        let mTop = this.mTop
+        let el = $("#"+btn_name)
+        if (!el.length) /* check if m-title exist */
+          return 0
+        let mTop = el.offset().top /* m-title's position */
+        let mHeight = el.height() /* m-title's height */
         let wScroll = $(window).scrollTop() /* length window has scrolled */
-        if ( wScroll > (mTop-1) ){ /* -1 in order to compromise with menu click */
+        let isSent = this.isSent
+        /* minus 1 to be safer */
+        let isScollingOn = (wScroll > (mTop-1)) && (wScroll < (mTop+mHeight))
+        if ( isScollingOn && !isSent ){ /* do not double sent */
           this.$emit('stickTo', btn_name) /* sent event trigger to parent comp */
+          this.isSent = true
+        }
+        else if ( !isScollingOn ) {
+          this.isSent = false
         }
       },
-
       progressStyle: function(t) {
         let color = $('.progress_bar').css('color')
         let percent = t.progress / t.total * 100
