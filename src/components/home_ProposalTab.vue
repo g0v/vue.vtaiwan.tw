@@ -64,7 +64,8 @@ export default {
     // initialize sticky element
     $("#mobile-step.sticky").sticky({
       context: "#context",
-      observeChanges: true
+      observeChanges: true,
+      silent: true
     })
     // window.addEventListener('scroll', this.handleScroll);
     window.addEventListener('resize', this.handleResize);
@@ -212,7 +213,7 @@ export default {
     margin-left: 1em;
     width: 100%;
   }
-  .mobile-step {
+  .mobile-step { /* do not use #mobile-step, otherwise sticky won't work */
     position: absolute;
     top: 1em;
     // z-index: 1000; // default sticky z-index = 800

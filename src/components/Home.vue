@@ -15,10 +15,10 @@
 
 <script>
 import Slideshow from './home_Slideshow.vue'
-import StepGuide from './home_StepGuide.vue'
+// import StepGuide from './home_StepGuide.vue'
 // import HotProposal from './home_HotProposal.vue'
 import ProposalTab from './home_ProposalTab.vue'
-import Catagories from './home_Catagories.vue'
+// import Catagories from './home_Catagories.vue'
 
 
 
@@ -26,24 +26,24 @@ export default {
   name: 'Home',
   components: {
     Slideshow,
-    StepGuide,
+    // StepGuide,
     // HotProposal,
     ProposalTab,
-    Catagories,
+    // Catagories,
 
 
   },
   props:['allTopics', 'catagories'],
   data () {
     return {
-      //...
+      n_hot: 5
     }
   },
   computed: {
       hotTopics: function () {
           return this.allTopics.sort(function(a, b){
               return (b.likes - a.likes)
-          }).slice(0,3)
+          }).slice(0,this.n_hot)
       }
   }
 }

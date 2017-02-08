@@ -2,7 +2,7 @@
 #app.app
   Navbar(:routes = "myRoutes", :allTopics = "allTopics")
 
-  #test0 test jQuery
+  // #test0 test jQuery
 
   #main.main
     transition(name='fade-in', mode='out-in')
@@ -66,7 +66,7 @@ export default {
     }
   },
   mounted: function(){
-    $('#test0').hide(); // tester
+    // $('#test0').hide(); // tester
 
     caxios.get('https://talk.vtaiwan.tw/c/meta-data.json')
     .then((response)=>{
