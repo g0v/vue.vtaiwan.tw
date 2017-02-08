@@ -60,7 +60,10 @@ export default {
         this.views = response_comment['data']; //觀看人數
         this.comment = response_comment['data']['post_stream']['posts'].slice(1);
         for(let i=0; i<this.comment.length; i++){
-          this.comment[i]['avatar_template']=this.comment[i]['avatar_template'].replace(/.*/,'https://talk.vtaiwan.tw'+this.comment[i]['avatar_template']).replace(/{size}/,"100"); //抓取icon
+          if(this.comment[i]['avatar_template'].indexOf("https:")==-1){ //判斷是否含有https網址
+            this.comment[i]['avatar_template']=this.comment[i]['avatar_template'].replace(/.*/,'https://talk.vtaiwan.tw'+this.comment[i]['avatar_template']); //抓取icon
+          }
+          this.comment[i]['avatar_template']=this.comment[i]['avatar_template'].replace(/{size}/,"100"); //icon size =100
           this.comment[i]['created_at']=this.comment[i]['created_at'].replace(/T.*/,"");  //發文日期
           if(this.comment[i]['cooked'].indexOf("htpp")>-1){ //判斷從discourse 來的圖片是否為完整網址
             this.comment[i]['cooked'] = this.comment[i]['cooked'].replace(/<img src="/,'<img src="https://talk.vtaiwan.tw') //不完整的話加入https://talk.vtaiwan.tw
