@@ -69,6 +69,7 @@ export default {
             this.comment[i]['cooked'] = this.comment[i]['cooked'].replace(/<img src="/,'<img src="https://talk.vtaiwan.tw') //不完整的話加入https://talk.vtaiwan.tw
           }
         }
+        
         let today = new Date();
         if(this.views['last_posted_at']!=null){
           let lastpostday = new Date(this.views['last_posted_at']);
@@ -79,7 +80,7 @@ export default {
           else if(date>0.041){
             this.views['last_posted_at']=Math.floor(date*24)+" 小時 ";
           }
-          else{
+          else if(date<0.041){
             this.views['last_posted_at']=Math.floor(date*24*60)+" 分鐘 ";
           }
         }
