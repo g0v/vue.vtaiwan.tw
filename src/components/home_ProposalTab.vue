@@ -134,6 +134,8 @@ export default {
       return boxes;
     },
     onStickTo: function(arg, idx){
+      if (!this.onMobile) 
+        return 0
       let el = "#mobile-step a[href='#"+arg+"']"
       $(el).parent().children().removeClass('active') 
       $(el).addClass('active')
