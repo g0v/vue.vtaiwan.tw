@@ -87,14 +87,12 @@ export default {
       })[0];
       if(t===undefined){return new Object()}
       else{return t};
-    },
-    // routename:function(){
-    //   return this.$route.params.tRouteName;
-    // }
+    }
   },
   methods:{
      tSidebar:function(){
-      $('.ui.left.sidebar').sidebar('toggle');   
+      $('.ui.left.sidebar').sidebar('toggle');
+      $('.ui.left.sidebar').next().remove('.ui.left.sidebar'); 
     },
     routename:function(){
       return this.$route.params.tRouteName;
@@ -109,15 +107,7 @@ export default {
         scrollLock: false,
         returnScroll:true       
     });
-  },
-  // destroyed:function(){
-  //   $('.ui.left.sidebar').sidebar('toggle');
-  // }
-  // watch:{
-  //   routename:function(){
-  //     return this.$route.params.tRouteName;
-  //   }
-  // }
+  }
 
 }
 </script>
