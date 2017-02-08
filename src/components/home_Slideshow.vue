@@ -1,48 +1,48 @@
 <template lang="jade">
 
   .component
-
-    .desktop-container.fat-only
+    // .desktop-container.fat-only
+    // .ui.fluid.container
       .slide-page
-        // bg-img & content box
         .slide-item(v-for="(t, idx) in mySlideTopics", :style="t.style")
-          // img.full-page(:src="t.cover")
           .box
-            .status.ui.basic.massive.label 
+            .status.ui.basic.huge.label 
               | {{t.status}}
             h1.slogan.ui.header
-              | {{t.slogan}}
-            router-link.ui.right.labeled.icon.teal.massive.button(:to="'/topic/' + t.routeName")
-              i.right.arrow.icon
-              p {{t.title}}
-                // span #test1 jQuery Test
-
-        // left & right arrow
-        a.pre(@click="c = cycle(-1)")
-          i.huge.black.caret.left.icon
-        a.next(@click="c = cycle(1)")
-          i.huge.black.caret.right.icon
-
-    .mobile-container.thin-only
-      .m-slide-page
-        .m-slide-item(v-for="(t,idx) in allTopics",:style="{'background-image':'url('+t.cover+')'}")
-          .box
-            // .slogan.ui.header {{t.slogan}}
-            .status.ui.basic.big.label 
-              | {{t.status}}
-            h2.title.ui.header
               | {{t.title}}
-            router-link.ui.right.labeled.icon.teal.big.button(:to="'/topic/'+t.routeName")
+              .sub.header {{t.slogan}}
+            router-link.ui.right.labeled.icon.teal.huge.button(:to="'/topic/' + t.routeName")
               i.right.arrow.icon
               p 進入議題
 
+        a.fat-only.pre(@click="c = cycle(-1)")
+          i.huge.black.caret.left.icon
+        a.fat-only.next(@click="c = cycle(1)")
+          i.huge.black.caret.right.icon
+
+    .swiper-container
+      .swiper-wrapper
+        .swiper-slide(v-for="(t, idx) in mySlideTopics", :style="t.new_style")
+          .box
+            .status.ui.basic.huge.label 
+              | {{t.status}}
+            h1.slogan.ui.header
+              | {{t.title}}
+              .sub.header {{t.slogan}}
+            router-link.ui.right.labeled.icon.teal.huge.button(:to="'/topic/' + t.routeName")
+              i.right.arrow.icon
+              p 進入議題
+      .swiper-button-prev
+      .swiper-button-next
+      .swiper-pagination 
+      .swiper-scrollbar 
+      
 </template>
 
 
 <script type="text/javascript">
 
-import $ from 'jquery'
-// import jQuery from 'jquery'
+// import $ from 'jquery'
 
 export default {
   name: 'SlideShow',
@@ -61,7 +61,6 @@ export default {
       var ts = this.hotTopics;
       return ts.map(function (o, idx) {
         //o.transform = 'translateX('+ (idx-c) * 100 +'%)';
-
         o.transform = 'translateX(0%)';
 
         if (idx == c-1 || (c == 0 && idx == ts.length-1)) {
@@ -72,6 +71,7 @@ export default {
         }
         o.zIndex = (idx == c || idx == lastC) ? 4 : 3;
         o.opacity = (idx == c || idx == lastC) ? 1 : 0;
+
         // combine styles into single 
         o.style = {
           'z-index': o.zIndex, 
@@ -81,39 +81,54 @@ export default {
           '-webkit-transform': o.transform, 
           'background': 'url(' + o.cover + ') 100% 100% / cover'
         };
+
+        o.new_style = {
+          'background': 'url(' + o.cover + ') 100% 100% / cover'
+        }
         return o
       })
     }
   },
   methods: {
-    relax: function () {
-      this.isBusy = false;
-    },
     cycle: function (n) {
 
-      // $('#test1').toggle();
-
-      var c = this.c;
-      var ts = this.hotTopics;
+      let c = this.c;
+      let ts = this.hotTopics;
 
       if (!this.isBusy) {
         this.lastC = c;
-
         c = c + n;
+
         if (c < 0) {
           c = ts.length + c;
         }
         if (c >= ts.length) {
           c = c - ts.length;
         }
+
         this.isBusy = true;
-        setTimeout(this.relax, 500)
+        setTimeout(function(){
+          this.isBusy = false;
+        }, 500)
       }
       return c;
     }
   },
   mounted: function () {
-    // $('#test1').hide();
+    //initialize swiper when document ready
+    new Swiper ('.swiper-container', {
+      // Optional parameters
+      observer: true,
+      loop: true,
+      direction: 'horizontal',
+      // Navigation arrows
+      nextButton: '.swiper-button-next',
+      prevButton: '.swiper-button-prev',
+      // If we need pagination
+      pagination: '.swiper-pagination',
+      // And if we need scrollbar
+      scrollbar: '.swiper-scrollbar',
+    })
   }
 }
 
@@ -122,28 +137,39 @@ export default {
 <style lang="scss" scoped>
 @import "../sass/global.scss";
 
-.desktop-container, .mobile-container {
-  position: relative;
-  overflow: hidden;
-  img {
-    position: relative;
-    width: 100%;
-    z-index: -3;
-  }
-}
+// .desktop-container, .mobile-container {
+//   position: relative;
+//   overflow: hidden;
+//   img {
+//     position: relative;
+//     width: 100%;
+//     z-index: -3;
+//   }
+// }
 
-.mobile-container {
-  overflow: scroll;
-  &::-webkit-scrollbar {
-    display: none;
+// .mobile-container {
+//   overflow: scroll;
+//   &::-webkit-scrollbar {
+//     display: none;
+//   }
+// }
+
+// ******************************* Swiper slide
+
+.swiper-container {
+  height: 100vh;
+  @media only screen and (max-width: $breakpoint) {
+    height: 70vh;
   }
 }
 
 // ******************************* Desktop CSS
 
 .slide-page {
-  display: block;
   height: 100vh;
+  @media only screen and (max-width: $breakpoint) {
+    height: 70vh;
+  }
 }
 
 .slide-item {
@@ -153,8 +179,10 @@ export default {
   width: 100vw;
   overflow: hidden;
   height: 100%;
-  @include transition(transform .5s ease-in-out, z-index .3s ease-in-out);
+  // @include transition(transform .5s ease-in-out, z-index .3s ease-in-out);
+  transition: all .3s ease;
 }
+
 .box {
   // font-size: 1rem;
   // ********************* centering
@@ -178,10 +206,17 @@ export default {
     color: white;
   }
   .slogan {
-    margin: 1em 0;
+    margin: .5em 0 1em 0;
     font-size: 3rem;
+    @media only screen and (max-width: $breakpoint) {
+      font-size: 2rem;
+    }
     color: white;
     text-shadow: 0 0 5px gray;
+    .sub.header {
+      color: white;
+      text-shadow: 0 0 5px gray;
+    }
   }
 }
 
@@ -190,14 +225,18 @@ a {
   &:hover {
     i {
       color: white !important;
+      transition: all .3s ease;
     }
   }
   &.pre,
   &.next {
     position: absolute;
     z-index: 5;
+    text-shadow: 0 0 5px white;
     top: 44vh;
-    text-shadow: 0 0 5px lightgray;
+    // @media only screen and (max-width: $breakpoint) {
+    //   top: 33vh;
+    // }
   }
   &.pre {
     left: 5px;
@@ -205,9 +244,9 @@ a {
   &.next {
     right: 5px;
   }
-  i {
-    @include transition(all 0.3s);
-  }
+  // i {
+    // @include transition(all 0.3s);
+  // }
 }
 
 // ******************************* Mobile CSS

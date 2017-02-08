@@ -31,7 +31,9 @@ body {
 
   visibility: visible;
   opacity: 1;
-  @include transition(opacity 0.5s ease);
+  // @include transition(opacity 0.5s ease);
+  transition: opacity 0.5s ease;
+
 }
 
 
@@ -44,10 +46,10 @@ body {
     font-family: $main_font;
   }
 
-  a, button {
-    cursor: pointer !important;
-    color: dimgray;
-  }
+  // a, button {
+  //   cursor: pointer !important;
+  //   color: dimgray;
+  // }
 
   strong {
     font-weight: 900;
