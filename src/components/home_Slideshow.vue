@@ -119,7 +119,7 @@ export default {
     new Swiper ('.swiper-container', {
       // Optional parameters
       observer: true,
-      loop: true,
+      autoplay: 5000,
       direction: 'horizontal',
       // Navigation arrows
       nextButton: '.swiper-button-next',
