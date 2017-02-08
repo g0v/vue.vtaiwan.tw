@@ -8,13 +8,13 @@
         a.fitted.item(v-for="(step, idx) in steps", :class="{'active': idx == myIdx}", @click="myIdx = idx", :href="'#'+step.dataName")
           p {{step.label}}
     
-    .ui.steps.top.attached.fat-only
+    .ui.top.attached.big.steps.fat-only
       a.step(v-for="(step, idx) in steps", :class="{'active': idx == myIdx}", @click="myIdx = idx")
-        .number {{idx + 1}}
         .label {{step.label}}
+        .number {{idx + 1}}
 
     .ui.segment(id="context" v-bind:class="{ 'basic': onMobile, 'attached': !onMobile}")
-      Box(v-for="(step, idx) in steps", :list = "mySort(step.dataName)", :desc = "step.description", :label = "step.label", :name = "step.dataName", v-show="idx == myIdx || onMobile" @stickTo="onStickTo(arguments[0], idx)")
+      Box(v-for="(step, idx) in steps", :list = "mySort(step.dataName)", :desc = "step.description", :label = "step.label", :name = "step.dataName", v-show="idx == myIdx || onMobile" @stickTo="onStickTo(idx, $event)")
   
 </template>
 
@@ -133,8 +133,10 @@ export default {
 
       return boxes;
     },
-    onStickTo: function(arg, idx){
-      let el = "#mobile-step a[href='#"+arg+"']"
+    onStickTo: function(idx, e){
+      if (!this.onMobile || (this.myIdx == idx)) 
+        return 0 /* escape when not on mobile & current tab equal to trigger tab */
+      let el = "#mobile-step a[href='#"+e[0]+"']"
       $(el).parent().children().removeClass('active') 
       $(el).addClass('active')
       this.myIdx = idx
@@ -166,25 +168,38 @@ export default {
   padding: 1em 0;
 }
 
-.number {
-  border-radius: 1em;
-  color: white;
-  background: $step_color;
-  font-size: 2em;
-  font-weight: 700;
-  line-height: 1.2em;
-  width: 1.2em;
-  height: 1.2em;
-  // margin: .2em .2em .2em 0;
-}
-.label {
-  padding: .3em 0 0 .3em;
+.ui.steps {
+
+  .step {
+    // make tab item flexible
+    flex: 1 1 auto;
+    overflow: hidden;
+  }
+
+  .number {
+    // border-radius: 1em;
+    // color: white;
+    // background: $step_color;
+    // font-size: 2em;
+    font-family: $logo_font;
+    font-weight: 700;
+    // line-height: 1.2em;
+    // width: 1.2em;
+    // height: 1.2em;
+    // margin: .2em .2em .2em 0;
+    position: absolute;
+    font-size: 10rem;
+    color: fade_out($step_color, 0.5);
+    margin: 0 0 0 -.6em;
+  }
+
+  .label {
+    padding: .3em 0 0 .3em;
+    z-index: 100;
+  }
+
 }
 
-.ui.steps .step {
-  // make tab item flexible
-  flex: 1 1 auto;
-}
 
 @media only screen and (max-width: $breakpoint) {
   .component {

@@ -6,12 +6,14 @@
       | {{ label }}
 
     .desc.ui.basic.center.aligned.segment.fat-only
-      i.quote.left.icon
+      sup
+        i.quote.left.icon
       | {{ desc }} 
-      i.quote.right.icon
+      sub
+        i.quote.right.icon
 
-    .ui.compact.message(v-if="!list.length")
-        p 目前還沒有正在進行的議案…
+    .ui.compact.info.message(v-if="!list.length")
+        | 目前還沒有正在進行的議案…
 
     .ui.four.column.grid.stackable
 
