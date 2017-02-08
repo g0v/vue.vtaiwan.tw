@@ -5,9 +5,14 @@
       .item(v-for = "(step,idx) in stage")
         .header {{step}} 
         .menu
-          router-link.item(v-for = "(obj,idx) in allTopics",v-if="step === obj.status",:to="'/topic/' + obj.routeName" ,v-bind:class="{'router-link-active': obj.routeName == routename }" v-on:click="routename = obj.routeName") 
-            | {{obj.title}} 
-    .pusher
+          router-link.item(v-for = "(obj,idx) in allTopics",
+                           v-if="step === obj.status",
+                           :to="'/topic/' + obj.routeName",
+                           v-bind:class="{'router-link-active': obj.routeName === routename }",
+                           v-on:click="routename = obj.routeName") 
+            | {{obj.title}}   
+    .pusher 
+
       .ui.basic.button(v-on:click="tSidebar")
         a.item
           i.sidebar.icon
@@ -70,7 +75,6 @@ export default {
   data () {
     return {
       myIdx: 0,
-      // routename:this.$route.params.tRouteName,
       tabcontent:["詳細內容","議題時間軸","參與討論"],
       stage:["即將開始","意見徵集","研擬草案","送交院會","歷史案件"]
     }
@@ -83,35 +87,26 @@ export default {
       })[0];
       if(t===undefined){return new Object()}
       else{return t};
+    }
+  },
+  methods:{
+     tSidebar:function(){
+      $('.ui.left.sidebar').sidebar('toggle');
+      $('.ui.left.sidebar').next().remove('.ui.left.sidebar'); 
     },
     routename:function(){
       return this.$route.params.tRouteName;
     }
-    // getroute:function(){
-    //   var rtName = this.$route.params.tRouteName;
-    //   for(var i=0;i<this.allTopics.length;i++){
-    //     if(this.allTopics[i].routeName == rtName){
-    //       return true;
-    //     }
-    //     else{
-    //       return false;
-    //     }
-    //   }
-    // }
-   
-
   },
-  methods:{
-     tSidebar:function(){
-       $('.ui.left.sidebar').sidebar({
-              // context: $('.pusher'),
-              dimPage: true,
-              transition: 'overlay',
-              closable: true,
-              scrollLock: false,
-              returnScroll:true
-          }).sidebar('toggle');   
-    }
+  mounted:function(){
+    $('.ui.left.sidebar').sidebar({
+        // context: $('.pusher'),
+        dimPage: true,
+        transition: 'overlay',
+        closable: true,
+        scrollLock: false,
+        returnScroll:true       
+    });
   }
 
 }

@@ -43,7 +43,7 @@
 import caxios from '../js/request'
 
 export default {
-  props:['comment_id'],
+  props:['comment_id','slice'],
   data () {
     return {
       comment:[],
@@ -58,7 +58,12 @@ export default {
       .then((response_comment)=>{
         let dcomment = {}
         this.views = response_comment['data']; //觀看人數
-        this.comment = response_comment['data']['post_stream']['posts'].slice(1);
+        if(this.slice==true){
+          this.comment = response_comment['data']['post_stream']['posts'].slice(1);
+        }
+        else if(this.slice==false){
+          this.comment = response_comment['data']['post_stream']['posts'];
+        }
         for(let i=0; i<this.comment.length; i++){
           if(this.comment[i]['avatar_template'].indexOf("https:")==-1){ //判斷是否含有https網址
             this.comment[i]['avatar_template']=this.comment[i]['avatar_template'].replace(/.*/,'https://talk.vtaiwan.tw'+this.comment[i]['avatar_template']); //抓取icon
@@ -69,6 +74,7 @@ export default {
             this.comment[i]['cooked'] = this.comment[i]['cooked'].replace(/<img src="/,'<img src="https://talk.vtaiwan.tw') //不完整的話加入https://talk.vtaiwan.tw
           }
         }
+        
         let today = new Date();
         if(this.views['last_posted_at']!=null){
           let lastpostday = new Date(this.views['last_posted_at']);
@@ -79,7 +85,7 @@ export default {
           else if(date>0.041){
             this.views['last_posted_at']=Math.floor(date*24)+" 小時 ";
           }
-          else{
+          else if(date<0.041){
             this.views['last_posted_at']=Math.floor(date*24*60)+" 分鐘 ";
           }
         }

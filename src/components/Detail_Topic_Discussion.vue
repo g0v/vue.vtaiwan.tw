@@ -17,7 +17,7 @@
             i.dropdown.icon
             | {{disc.title}}
           div.content
-            Discussion_Comment(:comment_id="disc.id")
+            Discussion_Comment(:comment_id="disc.id", :slice="true")
 
 </template>
 

@@ -4,12 +4,12 @@
     .fat-only
       .step-progress-bar
         ul.progress-bar
-          li(v-for="(s,idx) in steps", v-bind:class='{active:s.active}') {{s.title}}
+          li(v-for="(s,idx) in steps.stage", v-bind:class='{active:s.active}') {{s.title}}
 
     .thin-only
       .step-progress-bar
         ul.progress-bar
-          li(v-for="(s,idx) in steps", v-bind:class='{active:s.active}') {{s.title}}
+          li(v-for="(s,idx) in steps.stage", v-bind:class='{active:s.active}') {{s.title}}
      
 </template>
 
@@ -22,11 +22,16 @@ export default {
 
     data(){
         return{
-            steps:[],
+            steps:{}
         }
     },
     methods:{
-      getProgress(id){
+      getProgress(val){
+        let id = val.id
+        this.steps = { // initialize dType
+         'stage': []
+        } 
+        let step = this.steps // just for alias
         caxios.get('https://talk.vtaiwan.tw/t/'+ id +'.json?include_raw=1')
         .then((response=>{
             var detail_info = response.data;
@@ -65,11 +70,12 @@ export default {
                 for (var j in steps){
                     steps[j]['active'] = true;
                     if(steps[j]['title'] === current && init === 'init'){ //如果是"意見徵集 init",就將active啟動並取消visited
-                        return this.steps = steps; // 回傳五階段array
+                        step.stage = steps;
+                        return step.stage;// 回傳五階段array
                     }
                     if(steps[j]['title'] === current){ //如果是"意見徵集",就將active啟動並取消visited
-                        this.steps = steps;
-                        return this.steps = steps;// 回傳五階段array
+                        step.stage = steps;
+                        return step.stage;// 回傳五階段array
                     }
                 }
             }
@@ -77,11 +83,13 @@ export default {
       }
     },
     created:function(){
-        this.getProgress(this.article.id);
+        this.getProgress(this.article);
     },
-    // updated:function(){
-    //     this.getProgress(this.article.id);
-    // }
+    watch:{
+    article: function(val){
+        this.getProgress(val);
+      }
+    }
 
 
 }
