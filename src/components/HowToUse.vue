@@ -41,12 +41,15 @@
       //   i.edit.icon
       //   | 提案
 
-      h2.ui.header      
+      .ui.basic.segment
         a(href='http://join.gov.tw/idea/index', target='_blank')
           .ui.massive.teal.labeled.icon.button
             i.edit.icon
             p 提案
-          p 公共政策網路參與平台
+        p
+          a(href='http://join.gov.tw/idea/index', target='_blank')
+            | 公共政策網路參與平台 
+            i.external.link.icon
 
 </template>
 

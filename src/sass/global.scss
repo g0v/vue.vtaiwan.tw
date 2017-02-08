@@ -44,12 +44,12 @@ body {
 
   h1, h2, h3, h4, h5, h6, p{
     font-family: $main_font;
+    a{
+      cursor: pointer !important;
+      color: dimgray;
+      border-bottom: 1px dashed lightgray;
+    }
   }
-
-  // a, button {
-  //   cursor: pointer !important;
-  //   color: dimgray;
-  // }
 
   strong {
     font-weight: 900;
