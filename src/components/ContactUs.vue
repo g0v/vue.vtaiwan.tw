@@ -25,6 +25,9 @@
                   | {{Discussion[index].title}}
                 div.content
                   Discussion_Comment(:comment_id="Discussion[index].id", :slice="false")
+          .ui.basic.button(v-if="more.more_topics_url==undefined")
+            | 閱讀更多...
+        // class="ui floating scrolling dropdown theme basic button"
       
   
 
@@ -48,16 +51,23 @@ export default {
       subject: "",
       content: "",
       Discussion: [],
+      more: [],
     }
   },
 
  methods: {
    getContactus(id) {
-        caxios.get('https://talk.vtaiwan.tw/c/contactus/l/latest.json?page=0')
+        caxios.get('https://talk.vtaiwan.tw/c/contactus.json')
+        //caxios.get('https://talk.pdis.nat.gov.tw/c/pdis-site/how-we-work-track.json')
           .then((response) => {
-            this.Discussion = response.data['topic_list']['topics'].slice(1); // 取得詳細內容(第一篇)
+            this.more= response.data['topic_list'];
+            this.Discussion = response.data['topic_list'];
+            if(this.more['more_topics_url']!=undefined){
+              console.log(this.Discussion['more_topics_url'])
+            }
             
-            console.log(this.Discussion)
+            this.Discussion = this.Discussion['topics'].slice(1); // 取得詳細內容(第一篇)
+            
           })
       }
 
