@@ -32,6 +32,7 @@
               router-link.m-logo.item(to='/intro', exact='')
                 i.right.triangle.icon
                 | 關於vTaiwan
+
       .ui.section.divider        
       .linkicon   
         a.big.ui.circular.facebook.icon.button(href="https://www.facebook.com/vtaiwan.tw/" title="Fackbook" target="_blank")
@@ -51,7 +52,7 @@
 
   
   .component {                //設定整個footer 背景顏色
-    text-align: center;
+    //text-align: center;
     padding: 1em;
     background-color: rgba(0, 0, 0, 0.04);
   }
@@ -81,7 +82,7 @@
   }
   .ui.grid{                     //grid增加margin-bottom
     margin-bottom: 2em;
-    //text-align: left;
+    text-align: left;
   }
   
 </style>
