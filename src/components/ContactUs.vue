@@ -76,14 +76,16 @@ export default {
           subject: {
             rules: [
               {
-                type   : 'minLength[10]'
+                type   : 'minLength[10]',
+                prompt : '標題字數須達10個字以上'
               }
             ]
           },
           content: {
             rules: [
               {
-                type   : 'minLength[10]'
+                type   : 'minLength[10]',
+                prompt : '內容字數須達10個字以上'
               }
             ]
           },
@@ -106,6 +108,10 @@ export default {
 }
 .left{
     text-align: left;
+}
+
+.ui.styled.accordion>.title:first-child {
+   font-size: 1.5rem; 
 }
 .ui.green.button,  {                         //送出按鈕
   background-color: #40B3BF;
