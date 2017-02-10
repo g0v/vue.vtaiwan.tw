@@ -1,7 +1,7 @@
 language: node_js
 
 node_js:
-  - "v5.10.1"
+  - "v6.9.5"
 
 sudo: false
 
