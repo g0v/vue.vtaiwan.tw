@@ -40,7 +40,7 @@
       .menu
         router-link.m-item(to='/how-to-use') 使用手冊
         router-link.m-item(to='/') 探索議題
-        router-link.m-item(to='/') 搜尋議題
+        router-link.m-item(to='/search') 搜尋議題
         
       // .ui.three.item.menu
       //   router-link.item(to='/how-to-use') 使用手冊
