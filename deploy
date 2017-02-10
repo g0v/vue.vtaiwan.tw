@@ -11,9 +11,6 @@ if [ `git rev-list HEAD...$upstream/master --count` -ne 0 ]; then
   echo "not deploying"
   exit 1
 fi
-node build/get-route.js
-yarn install
-yarn build:static
 rm -rf _public
 # # XXX: use --reference when not in shallow clone
 # #git clone $REPO --reference . -b gh-pages _public

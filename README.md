@@ -42,6 +42,9 @@
 # Deploy 方式
 
 ```
+yarn install
+node build/get-route.js
+yarn build:static
 ./deploy
 ```
 
