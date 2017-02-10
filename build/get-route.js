@@ -1,8 +1,11 @@
 var request = require('request');
 var fs = require("fs");
 var path = 'https://talk.vtaiwan.tw/c/meta-data.json';
-var file_name = './build/prerender-route.js';
-var prerender = "module.exports = { routes : ['/','/how-to-use','/intro'";
+// var file_name = './build/prerender-route.js';
+var file_name_json = './build/prerender-route.json';
+// var prerender = "module.exports = { routes : ['/','/how-to-use','/intro'";
+let prerender_json = {} /* output to prerender-routes.json */
+let routes = ['/','/how-to-use','/intro'] /* array for all routes */
 var headers = {
     'User-Agent': 'Super Agent/0.0.1',
     'Content-Type': 'application/x-www-form-urlencoded'
@@ -23,11 +26,14 @@ request(opts, function(error, response, results) {
             var pinned = res.topic_list.topics[i].pinned;
             if (chk > -1 && pinned == false) {
                 title = title.substring(chk + 1, title.length);
-                prerender += ",'/topic/" + title + "'";
+                // prerender += ",'/topic/" + title + "'";
+                routes.push("/topic/" + title)
             }
         }
-        prerender += "]}";
-        fs.writeFile(file_name, prerender);
+        // prerender += "]}";
+        prerender_json.routes = routes
+        // fs.writeFile(file_name, prerender);
+        fs.writeFile(file_name_json, JSON.stringify(prerender_json, null, '\t'));
     } else {
         console.log('get topic list error=' + error + ' ' + response.statusCode);
     }
