@@ -63,8 +63,8 @@ module.exports = {
             // Absolute path to compiled SPA 
             path.join(__dirname, '../dist'),
             // List of routes to prerender
-			PrerenderRoute.routes,
-			/*
+            PrerenderRoute.routes,
+            /*
             [
                 '/',
                 '/how-to-use',
@@ -83,7 +83,7 @@ module.exports = {
                 '/topic/crowdfunding'
             ],
 			*/
-			{
+            {
                 ignoreJSErrors: true,
                 captureAfterTime: 50000,
             }

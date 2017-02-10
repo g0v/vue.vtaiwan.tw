@@ -9,22 +9,22 @@ upstream=$1
 git fetch $upstream
 if [ `git rev-list HEAD...$upstream/master --count` -ne 0 ]; then
   echo "not deploying"
-  exit 1
+  # exit 1
 fi
 node build/get-route.js
-sleep 3
+# sleep 3
 yarn install
 yarn build:static
-rm -rf _public
-# XXX: use --reference when not in shallow clone
-#git clone $REPO --reference . -b gh-pages _public
-git clone $REPO --depth 1 -b gh-pages _public
+# rm -rf _public
+# # XXX: use --reference when not in shallow clone
+# #git clone $REPO --reference . -b gh-pages _public
+# git clone $REPO --depth 1 -b gh-pages _public
 
-REV=`git describe --always`
+# REV=`git describe --always`
 
-cp -rf dist/* _public/
-cd _public
-git add -A .
-echo "regen for $REV" | git commit-tree `git write-tree` -p `git rev-parse HEAD` | xargs git reset --hard
-git push origin gh-pages
-cd ..
+# cp -rf dist/* _public/
+# cd _public
+# git add -A .
+# echo "regen for $REV" | git commit-tree `git write-tree` -p `git rev-parse HEAD` | xargs git reset --hard
+# git push origin gh-pages
+# cd ..
