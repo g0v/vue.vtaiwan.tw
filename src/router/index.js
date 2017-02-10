@@ -9,6 +9,7 @@ import Track from '../components/Track.vue'
 import Detail_Topic from '../components/Detail_Topic.vue'
 import Detail_Catagory from '../components/Detail_Catagory.vue'
 import Contactus from '../components/ContactUs.vue'
+import Search from '../components/app_navbar_search.vue'
 
 Vue.use(Router)
 
@@ -40,8 +41,11 @@ export default new Router({
     { path: '/catagory/:cRouteName',  
       name: 'catagory', 
       component: Detail_Catagory },
-      { path: '/Contactus',  
+    { path: '/Contactus',  
       name: 'Contactus', 
-      component: Contactus }
+      component: Contactus },
+    { path: '/search',
+      name: 'search',
+      component: Search }
   ]
 })

@@ -1,12 +1,12 @@
 <template lang="jade">
-.component#searchresult
-  .ui.list
-    .item(v-for="(r, idx) in results",v-on:click="sHide")
-      router-link(:to="'/topic/'+r.routeName", v-bind:class="{active: idx == myIdx }") 
-        img.icon(:src="r.icon || r.cover")
-        .text
-          .title(v-html="toHTML(r.title, myKey)") 
-          .route-name(v-html="toHTML(r.routeName, myKey)")
+  .component#searchresult
+      .ui.list
+        .item(v-for="(r, idx) in results",v-on:click="sHide")
+          router-link(:to="'/topic/'+r.routeName", v-bind:class="{active: idx == myIdx }") 
+            img.icon(:src="r.icon || r.cover")
+            .text
+              .title(v-html="toHTML(r.title, myKey)") 
+              .route-name(v-html="toHTML(r.routeName, myKey)")  
 </template>
 
 <script>
@@ -43,6 +43,8 @@ export default {
 
 
 <style lang="scss" scoped>
+
+@import "../sass/global.scss";
 
 .component {
   position: absolute;
@@ -91,4 +93,15 @@ export default {
   }
 }
 
+@media only screen and (max-width: $breakpoint+1) {
+    .component {
+      width:100%;
+      height:100%
+    }        
+}
+@media only screen and (min-width: $breakpoint+1) {
+    .component {
+      height:105px;
+    }        
+}
 </style>

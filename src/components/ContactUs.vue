@@ -25,7 +25,7 @@
                   | {{Discussion[index].title}}
                 div.content
                   Discussion_Comment(:comment_id="Discussion[index].id", :slice="false")
-          .ui.basic.button(v-if="more.more_topics_url==undefined")
+          .ui.basic.button(v-if="more.more_topics_url!=undefined", v-on:click="greet")
             | 閱讀更多...
         // class="ui floating scrolling dropdown theme basic button"
       
@@ -56,24 +56,28 @@ export default {
   },
 
  methods: {
+   
    getContactus(id) {
-        caxios.get('https://talk.vtaiwan.tw/c/contactus.json')
-        //caxios.get('https://talk.pdis.nat.gov.tw/c/pdis-site/how-we-work-track.json')
+        caxios.get('https://talk.vtaiwan.tw/c/contactus/l/latest.json?page='+ id)
+        // caxios.get('https://talk.pdis.nat.gov.tw/c/pdis-site/how-we-work-track/l/latest.json?page='+ id)
           .then((response) => {
             this.more= response.data['topic_list'];
-            this.Discussion = response.data['topic_list'];
-            if(this.more['more_topics_url']!=undefined){
-              console.log(this.Discussion['more_topics_url'])
-            }
+            this.Discussion = response.data['topic_list'];     
             
             this.Discussion = this.Discussion['topics'].slice(1); // 取得詳細內容(第一篇)
+            // this.Discussion.push(this.Discussion[0])
+              // console.log(this.more['topics'])
             
           })
-      }
+      },
+   greet: function (event) {
+      console.log("1233254")
+      this.getContactus(1);
+    }
 
  },
  created: function(){
-   this.getContactus();
+   this.getContactus(0);
     // $('.ui.accordion').accordion();
  },
   updated: function(){

@@ -85,8 +85,11 @@
                 }
               }
               timeline_content['link'] = links;
+
               line.time.push(timeline_content);
-              
+              line.time.sort(function(a,b){
+               return new Date(b.start).getTime() - new Date(a.start).getTime();
+              })
             }
              return line.time;
           })
