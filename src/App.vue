@@ -13,7 +13,7 @@
 
 <script>
 
-import Navbar from './components/app_Navbar.vue'
+import Navbar from './components/app_navbar.vue'
 import MyFooter from './components/MyFooter.vue'
 import caxios from './js/request'
 
