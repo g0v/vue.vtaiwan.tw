@@ -1,0 +1,27 @@
+{
+	"routes": [
+		"/",
+		"/how-to-use",
+		"/intro",
+		"/topic/securitization",
+		"/topic/securitization-ref1",
+		"/topic/directors-election",
+		"/topic/social-enterprise",
+		"/topic/closelyheld",
+		"/topic/crowdfunding",
+		"/topic/distant-education",
+		"/topic/etax",
+		"/topic/personal-data-protection",
+		"/topic/eliquor",
+		"/topic/data-levy",
+		"/topic/consumer-protection",
+		"/topic/telemedicine",
+		"/topic/telework",
+		"/topic/infosecurity",
+		"/topic/sandbox",
+		"/topic/cyberbullying",
+		"/topic/naming",
+		"/topic/uberx",
+		"/topic/airbnb"
+	]
+}
