@@ -6,8 +6,9 @@
     div(v-if = "dType.type.includes('slido')")
       .slido(v-html="dType.slido")
     div(v-if = "dType.type.includes('polis')") 
-      .polis(:data-conversation_id = "dType.polis")
-      script(async = 'true', src = 'https://pol.is/embed.js')
+      .slido(v-html="dType.polis")
+      // .polis(:data-conversation_id = "dType.polis")
+      // script(async = 'true', src = 'https://pol.is/embed.js')
     div(v-if = "dType.type.includes('hackpad')")
       .hackpad(v-html="dType.hackpad")
     div(v-if = "dType.check == true && dType.type.includes('discourse')")
@@ -56,8 +57,9 @@ export default {
         }
         for(let j of link){
           if(j.indexOf("pol.is") > -1){ //篩出含有polis的連結  
-            dType.type.push('polis')
-            dType.polis = j.replace(/.*\//, "")
+            dType.type.push('polis')    
+            // dType.polis = j.replace(/.*\//, "")
+            dType.polis = "<iframe src="+j+ " frameborder='0' width='100%' height='1000px' data-reactid='.0.2.0.0.0'></iframe>";
           }
           else if(j.indexOf("sli.do") > -1){ //篩出含有slido的連結    
             dType.type.push('slido')
