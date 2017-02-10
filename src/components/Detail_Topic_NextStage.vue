@@ -1,15 +1,15 @@
 <template lang="jade">
   .component
 
-    .fat-only
-      .step-progress-bar
-        ul.progress-bar
-          li(v-for="(s,idx) in steps.stage", v-bind:class='{active:s.active}') {{s.title}}
+    // .fat-only
+    .step-progress-bar
+      ul.progress-bar
+        li(v-for="(s,idx) in steps.stage", v-bind:class='{active:s.active}') {{s.title}}
 
-    .thin-only
-      .step-progress-bar
-        ul.progress-bar
-          li(v-for="(s,idx) in steps.stage", v-bind:class='{active:s.active}') {{s.title}}
+    // .thin-only
+    //   .step-progress-bar
+    //     ul.progress-bar
+    //       li(v-for="(s,idx) in steps.stage", v-bind:class='{active:s.active}') {{s.title}}
      
 </template>
 
@@ -106,6 +106,12 @@ export default {
   display: block;
   height: 100px; 
   padding: 10px;
+  @media only screen and (max-width: $breakpoint) {
+    width:100%;
+    li {
+      font-size:1rem;
+    }
+  }
 }
 ul.progress-bar {
   counter-reset: step;
@@ -160,13 +166,13 @@ ul.progress-bar {
   background-color: #DB5252;
 }
 
-.thin-only { 
-  .step-progress-bar {
-    width:100%;
-    li {
-      font-size:1rem;
-    }
-  }
-}
+// .thin-only { 
+//   .step-progress-bar {
+//     width:100%;
+//     li {
+//       font-size:1rem;
+//     }
+//   }
+// }
 
 </style>
