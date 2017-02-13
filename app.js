@@ -11635,11 +11635,6 @@ module.exports = function spread(callback) {
 //
 //
 //
-//
-//
-//
-//
-//
 
 
 
@@ -11656,7 +11651,8 @@ module.exports = function spread(callback) {
       subject: "",
       content: "",
       Discussion: [],
-      more: []
+      more: [],
+      counter: ""
     };
   },
 
@@ -11666,26 +11662,45 @@ module.exports = function spread(callback) {
       var _this = this;
 
       __WEBPACK_IMPORTED_MODULE_1__js_request__["a" /* default */].get('https://talk.vtaiwan.tw/c/contactus/l/latest.json?page=' + id)
-      // caxios.get('https://talk.pdis.nat.gov.tw/c/pdis-site/how-we-work-track/l/latest.json?page='+ id)
+      //caxios.get('https://talk.pdis.nat.gov.tw/c/pdis-site/how-we-work-track/l/latest.json?page='+ id) //pdis
       .then(function (response) {
         _this.more = response.data['topic_list'];
-        _this.Discussion = response.data['topic_list'];
+        var discus = response.data['topic_list'];
+        discus = discus['topics'].slice(1); // 取得詳細內容(第一篇)
+        var _iteratorNormalCompletion = true;
+        var _didIteratorError = false;
+        var _iteratorError = undefined;
 
-        _this.Discussion = _this.Discussion['topics'].slice(1); // 取得詳細內容(第一篇)
-        // this.Discussion.push(this.Discussion[0])
-        // console.log(this.more['topics'])
+        try {
+          for (var _iterator = discus[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+            var i = _step.value;
+
+            _this.Discussion.push(i);
+          }
+        } catch (err) {
+          _didIteratorError = true;
+          _iteratorError = err;
+        } finally {
+          try {
+            if (!_iteratorNormalCompletion && _iterator.return) {
+              _iterator.return();
+            }
+          } finally {
+            if (_didIteratorError) {
+              throw _iteratorError;
+            }
+          }
+        }
       });
     },
 
     greet: function greet(event) {
-      console.log("1233254");
-      this.getContactus(1);
+      this.counter++;
+      this.getContactus(this.counter);
     }
-
   },
   created: function created() {
     this.getContactus(0);
-    // $('.ui.accordion').accordion();
   },
   updated: function updated() {
     $('.ui.accordion').accordion();
@@ -11699,7 +11714,7 @@ module.exports = function spread(callback) {
         },
         content: {
           rules: [{
-            type: 'minLength[10]',
+            type: 'minLength[20]',
             prompt: '內容字數須達10個字以上'
           }]
         }
@@ -14916,7 +14931,7 @@ module.exports={render:function (){with(this) {
     attrs: {
       "name": "content",
       "style": "margin-top: 0px; margin-bottom: 0px; height: 168px;",
-      "placeholder": "請輸入您寶貴的意見..."
+      "placeholder": "請輸入您寶貴的意見(字數須達20個字以上)..."
     },
     domProps: {
       "value": _s(content)
