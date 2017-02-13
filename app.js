@@ -11901,8 +11901,22 @@ module.exports = function spread(callback) {
       // scrollLock: true,
       delaySetup: true
     }).sidebar('attach events', '#sidebar .menu');
-  }
+  },
+  watch: {
+    article: function article() {
+      var meta_img = document.createElement('meta');
+      meta_img.setAttribute("property", "og:image");
+      meta_img.content = this.article.cover;
+      $('meta[property="og:image"]').remove();
+      document.getElementsByTagName('head')[0].appendChild(meta_img);
 
+      var meta_title = document.createElement('meta');
+      meta_title.setAttribute("property", "og:title");
+      meta_title.content = this.article.title + " - vTaiwan.tw";
+      $('meta[property="og:title"]').remove();
+      document.getElementsByTagName('head')[0].appendChild(meta_title);
+    }
+  }
 };
 
 /***/ },
