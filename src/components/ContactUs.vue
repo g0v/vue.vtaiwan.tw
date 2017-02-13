@@ -11,7 +11,7 @@
                 input(type='text',name="subject",v-model="subject",placeholder='請輸入標題(字數須達10個字以上)...')
               .field
                 label 內容：
-                textarea(v-model="content",name="content",style='margin-top: 0px; margin-bottom: 0px; height: 168px;', placeholder="請輸入您寶貴的意見...")
+                textarea(v-model="content",name="content",style='margin-top: 0px; margin-bottom: 0px; height: 168px;', placeholder="請輸入您寶貴的意見(字數須達20個字以上)...")
               .ui.green.submit.button
                 | 送出       
               .ui.error.message
@@ -27,17 +27,11 @@
                   Discussion_Comment(:comment_id="Discussion[index].id", :slice="false")
           .ui.basic.button(v-if="more.more_topics_url!=undefined", v-on:click="greet")
             | 閱讀更多...
-        // class="ui floating scrolling dropdown theme basic button"
-      
-  
-
 </template>
-
 
 <script>
 import Discussion_Comment from './Detail_Topic_Discussion_Comment.vue'
 import caxios from '../js/request'
-
 
 export default {
   name: 'Home',
@@ -52,34 +46,31 @@ export default {
       content: "",
       Discussion: [],
       more: [],
+      counter: "",
     }
   },
 
- methods: {
-   
-   getContactus(id) {
-        caxios.get('https://talk.vtaiwan.tw/c/contactus/l/latest.json?page='+ id)
-        // caxios.get('https://talk.pdis.nat.gov.tw/c/pdis-site/how-we-work-track/l/latest.json?page='+ id)
-          .then((response) => {
-            this.more= response.data['topic_list'];
-            this.Discussion = response.data['topic_list'];     
-            
-            this.Discussion = this.Discussion['topics'].slice(1); // 取得詳細內容(第一篇)
-            // this.Discussion.push(this.Discussion[0])
-              // console.log(this.more['topics'])
-            
-          })
-      },
-   greet: function (event) {
-      console.log("1233254")
-      this.getContactus(1);
+  methods: {
+    getContactus(id) {
+      caxios.get('https://talk.vtaiwan.tw/c/contactus/l/latest.json?page='+ id)
+      //caxios.get('https://talk.pdis.nat.gov.tw/c/pdis-site/how-we-work-track/l/latest.json?page='+ id) //pdis
+      .then((response) => {
+        this.more= response.data['topic_list'];
+        let discus = response.data['topic_list'];     
+        discus = discus['topics'].slice(1); // 取得詳細內容(第一篇)
+        for(let i of discus){
+          this.Discussion.push(i)
+        }
+      })
+    },
+    greet: function (event) {
+        this.counter++;
+        this.getContactus(this.counter);
     }
-
- },
- created: function(){
-   this.getContactus(0);
-    // $('.ui.accordion').accordion();
- },
+  },
+  created: function(){
+    this.getContactus(0);
+  },
   updated: function(){
     $('.ui.accordion')
       .accordion()
@@ -98,7 +89,7 @@ export default {
           content: {
             rules: [
               {
-                type   : 'minLength[10]',
+                type   : 'minLength[20]',
                 prompt : '內容字數須達10個字以上'
               }
             ]
