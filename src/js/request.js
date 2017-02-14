@@ -21,6 +21,11 @@ export default {
     }
     return results[uri]
   },
+  post: (uri,jsondata) =>{
+    
+    return axios.post(uri,jsondata)
+     
+  },
 
   forget: (uri) => {
     results[uri] = undefined

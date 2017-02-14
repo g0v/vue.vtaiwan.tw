@@ -19,7 +19,7 @@
               a.item(href="https://www.youtube.com/channel/UChC85hbUuDAvFpc7Uuj69DA/" title="Youtube" target="_blank")
                 i.right.triangle.icon
                 | Youtube
-              a.item(href="" title="Fackbook" target="_blank")
+              router-link.m-logo.item(to='/subscribe', exact='')
                 i.right.triangle.icon
                 | 訂閱電子報
             

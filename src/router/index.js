@@ -10,6 +10,7 @@ import Detail_Topic from '../components/Detail_Topic.vue'
 import Detail_Catagory from '../components/Detail_Catagory.vue'
 import Contactus from '../components/ContactUs.vue'
 import Search from '../components/app_navbar_search.vue'
+import subscribe from '../components/Subscribe.vue'
 
 Vue.use(Router)
 
@@ -46,6 +47,9 @@ export default new Router({
       component: Contactus },
     { path: '/search',
       name: 'search',
-      component: Search }
+      component: Search },
+    { path: '/subscribe',
+      name: 'subscribe',
+      component: subscribe }
   ]
 })
