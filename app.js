@@ -653,7 +653,7 @@ module.exports = {
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
 
 
@@ -679,7 +679,8 @@ var results = {};
     return results[uri];
   },
   post: function post(uri, jsondata) {
-
+    console.log("jsondata");
+    console.log(jsondata);
     return __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post(uri, jsondata);
   },
 
@@ -6632,7 +6633,7 @@ function flush() {
 function attemptVertx() {
   try {
     var r = require;
-    var vertx = __webpack_require__(12);
+    var vertx = __webpack_require__(13);
     vertxNext = vertx.runOnLoop || vertx.runOnContext;
     return useVertxTimer();
   } catch (e) {
@@ -10101,6 +10102,12 @@ return index;
 /* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
+module.exports = __webpack_require__(24);
+
+/***/ },
+/* 11 */
+/***/ function(module, exports, __webpack_require__) {
+
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {'use strict';
 
@@ -10199,7 +10206,7 @@ module.exports = defaults;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 11 */
+/* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
@@ -10230,16 +10237,10 @@ module.exports = __vue_exports__
 
 
 /***/ },
-/* 12 */
+/* 13 */
 /***/ function(module, exports) {
 
 /* (ignored) */
-
-/***/ },
-/* 13 */
-/***/ function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(24);
 
 /***/ },
 /* 14 */
@@ -10653,7 +10654,7 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a(_extends({
 var utils = __webpack_require__(2);
 var bind = __webpack_require__(18);
 var Axios = __webpack_require__(26);
-var defaults = __webpack_require__(10);
+var defaults = __webpack_require__(11);
 
 /**
  * Create an instance of Axios
@@ -10773,7 +10774,7 @@ module.exports = CancelToken;
 "use strict";
 'use strict';
 
-var defaults = __webpack_require__(10);
+var defaults = __webpack_require__(11);
 var utils = __webpack_require__(2);
 var InterceptorManager = __webpack_require__(27);
 var dispatchRequest = __webpack_require__(28);
@@ -10927,7 +10928,7 @@ module.exports = InterceptorManager;
 var utils = __webpack_require__(2);
 var transformData = __webpack_require__(31);
 var isCancel = __webpack_require__(16);
-var defaults = __webpack_require__(10);
+var defaults = __webpack_require__(11);
 
 /**
  * Throws a `Cancel` if cancellation has been requested.
@@ -11605,7 +11606,7 @@ module.exports = function spread(callback) {
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Detail_Topic_Discussion_Comment_vue__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Detail_Topic_Discussion_Comment_vue__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Detail_Topic_Discussion_Comment_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__Detail_Topic_Discussion_Comment_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__js_request__ = __webpack_require__(3);
 //
@@ -11975,7 +11976,7 @@ module.exports = function spread(callback) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__js_request__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Detail_Topic_Discussion_Comment_vue__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Detail_Topic_Discussion_Comment_vue__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Detail_Topic_Discussion_Comment_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__Detail_Topic_Discussion_Comment_vue__);
 //
 //
@@ -12804,7 +12805,7 @@ module.exports = function spread(callback) {
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
 //
 //
@@ -12878,12 +12879,11 @@ var main = __webpack_require__(19);
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Detail_Topic_Discussion_Comment_vue__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Detail_Topic_Discussion_Comment_vue__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Detail_Topic_Discussion_Comment_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__Detail_Topic_Discussion_Comment_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__js_request__ = __webpack_require__(3);
-//
-//
-//
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_axios__);
 //
 //
 //
@@ -12912,16 +12912,29 @@ var main = __webpack_require__(19);
   },
   props: ['allTopics', 'catagories'],
   data: function data() {
-    return {};
+    return {
+      email: "",
+      content: ""
+    };
   },
 
 
   methods: {
     getContactus: function getContactus(id) {
-      var _this = this;
+      var head = {
+        // headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        // headers: {'X-My-Custom-Header': 'Header-Value'}
+        headers: { 'X-Custom-Header': 'foobar' }
 
-      __WEBPACK_IMPORTED_MODULE_1__js_request__["a" /* default */].post('https://talk.pdis.nat.gov.tw/posts?api_key=cd1a0c22c71b51dec2b702fbb646df99899c27e32c106a1c3173e1ac5336308c&api_username=talk.about.pdis', {}).then(function (response) {
-        var body = _this.serialize(JSON.parse(JSON.stringify({ "title": title, "raw": raw, "category": category, "archetype": "regular", "reply_to_post_number": "0" })));
+      };
+
+      var body = JSON.parse(JSON.stringify({ "email": "smith02620@gmail.com" }));
+      // let config = JSON.parse(head);
+      // console.log(config)
+      // Vue.http.options.emulateJSON = true;
+      //let header = JSON.parse(JSON.stringify({"headers":{'Content-Type': 'application/x-www-form-urlencoded'}}));
+      __WEBPACK_IMPORTED_MODULE_2_axios___default.a.post('https://talk.vtaiwan.tw/invites?api_key=5a8b11ee7a8904d870f0cd5e32de5100d59e1390a316b86206c20d4b7dbe911b&api_username=smith02620', body, config).then(function (response) {
+
         console.log(response);
       });
     },
@@ -12932,27 +12945,22 @@ var main = __webpack_require__(19);
     }
   },
   created: function created() {
-    this.getContactus(0);
+    this.getContactus();
   },
   updated: function updated() {
+    var vm = this;
     $('.ui.accordion').accordion();
     $('.ui.form').form({
       fields: {
-        subject: {
+        email: {
           rules: [{
-            type: 'minLength[10]',
-            prompt: '標題字數須達10個字以上'
-          }]
-        },
-        content: {
-          rules: [{
-            type: 'minLength[20]',
-            prompt: '內容字數須達10個字以上'
+            type: 'email',
+            prompt: '請輸入正確email'
           }]
         }
       },
       onSuccess: function onSuccess(event, fields) {
-        window.location.href = "mailto:replies+contactus@vtaiwan.tw?subject=" + fields.subject + "&body=" + fields.content;
+        vm.getContactus();
       }
     });
   }
@@ -15624,51 +15632,26 @@ module.exports={render:function (){with(this) {
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: (subject),
-      expression: "subject"
+      value: (email),
+      expression: "email"
     }],
     attrs: {
       "type": "text",
-      "name": "subject",
-      "placeholder": "請輸入標題(字數須達10個字以上)..."
+      "name": "email",
+      "placeholder": "請輸入email"
     },
     domProps: {
-      "value": _s(subject)
+      "value": _s(email)
     },
     on: {
       "input": function($event) {
         if ($event.target.composing) return;
-        subject = $event.target.value
+        email = $event.target.value
       }
     }
-  })]), _h('div', {
-    staticClass: "field"
-  }, [_m(1), _h('textarea', {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: (content),
-      expression: "content"
-    }],
-    attrs: {
-      "name": "content",
-      "style": "margin-top: 0px; margin-bottom: 0px; height: 168px;",
-      "placeholder": "請輸入您寶貴的意見(字數須達20個字以上)..."
-    },
-    domProps: {
-      "value": _s(content)
-    },
-    on: {
-      "input": function($event) {
-        if ($event.target.composing) return;
-        content = $event.target.value
-      }
-    }
-  })]), _m(2), _m(3)])])])])])])
+  })]), _m(1), _m(2)])])])])])])
 }},staticRenderFns: [function (){with(this) {
-  return _h('label', ["標題："])
-}},function (){with(this) {
-  return _h('label', ["內容："])
+  return _h('label', ["email："])
 }},function (){with(this) {
   return _h('div', {
     staticClass: "ui green submit button"

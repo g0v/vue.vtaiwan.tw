@@ -66,7 +66,7 @@
 /************************************************************************/
 /******/ ({
 
-/***/ 12:
+/***/ 13:
 /***/ function(module, exports) {
 
 /* (ignored) */
@@ -6872,7 +6872,7 @@ function flush() {
 function attemptVertx() {
   try {
     var r = require;
-    var vertx = __webpack_require__(12);
+    var vertx = __webpack_require__(13);
     vertxNext = vertx.runOnLoop || vertx.runOnContext;
     return useVertxTimer();
   } catch (e) {
