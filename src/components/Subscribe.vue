@@ -3,8 +3,7 @@
     .ui.container
       .row.BGgray
         .ui.left.aligned.text.container
-          h2 聯絡我們
-          p vTaiwan 是個由g0v 眾多人維護的開放社群，歡迎給予我們您寶貴的意見與指教，我們將盡速回應。您的意見也將公開於討論區中，供所有讀者參考。
+          h2 訂閱電子報
             .ui.form
               .field
                 label 標題：
@@ -15,18 +14,7 @@
               .ui.green.submit.button
                 | 送出       
               .ui.error.message
-      .row.left
-        .ui.segment.attached
-          h2 歷史留言
-          div(v-for = "(item, index) in Discussion")         
-            div.ui.styled.accordion
-                div.title
-                  i.dropdown.icon
-                  | {{Discussion[index].title}}
-                div.content
-                  Discussion_Comment(:comment_id="Discussion[index].id", :slice="false")
-          .ui.basic.button(v-if="more.more_topics_url!=undefined", v-on:click="greet")
-            | 閱讀更多...
+      
 </template>
 
 <script>
@@ -42,25 +30,16 @@ export default {
   props:['allTopics', 'catagories'],
   data () {
     return {
-      subject: "",
-      content: "",
-      Discussion: [],
-      more: [],
-      counter: "",
+     
     }
   },
 
   methods: {
     getContactus(id) {
-      caxios.get('https://talk.vtaiwan.tw/c/contactus/l/latest.json?page='+ id)
-      //caxios.get('https://talk.pdis.nat.gov.tw/c/pdis-site/how-we-work-track/l/latest.json?page='+ id) //pdis
+      caxios.post('https://talk.pdis.nat.gov.tw/posts?api_key=cd1a0c22c71b51dec2b702fbb646df99899c27e32c106a1c3173e1ac5336308c&api_username=talk.about.pdis',{})
       .then((response) => {
-        this.more= response.data['topic_list'];
-        let discus = response.data['topic_list'];     
-        discus = discus['topics'].slice(1); // 取得詳細內容(第一篇)
-        for(let i of discus){
-          this.Discussion.push(i)
-        }
+        let body = this.serialize(JSON.parse(JSON.stringify({ "title": title, "raw": raw, "category": category, "archetype": "regular", "reply_to_post_number": "0" })));
+        console.log(response);
       })
     },
     greet: function (event) {
