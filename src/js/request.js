@@ -22,7 +22,8 @@ export default {
     return results[uri]
   },
   post: (uri,jsondata) =>{
-    
+    console.log("jsondata")
+    console.log(jsondata)
     return axios.post(uri,jsondata)
      
   },

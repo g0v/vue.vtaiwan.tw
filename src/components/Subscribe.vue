@@ -6,11 +6,8 @@
           h2 訂閱電子報
             .ui.form
               .field
-                label 標題：
-                input(type='text',name="subject",v-model="subject",placeholder='請輸入標題(字數須達10個字以上)...')
-              .field
-                label 內容：
-                textarea(v-model="content",name="content",style='margin-top: 0px; margin-bottom: 0px; height: 168px;', placeholder="請輸入您寶貴的意見(字數須達20個字以上)...")
+                label email：
+                input(type='text',name="email",v-model="email",placeholder='請輸入email')
               .ui.green.submit.button
                 | 送出       
               .ui.error.message
@@ -20,7 +17,7 @@
 <script>
 import Discussion_Comment from './Detail_Topic_Discussion_Comment.vue'
 import caxios from '../js/request'
-
+import axios from 'axios';
 export default {
   name: 'Home',
   components: {
@@ -30,17 +27,32 @@ export default {
   props:['allTopics', 'catagories'],
   data () {
     return {
-     
+      email: "",
+      content: "",
     }
   },
 
   methods: {
     getContactus(id) {
-      caxios.post('https://talk.pdis.nat.gov.tw/posts?api_key=cd1a0c22c71b51dec2b702fbb646df99899c27e32c106a1c3173e1ac5336308c&api_username=talk.about.pdis',{})
+      var head = {
+        // headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        // headers: {'X-My-Custom-Header': 'Header-Value'}
+        headers: {'X-Custom-Header': 'foobar'}
+        
+      }
+      
+      let body = JSON.parse(JSON.stringify({ "email": "smith02620@gmail.com"}));
+      // let config = JSON.parse(head);
+      // console.log(config)
+      // Vue.http.options.emulateJSON = true;
+      //let header = JSON.parse(JSON.stringify({"headers":{'Content-Type': 'application/x-www-form-urlencoded'}}));
+      axios.post('https://talk.vtaiwan.tw/invites?api_key=5a8b11ee7a8904d870f0cd5e32de5100d59e1390a316b86206c20d4b7dbe911b&api_username=smith02620',body,config)
       .then((response) => {
-        let body = this.serialize(JSON.parse(JSON.stringify({ "title": title, "raw": raw, "category": category, "archetype": "regular", "reply_to_post_number": "0" })));
+        
         console.log(response);
       })
+        
+       
     },
     greet: function (event) {
         this.counter++;
@@ -48,34 +60,27 @@ export default {
     }
   },
   created: function(){
-    this.getContactus(0);
+    this.getContactus();
   },
   updated: function(){
+    var vm = this;
     $('.ui.accordion')
       .accordion()
     ;
     $('.ui.form')
       .form({
         fields: {
-          subject: {
+          email: {
             rules: [
               {
-                type   : 'minLength[10]',
-                prompt : '標題字數須達10個字以上'
-              }
-            ]
-          },
-          content: {
-            rules: [
-              {
-                type   : 'minLength[20]',
-                prompt : '內容字數須達10個字以上'
+                type   : 'email',
+                prompt : '請輸入正確email'
               }
             ]
           },
         },
         onSuccess: function(event, fields) {
-          window.location.href = "mailto:replies+contactus@vtaiwan.tw?subject="+fields.subject+"&body="+fields.content;
+          vm.getContactus();
         }
       })
     ;
