@@ -6,11 +6,16 @@
         // | 探索
       .ui.grid
         .seven.wide.column
-          form.search(:class="{active: myKey}", @keyup.down="onKeyDown()")
-            i.search.icon
-            input(type="search", v-model="myKey", placeholder="探索")
+          //- form.search(:class="{active: myKey}", @keyup.down="onKeyDown()")
+          //-   i.search.icon
+          //-   input(type="search", v-model="myKey", placeholder="探索")
+          //-   SearchResult(v-show="myKey", :allTopics="allTopics", :myKey = "myKey", :myIdx="myIdx")
+          .ui.category.search(:class="{active: myKey}", @keyup.down="onKeyDown()")
+           // p 關鍵字搜尋   
+           .ui.icon.input
+             input.prompt(type="search", v-model="myKey", placeholder="搜尋")
+             i.search.icon 
             SearchResult(v-show="myKey", :allTopics="allTopics", :myKey = "myKey", :myIdx="myIdx")
-
         .two.wide.column
           router-link.logo(to='/', exact='')
             img(src='../assets/vTaiwan_logo_2017.png', alt='logo')
@@ -103,7 +108,17 @@ export default {
     border-bottom: 1px solid lightgray;
   }
 }
-
+.ui.icon.input{
+  height:50px;
+  padding:10px;
+  input{
+    font-size: 1.2rem;
+    padding:0.5em 1em;
+  }
+  i.icon {
+    right:5px;
+  }
+}
 form.search {
   // flex: 0 1 auto;
   font-size: 1.5rem;

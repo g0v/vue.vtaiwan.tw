@@ -1,12 +1,13 @@
 <template lang="jade">
   .component#searchresult
-      .ui.list
-        .item(v-for="(r, idx) in results",v-on:click="sHide")
-          router-link(:to="'/topic/'+r.routeName", v-bind:class="{active: idx == myIdx }") 
-            img.icon(:src="r.icon || r.cover")
-            .text
-              .title(v-html="toHTML(r.title, myKey)") 
-              .route-name(v-html="toHTML(r.routeName, myKey)")  
+    .results
+      .category(v-for="(s, idx) in stage", v-on:click="sHide") 
+         .name {{s}} 
+         router-link.result(v-for="(r, idx) in results",v-if="s == r.status", :to="'/topic/'+r.routeName")
+          .contents
+            .title(v-html="toHTML(r.title, myKey)")
+            .description(v-html="toHTML(r.routeName, myKey)")    
+
 </template>
 
 <script>
@@ -15,15 +16,31 @@ export default {
   props: ['allTopics', 'myKey', 'myIdx'],
   data () {
     return {
+      temp:[]
     }
   },
   computed: {
     results: function () {
       var k = this.myKey;
       var reg = new RegExp(k,'i');
-      return this.allTopics.filter(function(o){
+      var result =this.allTopics.filter(function(o){
         return (reg.test(o.title) || reg.test(o.routeName))
       })
+      return result;
+    },
+    stage: function (){
+      var k = this.myKey;
+      var reg = new RegExp(k,'i');
+      this.temp =[];
+      var result =this.allTopics.filter(function(o){
+        return (reg.test(o.title) || reg.test(o.routeName))
+      })
+      for(var i =0; i<result.length;i++){
+          this.temp.push(result[i].status)
+      }    
+      return this.temp.filter(function(element, index, arr){
+          return arr.indexOf(element)=== index;
+      })  
     }
   },
   methods: {
@@ -37,6 +54,7 @@ export default {
     sHide:function(){
       $("#searchresult").hide();
     }
+    
   }
 }
 </script>
@@ -49,9 +67,10 @@ export default {
 .component {
   position: absolute;
   z-index: 11;
-  width: 33vw;
+  margin-top: 4px;
+  // width: 33vw;
   // max-height:105px;
-  height: 105px;
+  height: 150px;
   overflow: auto;
   background-color: rgba(255,255,255,0.8);
   // border-bottom: 2px solid black;
@@ -59,49 +78,68 @@ export default {
   // border-right: 1px solid black;
   font-size: .7rem;
 }
-
-.list {
-  padding: .5em 0;
-  .item {
-    margin: 0 0;
-    padding: 0 0;
-    a {
-      display: flex;
-      // &.active {
-      //   background-color: #ccf;
-      // }
-      &:hover{
-        background-color:#ccf;
-      }
-      .icon {
-        flex: 0 0 3em;
-        width: 3em;
-        height: 3em;
-        border-left: 3px solid #fff;
-      }
-      .text {
-        flex: 1 1;
-        text-align: left;
-        padding: .2em .5em;
-        border-bottom: 1px solid #ccc;
-        font-size: 1.1rem;
-        strong {
-          /* scoped css 無法 bind 到，所以寫在App.vue的全域css中*/
-        }
-      }
+.results{
+    left:0;
+    transform-origin: center top;
+    white-space: normal;
+    background: #FFF;
+    margin:0 auto;
+    width: 18em;
+    border-radius: .28571429rem;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12), 0 2px 10px 0 rgba(34,36,38,.15);
+    border: 1px solid #D4D4D5;
+    z-index: 998;
+}
+.category{
+    background: #F3F4F5;
+    box-shadow: none;
+    border-bottom: 1px solid rgba(34,36,38,.1);
+    -webkit-transition: background .1s ease,border-color .1s ease;
+    transition: background .1s ease,border-color .1s ease;
+}
+.name{
+    width: 100px;
+    background: 0 0;
+    // font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+    font-size: 1em;
+    float: 1em;
+    float: left;
+    // padding: 1.2em 1em;
+    padding: .4em 1em;
+    font-weight: 700;
+    color: rgba(0,0,0,.4);
+}
+.result{
+    background: #FFF;
+    margin-left: 100px;
+    border-left: 1px solid rgba(34,36,38,.15);
+    border-bottom: 1px solid rgba(34,36,38,.1);
+    // -webkit-transition: background .1s ease,border-color .1s ease;
+    transition: background .1s ease,border-color .1s ease;
+    padding: .85714286em 1.14285714em;
+    cursor: pointer;
+    display: block;
+    overflow: hidden;
+    font-size: 1em;
+    // padding: .85714286em 1.14285714em;
+    color: rgba(0,0,0,.87);
+    line-height: 1.33;
+    // border-bottom: 1px solid rgba(34,36,38,.1)
+    &:hover{
+      background-color: #f3c7c7;
     }
-  }
+}
+.title{
+    margin: -.14285em 0 0;
+    // font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+    font-weight: 700;
+    font-size: 1em;
+    color: rgba(0,0,0,.85);
+}
+.description{
+    margin-top: 0;
+    font-size: .92857143em;
+    color: rgba(0,0,0,.4);
 }
 
-@media only screen and (max-width: $breakpoint+1) {
-    .component {
-      width:100%;
-      height:100%
-    }        
-}
-@media only screen and (min-width: $breakpoint+1) {
-    .component {
-      height:105px;
-    }        
-}
 </style>
