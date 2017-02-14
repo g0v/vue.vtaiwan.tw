@@ -61,19 +61,19 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 173);
+/******/ 	return __webpack_require__(__webpack_require__.s = 178);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 11:
+/***/ 12:
 /***/ function(module, exports) {
 
 /* (ignored) */
 
 /***/ },
 
-/***/ 171:
+/***/ 176:
 /***/ function(module, exports) {
 
 module.exports = Yallist
@@ -440,7 +440,7 @@ function Node (value, prev, next, list) {
 
 /***/ },
 
-/***/ 173:
+/***/ 178:
 /***/ function(module, exports, __webpack_require__) {
 
 __webpack_require__(5);
@@ -459,11 +459,11 @@ module.exports = LRUCache
 
 // This will be a proper iterable 'Map' in engines that support it,
 // or a fakey-fake PseudoMap in older versions.
-var Map = __webpack_require__(92)
-var util = __webpack_require__(96)
+var Map = __webpack_require__(94)
+var util = __webpack_require__(98)
 
 // A linked list to keep track of recently-used-ness
-var Yallist = __webpack_require__(171)
+var Yallist = __webpack_require__(176)
 
 // use symbols if possible, otherwise just _props
 var symbols = {}
@@ -928,7 +928,7 @@ function Entry (key, value, length, now, maxAge) {
 
 /***/ },
 
-/***/ 3:
+/***/ 4:
 /***/ function(module, exports) {
 
 // shim for using process in browser
@@ -6733,7 +6733,7 @@ setTimeout(function () {
 
 module.exports = Vue$2;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
 
@@ -6872,7 +6872,7 @@ function flush() {
 function attemptVertx() {
   try {
     var r = require;
-    var vertx = __webpack_require__(11);
+    var vertx = __webpack_require__(12);
     vertxNext = vertx.runOnLoop || vertx.runOnContext;
     return useVertxTimer();
   } catch (e) {
@@ -7894,7 +7894,7 @@ return Promise;
 
 })));
 //# sourceMappingURL=es6-promise.map
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3), __webpack_require__(7)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4), __webpack_require__(7)))
 
 /***/ },
 
@@ -10342,7 +10342,7 @@ return index;
 
 /***/ },
 
-/***/ 92:
+/***/ 94:
 /***/ function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(process) {if (process.env.npm_package_name === 'pseudomap' &&
@@ -10352,14 +10352,14 @@ return index;
 if (typeof Map === 'function' && !process.env.TEST_PSEUDOMAP) {
   module.exports = Map
 } else {
-  module.exports = __webpack_require__(93)
+  module.exports = __webpack_require__(95)
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
 
-/***/ 93:
+/***/ 95:
 /***/ function(module, exports) {
 
 var hasOwnProperty = Object.prototype.hasOwnProperty
@@ -10479,7 +10479,7 @@ function set (data, k, v) {
 
 /***/ },
 
-/***/ 94:
+/***/ 96:
 /***/ function(module, exports) {
 
 if (typeof Object.create === 'function') {
@@ -10509,7 +10509,7 @@ if (typeof Object.create === 'function') {
 
 /***/ },
 
-/***/ 95:
+/***/ 97:
 /***/ function(module, exports) {
 
 module.exports = function isBuffer(arg) {
@@ -10521,7 +10521,7 @@ module.exports = function isBuffer(arg) {
 
 /***/ },
 
-/***/ 96:
+/***/ 98:
 /***/ function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, process) {// Copyright Joyent, Inc. and other Node contributors.
@@ -11049,7 +11049,7 @@ function isPrimitive(arg) {
 }
 exports.isPrimitive = isPrimitive;
 
-exports.isBuffer = __webpack_require__(95);
+exports.isBuffer = __webpack_require__(97);
 
 function objectToString(o) {
   return Object.prototype.toString.call(o);
@@ -11093,7 +11093,7 @@ exports.log = function() {
  *     prototype.
  * @param {function} superCtor Constructor function to inherit prototype from.
  */
-exports.inherits = __webpack_require__(94);
+exports.inherits = __webpack_require__(96);
 
 exports._extend = function(origin, add) {
   // Don't do anything if add isn't an object
@@ -11111,7 +11111,7 @@ function hasOwnProperty(obj, prop) {
   return Object.prototype.hasOwnProperty.call(obj, prop);
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7), __webpack_require__(3)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7), __webpack_require__(4)))
 
 /***/ }
 
