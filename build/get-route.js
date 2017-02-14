@@ -2,7 +2,7 @@ var request = require('request');
 var fs = require("fs");
 var path = 'https://talk.vtaiwan.tw/c/meta-data.json';
 var file_name = './build/prerender-route.js';
-var prerender = "module.exports = { routes : ['/','/how-to-use','/intro'";
+var prerender = "module.exports = { routes : ['/','/how-to-use','/intro','/search'";
 var headers = {
     'User-Agent': 'Super Agent/0.0.1',
     'Content-Type': 'application/x-www-form-urlencoded'
