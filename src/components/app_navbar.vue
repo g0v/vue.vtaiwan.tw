@@ -13,7 +13,7 @@
           .ui.category.search(:class="{active: myKey}", @keyup.down="onKeyDown()")
            // p 關鍵字搜尋   
            .ui.icon.input
-             input.prompt(type="search", v-model="myKey", placeholder="搜尋")
+             input.prompt(type="search", v-model="myKey", placeholder="搜尋...")
              i.search.icon 
             SearchResult(v-show="myKey", :allTopics="allTopics", :myKey = "myKey", :myIdx="myIdx")
         .two.wide.column
