@@ -1,5 +1,5 @@
 <template lang="jade">
-  .component#searchresult
+  .Search_component#searchresult
     .results
       .category(v-if="stage.length !== 0", v-for="(s, idx) in stage", v-on:click="sHide") 
          .name {{s}} 
@@ -66,11 +66,11 @@ export default {
 
 @import "../sass/global.scss";
 
-.component {
+.Search_component {
   position: absolute;
   z-index: 11;
   margin-top: 4px;
-  height: 150px;
+  max-height: 150px;
   overflow: auto;
   background-color: rgba(255,255,255,0.8);
   font-size: 1rem;
@@ -142,8 +142,12 @@ export default {
 .message.empty {
   text-align: left;
   padding:0.6em;
-  font-size: 1.5em;
+  font-size: 1.2rem;
+  .header{
+    padding-bottom:0.2rem;
+  }
   .description {
+    font-size: 0.8rem;
     color: rgba(0, 0, 0, 0.6);
   }
 }

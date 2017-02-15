@@ -214,9 +214,7 @@ form.search {
     // padding: 10px;
     // border-left: 1px solid #ccc;
 
-    &:visited {
-      // color: #030;
-    }
+    
     &:hover {
       color: white;
       background: $main_color;
