@@ -2,6 +2,7 @@
     <meta charset="utf-8">
     <title>vTaiwan Next</title>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    
     <link href="//fonts.googleapis.com/css?family=Roboto:300,400,700|Lobster" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/semantic.min.css">
     <script src="//code.jquery.com/jquery-1.12.4.min.js"></script>
@@ -17,7 +18,1731 @@
             opacity: 0;
         }
     </style>
+
+    <script type="application/ld+json">
+        {
+            "@context": "http://www.schema.org",
+            "@type": "Organization",
+            "name": "vTaiwan",
+            "url": "http://vue.vtaiwan.tw",
+            "logo": "http://vue.vtaiwan.tw/vTaiwan_logo_2017.png",
+            "description": "行政院虛擬世界發展法規調適規劃方案的線上法規討論平台，由資策會科技法律研究所與 g0v vTaiwan.tw 專案參與者共同建置，為每項提案徵集工作組，進而提出建議規格、形成法規草案。一個討論法規該如何制定或修改的平台，透過彼此的意見交流，希望能夠產出符合各利益關係人期待，也貼近實際需求的法規內容。",
+            "sameAs": [
+                "https://www.youtube.com/channel/UChC85hbUuDAvFpc7Uuj69DA/",
+                "https://www.facebook.com/vtaiwan.tw/"
+            ],
+            "email": "replies+contactus@vtaiwan.tw",
+            "foundingDate": "2014/12/20"
+        }
+    </script>
+
 <style type="text/css">
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component {
+  position: relative;
+}
+.component h1, .component h2, .component h3, .component h4, .component h5, .component h6, .component p {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component h1 a, .component h2 a, .component h3 a, .component h4 a, .component h5 a, .component h6 a, .component p a {
+      cursor: pointer !important;
+      color: dimgray;
+      border-bottom: 1px dashed lightgray;
+}
+.component strong {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only {
+    display: none !important;
+}
+}
+.app {
+  min-height: 100vh;
+  width: 100%;
+  margin: 0;
+  transition: border-color 0.5s ease;
+}
+.app.join {
+    border-color: #f4719d;
+}
+.app.intro {
+    border-color: #ec8013;
+}
+.app.live {
+    border-color: #1313ec;
+}
+.app.track {
+    border-color: #8e8e0b;
+}
+.main {
+  position: relative;
+  top: 0;
+  width: 100%;
+  text-align: center;
+}
+.fade-in-enter, .fade-in-leave-active {
+  opacity: 0;
+}
+.fade-in-enter-active {
+  transition: all 0.5s ease-in;
+}
+.navbar {
+  position: fixed;
+  z-index: 999999;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+.footer {
+  position: relative;
+  margin: 0 auto;
+  margin-top: 40px;
+  max-width: 100%;
+}
+</style><style type="text/css">
+*[data-v-8718f044] {
+  box-sizing: border-box;
+}
+body[data-v-8718f044] {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component[data-v-8718f044] {
+  position: relative;
+}
+.component h1[data-v-8718f044], .component h2[data-v-8718f044], .component h3[data-v-8718f044], .component h4[data-v-8718f044], .component h5[data-v-8718f044], .component h6[data-v-8718f044], .component p[data-v-8718f044] {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component h1 a[data-v-8718f044], .component h2 a[data-v-8718f044], .component h3 a[data-v-8718f044], .component h4 a[data-v-8718f044], .component h5 a[data-v-8718f044], .component h6 a[data-v-8718f044], .component p a[data-v-8718f044] {
+      cursor: pointer !important;
+      color: dimgray;
+      border-bottom: 1px dashed lightgray;
+}
+.component strong[data-v-8718f044] {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only[data-v-8718f044] {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only[data-v-8718f044] {
+    display: none !important;
+}
+}
+@media screen and (min-width: 767px) {
+.component[data-v-8718f044] {
+    height: 55px;
+}
+}
+.component nav.fat-only[data-v-8718f044] {
+  position: fixed;
+  z-index: 999999;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 55px;
+  overflow: visible;
+  background: rgba(255, 255, 255, 0.95);
+  border-bottom: 1px solid lightgray;
+}
+.ui.icon.input[data-v-8718f044] {
+  height: 50px;
+  padding: 10px;
+}
+.ui.icon.input input[data-v-8718f044] {
+    font-size: 1.2rem;
+    padding: 0.5em 1em;
+}
+.ui.icon.input i.icon[data-v-8718f044] {
+    right: 5px;
+}
+form.search[data-v-8718f044] {
+  font-size: 1.5rem;
+  position: relative;
+  display: inline-block;
+  line-height: 55px;
+  padding: 0 0 0 1em;
+}
+form.search i.search.icon[data-v-8718f044] {
+    position: absolute;
+    z-index: -1;
+    right: .55em;
+    line-height: 55px;
+    color: gray;
+}
+form.search input[data-v-8718f044] {
+    color: gray;
+    height: calc( 55px * 0.55);
+    border: 1px solid lightgray;
+    border-radius: 1em;
+    padding: 0 .6em;
+    background-color: transparent;
+}
+form.search input[data-v-8718f044]:focus {
+      outline: none;
+}
+form.search.active i.icon[data-v-8718f044] {
+    visibility: hidden;
+}
+.logo[data-v-8718f044] {
+  height: 55px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+}
+.logo img[data-v-8718f044] {
+    width: auto;
+    max-height: 75%;
+}
+.logo span[data-v-8718f044] {
+    color: black;
+    font-family: Lobster, "Microsoft JhengHei", "Heiti TC", serif;
+    font-size: 2rem;
+    margin-left: .3em;
+}
+.right[data-v-8718f044] {
+  text-align: right;
+}
+.right a.item[data-v-8718f044] {
+    font-size: 1.2rem;
+    display: inline-block;
+    line-height: 55px;
+    padding: 0 1em;
+    color: dimgray;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.5s ease;
+}
+.right a.item[data-v-8718f044]:hover {
+      color: white;
+      background: #3fadc7;
+}
+.right a.item.active[data-v-8718f044], .right a.item.router-link-active[data-v-8718f044] {
+      background-color: #f4e025;
+}
+@media screen and (max-width: 767px) {
+.thin-only[data-v-8718f044] {
+    border-bottom: 1px solid #ccc;
+}
+}
+.m-logo[data-v-8718f044] {
+  width: 50%;
+  margin: 0 auto;
+  height: 20vh;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: row nowrap;
+      flex-flow: row nowrap;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+}
+.m-logo img[data-v-8718f044] {
+    width: 60px;
+    height: 60px;
+    margin: 0;
+}
+.m-logo span[data-v-8718f044] {
+    color: black;
+    font-family: Lobster, "Microsoft JhengHei", "Heiti TC", serif;
+    font-size: 1.6rem;
+    padding: 0 0 0 .3em;
+}
+.menu[data-v-8718f044] {
+  height: 10vh;
+  line-height: 10vh;
+  display: -ms-flexbox;
+  display: flex;
+}
+.menu a.m-item[data-v-8718f044], .menu a.item[data-v-8718f044] {
+    cursor: pointer !important;
+    -ms-flex: 1;
+        flex: 1;
+    text-align: center;
+    font-size: 1.3rem;
+    color: dimgray;
+}
+.menu a.m-item[data-v-8718f044]:hover, .menu a.item[data-v-8718f044]:hover {
+      color: white;
+      background: #3fadc7;
+}
+</style><style type="text/css">
+*[data-v-91a79d22] {
+  box-sizing: border-box;
+}
+body[data-v-91a79d22] {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component[data-v-91a79d22] {
+  position: relative;
+}
+.component h1[data-v-91a79d22], .component h2[data-v-91a79d22], .component h3[data-v-91a79d22], .component h4[data-v-91a79d22], .component h5[data-v-91a79d22], .component h6[data-v-91a79d22], .component p[data-v-91a79d22] {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component h1 a[data-v-91a79d22], .component h2 a[data-v-91a79d22], .component h3 a[data-v-91a79d22], .component h4 a[data-v-91a79d22], .component h5 a[data-v-91a79d22], .component h6 a[data-v-91a79d22], .component p a[data-v-91a79d22] {
+      cursor: pointer !important;
+      color: dimgray;
+      border-bottom: 1px dashed lightgray;
+}
+.component strong[data-v-91a79d22] {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only[data-v-91a79d22] {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only[data-v-91a79d22] {
+    display: none !important;
+}
+}
+.component[data-v-91a79d22] {
+  position: absolute;
+  z-index: 11;
+  margin-top: 4px;
+  height: 150px;
+  overflow: auto;
+  background-color: rgba(255, 255, 255, 0.8);
+  font-size: .7rem;
+}
+.results[data-v-91a79d22] {
+  left: 0;
+  transform-origin: center top;
+  white-space: normal;
+  background: #FFF;
+  margin: 0 auto;
+  width: 18em;
+  border-radius: .28571429rem;
+  box-shadow: 0 2px 4px 0 rgba(34, 36, 38, 0.12), 0 2px 10px 0 rgba(34, 36, 38, 0.15);
+  border: 1px solid #D4D4D5;
+  z-index: 998;
+}
+.category[data-v-91a79d22] {
+  background: #F3F4F5;
+  box-shadow: none;
+  border-bottom: 1px solid rgba(34, 36, 38, 0.1);
+  transition: background .1s ease,border-color .1s ease;
+}
+.name[data-v-91a79d22] {
+  width: 100px;
+  background: 0 0;
+  font-size: 1em;
+  float: 1em;
+  float: left;
+  padding: .4em 1em;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.4);
+}
+.result[data-v-91a79d22] {
+  background: #FFF;
+  margin-left: 100px;
+  border-left: 1px solid rgba(34, 36, 38, 0.15);
+  border-bottom: 1px solid rgba(34, 36, 38, 0.1);
+  transition: background .1s ease,border-color .1s ease;
+  padding: .85714286em 1.14285714em;
+  cursor: pointer;
+  display: block;
+  overflow: hidden;
+  font-size: 1em;
+  color: rgba(0, 0, 0, 0.87);
+  line-height: 1.33;
+}
+.result[data-v-91a79d22]:hover {
+    background-color: #f3c7c7;
+}
+.title[data-v-91a79d22] {
+  margin: -.14285em 0 0;
+  font-weight: 700;
+  font-size: 1em;
+  color: rgba(0, 0, 0, 0.85);
+}
+.description[data-v-91a79d22] {
+  margin-top: 0;
+  font-size: .92857143em;
+  color: rgba(0, 0, 0, 0.4);
+}
+</style><style type="text/css">
+*[data-v-5120c3f7] {
+  box-sizing: border-box;
+}
+body[data-v-5120c3f7] {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component[data-v-5120c3f7] {
+  position: relative;
+}
+.component h1[data-v-5120c3f7], .component h2[data-v-5120c3f7], .component h3[data-v-5120c3f7], .component h4[data-v-5120c3f7], .component h5[data-v-5120c3f7], .component h6[data-v-5120c3f7], .component p[data-v-5120c3f7] {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component h1 a[data-v-5120c3f7], .component h2 a[data-v-5120c3f7], .component h3 a[data-v-5120c3f7], .component h4 a[data-v-5120c3f7], .component h5 a[data-v-5120c3f7], .component h6 a[data-v-5120c3f7], .component p a[data-v-5120c3f7] {
+      cursor: pointer !important;
+      color: dimgray;
+      border-bottom: 1px dashed lightgray;
+}
+.component strong[data-v-5120c3f7] {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only[data-v-5120c3f7] {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only[data-v-5120c3f7] {
+    display: none !important;
+}
+}
+.component[data-v-5120c3f7] {
+  padding: 1em;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+.row[data-v-5120c3f7] {
+  margin-bottom: 1em;
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+u[data-v-5120c3f7] {
+  color: black;
+  text-align: left;
+}
+.ui.button[data-v-5120c3f7] {
+  background-color: rgba(34, 36, 38, 0.21);
+  margin-right: 1em;
+}
+.ui.button[data-v-5120c3f7]:hover {
+  -webkit-filter: inherit;
+          filter: inherit;
+}
+.ui.list > a.item[data-v-5120c3f7] {
+  color: #696969;
+}
+.ui.list > a.item[data-v-5120c3f7]:hover {
+  color: #1b1c1d;
+}
+.linkicon[data-v-5120c3f7] {
+  text-align: center;
+}
+.ui.grid[data-v-5120c3f7] {
+  margin-bottom: 2em;
+  text-align: left;
+}
+</style><style type="text/css">
+*[data-v-60640b22] {
+  box-sizing: border-box;
+}
+body[data-v-60640b22] {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component[data-v-60640b22] {
+  position: relative;
+}
+.component h1[data-v-60640b22], .component h2[data-v-60640b22], .component h3[data-v-60640b22], .component h4[data-v-60640b22], .component h5[data-v-60640b22], .component h6[data-v-60640b22], .component p[data-v-60640b22] {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component h1 a[data-v-60640b22], .component h2 a[data-v-60640b22], .component h3 a[data-v-60640b22], .component h4 a[data-v-60640b22], .component h5 a[data-v-60640b22], .component h6 a[data-v-60640b22], .component p a[data-v-60640b22] {
+      cursor: pointer !important;
+      color: dimgray;
+      border-bottom: 1px dashed lightgray;
+}
+.component strong[data-v-60640b22] {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only[data-v-60640b22] {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only[data-v-60640b22] {
+    display: none !important;
+}
+}
+.home[data-v-60640b22] {
+  width: 100%;
+  min-width: 320px;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media screen and (min-width: 767px) {
+.home[data-v-60640b22] {
+      margin-top: calc( -1 * 55px);
+}
+}
+p[data-v-60640b22] {
+  font-size: 1rem;
+  text-align: left;
+  line-height: 155%;
+  padding: 5px;
+}
+</style><style type="text/css">
+*[data-v-30cdb09e] {
+  box-sizing: border-box;
+}
+body[data-v-30cdb09e] {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component[data-v-30cdb09e] {
+  position: relative;
+}
+.component h1[data-v-30cdb09e], .component h2[data-v-30cdb09e], .component h3[data-v-30cdb09e], .component h4[data-v-30cdb09e], .component h5[data-v-30cdb09e], .component h6[data-v-30cdb09e], .component p[data-v-30cdb09e] {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component h1 a[data-v-30cdb09e], .component h2 a[data-v-30cdb09e], .component h3 a[data-v-30cdb09e], .component h4 a[data-v-30cdb09e], .component h5 a[data-v-30cdb09e], .component h6 a[data-v-30cdb09e], .component p a[data-v-30cdb09e] {
+      cursor: pointer !important;
+      color: dimgray;
+      border-bottom: 1px dashed lightgray;
+}
+.component strong[data-v-30cdb09e] {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only[data-v-30cdb09e] {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only[data-v-30cdb09e] {
+    display: none !important;
+}
+}
+.swiper-container[data-v-30cdb09e] {
+  height: 100vh;
+}
+@media only screen and (max-width: 767px) {
+.swiper-container[data-v-30cdb09e] {
+      height: 70vh;
+}
+}
+.slide-page[data-v-30cdb09e] {
+  height: 100vh;
+}
+@media only screen and (max-width: 767px) {
+.slide-page[data-v-30cdb09e] {
+      height: 70vh;
+}
+}
+.slide-item[data-v-30cdb09e] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  overflow: hidden;
+  height: 100%;
+  transition: all .3s ease;
+}
+.box[data-v-30cdb09e] {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-flow: column;
+      flex-flow: column;
+  -ms-flex-align: center;
+      align-items: center;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.8), transparent);
+}
+.box .status[data-v-30cdb09e] {
+    color: #db4f4f;
+    border: 2px solid #db4f4f;
+    background: rgba(77, 77, 77, 0.5);
+}
+.box .title[data-v-30cdb09e] {
+    color: white;
+}
+.box .slogan[data-v-30cdb09e] {
+    margin: .5em 0 1em 0;
+    font-size: 3rem;
+    color: white;
+    text-shadow: 0 0 5px gray;
+}
+@media only screen and (max-width: 767px) {
+.box .slogan[data-v-30cdb09e] {
+        font-size: 2rem;
+}
+}
+.box .slogan .sub.header[data-v-30cdb09e] {
+      color: white;
+      text-shadow: 0 0 5px gray;
+}
+a[data-v-30cdb09e] {
+  cursor: pointer;
+}
+a:hover i[data-v-30cdb09e] {
+    color: white !important;
+    transition: all .3s ease;
+}
+a.pre[data-v-30cdb09e], a.next[data-v-30cdb09e] {
+    position: absolute;
+    z-index: 5;
+    text-shadow: 0 0 5px white;
+    top: 44vh;
+}
+a.pre[data-v-30cdb09e] {
+    left: 5px;
+}
+a.next[data-v-30cdb09e] {
+    right: 5px;
+}
+.m-slide-page[data-v-30cdb09e] {
+  white-space: nowrap;
+}
+.m-slide-item[data-v-30cdb09e] {
+  display: inline-block;
+  width: 98vw;
+  height: 70vh;
+  margin: 0 0.5px;
+  background-size: cover;
+  background-position: center;
+}
+</style><style type="text/css">
+*[data-v-0aea0f33] {
+  box-sizing: border-box;
+}
+body[data-v-0aea0f33] {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component[data-v-0aea0f33] {
+  position: relative;
+}
+.component h1[data-v-0aea0f33], .component h2[data-v-0aea0f33], .component h3[data-v-0aea0f33], .component h4[data-v-0aea0f33], .component h5[data-v-0aea0f33], .component h6[data-v-0aea0f33], .component p[data-v-0aea0f33] {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component h1 a[data-v-0aea0f33], .component h2 a[data-v-0aea0f33], .component h3 a[data-v-0aea0f33], .component h4 a[data-v-0aea0f33], .component h5 a[data-v-0aea0f33], .component h6 a[data-v-0aea0f33], .component p a[data-v-0aea0f33] {
+      cursor: pointer !important;
+      color: dimgray;
+      border-bottom: 1px dashed lightgray;
+}
+.component strong[data-v-0aea0f33] {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only[data-v-0aea0f33] {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only[data-v-0aea0f33] {
+    display: none !important;
+}
+}
+.component[data-v-0aea0f33] {
+  padding: 1em 0;
+}
+.ui.steps .step[data-v-0aea0f33] {
+  -ms-flex: 1 1 auto;
+      flex: 1 1 auto;
+  overflow: hidden;
+}
+.ui.steps .number[data-v-0aea0f33] {
+  font-family: Lobster, "Microsoft JhengHei", "Heiti TC", serif;
+  font-weight: 700;
+  position: absolute;
+  font-size: 10rem;
+  color: rgba(219, 79, 79, 0.5);
+  margin: 0 0 0 -.6em;
+}
+.ui.steps .label[data-v-0aea0f33] {
+  padding: .3em 0 0 .3em;
+  z-index: 100;
+}
+@media only screen and (max-width: 767px) {
+.component[data-v-0aea0f33] {
+    padding: 0px;
+    border: 0px;
+}
+.ui.container[data-v-0aea0f33] {
+    margin: 0 !important;
+}
+.ui.segment.basic[data-v-0aea0f33] {
+    padding: 0;
+    margin-left: 1em;
+    width: 100%;
+}
+.mobile-step[data-v-0aea0f33] {
+    /* do not use #mobile-step, otherwise sticky won't work */
+    position: absolute;
+    top: 1em;
+}
+.mobile-step .ui.menu[data-v-0aea0f33] {
+      width: 2em;
+}
+.mobile-step .ui.menu .item[data-v-0aea0f33] {
+        padding: 1em 0;
+}
+.mobile-step .ui.menu .item.active[data-v-0aea0f33] {
+          color: white;
+          background: #db4f4f;
+}
+}
+</style><style type="text/css">
+*[data-v-67d7e20d] {
+  box-sizing: border-box;
+}
+body[data-v-67d7e20d] {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component[data-v-67d7e20d] {
+  position: relative;
+}
+.component h1[data-v-67d7e20d], .component h2[data-v-67d7e20d], .component h3[data-v-67d7e20d], .component h4[data-v-67d7e20d], .component h5[data-v-67d7e20d], .component h6[data-v-67d7e20d], .component p[data-v-67d7e20d] {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component h1 a[data-v-67d7e20d], .component h2 a[data-v-67d7e20d], .component h3 a[data-v-67d7e20d], .component h4 a[data-v-67d7e20d], .component h5 a[data-v-67d7e20d], .component h6 a[data-v-67d7e20d], .component p a[data-v-67d7e20d] {
+      cursor: pointer !important;
+      color: dimgray;
+      border-bottom: 1px dashed lightgray;
+}
+.component strong[data-v-67d7e20d] {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only[data-v-67d7e20d] {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only[data-v-67d7e20d] {
+    display: none !important;
+}
+}
+.desc[data-v-67d7e20d] {
+  width: 100%;
+  margin-top: -1em;
+}
+.box[data-v-67d7e20d] {
+  display: -ms-flexbox !important;
+  display: flex !important;
+}
+.box .box-inner[data-v-67d7e20d] {
+    box-shadow: 0 3px 1em rgba(0, 0, 0, 0.1);
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-flow: column nowrap;
+        flex-flow: column nowrap;
+    overflow: hidden;
+}
+.box .box-inner img.ui[data-v-67d7e20d] {
+      -ms-flex: 1 1;
+          flex: 1 1;
+}
+.box .box-inner h3.ui[data-v-67d7e20d] {
+      margin-top: 1em;
+}
+.box .box-inner .progress_bar[data-v-67d7e20d] {
+      margin: 0 -1em -1em -1em;
+      width: calc(2em+100%);
+      height: 2em;
+      color: #3fadc7;
+      position: relative;
+}
+.box .box-inner .progress_bar .progress_text[data-v-67d7e20d] {
+        padding: 0 0 .5em 0;
+        background: transparent !important;
+}
+
+/********************************* mobile view */
+.m-title[data-v-67d7e20d] {
+  background-color: #E6E6E6;
+  padding: .5em;
+}
+</style><style type="text/css">
+*[data-v-27dbf9ac] {
+  box-sizing: border-box;
+}
+body[data-v-27dbf9ac] {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component[data-v-27dbf9ac] {
+  position: relative;
+}
+.component h1[data-v-27dbf9ac], .component h2[data-v-27dbf9ac], .component h3[data-v-27dbf9ac], .component h4[data-v-27dbf9ac], .component h5[data-v-27dbf9ac], .component h6[data-v-27dbf9ac], .component p[data-v-27dbf9ac] {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component h1 a[data-v-27dbf9ac], .component h2 a[data-v-27dbf9ac], .component h3 a[data-v-27dbf9ac], .component h4 a[data-v-27dbf9ac], .component h5 a[data-v-27dbf9ac], .component h6 a[data-v-27dbf9ac], .component p a[data-v-27dbf9ac] {
+      cursor: pointer !important;
+      color: dimgray;
+      border-bottom: 1px dashed lightgray;
+}
+.component strong[data-v-27dbf9ac] {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only[data-v-27dbf9ac] {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only[data-v-27dbf9ac] {
+    display: none !important;
+}
+}
+.component[data-v-27dbf9ac] {
+  padding-top: 1em;
+}
+</style><style type="text/css">
+*[data-v-3b7b10e8] {
+  box-sizing: border-box;
+}
+body[data-v-3b7b10e8] {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component[data-v-3b7b10e8] {
+  position: relative;
+}
+.component h1[data-v-3b7b10e8], .component h2[data-v-3b7b10e8], .component h3[data-v-3b7b10e8], .component h4[data-v-3b7b10e8], .component h5[data-v-3b7b10e8], .component h6[data-v-3b7b10e8], .component p[data-v-3b7b10e8] {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component h1 a[data-v-3b7b10e8], .component h2 a[data-v-3b7b10e8], .component h3 a[data-v-3b7b10e8], .component h4 a[data-v-3b7b10e8], .component h5 a[data-v-3b7b10e8], .component h6 a[data-v-3b7b10e8], .component p a[data-v-3b7b10e8] {
+      cursor: pointer !important;
+      color: dimgray;
+      border-bottom: 1px dashed lightgray;
+}
+.component strong[data-v-3b7b10e8] {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only[data-v-3b7b10e8] {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only[data-v-3b7b10e8] {
+    display: none !important;
+}
+}
+.component[data-v-3b7b10e8] {
+  padding-top: 1em;
+}
+</style><style type="text/css">
+*[data-v-47d63a09] {
+  box-sizing: border-box;
+}
+body[data-v-47d63a09] {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component[data-v-47d63a09] {
+  position: relative;
+}
+.component h1[data-v-47d63a09], .component h2[data-v-47d63a09], .component h3[data-v-47d63a09], .component h4[data-v-47d63a09], .component h5[data-v-47d63a09], .component h6[data-v-47d63a09], .component p[data-v-47d63a09] {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component h1 a[data-v-47d63a09], .component h2 a[data-v-47d63a09], .component h3 a[data-v-47d63a09], .component h4 a[data-v-47d63a09], .component h5 a[data-v-47d63a09], .component h6 a[data-v-47d63a09], .component p a[data-v-47d63a09] {
+      cursor: pointer !important;
+      color: dimgray;
+      border-bottom: 1px dashed lightgray;
+}
+.component strong[data-v-47d63a09] {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only[data-v-47d63a09] {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only[data-v-47d63a09] {
+    display: none !important;
+}
+}
+</style><style type="text/css">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style><style type="text/css">
+*[data-v-4144f431] {
+  box-sizing: border-box;
+}
+body[data-v-4144f431] {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component[data-v-4144f431] {
+  position: relative;
+}
+.component h1[data-v-4144f431], .component h2[data-v-4144f431], .component h3[data-v-4144f431], .component h4[data-v-4144f431], .component h5[data-v-4144f431], .component h6[data-v-4144f431], .component p[data-v-4144f431] {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component h1 a[data-v-4144f431], .component h2 a[data-v-4144f431], .component h3 a[data-v-4144f431], .component h4 a[data-v-4144f431], .component h5 a[data-v-4144f431], .component h6 a[data-v-4144f431], .component p a[data-v-4144f431] {
+      cursor: pointer !important;
+      color: dimgray;
+      border-bottom: 1px dashed lightgray;
+}
+.component strong[data-v-4144f431] {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only[data-v-4144f431] {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only[data-v-4144f431] {
+    display: none !important;
+}
+}
+#sidebar.sidebar[data-v-4144f431] {
+  text-align: left;
+}
+#sidebar.sidebar .menu[data-v-4144f431] {
+    margin: 0;
+}
+#sidebar.sidebar .menu .router-link-active[data-v-4144f431] {
+      color: white;
+}
+#opener.button[data-v-4144f431] {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+</style><style type="text/css">
+*[data-v-287bb503] {
+  box-sizing: border-box;
+}
+body[data-v-287bb503] {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component[data-v-287bb503] {
+  position: relative;
+}
+.component h1[data-v-287bb503], .component h2[data-v-287bb503], .component h3[data-v-287bb503], .component h4[data-v-287bb503], .component h5[data-v-287bb503], .component h6[data-v-287bb503], .component p[data-v-287bb503] {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component h1 a[data-v-287bb503], .component h2 a[data-v-287bb503], .component h3 a[data-v-287bb503], .component h4 a[data-v-287bb503], .component h5 a[data-v-287bb503], .component h6 a[data-v-287bb503], .component p a[data-v-287bb503] {
+      cursor: pointer !important;
+      color: dimgray;
+      border-bottom: 1px dashed lightgray;
+}
+.component strong[data-v-287bb503] {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only[data-v-287bb503] {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only[data-v-287bb503] {
+    display: none !important;
+}
+}
+.content[data-v-287bb503] {
+  margin-top: 10px;
+}
+.fat-only[data-v-287bb503] {
+  margin-bottom: 25px;
+}
+</style><style type="text/css">
+*[data-v-1568d51d] {
+  box-sizing: border-box;
+}
+body[data-v-1568d51d] {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component[data-v-1568d51d] {
+  position: relative;
+}
+.component h1[data-v-1568d51d], .component h2[data-v-1568d51d], .component h3[data-v-1568d51d], .component h4[data-v-1568d51d], .component h5[data-v-1568d51d], .component h6[data-v-1568d51d], .component p[data-v-1568d51d] {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component h1 a[data-v-1568d51d], .component h2 a[data-v-1568d51d], .component h3 a[data-v-1568d51d], .component h4 a[data-v-1568d51d], .component h5 a[data-v-1568d51d], .component h6 a[data-v-1568d51d], .component p a[data-v-1568d51d] {
+      cursor: pointer !important;
+      color: dimgray;
+      border-bottom: 1px dashed lightgray;
+}
+.component strong[data-v-1568d51d] {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only[data-v-1568d51d] {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only[data-v-1568d51d] {
+    display: none !important;
+}
+}
+.step-progress-bar[data-v-1568d51d] {
+  width: 600px;
+  margin: 0 auto;
+  display: block;
+  height: 100px;
+  padding: 10px;
+}
+@media only screen and (max-width: 767px) {
+.step-progress-bar[data-v-1568d51d] {
+      width: 100%;
+}
+.step-progress-bar li[data-v-1568d51d] {
+        font-size: 1rem;
+}
+}
+ul.progress-bar[data-v-1568d51d] {
+  counter-reset: step;
+  padding: 0;
+}
+.step-progress-bar li[data-v-1568d51d] {
+  list-style-type: none;
+  float: left;
+  color: #40B3BF;
+  width: 20%;
+  position: relative;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+.step-progress-bar li[data-v-1568d51d]:before {
+  content: counter(step);
+  counter-increment: step;
+  width: 30px;
+  height: 30px;
+  border: 2px solid #40B3BF;
+  border-radius: 50%;
+  display: block;
+  text-align: center;
+  line-height: 30px;
+  margin: 0 auto 10px auto;
+  z-index: 9;
+  background-color: white;
+  font-weight: 600;
+}
+.step-progress-bar li[data-v-1568d51d]:after {
+  content: "";
+  width: 100%;
+  position: absolute;
+  height: 2px;
+  background-color: #40B3BF;
+  top: 16px;
+  left: 50%;
+  z-index: -1;
+}
+.step-progress-bar li[data-v-1568d51d]:last-child:after {
+  content: none;
+}
+.step-progress-bar li.active[data-v-1568d51d] {
+  color: #DB5252;
+}
+.step-progress-bar li.active[data-v-1568d51d]:before {
+  border-color: #DB5252;
+}
+.step-progress-bar li.active[data-v-1568d51d]:after {
+  background-color: #DB5252;
+}
+</style><style type="text/css">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style><style type="text/css">
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component {
+  position: relative;
+}
+.component h1, .component h2, .component h3, .component h4, .component h5, .component h6, .component p {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component h1 a, .component h2 a, .component h3 a, .component h4 a, .component h5 a, .component h6 a, .component p a {
+      cursor: pointer !important;
+      color: dimgray;
+      border-bottom: 1px dashed lightgray;
+}
+.component strong {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only {
+    display: none !important;
+}
+}
+.fat-only .content {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.fat-only .content h1, .fat-only .content h2, .fat-only .content h3, .fat-only .content h4, .fat-only .content h5, .fat-only .content h6 {
+    text-align: center;
+}
+.fat-only .content p, .fat-only .content li, .fat-only .content ol {
+    text-align: left;
+}
+.fat-only .content p iframe {
+    display: block;
+    margin: 0 auto;
+}
+.fat-only .content blockquote {
+    margin: 0 0 10px 0;
+    text-align: left;
+    padding: 5px;
+    border-left: 5px solid #e9e9e9;
+    background-color: #f8f8f8;
+    font-weight: 600;
+}
+.thin-only .content {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.thin-only .content iframe {
+    width: 100%;
+}
+.thin-only .content h1, .thin-only .content h2, .thin-only .content h3, .thin-only .content h4, .thin-only .content h5, .thin-only .content h6 {
+    text-align: center;
+}
+.thin-only .content p, .thin-only .content li, .thin-only .content ol {
+    text-align: left;
+}
+.thin-only .content blockquote {
+    margin: 0 0 10px 0;
+    text-align: left;
+    padding: 5px;
+    border-left: 5px solid #e9e9e9;
+    background-color: #f8f8f8;
+    font-weight: 600;
+}
+</style><style type="text/css">
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component {
+  position: relative;
+}
+.component h1, .component h2, .component h3, .component h4, .component h5, .component h6, .component p {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component h1 a, .component h2 a, .component h3 a, .component h4 a, .component h5 a, .component h6 a, .component p a {
+      cursor: pointer !important;
+      color: dimgray;
+      border-bottom: 1px dashed lightgray;
+}
+.component strong {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only {
+    display: none !important;
+}
+}
+.Discoussioncomponent {
+  font-size: 1.5rem;
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  line-height: 1.5em;
+}
+.textleft {
+  text-align: left;
+}
+.ui.styled.accordion {
+  width: 100%;
+}
+.ui.styled.accordion .title {
+  color: rgba(0, 0, 0, 0.6);
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.ui.accordion .active.content {
+  display: block;
+  max-width: 100%;
+}
+</style><style type="text/css">
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component {
+  position: relative;
+}
+.component h1, .component h2, .component h3, .component h4, .component h5, .component h6, .component p {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component h1 a, .component h2 a, .component h3 a, .component h4 a, .component h5 a, .component h6 a, .component p a {
+      cursor: pointer !important;
+      color: dimgray;
+      border-bottom: 1px dashed lightgray;
+}
+.component strong {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only {
+    display: none !important;
+}
+}
+.Commentcomponent {
+  font-size: 1.5rem;
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.ui.compact.menu {
+  margin-bottom: 2em;
+}
+.ui.menu .item {
+  padding: 0.5em 0.8em;
+}
+.ui.green.button {
+  background-color: #40B3BF;
+}
+.ui.fluid.button {
+  width: 76%;
+  margin: auto;
+  margin-bottom: 1em;
+  font-size: 1.5rem;
+}
+@media only screen and (max-width: 767px) {
+.ui.fluid.button {
+      font-size: 0.8rem;
+}
+}
+.commentline {
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+  margin: 2em 0em 2em 0em;
+}
+.ui.comments .comment .text {
+  margin: 0.5em 0em 0em 3em;
+}
+@media only screen and (max-width: 767px) {
+.ui.comments .comment .text {
+      margin: 2em 0em 0em 0.5em;
+}
+}
+.ui.comments {
+  max-width: 93%;
+}
+.discussioncontent blockquote {
+  margin: 0 0 10px 0;
+  text-align: left;
+  padding: 5px;
+  border: 0px;
+}
+.discussioncontent blockquote p {
+    text-align: left;
+    font-weight: normal;
+}
+.ui.comments .comment a.author {
+  margin: 0em 1em 0em 0.5em;
+}
+.ui.comments .comment img.avatar {
+  width: 2em;
+}
+</style><style type="text/css">
+.event-list[data-v-88189242] {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: column nowrap;
+      flex-flow: column nowrap;
+}
+.event-list .item[data-v-88189242] {
+    display: -ms-flexbox;
+    display: flex;
+    text-align: left;
+    padding: 1em;
+    font-size: 1.2rem;
+}
+.event-list .item.dark[data-v-88189242] {
+      background-color: #eeeeee;
+}
+.event-list .item.gloom[data-v-88189242] {
+      background-color: #f4f4f4;
+}
+.event-list .item.light[data-v-88189242] {
+      background-color: #fbfbfb;
+}
+.event-list .item .big[data-v-88189242] {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.event-list .item .small[data-v-88189242] {
+      -ms-flex: 2 0 6em;
+          flex: 2 0 6em;
+}
+.event-list .item .small p[data-v-88189242] {
+        font-weight: 600;
+        margin-bottom: 1.2rem;
+}
+.fat-only .big[data-v-88189242] {
+  -ms-flex: 1 0 15em;
+      flex: 1 0 15em;
+}
+.thin-only .item[data-v-88189242] {
+  padding: 1em 0 1em 0.5em;
+  font-size: 1.1rem;
+}
+.thin-only .item .big[data-v-88189242] {
+    -ms-flex: 1 0 6em;
+        flex: 1 0 6em;
+}
+</style><style type="text/css">
+.ui.teal.button {
+  margin-bottom: 0.5em;
+  background-color: #40B3BF;
+}
+@media only screen and (max-width: 767px) {
+.ui.teal.button {
+      padding: 0.7em;
+}
+}
+</style><style type="text/css">
+.component[data-v-0638e068] {
+  position: relative;
+}
+p[data-v-0638e068] {
+  text-align: left;
+}
+</style><style type="text/css">
+.component[data-v-f3276f62] {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  font-size: 0.8rem;
+}
+.subtitle[data-v-f3276f62] {
+  text-align: left;
+  font-size: 1.2rem;
+}
+.container[data-v-f3276f62] {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: row wrap;
+      flex-flow: row wrap;
+  text-align: left;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin: 0 -10px;
+}
+.container .item[data-v-f3276f62] {
+    -ms-flex: 1;
+        flex: 1;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-flow: column nowrap;
+        flex-flow: column nowrap;
+    position: relative;
+    margin: 10px;
+    min-width: 22vw;
+    max-width: 40vw;
+}
+@media only screen and (max-width: 420px) {
+.container .item[data-v-f3276f62] {
+        min-width: 40vw;
+}
+}
+.container .item a[data-v-f3276f62] {
+      -ms-flex: 0 0 6em;
+          flex: 0 0 6em;
+}
+.container .item a[data-v-f3276f62]:hover {
+        opacity: 0.5;
+}
+.container .item a img.cover[data-v-f3276f62] {
+        width: 100%;
+        transition: all 0.3s;
+}
+.container .item .null[data-v-f3276f62] {
+      -ms-flex: 1 1 0;
+          flex: 1 1 0;
+}
+.container .item .foot[data-v-f3276f62] {
+      -ms-flex: 0 0 10em;
+          flex: 0 0 10em;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+}
+.container .item .foot .title[data-v-f3276f62] {
+        font-size: 2vw;
+        line-height: 1.1;
+        margin: .5em 0;
+}
+.container .item .foot .owner[data-v-f3276f62] {
+        color: #AAA;
+        margin: 5px;
+}
+.container .item .foot .progress_bar[data-v-f3276f62] {
+        background-color: #CCC;
+        padding: 2px 0;
+        margin-bottom: 4px;
+}
+.container .item .foot .progress_bar .progress[data-v-f3276f62] {
+          height: 6px;
+          background-color: #000;
+          border-radius: 0 5px 0 0;
+}
+</style><style type="text/css">
+*[data-v-280eaafe] {
+  box-sizing: border-box;
+}
+body[data-v-280eaafe] {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component[data-v-280eaafe] {
+  position: relative;
+}
+.component h1[data-v-280eaafe], .component h2[data-v-280eaafe], .component h3[data-v-280eaafe], .component h4[data-v-280eaafe], .component h5[data-v-280eaafe], .component h6[data-v-280eaafe], .component p[data-v-280eaafe] {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component h1 a[data-v-280eaafe], .component h2 a[data-v-280eaafe], .component h3 a[data-v-280eaafe], .component h4 a[data-v-280eaafe], .component h5 a[data-v-280eaafe], .component h6 a[data-v-280eaafe], .component p a[data-v-280eaafe] {
+      cursor: pointer !important;
+      color: dimgray;
+      border-bottom: 1px dashed lightgray;
+}
+.component strong[data-v-280eaafe] {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only[data-v-280eaafe] {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only[data-v-280eaafe] {
+    display: none !important;
+}
+}
+.row.BGgray[data-v-280eaafe] {
+  background-color: #efefef;
+  padding-top: 2em;
+  margin-bottom: 1em;
+}
+.left[data-v-280eaafe] {
+  text-align: left;
+}
+.ui.styled.accordion > .title[data-v-280eaafe]:first-child {
+  font-size: 1.5rem;
+}
+.ui.green.button[data-v-280eaafe] {
+  background-color: #40B3BF;
+  margin-bottom: 1em;
+}
+</style><style type="text/css">
+*[data-v-86ffac4e] {
+  box-sizing: border-box;
+}
+body[data-v-86ffac4e] {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component[data-v-86ffac4e] {
+  position: relative;
+}
+.component h1[data-v-86ffac4e], .component h2[data-v-86ffac4e], .component h3[data-v-86ffac4e], .component h4[data-v-86ffac4e], .component h5[data-v-86ffac4e], .component h6[data-v-86ffac4e], .component p[data-v-86ffac4e] {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component h1 a[data-v-86ffac4e], .component h2 a[data-v-86ffac4e], .component h3 a[data-v-86ffac4e], .component h4 a[data-v-86ffac4e], .component h5 a[data-v-86ffac4e], .component h6 a[data-v-86ffac4e], .component p a[data-v-86ffac4e] {
+      cursor: pointer !important;
+      color: dimgray;
+      border-bottom: 1px dashed lightgray;
+}
+.component strong[data-v-86ffac4e] {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only[data-v-86ffac4e] {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only[data-v-86ffac4e] {
+    display: none !important;
+}
+}
+p[data-v-86ffac4e] {
+  text-align: left;
+  margin-top: 10px;
+  margin-bottom: 0;
+  font-size: 1em;
+  color: gray;
+}
+.ui.icon.input[data-v-86ffac4e] {
+  margin-top: 40px;
+  width: 250px;
+  font-size: 1.2em;
+}
+</style><style type="text/css">
+*[data-v-5da6cb6a] {
+  box-sizing: border-box;
+}
+body[data-v-5da6cb6a] {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.component[data-v-5da6cb6a] {
+  position: relative;
+}
+.component h1[data-v-5da6cb6a], .component h2[data-v-5da6cb6a], .component h3[data-v-5da6cb6a], .component h4[data-v-5da6cb6a], .component h5[data-v-5da6cb6a], .component h6[data-v-5da6cb6a], .component p[data-v-5da6cb6a] {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component h1 a[data-v-5da6cb6a], .component h2 a[data-v-5da6cb6a], .component h3 a[data-v-5da6cb6a], .component h4 a[data-v-5da6cb6a], .component h5 a[data-v-5da6cb6a], .component h6 a[data-v-5da6cb6a], .component p a[data-v-5da6cb6a] {
+      cursor: pointer !important;
+      color: dimgray;
+      border-bottom: 1px dashed lightgray;
+}
+.component strong[data-v-5da6cb6a] {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only[data-v-5da6cb6a] {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only[data-v-5da6cb6a] {
+    display: none !important;
+}
+}
+.row.BGgray[data-v-5da6cb6a] {
+  background-color: #efefef;
+  padding-top: 2em;
+  margin-bottom: 1em;
+}
+.left[data-v-5da6cb6a] {
+  text-align: left;
+}
+.ui.styled.accordion > .title[data-v-5da6cb6a]:first-child {
+  font-size: 1.5rem;
+}
+.ui.green.button[data-v-5da6cb6a] {
+  background-color: #40B3BF;
+  margin-bottom: 1em;
+}
+</style><style type="text/css">
 * {
   box-sizing: border-box;
 }
