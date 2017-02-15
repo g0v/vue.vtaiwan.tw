@@ -46,9 +46,8 @@ export default {
       // console.log(config)
       // Vue.http.options.emulateJSON = true;
       //let header = JSON.parse(JSON.stringify({"headers":{'Content-Type': 'application/x-www-form-urlencoded'}}));
-      axios.post('https://talk.vtaiwan.tw/invites?api_key=5a8b11ee7a8904d870f0cd5e32de5100d59e1390a316b86206c20d4b7dbe911b&api_username=smith02620',body,config)
+      axios.post('https://talk.vtaiwan.tw/invites?api_key=5a8b11ee7a8904d870f0cd5e32de5100d59e1390a316b86206c20d4b7dbe911b&api_username=smith02620',body)
       .then((response) => {
-        
         console.log(response);
       })
         
@@ -60,7 +59,7 @@ export default {
     }
   },
   created: function(){
-    this.getContactus();
+    // this.getContactus();
   },
   updated: function(){
     var vm = this;
@@ -80,7 +79,15 @@ export default {
           },
         },
         onSuccess: function(event, fields) {
-          vm.getContactus();
+            window.location.href = "mailto:replies+subscribe@vtaiwan.tw?subject=開啟vtaiwan電子報功能&body=開啟vtaiwan discourse電子報功能";
+            // $.ajax({
+            //     type: "POST",
+            //     url: "https://talk.vtaiwan.tw/invites?api_key=5a8b11ee7a8904d870f0cd5e32de5100d59e1390a316b86206c20d4b7dbe911b&api_username=smith02620",
+            //     data: { "email": fields.email},
+            //     success: function(){
+            //         alert('123')
+            //     }
+            // });
         }
       })
     ;
