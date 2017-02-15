@@ -7,7 +7,7 @@
           .contents
             .title(v-html="toHTML(r.title, myKey)")
             .description(v-html="toHTML(r.routeName, myKey)")    
-      .message.empty(v-if="stage.length == 0")
+      .message.empty(v-if="stage.length == 0") 
           .header 沒有結果
           .description 找不到符合 {{myKey}} 的議題
 </template>
@@ -70,23 +70,19 @@ export default {
   position: absolute;
   z-index: 11;
   margin-top: 4px;
-  // width: 33vw;
-  // max-height:105px;
   height: 150px;
   overflow: auto;
   background-color: rgba(255,255,255,0.8);
-  // border-bottom: 2px solid black;
-  // border-left: 1px solid black;
-  // border-right: 1px solid black;
   font-size: 1rem;
 }
-.results{
+
+.results {
     left:0;
     transform-origin: center top;
     white-space: normal;
     background: #FFF;
     margin:0 auto;
-    width: 18em;
+    // width: 18em;
     border-radius: .28571429rem;
     box-shadow: 0 2px 4px 0 rgba(34,36,38,.12), 0 2px 10px 0 rgba(34,36,38,.15);
     border: 1px solid #D4D4D5;
@@ -153,12 +149,18 @@ export default {
 }
 
 @media only screen and (max-width: $breakpoint+1) {
-    .component {
+  .component {
       height:100%;
+      width:100%;
       font-size: 1rem;
-    }
-    .message.empty {
-      font-size: 1.2em;
-    }       
+
+      .ui.category.search .results { // Search Result
+        width: 95%;
+      }
+      .message.empty { // No result
+        font-size: 1.2em;
+      }
+    }  
+           
   }
 </style>

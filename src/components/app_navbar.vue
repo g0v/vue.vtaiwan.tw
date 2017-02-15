@@ -119,7 +119,7 @@ export default {
   i.icon {
     font-size:0.8em;
     top: -1px;
-    right:5px;
+    right:10px;
   }
 }
 form.search {
