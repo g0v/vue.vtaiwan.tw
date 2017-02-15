@@ -12933,8 +12933,7 @@ var main = __webpack_require__(19);
       // console.log(config)
       // Vue.http.options.emulateJSON = true;
       //let header = JSON.parse(JSON.stringify({"headers":{'Content-Type': 'application/x-www-form-urlencoded'}}));
-      __WEBPACK_IMPORTED_MODULE_2_axios___default.a.post('https://talk.vtaiwan.tw/invites?api_key=5a8b11ee7a8904d870f0cd5e32de5100d59e1390a316b86206c20d4b7dbe911b&api_username=smith02620', body, config).then(function (response) {
-
+      __WEBPACK_IMPORTED_MODULE_2_axios___default.a.post('https://talk.vtaiwan.tw/invites?api_key=5a8b11ee7a8904d870f0cd5e32de5100d59e1390a316b86206c20d4b7dbe911b&api_username=smith02620', body).then(function (response) {
         console.log(response);
       });
     },
@@ -12945,7 +12944,7 @@ var main = __webpack_require__(19);
     }
   },
   created: function created() {
-    this.getContactus();
+    // this.getContactus();
   },
   updated: function updated() {
     var vm = this;
@@ -12960,7 +12959,15 @@ var main = __webpack_require__(19);
         }
       },
       onSuccess: function onSuccess(event, fields) {
-        vm.getContactus();
+        window.location.href = "mailto:replies+subscribe@vtaiwan.tw?subject=開啟vtaiwan電子報功能&body=開啟vtaiwan discourse電子報功能";
+        // $.ajax({
+        //     type: "POST",
+        //     url: "https://talk.vtaiwan.tw/invites?api_key=5a8b11ee7a8904d870f0cd5e32de5100d59e1390a316b86206c20d4b7dbe911b&api_username=smith02620",
+        //     data: { "email": fields.email},
+        //     success: function(){
+        //         alert('123')
+        //     }
+        // });
       }
     });
   }
@@ -15492,13 +15499,7 @@ module.exports={render:function (){with(this) {
     staticClass: "column"
   }, [_h('div', {
     staticClass: "ui list"
-  }, [_h('P', ["[ 影音專區 ]"]), _m(2), _h('router-link', {
-    staticClass: "m-logo item",
-    attrs: {
-      "to": "/subscribe",
-      "exact": ""
-    }
-  }, [_m(3), "訂閱電子報"])])]), _h('div', {
+  }, [_h('P', ["[ 影音專區 ]"]), _m(2), _m(3)])]), _h('div', {
     staticClass: "column"
   }, [_h('div', {
     staticClass: "ui list"
@@ -15557,9 +15558,15 @@ module.exports={render:function (){with(this) {
     staticClass: "right triangle icon"
   }), "Youtube"])
 }},function (){with(this) {
-  return _h('i', {
+  return _h('a', {
+    staticClass: "item",
+    attrs: {
+      "href": "mailto:replies+subscribe@vtaiwan.tw?subject=開啟vtaiwan電子報功能&body=開啟vtaiwan discourse電子報功能",
+      "title": "訂閱電子報"
+    }
+  }, [_h('i', {
     staticClass: "right triangle icon"
-  })
+  }), "訂閱電子報"])
 }},function (){with(this) {
   return _h('i', {
     staticClass: "right triangle icon"
