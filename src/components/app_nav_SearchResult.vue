@@ -1,13 +1,15 @@
 <template lang="jade">
   .component#searchresult
     .results
-      .category(v-for="(s, idx) in stage", v-on:click="sHide") 
+      .category(v-if="stage.length !== 0", v-for="(s, idx) in stage", v-on:click="sHide") 
          .name {{s}} 
          router-link.result(v-for="(r, idx) in results",v-if="s == r.status", :to="'/topic/'+r.routeName")
           .contents
             .title(v-html="toHTML(r.title, myKey)")
             .description(v-html="toHTML(r.routeName, myKey)")    
-
+      .message.empty(v-if="stage.length == 0")
+          .header 沒有結果
+          .description 找不到符合 {{myKey}} 的議題
 </template>
 
 <script>
@@ -76,7 +78,7 @@ export default {
   // border-bottom: 2px solid black;
   // border-left: 1px solid black;
   // border-right: 1px solid black;
-  font-size: .7rem;
+  font-size: 1rem;
 }
 .results{
     left:0;
@@ -89,57 +91,74 @@ export default {
     box-shadow: 0 2px 4px 0 rgba(34,36,38,.12), 0 2px 10px 0 rgba(34,36,38,.15);
     border: 1px solid #D4D4D5;
     z-index: 998;
-}
-.category{
-    background: #F3F4F5;
-    box-shadow: none;
-    border-bottom: 1px solid rgba(34,36,38,.1);
-    -webkit-transition: background .1s ease,border-color .1s ease;
-    transition: background .1s ease,border-color .1s ease;
-}
-.name{
-    width: 100px;
-    background: 0 0;
-    // font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
-    font-size: 1em;
-    float: 1em;
-    float: left;
-    // padding: 1.2em 1em;
-    padding: .4em 1em;
-    font-weight: 700;
-    color: rgba(0,0,0,.4);
-}
-.result{
-    background: #FFF;
-    margin-left: 100px;
-    border-left: 1px solid rgba(34,36,38,.15);
-    border-bottom: 1px solid rgba(34,36,38,.1);
-    // -webkit-transition: background .1s ease,border-color .1s ease;
-    transition: background .1s ease,border-color .1s ease;
-    padding: .85714286em 1.14285714em;
-    cursor: pointer;
-    display: block;
-    overflow: hidden;
-    font-size: 1em;
-    // padding: .85714286em 1.14285714em;
-    color: rgba(0,0,0,.87);
-    line-height: 1.33;
-    // border-bottom: 1px solid rgba(34,36,38,.1)
-    &:hover{
-      background-color: #f3c7c7;
+    .category {
+      background: #F3F4F5;
+      box-shadow: none;
+      border-bottom: 1px solid rgba(34,36,38,.1);
+      -webkit-transition: background .1s ease,border-color .1s ease;
+      transition: background .1s ease,border-color .1s ease;
+    }
+    .name {
+      width: 100px;
+      background: 0 0;
+      // font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+      font-size: 1em;
+      float: 1em;
+      float: left;
+      // padding: 1.2em 1em;
+      padding: 1em 1em;
+      font-weight: 700;
+      color: rgba(0,0,0,.4); 
+    }
+    .result {
+      background: #FFF;
+      margin-left: 100px;
+      border-left: 1px solid rgba(34,36,38,.15);
+      border-bottom: 1px solid rgba(34,36,38,.1);
+      // -webkit-transition: background .1s ease,border-color .1s ease;
+      transition: background .1s ease,border-color .1s ease;
+      padding: .85714286em 1.14285714em;
+      cursor: pointer;
+      display: block;
+      overflow: hidden;
+      font-size: 1em;
+      // padding: .85714286em 1.14285714em;
+      color: rgba(0,0,0,.87);
+      // line-height: 1.33;
+      // border-bottom: 1px solid rgba(34,36,38,.1)
+      &:hover{
+        background-color: #f3c7c7;
+      }
+    }
+    .title {
+        margin: -.14285em 0 0;
+        // font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+        font-weight: 700;
+        font-size: 1em;
+        color: rgba(0,0,0,.85);
+    }
+    .description {
+        margin-top: 0;
+        font-size: .92857143em;
+        color: rgba(0,0,0,.4);
     }
 }
-.title{
-    margin: -.14285em 0 0;
-    // font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
-    font-weight: 700;
-    font-size: 1em;
-    color: rgba(0,0,0,.85);
-}
-.description{
-    margin-top: 0;
-    font-size: .92857143em;
-    color: rgba(0,0,0,.4);
+.message.empty {
+  text-align: left;
+  padding:0.6em;
+  font-size: 1.5em;
+  .description {
+    color: rgba(0, 0, 0, 0.6);
+  }
 }
 
+@media only screen and (max-width: $breakpoint+1) {
+    .component {
+      height:100%;
+      font-size: 1rem;
+    }
+    .message.empty {
+      font-size: 1.2em;
+    }       
+  }
 </style>

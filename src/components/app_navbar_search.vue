@@ -56,9 +56,13 @@ p {
 .ui.icon.input{
   margin-top: 40px;
   width: 250px;
-  font-size:1.2em;
-}
+  font-size:1.5em;
 
+  input {
+    font-family: $main_font;
+  }
+}
+  
 
 
 </style>
