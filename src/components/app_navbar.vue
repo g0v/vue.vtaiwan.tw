@@ -113,9 +113,12 @@ export default {
   padding:10px;
   input{
     font-size: 1.2rem;
+    font-family: $main_font;
     padding:0.5em 1em;
   }
   i.icon {
+    font-size:0.8em;
+    top: -1px;
     right:5px;
   }
 }
