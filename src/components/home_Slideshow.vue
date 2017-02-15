@@ -1,7 +1,6 @@
 <template lang="jade">
 
   .component
-    // .desktop-container.fat-only
     // .ui.fluid.container
       .slide-page
         .slide-item(v-for="(t, idx) in mySlideTopics", :style="t.style")
@@ -115,19 +114,16 @@ export default {
     }
   },
   mounted: function () {
-    //initialize swiper when document ready
+    /* initialize swiper when document ready */
     new Swiper ('.swiper-container', {
-      // Optional parameters
       observer: true,
       autoplay: 5000,
       direction: 'horizontal',
-      // Navigation arrows
       nextButton: '.swiper-button-next',
       prevButton: '.swiper-button-prev',
-      // If we need pagination
       pagination: '.swiper-pagination',
-      // And if we need scrollbar
       scrollbar: '.swiper-scrollbar',
+      keyboardControl: true
     })
   }
 }
@@ -136,23 +132,6 @@ export default {
 
 <style lang="scss" scoped>
 @import "../sass/global.scss";
-
-// .desktop-container, .mobile-container {
-//   position: relative;
-//   overflow: hidden;
-//   img {
-//     position: relative;
-//     width: 100%;
-//     z-index: -3;
-//   }
-// }
-
-// .mobile-container {
-//   overflow: scroll;
-//   &::-webkit-scrollbar {
-//     display: none;
-//   }
-// }
 
 // ******************************* Swiper slide
 
@@ -249,62 +228,4 @@ a {
   // }
 }
 
-// ******************************* Mobile CSS
-
-.m-slide-page {
-  // display: -webkit-inline-box;
-  white-space: nowrap;
-}
-
-.m-slide-item {
-  display: inline-block;
-  width: 98vw;
-  // ************** logo=10vh, nav=20vh
-  height: 70vh;
-  margin: 0 0.5px;
-  background-size: cover;
-  background-position: center;
-  // overflow: hidden;
-  // min-height: 70vh;
-  // img {
-    // width: auto;
-    // min-height: 100%;
-    // left: -50%;
-  // }
-  // .box {
-  //   min-height: 100%;
-  //   background: radial-gradient(circle, hsla(0, 0, 0%, 0.8), transparent);
-  //   // ********************* centering
-  //   display: flex;
-  //   justify-content: center;
-  //   flex-flow: column;
-  //   align-items: center;
-  //   .status {
-  //     color: white;
-  //     background-color: $step_color;
-  //     // position: relative;
-  //     // top: 105px;
-  //     // width: 100%;
-  //     // font-size: 1.3rem;
-  //   }
-  //   .title {
-  //     color: white;
-  //     // position: relative;
-  //     // top: 170px;
-  //     // width: 100%;
-  //     // margin: 1em 0;
-  //     // font-size: 1.3rem;
-  //   }
-  //   // .button {
-  //     // position: relative;
-  //     // top: 235px;
-  //     // color: white;
-  //     // font-size: 1.4rem;
-  //     // padding: 14px 30px;
-  //     // margin: 0 calc(50% - 75px);
-  //     // background-color: $main_color;
-  //     // border-radius: 8px;
-  //   // }
-  // }
-}
 </style>
