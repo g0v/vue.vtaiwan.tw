@@ -61,6 +61,12 @@ p {
   input {
     font-family: $main_font;
   }
+
+  i.icon {
+    font-size:1.2em;
+    top: -1px;
+    /*right:5px;*/
+  }
 }
   
 
