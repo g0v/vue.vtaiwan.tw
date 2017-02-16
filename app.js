@@ -12900,6 +12900,17 @@ var main = __webpack_require__(19);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -12914,29 +12925,48 @@ var main = __webpack_require__(19);
   data: function data() {
     return {
       email: "",
-      content: ""
+      content: "",
+      Discussion: [],
+      more: []
     };
   },
 
 
   methods: {
     getContactus: function getContactus(id) {
-      var head = {
-        // headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-        // headers: {'X-My-Custom-Header': 'Header-Value'}
-        headers: { 'X-Custom-Header': 'foobar' }
+      var _this = this;
 
-      };
+      __WEBPACK_IMPORTED_MODULE_1__js_request__["a" /* default */].get('https://talk.vtaiwan.tw/c/newsletter/l/latest.json?page=' + id).then(function (response) {
+        _this.more = response.data['topic_list'];
+        var discus = response.data['topic_list'];
+        discus = discus['topics'].slice(1); // 取得詳細內容(第一篇)
+        var _iteratorNormalCompletion = true;
+        var _didIteratorError = false;
+        var _iteratorError = undefined;
 
-      var body = JSON.parse(JSON.stringify({ "email": "smith02620@gmail.com" }));
-      // let config = JSON.parse(head);
-      // console.log(config)
-      // Vue.http.options.emulateJSON = true;
-      //let header = JSON.parse(JSON.stringify({"headers":{'Content-Type': 'application/x-www-form-urlencoded'}}));
-      __WEBPACK_IMPORTED_MODULE_2_axios___default.a.post('https://talk.vtaiwan.tw/invites?api_key=5a8b11ee7a8904d870f0cd5e32de5100d59e1390a316b86206c20d4b7dbe911b&api_username=smith02620', body).then(function (response) {
-        console.log(response);
+        try {
+          for (var _iterator = discus[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+            var i = _step.value;
+
+            _this.Discussion.push(i);
+          }
+        } catch (err) {
+          _didIteratorError = true;
+          _iteratorError = err;
+        } finally {
+          try {
+            if (!_iteratorNormalCompletion && _iterator.return) {
+              _iterator.return();
+            }
+          } finally {
+            if (_didIteratorError) {
+              throw _iteratorError;
+            }
+          }
+        }
       });
     },
+
 
     greet: function greet(event) {
       this.counter++;
@@ -12944,11 +12974,12 @@ var main = __webpack_require__(19);
     }
   },
   created: function created() {
-    // this.getContactus();
+    this.getContactus(0);
   },
   updated: function updated() {
     var vm = this;
     $('.ui.accordion').accordion();
+    $('.follow.button').api('query');
     $('.ui.form').form({
       fields: {
         email: {
@@ -12959,15 +12990,14 @@ var main = __webpack_require__(19);
         }
       },
       onSuccess: function onSuccess(event, fields) {
-        window.location.href = "mailto:replies+subscribe@vtaiwan.tw?subject=開啟vtaiwan電子報功能&body=開啟vtaiwan discourse電子報功能";
-        // $.ajax({
-        //     type: "POST",
-        //     url: "https://talk.vtaiwan.tw/invites?api_key=5a8b11ee7a8904d870f0cd5e32de5100d59e1390a316b86206c20d4b7dbe911b&api_username=smith02620",
-        //     data: { "email": fields.email},
-        //     success: function(){
-        //         alert('123')
-        //     }
-        // });
+        $.ajax({
+          type: "POST",
+          url: "https://talk.vtaiwan.tw/invites?api_key=ee7e1395d767055387db097d51fab90bfee69b806dc276adcf6a22f691fad5df&api_username=vtaiwaninvite",
+          data: { "email": fields.email },
+          success: function success() {
+            alert('成功訂閱');
+          }
+        });
       }
     });
   }
@@ -15497,7 +15527,13 @@ module.exports={render:function (){with(this) {
     staticClass: "column"
   }, [_h('div', {
     staticClass: "ui list"
-  }, [_h('P', ["[ 影音專區 ]"]), _m(2), _m(3)])]), _h('div', {
+  }, [_h('P', ["[ 影音專區 ]"]), _m(2), _h('router-link', {
+    staticClass: "m-logo item",
+    attrs: {
+      "to": "/subscribe",
+      "exact": ""
+    }
+  }, [_m(3), "訂閱電子報"])])]), _h('div', {
     staticClass: "column"
   }, [_h('div', {
     staticClass: "ui list"
@@ -15556,15 +15592,9 @@ module.exports={render:function (){with(this) {
     staticClass: "right triangle icon"
   }), "Youtube"])
 }},function (){with(this) {
-  return _h('a', {
-    staticClass: "item",
-    attrs: {
-      "href": "mailto:replies+subscribe@vtaiwan.tw?subject=開啟vtaiwan電子報功能&body=開啟vtaiwan discourse電子報功能",
-      "title": "訂閱電子報"
-    }
-  }, [_h('i', {
+  return _h('i', {
     staticClass: "right triangle icon"
-  }), "訂閱電子報"])
+  })
 }},function (){with(this) {
   return _h('i', {
     staticClass: "right triangle icon"
@@ -15654,16 +15684,44 @@ module.exports={render:function (){with(this) {
         email = $event.target.value
       }
     }
-  })]), _m(1), _m(2)])])])])])])
+  })]), _m(1), _m(2)])])])]), _h('div', {
+    staticClass: "row left"
+  }, [_h('div', {
+    staticClass: "ui segment attached"
+  }, [_m(3), _l((Discussion), function(item, index) {
+    return _h('div', [_h('div', {
+      staticClass: "ui styled accordion"
+    }, [_h('div', {
+      staticClass: "title"
+    }, [_m(4, true), _s(Discussion[index].title)]), _h('div', {
+      staticClass: "content"
+    }, [_h('Discussion_Comment', {
+      attrs: {
+        "comment_id": Discussion[index].id,
+        "slice": false
+      }
+    })])])])
+  }), (more.more_topics_url != undefined) ? _h('div', {
+    staticClass: "ui basic button",
+    on: {
+      "click": greet
+    }
+  }, ["閱讀更多...    "]) : _e()])])])])
 }},staticRenderFns: [function (){with(this) {
   return _h('label', ["email："])
 }},function (){with(this) {
   return _h('div', {
     staticClass: "ui green submit button"
-  }, ["送出       "])
+  }, ["訂閱       "])
 }},function (){with(this) {
   return _h('div', {
     staticClass: "ui error message"
+  })
+}},function (){with(this) {
+  return _h('h2', ["歷史電子報"])
+}},function (){with(this) {
+  return _h('i', {
+    staticClass: "dropdown icon"
   })
 }}]}
 
