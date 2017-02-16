@@ -19,8 +19,8 @@
               a.item(href="https://www.youtube.com/channel/UChC85hbUuDAvFpc7Uuj69DA/" title="Youtube" target="_blank")
                 i.right.triangle.icon
                 | Youtube
-              //router-link.m-logo.item(to='/subscribe', exact='')
-              a.item(href="mailto:replies+subscribe@vtaiwan.tw?subject=開啟vtaiwan電子報功能&body=開啟vtaiwan discourse電子報功能" title="訂閱電子報")
+              //a.item(href="mailto:replies+subscribe@vtaiwan.tw?subject=開啟vtaiwan電子報功能&body=開啟vtaiwan discourse電子報功能" title="訂閱電子報")
+              router-link.m-logo.item(to='/subscribe', exact='')
                 i.right.triangle.icon
                 | 訂閱電子報
             

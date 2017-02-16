@@ -9,9 +9,20 @@
                 label email：
                 input(type='text',name="email",v-model="email",placeholder='請輸入email')
               .ui.green.submit.button
-                | 送出       
+                | 訂閱       
               .ui.error.message
-      
+      .row.left
+        .ui.segment.attached
+          h2 歷史電子報
+          div(v-for = "(item, index) in Discussion")         
+            div.ui.styled.accordion
+                div.title
+                  i.dropdown.icon
+                  | {{Discussion[index].title}}
+                div.content
+                  Discussion_Comment(:comment_id="Discussion[index].id", :slice="false")
+          .ui.basic.button(v-if="more.more_topics_url!=undefined", v-on:click="greet")
+            | 閱讀更多...    
 </template>
 
 <script>
@@ -29,43 +40,40 @@ export default {
     return {
       email: "",
       content: "",
+      Discussion: [],
+      more: [],
     }
   },
 
   methods: {
     getContactus(id) {
-      var head = {
-        // headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-        // headers: {'X-My-Custom-Header': 'Header-Value'}
-        headers: {'X-Custom-Header': 'foobar'}
-        
-      }
-      
-      let body = JSON.parse(JSON.stringify({ "email": "smith02620@gmail.com"}));
-      // let config = JSON.parse(head);
-      // console.log(config)
-      // Vue.http.options.emulateJSON = true;
-      //let header = JSON.parse(JSON.stringify({"headers":{'Content-Type': 'application/x-www-form-urlencoded'}}));
-      axios.post('https://talk.vtaiwan.tw/invites?api_key=5a8b11ee7a8904d870f0cd5e32de5100d59e1390a316b86206c20d4b7dbe911b&api_username=smith02620',body)
+      caxios.get('https://talk.vtaiwan.tw/c/newsletter/l/latest.json?page='+ id)
       .then((response) => {
-        console.log(response);
+        this.more= response.data['topic_list'];
+        let discus = response.data['topic_list'];     
+        discus = discus['topics'].slice(1); // 取得詳細內容(第一篇)
+        for(let i of discus){
+          this.Discussion.push(i)
+        }
       })
-        
-       
     },
+   
     greet: function (event) {
         this.counter++;
         this.getContactus(this.counter);
     }
   },
   created: function(){
-    // this.getContactus();
+    this.getContactus(0);
   },
   updated: function(){
     var vm = this;
     $('.ui.accordion')
       .accordion()
     ;
+    $('.follow.button')
+  .api('query')
+;
     $('.ui.form')
       .form({
         fields: {
@@ -79,15 +87,14 @@ export default {
           },
         },
         onSuccess: function(event, fields) {
-            window.location.href = "mailto:replies+subscribe@vtaiwan.tw?subject=開啟vtaiwan電子報功能&body=開啟vtaiwan discourse電子報功能";
-            // $.ajax({
-            //     type: "POST",
-            //     url: "https://talk.vtaiwan.tw/invites?api_key=5a8b11ee7a8904d870f0cd5e32de5100d59e1390a316b86206c20d4b7dbe911b&api_username=smith02620",
-            //     data: { "email": fields.email},
-            //     success: function(){
-            //         alert('123')
-            //     }
-            // });
+            $.ajax({
+                type: "POST",
+                url: "https://talk.vtaiwan.tw/invites?api_key=ee7e1395d767055387db097d51fab90bfee69b806dc276adcf6a22f691fad5df&api_username=vtaiwaninvite",
+                data: { "email": fields.email},
+                success: function(){
+                    alert('成功訂閱')
+                }
+            });
         }
       })
     ;
