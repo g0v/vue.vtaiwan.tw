@@ -15534,7 +15534,8 @@ module.exports={render:function (){with(this) {
     staticClass: "m-logo item",
     attrs: {
       "to": "/",
-      "exact": ""
+      "exact": "",
+      "title": "Home"
     }
   }, ["vTaiwan"])])]), _h('div', {
     staticClass: "three wide column"
@@ -15544,7 +15545,8 @@ module.exports={render:function (){with(this) {
     staticClass: "m-logo item",
     attrs: {
       "to": "/subscribe",
-      "exact": ""
+      "exact": "",
+      "title": "訂閱電子報"
     }
   }, ["訂閱電子報"])])]), _h('div', {
     staticClass: "three wide column"
@@ -15554,19 +15556,22 @@ module.exports={render:function (){with(this) {
     staticClass: "m-logo item",
     attrs: {
       "to": "/Contactus",
-      "exact": ""
+      "exact": "",
+      "title": "聯絡我們"
     }
   }, ["聯絡我們"]), _h('router-link', {
     staticClass: "m-logo item",
     attrs: {
       "to": "/how-to-use",
-      "exact": ""
+      "exact": "",
+      "title": "使用手冊"
     }
   }, ["使用手冊"]), _h('router-link', {
     staticClass: "m-logo item",
     attrs: {
       "to": "/intro",
-      "exact": ""
+      "exact": "",
+      "title": "關於vTaiwan"
     }
   }, ["關於vTaiwan"])])]), _m(7)])]), _m(8), _h('div', {
     staticClass: "ui centered"
@@ -15574,13 +15579,15 @@ module.exports={render:function (){with(this) {
     staticClass: "m-logo big ui circular mail icon orange button",
     attrs: {
       "to": "/Contactus",
-      "exact": ""
+      "exact": "",
+      "title": "Contact Us"
     }
   }, [_m(12)]), _h('router-link', {
     staticClass: "m-logo item",
     attrs: {
       "to": "/",
-      "exact": ""
+      "exact": "",
+      "title": "Home"
     }
   }, [_m(13)])])])])
 }},staticRenderFns: [function (){with(this) {
