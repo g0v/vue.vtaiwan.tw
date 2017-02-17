@@ -13946,7 +13946,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n*[data-v-5120c3f7] {\n  box-sizing: border-box;\n}\nbody[data-v-5120c3f7] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.component[data-v-5120c3f7] {\n  position: relative;\n}\n.component h1[data-v-5120c3f7], .component h2[data-v-5120c3f7], .component h3[data-v-5120c3f7], .component h4[data-v-5120c3f7], .component h5[data-v-5120c3f7], .component h6[data-v-5120c3f7], .component p[data-v-5120c3f7] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-5120c3f7], .component h2 a[data-v-5120c3f7], .component h3 a[data-v-5120c3f7], .component h4 a[data-v-5120c3f7], .component h5 a[data-v-5120c3f7], .component h6 a[data-v-5120c3f7], .component p a[data-v-5120c3f7] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-5120c3f7] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-5120c3f7] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-5120c3f7] {\n    display: none !important;\n}\n}\n.component[data-v-5120c3f7] {\n  padding: 1em;\n  background-color: rgba(0, 0, 0, 0.04);\n}\n.row[data-v-5120c3f7] {\n  margin-bottom: 1em;\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\nu[data-v-5120c3f7] {\n  color: black;\n  text-align: left;\n}\n.ui.button[data-v-5120c3f7] {\n  background-color: rgba(34, 36, 38, 0.21);\n  margin-right: 1em;\n}\n.ui.button[data-v-5120c3f7]:hover {\n  -webkit-filter: inherit;\n          filter: inherit;\n}\n.ui.list > a.item[data-v-5120c3f7] {\n  color: #696969;\n}\n.ui.list > a.item[data-v-5120c3f7]:hover {\n  color: #1b1c1d;\n}\n.linkicon[data-v-5120c3f7] {\n  text-align: center;\n}\n.ui.grid[data-v-5120c3f7] {\n  margin-bottom: 2em;\n  text-align: left;\n}\n", ""]);
+exports.push([module.i, "\n*[data-v-5120c3f7] {\n  box-sizing: border-box;\n}\nbody[data-v-5120c3f7] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.component[data-v-5120c3f7] {\n  position: relative;\n}\n.component h1[data-v-5120c3f7], .component h2[data-v-5120c3f7], .component h3[data-v-5120c3f7], .component h4[data-v-5120c3f7], .component h5[data-v-5120c3f7], .component h6[data-v-5120c3f7], .component p[data-v-5120c3f7] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-5120c3f7], .component h2 a[data-v-5120c3f7], .component h3 a[data-v-5120c3f7], .component h4 a[data-v-5120c3f7], .component h5 a[data-v-5120c3f7], .component h6 a[data-v-5120c3f7], .component p a[data-v-5120c3f7] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-5120c3f7] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-5120c3f7] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-5120c3f7] {\n    display: none !important;\n}\n}\n.component[data-v-5120c3f7] {\n  padding: 1em;\n  background-color: rgba(0, 0, 0, 0.04);\n}\n.row[data-v-5120c3f7] {\n  margin-bottom: 1em;\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 1 rem;\n}\nu[data-v-5120c3f7] {\n  color: black;\n  text-align: left;\n}\n.ui.button[data-v-5120c3f7] {\n  background-color: rgba(34, 36, 38, 0.21);\n  margin-right: 1em;\n  font-size: 1em;\n}\n.ui.button[data-v-5120c3f7]:hover {\n  -webkit-filter: inherit;\n          filter: inherit;\n}\n.ui.list > a.item[data-v-5120c3f7] {\n  color: #696969;\n}\n.ui.list > a.item[data-v-5120c3f7]:hover {\n  color: #1b1c1d;\n}\n.linkicon[data-v-5120c3f7] {\n  text-align: center;\n}\n.ui.grid[data-v-5120c3f7] {\n  text-align: center;\n}\n.ui.card[data-v-5120c3f7] {\n  width: 100%;\n}\n.ui.grid > .row > .column[data-v-5120c3f7] {\n  padding: 0;\n}\n.ui.card > .content[data-v-5120c3f7] {\n  padding: 0.5em;\n}\n", ""]);
 
 // exports
 
@@ -15522,53 +15522,75 @@ module.exports={render:function (){with(this) {
   }, [_h('div', {
     staticClass: "column"
   }, [_h('div', {
-    staticClass: "ui list"
-  }, [_h('P', ["[ 相關連結 ]"]), _m(0), _m(1)])]), _h('div', {
+    staticClass: "ui card"
+  }, [_m(0), _h('div', {
+    staticClass: "content ui list"
+  }, [_m(1), _m(2), _h('router-link', {
+    staticClass: "m-logo item",
+    attrs: {
+      "to": "/",
+      "exact": ""
+    }
+  }, [_m(3), "vTaiwan"])])])]), _h('div', {
     staticClass: "column"
   }, [_h('div', {
-    staticClass: "ui list"
-  }, [_h('P', ["[ 影音專區 ]"]), _m(2), _h('router-link', {
+    staticClass: "ui card"
+  }, [_m(4), _h('div', {
+    staticClass: "content ui list"
+  }, [_m(5), _m(6), _h('router-link', {
     staticClass: "m-logo item",
     attrs: {
       "to": "/subscribe",
       "exact": ""
     }
-  }, [_m(3), "訂閱電子報"])])]), _h('div', {
+  }, [_m(7), "訂閱電子報"])])])]), _h('div', {
     staticClass: "column"
   }, [_h('div', {
-    staticClass: "ui list"
-  }, [_h('P', ["[ 關於我們 ]"]), _h('router-link', {
+    staticClass: "ui card"
+  }, [_m(8), _h('div', {
+    staticClass: "content ui list"
+  }, [_h('router-link', {
     staticClass: "m-logo item",
     attrs: {
       "to": "/Contactus",
       "exact": ""
     }
-  }, [_m(4), "聯絡我們"]), _h('router-link', {
+  }, [_m(9), "聯絡我們"]), _h('router-link', {
+    staticClass: "m-logo item",
+    attrs: {
+      "to": "/how-to-use",
+      "exact": ""
+    }
+  }, [_m(10), "使用手冊"]), _h('router-link', {
     staticClass: "m-logo item",
     attrs: {
       "to": "/intro",
       "exact": ""
     }
-  }, [_m(5), "關於vTaiwan"])])])])]), _m(6), _h('div', {
+  }, [_m(11), "關於vTaiwan"])])])])])]), _h('div', {
     staticClass: "linkicon"
-  }, [_m(7), _m(8), _m(9), _h('router-link', {
+  }, [_m(12), _m(13), _m(14), _h('router-link', {
     staticClass: "m-logo big ui circular mail icon orange button",
     attrs: {
       "to": "/Contactus",
       "exact": ""
     }
-  }, [_m(10)])])])])
+  }, [_m(15)])])])])
 }},staticRenderFns: [function (){with(this) {
+  return _h('div', {
+    staticClass: "content"
+  }, ["相關連結"])
+}},function (){with(this) {
   return _h('a', {
     staticClass: "item",
     attrs: {
-      "href": "https://www.facebook.com/vtaiwan.tw/",
-      "title": "Fackbook",
+      "href": "https://talk.vtaiwan.tw/",
+      "title": "vTaiwan討論區",
       "target": "_blank"
     }
   }, [_h('i', {
     staticClass: "right triangle icon"
-  }), "Fackbook"])
+  }), "討論區"])
 }},function (){with(this) {
   return _h('a', {
     staticClass: "item",
@@ -15579,7 +15601,15 @@ module.exports={render:function (){with(this) {
     }
   }, [_h('i', {
     staticClass: "right triangle icon"
-  }), "code on github"])
+  }), "Github"])
+}},function (){with(this) {
+  return _h('i', {
+    staticClass: "right triangle icon"
+  })
+}},function (){with(this) {
+  return _h('div', {
+    staticClass: "content"
+  }, [" \n影音專區"])
 }},function (){with(this) {
   return _h('a', {
     staticClass: "item",
@@ -15592,20 +15622,35 @@ module.exports={render:function (){with(this) {
     staticClass: "right triangle icon"
   }), "Youtube"])
 }},function (){with(this) {
-  return _h('i', {
+  return _h('a', {
+    staticClass: "item",
+    attrs: {
+      "href": "https://www.facebook.com/vtaiwan.tw/",
+      "title": "Fackbook",
+      "target": "_blank"
+    }
+  }, [_h('i', {
     staticClass: "right triangle icon"
-  })
-}},function (){with(this) {
-  return _h('i', {
-    staticClass: "right triangle icon"
-  })
+  }), "Fackbook"])
 }},function (){with(this) {
   return _h('i', {
     staticClass: "right triangle icon"
   })
 }},function (){with(this) {
   return _h('div', {
-    staticClass: "ui section divider"
+    staticClass: "content"
+  }, [" \n關於我們"])
+}},function (){with(this) {
+  return _h('i', {
+    staticClass: "right triangle icon"
+  })
+}},function (){with(this) {
+  return _h('i', {
+    staticClass: "right triangle icon"
+  })
+}},function (){with(this) {
+  return _h('i', {
+    staticClass: "right triangle icon"
   })
 }},function (){with(this) {
   return _h('a', {
