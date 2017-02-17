@@ -45,6 +45,9 @@ export default {
 
 @import "../sass/global.scss";
 
+.component {
+  min-height: 47vh;;
+}
 p {
    text-align: left;
    margin-top: 10px;
