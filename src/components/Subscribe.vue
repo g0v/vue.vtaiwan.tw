@@ -97,6 +97,9 @@ export default {
                 data: { "email": fields.email},
                 success: function(){
                     alert('成功訂閱')
+                },
+                error: function(){
+                  alert('使用者已註冊過')
                 }
             });
         }
@@ -128,7 +131,7 @@ export default {
   height: 100%;
 }
 .componentsubscribe{
-  min-height: 88vh;
+  min-height: 91vh;
 }
 .ui.text.container{
   font-family: $main_font;

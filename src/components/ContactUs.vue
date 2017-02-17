@@ -123,7 +123,7 @@ export default {
   margin-bottom:1em;
 }
 .componentcontactus{
-  min-height: 88vh;
+  min-height: 91vh;
 }
 .label{
   font-size: 1em; 
