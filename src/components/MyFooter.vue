@@ -9,19 +9,19 @@
               .ui.inverted.link.list
                 a.item(href="https://talk.vtaiwan.tw/" title="vTaiwan討論區" target="_blank") 討論區
                 a.item(href="https://github.com/g0v/vue.vtaiwan.tw" title="Github" target="_blank") Github
-                router-link.m-logo.item(to='/', exact='') vTaiwan
+                router-link.m-logo.item(to='/', exact='', title="Home") vTaiwan
             .three.wide.column
               h4.ui.inverted.header 影音專區
               .ui.inverted.link.list
                 a.item(href="https://www.youtube.com/channel/UChC85hbUuDAvFpc7Uuj69DA/" title="Youtube" target="_blank") Youtube
                 a.item(href="https://www.facebook.com/vtaiwan.tw/" title="Fackbook" target="_blank") Fackbook              
-                router-link.m-logo.item(to='/subscribe', exact='') 訂閱電子報
+                router-link.m-logo.item(to='/subscribe', exact='', title="訂閱電子報") 訂閱電子報
             .three.wide.column
               h4.ui.inverted.header 關於我們
               .ui.inverted.link.list                
-                router-link.m-logo.item(to='/Contactus', exact='') 聯絡我們
-                router-link.m-logo.item(to='/how-to-use', exact='') 使用手冊
-                router-link.m-logo.item(to='/intro', exact='') 關於vTaiwan
+                router-link.m-logo.item(to='/Contactus', exact='', title="聯絡我們") 聯絡我們
+                router-link.m-logo.item(to='/how-to-use', exact='', title="使用手冊") 使用手冊
+                router-link.m-logo.item(to='/intro', exact='', title="關於vTaiwan") 關於vTaiwan
             .seven.wide.column
               h4.ui.inverted.header vTaiwan
               p
@@ -35,9 +35,9 @@
             i.youtube.icon
           a.big.ui.circular.github.icon.grey.button(href="https://github.com/g0v/vue.vtaiwan.tw" title="Github" target="_blank")
             i.github.icon
-          router-link.m-logo.big.ui.circular.mail.icon.orange.button(to='/Contactus', exact='')
+          router-link.m-logo.big.ui.circular.mail.icon.orange.button(to='/Contactus', exact='', title="Contact Us")
             i.mail.icon
-          router-link.m-logo.item(to='/', exact='') 
+          router-link.m-logo.item(to='/', exact='', title="Home") 
             img(src='../assets/vTaiwan_logo_2017.png', alt='logo')
       
     
