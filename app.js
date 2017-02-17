@@ -12911,6 +12911,10 @@ var main = __webpack_require__(19);
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -13778,7 +13782,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n*[data-v-0aea0f33] {\n  box-sizing: border-box;\n}\nbody[data-v-0aea0f33] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.component[data-v-0aea0f33] {\n  position: relative;\n}\n.component h1[data-v-0aea0f33], .component h2[data-v-0aea0f33], .component h3[data-v-0aea0f33], .component h4[data-v-0aea0f33], .component h5[data-v-0aea0f33], .component h6[data-v-0aea0f33], .component p[data-v-0aea0f33] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-0aea0f33], .component h2 a[data-v-0aea0f33], .component h3 a[data-v-0aea0f33], .component h4 a[data-v-0aea0f33], .component h5 a[data-v-0aea0f33], .component h6 a[data-v-0aea0f33], .component p a[data-v-0aea0f33] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-0aea0f33] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-0aea0f33] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-0aea0f33] {\n    display: none !important;\n}\n}\n.component[data-v-0aea0f33] {\n  padding: 1em 0;\n}\n.ui.steps .step[data-v-0aea0f33] {\n  -ms-flex: 1 1 auto;\n      flex: 1 1 auto;\n  overflow: hidden;\n}\n.ui.steps .number[data-v-0aea0f33] {\n  font-family: Lobster, \"Microsoft JhengHei\", \"Heiti TC\", serif;\n  font-weight: 700;\n  position: absolute;\n  font-size: 10rem;\n  color: rgba(219, 79, 79, 0.5);\n  margin: 0 0 0 -30%;\n}\n.ui.steps .label[data-v-0aea0f33] {\n  padding: .3em 0 0 .3em;\n  z-index: 100;\n}\n@media only screen and (max-width: 767px) {\n.component[data-v-0aea0f33] {\n    padding: 0px;\n    border: 0px;\n}\n.ui.container[data-v-0aea0f33] {\n    margin: 0 !important;\n}\n.ui.segment.basic[data-v-0aea0f33] {\n    padding: 0;\n    margin-left: 1em;\n    width: 100%;\n}\n.mobile-step[data-v-0aea0f33] {\n    /* do not use #mobile-step, otherwise sticky won't work */\n    position: absolute;\n    top: 1em;\n}\n.mobile-step .ui.menu[data-v-0aea0f33] {\n      width: 2em;\n}\n.mobile-step .ui.menu .item[data-v-0aea0f33] {\n        padding: 1em 0;\n}\n.mobile-step .ui.menu .item.active[data-v-0aea0f33] {\n          color: white;\n          background: #db4f4f;\n}\n}\n", ""]);
+exports.push([module.i, "\n*[data-v-0aea0f33] {\n  box-sizing: border-box;\n}\nbody[data-v-0aea0f33] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.component[data-v-0aea0f33] {\n  position: relative;\n}\n.component h1[data-v-0aea0f33], .component h2[data-v-0aea0f33], .component h3[data-v-0aea0f33], .component h4[data-v-0aea0f33], .component h5[data-v-0aea0f33], .component h6[data-v-0aea0f33], .component p[data-v-0aea0f33] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-0aea0f33], .component h2 a[data-v-0aea0f33], .component h3 a[data-v-0aea0f33], .component h4 a[data-v-0aea0f33], .component h5 a[data-v-0aea0f33], .component h6 a[data-v-0aea0f33], .component p a[data-v-0aea0f33] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-0aea0f33] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-0aea0f33] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-0aea0f33] {\n    display: none !important;\n}\n}\n.component[data-v-0aea0f33] {\n  padding: 1em 0;\n  min-height: 72vh;\n}\n.ui.steps .step[data-v-0aea0f33] {\n  -ms-flex: 1 1 auto;\n      flex: 1 1 auto;\n  overflow: hidden;\n}\n.ui.steps .number[data-v-0aea0f33] {\n  font-family: Lobster, \"Microsoft JhengHei\", \"Heiti TC\", serif;\n  font-weight: 700;\n  position: absolute;\n  font-size: 10rem;\n  color: rgba(219, 79, 79, 0.5);\n  margin: 0 0 0 -30%;\n}\n.ui.steps .label[data-v-0aea0f33] {\n  padding: .3em 0 0 .3em;\n  z-index: 100;\n}\n@media only screen and (max-width: 767px) {\n.component[data-v-0aea0f33] {\n    padding: 0px;\n    border: 0px;\n}\n.ui.container[data-v-0aea0f33] {\n    margin: 0 !important;\n}\n.ui.segment.basic[data-v-0aea0f33] {\n    padding: 0;\n    margin-left: 1em;\n    width: 100%;\n}\n.proposalTab[data-v-0aea0f33] {\n    padding: 1em 0;\n    min-height: 72vh;\n}\n.mobile-step[data-v-0aea0f33] {\n    /* do not use #mobile-step, otherwise sticky won't work */\n    position: absolute;\n    top: 1em;\n}\n.mobile-step .ui.menu[data-v-0aea0f33] {\n      width: 2em;\n}\n.mobile-step .ui.menu .item[data-v-0aea0f33] {\n        padding: 1em 0;\n}\n.mobile-step .ui.menu .item.active[data-v-0aea0f33] {\n          color: white;\n          background: #db4f4f;\n}\n}\n", ""]);
 
 // exports
 
@@ -13834,7 +13838,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n*[data-v-280eaafe] {\n  box-sizing: border-box;\n}\nbody[data-v-280eaafe] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.component[data-v-280eaafe] {\n  position: relative;\n}\n.component h1[data-v-280eaafe], .component h2[data-v-280eaafe], .component h3[data-v-280eaafe], .component h4[data-v-280eaafe], .component h5[data-v-280eaafe], .component h6[data-v-280eaafe], .component p[data-v-280eaafe] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-280eaafe], .component h2 a[data-v-280eaafe], .component h3 a[data-v-280eaafe], .component h4 a[data-v-280eaafe], .component h5 a[data-v-280eaafe], .component h6 a[data-v-280eaafe], .component p a[data-v-280eaafe] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-280eaafe] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-280eaafe] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-280eaafe] {\n    display: none !important;\n}\n}\n.row.BGgray[data-v-280eaafe] {\n  background-color: #efefef;\n  padding-top: 2em;\n  margin-bottom: 1em;\n}\n.left[data-v-280eaafe] {\n  text-align: left;\n}\n.ui.styled.accordion > .title[data-v-280eaafe]:first-child {\n  font-size: 1.5rem;\n}\n.ui.green.button[data-v-280eaafe] {\n  background-color: #40B3BF;\n  margin-bottom: 1em;\n}\n", ""]);
+exports.push([module.i, "\n*[data-v-280eaafe] {\n  box-sizing: border-box;\n}\nbody[data-v-280eaafe] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.component[data-v-280eaafe] {\n  position: relative;\n}\n.component h1[data-v-280eaafe], .component h2[data-v-280eaafe], .component h3[data-v-280eaafe], .component h4[data-v-280eaafe], .component h5[data-v-280eaafe], .component h6[data-v-280eaafe], .component p[data-v-280eaafe] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-280eaafe], .component h2 a[data-v-280eaafe], .component h3 a[data-v-280eaafe], .component h4 a[data-v-280eaafe], .component h5 a[data-v-280eaafe], .component h6 a[data-v-280eaafe], .component p a[data-v-280eaafe] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-280eaafe] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-280eaafe] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-280eaafe] {\n    display: none !important;\n}\n}\n.row.BGgray[data-v-280eaafe] {\n  background-color: #efefef;\n  padding-top: 2em;\n  margin-bottom: 1em;\n}\n.left[data-v-280eaafe] {\n  text-align: left;\n}\n.ui.styled.accordion > .title[data-v-280eaafe]:first-child {\n  font-size: 1.5rem;\n}\n.ui.green.button[data-v-280eaafe] {\n  background-color: #40B3BF;\n  margin-bottom: 1em;\n}\n.componentcontactus[data-v-280eaafe] {\n  min-height: 88vh;\n}\n.label[data-v-280eaafe] {\n  font-size: 1em;\n}\n", ""]);
 
 // exports
 
@@ -13960,7 +13964,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n*[data-v-5da6cb6a] {\n  box-sizing: border-box;\n}\nbody[data-v-5da6cb6a] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.component[data-v-5da6cb6a] {\n  position: relative;\n}\n.component h1[data-v-5da6cb6a], .component h2[data-v-5da6cb6a], .component h3[data-v-5da6cb6a], .component h4[data-v-5da6cb6a], .component h5[data-v-5da6cb6a], .component h6[data-v-5da6cb6a], .component p[data-v-5da6cb6a] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-5da6cb6a], .component h2 a[data-v-5da6cb6a], .component h3 a[data-v-5da6cb6a], .component h4 a[data-v-5da6cb6a], .component h5 a[data-v-5da6cb6a], .component h6 a[data-v-5da6cb6a], .component p a[data-v-5da6cb6a] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-5da6cb6a] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-5da6cb6a] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-5da6cb6a] {\n    display: none !important;\n}\n}\n.row.BGgray[data-v-5da6cb6a] {\n  background-color: #efefef;\n  padding-top: 2em;\n  margin-bottom: 1em;\n}\n.left[data-v-5da6cb6a] {\n  text-align: left;\n}\n.ui.styled.accordion > .title[data-v-5da6cb6a]:first-child {\n  font-size: 1.5rem;\n}\n.ui.green.button[data-v-5da6cb6a] {\n  background-color: #40B3BF;\n  margin-bottom: 1em;\n}\n", ""]);
+exports.push([module.i, "\n*[data-v-5da6cb6a] {\n  box-sizing: border-box;\n}\nbody[data-v-5da6cb6a] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.component[data-v-5da6cb6a] {\n  position: relative;\n}\n.component h1[data-v-5da6cb6a], .component h2[data-v-5da6cb6a], .component h3[data-v-5da6cb6a], .component h4[data-v-5da6cb6a], .component h5[data-v-5da6cb6a], .component h6[data-v-5da6cb6a], .component p[data-v-5da6cb6a] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-5da6cb6a], .component h2 a[data-v-5da6cb6a], .component h3 a[data-v-5da6cb6a], .component h4 a[data-v-5da6cb6a], .component h5 a[data-v-5da6cb6a], .component h6 a[data-v-5da6cb6a], .component p a[data-v-5da6cb6a] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-5da6cb6a] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-5da6cb6a] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-5da6cb6a] {\n    display: none !important;\n}\n}\n.row.BGgray[data-v-5da6cb6a] {\n  background-color: #efefef;\n  padding-top: 2em;\n  margin-bottom: 1em;\n}\n.left[data-v-5da6cb6a] {\n  text-align: left;\n}\n.ui.styled.accordion > .title[data-v-5da6cb6a]:first-child {\n  font-size: 1.5rem;\n}\n.ui.green.button[data-v-5da6cb6a] {\n  background-color: #40B3BF;\n  margin-bottom: 1em;\n}\n.ui.container[data-v-5da6cb6a] {\n  height: 100%;\n}\n.componentsubscribe[data-v-5da6cb6a] {\n  min-height: 88vh;\n}\n.ui.text.container[data-v-5da6cb6a] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 1 em;\n}\n", ""]);
 
 // exports
 
@@ -14916,7 +14920,7 @@ module.exports={render:function (){with(this) {
 
 module.exports={render:function (){with(this) {
   return _h('div', {
-    staticClass: "component"
+    staticClass: "component proposalTab"
   }, [_h('div', {
     staticClass: "ui container"
   }, [_h('div', {
@@ -15108,7 +15112,7 @@ module.exports={render:function (){with(this) {
 
 module.exports={render:function (){with(this) {
   return _h('div', {
-    staticClass: "component"
+    staticClass: "componentcontactus"
   }, [_h('div', {
     staticClass: "ui container"
   }, [_h('div', {
@@ -15697,18 +15701,18 @@ module.exports={render:function (){with(this) {
 
 module.exports={render:function (){with(this) {
   return _h('div', {
-    staticClass: "component"
+    staticClass: "componentsubscribe"
   }, [_h('div', {
     staticClass: "ui container"
   }, [_h('div', {
     staticClass: "row BGgray"
   }, [_h('div', {
     staticClass: "ui left aligned text container"
-  }, [_h('h2', ["訂閱電子報", _h('div', {
+  }, [_m(0), _m(1), _m(2), _h('div', {
     staticClass: "ui form"
   }, [_h('div', {
     staticClass: "field"
-  }, [_m(0), _h('input', {
+  }, [_h('input', {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -15729,16 +15733,16 @@ module.exports={render:function (){with(this) {
         email = $event.target.value
       }
     }
-  })]), _m(1), _m(2)])])])]), _h('div', {
+  })]), _m(3), _m(4)]), _m(5)])]), _h('div', {
     staticClass: "row left"
   }, [_h('div', {
     staticClass: "ui segment attached"
-  }, [_m(3), _l((Discussion), function(item, index) {
+  }, [_m(6), _l((Discussion), function(item, index) {
     return _h('div', [_h('div', {
       staticClass: "ui styled accordion"
     }, [_h('div', {
       staticClass: "title"
-    }, [_m(4, true), _s(Discussion[index].title)]), _h('div', {
+    }, [_m(7, true), _s(Discussion[index].title)]), _h('div', {
       staticClass: "content"
     }, [_h('Discussion_Comment', {
       attrs: {
@@ -15753,7 +15757,17 @@ module.exports={render:function (){with(this) {
     }
   }, ["閱讀更多...    "]) : _e()])])])])
 }},staticRenderFns: [function (){with(this) {
-  return _h('label', ["email："])
+  return _h('h2', ["訂閱電子報"])
+}},function (){with(this) {
+  return _h('p', [_h('span', ["已註冊過vtaiwan討論區用戶，請至"]), _h('a', {
+    attrs: {
+      "href": "https://talk.vtaiwan.tw/c/newsletter",
+      "title": "電子報",
+      "target": "_blank"
+    }
+  }, ["電子報討論專區"]), _h('span', ["設定監看頭一帖"])])
+}},function (){with(this) {
+  return _h('p', ["尚未註冊請輸入email："])
 }},function (){with(this) {
   return _h('div', {
     staticClass: "ui green submit button"
@@ -15762,6 +15776,8 @@ module.exports={render:function (){with(this) {
   return _h('div', {
     staticClass: "ui error message"
   })
+}},function (){with(this) {
+  return _h('p')
 }},function (){with(this) {
   return _h('h2', ["歷史電子報"])
 }},function (){with(this) {
