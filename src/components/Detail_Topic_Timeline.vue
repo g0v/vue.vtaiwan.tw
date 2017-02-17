@@ -3,15 +3,36 @@
   .component 
     
     .fat-only 
-      .event-list 
-        .item(v-for = "(ev,idx) in timeline.time", :class="['dark','gloom','light'][idx % 3]") 
-          .big 從{{ev.start}} 開始 {{ev.end}} 
-          .small 
-            p {{ ev.title }} 
-            .title {{ ev.info }} 
-          .small 
-            p 相關連結 
-            Plink(:urllink="ev.link")
+      //- .event-list 
+      //-   .item(v-for = "(ev,idx) in timeline.time", :class="['dark','gloom','light'][idx % 3]") 
+      //-     .big 從{{ev.start}} 開始 {{ev.end}} 
+      //-     .small 
+      //-       p {{ ev.title }} 
+      //-       .title {{ ev.info }} 
+      //-     .small 
+      //-       p 相關連結 
+      //-       Plink(:urllink="ev.link")
+      table.ui.fixed.striped.table
+        thead
+          tr.center.aligned
+            th
+              h3 議題時間
+            th
+              h3 議題階段
+            th
+              h3 相關連結
+        tbody
+          tr(v-for = "(ev,idx) in timeline.time")
+            td  
+              span {{ev.start}} 
+              i.arrow.right.icon(v-if="ev.end != null")
+              span  {{ev.end}}
+            td
+              p {{ev.title}}
+              i.caret.right.icon(v-if="ev.info != null") 
+              span(v-if="ev.info != null") {{ev.info}} 
+            td 
+              Plink(:urllink="ev.link")
 
     .thin-only
       .event-list 
@@ -23,6 +44,7 @@
           .small 
             p 相關連結 
             Plink(:urllink="ev.link")
+      
 
 </template>
 
@@ -71,7 +93,7 @@
                 timeline_content['end'] = null;
               }
               else { // 有結束日期
-                timeline_content['end'] = "至 " + detail_info[i]['raw'].split(regex)[2]; // 結束日期
+                timeline_content['end'] = detail_info[i]['raw'].split(regex)[2]; // 結束日期
               }
               if (detail_info[i]['raw'].split(regex)[2].length > 10) { // 無結束日期
                 timeline_content['end'] = null;
@@ -115,6 +137,17 @@
 </script>
 
 <style lang="scss" scoped>
+
+tbody tr td {
+  span{
+    margin-right: 6px;
+  }
+  p{
+    font-size: 1.1em;
+    font-weight: 600;
+  }
+}
+
 
 .event-list {
   display: flex;
