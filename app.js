@@ -349,7 +349,7 @@ function applyToTag(styleElement, obj) {
 "use strict";
 'use strict';
 
-var bind = __webpack_require__(18);
+var bind = __webpack_require__(19);
 
 /*global toString:true*/
 
@@ -6633,7 +6633,7 @@ function flush() {
 function attemptVertx() {
   try {
     var r = require;
-    var vertx = __webpack_require__(13);
+    var vertx = __webpack_require__(14);
     vertxNext = vertx.runOnLoop || vertx.runOnContext;
     return useVertxTimer();
   } catch (e) {
@@ -10129,10 +10129,10 @@ function getDefaultAdapter() {
   var adapter;
   if (typeof XMLHttpRequest !== 'undefined') {
     // For browsers use XHR adapter
-    adapter = __webpack_require__(14);
+    adapter = __webpack_require__(15);
   } else if (typeof process !== 'undefined') {
     // For node use HTTP adapter
-    adapter = __webpack_require__(14);
+    adapter = __webpack_require__(15);
   }
   return adapter;
 }
@@ -10209,6 +10209,12 @@ module.exports = defaults;
 /* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
+module.exports = __webpack_require__.p + "vTaiwan_logo_2017.png";
+
+/***/ },
+/* 13 */
+/***/ function(module, exports, __webpack_require__) {
+
 var __vue_exports__, __vue_options__
 
 /* styles */
@@ -10237,13 +10243,13 @@ module.exports = __vue_exports__
 
 
 /***/ },
-/* 13 */
+/* 14 */
 /***/ function(module, exports) {
 
 /* (ignored) */
 
 /***/ },
-/* 14 */
+/* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10254,7 +10260,7 @@ var settle = __webpack_require__(30);
 var buildURL = __webpack_require__(33);
 var parseHeaders = __webpack_require__(39);
 var isURLSameOrigin = __webpack_require__(37);
-var createError = __webpack_require__(17);
+var createError = __webpack_require__(18);
 var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(32);
 
 module.exports = function xhrAdapter(config) {
@@ -10428,7 +10434,7 @@ module.exports = function xhrAdapter(config) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 15 */
+/* 16 */
 /***/ function(module, exports) {
 
 "use strict";
@@ -10454,7 +10460,7 @@ module.exports = Cancel;
 
 
 /***/ },
-/* 16 */
+/* 17 */
 /***/ function(module, exports) {
 
 "use strict";
@@ -10466,7 +10472,7 @@ module.exports = function isCancel(value) {
 
 
 /***/ },
-/* 17 */
+/* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10490,7 +10496,7 @@ module.exports = function createError(message, config, code, response) {
 
 
 /***/ },
-/* 18 */
+/* 19 */
 /***/ function(module, exports) {
 
 "use strict";
@@ -10508,7 +10514,7 @@ module.exports = function bind(fn, thisArg) {
 
 
 /***/ },
-/* 19 */
+/* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10557,12 +10563,6 @@ function pluralize(time, label) {
 /* http://www.2ality.com/2015/07/es6-module-exports.html */
 
 /***/ },
-/* 20 */
-/***/ function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "vTaiwan_logo_2017.png";
-
-/***/ },
 /* 21 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -10607,7 +10607,7 @@ module.exports = __vue_exports__
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__router__ = __webpack_require__(66);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vuex_router_sync__ = __webpack_require__(175);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vuex_router_sync___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_vuex_router_sync__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__filters__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__filters__ = __webpack_require__(20);
 /* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return app; });
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -10652,7 +10652,7 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a(_extends({
 'use strict';
 
 var utils = __webpack_require__(2);
-var bind = __webpack_require__(18);
+var bind = __webpack_require__(19);
 var Axios = __webpack_require__(26);
 var defaults = __webpack_require__(11);
 
@@ -10687,9 +10687,9 @@ axios.create = function create(instanceConfig) {
 };
 
 // Expose Cancel & CancelToken
-axios.Cancel = __webpack_require__(15);
+axios.Cancel = __webpack_require__(16);
 axios.CancelToken = __webpack_require__(25);
-axios.isCancel = __webpack_require__(16);
+axios.isCancel = __webpack_require__(17);
 
 // Expose all/spread
 axios.all = function all(promises) {
@@ -10710,7 +10710,7 @@ module.exports.default = axios;
 "use strict";
 'use strict';
 
-var Cancel = __webpack_require__(15);
+var Cancel = __webpack_require__(16);
 
 /**
  * A `CancelToken` is an object that can be used to request cancellation of an operation.
@@ -10927,7 +10927,7 @@ module.exports = InterceptorManager;
 
 var utils = __webpack_require__(2);
 var transformData = __webpack_require__(31);
-var isCancel = __webpack_require__(16);
+var isCancel = __webpack_require__(17);
 var defaults = __webpack_require__(11);
 
 /**
@@ -11037,7 +11037,7 @@ module.exports = function enhanceError(error, config, code, response) {
 "use strict";
 'use strict';
 
-var createError = __webpack_require__(17);
+var createError = __webpack_require__(18);
 
 /**
  * Resolve or reject a Promise based on response status.
@@ -11606,7 +11606,7 @@ module.exports = function spread(callback) {
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Detail_Topic_Discussion_Comment_vue__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Detail_Topic_Discussion_Comment_vue__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Detail_Topic_Discussion_Comment_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__Detail_Topic_Discussion_Comment_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__js_request__ = __webpack_require__(3);
 //
@@ -11976,7 +11976,7 @@ module.exports = function spread(callback) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__js_request__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Detail_Topic_Discussion_Comment_vue__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Detail_Topic_Discussion_Comment_vue__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Detail_Topic_Discussion_Comment_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__Detail_Topic_Discussion_Comment_vue__);
 //
 //
@@ -12818,7 +12818,7 @@ module.exports = function spread(callback) {
 
 
 // import $ from 'jQuery'
-var main = __webpack_require__(19);
+var main = __webpack_require__(20);
 /* harmony default export */ exports["default"] = {
   props: ['urllink'],
   data: function data() {
@@ -12879,7 +12879,7 @@ var main = __webpack_require__(19);
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Detail_Topic_Discussion_Comment_vue__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Detail_Topic_Discussion_Comment_vue__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Detail_Topic_Discussion_Comment_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__Detail_Topic_Discussion_Comment_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__js_request__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios__ = __webpack_require__(10);
@@ -13000,6 +13000,9 @@ var main = __webpack_require__(19);
           data: { "email": fields.email },
           success: function success() {
             alert('成功訂閱');
+          },
+          error: function error() {
+            alert('使用者已註冊過');
           }
         });
       }
@@ -13838,7 +13841,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n*[data-v-280eaafe] {\n  box-sizing: border-box;\n}\nbody[data-v-280eaafe] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.component[data-v-280eaafe] {\n  position: relative;\n}\n.component h1[data-v-280eaafe], .component h2[data-v-280eaafe], .component h3[data-v-280eaafe], .component h4[data-v-280eaafe], .component h5[data-v-280eaafe], .component h6[data-v-280eaafe], .component p[data-v-280eaafe] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-280eaafe], .component h2 a[data-v-280eaafe], .component h3 a[data-v-280eaafe], .component h4 a[data-v-280eaafe], .component h5 a[data-v-280eaafe], .component h6 a[data-v-280eaafe], .component p a[data-v-280eaafe] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-280eaafe] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-280eaafe] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-280eaafe] {\n    display: none !important;\n}\n}\n.row.BGgray[data-v-280eaafe] {\n  background-color: #efefef;\n  padding-top: 2em;\n  margin-bottom: 1em;\n}\n.left[data-v-280eaafe] {\n  text-align: left;\n}\n.ui.styled.accordion > .title[data-v-280eaafe]:first-child {\n  font-size: 1.5rem;\n}\n.ui.green.button[data-v-280eaafe] {\n  background-color: #40B3BF;\n  margin-bottom: 1em;\n}\n.componentcontactus[data-v-280eaafe] {\n  min-height: 88vh;\n}\n.label[data-v-280eaafe] {\n  font-size: 1em;\n}\n", ""]);
+exports.push([module.i, "\n*[data-v-280eaafe] {\n  box-sizing: border-box;\n}\nbody[data-v-280eaafe] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.component[data-v-280eaafe] {\n  position: relative;\n}\n.component h1[data-v-280eaafe], .component h2[data-v-280eaafe], .component h3[data-v-280eaafe], .component h4[data-v-280eaafe], .component h5[data-v-280eaafe], .component h6[data-v-280eaafe], .component p[data-v-280eaafe] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-280eaafe], .component h2 a[data-v-280eaafe], .component h3 a[data-v-280eaafe], .component h4 a[data-v-280eaafe], .component h5 a[data-v-280eaafe], .component h6 a[data-v-280eaafe], .component p a[data-v-280eaafe] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-280eaafe] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-280eaafe] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-280eaafe] {\n    display: none !important;\n}\n}\n.row.BGgray[data-v-280eaafe] {\n  background-color: #efefef;\n  padding-top: 2em;\n  margin-bottom: 1em;\n}\n.left[data-v-280eaafe] {\n  text-align: left;\n}\n.ui.styled.accordion > .title[data-v-280eaafe]:first-child {\n  font-size: 1.5rem;\n}\n.ui.green.button[data-v-280eaafe] {\n  background-color: #40B3BF;\n  margin-bottom: 1em;\n}\n.componentcontactus[data-v-280eaafe] {\n  min-height: 91vh;\n}\n.label[data-v-280eaafe] {\n  font-size: 1em;\n}\n", ""]);
 
 // exports
 
@@ -13950,7 +13953,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n*[data-v-5120c3f7] {\n  box-sizing: border-box;\n}\nbody[data-v-5120c3f7] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.component[data-v-5120c3f7] {\n  position: relative;\n}\n.component h1[data-v-5120c3f7], .component h2[data-v-5120c3f7], .component h3[data-v-5120c3f7], .component h4[data-v-5120c3f7], .component h5[data-v-5120c3f7], .component h6[data-v-5120c3f7], .component p[data-v-5120c3f7] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-5120c3f7], .component h2 a[data-v-5120c3f7], .component h3 a[data-v-5120c3f7], .component h4 a[data-v-5120c3f7], .component h5 a[data-v-5120c3f7], .component h6 a[data-v-5120c3f7], .component p a[data-v-5120c3f7] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-5120c3f7] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-5120c3f7] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-5120c3f7] {\n    display: none !important;\n}\n}\n.component[data-v-5120c3f7] {\n  padding: 1em;\n  background-color: rgba(0, 0, 0, 0.04);\n}\n.row[data-v-5120c3f7] {\n  margin-bottom: 1em;\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 1 rem;\n}\nu[data-v-5120c3f7] {\n  color: black;\n  text-align: left;\n}\n.ui.button[data-v-5120c3f7] {\n  background-color: rgba(34, 36, 38, 0.21);\n  margin-right: 1em;\n  font-size: 1em;\n}\n.ui.button[data-v-5120c3f7]:hover {\n  -webkit-filter: inherit;\n          filter: inherit;\n}\n.ui.list > a.item[data-v-5120c3f7] {\n  color: #696969;\n}\n.ui.list > a.item[data-v-5120c3f7]:hover {\n  color: #1b1c1d;\n}\n.linkicon[data-v-5120c3f7] {\n  text-align: center;\n}\n.ui.grid[data-v-5120c3f7] {\n  text-align: center;\n}\n.ui.card[data-v-5120c3f7] {\n  width: 100%;\n}\n.ui.grid > .row > .column[data-v-5120c3f7] {\n  padding: 0;\n}\n.ui.card > .content[data-v-5120c3f7] {\n  padding: 0.5em;\n}\n", ""]);
+exports.push([module.i, "\n*[data-v-5120c3f7] {\n  box-sizing: border-box;\n}\nbody[data-v-5120c3f7] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.component[data-v-5120c3f7] {\n  position: relative;\n}\n.component h1[data-v-5120c3f7], .component h2[data-v-5120c3f7], .component h3[data-v-5120c3f7], .component h4[data-v-5120c3f7], .component h5[data-v-5120c3f7], .component h6[data-v-5120c3f7], .component p[data-v-5120c3f7] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-5120c3f7], .component h2 a[data-v-5120c3f7], .component h3 a[data-v-5120c3f7], .component h4 a[data-v-5120c3f7], .component h5 a[data-v-5120c3f7], .component h6 a[data-v-5120c3f7], .component p a[data-v-5120c3f7] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-5120c3f7] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-5120c3f7] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-5120c3f7] {\n    display: none !important;\n}\n}\nimg[data-v-5120c3f7] {\n  width: 3.2em;\n  height: auto;\n  vertical-align: bottom;\n}\n.ui.centered[data-v-5120c3f7] {\n  text-align: center;\n}\n.linkicon[data-v-5120c3f7] {\n  text-align: center;\n}\n", ""]);
 
 // exports
 
@@ -13964,7 +13967,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n*[data-v-5da6cb6a] {\n  box-sizing: border-box;\n}\nbody[data-v-5da6cb6a] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.component[data-v-5da6cb6a] {\n  position: relative;\n}\n.component h1[data-v-5da6cb6a], .component h2[data-v-5da6cb6a], .component h3[data-v-5da6cb6a], .component h4[data-v-5da6cb6a], .component h5[data-v-5da6cb6a], .component h6[data-v-5da6cb6a], .component p[data-v-5da6cb6a] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-5da6cb6a], .component h2 a[data-v-5da6cb6a], .component h3 a[data-v-5da6cb6a], .component h4 a[data-v-5da6cb6a], .component h5 a[data-v-5da6cb6a], .component h6 a[data-v-5da6cb6a], .component p a[data-v-5da6cb6a] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-5da6cb6a] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-5da6cb6a] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-5da6cb6a] {\n    display: none !important;\n}\n}\n.row.BGgray[data-v-5da6cb6a] {\n  background-color: #efefef;\n  padding-top: 2em;\n  margin-bottom: 1em;\n}\n.left[data-v-5da6cb6a] {\n  text-align: left;\n}\n.ui.styled.accordion > .title[data-v-5da6cb6a]:first-child {\n  font-size: 1.5rem;\n}\n.ui.green.button[data-v-5da6cb6a] {\n  background-color: #40B3BF;\n  margin-bottom: 1em;\n}\n.ui.container[data-v-5da6cb6a] {\n  height: 100%;\n}\n.componentsubscribe[data-v-5da6cb6a] {\n  min-height: 88vh;\n}\n.ui.text.container[data-v-5da6cb6a] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 1 em;\n}\n", ""]);
+exports.push([module.i, "\n*[data-v-5da6cb6a] {\n  box-sizing: border-box;\n}\nbody[data-v-5da6cb6a] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.component[data-v-5da6cb6a] {\n  position: relative;\n}\n.component h1[data-v-5da6cb6a], .component h2[data-v-5da6cb6a], .component h3[data-v-5da6cb6a], .component h4[data-v-5da6cb6a], .component h5[data-v-5da6cb6a], .component h6[data-v-5da6cb6a], .component p[data-v-5da6cb6a] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-5da6cb6a], .component h2 a[data-v-5da6cb6a], .component h3 a[data-v-5da6cb6a], .component h4 a[data-v-5da6cb6a], .component h5 a[data-v-5da6cb6a], .component h6 a[data-v-5da6cb6a], .component p a[data-v-5da6cb6a] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-5da6cb6a] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-5da6cb6a] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-5da6cb6a] {\n    display: none !important;\n}\n}\n.row.BGgray[data-v-5da6cb6a] {\n  background-color: #efefef;\n  padding-top: 2em;\n  margin-bottom: 1em;\n}\n.left[data-v-5da6cb6a] {\n  text-align: left;\n}\n.ui.styled.accordion > .title[data-v-5da6cb6a]:first-child {\n  font-size: 1.5rem;\n}\n.ui.green.button[data-v-5da6cb6a] {\n  background-color: #40B3BF;\n  margin-bottom: 1em;\n}\n.ui.container[data-v-5da6cb6a] {\n  height: 100%;\n}\n.componentsubscribe[data-v-5da6cb6a] {\n  min-height: 91vh;\n}\n.ui.text.container[data-v-5da6cb6a] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 1 em;\n}\n", ""]);
 
 // exports
 
@@ -15512,77 +15515,77 @@ module.exports={render:function (){with(this) {
 
 /***/ },
 /* 137 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){with(this) {
   return _h('div', {
     staticClass: "component"
   }, [_h('div', {
-    staticClass: "ui container"
+    staticClass: "ui inverted vertical footer segment"
   }, [_h('div', {
-    staticClass: "ui grid"
+    staticClass: "ui center aligned container"
   }, [_h('div', {
-    staticClass: "three column row"
+    staticClass: "ui stackable inverted divided grid"
   }, [_h('div', {
-    staticClass: "column"
-  }, [_h('div', {
-    staticClass: "ui card"
+    staticClass: "three wide column"
   }, [_m(0), _h('div', {
-    staticClass: "content ui list"
+    staticClass: "ui inverted link list"
   }, [_m(1), _m(2), _h('router-link', {
     staticClass: "m-logo item",
     attrs: {
       "to": "/",
       "exact": ""
     }
-  }, [_m(3), "vTaiwan"])])])]), _h('div', {
-    staticClass: "column"
-  }, [_h('div', {
-    staticClass: "ui card"
-  }, [_m(4), _h('div', {
-    staticClass: "content ui list"
-  }, [_m(5), _m(6), _h('router-link', {
+  }, ["vTaiwan"])])]), _h('div', {
+    staticClass: "three wide column"
+  }, [_m(3), _h('div', {
+    staticClass: "ui inverted link list"
+  }, [_m(4), _m(5), _h('router-link', {
     staticClass: "m-logo item",
     attrs: {
       "to": "/subscribe",
       "exact": ""
     }
-  }, [_m(7), "訂閱電子報"])])])]), _h('div', {
-    staticClass: "column"
-  }, [_h('div', {
-    staticClass: "ui card"
-  }, [_m(8), _h('div', {
-    staticClass: "content ui list"
+  }, ["訂閱電子報"])])]), _h('div', {
+    staticClass: "three wide column"
+  }, [_m(6), _h('div', {
+    staticClass: "ui inverted link list"
   }, [_h('router-link', {
     staticClass: "m-logo item",
     attrs: {
       "to": "/Contactus",
       "exact": ""
     }
-  }, [_m(9), "聯絡我們"]), _h('router-link', {
+  }, ["聯絡我們"]), _h('router-link', {
     staticClass: "m-logo item",
     attrs: {
       "to": "/how-to-use",
       "exact": ""
     }
-  }, [_m(10), "使用手冊"]), _h('router-link', {
+  }, ["使用手冊"]), _h('router-link', {
     staticClass: "m-logo item",
     attrs: {
       "to": "/intro",
       "exact": ""
     }
-  }, [_m(11), "關於vTaiwan"])])])])])]), _h('div', {
-    staticClass: "linkicon"
-  }, [_m(12), _m(13), _m(14), _h('router-link', {
+  }, ["關於vTaiwan"])])]), _m(7)])]), _m(8), _h('div', {
+    staticClass: "ui centered"
+  }, [_m(9), _m(10), _m(11), _h('router-link', {
     staticClass: "m-logo big ui circular mail icon orange button",
     attrs: {
       "to": "/Contactus",
       "exact": ""
     }
-  }, [_m(15)])])])])
+  }, [_m(12)]), _h('router-link', {
+    staticClass: "m-logo item",
+    attrs: {
+      "to": "/",
+      "exact": ""
+    }
+  }, [_m(13)])])])])
 }},staticRenderFns: [function (){with(this) {
-  return _h('div', {
-    staticClass: "content"
+  return _h('h4', {
+    staticClass: "ui inverted header"
   }, ["相關連結"])
 }},function (){with(this) {
   return _h('a', {
@@ -15592,9 +15595,7 @@ module.exports={render:function (){with(this) {
       "title": "vTaiwan討論區",
       "target": "_blank"
     }
-  }, [_h('i', {
-    staticClass: "right triangle icon"
-  }), "討論區"])
+  }, ["討論區"])
 }},function (){with(this) {
   return _h('a', {
     staticClass: "item",
@@ -15603,17 +15604,11 @@ module.exports={render:function (){with(this) {
       "title": "Github",
       "target": "_blank"
     }
-  }, [_h('i', {
-    staticClass: "right triangle icon"
-  }), "Github"])
+  }, ["Github"])
 }},function (){with(this) {
-  return _h('i', {
-    staticClass: "right triangle icon"
-  })
-}},function (){with(this) {
-  return _h('div', {
-    staticClass: "content"
-  }, [" \n影音專區"])
+  return _h('h4', {
+    staticClass: "ui inverted header"
+  }, ["影音專區"])
 }},function (){with(this) {
   return _h('a', {
     staticClass: "item",
@@ -15622,9 +15617,7 @@ module.exports={render:function (){with(this) {
       "title": "Youtube",
       "target": "_blank"
     }
-  }, [_h('i', {
-    staticClass: "right triangle icon"
-  }), "Youtube"])
+  }, ["Youtube"])
 }},function (){with(this) {
   return _h('a', {
     staticClass: "item",
@@ -15633,32 +15626,24 @@ module.exports={render:function (){with(this) {
       "title": "Fackbook",
       "target": "_blank"
     }
-  }, [_h('i', {
-    staticClass: "right triangle icon"
-  }), "Fackbook"])
+  }, ["Fackbook              "])
 }},function (){with(this) {
-  return _h('i', {
-    staticClass: "right triangle icon"
-  })
+  return _h('h4', {
+    staticClass: "ui inverted header"
+  }, ["關於我們"])
 }},function (){with(this) {
   return _h('div', {
-    staticClass: "content"
-  }, [" \n關於我們"])
+    staticClass: "seven wide column"
+  }, [_h('h4', {
+    staticClass: "ui inverted header"
+  }, ["vTaiwan"]), _h('p', ["vTaiwan為討論法規該如何制定或修改的平台，透過彼此的意見交流，希望能夠產出符合各利益關係人期待，也貼近實際需求的法規內容。"])])
 }},function (){with(this) {
-  return _h('i', {
-    staticClass: "right triangle icon"
-  })
-}},function (){with(this) {
-  return _h('i', {
-    staticClass: "right triangle icon"
-  })
-}},function (){with(this) {
-  return _h('i', {
-    staticClass: "right triangle icon"
+  return _h('div', {
+    staticClass: "ui inverted section divider"
   })
 }},function (){with(this) {
   return _h('a', {
-    staticClass: "big ui circular facebook icon button",
+    staticClass: "big ui centered circular facebook icon button",
     attrs: {
       "href": "https://www.facebook.com/vtaiwan.tw/",
       "title": "Fackbook",
@@ -15680,7 +15665,7 @@ module.exports={render:function (){with(this) {
   })])
 }},function (){with(this) {
   return _h('a', {
-    staticClass: "big ui circular github icon black button",
+    staticClass: "big ui circular github icon grey button",
     attrs: {
       "href": "https://github.com/g0v/vue.vtaiwan.tw",
       "title": "Github",
@@ -15692,6 +15677,13 @@ module.exports={render:function (){with(this) {
 }},function (){with(this) {
   return _h('i', {
     staticClass: "mail icon"
+  })
+}},function (){with(this) {
+  return _h('img', {
+    attrs: {
+      "src": __webpack_require__(12),
+      "alt": "logo"
+    }
   })
 }}]}
 
@@ -16080,7 +16072,7 @@ module.exports={render:function (){with(this) {
 }},function (){with(this) {
   return _h('img', {
     attrs: {
-      "src": __webpack_require__(20),
+      "src": __webpack_require__(12),
       "alt": "logo"
     }
   })
@@ -16089,7 +16081,7 @@ module.exports={render:function (){with(this) {
 }},function (){with(this) {
   return _h('img', {
     attrs: {
-      "src": __webpack_require__(20),
+      "src": __webpack_require__(12),
       "alt": "logo"
     }
   })
