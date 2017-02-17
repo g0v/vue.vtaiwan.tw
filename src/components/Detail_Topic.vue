@@ -191,5 +191,8 @@ export default {
 //     }
 //   }
 // }
+.ui.container.pusher{
+  min-height:90vh;
+}
 
 </style>
