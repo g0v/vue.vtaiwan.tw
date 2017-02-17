@@ -1,5 +1,5 @@
 <template lang="jade">
-.component
+.component.proposalTab
   .ui.container
     
     #mobile-step.ui.sticky.mobile-step.thin-only
@@ -165,6 +165,7 @@ export default {
 
 .component {
   padding: 1em 0;
+  min-height: 72vh;
 }
 
 .ui.steps {
@@ -212,6 +213,10 @@ export default {
     padding: 0;
     margin-left: 1em;
     width: 100%;
+  }
+  .proposalTab{
+        padding: 1em 0;
+    min-height: 72vh;
   }
   .mobile-step { /* do not use #mobile-step, otherwise sticky won't work */
     position: absolute;

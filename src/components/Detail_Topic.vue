@@ -144,4 +144,9 @@ export default {
 .ui.top.menu {
   width: 100%;
 }
+
+.ui.container.pusher{
+  min-height:90vh;
+}
+
 </style>
