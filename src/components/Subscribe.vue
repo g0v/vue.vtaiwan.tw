@@ -1,12 +1,16 @@
 <template lang="jade">
-  .component
+  .componentsubscribe
     .ui.container
       .row.BGgray
         .ui.left.aligned.text.container
           h2 訂閱電子報
+          p
+            span 已註冊過vtaiwan討論區用戶，請至
+            a(href="https://talk.vtaiwan.tw/c/newsletter" title="電子報" target="_blank")電子報討論專區
+            span 設定監看頭一帖
+          p 尚未註冊請輸入email：
             .ui.form
               .field
-                label email：
                 input(type='text',name="email",v-model="email",placeholder='請輸入email')
               .ui.green.submit.button
                 | 訂閱       
@@ -120,5 +124,14 @@ export default {
   background-color: #40B3BF;
   margin-bottom:1em;
 }
-
+.ui.container{
+  height: 100%;
+}
+.componentsubscribe{
+  min-height: 88vh;
+}
+.ui.text.container{
+  font-family: $main_font;
+    font-size: 1 em;
+}
 </style>

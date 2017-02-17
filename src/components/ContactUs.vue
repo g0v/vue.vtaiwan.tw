@@ -1,5 +1,5 @@
 <template lang="jade">
-  .component
+  .componentcontactus
     .ui.container
       .row.BGgray
         .ui.left.aligned.text.container
@@ -121,6 +121,12 @@ export default {
 .ui.green.button,  {                         //送出按鈕
   background-color: #40B3BF;
   margin-bottom:1em;
+}
+.componentcontactus{
+  min-height: 88vh;
+}
+.label{
+  font-size: 1em; 
 }
 
 </style>
