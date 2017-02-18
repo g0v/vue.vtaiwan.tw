@@ -11843,13 +11843,6 @@ module.exports = function spread(callback) {
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 
 
 // import axios from 'axios'
@@ -11887,6 +11880,9 @@ module.exports = function spread(callback) {
     }
   },
   methods: {
+    accordion: function accordion() {
+      $('.ui.accordion').accordion();
+    },
     showSidebar: function showSidebar() {
       $('.ui.left.sidebar').sidebar('show');
       // $('.ui.left.sidebar').next().remove('.ui.left.sidebar'); 
@@ -11923,6 +11919,9 @@ module.exports = function spread(callback) {
       $('meta[property="og:title"]').remove();
       document.getElementsByTagName('head')[0].appendChild(meta_title);
     }
+  },
+  updated: function updated() {
+    //$('.ui.accordion').accordion();
   }
 };
 
@@ -12004,6 +12003,13 @@ module.exports = function spread(callback) {
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -12020,6 +12026,9 @@ module.exports = function spread(callback) {
   },
 
   methods: {
+    accordion: function accordion() {
+      $('.ui.accordion').accordion();
+    },
     discussionType: function discussionType(val) {
       var id = val.id; // just for alias
       this.dType = { // initialize dType
@@ -12125,7 +12134,7 @@ module.exports = function spread(callback) {
     this.discussionType(this.article); /* first time call */
   },
   updated: function updated() {
-    $('.ui.accordion').accordion();
+    //$('.ui.accordion').accordion();
   }
 };
 
@@ -13876,7 +13885,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n*[data-v-280eaafe] {\n  box-sizing: border-box;\n}\nbody[data-v-280eaafe] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.component[data-v-280eaafe] {\n  position: relative;\n}\n.component h1[data-v-280eaafe], .component h2[data-v-280eaafe], .component h3[data-v-280eaafe], .component h4[data-v-280eaafe], .component h5[data-v-280eaafe], .component h6[data-v-280eaafe], .component p[data-v-280eaafe] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-280eaafe], .component h2 a[data-v-280eaafe], .component h3 a[data-v-280eaafe], .component h4 a[data-v-280eaafe], .component h5 a[data-v-280eaafe], .component h6 a[data-v-280eaafe], .component p a[data-v-280eaafe] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-280eaafe] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-280eaafe] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-280eaafe] {\n    display: none !important;\n}\n}\n.row.BGgray[data-v-280eaafe] {\n  background-color: #efefef;\n  padding-top: 2em;\n  margin-bottom: 1em;\n}\n.left[data-v-280eaafe] {\n  text-align: left;\n}\n.ui.styled.accordion > .title[data-v-280eaafe]:first-child {\n  font-size: 1.5rem;\n}\n.ui.green.button[data-v-280eaafe] {\n  background-color: #40B3BF;\n  margin-bottom: 1em;\n}\n.componentcontactus[data-v-280eaafe] {\n  min-height: 91vh;\n}\n.label[data-v-280eaafe] {\n  font-size: 1em;\n}\n", ""]);
+exports.push([module.i, "\n*[data-v-280eaafe] {\n  box-sizing: border-box;\n}\nbody[data-v-280eaafe] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.component[data-v-280eaafe] {\n  position: relative;\n}\n.component h1[data-v-280eaafe], .component h2[data-v-280eaafe], .component h3[data-v-280eaafe], .component h4[data-v-280eaafe], .component h5[data-v-280eaafe], .component h6[data-v-280eaafe], .component p[data-v-280eaafe] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-280eaafe], .component h2 a[data-v-280eaafe], .component h3 a[data-v-280eaafe], .component h4 a[data-v-280eaafe], .component h5 a[data-v-280eaafe], .component h6 a[data-v-280eaafe], .component p a[data-v-280eaafe] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-280eaafe] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-280eaafe] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-280eaafe] {\n    display: none !important;\n}\n}\n.row.BGgray[data-v-280eaafe] {\n  background-color: #efefef;\n  padding-top: 2em;\n  margin-bottom: 1em;\n}\n.left[data-v-280eaafe] {\n  text-align: left;\n}\n.ui.green.button[data-v-280eaafe] {\n  background-color: #40B3BF;\n  margin-bottom: 1em;\n}\n.componentcontactus[data-v-280eaafe] {\n  min-height: 91vh;\n}\n.ui.form .field > label[data-v-280eaafe] {\n  font-size: 1rem;\n}\n", ""]);
 
 // exports
 
@@ -13946,7 +13955,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n*[data-v-4144f431] {\n  box-sizing: border-box;\n}\nbody[data-v-4144f431] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.component[data-v-4144f431] {\n  position: relative;\n}\n.component h1[data-v-4144f431], .component h2[data-v-4144f431], .component h3[data-v-4144f431], .component h4[data-v-4144f431], .component h5[data-v-4144f431], .component h6[data-v-4144f431], .component p[data-v-4144f431] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-4144f431], .component h2 a[data-v-4144f431], .component h3 a[data-v-4144f431], .component h4 a[data-v-4144f431], .component h5 a[data-v-4144f431], .component h6 a[data-v-4144f431], .component p a[data-v-4144f431] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-4144f431] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-4144f431] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-4144f431] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 767px) {\n.ui.huge.header[data-v-4144f431] {\n    font-size: 1.2em;\n}\n}\n@media only screen and (max-width: 767px) {\n.ui.huge.header[data-v-4144f431] {\n    font-size: 2.2em;\n}\n}\n#sidebar.sidebar[data-v-4144f431] {\n  text-align: left;\n}\n#sidebar.sidebar .menu[data-v-4144f431] {\n    margin: 0;\n}\n#sidebar.sidebar .menu .router-link-active[data-v-4144f431] {\n      color: white;\n}\n#opener.button[data-v-4144f431] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 100;\n}\n.ui.top.menu[data-v-4144f431] {\n  width: 100%;\n}\n.ui.container.pusher[data-v-4144f431] {\n  min-height: 90vh;\n}\n", ""]);
+exports.push([module.i, "\n*[data-v-4144f431] {\n  box-sizing: border-box;\n}\nbody[data-v-4144f431] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.component[data-v-4144f431] {\n  position: relative;\n}\n.component h1[data-v-4144f431], .component h2[data-v-4144f431], .component h3[data-v-4144f431], .component h4[data-v-4144f431], .component h5[data-v-4144f431], .component h6[data-v-4144f431], .component p[data-v-4144f431] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-4144f431], .component h2 a[data-v-4144f431], .component h3 a[data-v-4144f431], .component h4 a[data-v-4144f431], .component h5 a[data-v-4144f431], .component h6 a[data-v-4144f431], .component p a[data-v-4144f431] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-4144f431] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-4144f431] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-4144f431] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 767px) {\n.ui.huge.header[data-v-4144f431] {\n    font-size: 1.2em;\n}\n}\n@media only screen and (max-width: 767px) {\n.ui.huge.header[data-v-4144f431] {\n    font-size: 2.2em;\n}\n}\n#sidebar.sidebar[data-v-4144f431] {\n  text-align: left;\n}\n#sidebar.sidebar .menu[data-v-4144f431] {\n    margin: 0;\n}\n#sidebar.sidebar .menu .router-link-active[data-v-4144f431] {\n      color: white;\n}\n#opener.button[data-v-4144f431] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 100;\n}\n.ui.top.menu[data-v-4144f431] {\n  width: 100%;\n}\n.ui.container.pusher[data-v-4144f431] {\n  min-height: 90vh;\n}\n.ui.styled.accordion[data-v-4144f431] {\n  margin-bottom: 1em;\n}\n.ui.styled.accordion .title[data-v-4144f431] {\n  font-size: 1.5rem;\n}\n", ""]);
 
 // exports
 
@@ -14128,7 +14137,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n* {\n  box-sizing: border-box;\n}\nbody {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.component {\n  position: relative;\n}\n.component h1, .component h2, .component h3, .component h4, .component h5, .component h6, .component p {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a, .component h2 a, .component h3 a, .component h4 a, .component h5 a, .component h6 a, .component p a {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only {\n    display: none !important;\n}\n}\n.Commentcomponent {\n  font-size: 1.5rem;\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.ui.compact.menu {\n  margin-bottom: 2em;\n}\n.ui.menu .item {\n  padding: 0.5em 0.8em;\n}\n.ui.green.button {\n  background-color: #40B3BF;\n}\n.ui.fluid.button {\n  width: 76%;\n  margin: auto;\n  margin-bottom: 1em;\n  font-size: 1.5rem;\n}\n@media only screen and (max-width: 767px) {\n.ui.fluid.button {\n      font-size: 0.8rem;\n}\n}\n.commentline {\n  border-bottom: 2px solid rgba(0, 0, 0, 0.1);\n  margin: 2em 0em 2em 0em;\n}\n.ui.comments .comment .text {\n  margin: 0.5em 0em 0em 3em;\n}\n@media only screen and (max-width: 767px) {\n.ui.comments .comment .text {\n      margin: 2em 0em 0em 0.5em;\n}\n}\n.ui.comments {\n  max-width: 93%;\n}\n.discussioncontent blockquote {\n  margin: 0 0 10px 0;\n  text-align: left;\n  padding: 5px;\n  border: 0px;\n}\n.discussioncontent blockquote p {\n    text-align: left;\n    font-weight: normal;\n}\n.ui.comments .comment a.author {\n  margin: 0em 1em 0em 0.5em;\n}\n.ui.comments .comment img.avatar {\n  width: 2em;\n}\n", ""]);
+exports.push([module.i, "\n* {\n  box-sizing: border-box;\n}\nbody {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.component {\n  position: relative;\n}\n.component h1, .component h2, .component h3, .component h4, .component h5, .component h6, .component p {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a, .component h2 a, .component h3 a, .component h4 a, .component h5 a, .component h6 a, .component p a {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only {\n    display: none !important;\n}\n}\n.Commentcomponent {\n  font-size: 1.2rem;\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.ui.compact.menu {\n  margin-bottom: 2em;\n}\n.ui.menu .item {\n  padding: 0.5em 0.8em;\n}\n.ui.green.button {\n  background-color: #40B3BF;\n}\n.ui.fluid.button {\n  width: 76%;\n  margin: auto;\n  margin-bottom: 1em;\n  font-size: 1.2rem;\n}\n@media only screen and (max-width: 767px) {\n.ui.fluid.button {\n      min-height: 3em;\n      font-size: 1rem;\n      line-height: 3em;\n      margin-left: 2em;\n}\n}\n.commentline {\n  border-bottom: 2px solid rgba(0, 0, 0, 0.1);\n  margin: 2em 0em 2em 0em;\n}\n.ui.comments .comment .text {\n  margin: 0.5em 0em 0em 3em;\n}\n@media only screen and (max-width: 767px) {\n.ui.comments .comment .text {\n      margin: 2em 0em 0em 0.5em;\n}\n}\n.ui.comments {\n  max-width: 93%;\n}\n.discussioncontent blockquote {\n  margin: 0 0 10px 0;\n  text-align: left;\n  padding: 5px;\n  border: 0px;\n}\n.discussioncontent blockquote p {\n    text-align: left;\n    font-weight: normal;\n}\n.ui.comments .comment a.author {\n  margin: 0em 1em 0em 0.5em;\n}\n.ui.comments .comment img.avatar {\n  width: 2em;\n}\n", ""]);
 
 // exports
 
@@ -15076,10 +15085,26 @@ module.exports={render:function (){with(this) {
     }
   })]) : _e(), (dType.check == true && dType.type.includes('discourse')) ? _h('div', [_l((dType.discourse), function(disc, index) {
     return _h('div', [_h('div', {
-      staticClass: "ui styled accordion"
+      staticClass: "fat-only"
+    }, [_h('div', {
+      staticClass: "ui styled accordion",
+      on: {
+        "mouseover": accordion
+      }
+    }, [_h('div', {
+      staticClass: "title discoursetitle"
+    }, [_m(0, true), _s(disc.title)]), _h('div', {
+      staticClass: "content"
+    }, [_h('Discussion_Comment', {
+      attrs: {
+        "comment_id": disc.id,
+        "slice": false
+      }
+    })])])]), _h('div', {
+      staticClass: "thin-only"
     }, [_h('div', {
       staticClass: "title"
-    }, [_m(0, true), _s(disc.title)]), _h('div', {
+    }, [_m(1, true), _s(disc.title)]), _h('div', {
       staticClass: "content"
     }, [_h('Discussion_Comment', {
       attrs: {
@@ -15089,6 +15114,10 @@ module.exports={render:function (){with(this) {
     })])])])
   })]) : _e()] : _e()])
 }},staticRenderFns: [function (){with(this) {
+  return _h('i', {
+    staticClass: "dropdown icon"
+  })
+}},function (){with(this) {
   return _h('i', {
     staticClass: "dropdown icon"
   })
@@ -15507,12 +15536,15 @@ module.exports={render:function (){with(this) {
     }
   }) : _e(), _h('h1', {
     staticClass: "ui huge header"
-  }, [_s(article.title)]), (article.id !== undefined) ? _h('Slide', {
+  }, [_s(article.title) + "           ", (article.id !== undefined) ? _h('Slide', {
     attrs: {
       "article": article
     }
   }) : _e(), _h('div', {
-    staticClass: "ui big steps top attached"
+    staticClass: "ui styled accordion",
+    on: {
+      "mouseover": accordion
+    }
   }, [_l((tabcontent), function(step, idx) {
     return _h('a', {
       staticClass: "step",
@@ -15524,28 +15556,32 @@ module.exports={render:function (){with(this) {
           myIdx = idx
         }
       }
+    }, [_h('div', {
+      staticClass: "title"
     }, [_h('i', {
-      staticClass: "icon",
+      staticClass: "dropdown icon",
       class: {
         'info circle': step === '詳細內容', 'calendar': step === '議題時間軸', 'comments': step === '參與討論'
       }
-    }), _s(step)])
-  })]), (article.id !== undefined) ? _h('div', {
-    staticClass: "ui segment attached"
-  }, [_l((tabcontent), function(step, idx) {
-    return _h('info', {
-      directives: [{
-        name: "show",
-        rawName: "v-show",
-        value: (idx == myIdx),
-        expression: "idx == myIdx"
-      }],
-      attrs: {
-        "article": article,
-        "desc": step
-      }
-    })
-  })]) : _e()])])])
+    }), _s(step)]), _h('div', {
+      staticClass: "content"
+    }, [(article.id !== undefined) ? _h('div', {
+      staticClass: "ui attached"
+    }, [_l((tabcontent), function(step, idx) {
+      return _h('info', {
+        directives: [{
+          name: "show",
+          rawName: "v-show",
+          value: (idx == myIdx),
+          expression: "idx == myIdx"
+        }],
+        attrs: {
+          "article": article,
+          "desc": step
+        }
+      })
+    })]) : _e()])])
+  })])])])])])
 }},staticRenderFns: [function (){with(this) {
   return _h('i', {
     staticClass: "sidebar icon"
