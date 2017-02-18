@@ -12477,12 +12477,6 @@ module.exports = function spread(callback) {
 //
 //
 //
-//
-//
-//
-//
-//
-//
 
 
 
@@ -12496,7 +12490,8 @@ module.exports = function spread(callback) {
   },
   data: function data() {
     return {
-      timeline: {} // 時間軸
+      timeline: {}, // 時間軸
+      timeline_title: ["議題時間", "議題階段", "相關連結"]
     };
   },
 
@@ -14053,7 +14048,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n* {\n  box-sizing: border-box;\n}\nbody {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.component {\n  position: relative;\n}\n.component h1, .component h2, .component h3, .component h4, .component h5, .component h6, .component p {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a, .component h2 a, .component h3 a, .component h4 a, .component h5 a, .component h6 a, .component p a {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only {\n    display: none !important;\n}\n}\n.fat-only .content {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 1.2rem;\n  max-width: 800px;\n  margin: 0 auto;\n}\n.fat-only .content h1, .fat-only .content h2, .fat-only .content h3, .fat-only .content h4, .fat-only .content h5, .fat-only .content h6 {\n    text-align: center;\n}\n.fat-only .content p, .fat-only .content li, .fat-only .content ol {\n    text-align: left;\n}\n.fat-only .content p iframe {\n    display: block;\n    margin: 0 auto;\n}\n.fat-only .content blockquote {\n    margin: 0 0 10px 0;\n    text-align: left;\n    padding: 5px;\n    border-left: 5px solid #e9e9e9;\n    background-color: #f8f8f8;\n    font-weight: 600;\n}\n.thin-only .content {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.thin-only .content iframe {\n    width: 100%;\n}\n.thin-only .content h1, .thin-only .content h2, .thin-only .content h3, .thin-only .content h4, .thin-only .content h5, .thin-only .content h6 {\n    text-align: center;\n}\n.thin-only .content p, .thin-only .content li, .thin-only .content ol {\n    text-align: left;\n}\n.thin-only .content blockquote {\n    margin: 0 0 10px 0;\n    text-align: left;\n    padding: 5px;\n    border-left: 5px solid #e9e9e9;\n    background-color: #f8f8f8;\n    font-weight: 600;\n}\n", ""]);
+exports.push([module.i, "\n* {\n  box-sizing: border-box;\n}\nbody {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.component {\n  position: relative;\n}\n.component h1, .component h2, .component h3, .component h4, .component h5, .component h6, .component p {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a, .component h2 a, .component h3 a, .component h4 a, .component h5 a, .component h6 a, .component p a {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only {\n    display: none !important;\n}\n}\n.fat-only .content {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 1.2rem;\n  max-width: 800px;\n  margin: 0 auto;\n}\n.fat-only .content h1, .fat-only .content h2, .fat-only .content h3, .fat-only .content h4, .fat-only .content h5, .fat-only .content h6 {\n    text-align: center;\n}\n.fat-only .content p, .fat-only .content li, .fat-only .content ol {\n    text-align: left;\n}\n.fat-only .content p iframe {\n    display: block;\n    margin: 0 auto;\n}\n.fat-only .content blockquote {\n    margin: 0 0 10px 0;\n    text-align: left;\n    padding: 5px;\n    border-left: 5px solid #e9e9e9;\n    background-color: #f8f8f8;\n    font-weight: 600;\n}\n.thin-only .content {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 1rem;\n}\n.thin-only .content iframe {\n    width: 100%;\n}\n.thin-only .content h1, .thin-only .content h2, .thin-only .content h3, .thin-only .content h4, .thin-only .content h5, .thin-only .content h6 {\n    text-align: center;\n}\n.thin-only .content p, .thin-only .content li, .thin-only .content ol {\n    text-align: left;\n}\n.thin-only .content blockquote {\n    margin: 0 0 10px 0;\n    text-align: left;\n    padding: 5px;\n    border-left: 5px solid #e9e9e9;\n    background-color: #f8f8f8;\n    font-weight: 600;\n}\n", ""]);
 
 // exports
 
@@ -14109,7 +14104,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\ntbody tr td span[data-v-88189242] {\n  margin-right: 6px;\n}\ntbody tr td p[data-v-88189242] {\n  font-size: 1.1em;\n  font-weight: 600;\n}\n.event-list[data-v-88189242] {\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-flow: column nowrap;\n      flex-flow: column nowrap;\n}\n.event-list .item[data-v-88189242] {\n    display: -ms-flexbox;\n    display: flex;\n    text-align: left;\n    padding: 1em;\n    font-size: 1.2rem;\n}\n.event-list .item.dark[data-v-88189242] {\n      background-color: #eeeeee;\n}\n.event-list .item.gloom[data-v-88189242] {\n      background-color: #f4f4f4;\n}\n.event-list .item.light[data-v-88189242] {\n      background-color: #fbfbfb;\n}\n.event-list .item .big[data-v-88189242] {\n      display: -ms-flexbox;\n      display: flex;\n      -ms-flex-align: center;\n          align-items: center;\n}\n.event-list .item .small[data-v-88189242] {\n      -ms-flex: 2 0 6em;\n          flex: 2 0 6em;\n}\n.event-list .item .small p[data-v-88189242] {\n        font-weight: 600;\n        margin-bottom: 1.2rem;\n}\n.fat-only .big[data-v-88189242] {\n  -ms-flex: 1 0 15em;\n      flex: 1 0 15em;\n}\n.thin-only .item[data-v-88189242] {\n  padding: 1em 0 1em 0.5em;\n  font-size: 1.1rem;\n}\n.thin-only .item .big[data-v-88189242] {\n    -ms-flex: 1 0 6em;\n        flex: 1 0 6em;\n}\n", ""]);
+exports.push([module.i, "\ntbody tr td span[data-v-88189242] {\n  margin-right: 6px;\n}\ntbody tr td p[data-v-88189242] {\n  font-size: 1.1em;\n  font-weight: 600;\n}\n.thin-only[data-v-88189242] {\n  font-size: 1rem;\n}\n", ""]);
 
 // exports
 
@@ -16226,7 +16221,11 @@ module.exports={render:function (){with(this) {
     staticClass: "fat-only"
   }, [_h('table', {
     staticClass: "ui fixed striped table"
-  }, [_m(0), _h('tbody', [_l((timeline.time), function(ev, idx) {
+  }, [_h('thead', [_h('tr', {
+    staticClass: "center aligned"
+  }, [_l((timeline_title), function(t) {
+    return _h('th', [_h('h3', [_s(t)])])
+  })])]), _h('tbody', [_l((timeline.time), function(ev, idx) {
     return _h('tr', [_h('td', [_h('span', [_s(ev.start) + " "]), (ev.end != null) ? _h('i', {
       staticClass: "arrow right icon"
     }) : _e(), _h('span', [" " + _s(ev.end)])]), _h('td', [_h('p', [_s(ev.title)]), (ev.info != null) ? _h('i', {
@@ -16238,33 +16237,24 @@ module.exports={render:function (){with(this) {
     })])])
   })])])]), _h('div', {
     staticClass: "thin-only"
-  }, [_h('div', {
-    staticClass: "event-list"
-  }, [_l((timeline.time), function(ev, idx) {
-    return _h('div', {
-      staticClass: "item",
-      class: ['dark', 'gloom', 'light'][idx % 3]
-    }, [_h('div', {
-      staticClass: "big"
-    }, ["從" + _s(ev.start) + " 開始 " + _s(ev.end) + " "]), _h('div', {
-      staticClass: "small"
-    }, [_h('p', [_s(ev.title) + " "]), _h('div', {
-      staticClass: "title"
-    }, [_s(ev.info) + " "])]), _h('div', {
-      staticClass: "small"
-    }, [_m(1, true), _h('Plink', {
+  }, [_h('table', {
+    staticClass: "ui fixed striped unstackable table"
+  }, [_h('thead', [_h('tr', [_l((timeline_title), function(t) {
+    return _h('th', [_h('h3', {
+      staticClass: "left aligned"
+    }, [_s(t)])])
+  })])]), _h('tbody', [_l((timeline.time), function(ev, idx) {
+    return _h('tr', [_h('td', [_h('span', [_s(ev.start) + " "]), (ev.end != null) ? _h('i', {
+      staticClass: "arrow right icon"
+    }) : _e(), _h('span', [" " + _s(ev.end)])]), _h('td', [_h('p', [_s(ev.title)]), (ev.info != null) ? _h('i', {
+      staticClass: "caret right icon"
+    }) : _e(), (ev.info != null) ? _h('span', [_s(ev.info) + " "]) : _e()]), _h('td', [_h('Plink', {
       attrs: {
         "urllink": ev.link
       }
     })])])
-  })])])])
-}},staticRenderFns: [function (){with(this) {
-  return _h('thead', [_h('tr', {
-    staticClass: "center aligned"
-  }, [_h('th', [_h('h3', ["議題時間"])]), _h('th', [_h('h3', ["議題階段"])]), _h('th', [_h('h3', ["相關連結"])])])])
-}},function (){with(this) {
-  return _h('p', ["相關連結 "])
-}}]}
+  })])])])])
+}},staticRenderFns: []}
 
 /***/ },
 /* 146 */
