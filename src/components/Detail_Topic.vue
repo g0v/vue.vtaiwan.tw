@@ -13,7 +13,7 @@
                         @click="routename = obj.routeName") 
           p {{obj.title}}   
 
-  .ui.container.pusher
+  .fat-only.ui.container.pusher
 
     #opener.ui.icon.basic.button(@click="showSidebar", @mouseover="showSidebar")
       i.sidebar.icon
@@ -32,26 +32,26 @@
     .ui.segment.attached(v-if = "article.id !== undefined")
       info(v-for="(step, idx) in tabcontent",:article="article", :desc = "step", v-show="idx == myIdx")
 
-  // .thin-only
-  //    .ui.container
+  .thin-only
+     .ui.container
 
-  //           // .ui.basic.segment
-  //           NextStage(v-if = "article.id !== undefined", :article="article")
+            // .ui.basic.segment
+            NextStage(v-if = "article.id !== undefined", :article="article")
         
 
-  //           h1.ui.huge.header {{article.title}}
+            h1.ui.huge.header {{article.title}}
 
-  //           // .ui.basic.segment
-  //           Slide(v-if = "article.id !== undefined", :article="article")
-  //             // video(:style="{'background-image': 'url('+article.cover+')'}")
+            // .ui.basic.segment
+            Slide(v-if = "article.id !== undefined", :article="article")
+              // video(:style="{'background-image': 'url('+article.cover+')'}")
 
-  //           .ui.big.steps.top.attached
-  //             a.step(v-for="(step, idx) in tabcontent", :class="{'active': idx == myIdx}", @click="myIdx = idx")
-  //               i.icon(v-bind:class="{'info circle': step === '詳細內容','calendar': step === '議題時間軸','comments': step === '參與討論' }")
-  //               | {{step}}
+            .ui.big.steps.top.attached
+              a.step(v-for="(step, idx) in tabcontent", :class="{'active': idx == myIdx}", @click="myIdx = idx")
+                i.icon(v-bind:class="{'info circle': step === '詳細內容','calendar': step === '議題時間軸','comments': step === '參與討論' }")
+                | {{step}}
                 
-  //           .ui.segment.attached(v-if = "article.id !== undefined")
-  //             info(v-for="(step, idx) in tabcontent",:article="article", :desc = "step", v-show="idx == myIdx")      
+            .ui.segment.attached(v-if = "article.id !== undefined")
+              info(v-for="(step, idx) in tabcontent",:article="article", :desc = "step", v-show="idx == myIdx")      
 </template>
 
 <script>

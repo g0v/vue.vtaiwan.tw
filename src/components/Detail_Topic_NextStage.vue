@@ -1,15 +1,14 @@
 <template lang="jade">
   .component
+    .fat-only
+      .step-progress-bar
+        ul.progress-bar
+          li(v-for="(s,idx) in steps.stage", v-bind:class='{active:s.active}') {{s.title}}
 
-    // .fat-only
-    .step-progress-bar
-      ul.progress-bar
-        li(v-for="(s,idx) in steps.stage", v-bind:class='{active:s.active}') {{s.title}}
-
-    // .thin-only
-    //   .step-progress-bar
-    //     ul.progress-bar
-    //       li(v-for="(s,idx) in steps.stage", v-bind:class='{active:s.active}') {{s.title}}
+    //.thin-only
+      .step-progress-bar
+        ul.progress-bar
+          li(v-for="(s,idx) in steps.stage", v-bind:class='{active:s.active}') {{s.title}}
      
 </template>
 
