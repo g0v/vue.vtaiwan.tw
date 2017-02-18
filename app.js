@@ -11828,6 +11828,28 @@ module.exports = function spread(callback) {
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 // import axios from 'axios'
@@ -12228,6 +12250,8 @@ module.exports = function spread(callback) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__js_request__ = __webpack_require__(3);
+//
+//
 //
 //
 //
@@ -15419,7 +15443,7 @@ module.exports={render:function (){with(this) {
       }, [_h('p', [_s(obj.title) + "   "])]) : _e()
     })])])
   })]), _h('div', {
-    staticClass: "ui container pusher"
+    staticClass: "fat-only ui container pusher"
   }, [_h('div', {
     staticClass: "ui icon basic button fat-only",
     attrs: {
@@ -15473,7 +15497,55 @@ module.exports={render:function (){with(this) {
         "desc": step
       }
     })
-  })]) : _e()])])
+  })]) : _e()]), _h('div', {
+    staticClass: "thin-only"
+  }, [_h('div', {
+    staticClass: "ui container"
+  }, [(article.id !== undefined) ? _h('NextStage', {
+    attrs: {
+      "article": article
+    }
+  }) : _e(), _h('h1', {
+    staticClass: "ui huge header"
+  }, [_s(article.title)]), (article.id !== undefined) ? _h('Slide', {
+    attrs: {
+      "article": article
+    }
+  }) : _e(), _h('div', {
+    staticClass: "ui big steps top attached"
+  }, [_l((tabcontent), function(step, idx) {
+    return _h('a', {
+      staticClass: "step",
+      class: {
+        'active': idx == myIdx
+      },
+      on: {
+        "click": function($event) {
+          myIdx = idx
+        }
+      }
+    }, [_h('i', {
+      staticClass: "icon",
+      class: {
+        'info circle': step === '詳細內容', 'calendar': step === '議題時間軸', 'comments': step === '參與討論'
+      }
+    }), _s(step)])
+  })]), (article.id !== undefined) ? _h('div', {
+    staticClass: "ui segment attached"
+  }, [_l((tabcontent), function(step, idx) {
+    return _h('info', {
+      directives: [{
+        name: "show",
+        rawName: "v-show",
+        value: (idx == myIdx),
+        expression: "idx == myIdx"
+      }],
+      attrs: {
+        "article": article,
+        "desc": step
+      }
+    })
+  })]) : _e()])])])
 }},staticRenderFns: [function (){with(this) {
   return _h('i', {
     staticClass: "sidebar icon"
