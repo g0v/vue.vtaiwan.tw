@@ -134,12 +134,12 @@ export default {
 
 @media only screen and (min-width: $breakpoint) {
     .ui.huge.header{
-      font-size: 1.2em;
+      font-size: 1.2rem;
     }
 }
 @media only screen and (max-width: $breakpoint) {
     .ui.huge.header{
-      font-size: 2.2em;
+      font-size: 2.2rem;
     }
 }
 #sidebar.sidebar {

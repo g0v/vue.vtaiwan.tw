@@ -135,6 +135,6 @@ export default {
 }
 .ui.text.container{
   font-family: $main_font;
-    font-size: 1 em;
+    font-size: 1 rem;
 }
 </style>
