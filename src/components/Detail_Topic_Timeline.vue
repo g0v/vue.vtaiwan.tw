@@ -3,24 +3,11 @@
   .component 
     
     .fat-only 
-      //- .event-list 
-      //-   .item(v-for = "(ev,idx) in timeline.time", :class="['dark','gloom','light'][idx % 3]") 
-      //-     .big 從{{ev.start}} 開始 {{ev.end}} 
-      //-     .small 
-      //-       p {{ ev.title }} 
-      //-       .title {{ ev.info }} 
-      //-     .small 
-      //-       p 相關連結 
-      //-       Plink(:urllink="ev.link")
       table.ui.fixed.striped.table
         thead
           tr.center.aligned
-            th
-              h3 議題時間
-            th
-              h3 議題階段
-            th
-              h3 相關連結
+            th(v-for="t in timeline_title")
+              h3 {{t}}
         tbody
           tr(v-for = "(ev,idx) in timeline.time")
             td  
@@ -35,16 +22,23 @@
               Plink(:urllink="ev.link")
 
     .thin-only
-      .event-list 
-        .item(v-for = "(ev,idx) in timeline.time", :class="['dark','gloom','light'][idx % 3]") 
-          .big 從{{ev.start}} 開始 {{ev.end}} 
-          .small 
-            p {{ ev.title }} 
-            .title {{ ev.info }} 
-          .small 
-            p 相關連結 
-            Plink(:urllink="ev.link")
-      
+      table.ui.fixed.striped.unstackable.table
+        thead
+          tr
+            th(v-for="t in timeline_title")
+              h3.left.aligned {{t}}
+        tbody
+          tr(v-for = "(ev,idx) in timeline.time")
+            td  
+              span {{ev.start}} 
+              i.arrow.right.icon(v-if="ev.end != null")
+              span  {{ev.end}}
+            td
+              p {{ev.title}}
+              i.caret.right.icon(v-if="ev.info != null") 
+              span(v-if="ev.info != null") {{ev.info}} 
+            td 
+              Plink(:urllink="ev.link")
 
 </template>
 
@@ -61,7 +55,8 @@
     },
     data() {
       return {
-        timeline:{} // 時間軸
+        timeline:{}, // 時間軸
+        timeline_title:["議題時間","議題階段","相關連結"]
       }
     },
     methods: {
@@ -148,44 +143,8 @@ tbody tr td {
   }
 }
 
-
-.event-list {
-  display: flex;
-  flex-flow: column nowrap;
-  .item {
-    display: flex;
-    text-align: left;
-    padding: 1em;
-    font-size: 1.2rem;
-    &.dark { background-color: #eeeeee }
-    &.gloom { background-color: #f4f4f4 }
-    &.light { background-color: #fbfbfb }
-    .big {
-      display: flex;
-      align-items: center;
-    }
-    .small {
-      flex: 2 0 6em;
-      p {
-        font-weight:600;
-        margin-bottom: 1.2rem;
-      } 
-    }
-  }
-}
-.fat-only {
-  .big {
-        flex: 1 0 15em;
-  }
-}
 .thin-only {
-  .item {
-    padding: 1em 0 1em 0.5em;
-     font-size:1.1rem;
-    .big {
-          flex: 1 0 6em;
-    }
-  }  
+  font-size: 1rem;
 }
 
 
