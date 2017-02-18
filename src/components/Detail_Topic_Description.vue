@@ -73,6 +73,7 @@
 .thin-only { 
     .content {
       font-family: $main_font;
+      font-size: 1rem;
       iframe {
         width:100%;
       }
