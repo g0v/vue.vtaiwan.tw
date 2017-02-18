@@ -13,13 +13,20 @@
       .hackpad(v-html="dType.hackpad")
     div(v-if = "dType.check == true && dType.type.includes('discourse')")
       div(v-for = "(disc, index) in dType.discourse")
-        div.ui.styled.accordion
-          div.title
-            i.dropdown.icon
-            | {{disc.title}}
-          div.content
-            Discussion_Comment(:comment_id="disc.id", :slice="false")
-
+        .fat-only
+          .ui.styled.accordion(@mouseover="accordion")
+            div.title.discoursetitle
+              i.dropdown.icon
+              | {{disc.title}}
+            div.content
+              Discussion_Comment(:comment_id="disc.id", :slice="false")
+        .thin-only
+            //.ui.styled.accordion
+            div.title
+              i.dropdown.icon
+              | {{disc.title}}
+            div.content
+              Discussion_Comment(:comment_id="disc.id", :slice="false")
 </template>
 
 <script>
@@ -37,6 +44,9 @@ export default {
     }
   },
   methods: {
+    accordion:function(){
+      $('.ui.accordion').accordion();
+    },
     discussionType: function(val){
       let id = val.id // just for alias
       this.dType = { // initialize dType
@@ -100,7 +110,7 @@ export default {
     this.discussionType(this.article) /* first time call */
   },
   updated: function(){
-    $('.ui.accordion').accordion();
+    //$('.ui.accordion').accordion();
   },
 }
 </script>

@@ -112,7 +112,7 @@ export default {
 <style lang="scss"  modules="discussioncomment">
 @import "../sass/global.scss";
 .Commentcomponent {                           //內文文字P大小
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-family: $main_font;
 }
 
@@ -129,9 +129,12 @@ export default {
   width: 76%;
   margin: auto;
   margin-bottom: 1em;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   @media only screen and (max-width: 767px){
-    font-size: 0.8rem;
+    min-height: 3em;
+    font-size: 1rem;
+    line-height: 3em;
+    margin-left: 2em;
   }
 }
 .commentline{                                 //內文間隔線條

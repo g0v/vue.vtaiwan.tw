@@ -115,9 +115,6 @@ export default {
     text-align: left;
 }
 
-.ui.styled.accordion>.title:first-child {
-   font-size: 1.5rem; 
-}
 .ui.green.button,  {                         //送出按鈕
   background-color: #40B3BF;
   margin-bottom:1em;
@@ -125,8 +122,8 @@ export default {
 .componentcontactus{
   min-height: 91vh;
 }
-.label{
-  font-size: 1em; 
+.ui.form .field>label{
+  font-size: 1rem; 
 }
 
 </style>

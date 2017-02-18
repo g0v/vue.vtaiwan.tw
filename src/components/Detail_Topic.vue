@@ -34,26 +34,19 @@
 
 
   .thin-only
-     .ui.container
-
-            // .ui.basic.segment
-            NextStage(v-if = "article.id !== undefined", :article="article")
-        
-
-            h1.ui.huge.header {{article.title}}
-
-            // .ui.basic.segment
-            Slide(v-if = "article.id !== undefined", :article="article")
-              // video(:style="{'background-image': 'url('+article.cover+')'}")
-
-            .ui.big.steps.top.attached
-              a.step(v-for="(step, idx) in tabcontent", :class="{'active': idx == myIdx}", @click="myIdx = idx")
-                i.icon(v-bind:class="{'info circle': step === '詳細內容','calendar': step === '議題時間軸','comments': step === '參與討論' }")
-                | {{step}}
-                
-            .ui.segment.attached(v-if = "article.id !== undefined")
-              info(v-for="(step, idx) in tabcontent",:article="article", :desc = "step", v-show="idx == myIdx")      
-
+    .ui.container
+      NextStage(v-if = "article.id !== undefined", :article="article")
+      h1.ui.huge.header {{article.title}}           
+        Slide(v-if = "article.id !== undefined", :article="article")              
+        div.ui.styled.accordion(@mouseover="accordion")
+          a.step(v-for="(step, idx) in tabcontent", :class="{'active': idx == myIdx}", @click="myIdx = idx")
+            div.title
+              i.dropdown.icon(v-bind:class="{'info circle': step === '詳細內容','calendar': step === '議題時間軸','comments': step === '參與討論' }")
+              | {{step}}
+            div.content
+              .ui.attached(v-if = "article.id !== undefined")
+                info(v-for="(step, idx) in tabcontent",:article="article", :desc = "step", v-show="idx == myIdx")                 
+                      
 </template>
 
 <script>
@@ -90,6 +83,9 @@ export default {
     }
   },
   methods:{
+    accordion:function(){
+      $('.ui.accordion').accordion();
+    },
      showSidebar:function(){
       $('.ui.left.sidebar').sidebar('show');
       // $('.ui.left.sidebar').next().remove('.ui.left.sidebar'); 
@@ -125,7 +121,10 @@ export default {
       $('meta[property="og:title"]').remove();
       document.getElementsByTagName('head')[0].appendChild(meta_title);
     }
-  }
+  },
+  updated: function(){
+    //$('.ui.accordion').accordion();
+  },
 }
 </script>
 
@@ -170,5 +169,10 @@ export default {
 .ui.container.pusher{
   min-height:90vh;
 }
-
+.ui.styled.accordion{
+  margin-bottom: 1em;
+}
+.ui.styled.accordion .title {
+  font-size: 1.5rem;
+}
 </style>
