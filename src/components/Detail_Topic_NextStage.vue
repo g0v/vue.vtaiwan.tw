@@ -1,14 +1,17 @@
 <template lang="jade">
   .component
-    .fat-only
-      .step-progress-bar
-        ul.progress-bar
-          li(v-for="(s,idx) in steps.stage", v-bind:class='{active:s.active}') {{s.title}}
 
-    //.thin-only
-      .step-progress-bar
-        ul.progress-bar
-          li(v-for="(s,idx) in steps.stage", v-bind:class='{active:s.active}') {{s.title}}
+
+    // .fat-only
+    .step-progress-bar
+      ul.progress-bar
+        li(v-for="(s,idx) in steps.stage", v-bind:class='{active:s.active, current:s.current}') {{s.title}}
+
+    // .thin-only
+    //   .step-progress-bar
+    //     ul.progress-bar
+    //       li(v-for="(s,idx) in steps.stage", v-bind:class='{active:s.active}') {{s.title}}
+
      
 </template>
 
@@ -37,23 +40,28 @@ export default {
             var steps = [
               {
                 title:"即將開始",
-                active:false
+                active:false,
+                current:false
               },
               {
                 title:"意見徵集",
-                active:false
+                active:false,
+                current:false
               },
               {
                 title:"研擬草案",
-                active:false
+                active:false,
+                current:false
               },
               {
                 title:"送交院會",
-                active:false
+                active:false,
+                current:false
               },
               {
                 title:"歷史案件",
-                active:false
+                active:false,
+                current:false
               }
             ];
             detail_info = detail_info['post_stream']['posts'].slice(1); // 取得簡介底下內容
@@ -69,10 +77,14 @@ export default {
                 for (var j in steps){
                     steps[j]['active'] = true;
                     if(steps[j]['title'] === current && init === 'init'){ //如果是"意見徵集 init",就將active啟動並取消visited
+                        steps[j]['current'] = true;
+                        steps[j]['active'] = false;
                         step.stage = steps;
                         return step.stage;// 回傳五階段array
                     }
                     if(steps[j]['title'] === current){ //如果是"意見徵集",就將active啟動並取消visited
+                        steps[j]['current'] = true;
+                        steps[j]['active'] = false;
                         step.stage = steps;
                         return step.stage;// 回傳五階段array
                     }
@@ -82,12 +94,12 @@ export default {
       }
     },
     created:function(){
-        this.getProgress(this.article);
+      this.getProgress(this.article);
     },
     watch:{
-    article: function(val){
-        this.getProgress(val);
-      }
+      article: function(val){
+          this.getProgress(val);
+        }
     }
 
 
@@ -111,6 +123,12 @@ export default {
       font-size:1rem;
     }
   }
+  @media only screen and (min-width: $breakpoint) {
+    
+    li {
+      font-size:1.2rem;
+    }
+  }
 }
 ul.progress-bar {
   counter-reset: step;
@@ -124,7 +142,7 @@ ul.progress-bar {
   position: relative;
   text-align: center;
   font-weight: 600;
-  font-size:1.2rem;
+  // font-size:1.2rem;
 }
 .step-progress-bar li:before {
   content: counter(step);
@@ -155,16 +173,23 @@ ul.progress-bar {
   content: none;
 }
 .step-progress-bar li.active {
+  color: gray;
+}
+.step-progress-bar li.current {
   color: #DB5252;
-
 }
 .step-progress-bar li.active:before{
+  border-color: gray;
+}
+.step-progress-bar li.current:before{
   border-color: #DB5252;
 }
 .step-progress-bar li.active:after{
+  background-color: gray;
+}
+.step-progress-bar li.current:after{
   background-color: #DB5252;
 }
-
 // .thin-only { 
 //   .step-progress-bar {
 //     width:100%;

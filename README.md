@@ -41,6 +41,9 @@
 
 # Deploy 方式
 
+當 push / merge 至 master branch 時，travis 自動進行 deploy。
+如需手動 deploy，方式如下：
+
 ```
 yarn install
 node build/get-route.js
@@ -48,5 +51,5 @@ yarn build:static
 ./deploy
 ```
 
-接著到 http://vue.vtaiwan.tw
+Deploy 後可至 http://vue.vtaiwan.tw 看到結果。
 

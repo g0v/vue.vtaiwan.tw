@@ -15,7 +15,7 @@
 
   .fat-only.ui.container.pusher
 
-    #opener.ui.icon.basic.button(@click="showSidebar", @mouseover="showSidebar")
+    #opener.ui.icon.basic.button.fat-only(@click="showSidebar", @mouseover="showSidebar")
       i.sidebar.icon
       span.fat-only 議題目錄
 
@@ -31,6 +31,7 @@
         p {{step}}
     .ui.segment.attached(v-if = "article.id !== undefined")
       info(v-for="(step, idx) in tabcontent",:article="article", :desc = "step", v-show="idx == myIdx")
+
 
   .thin-only
      .ui.container
@@ -52,6 +53,7 @@
                 
             .ui.segment.attached(v-if = "article.id !== undefined")
               info(v-for="(step, idx) in tabcontent",:article="article", :desc = "step", v-show="idx == myIdx")      
+
 </template>
 
 <script>
@@ -130,32 +132,26 @@ export default {
 <style lang="scss" scoped>
 @import "../sass/global.scss";
 
-// .component {
-//   margin: auto;
-// }
-// .fat-only {
-// h1.ui.huge.header {
-//   margin: 1em;
-//   font-size: 2rem;
-// }
-// }
-// .ui.left.sidebar.inverted.vertical.menu {
+
+@media only screen and (min-width: $breakpoint) {
+    .ui.huge.header{
+      font-size: 1.2em;
+    }
+}
+@media only screen and (max-width: $breakpoint) {
+    .ui.huge.header{
+      font-size: 2.2em;
+    }
+}
 #sidebar.sidebar {
-  // top: $navHeight;
-  // width: 220px;
+
   text-align: left;
-  // .header {
-    // font-size:1.2em;
-  // }
-  // .menu a {
-    // font-size: 1em;
-  // }
+
   .menu {
     margin: 0;
     .router-link-active{
       color: white;
-      // font-weight: 600;
-      // background: rgba(255,255,255,.08);
+
     }
   }
 }
@@ -165,32 +161,12 @@ export default {
     top: 0;
     left: 0;
     z-index: 100;
-    // padding: 10px;
-    // float:left;
-    // overflow: hidden;
-    // border-top: none;
-    // white-space: nowrap;
-    // margin:1px 0 0 0;
 }
 
-// .thin-only  { 
+.ui.top.menu {
+  width: 100%;
+}
 
-//   .ui.steps .step {
-//     border-right-width:0;
-//   }
-//   h1.ui.huge.header {
-//     margin-top:0;
-//     font-size:1.5rem;
-//   }
-//   .tab_container {
-//     width: 98%;
-//   }
-//   .ui.big.steps.top.attached {
-//     a.step {
-//       border-bottom: inherit;
-//     }
-//   }
-// }
 .ui.container.pusher{
   min-height:90vh;
 }
