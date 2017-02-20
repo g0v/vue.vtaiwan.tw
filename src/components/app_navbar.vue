@@ -2,16 +2,9 @@
   .component
 
     nav.fat-only
-      // router-link.explore.fat-only(to='/', exact='')
-        // | 探索
       .ui.grid
         .seven.wide.column
-          //- form.search(:class="{active: myKey}", @keyup.down="onKeyDown()")
-          //-   i.search.icon
-          //-   input(type="search", v-model="myKey", placeholder="探索")
-          //-   SearchResult(v-show="myKey", :allTopics="allTopics", :myKey = "myKey", :myIdx="myIdx")
-          .ui.category.search(:class="{active: myKey}", @keyup.down="onKeyDown()")
-           // p 關鍵字搜尋   
+          .ui.category.search(:class="{active: myKey}", @keyup.down="onKeyDown()")   
            .ui.icon.input
              input.prompt(type="search", v-model="myKey", placeholder="搜尋...")
              i.search.icon 
@@ -24,22 +17,9 @@
         .seven.wide.column.right
           router-link.item(v-for='r in routes', v-if="r.r", :to="'/'+r.r", :class='r.r', exact='')
             | {{ r.t }}
-            //.sub {{r.en | uppercase}}
-
-      // .null
-
-      // .more.thin-only
-      //   a(@click="showDropDown = !showDropDown")
-      //     | 更多
-      //     i.caret.down.icon(v-if="!showDropDown")
-      //     i.caret.up.icon(v-else)
-      //   .dropdown.menu(v-if="showDropDown")
-      //     router-link.item(v-for='r in routes', v-if="r.r", :to="'/'+r.r", :class='r.r', exact='')
-      //       | {{ r.t }}
 
     nav.thin-only
       router-link.m-logo(to='/', exact='')
-        // img(width='30', height='30', src='../assets/vTaiwan_logo_2017.png', alt='logo')
         img(src='../assets/vTaiwan_logo_2017.png', alt='logo')
         span vTaiwan
       .menu
@@ -47,10 +27,6 @@
         router-link.m-item(to='/') 探索議題
         router-link.m-item(to='/search') 搜尋議題
         
-      // .ui.three.item.menu
-      //   router-link.item(to='/how-to-use') 使用手冊
-      //   router-link.item(to='/') 探索議題
-      //   router-link.item(to='/') 搜尋議題
 </template>
 
 <script>
@@ -178,31 +154,9 @@ form.search {
   }
 }
 
-// .explore {
-// display: flex;
-// align-items: center;
-// justify-content: space-around;
-//   height: $navHeight;
-//   min-width: 4em;
-//   &.router-link-active {
-//     background-color: white;
-//   }
-// }
-
-
-// .null {
-//   flex: 1;
-// }
-
 .right {
   text-align: right;
   a.item {
-    // display: flex;
-    // flex-flow: row nowrap;
-    // align-items: center;
-    // -webkit-box-align: center;
-    // vertical-align: middle;
-    // justify-content: center;
     font-size: 1.2rem;
     display: inline-block;
     line-height: $navHeight;
@@ -211,9 +165,6 @@ form.search {
     cursor: pointer;
     text-decoration: none;
     @include transition(background-color 0.5s ease);
-    // padding: 10px;
-    // border-left: 1px solid #ccc;
-
     
     &:hover {
       color: white;
@@ -221,36 +172,9 @@ form.search {
     }
     &.active, &.router-link-active {
       background-color: $intro_color;
-      // color: black;
-      // &.join { background-color: $join }
-      // &.intro { background-color: $intro }
-      // &.live { background-color: $live }
-      // &.track { background-color: $track }
     }
-
-    // .sub {
-    //   font-size: 0.7rem;
-    //   line-height: 1rem;
-    // }
   }
 }
-
-// .more {
-//   position:relative;
-//   .dropdown.menu {
-//     position: absolute;
-//     z-index: 10;
-//     top: $navHeight - 20px;
-//     left: -4em;
-//     width: 10em;
-//     background-color: $navBgColor;
-//     padding: 0.5em;
-//     a {
-//       display: block;
-//       margin-top: 0.5em;
-//     }
-//   }
-// }
 
 // ************************* m-obile version
 
@@ -272,14 +196,11 @@ form.search {
     width: 60px;
     height: 60px;
     margin: 0;
-    // margin-right: 15px;
-    // margin-top: 50px;
   }
   span {
     color: black;
     font-family: $logo_font;
     font-size: 1.6rem;
-    // padding-top: 50px;
     padding: 0 0 0 .3em;
   }
 }
@@ -294,9 +215,6 @@ form.search {
     text-align: center;
     font-size: 1.3rem;
     color: dimgray;
-    // padding: 10px;
-    // vertical-align: bottom;
-
     &:hover {
       color: white;
       background: $main_color;

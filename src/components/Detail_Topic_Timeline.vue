@@ -120,12 +120,6 @@
     created: function () {
       this.getTimeline(this.article);
     }
-    
-    // mount: function () {
-    //   this.getTimeline(this.article.id);
-    // }
-    
-
   }
 
 

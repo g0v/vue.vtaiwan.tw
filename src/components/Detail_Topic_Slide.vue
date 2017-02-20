@@ -47,10 +47,6 @@ export default {
         this.getSlide(val);
       }
   }
-
-  // updated:function(){
-  //   this.getSlide(this.article.id);
-  // }
 }
 
 </script>

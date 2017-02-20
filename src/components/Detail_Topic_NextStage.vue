@@ -1,16 +1,9 @@
 <template lang="jade">
   .component
-
-
-    // .fat-only
     .step-progress-bar
       ul.progress-bar
         li(v-for="(s,idx) in steps.stage", v-bind:class='{active:s.active, current:s.current}') {{s.title}}
 
-    // .thin-only
-    //   .step-progress-bar
-    //     ul.progress-bar
-    //       li(v-for="(s,idx) in steps.stage", v-bind:class='{active:s.active}') {{s.title}}
 
      
 </template>
@@ -190,13 +183,6 @@ ul.progress-bar {
 .step-progress-bar li.current:after{
   background-color: #DB5252;
 }
-// .thin-only { 
-//   .step-progress-bar {
-//     width:100%;
-//     li {
-//       font-size:1rem;
-//     }
-//   }
-// }
+
 
 </style>
