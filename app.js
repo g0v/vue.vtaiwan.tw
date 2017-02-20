@@ -12269,13 +12269,6 @@ module.exports = function spread(callback) {
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -12419,10 +12412,6 @@ module.exports = function spread(callback) {
       this.getSlide(val);
     }
   }
-
-  // updated:function(){
-  //   this.getSlide(this.article.id);
-  // }
 };
 
 /***/ },
@@ -12560,12 +12549,6 @@ module.exports = function spread(callback) {
   created: function created() {
     this.getTimeline(this.article);
   }
-
-  // mount: function () {
-  //   this.getTimeline(this.article.id);
-  // }
-
-
 };
 
 /***/ },
@@ -13147,30 +13130,6 @@ var main = __webpack_require__(20);
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__app_nav_SearchResult_vue__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__app_nav_SearchResult_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__app_nav_SearchResult_vue__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
