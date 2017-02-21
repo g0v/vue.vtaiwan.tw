@@ -11522,7 +11522,8 @@ module.exports = function spread(callback) {
     return {
       myRoutes: [{ en: 'Home', t: '首頁', r: '' }, { en: 'User manual', t: '使用手冊', r: 'how-to-use' }, { en: 'About', t: '關於 vTaiwan', r: 'intro' }],
       catagories: [],
-      allTopics: []
+      allTopics: [],
+      allNews: []
     };
   },
 
@@ -11597,6 +11598,26 @@ module.exports = function spread(callback) {
         tmp['cover'] = config.split(" ")[2];
         _this.catagories.push(tmp);
       });
+    });
+
+    __WEBPACK_IMPORTED_MODULE_2__js_request__["a" /* default */].get('https://talk.vtaiwan.tw/t/facebook/1249.json?include_raw=1') //news
+    .then(function (response) {
+      var news = response.data;
+      news = news['post_stream']['posts'].slice(1);
+
+      news.forEach(function (post) {
+        var tmp = {};
+        post = post['raw'].split("<br>");
+        tmp['title'] = post[1];
+        tmp['content'] = post[3];
+        tmp['img_link'] = post[5];
+        tmp['setup_time'] = post[7];
+        tmp['source'] = post[9];
+        tmp['info'] = post[11].split('\n')[0];
+        tmp['news_link'] = post[11].split('\n')[1];
+        _this.allNews.push(tmp);
+      });
+      console.log(_this.allNews);
     });
   }
 };
@@ -12646,7 +12667,7 @@ module.exports = function spread(callback) {
     // HotProposal,
     ProposalTab: __WEBPACK_IMPORTED_MODULE_1__home_ProposalTab_vue___default.a
   },
-  props: ['allTopics', 'catagories'],
+  props: ['allTopics', 'catagories', 'allNews'],
   data: function data() {
     return {
       n_hot: 5
@@ -15344,7 +15365,8 @@ module.exports={render:function (){with(this) {
     staticClass: "view",
     attrs: {
       "allTopics": allTopics,
-      "catagories": catagories
+      "catagories": catagories,
+      "allNews": allNews
     }
   })])]), _h('MyFooter', {
     staticClass: "footer"
