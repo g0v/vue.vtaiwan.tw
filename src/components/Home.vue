@@ -33,7 +33,7 @@ export default {
 
 
   },
-  props:['allTopics', 'catagories'],
+  props:['allTopics', 'catagories','allNews'],
   data () {
     return {
       n_hot: 5

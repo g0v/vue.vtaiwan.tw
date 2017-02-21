@@ -6,7 +6,7 @@
 
   #main.main
     transition(name='fade-in', mode='out-in')
-      router-view.view(:allTopics="allTopics", :catagories="catagories")
+      router-view.view(:allTopics="allTopics", :catagories="catagories", :allNews="allNews")
 
   MyFooter.footer
 </template>
@@ -36,7 +36,8 @@ export default {
         // {en:'Login', t:'登入',r:'login'},
       ],
       catagories: [],
-      allTopics: []
+      allTopics: [],
+      allNews: []
     }
   },
   methods: {
@@ -115,6 +116,27 @@ export default {
         this.catagories.push(tmp);
       })
     })
+
+    caxios.get('https://talk.vtaiwan.tw/t/facebook/1249.json?include_raw=1') //news
+    .then((response)=>{
+      var news = response.data;
+      news = news['post_stream']['posts'].slice(1);
+      
+      news.forEach((post)=>{
+        var tmp = {};
+        post = post['raw'].split("<br>");
+        tmp['title'] = post[1];
+        tmp['content'] = post[3];
+        tmp['img_link'] = post[5];
+        tmp['setup_time'] = post[7];
+        tmp['source'] = post[9];
+        tmp['info'] = post[11].split('\n')[0];
+        tmp['news_link'] = post[11].split('\n')[1];
+        this.allNews.push(tmp);
+      })
+      console.log(this.allNews);
+    })
+
   }
 }
 
