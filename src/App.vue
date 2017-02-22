@@ -128,10 +128,10 @@ export default {
         tmp['title'] = post[1];
         tmp['content'] = post[3];
         tmp['img_link'] = post[5];
-        tmp['setup_time'] = post[7];
-        tmp['source'] = post[9];
-        tmp['info'] = post[11].split('\n')[0];
-        tmp['news_link'] = post[11].split('\n')[1];
+        tmp['source'] = post[7];
+        tmp['tags'] = post[9].split("\n")[0].replace(/，|#/g," ");
+        tmp['news_link'] = post[11];
+        tmp['setup_time'] = post[13];
         this.allNews.push(tmp);
       })
       console.log(this.allNews);

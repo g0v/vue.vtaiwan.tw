@@ -6,6 +6,7 @@
     // .ui.divider
     // HotProposal(:hotProposal="hotTopics", header="熱門議題").hotproposal
     // .ui.divider
+    News(:allNews="allNews")
     ProposalTab.proposalTab(:allTopics="allTopics")
     // .ui.divider
    // Catagories(:catagories="catagories").catagories
@@ -19,7 +20,7 @@ import Slideshow from './home_Slideshow.vue'
 // import HotProposal from './home_HotProposal.vue'
 import ProposalTab from './home_ProposalTab.vue'
 // import Catagories from './home_Catagories.vue'
-
+import News from './app_News.vue'
 
 
 export default {
@@ -29,6 +30,7 @@ export default {
     // StepGuide,
     // HotProposal,
     ProposalTab,
+    News
     // Catagories,
 
 
