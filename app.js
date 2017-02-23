@@ -11614,6 +11614,7 @@ module.exports = function spread(callback) {
         tmp['source'] = post[7];
         tmp['tags'] = post[9].split("\n")[0].replace(/，|#/g, " ");
         tmp['news_link'] = post[11];
+        tmp['source_link'] = post[11].split("/")[2];
         tmp['setup_time'] = post[13];
         _this.allNews.push(tmp);
       });
@@ -13110,12 +13111,95 @@ var main = __webpack_require__(20);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ exports["default"] = {
   name: 'News',
-  props: ['allNews']
-
+  props: ['allNews'],
+  mounted: function mounted() {
+    /* initialize swiper when document ready */
+    var mySwiper1 = new Swiper('.swiper-container1', {
+      observer: true,
+      direction: 'horizontal',
+      pagination: '.swiper-pagination',
+      //   autoplay: 4000,
+      slidesPerView: 5,
+      paginationClickable: true,
+      spaceBetween: 50,
+      nextButton: '.swiper-button-next',
+      prevButton: '.swiper-button-prev'
+    });
+    var mySwiper2 = new Swiper('.swiper-container2', {
+      observer: true,
+      //   autoplay: 5000,
+      direction: 'horizontal',
+      nextButton: '.swiper-button-next',
+      prevButton: '.swiper-button-prev',
+      pagination: '.swiper-pagination',
+      scrollbar: '.swiper-scrollbar',
+      spaceBetween: 40
+    });
+    mySwiper1.on('imagesReady', function () {
+      var len = 60; // 超過50個字以"..."取代
+      $(".JQellipsis").each(function (i) {
+        if ($(this).text().length > len) {
+          $(this).attr("title", $(this).text());
+          var text = $(this).text().substring(0, len - 1) + "...";
+          $(this).text(text);
+        }
+      });
+    });
+    mySwiper2.on('imagesReady', function () {
+      var len = 60; // 超過50個字以"..."取代
+      $(".JQellipsis").each(function (i) {
+        if ($(this).text().length > len) {
+          $(this).attr("title", $(this).text());
+          var text = $(this).text().substring(0, len - 1) + "...";
+          $(this).text(text);
+        }
+      });
+    });
+  },
+  updated: function updated() {
+    var len = 50; // 超過50個字以"..."取代
+    $(".JQellipsis").each(function (i) {
+      if ($(this).text().length > len) {
+        $(this).attr("title", $(this).text());
+        var text = $(this).text().substring(0, len - 1) + "...";
+        $(this).text(text);
+      }
+    });
+  }
 };
 
 /***/ },
@@ -13888,7 +13972,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n*[data-v-1ffe16c1] {\n  box-sizing: border-box;\n}\nbody[data-v-1ffe16c1] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.component[data-v-1ffe16c1] {\n  position: relative;\n}\n.component h1[data-v-1ffe16c1], .component h2[data-v-1ffe16c1], .component h3[data-v-1ffe16c1], .component h4[data-v-1ffe16c1], .component h5[data-v-1ffe16c1], .component h6[data-v-1ffe16c1], .component p[data-v-1ffe16c1] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-1ffe16c1], .component h2 a[data-v-1ffe16c1], .component h3 a[data-v-1ffe16c1], .component h4 a[data-v-1ffe16c1], .component h5 a[data-v-1ffe16c1], .component h6 a[data-v-1ffe16c1], .component p a[data-v-1ffe16c1] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-1ffe16c1] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-1ffe16c1] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-1ffe16c1] {\n    display: none !important;\n}\n}\n.component[data-v-1ffe16c1] {\n  padding: 1em 0;\n  min-height: 72vh;\n}\n.component #text[data-v-1ffe16c1]:after {\n    background: #FFF;\n    bottom: 0;\n    content: \"...\";\n    padding: 0 0 1px 8px;\n    position: absolute;\n    right: 0;\n}\n.component #text[data-v-1ffe16c1] {\n    font-size: 0.8em;\n    width: 192px;\n    height: 142px;\n    line-height: 1.5;\n    overflow: hidden;\n    position: relative;\n}\n.component .ui.card > .content > .header[data-v-1ffe16c1]:not(.ui), .component .ui.cards > .card > .content > .header[data-v-1ffe16c1]:not(.ui) {\n    font-weight: 700;\n    text-align: left;\n    font-size: 0.8em;\n    margin-top: -.21425em;\n    line-height: 1.2em;\n}\n.component .ui.cards > .card > .content > p[data-v-1ffe16c1] {\n    font-size: 0.6em;\n    text-align: left;\n    color: red;\n    background-color: #e8e8e8;\n}\n.component .ui.cards > .card > .image:not(.ui) > img[data-v-1ffe16c1] {\n    height: 150px;\n}\n", ""]);
+exports.push([module.i, "\n*[data-v-1ffe16c1] {\n  box-sizing: border-box;\n}\nbody[data-v-1ffe16c1] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.component[data-v-1ffe16c1] {\n  position: relative;\n}\n.component h1[data-v-1ffe16c1], .component h2[data-v-1ffe16c1], .component h3[data-v-1ffe16c1], .component h4[data-v-1ffe16c1], .component h5[data-v-1ffe16c1], .component h6[data-v-1ffe16c1], .component p[data-v-1ffe16c1] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-1ffe16c1], .component h2 a[data-v-1ffe16c1], .component h3 a[data-v-1ffe16c1], .component h4 a[data-v-1ffe16c1], .component h5 a[data-v-1ffe16c1], .component h6 a[data-v-1ffe16c1], .component p a[data-v-1ffe16c1] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-1ffe16c1] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-1ffe16c1] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-1ffe16c1] {\n    display: none !important;\n}\n}\n.component[data-v-1ffe16c1] {\n  padding: 1em 0;\n  min-height: 72vh;\n}\n.component .swiper-container1[data-v-1ffe16c1] {\n    margin: 4.5em 1em 0 3em;\n}\n.component .ui.card > .content > .header[data-v-1ffe16c1]:not(.ui), .component .ui.cards > .card > .content > .header[data-v-1ffe16c1]:not(.ui) {\n    font-weight: 700;\n    text-align: left;\n    font-size: 1em;\n    margin-top: -.21425em;\n    line-height: 1.2em;\n}\n.component .ui.cards > .card > .content > p[data-v-1ffe16c1] {\n    font-size: 0.6em;\n    text-align: left;\n    color: red;\n    background-color: #e8e8e8;\n    margin-bottom: 1em;\n}\n.component .ui.cards > .card > .image:not(.ui) > img[data-v-1ffe16c1] {\n    height: 150px;\n}\n.component .ui.cards > .card [class*=\"right floated\"][data-v-1ffe16c1] {\n    float: right;\n    font-size: 0.6em;\n}\n.component .ui.cards > .card > .extra.content[data-v-1ffe16c1] {\n    padding: 0 0.5em 0 0;\n}\n.component .description > p[data-v-1ffe16c1] {\n    font-size: 0.6em;\n    text-align: left;\n    text-indent: 25px;\n}\n.component .ui.cards > .card > .content[data-v-1ffe16c1] {\n    padding: 1em 0 1em 0;\n}\n.component .ui.cards > .card[data-v-1ffe16c1] {\n    min-height: 350px;\n}\n.thin-only .swiper-container2[data-v-1ffe16c1] {\n  margin: 5em 3em 0 3em;\n}\n.thin-only .swiper-container2 .ui.cards[data-v-1ffe16c1] {\n    margin: 0;\n}\n.thin-only .swiper-container2 .ui.cards > .card[data-v-1ffe16c1] {\n    min-height: 300px;\n}\n", ""]);
 
 // exports
 
@@ -15194,11 +15278,17 @@ module.exports={render:function (){with(this) {
   return _h('div', {
     staticClass: "component"
   }, [_h('div', {
-    staticClass: "ui container"
+    staticClass: "fat-only"
   }, [_h('div', {
-    staticClass: "ui four cards"
+    staticClass: "swiper-container1"
+  }, [_h('div', {
+    staticClass: "swiper-wrapper"
   }, [_l((allNews), function(n, idx) {
     return _h('div', {
+      staticClass: "swiper-slide"
+    }, [_h('div', {
+      staticClass: "ui cards"
+    }, [_h('div', {
       staticClass: "card"
     }, [_h('div', {
       staticClass: "image"
@@ -15211,21 +15301,90 @@ module.exports={render:function (){with(this) {
     }, [_h('p', [_s(n.tags)]), _h('a', {
       staticClass: "header",
       attrs: {
-        "href": n.news_link
+        "href": n.news_link,
+        "target": "_blank"
       }
-    }, [_s(n.title)]), _h('div', {
+    }, [_s(n.title)])]), _h('div', {
       staticClass: "description"
     }, [_h('p', {
-      attrs: {
-        "id": "text"
-      }
-    }, [_s(n.content)])])]), _h('div', {
+      staticClass: "JQellipsis"
+    }, [_s(n.content)])]), _h('div', {
       staticClass: "extra content"
     }, [_h('div', {
       staticClass: "right floated author"
-    }, [" " + _s(n.source)])])])
-  })])])])
-}},staticRenderFns: []}
+    }, [_h('a', {
+      attrs: {
+        "href": 'http://' + n.source_link,
+        "target": "_blank"
+      }
+    }, [_s(n.source)])])])])])])
+  })]), _m(0), _m(1)])]), _h('div', {
+    staticClass: "thin-only"
+  }, [_h('div', {
+    staticClass: "swiper-container2"
+  }, [_h('div', {
+    staticClass: "swiper-wrapper"
+  }, [_l((allNews), function(n, idx) {
+    return _h('div', {
+      staticClass: "swiper-slide"
+    }, [_h('div', {
+      staticClass: "ui cards"
+    }, [_h('div', {
+      staticClass: "card"
+    }, [_h('div', {
+      staticClass: "image"
+    }, [_h('img', {
+      attrs: {
+        "src": n.img_link
+      }
+    })]), _h('div', {
+      staticClass: "content"
+    }, [_h('p', [_s(n.tags)]), _h('a', {
+      staticClass: "header",
+      attrs: {
+        "href": n.news_link,
+        "target": "_blank"
+      }
+    }, [_s(n.title)])]), _h('div', {
+      staticClass: "description"
+    }, [_h('p', {
+      staticClass: "JQellipsis"
+    }, [_s(n.content)])]), _h('div', {
+      staticClass: "extra content"
+    }, [_h('div', {
+      staticClass: "right floated author"
+    }, [_h('a', {
+      attrs: {
+        "href": 'http://' + n.source_link,
+        "target": "_blank"
+      }
+    }, [_s(n.source)])])])])])])
+  })]), _m(2), _m(3), _m(4), _m(5)])])])
+}},staticRenderFns: [function (){with(this) {
+  return _h('div', {
+    staticClass: "swiper-button-prev"
+  })
+}},function (){with(this) {
+  return _h('div', {
+    staticClass: "swiper-button-next"
+  })
+}},function (){with(this) {
+  return _h('div', {
+    staticClass: "swiper-button-prev"
+  })
+}},function (){with(this) {
+  return _h('div', {
+    staticClass: "swiper-button-next"
+  })
+}},function (){with(this) {
+  return _h('div', {
+    staticClass: "swiper-pagination"
+  })
+}},function (){with(this) {
+  return _h('div', {
+    staticClass: "swiper-scrollbar"
+  })
+}}]}
 
 /***/ },
 /* 132 */
