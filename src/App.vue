@@ -136,6 +136,7 @@ export default {
         tmp['source'] = post[7];
         tmp['tags'] = post[9].split("\n")[0].replace(/，|#/g," ");
         tmp['news_link'] = post[11];
+        tmp['source_link'] = post[11].split("/")[2];
         tmp['setup_time'] = post[13];
         this.allNews.push(tmp);
       })
