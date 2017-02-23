@@ -13,40 +13,27 @@
                         @click="routename = obj.routeName") 
           p {{obj.title}}   
 
-  .fat-only.ui.container.pusher
+  #pusher.ui.container.pusher
 
-    #opener.ui.icon.basic.button.fat-only(@click="showSidebar", @mouseover="showSidebar")
+    #opener.ui.icon.basic.button.fat-only(@mouseover="showSidebar")
       i.sidebar.icon
-      span.fat-only 議題目錄
+      span 議題目錄
 
     NextStage(v-if = "article.id !== undefined", :article="article")
-    h1.ui.huge.header {{article.title}}
-    // .ui.basic.segment
+
+    h1.ui.header {{article.title}}
+    
     Slide(v-if = "article.id !== undefined", :article="article")
       // video(:style="{'background-image': 'url('+article.cover+')'}")
 
-    .ui.top.attached.three.item.stackable.big.menu
+    .ui.three.item.big.menu
       a.item(v-for="(step, idx) in tabcontent", :class="{'active': idx == myIdx}", @click="myIdx = idx")
         i.icon(v-bind:class="{'info circle': step === '詳細內容','calendar': step === '議題時間軸','comments': step === '參與討論' }")
-        p {{step}}
-    .ui.segment.attached(v-if = "article.id !== undefined")
-      info(v-for="(step, idx) in tabcontent",:article="article", :desc = "step", v-show="idx == myIdx")
+        p.fat-only {{step}}
 
+    .info(v-if = "article.id !== undefined")
+      info(v-for="(step, idx) in tabcontent", :article="article", :desc = "step", v-show="idx == myIdx")
 
-  .thin-only
-    .ui.container
-      NextStage(v-if = "article.id !== undefined", :article="article")
-      h1.ui.huge.header {{article.title}}           
-        Slide(v-if = "article.id !== undefined", :article="article")              
-        div.ui.styled.accordion(@mouseover="accordion")
-          a.step(v-for="(step, idx) in tabcontent", :class="{'active': idx == myIdx}", @click="myIdx = idx")
-            div.title
-              i.dropdown.icon(v-bind:class="{'info circle': step === '詳細內容','calendar': step === '議題時間軸','comments': step === '參與討論' }")
-              | {{step}}
-            div.content
-              .ui.attached(v-if = "article.id !== undefined")
-                info(v-for="(step, idx) in tabcontent",:article="article", :desc = "step", v-show="idx == myIdx")                 
-                      
 </template>
 
 <script>
@@ -83,14 +70,14 @@ export default {
     }
   },
   methods:{
-    accordion:function(){
-      $('.ui.accordion').accordion();
-    },
-     showSidebar:function(){
+    // accordion:function(){
+    //   $('.ui.accordion').accordion();
+    // },
+    showSidebar:function(){
       $('.ui.left.sidebar').sidebar('show');
       // $('.ui.left.sidebar').next().remove('.ui.left.sidebar'); 
     },
-    hideSidebar(){
+    hideSidebar:function(){
       $('.ui.left.sidebar').sidebar('hide');
     },
     routename:function(){
@@ -131,17 +118,16 @@ export default {
 <style lang="scss" scoped>
 @import "../sass/global.scss";
 
-
-@media only screen and (min-width: $breakpoint) {
-    .ui.huge.header{
-      font-size: 1.2rem;
-    }
-}
-@media only screen and (max-width: $breakpoint) {
-    .ui.huge.header{
-      font-size: 2.2rem;
-    }
-}
+// @media only screen and (min-width: $breakpoint) {
+//     .ui.huge.header{
+//       font-size: 1.2rem;
+//     }
+// }
+// @media only screen and (max-width: $breakpoint) {
+//     .ui.huge.header{
+//       font-size: 2.2rem;
+//     }
+// }
 #sidebar.sidebar {
 
   text-align: left;
@@ -166,13 +152,13 @@ export default {
   width: 100%;
 }
 
-.ui.container.pusher{
+#pusher{
   min-height:90vh;
 }
-.ui.styled.accordion{
-  margin-bottom: 1em;
-}
-.ui.styled.accordion .title {
-  font-size: 1.5rem;
-}
+// .ui.styled.accordion{
+//   margin-bottom: 1em;
+// }
+// .ui.styled.accordion .title {
+//   font-size: 1.5rem;
+// }
 </style>

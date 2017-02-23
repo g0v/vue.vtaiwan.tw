@@ -3,11 +3,16 @@
   .ParticipationLink_components
     .urllink(v-if = "ulinkall.length > 0")
       span.urllink(v-for="(item, index) in ulinkall")
-        span(v-html = "ulinkall[index]")
+        span
+          a.ui.teal.icon.button(:href='item.link' target='_blank')
+            i.icon(:class="item.icon")
+            span.fat-only
+              {{ item.text }}
+              
 </template>
 
 <script>
-import axios from 'axios'
+// import axios from 'axios'
 // import $ from 'jQuery'
 var main = require('./../filters/index.js')
 export default {
@@ -17,41 +22,50 @@ export default {
       ulinkall:[],
       data_base_non:[
         {
-          icon:"<a class='ui teal button'><i class='linkify icon'></i>相關</a>"
+          icon:"linkify",
+          text:"相關"
         }
       ],
       data_base:[
         {
           key: 'hackpad',
-          icon:"<a class='ui teal button'><i class='pencil icon'></i>共筆</a>"
+          icon:"pencil",
+          text:"共筆"
         },
         {
           key: 'sayit',
-          icon:"<a class='ui teal button'><i class='book icon'></i>記錄</a>"
+          icon:"book",
+          text:"記錄"
         },
         {
           key: 'youtube',
-          icon:"<a class='ui teal button'><i class='youtube play icon'></i>影片</a>",
+          icon:"youtube play",
+          text:"影片"
         },
         {
           key: 'pol.is',
-          icon:"<a class='ui teal button'><i class='users icon'></i>討論</a>"
+          icon:"users",
+          text:"討論"
         },
         {
           key: 'talk.vtaiwan.tw',
-          icon:"<a class='ui teal button'><i class='edit icon'></i>留言</a>"
+          icon:"edit",
+          text:"留言"
         },
         {
           key: 'app.sli.do',
-          icon:"<a class='ui teal button'><i class='bullhorn icon'></i>提問</a>"
+          icon:"bullhorn",
+          text:"提問"
         },
         {
           key: 'PDF',
-          icon:"<a class='ui teal button'><i class='download disk icon'></i>PDF</a>"
+          icon:"download disk",
+          text:"PDF"
         },
         {
           key: 'g0v.github',
-          icon:"<a class='ui teal button'><i class='github alternate icon'></i>GitBook</a>"
+          icon:"github alternate",
+          text:"GitBook"
         },
       ]
     }
@@ -63,13 +77,39 @@ export default {
       var tag=0;
       for(var j=0; j<this.data_base.length ;j++){
         if(this.urllink[i].indexOf(this.data_base[j].key)!=-1){
-          this.ulinkall.push("<a href= "+this.urllink[i]+" target='_blank'"+this.data_base[j].icon+"</a>"); //判斷是否為data_base中的連結
+
+          let item = {}
+          item.link = this.urllink[i]
+          item.icon = this.data_base[j].icon
+          item.text = this.data_base[j].text
+          this.ulinkall.push(item)
+          /* 判斷是否為data_base中的連結 */
+          // this.ulinkall 
+          //   .push("<a href="+this.urllink[i]+" target='_blank' class='ui teal icon button'>"+
+          //     this.data_base[j].icon+
+          //     "<span class='fat-only'> "+
+          //     this.data_base[j].text+
+          //     "</span>"+
+          //     "</a>"
+          //   );
           tag = 1;
         }
       }
-      if(tag != 1)  //如果不是為data_base的連結 則變成相關連結
+      if(tag != 1)  /* 如果不是為data_base的連結 則變成相關連結 */
       {
-        this.ulinkall.push("<a href= "+this.urllink[i]+" target='_blank'"+this.data_base_non[0].icon+"</a>");
+        let item = {}
+        item.link = this.urllink[i]
+        item.icon = this.data_base_non[0].icon
+        item.text = this.data_base_non[0].text
+        this.ulinkall.push(item)
+        // this.ulinkall
+        //   .push("<a href="+this.urllink[i]+" target='_blank' class='ui teal icon button'>"+
+        //     this.data_base_non[0].icon+
+        //     "<span class='fat-only'> "+
+        //     this.data_base_non[0].text+
+        //     "</span>"+
+        //     "</a>"
+        //   );
       }            
     }
   }
