@@ -17,18 +17,18 @@
 
     .ui.four.column.grid.stackable
 
-      .box.column(v-for="t in list")
-        router-link.box-inner.ui.segment(:to="'/topic/' + t.routeName")
+      .box.column(v-for="item in list")
+        router-link.box-inner.ui.segment(:to="'/topic/' + item.routeName")
           
-          img.ui.rounded.bordered.image(:src ="t.cover || 'http://lorempixel.com/320/240/sports'")
+          img.ui.rounded.bordered.image(:src ="item.cover || 'http://lorempixel.com/320/240/sports'")
 
-          h3.ui.header {{ t.title }}
+          h3.ui.header {{ item.title }}
 
-          .progress_bar(v-if="name == 'discuss'", :style="progressStyle(t)")
-            .progress_text.ui.bottom.attached.red.large.label(v-if="t.status==='討論中'") 還有{{Math.floor(t.total - t.progress)}}天
+          //- .progress_bar(v-if="name === 'discuss'", :style="progressStyle(item.progress, item.total)")
+          .progress_bar(v-if="name === 'discuss'")
+            .progress_text.ui.bottom.attached.red.large.label(v-if="item.status === '討論中'") 還有{{Math.floor(t.total - t.progress)}}天
             .progress_text.ui.bottom.attached.red.large.label(v-else) 討論已結束
-
-          // .progress(v-if="t.total - t.progress", :style="{ width: (t.progress / t.total * 100) + '%' }")
+            .progress_color(:style = "progressStyle(item.progress, item.total)")
 
 </template>
 
@@ -42,20 +42,12 @@
       }
     },
     mounted:function(){
-      /* make mobile's m-title sticky to its own content */
-      // let self = this /* save vm for later use */
-      // let btn_name = this.name
-      // $('.m-title.sticky[data-name="'+btn_name+'"]').sticky({
-      //   observeChanges: true,
-      //   onStick       : function(){
-      //     self.$emit('stickTo', btn_name)
-      //   }
-      // })
-
       /* bind event scroll to window */
-      window.addEventListener('scroll', this.mTitleHitEvent);
+      window.addEventListener('scroll', this.mTitleHitEvent)
       // $(window).scroll(this.mTitleHitEvent)
-
+    },
+    beforeDestroy: function(){
+      window.removeEventListener('scroll', this.mTitleHitEvent)
     },
     methods:{
       mTitleHitEvent: function() {
@@ -77,10 +69,13 @@
           this.isSent = false
         }
       },
-      progressStyle: function(t) {
-        let color = $('.progress_bar').css('color')
-        let percent = t.progress / t.total * 100
-        return {"background": "linear-gradient(to right, "+color+" 0%, "+color+" "+percent+"%, #AAA "+percent+".1%, #AAA 100%)"}
+      progressStyle: function(progress, total) {
+        console.log(progress+' '+total)
+        let color = '#3fadc7' /* $main_color */
+        let percent = progress / total * 100
+        // let style = {"background": "linear-gradient(to right, "+color+" 0%, "+color+" "+percent+"%, #AAA "+percent+".1%, #AAA 100%)"}
+        let style = {"width": percent + "%"}
+        return style
       }
     }
   }
@@ -110,15 +105,25 @@
       margin-top: 1em;
     }
     .progress_bar {
+      background: #AAAAAA;
       margin: 0 -1em -1em -1em;
-      width: calc(2em+100%);
       height: 2em;
-      color: $main_color;
+      width: calc(2em + 100%);
       position: relative;
       
       .progress_text {
+        z-index: 200;
         padding: 0 0 .5em 0;
         background: transparent !important;
+      }
+
+      .progress_color{
+        background: $main_color;
+        position: absolute;
+        z-index: 100;
+        left: 0;
+        // width: 100%;
+        height: 100%;
       }
     }
   }

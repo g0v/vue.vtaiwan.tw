@@ -5,7 +5,7 @@
   // #test0 test jQuery
 
   #main.main
-    transition(name='fade-in', mode='out-in')
+    transition(name='fade', mode='out-in')
       router-view.view(:allTopics="allTopics", :catagories="catagories", :allNews="allNews")
 
   MyFooter.footer
@@ -19,7 +19,6 @@ import caxios from './js/request'
 
 // import $ from 'jquery'
 // import jQuery from 'jquery'
-
 // window.jQuery = jQuery
 
 export default {
@@ -48,21 +47,27 @@ export default {
       return obj ? obj.r : ''
     },
     getProgress(raw) {
-      var regex = /(?: (?:init )?)|\n/g;
-      var start = new Date(raw.split(regex)[1]+"T00:00:00+08:00");
-      var end = new Date(raw.split(regex)[2]+"T00:00:00+08:00");
+      // var regex = /(?: (?:init )?)|\n/g;
+      // var start = new Date(raw.split(regex)[1]+"T00:00:00+08:00");
+      // var end = new Date(raw.split(regex)[2]+"T00:00:00+08:00");
+      let re = /[0-9]+-[0-9]+-[0-9]+(\s[0-9]+:[0-9]+:[0-9]*)?/g
+      let start = new Date(raw.match(re)[0])
+      let end = new Date(raw.match(re)[1] || raw.match(re)[0])
       var now = new Date();
       if (now > end) {
-        return (end - start)/(24*60*60*1000);
+        return (end - start)/(24*60*60*1000); /* Math.floor? */
       }
       else{
         return (now - start)/(24*60*60*1000);
       }
     },
     getTotal(raw) {
-      var regex = /(?: (?:init )?)|\n/g;
-      var start = new Date(raw.split(regex)[1]+"T00:00:00+08:00");
-      var end = new Date(raw.split(regex)[2]+"T00:00:00+08:00");
+      // var regex = /(?: (?:init )?)|\n/g;
+      // var start = new Date(raw.split(regex)[1]+"T00:00:00+08:00");
+      // var end = new Date(raw.split(regex)[2]+"T00:00:00+08:00");
+      let re = /[0-9]+-[0-9]+-[0-9]+(\s[0-9]+:[0-9]+:[0-9]*)?/g
+      let start = new Date(raw.match(re)[0])
+      let end = new Date(raw.match(re)[1] || raw.match(re)[0])
       return (end - start)/(24*60*60*1000)
     }
   },
@@ -163,26 +168,6 @@ export default {
   width: 100%;
   text-align: center;
 }
-
-// ********************** transition
-
-.fade-in-enter, .fade-in-leave-active {
-  opacity: 0
-}
-
-.fade-in-leave-active {
-  // @include transition(all .3s);
-}
-
-.fade-in-enter-active {
-  @include transition(all .5s ease-in);
-}
-
-.fade-in-enter {
-  // @include transform(rotateY(45deg));
-}
-
-// ********************** 
 
 .navbar {
   position: fixed;

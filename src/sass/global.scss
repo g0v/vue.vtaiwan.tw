@@ -36,6 +36,17 @@ body {
 
 }
 
+// ********************** transition
+
+.fade-enter,
+.fade-leave-active {
+  opacity: 0;
+}
+
+.fade-leave-active,
+.fade-enter-active {
+  transition: opacity .3s ease;
+}
 
 // ********************** default style for each component
 

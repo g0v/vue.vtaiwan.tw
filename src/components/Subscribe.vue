@@ -6,7 +6,7 @@
           h2 訂閱電子報
           p
             span 已註冊過vtaiwan討論區用戶，請至
-            a(href="https://talk.vtaiwan.tw/c/newsletter" title="電子報" target="_blank")電子報討論專區
+            a(href="https://talk.vtaiwan.tw/c/newsletter" title="電子報" target="_blank") 電子報討論專區
             span 設定監看頭一帖
           p 尚未註冊請輸入email：
             .ui.form

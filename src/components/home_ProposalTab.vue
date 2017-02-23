@@ -14,7 +14,8 @@
         .number {{idx + 1}}
 
     .ui.segment(id="context" v-bind:class="{ 'basic': onMobile, 'attached': !onMobile}")
-      Box(v-for="(step, idx) in steps", :list = "mySort(step.dataName)", :desc = "step.description", :label = "step.label", :name = "step.dataName", v-show="idx == myIdx || onMobile" @stickTo="onStickTo(idx, $event)")
+      transition(name='fade', mode='out-in')
+        Box(v-for="(step, idx) in steps", :list = "mySort(step.dataName)", :desc = "step.description", :label = "step.label", :name = "step.dataName", v-if="idx == myIdx || onMobile", @stickTo="onStickTo(idx, $event)")
   
 </template>
 
@@ -165,7 +166,7 @@ export default {
 
 .component {
   padding: 1em 0;
-  min-height: 72vh;
+  // min-height: 72vh;
 }
 
 .ui.steps {
@@ -199,7 +200,6 @@ export default {
   }
 
 }
-
 
 @media only screen and (max-width: $breakpoint) {
   .component {
