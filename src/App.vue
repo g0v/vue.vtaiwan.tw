@@ -122,7 +122,7 @@ export default {
       })
     })
 
-    caxios.get('https://talk.vtaiwan.tw/t/facebook/1249.json?include_raw=1') //news
+    caxios.get('https://talk.vtaiwan.tw/t/facebook/1249/last.json?include_raw=1') //news
     .then((response)=>{
       var news = response.data;
       news = news['post_stream']['posts'].slice(1);
@@ -136,11 +136,13 @@ export default {
         tmp['content'] = post[3];
         tmp['img_link'] = post[5];
         tmp['source'] = post[7];
-        tag = post[9].split("\n")[0].replace(/，|#/g," ");
-        tag = tag.split(" ");
-        for(var i in tag){
-          if(tag[i]!=""){
-            tags.push(tag[i]);
+        if(post[9]!=""){
+          tag = post[9].split("\n")[0].replace(/，|#/g," ");
+          tag = tag.split(" ");
+          for(var i in tag){
+            if(tag[i]!=""){
+              tags.push(tag[i]);
+            }
           }
         }
         tmp['tags'] = tags;
