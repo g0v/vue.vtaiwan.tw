@@ -12044,6 +12044,8 @@ module.exports = function spread(callback) {
 //
 //
 //
+//
+//
 
 
 
@@ -12125,6 +12127,10 @@ module.exports = function spread(callback) {
               //篩出含有slido的連結    
               dType.type.push('slido');
               dType.slido = "<iframe src=" + j + "frameborder='0' width='100%' height='1000px' data-reactid='.0.2.0.0.0'></iframe>";
+            } else if (j.indexOf("livehouse") > -1) {
+              //篩出含有slido的連結    
+              dType.type.push('livehouse');
+              dType.livehouse = "<iframe width='100%' height='1000px' src='" + j.replace("livehouse.in/", "livehouse.in/embed/") + "' frameborder='0' allowfullscreen></iframe>";
             } else if (j.indexOf("hackpad.com") > -1) {
               //篩出含有hackpad的連結    
               var hack = j.replace(/https.*-/, "");
@@ -12912,7 +12918,11 @@ var main = __webpack_require__(20);
       }, {
         key: 'youtube',
         icon: "youtube play",
-        text: "影片"
+        text: "直播"
+      }, {
+        key: 'livehouse',
+        icon: "youtube play",
+        text: "直播"
       }, {
         key: 'pol.is',
         icon: "users",
@@ -15493,6 +15503,11 @@ module.exports={render:function (){with(this) {
     domProps: {
       "innerHTML": _s(dType.polis)
     }
+  })]) : _e(), (dType.type.includes('livehouse')) ? _h('div', [_h('div', {
+    staticClass: "slido",
+    domProps: {
+      "innerHTML": _s(dType.livehouse)
+    }
   })]) : _e(), (dType.check == true && dType.type.includes('discourse')) ? _h('div', [_l((dType.discourse), function(disc, index) {
     return _h('div', [_h('div', {
       staticClass: "fat-only"
@@ -15522,7 +15537,7 @@ module.exports={render:function (){with(this) {
         "slice": false
       }
     })])])])
-  })]) : _h('div', [(lastStep === '歷史案件') ? _h('div', ["本案已討論結束，詳細歷程可參考「議題時間軸」"]) : _h('div', [(lastStep === '送交院會') ? _h('div', ["本案已擬定草案，送交院會審查中"]) : _h('div', ["本案目前無可線上參與的項目"])])])] : _e()])
+  })]) : _e()] : _h('div', [(lastStep === '歷史案件') ? _h('div', ["本案已討論結束，詳細歷程可參考「議題時間軸」"]) : _h('div', [(lastStep === '送交院會') ? _h('div', ["本案已擬定草案，送交院會審查中"]) : _h('div', ["本案目前無可線上參與的項目"])])])])
 }},staticRenderFns: [function (){with(this) {
   return _h('i', {
     staticClass: "dropdown icon"
