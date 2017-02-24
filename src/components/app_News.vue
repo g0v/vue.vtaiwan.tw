@@ -1,6 +1,7 @@
 <template lang="jade">
 
 .component
+    h1.ui.horizontal.divider News
     .fat-only
         .swiper-container1
             .swiper-button-prev
@@ -101,6 +102,12 @@ export default {
 
 .component {
   padding: 0 0 2em 0;
+  h1 {
+      font-size: 4rem;
+      font-family: $logo_font;
+      font-weight: normal;
+      text-transform: initial;
+  }
 //   min-height: 72vh;
 //   .swiper-container1{
     //   margin:4.5em 1em 0 3em;
@@ -126,7 +133,11 @@ export default {
     } 
   }
   .ui.cards>.card>.image:not(.ui)>img {
-    height: 150px;
+    // height: 150px;
+  }
+  .ui.cards>.card>.image {
+    max-height: 300px;
+    overflow: hidden;
   }
   .ui.cards>.card [class*="right floated"] {
     float: right;

@@ -64,7 +64,7 @@ export default {
   },
   data () {
     return {
-      myIdx: 2, /* default page */
+      myIdx: 0, /* default page */
       tabcontent:["詳細內容","議題時間軸","參與討論"],
       stage:["即將開始","意見徵集","研擬草案","送交院會","歷史案件"]
     }
