@@ -34,7 +34,11 @@
         p.fat-only {{step}}
 
     .info(v-if = "article.id !== undefined")
-      info(v-for="(step, idx) in tabcontent", :article="article", :desc = "step", v-show="idx == myIdx")
+      transition(name='fade', mode='out-in')
+        //- info(v-for="(step, idx) in tabcontent", :article="article", :desc = "step", v-if="idx == myIdx")
+        Description(v-if="myIdx === 0", :article="article")
+        Timeline(v-if="myIdx === 1", :article="article")
+        Discussion(v-if="myIdx === 2", :article="article")
 
 </template>
 
@@ -42,7 +46,10 @@
 // import axios from 'axios'
 import Slide from './Detail_Topic_Slide.vue'
 import NextStage from './Detail_Topic_NextStage.vue'
-import info from './Detail_info.vue'
+// import info from './Detail_info.vue'
+import Description from './Detail_Topic_Description.vue'
+import Discussion from './Detail_Topic_Discussion.vue'
+import Timeline from './Detail_Topic_Timeline.vue'
 
 export default {
   name: 'Detial_Topic',
@@ -50,11 +57,14 @@ export default {
   components: {
       NextStage,
       Slide,
-      info
+      // info,
+      Description,
+      Discussion,
+      Timeline,
   },
   data () {
     return {
-      myIdx: 0,
+      myIdx: 2, /* default page */
       tabcontent:["詳細內容","議題時間軸","參與討論"],
       stage:["即將開始","意見徵集","研擬草案","送交院會","歷史案件"]
     }
@@ -159,6 +169,7 @@ export default {
 
 #pusher{
   min-height:90vh;
+  padding-bottom: 1em;
 }
 // .ui.styled.accordion{
 //   margin-bottom: 1em;

@@ -1,40 +1,48 @@
 <template lang="jade">  
 
-.Discoussioncomponent.textleft
-  template(v-if = "dType")
-    // |{{dType}}
-    div(v-if = "dType.type.includes('slido')")
-      .slido(v-html="dType.slido")
-    div(v-if = "dType.type.includes('polis')") 
-      .slido(v-html="dType.polis")
-      // .polis(:data-conversation_id = "dType.polis")
-      // script(async = 'true', src = 'https://pol.is/embed.js')
-    // div(v-if = "dType.type.includes('hackpad')")
-    //   .hackpad(v-html="dType.hackpad")
-    div(v-if = "dType.check == true && dType.type.includes('discourse')")
-      div(v-for = "(disc, index) in dType.discourse")
-        .fat-only
-          .ui.styled.accordion(@mouseover="accordion")
-            div.title.discoursetitle
-              i.dropdown.icon
-              | {{disc.title}}
-            div.content
-              Discussion_Comment(:comment_id="disc.id", :slice="false")
-        .thin-only
-            //.ui.styled.accordion
-            div.title
-              i.dropdown.icon
-              | {{disc.title}}
-            div.content
-              Discussion_Comment(:comment_id="disc.id", :slice="false")
-    div(v-else)
-      div(v-if = "lastStep==='歷史案件'")
-        |本案已討論結束，詳細歷程可參考「議題時間軸」
-      div(v-else)
-        div(v-if = "lastStep==='送交院會'")
-          |本案已擬定草案，送交院會審查中
+.component
+  .ui.left.aligned.container
+    template(v-if = "dType")
+
+      .slido(v-html="dType.slido", v-if = "dType.type.includes('slido')")
+
+      .polis(v-html="dType.polis", v-if = "dType.type.includes('polis')")
+        // .polis(:data-conversation_id = "dType.polis")
+        // script(async = 'true', src = 'https://pol.is/embed.js')
+      // div(v-if = "dType.type.includes('hackpad')")
+      //   .hackpad(v-html="dType.hackpad")
+
+      .discourse.ui.fluid.styled.accordion(v-for="(disc, index) in dType.discourse", v-if="dType.type.includes('discourse')")
+        .title.discoursetitle
+          i.dropdown.icon
+          | {{disc.title}}
+        .content
+          Discussion_Comment(:comment_id="disc.id", :slice="false")
+
+      //- .discourse(v-for = "(disc, index) in dType.discourse", v-if = "dType.check == true && dType.type.includes('discourse')")
+      //-   .fat-only
+      //-     .ui.fluid.styled.accordion(@mouseover="accordion")
+      //-       div.title.discoursetitle
+      //-         i.dropdown.icon
+      //-         | {{disc.title}}
+      //-       div.content
+      //-         Discussion_Comment(:comment_id="disc.id", :slice="false")
+      //-   .thin-only
+      //-       //.ui.styled.accordion
+      //-       div.title
+      //-         i.dropdown.icon
+      //-         | {{disc.title}}
+      //-       div.content
+      //-         Discussion_Comment(:comment_id="disc.id", :slice="false")
+
+      template(v-else)
+        div(v-if = "lastStep==='歷史案件'")
+          | 本案已討論結束，詳細歷程可參考「議題時間軸」
         div(v-else)
-          |本案目前無可線上參與的項目
+          div(v-if = "lastStep==='送交院會'")
+            | 本案已擬定草案，送交院會審查中
+          div(v-else)
+            | 本案目前無可線上參與的項目
 </template>
 
 <script>
@@ -106,7 +114,7 @@ export default {
                   'id': t.id
                 }
               })
-              dType.check = true
+              // dType.check = true
               /* "return" cannot return outside axios, so use this.var instead */
             })
           }
@@ -123,29 +131,39 @@ export default {
     this.discussionType(this.article) /* first time call */
   },
   updated: function(){
-    //$('.ui.accordion').accordion();
+    $('.ui.accordion').accordion();
   },
 }
 </script>
 
-<style lang="scss" >
+<style lang="scss" scoped>
 @import "../sass/global.scss";
-.Discoussioncomponent{                         //內文文字P大小
+.component {                         //內文文字P大小
   font-size: 1.5rem;
-  font-family: $main_font; 
+  // font-family: $main_font; 
   line-height: 1.5em;
 }
-.textleft{                                     //內文置左
-  text-align: left;
+.ui.left.aligned.container {
+  width: 99% !important;
+  @media only screen and (max-width: $breakpoint){
+    margin: 0 .1em !important;
+  }
 }
-.ui.styled.accordion {                        //討論串框大小
-  width: 100%;
-}
+</style>
+
+<style lang="scss">
+@import "../sass/global.scss";
+// .textleft{                                     //內文置左
+//   text-align: left;
+// }
+// .ui.styled.accordion {                        //討論串框大小
+//   width: 100%;
+// }
 .ui.styled.accordion .title {                 //討論串標題顏色
   color: rgba(0, 0, 0, 0.60);
   font-family: $main_font; 
 }
-.ui.accordion .active.content {             //內文寬度為100%
+.ui.styled.accordion .active.content {             //內文寬度為100%
     display: block;
     max-width: 100%;
 }

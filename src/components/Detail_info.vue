@@ -1,9 +1,9 @@
 <template lang="jade">
-.info
-    Description(v-if="des === true", :article="article")
-    Timeline(v-if="tim === true", :article="article")
-    Discussion(v-if="dis === true", :article="article")
 
+//- .component
+//-     Description(v-if="show === 0", :article="article")
+//-     Timeline(v-if="show === 1", :article="article")
+//-     Discussion(v-if="show === 2", :article="article")
 
 </template>
 
@@ -22,21 +22,28 @@ export default {
     },
     data () {
         return {
-            des:false,
-            dis:false,
-            tim:false
+            // des:false,
+            // dis:false,
+            // tim:false,
+            show: 0 /* default page */
         }
     },
     created:function(){
         // console.log('info')
         if(this.desc === "詳細內容"){
-            this.des = true;
+            this.show = 0
+            // this.des = true;
         }
-        if(this.desc === "議題時間軸"){
-            this.tim = true;
+        else if(this.desc === "議題時間軸"){
+            this.show = 1
+            // this.tim = true;
         }
-        if(this.desc === "參與討論"){
-            this.dis = true;
+        else if(this.desc === "參與討論"){
+            this.show = 2
+            // this.dis = true;
+        }
+        else {
+            this.show = 0
         }
     }
 }
