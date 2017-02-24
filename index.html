@@ -49,6 +49,14 @@ body {
   opacity: 1;
   transition: opacity 0.5s ease;
 }
+.fade-enter,
+.fade-leave-active {
+  opacity: 0;
+}
+.fade-leave-active,
+.fade-enter-active {
+  transition: opacity .3s ease;
+}
 .component {
   position: relative;
 }
@@ -98,12 +106,6 @@ body {
   width: 100%;
   text-align: center;
 }
-.fade-in-enter, .fade-in-leave-active {
-  opacity: 0;
-}
-.fade-in-enter-active {
-  transition: all 0.5s ease-in;
-}
 .navbar {
   position: fixed;
   z-index: 999999;
@@ -114,7 +116,6 @@ body {
 .footer {
   position: relative;
   margin: 0 auto;
-  margin-top: 40px;
   max-width: 100%;
 }
 </style><style type="text/css">
@@ -129,6 +130,14 @@ body[data-v-8718f044] {
   visibility: visible;
   opacity: 1;
   transition: opacity 0.5s ease;
+}
+.fade-enter[data-v-8718f044],
+.fade-leave-active[data-v-8718f044] {
+  opacity: 0;
+}
+.fade-leave-active[data-v-8718f044],
+.fade-enter-active[data-v-8718f044] {
+  transition: opacity .3s ease;
 }
 .component[data-v-8718f044] {
   position: relative;
@@ -312,6 +321,14 @@ body[data-v-91a79d22] {
   opacity: 1;
   transition: opacity 0.5s ease;
 }
+.fade-enter[data-v-91a79d22],
+.fade-leave-active[data-v-91a79d22] {
+  opacity: 0;
+}
+.fade-leave-active[data-v-91a79d22],
+.fade-enter-active[data-v-91a79d22] {
+  transition: opacity .3s ease;
+}
 .component[data-v-91a79d22] {
   position: relative;
 }
@@ -437,6 +454,14 @@ body[data-v-5120c3f7] {
   opacity: 1;
   transition: opacity 0.5s ease;
 }
+.fade-enter[data-v-5120c3f7],
+.fade-leave-active[data-v-5120c3f7] {
+  opacity: 0;
+}
+.fade-leave-active[data-v-5120c3f7],
+.fade-enter-active[data-v-5120c3f7] {
+  transition: opacity .3s ease;
+}
 .component[data-v-5120c3f7] {
   position: relative;
 }
@@ -463,15 +488,12 @@ body[data-v-5120c3f7] {
 }
 }
 img[data-v-5120c3f7] {
-  width: 3.2em;
+  width: 3.5em;
   height: auto;
   vertical-align: bottom;
 }
-.ui.centered[data-v-5120c3f7] {
-  text-align: center;
-}
-.linkicon[data-v-5120c3f7] {
-  text-align: center;
+.ui.icon[data-v-5120c3f7] {
+  margin: 0 1ch;
 }
 </style><style type="text/css">
 *[data-v-60640b22] {
@@ -485,6 +507,14 @@ body[data-v-60640b22] {
   visibility: visible;
   opacity: 1;
   transition: opacity 0.5s ease;
+}
+.fade-enter[data-v-60640b22],
+.fade-leave-active[data-v-60640b22] {
+  opacity: 0;
+}
+.fade-leave-active[data-v-60640b22],
+.fade-enter-active[data-v-60640b22] {
+  transition: opacity .3s ease;
 }
 .component[data-v-60640b22] {
   position: relative;
@@ -541,6 +571,14 @@ body[data-v-30cdb09e] {
   opacity: 1;
   transition: opacity 0.5s ease;
 }
+.fade-enter[data-v-30cdb09e],
+.fade-leave-active[data-v-30cdb09e] {
+  opacity: 0;
+}
+.fade-leave-active[data-v-30cdb09e],
+.fade-enter-active[data-v-30cdb09e] {
+  transition: opacity .3s ease;
+}
 .component[data-v-30cdb09e] {
   position: relative;
 }
@@ -565,6 +603,10 @@ body[data-v-30cdb09e] {
 .thin-only[data-v-30cdb09e] {
     display: none !important;
 }
+}
+.component[data-v-30cdb09e] {
+  border-bottom: 1px #DDD solid;
+  background: linear-gradient(to right, lightgray 0%, white 10%, white 90%, lightgray 100%);
 }
 .swiper-container[data-v-30cdb09e] {
   height: 100vh;
@@ -602,18 +644,37 @@ body[data-v-30cdb09e] {
       align-items: center;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle, rgba(0, 0, 0, 0.8), transparent);
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.5), transparent);
+  overflow: hidden;
+}
+.box i.background[data-v-30cdb09e] {
+    color: #333333;
+    font-size: 40rem;
+    position: absolute;
+    height: initial;
+}
+@media only screen and (max-width: 767px) {
+.box i.background[data-v-30cdb09e] {
+        font-size: 20rem;
+}
+}
+.box .status[data-v-30cdb09e],
+  .box .title[data-v-30cdb09e],
+  .box .slogan[data-v-30cdb09e],
+  .box .ui.button[data-v-30cdb09e] {
+    z-index: 10;
+    font-size: 100%;
 }
 .box .status[data-v-30cdb09e] {
     color: #db4f4f;
-    border: 2px solid #db4f4f;
-    background: rgba(77, 77, 77, 0.5);
+    border: 1px solid #db4f4f;
+    background: transparent;
 }
 .box .title[data-v-30cdb09e] {
     color: white;
 }
 .box .slogan[data-v-30cdb09e] {
-    margin: .5em 0 1em 0;
+    margin: .5em 0;
     font-size: 3rem;
     color: white;
     text-shadow: 0 0 5px gray;
@@ -627,25 +688,6 @@ body[data-v-30cdb09e] {
       color: white;
       text-shadow: 0 0 5px gray;
 }
-a[data-v-30cdb09e] {
-  cursor: pointer;
-}
-a:hover i[data-v-30cdb09e] {
-    color: white !important;
-    transition: all .3s ease;
-}
-a.pre[data-v-30cdb09e], a.next[data-v-30cdb09e] {
-    position: absolute;
-    z-index: 5;
-    text-shadow: 0 0 5px white;
-    top: 44vh;
-}
-a.pre[data-v-30cdb09e] {
-    left: 5px;
-}
-a.next[data-v-30cdb09e] {
-    right: 5px;
-}
 </style><style type="text/css">
 *[data-v-0aea0f33] {
   box-sizing: border-box;
@@ -658,6 +700,14 @@ body[data-v-0aea0f33] {
   visibility: visible;
   opacity: 1;
   transition: opacity 0.5s ease;
+}
+.fade-enter[data-v-0aea0f33],
+.fade-leave-active[data-v-0aea0f33] {
+  opacity: 0;
+}
+.fade-leave-active[data-v-0aea0f33],
+.fade-enter-active[data-v-0aea0f33] {
+  transition: opacity .3s ease;
 }
 .component[data-v-0aea0f33] {
   position: relative;
@@ -686,7 +736,6 @@ body[data-v-0aea0f33] {
 }
 .component[data-v-0aea0f33] {
   padding: 1em 0;
-  min-height: 72vh;
 }
 .ui.steps .step[data-v-0aea0f33] {
   -ms-flex: 1 1 auto;
@@ -699,7 +748,7 @@ body[data-v-0aea0f33] {
   position: absolute;
   font-size: 10rem;
   color: rgba(219, 79, 79, 0.5);
-  margin: 0 0 0 -30%;
+  margin: 0 0 0 30%;
 }
 .ui.steps .label[data-v-0aea0f33] {
   padding: .3em 0 0 .3em;
@@ -751,6 +800,14 @@ body[data-v-67d7e20d] {
   opacity: 1;
   transition: opacity 0.5s ease;
 }
+.fade-enter[data-v-67d7e20d],
+.fade-leave-active[data-v-67d7e20d] {
+  opacity: 0;
+}
+.fade-leave-active[data-v-67d7e20d],
+.fade-enter-active[data-v-67d7e20d] {
+  transition: opacity .3s ease;
+}
 .component[data-v-67d7e20d] {
   position: relative;
 }
@@ -780,40 +837,38 @@ body[data-v-67d7e20d] {
   width: 100%;
   margin-top: -1em;
 }
-.box[data-v-67d7e20d] {
-  display: -ms-flexbox !important;
-  display: flex !important;
+.cards .card[data-v-67d7e20d] {
+  margin: 0;
+  overflow: hidden;
 }
-.box .box-inner[data-v-67d7e20d] {
-    box-shadow: 0 3px 1em rgba(0, 0, 0, 0.1);
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-flow: column nowrap;
-        flex-flow: column nowrap;
-    overflow: hidden;
+.cards .card .content h3.ui.header[data-v-67d7e20d] {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
 }
-.box .box-inner img.ui[data-v-67d7e20d] {
-      -ms-flex: 1 1;
-          flex: 1 1;
+.cards .card .progress_bar[data-v-67d7e20d] {
+    background: #AAAAAA;
+    margin: -1em;
+    height: 2em;
+    line-height: 2em;
+    position: relative;
 }
-.box .box-inner h3.ui[data-v-67d7e20d] {
-      margin-top: 1em;
+.cards .card .progress_bar .progress_text[data-v-67d7e20d] {
+      color: white;
+      position: absolute;
+      z-index: 200;
+      width: 100%;
+      text-align: center;
 }
-.box .box-inner .progress_bar[data-v-67d7e20d] {
-      margin: 0 -1em -1em -1em;
-      width: calc(2em+100%);
-      height: 2em;
-      color: #3fadc7;
-      position: relative;
-}
-.box .box-inner .progress_bar .progress_text[data-v-67d7e20d] {
-        padding: 0 0 .5em 0;
-        background: transparent !important;
+.cards .card .progress_bar .progress_color[data-v-67d7e20d] {
+      background: #3fadc7;
+      position: absolute;
+      z-index: 100;
+      height: 100%;
 }
 
 /********************************* mobile view */
 .m-title[data-v-67d7e20d] {
   background-color: #E6E6E6;
+  margin: 0 0 1em 0;
   padding: .5em;
 }
 </style><style type="text/css">
@@ -828,6 +883,14 @@ body[data-v-1ffe16c1] {
   visibility: visible;
   opacity: 1;
   transition: opacity 0.5s ease;
+}
+.fade-enter[data-v-1ffe16c1],
+.fade-leave-active[data-v-1ffe16c1] {
+  opacity: 0;
+}
+.fade-leave-active[data-v-1ffe16c1],
+.fade-enter-active[data-v-1ffe16c1] {
+  transition: opacity .3s ease;
 }
 .component[data-v-1ffe16c1] {
   position: relative;
@@ -863,17 +926,23 @@ body[data-v-1ffe16c1] {
 }
 .component .ui.card > .content > .header[data-v-1ffe16c1]:not(.ui), .component .ui.cards > .card > .content > .header[data-v-1ffe16c1]:not(.ui) {
     font-weight: 700;
-    text-align: left;
     font-size: 1em;
     margin-top: -.21425em;
     line-height: 1.2em;
 }
-.component .ui.cards > .card > .content > p[data-v-1ffe16c1] {
-    font-size: 0.6em;
+.component .ui.cards > .card > .content[data-v-1ffe16c1] {
     text-align: left;
-    color: red;
-    background-color: #e8e8e8;
-    margin-bottom: 1em;
+}
+.component .ui.cards > .card > .content > .tags[data-v-1ffe16c1] {
+      border-bottom: 1px solid #d7d7d7;
+      margin-bottom: .5em;
+}
+.component .ui.cards > .card > .content > .tags .ui.label[data-v-1ffe16c1] {
+        font-size: 0.6em;
+        margin-bottom: .5em;
+        margin-right: 0.8em;
+        padding-left: 1em;
+        padding-right: 1em;
 }
 .component .ui.cards > .card > .image:not(.ui) > img[data-v-1ffe16c1] {
     height: 150px;
@@ -884,17 +953,22 @@ body[data-v-1ffe16c1] {
 }
 .component .ui.cards > .card > .extra.content[data-v-1ffe16c1] {
     padding: 0 0.5em 0 0;
+    border-top: none !important;
+}
+.component .description[data-v-1ffe16c1] {
+    padding: 0 .5em;
 }
 .component .description > p[data-v-1ffe16c1] {
-    font-size: 0.6em;
-    text-align: left;
-    text-indent: 25px;
+      font-size: 0.6em;
+      text-align: left;
+      text-indent: 25px;
+      border-bottom: 1px solid #d7d7d7;
 }
 .component .ui.cards > .card > .content[data-v-1ffe16c1] {
-    padding: 1em 0 1em 0;
+    padding: .5em;
 }
 .component .ui.cards > .card[data-v-1ffe16c1] {
-    min-height: 350px;
+    min-height: 300px;
 }
 .thin-only .swiper-container2[data-v-1ffe16c1] {
   margin: 5em 3em 0 3em;
@@ -904,6 +978,12 @@ body[data-v-1ffe16c1] {
 }
 .thin-only .swiper-container2 .ui.cards > .card[data-v-1ffe16c1] {
     min-height: 300px;
+}
+.thin-only .swiper-container2 .ui.cards > .card > .image:not(.ui) > img[data-v-1ffe16c1] {
+    height: 150px;
+}
+.thin-only .swiper-container2 .ui.card > .content > .header[data-v-1ffe16c1]:not(.ui), .thin-only .swiper-container2 .ui.cards > .card > .content > .header[data-v-1ffe16c1]:not(.ui) {
+    font-size: 1.5em;
 }
 </style><style type="text/css">
 *[data-v-27dbf9ac] {
@@ -917,6 +997,14 @@ body[data-v-27dbf9ac] {
   visibility: visible;
   opacity: 1;
   transition: opacity 0.5s ease;
+}
+.fade-enter[data-v-27dbf9ac],
+.fade-leave-active[data-v-27dbf9ac] {
+  opacity: 0;
+}
+.fade-leave-active[data-v-27dbf9ac],
+.fade-enter-active[data-v-27dbf9ac] {
+  transition: opacity .3s ease;
 }
 .component[data-v-27dbf9ac] {
   position: relative;
@@ -959,6 +1047,14 @@ body[data-v-3b7b10e8] {
   opacity: 1;
   transition: opacity 0.5s ease;
 }
+.fade-enter[data-v-3b7b10e8],
+.fade-leave-active[data-v-3b7b10e8] {
+  opacity: 0;
+}
+.fade-leave-active[data-v-3b7b10e8],
+.fade-enter-active[data-v-3b7b10e8] {
+  transition: opacity .3s ease;
+}
 .component[data-v-3b7b10e8] {
   position: relative;
 }
@@ -999,6 +1095,14 @@ body[data-v-47d63a09] {
   visibility: visible;
   opacity: 1;
   transition: opacity 0.5s ease;
+}
+.fade-enter[data-v-47d63a09],
+.fade-leave-active[data-v-47d63a09] {
+  opacity: 0;
+}
+.fade-leave-active[data-v-47d63a09],
+.fade-enter-active[data-v-47d63a09] {
+  transition: opacity .3s ease;
 }
 .component[data-v-47d63a09] {
   position: relative;
@@ -1059,6 +1163,14 @@ body[data-v-4144f431] {
   opacity: 1;
   transition: opacity 0.5s ease;
 }
+.fade-enter[data-v-4144f431],
+.fade-leave-active[data-v-4144f431] {
+  opacity: 0;
+}
+.fade-leave-active[data-v-4144f431],
+.fade-enter-active[data-v-4144f431] {
+  transition: opacity .3s ease;
+}
 .component[data-v-4144f431] {
   position: relative;
 }
@@ -1084,16 +1196,6 @@ body[data-v-4144f431] {
     display: none !important;
 }
 }
-@media only screen and (min-width: 767px) {
-.ui.huge.header[data-v-4144f431] {
-    font-size: 1.2rem;
-}
-}
-@media only screen and (max-width: 767px) {
-.ui.huge.header[data-v-4144f431] {
-    font-size: 2.2rem;
-}
-}
 #sidebar.sidebar[data-v-4144f431] {
   text-align: left;
 }
@@ -1103,23 +1205,20 @@ body[data-v-4144f431] {
 #sidebar.sidebar .menu .router-link-active[data-v-4144f431] {
       color: white;
 }
-#opener.button[data-v-4144f431] {
+#opener[data-v-4144f431] {
+  height: 100%;
+  width: 1ch;
+  background: #1B1C1D;
+  /* the color of sidebar */
   position: fixed;
-  top: 0;
   left: 0;
   z-index: 100;
 }
 .ui.top.menu[data-v-4144f431] {
   width: 100%;
 }
-.ui.container.pusher[data-v-4144f431] {
+#pusher[data-v-4144f431] {
   min-height: 90vh;
-}
-.ui.styled.accordion[data-v-4144f431] {
-  margin-bottom: 1em;
-}
-.ui.styled.accordion .title[data-v-4144f431] {
-  font-size: 1.5rem;
 }
 </style><style type="text/css">
 *[data-v-287bb503] {
@@ -1133,6 +1232,14 @@ body[data-v-287bb503] {
   visibility: visible;
   opacity: 1;
   transition: opacity 0.5s ease;
+}
+.fade-enter[data-v-287bb503],
+.fade-leave-active[data-v-287bb503] {
+  opacity: 0;
+}
+.fade-leave-active[data-v-287bb503],
+.fade-enter-active[data-v-287bb503] {
+  transition: opacity .3s ease;
 }
 .component[data-v-287bb503] {
   position: relative;
@@ -1177,6 +1284,14 @@ body[data-v-1568d51d] {
   visibility: visible;
   opacity: 1;
   transition: opacity 0.5s ease;
+}
+.fade-enter[data-v-1568d51d],
+.fade-leave-active[data-v-1568d51d] {
+  opacity: 0;
+}
+.fade-leave-active[data-v-1568d51d],
+.fade-enter-active[data-v-1568d51d] {
+  transition: opacity .3s ease;
 }
 .component[data-v-1568d51d] {
   position: relative;
@@ -1239,13 +1354,13 @@ ul.progress-bar[data-v-1568d51d] {
 .step-progress-bar li[data-v-1568d51d]:before {
   content: counter(step);
   counter-increment: step;
-  width: 30px;
-  height: 30px;
+  width: 32px;
+  height: 32px;
   border: 2px solid #40B3BF;
   border-radius: 50%;
   display: block;
   text-align: center;
-  line-height: 30px;
+  line-height: 31px;
   margin: 0 auto 10px auto;
   z-index: 9;
   background-color: white;
@@ -1341,6 +1456,14 @@ body {
   opacity: 1;
   transition: opacity 0.5s ease;
 }
+.fade-enter,
+.fade-leave-active {
+  opacity: 0;
+}
+.fade-leave-active,
+.fade-enter-active {
+  transition: opacity .3s ease;
+}
 .component {
   position: relative;
 }
@@ -1424,6 +1547,14 @@ body {
   opacity: 1;
   transition: opacity 0.5s ease;
 }
+.fade-enter,
+.fade-leave-active {
+  opacity: 0;
+}
+.fade-leave-active,
+.fade-enter-active {
+  transition: opacity .3s ease;
+}
 .component {
   position: relative;
 }
@@ -1480,6 +1611,14 @@ body {
   visibility: visible;
   opacity: 1;
   transition: opacity 0.5s ease;
+}
+.fade-enter,
+.fade-leave-active {
+  opacity: 0;
+}
+.fade-leave-active,
+.fade-enter-active {
+  transition: opacity .3s ease;
 }
 .component {
   position: relative;
@@ -1565,25 +1704,106 @@ body {
   width: 2em;
 }
 </style><style type="text/css">
-tbody tr td span[data-v-88189242] {
-  margin-right: 6px;
+*[data-v-88189242] {
+  box-sizing: border-box;
 }
-tbody tr td p[data-v-88189242] {
-  font-size: 1.1em;
-  font-weight: 600;
+body[data-v-88189242] {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
 }
-.thin-only[data-v-88189242] {
-  font-size: 1rem;
+.fade-enter[data-v-88189242],
+.fade-leave-active[data-v-88189242] {
+  opacity: 0;
 }
-</style><style type="text/css">
-.ui.teal.button {
-  margin-bottom: 0.5em;
-  background-color: #40B3BF;
+.fade-leave-active[data-v-88189242],
+.fade-enter-active[data-v-88189242] {
+  transition: opacity .3s ease;
+}
+.component[data-v-88189242] {
+  position: relative;
+}
+.component h1[data-v-88189242], .component h2[data-v-88189242], .component h3[data-v-88189242], .component h4[data-v-88189242], .component h5[data-v-88189242], .component h6[data-v-88189242], .component p[data-v-88189242] {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component h1 a[data-v-88189242], .component h2 a[data-v-88189242], .component h3 a[data-v-88189242], .component h4 a[data-v-88189242], .component h5 a[data-v-88189242], .component h6 a[data-v-88189242], .component p a[data-v-88189242] {
+      cursor: pointer !important;
+      color: dimgray;
+      border-bottom: 1px dashed lightgray;
+}
+.component strong[data-v-88189242] {
+    font-weight: 900;
+    color: black;
 }
 @media only screen and (max-width: 767px) {
-.ui.teal.button {
-      padding: 0.7em;
+.fat-only[data-v-88189242] {
+    display: none !important;
 }
+}
+@media only screen and (min-width: 768px) {
+.thin-only[data-v-88189242] {
+    display: none !important;
+}
+}
+.ui.status[data-v-88189242] {
+  color: #db4f4f;
+  border: 1px solid #db4f4f;
+}
+</style><style type="text/css">
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+  font-size: 2.5vmin;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.fade-enter,
+.fade-leave-active {
+  opacity: 0;
+}
+.fade-leave-active,
+.fade-enter-active {
+  transition: opacity .3s ease;
+}
+.component {
+  position: relative;
+}
+.component h1, .component h2, .component h3, .component h4, .component h5, .component h6, .component p {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+}
+.component h1 a, .component h2 a, .component h3 a, .component h4 a, .component h5 a, .component h6 a, .component p a {
+      cursor: pointer !important;
+      color: dimgray;
+      border-bottom: 1px dashed lightgray;
+}
+.component strong {
+    font-weight: 900;
+    color: black;
+}
+@media only screen and (max-width: 767px) {
+.fat-only {
+    display: none !important;
+}
+}
+@media only screen and (min-width: 768px) {
+.thin-only {
+    display: none !important;
+}
+}
+a.ui.icon.button {
+  background-color: #3fadc7;
+}
+a.ui.icon.button span {
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
 }
 </style><style type="text/css">
 .component[data-v-0638e068] {
@@ -1686,6 +1906,14 @@ body[data-v-280eaafe] {
   opacity: 1;
   transition: opacity 0.5s ease;
 }
+.fade-enter[data-v-280eaafe],
+.fade-leave-active[data-v-280eaafe] {
+  opacity: 0;
+}
+.fade-leave-active[data-v-280eaafe],
+.fade-enter-active[data-v-280eaafe] {
+  transition: opacity .3s ease;
+}
 .component[data-v-280eaafe] {
   position: relative;
 }
@@ -1741,6 +1969,14 @@ body[data-v-86ffac4e] {
   visibility: visible;
   opacity: 1;
   transition: opacity 0.5s ease;
+}
+.fade-enter[data-v-86ffac4e],
+.fade-leave-active[data-v-86ffac4e] {
+  opacity: 0;
+}
+.fade-leave-active[data-v-86ffac4e],
+.fade-enter-active[data-v-86ffac4e] {
+  transition: opacity .3s ease;
 }
 .component[data-v-86ffac4e] {
   position: relative;
@@ -1803,6 +2039,14 @@ body[data-v-5da6cb6a] {
   opacity: 1;
   transition: opacity 0.5s ease;
 }
+.fade-enter[data-v-5da6cb6a],
+.fade-leave-active[data-v-5da6cb6a] {
+  opacity: 0;
+}
+.fade-leave-active[data-v-5da6cb6a],
+.fade-enter-active[data-v-5da6cb6a] {
+  transition: opacity .3s ease;
+}
 .component[data-v-5da6cb6a] {
   position: relative;
 }
@@ -1856,12 +2100,12 @@ body[data-v-5da6cb6a] {
 </style></head>
 
 <body>
-    <div id="app" class="app"><div data-v-8718f044="" class="component"><nav data-v-8718f044="" class="fat-only"><div data-v-8718f044="" class="ui grid"><div data-v-8718f044="" class="seven wide column"><div data-v-8718f044="" class="ui category search"><div data-v-8718f044="" class="ui icon input"><input data-v-8718f044="" type="search" placeholder="搜尋..." class="prompt"><i data-v-8718f044="" class="search icon"></i></div><div data-v-91a79d22="" id="searchresult" class="component" data-v-8718f044="" style="display: none;"><div data-v-91a79d22="" class="results"><div data-v-91a79d22="" class="category"><div data-v-91a79d22="" class="name">研擬草案 </div><a href="/topic/securitization" class="result" data-v-91a79d22=""><div data-v-91a79d22="" class="contents"><div data-v-91a79d22="" class="title"><strong></strong>企<strong></strong>業<strong></strong>資<strong></strong>產<strong></strong>擔<strong></strong>保<strong></strong>法<strong></strong></div><div data-v-91a79d22="" class="description"><strong></strong>s<strong></strong>e<strong></strong>c<strong></strong>u<strong></strong>r<strong></strong>i<strong></strong>t<strong></strong>i<strong></strong>z<strong></strong>a<strong></strong>t<strong></strong>i<strong></strong>o<strong></strong>n<strong></strong></div></div></a><!----><!----><!----><!----><!----><!----><a href="/topic/personal-data-protection" class="result" data-v-91a79d22=""><div data-v-91a79d22="" class="contents"><div data-v-91a79d22="" class="title"><strong></strong>個<strong></strong>資<strong></strong>利<strong></strong>用<strong></strong>與<strong></strong>去<strong></strong>識<strong></strong>別<strong></strong>化<strong></strong></div><div data-v-91a79d22="" class="description"><strong></strong>p<strong></strong>e<strong></strong>r<strong></strong>s<strong></strong>o<strong></strong>n<strong></strong>a<strong></strong>l<strong></strong>-<strong></strong>d<strong></strong>a<strong></strong>t<strong></strong>a<strong></strong>-<strong></strong>p<strong></strong>r<strong></strong>o<strong></strong>t<strong></strong>e<strong></strong>c<strong></strong>t<strong></strong>i<strong></strong>o<strong></strong>n<strong></strong></div></div></a><!----><a href="/topic/data-levy" class="result" data-v-91a79d22=""><div data-v-91a79d22="" class="contents"><div data-v-91a79d22="" class="title"><strong></strong>開<strong></strong>放<strong></strong>資<strong></strong>料<strong></strong>例<strong></strong>外<strong></strong>收<strong></strong>費<strong></strong>原<strong></strong>則<strong></strong></div><div data-v-91a79d22="" class="description"><strong></strong>d<strong></strong>a<strong></strong>t<strong></strong>a<strong></strong>-<strong></strong>l<strong></strong>e<strong></strong>v<strong></strong>y<strong></strong></div></div></a><!----><!----><!----><a href="/topic/infosecurity" class="result" data-v-91a79d22=""><div data-v-91a79d22="" class="contents"><div data-v-91a79d22="" class="title"><strong></strong>資<strong></strong>安<strong></strong>管<strong></strong>理<strong></strong></div><div data-v-91a79d22="" class="description"><strong></strong>i<strong></strong>n<strong></strong>f<strong></strong>o<strong></strong>s<strong></strong>e<strong></strong>c<strong></strong>u<strong></strong>r<strong></strong>i<strong></strong>t<strong></strong>y<strong></strong></div></div></a><!----><!----><a href="/topic/naming" class="result" data-v-91a79d22=""><div data-v-91a79d22="" class="contents"><div data-v-91a79d22="" class="title"><strong></strong>公<strong></strong>司<strong></strong>英<strong></strong>文<strong></strong>名<strong></strong>稱<strong></strong>登<strong></strong>記<strong></strong></div><div data-v-91a79d22="" class="description"><strong></strong>n<strong></strong>a<strong></strong>m<strong></strong>i<strong></strong>n<strong></strong>g<strong></strong></div></div></a><!----><a href="/topic/airbnb" class="result" data-v-91a79d22=""><div data-v-91a79d22="" class="contents"><div data-v-91a79d22="" class="title"><strong></strong>A<strong></strong>i<strong></strong>r<strong></strong>b<strong></strong>n<strong></strong>b<strong></strong>自<strong></strong>用<strong></strong>住<strong></strong>宅<strong></strong>招<strong></strong>租<strong></strong></div><div data-v-91a79d22="" class="description"><strong></strong>a<strong></strong>i<strong></strong>r<strong></strong>b<strong></strong>n<strong></strong>b<strong></strong></div></div></a></div><div data-v-91a79d22="" class="category"><div data-v-91a79d22="" class="name">意見徵集 </div><!----><a href="/topic/social-enterprise" class="result" data-v-91a79d22=""><div data-v-91a79d22="" class="contents"><div data-v-91a79d22="" class="title"><strong></strong>社<strong></strong>會<strong></strong>企<strong></strong>業<strong></strong>公<strong></strong>司<strong></strong>法<strong></strong></div><div data-v-91a79d22="" class="description"><strong></strong>s<strong></strong>o<strong></strong>c<strong></strong>i<strong></strong>a<strong></strong>l<strong></strong>-<strong></strong>e<strong></strong>n<strong></strong>t<strong></strong>e<strong></strong>r<strong></strong>p<strong></strong>r<strong></strong>i<strong></strong>s<strong></strong>e<strong></strong></div></div></a><a href="/topic/directors-election" class="result" data-v-91a79d22=""><div data-v-91a79d22="" class="contents"><div data-v-91a79d22="" class="title"><strong></strong>董<strong></strong>監<strong></strong>事<strong></strong>選<strong></strong>任<strong></strong></div><div data-v-91a79d22="" class="description"><strong></strong>d<strong></strong>i<strong></strong>r<strong></strong>e<strong></strong>c<strong></strong>t<strong></strong>o<strong></strong>r<strong></strong>s<strong></strong>-<strong></strong>e<strong></strong>l<strong></strong>e<strong></strong>c<strong></strong>t<strong></strong>i<strong></strong>o<strong></strong>n<strong></strong></div></div></a><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><a href="/topic/sandbox" class="result" data-v-91a79d22=""><div data-v-91a79d22="" class="contents"><div data-v-91a79d22="" class="title"><strong></strong>金<strong></strong>融<strong></strong>監<strong></strong>理<strong></strong>沙<strong></strong>盒<strong></strong></div><div data-v-91a79d22="" class="description"><strong></strong>s<strong></strong>a<strong></strong>n<strong></strong>d<strong></strong>b<strong></strong>o<strong></strong>x<strong></strong></div></div></a><!----><!----><!----><!----></div><div data-v-91a79d22="" class="category"><div data-v-91a79d22="" class="name">歷史案件 </div><!----><!----><!----><a href="/topic/closelyheld" class="result" data-v-91a79d22=""><div data-v-91a79d22="" class="contents"><div data-v-91a79d22="" class="title"><strong></strong>閉<strong></strong>鎖<strong></strong>型<strong></strong>公<strong></strong>司<strong></strong></div><div data-v-91a79d22="" class="description"><strong></strong>c<strong></strong>l<strong></strong>o<strong></strong>s<strong></strong>e<strong></strong>l<strong></strong>y<strong></strong>h<strong></strong>e<strong></strong>l<strong></strong>d<strong></strong></div></div></a><a href="/topic/etax" class="result" data-v-91a79d22=""><div data-v-91a79d22="" class="contents"><div data-v-91a79d22="" class="title"><strong></strong>網<strong></strong>路<strong></strong>交<strong></strong>易<strong></strong>課<strong></strong>稅<strong></strong></div><div data-v-91a79d22="" class="description"><strong></strong>e<strong></strong>t<strong></strong>a<strong></strong>x<strong></strong></div></div></a><a href="/topic/distant-education" class="result" data-v-91a79d22=""><div data-v-91a79d22="" class="contents"><div data-v-91a79d22="" class="title"><strong></strong>遠<strong></strong>距<strong></strong>教<strong></strong>育<strong></strong></div><div data-v-91a79d22="" class="description"><strong></strong>d<strong></strong>i<strong></strong>s<strong></strong>t<strong></strong>a<strong></strong>n<strong></strong>t<strong></strong>-<strong></strong>e<strong></strong>d<strong></strong>u<strong></strong>c<strong></strong>a<strong></strong>t<strong></strong>i<strong></strong>o<strong></strong>n<strong></strong></div></div></a><a href="/topic/crowdfunding" class="result" data-v-91a79d22=""><div data-v-91a79d22="" class="contents"><div data-v-91a79d22="" class="title"><strong></strong>群<strong></strong>眾<strong></strong>募<strong></strong>資<strong></strong></div><div data-v-91a79d22="" class="description"><strong></strong>c<strong></strong>r<strong></strong>o<strong></strong>w<strong></strong>d<strong></strong>f<strong></strong>u<strong></strong>n<strong></strong>d<strong></strong>i<strong></strong>n<strong></strong>g<strong></strong></div></div></a><!----><!----><!----><a href="/topic/consumer-protection" class="result" data-v-91a79d22=""><div data-v-91a79d22="" class="contents"><div data-v-91a79d22="" class="title"><strong></strong>零<strong></strong>售<strong></strong>業<strong></strong>網<strong></strong>路<strong></strong>定<strong></strong>型<strong></strong>化<strong></strong>契<strong></strong>約<strong></strong></div><div data-v-91a79d22="" class="description"><strong></strong>c<strong></strong>o<strong></strong>n<strong></strong>s<strong></strong>u<strong></strong>m<strong></strong>e<strong></strong>r<strong></strong>-<strong></strong>p<strong></strong>r<strong></strong>o<strong></strong>t<strong></strong>e<strong></strong>c<strong></strong>t<strong></strong>i<strong></strong>o<strong></strong>n<strong></strong></div></div></a><a href="/topic/telemedicine" class="result" data-v-91a79d22=""><div data-v-91a79d22="" class="contents"><div data-v-91a79d22="" class="title"><strong></strong>遠<strong></strong>距<strong></strong>健<strong></strong>康<strong></strong>照<strong></strong>護<strong></strong></div><div data-v-91a79d22="" class="description"><strong></strong>t<strong></strong>e<strong></strong>l<strong></strong>e<strong></strong>m<strong></strong>e<strong></strong>d<strong></strong>i<strong></strong>c<strong></strong>i<strong></strong>n<strong></strong>e<strong></strong></div></div></a><a href="/topic/telework" class="result" data-v-91a79d22=""><div data-v-91a79d22="" class="contents"><div data-v-91a79d22="" class="title"><strong></strong>電<strong></strong>傳<strong></strong>勞<strong></strong>動<strong></strong></div><div data-v-91a79d22="" class="description"><strong></strong>t<strong></strong>e<strong></strong>l<strong></strong>e<strong></strong>w<strong></strong>o<strong></strong>r<strong></strong>k<strong></strong></div></div></a><!----><!----><a href="/topic/cyberbullying" class="result" data-v-91a79d22=""><div data-v-91a79d22="" class="contents"><div data-v-91a79d22="" class="title"><strong></strong>網<strong></strong>路<strong></strong>霸<strong></strong>凌<strong></strong></div><div data-v-91a79d22="" class="description"><strong></strong>c<strong></strong>y<strong></strong>b<strong></strong>e<strong></strong>r<strong></strong>b<strong></strong>u<strong></strong>l<strong></strong>l<strong></strong>y<strong></strong>i<strong></strong>n<strong></strong>g<strong></strong></div></div></a><!----><a href="/topic/uberx" class="result" data-v-91a79d22=""><div data-v-91a79d22="" class="contents"><div data-v-91a79d22="" class="title"><strong></strong>U<strong></strong>b<strong></strong>e<strong></strong>r<strong></strong>X<strong></strong>自<strong></strong>用<strong></strong>車<strong></strong>載<strong></strong>客<strong></strong></div><div data-v-91a79d22="" class="description"><strong></strong>u<strong></strong>b<strong></strong>e<strong></strong>r<strong></strong>x<strong></strong></div></div></a><!----></div><div data-v-91a79d22="" class="category"><div data-v-91a79d22="" class="name">送交院會 </div><!----><!----><!----><!----><!----><!----><!----><!----><a href="/topic/eliquor" class="result" data-v-91a79d22=""><div data-v-91a79d22="" class="contents"><div data-v-91a79d22="" class="title"><strong></strong>網<strong></strong>路<strong></strong>賣<strong></strong>酒<strong></strong>配<strong></strong>套<strong></strong>措<strong></strong>施<strong></strong></div><div data-v-91a79d22="" class="description"><strong></strong>e<strong></strong>l<strong></strong>i<strong></strong>q<strong></strong>u<strong></strong>o<strong></strong>r<strong></strong></div></div></a><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----></div><!----></div></div></div></div><div data-v-8718f044="" class="two wide column"><a href="/" class="logo router-link-active" data-v-8718f044=""><img data-v-8718f044="" src="/vTaiwan_logo_2017.png" alt="logo"><span data-v-8718f044="">vTaiwan</span></a></div><div data-v-8718f044="" class="seven wide column right"><!----><a href="/how-to-use" class="item how-to-use" data-v-8718f044="">使用手冊</a><a href="/intro" class="item intro" data-v-8718f044="">關於 vTaiwan</a></div></div></nav><nav data-v-8718f044="" class="thin-only"><a href="/" class="m-logo router-link-active" data-v-8718f044=""><img data-v-8718f044="" src="/vTaiwan_logo_2017.png" alt="logo"><span data-v-8718f044="">vTaiwan</span></a><div data-v-8718f044="" class="menu"><a href="/how-to-use" class="m-item" data-v-8718f044="">使用手冊</a><a href="/" class="m-item router-link-active" data-v-8718f044="">探索議題</a><a href="/search" class="m-item" data-v-8718f044="">搜尋議題</a></div></nav></div><div id="main" class="main"><div data-v-60640b22="" class="home view"><div data-v-30cdb09e="" class="component slideshow" data-v-60640b22=""><div data-v-30cdb09e="" class="swiper-container swiper-container-horizontal"><div data-v-30cdb09e="" class="swiper-wrapper" style="-webkit-transform: translate3d(-1600px, 0px, 0px); transition: 0ms; -webkit-transition: 0ms;"><div data-v-30cdb09e="" class="swiper-slide" style="background-image: url(http://image.slidesharecdn.com/c8s7nxdwrwook9zljomq-signature-ec5edf5b8d62ee9ad208e4446437b7c1fc16efb6db28685b63bb2604d25236c7-poli-161203074816/95/-1-1024.jpg); background-size: cover; width: 400px; background-position: 100% 100%; background-repeat: initial initial;"><div data-v-30cdb09e="" class="box"><div data-v-30cdb09e="" class="status ui basic huge label"> 
-研擬草案</div><h1 data-v-30cdb09e="" class="slogan ui header">企業資產擔保法<div data-v-30cdb09e="" class="sub header">企業資產擔保法</div></h1><a href="/topic/securitization" class="ui right labeled icon teal huge button" data-v-30cdb09e=""><i data-v-30cdb09e="" class="right arrow icon"></i><p data-v-30cdb09e="">進入議題</p></a></div></div><div data-v-30cdb09e="" class="swiper-slide" style="background-image: url(http://static.thousandwonders.net/Taiwan.original.3738.jpg); background-size: cover; width: 400px; background-position: 100% 100%; background-repeat: initial initial;"><div data-v-30cdb09e="" class="box"><div data-v-30cdb09e="" class="status ui basic huge label"> 
-意見徵集</div><h1 data-v-30cdb09e="" class="slogan ui header">社會企業公司法<div data-v-30cdb09e="" class="sub header">邁向世界的舞台</div></h1><a href="/topic/social-enterprise" class="ui right labeled icon teal huge button" data-v-30cdb09e=""><i data-v-30cdb09e="" class="right arrow icon"></i><p data-v-30cdb09e="">進入議題</p></a></div></div><div data-v-30cdb09e="" class="swiper-slide" style="background-image: url(https://images.unsplash.com/photo-1431540015161-0bf868a2d407?dpr=1.25&amp;auto=format&amp;fit=crop&amp;w=767&amp;h=511&amp;q=80&amp;cs=tinysrgb&amp;crop=); background-size: cover; width: 400px; background-position: 100% 100%; background-repeat: initial initial;"><div data-v-30cdb09e="" class="box"><div data-v-30cdb09e="" class="status ui basic huge label"> 
-意見徵集</div><h1 data-v-30cdb09e="" class="slogan ui header">董監事選任<div data-v-30cdb09e="" class="sub header">公司法：董監事選任 directors-election</div></h1><a href="/topic/directors-election" class="ui right labeled icon teal huge button" data-v-30cdb09e=""><i data-v-30cdb09e="" class="right arrow icon"></i><p data-v-30cdb09e="">進入議題</p></a></div></div><div data-v-30cdb09e="" class="swiper-slide swiper-slide-prev" style="background-image: url(https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?dpr=1.25&amp;auto=format&amp;fit=crop&amp;w=767&amp;h=512&amp;q=80&amp;cs=tinysrgb&amp;crop=); background-size: cover; width: 400px; background-position: 100% 100%; background-repeat: initial initial;"><div data-v-30cdb09e="" class="box"><div data-v-30cdb09e="" class="status ui basic huge label"> 
-歷史案件</div><h1 data-v-30cdb09e="" class="slogan ui header">閉鎖型公司<div data-v-30cdb09e="" class="sub header">閉鎖型公司 closelyheld</div></h1><a href="/topic/closelyheld" class="ui right labeled icon teal huge button" data-v-30cdb09e=""><i data-v-30cdb09e="" class="right arrow icon"></i><p data-v-30cdb09e="">進入議題</p></a></div></div><div data-v-30cdb09e="" class="swiper-slide swiper-slide-active" style="background-image: url(https://images.unsplash.com/photo-1483239546567-ccc4ce2b344a?dpr=2&amp;auto=format&amp;fit=crop&amp;w=1500&amp;h=877&amp;q=80&amp;cs=tinysrgb&amp;crop=); background-size: cover; width: 400px; background-position: 100% 100%; background-repeat: initial initial;"><div data-v-30cdb09e="" class="box"><div data-v-30cdb09e="" class="status ui basic huge label"> 
-歷史案件</div><h1 data-v-30cdb09e="" class="slogan ui header">網路交易課稅<div data-v-30cdb09e="" class="sub header">數位商務模式：網路交易課稅</div></h1><a href="/topic/etax" class="ui right labeled icon teal huge button" data-v-30cdb09e=""><i data-v-30cdb09e="" class="right arrow icon"></i><p data-v-30cdb09e="">進入議題</p></a></div></div></div><div data-v-30cdb09e="" class="swiper-button-prev"></div><div data-v-30cdb09e="" class="swiper-button-next swiper-button-disabled"></div><div data-v-30cdb09e="" class="swiper-pagination swiper-pagination-bullets swiper-pagination-clickable"><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span></div><div data-v-30cdb09e="" class="swiper-scrollbar" style="opacity: 1; transition: 400ms; -webkit-transition: 400ms;"><div class="swiper-scrollbar-drag" style="width: 80px; -webkit-transform: translate3d(320px, 0, 0); transition: 0ms; -webkit-transition: 0ms;"></div></div></div></div><div data-v-1ffe16c1="" class="component" data-v-60640b22=""><div data-v-1ffe16c1="" class="fat-only"><div data-v-1ffe16c1="" class="swiper-container1 swiper-container-horizontal"><div data-v-1ffe16c1="" class="swiper-wrapper" style="transition: 0ms; -webkit-transition: 0ms;"><div data-v-1ffe16c1="" class="swiper-slide swiper-slide-active"><div data-v-1ffe16c1="" class="ui cards"><div data-v-1ffe16c1="" class="card"><div data-v-1ffe16c1="" class="image"><img data-v-1ffe16c1="" src="https://external.xx.fbcdn.net/safe_image.php?d=AQB3xgfguoezC6Jv&amp;url=https%3A%2F%2F3.bp.blogspot.com%2F-VnF-hZCJAcA%2FVhrcDUEimOI%2FAAAAAAAAOBg%2FKLbVsyCSG5Q%2Fs1280%2FScreen%252BShot%252B2015-10-11%252Bat%252B6.00.31%252BPM.png&amp;_nc_hash=AQBx3JxKkqaLfLkG"></div><div data-v-1ffe16c1="" class="content"><p data-v-1ffe16c1=""> uber  分享經濟  交通運輸</p><a data-v-1ffe16c1="" href="https://www.bnext.com.tw/article/37614/BN-2015-10-12-060029-81" target="_blank" class="header">終結Uber爭議!中國正擬定法規管理叫車服務</a></div><div data-v-1ffe16c1="" class="description"><p data-v-1ffe16c1="" class="JQellipsis" title="雖然Uber開創的叫車服務引起許多法規爭議，但至今還沒有一個國家真正做出何相關法條限制，現在情勢可能改變，中國政府可能將成為限制Uber的先鋒。">雖然Uber開創的叫車服務引起許多法規爭議，但至今還沒有一個國家真正做出何相關法條限制，現在情勢可...</p></div><div data-v-1ffe16c1="" class="extra content"><div data-v-1ffe16c1="" class="right floated author"><a data-v-1ffe16c1="" href="http://www.bnext.com.tw" target="_blank">bnext.com.tw</a></div></div></div></div></div><div data-v-1ffe16c1="" class="swiper-slide swiper-slide-next"><div data-v-1ffe16c1="" class="ui cards"><div data-v-1ffe16c1="" class="card"><div data-v-1ffe16c1="" class="image"><img data-v-1ffe16c1="" src="https://external.xx.fbcdn.net/safe_image.php?d=AQA_c6UtB3PNlXmE&amp;url=http%3A%2F%2Fimg.chinatimes.com%2Fnewsphoto%2F2016-01-08%2Fclipping%2F656%2Fa12a00_t_05_02.jpg&amp;_nc_hash=AQBcRJZlzLVGHgV9"></div><div data-v-1ffe16c1="" class="content"><p data-v-1ffe16c1=""> 股權式群眾募資</p><a data-v-1ffe16c1="" href="http://www.chinatimes.com/newspapers/20160108000135-260205" target="_blank" class="header">群募8大鬆綁 提前上路</a></div><div data-v-1ffe16c1="" class="description"><p data-v-1ffe16c1="" class="JQellipsis" title="為了讓國內資本市場更多元化，金管會對於股權性質群眾募資法規再作八項鬆綁！金管會7日指出，自從去年4月30日開放民間業者經營股權性質群眾募資以來，已核准6家、其中3家業者開業，現再修法放寬讓群募平台業者可轉投資、可向募資公司或投資人收取費用等，讓台灣的資本市場更符合創新創業者的需要。 金管會表示，此次修法重點有二大項，一項針對新創的募資公司，其募資金額從1,500萬拉高到3,000萬元，另外，可引進專業機構投資人…">為了讓國內資本市場更多元化，金管會對於股權性質群眾募資法規再作八項鬆綁！金管會7日指出，自從去年4...</p></div><div data-v-1ffe16c1="" class="extra content"><div data-v-1ffe16c1="" class="right floated author"><a data-v-1ffe16c1="" href="http://www.chinatimes.com" target="_blank">chinatimes.com</a></div></div></div></div></div><div data-v-1ffe16c1="" class="swiper-slide"><div data-v-1ffe16c1="" class="ui cards"><div data-v-1ffe16c1="" class="card"><div data-v-1ffe16c1="" class="image"><img data-v-1ffe16c1="" src="https://external.xx.fbcdn.net/safe_image.php?d=AQBDFU0NW9HrtYLC&amp;url=http%3A%2F%2Fstatic01.nyt.com%2Fimages%2F2016%2F01%2F25%2Fadmin%2Fcn-cooking4%2Fcn-cooking4-articleLarge.jpg&amp;_nc_hash=AQCUFJC46DLkU3hK"></div><div data-v-1ffe16c1="" class="content"><p data-v-1ffe16c1=""> sharingeconomy</p><a data-v-1ffe16c1="" href="http://cn.nytstyle.com/living/20160125/tc25app/zh-hant" target="_blank" class="header">The New York Times Chinese -Traditional    紐約時報中文網</a></div><div data-v-1ffe16c1="" class="description"><p data-v-1ffe16c1="" class="JQellipsis" title="在北京、上海等城市，一些主婦、退休長者和烹飪愛好者正在利用家廚共享應用平台，給附近辦公大樓裡的白領做家常飯。看看這個新「職業」是如何誕生的：">在北京、上海等城市，一些主婦、退休長者和烹飪愛好者正在利用家廚共享應用平台，給附近辦公大樓裡的白領...</p></div><div data-v-1ffe16c1="" class="extra content"><div data-v-1ffe16c1="" class="right floated author"><a data-v-1ffe16c1="" href="http://cn.nytstyle.com" target="_blank">cn.nytimes.com</a></div></div></div></div></div><div data-v-1ffe16c1="" class="swiper-slide"><div data-v-1ffe16c1="" class="ui cards"><div data-v-1ffe16c1="" class="card"><div data-v-1ffe16c1="" class="image"><img data-v-1ffe16c1="" src="https://external.xx.fbcdn.net/safe_image.php?d=AQA7Nrs60PB4VvcX&amp;url=https%3A%2F%2Fscontent.xx.fbcdn.net%2Ft45.1600-4%2F12480863_6043667308619_983551238_n.png&amp;_nc_hash=AQBt7G6Y1Z9yXqvQ"></div><div data-v-1ffe16c1="" class="content"><p data-v-1ffe16c1=""> blockchain</p><a data-v-1ffe16c1="" href="http://www.chinatimes.com/newspapers/20160128000025-260202" target="_blank" class="header">社論－推動區塊鏈技術的應用已刻不容緩</a></div><div data-v-1ffe16c1="" class="description"><p data-v-1ffe16c1="" class="JQellipsis" title="FinTech（金融科技）波譎雲詭地像陣陣的浪潮席捲全球各地，對金融業帶來巨大的衝擊，然而在FinTech浪潮中有一個原本不被注意，甚至被視為異類的金融創新－比特幣，其背後所使用的區塊鏈（Blockchain）技術，即將改變未來人們的生活方式，各種金融交易、報稅、簽約、護照可能都會用到區塊鏈技術，甚至通訊投票要受到各方信任也會用到它，而且未來中央銀行發行的的貨幣可能不再是紙幣而是數位貨幣。全球各國的產官學研各界紛紛加入…">FinTech（金融科技）波譎雲詭地像陣陣的浪潮席捲全球各地，對金融業帶來巨大的衝擊，然而在Fin...</p></div><div data-v-1ffe16c1="" class="extra content"><div data-v-1ffe16c1="" class="right floated author"><a data-v-1ffe16c1="" href="http://www.chinatimes.com" target="_blank">chinatimes.com</a></div></div></div></div></div><div data-v-1ffe16c1="" class="swiper-slide"><div data-v-1ffe16c1="" class="ui cards"><div data-v-1ffe16c1="" class="card"><div data-v-1ffe16c1="" class="image"><img data-v-1ffe16c1="" src="https://external.xx.fbcdn.net/safe_image.php?d=AQAHJ4v104reVLQn&amp;url=http%3A%2F%2Fbuzzorange.com%2Ftechorange%2Fwp-content%2Fuploads%2F2016%2F01%2FS__14450698.jpg&amp;_nc_hash=AQDtLAuike3J7jgg"></div><div data-v-1ffe16c1="" class="content"><p data-v-1ffe16c1=""> vtaiwan</p><a data-v-1ffe16c1="" href="http://buzzorange.com/techorange/2016/01/18/thank-you-jaclyn-tsai/" target="_blank" class="header">搭建創業者與政府的溝通橋樑，謝謝蔡玉玲政委把台灣新創圈推了這麼遠 | TechOrange</a></div><div data-v-1ffe16c1="" class="description"><p data-v-1ffe16c1="" class="JQellipsis" title="推廣 VTaiwan 虛擬世界法規交流平台、讓新創圈讚聲不斷的行政院政委蔡玉玲在臉書上發表辭職感言。這一位從業界轉入政壇，為改革帶來一抹光明的政委，讓許多科技、新創圈的業者都在底下留言：「謝謝政委！」 [...]">推廣 VTaiwan 虛擬世界法規交流平台、讓新創圈讚聲不斷的行政院政委蔡玉玲在臉書上發表辭職感言...</p></div><div data-v-1ffe16c1="" class="extra content"><div data-v-1ffe16c1="" class="right floated author"><a data-v-1ffe16c1="" href="http://buzzorange.com" target="_blank">buzzorange.com</a></div></div></div></div></div><div data-v-1ffe16c1="" class="swiper-slide"><div data-v-1ffe16c1="" class="ui cards"><div data-v-1ffe16c1="" class="card"><div data-v-1ffe16c1="" class="image"><img data-v-1ffe16c1="" src="https://external.xx.fbcdn.net/safe_image.php?d=AQDO1LAIPkdglVxL&amp;url=http%3A%2F%2Fudn.com%2Fstatic%2Fimg%2FUDN_BABY.png&amp;_nc_hash=AQDbdc6l6n1a-YnM"></div><div data-v-1ffe16c1="" class="content"><p data-v-1ffe16c1=""> innovation</p><a data-v-1ffe16c1="" href="http://udn.com/news/story/6811/1484103" target="_blank" class="header">名家瞭望／數位浪潮...帶領企業創新 | 國際財經 | 全球 | 聯合新聞網</a></div><div data-v-1ffe16c1="" class="description"><p data-v-1ffe16c1="" class="JQellipsis" title="科技變動一向是企業的一大挑戰。當今科技變動之快、規模之大，絕非以往所能望其項背，2015年亦復如是。從重工業到服務業，「創新」正橫掃所有領域，改變競爭的格局。能夠攀越顛峰之企業既非規模最大，也非資格最老，而是由科技最先進者掄元。">科技變動一向是企業的一大挑戰。當今科技變動之快、規模之大，絕非以往所能望其項背，2015年亦復如是...</p></div><div data-v-1ffe16c1="" class="extra content"><div data-v-1ffe16c1="" class="right floated author"><a data-v-1ffe16c1="" href="http://udn.com" target="_blank">udn.com</a></div></div></div></div></div><div data-v-1ffe16c1="" class="swiper-slide"><div data-v-1ffe16c1="" class="ui cards"><div data-v-1ffe16c1="" class="card"><div data-v-1ffe16c1="" class="image"><img data-v-1ffe16c1="" src="https://external.xx.fbcdn.net/safe_image.php?d=AQAe7yfOWTPKCXbG&amp;url=http%3A%2F%2Ftwimg.edgesuite.net%2Fimages%2FReNews%2F20160120%2F640_80f65e2bf667a442d9aa6c0af7bdfbde.jpg&amp;_nc_hash=AQAvq9ZDr5xoJ617"></div><div data-v-1ffe16c1="" class="content"><p data-v-1ffe16c1=""> 網路無障礙</p><a data-v-1ffe16c1="" href="http://www.appledaily.com.tw/realtimenews/article/new/20160120/779492/" target="_blank" class="header">NCC推無障礙法案 政府緊急訊息應供手語翻譯 | 即時新聞 | 20160120 | 蘋果日報</a></div><div data-v-1ffe16c1="" class="description"><p data-v-1ffe16c1="" class="JQellipsis" title="國家通訊傳播委員會（NCC）今通過「推動無障礙通傳近用行動方案草案」，包含發生重大災變時能以振動、聲音警示等方式提醒身障者，鼓勵電信業者比照低收入戶提供身心障礙者寬頻上網折扣、政府及電視業者重大活動或">國家通訊傳播委員會（NCC）今通過「推動無障礙通傳近用行動方案草案」，包含發生重大災變時能以振動、...</p></div><div data-v-1ffe16c1="" class="extra content"><div data-v-1ffe16c1="" class="right floated author"><a data-v-1ffe16c1="" href="http://www.appledaily.com.tw" target="_blank">appledaily.com.tw</a></div></div></div></div></div></div><div data-v-1ffe16c1="" class="swiper-button-prev"></div><div data-v-1ffe16c1="" class="swiper-button-next"></div></div></div><div data-v-1ffe16c1="" class="thin-only"><div data-v-1ffe16c1="" class="swiper-container2 swiper-container-horizontal"><div data-v-1ffe16c1="" class="swiper-wrapper"><div data-v-1ffe16c1="" class="swiper-slide swiper-slide-active" style="width: 355px; margin-right: 40px;"><div data-v-1ffe16c1="" class="ui cards"><div data-v-1ffe16c1="" class="card"><div data-v-1ffe16c1="" class="image"><img data-v-1ffe16c1="" src="https://external.xx.fbcdn.net/safe_image.php?d=AQB3xgfguoezC6Jv&amp;url=https%3A%2F%2F3.bp.blogspot.com%2F-VnF-hZCJAcA%2FVhrcDUEimOI%2FAAAAAAAAOBg%2FKLbVsyCSG5Q%2Fs1280%2FScreen%252BShot%252B2015-10-11%252Bat%252B6.00.31%252BPM.png&amp;_nc_hash=AQBx3JxKkqaLfLkG"></div><div data-v-1ffe16c1="" class="content"><p data-v-1ffe16c1=""> uber  分享經濟  交通運輸</p><a data-v-1ffe16c1="" href="https://www.bnext.com.tw/article/37614/BN-2015-10-12-060029-81" target="_blank" class="header">終結Uber爭議!中國正擬定法規管理叫車服務</a></div><div data-v-1ffe16c1="" class="description"><p data-v-1ffe16c1="" class="JQellipsis" title="雖然Uber開創的叫車服務引起許多法規爭議，但至今還沒有一個國家真正做出何相關法條限制，現在情勢可能改變，中國政府可能將成為限制Uber的先鋒。">雖然Uber開創的叫車服務引起許多法規爭議，但至今還沒有一個國家真正做出何相關法條限制，現在情勢可...</p></div><div data-v-1ffe16c1="" class="extra content"><div data-v-1ffe16c1="" class="right floated author"><a data-v-1ffe16c1="" href="http://www.bnext.com.tw" target="_blank">bnext.com.tw</a></div></div></div></div></div><div data-v-1ffe16c1="" class="swiper-slide swiper-slide-next" style="width: 355px; margin-right: 40px;"><div data-v-1ffe16c1="" class="ui cards"><div data-v-1ffe16c1="" class="card"><div data-v-1ffe16c1="" class="image"><img data-v-1ffe16c1="" src="https://external.xx.fbcdn.net/safe_image.php?d=AQA_c6UtB3PNlXmE&amp;url=http%3A%2F%2Fimg.chinatimes.com%2Fnewsphoto%2F2016-01-08%2Fclipping%2F656%2Fa12a00_t_05_02.jpg&amp;_nc_hash=AQBcRJZlzLVGHgV9"></div><div data-v-1ffe16c1="" class="content"><p data-v-1ffe16c1=""> 股權式群眾募資</p><a data-v-1ffe16c1="" href="http://www.chinatimes.com/newspapers/20160108000135-260205" target="_blank" class="header">群募8大鬆綁 提前上路</a></div><div data-v-1ffe16c1="" class="description"><p data-v-1ffe16c1="" class="JQellipsis" title="為了讓國內資本市場更多元化，金管會對於股權性質群眾募資法規再作八項鬆綁！金管會7日指出，自從去年4月30日開放民間業者經營股權性質群眾募資以來，已核准6家、其中3家業者開業，現再修法放寬讓群募平台業者可轉投資、可向募資公司或投資人收取費用等，讓台灣的資本市場更符合創新創業者的需要。 金管會表示，此次修法重點有二大項，一項針對新創的募資公司，其募資金額從1,500萬拉高到3,000萬元，另外，可引進專業機構投資人…">為了讓國內資本市場更多元化，金管會對於股權性質群眾募資法規再作八項鬆綁！金管會7日指出，自從去年4...</p></div><div data-v-1ffe16c1="" class="extra content"><div data-v-1ffe16c1="" class="right floated author"><a data-v-1ffe16c1="" href="http://www.chinatimes.com" target="_blank">chinatimes.com</a></div></div></div></div></div><div data-v-1ffe16c1="" class="swiper-slide" style="width: 355px; margin-right: 40px;"><div data-v-1ffe16c1="" class="ui cards"><div data-v-1ffe16c1="" class="card"><div data-v-1ffe16c1="" class="image"><img data-v-1ffe16c1="" src="https://external.xx.fbcdn.net/safe_image.php?d=AQBDFU0NW9HrtYLC&amp;url=http%3A%2F%2Fstatic01.nyt.com%2Fimages%2F2016%2F01%2F25%2Fadmin%2Fcn-cooking4%2Fcn-cooking4-articleLarge.jpg&amp;_nc_hash=AQCUFJC46DLkU3hK"></div><div data-v-1ffe16c1="" class="content"><p data-v-1ffe16c1=""> sharingeconomy</p><a data-v-1ffe16c1="" href="http://cn.nytstyle.com/living/20160125/tc25app/zh-hant" target="_blank" class="header">The New York Times Chinese -Traditional    紐約時報中文網</a></div><div data-v-1ffe16c1="" class="description"><p data-v-1ffe16c1="" class="JQellipsis" title="在北京、上海等城市，一些主婦、退休長者和烹飪愛好者正在利用家廚共享應用平台，給附近辦公大樓裡的白領做家常飯。看看這個新「職業」是如何誕生的：">在北京、上海等城市，一些主婦、退休長者和烹飪愛好者正在利用家廚共享應用平台，給附近辦公大樓裡的白領...</p></div><div data-v-1ffe16c1="" class="extra content"><div data-v-1ffe16c1="" class="right floated author"><a data-v-1ffe16c1="" href="http://cn.nytstyle.com" target="_blank">cn.nytimes.com</a></div></div></div></div></div><div data-v-1ffe16c1="" class="swiper-slide" style="width: 355px; margin-right: 40px;"><div data-v-1ffe16c1="" class="ui cards"><div data-v-1ffe16c1="" class="card"><div data-v-1ffe16c1="" class="image"><img data-v-1ffe16c1="" src="https://external.xx.fbcdn.net/safe_image.php?d=AQA7Nrs60PB4VvcX&amp;url=https%3A%2F%2Fscontent.xx.fbcdn.net%2Ft45.1600-4%2F12480863_6043667308619_983551238_n.png&amp;_nc_hash=AQBt7G6Y1Z9yXqvQ"></div><div data-v-1ffe16c1="" class="content"><p data-v-1ffe16c1=""> blockchain</p><a data-v-1ffe16c1="" href="http://www.chinatimes.com/newspapers/20160128000025-260202" target="_blank" class="header">社論－推動區塊鏈技術的應用已刻不容緩</a></div><div data-v-1ffe16c1="" class="description"><p data-v-1ffe16c1="" class="JQellipsis" title="FinTech（金融科技）波譎雲詭地像陣陣的浪潮席捲全球各地，對金融業帶來巨大的衝擊，然而在FinTech浪潮中有一個原本不被注意，甚至被視為異類的金融創新－比特幣，其背後所使用的區塊鏈（Blockchain）技術，即將改變未來人們的生活方式，各種金融交易、報稅、簽約、護照可能都會用到區塊鏈技術，甚至通訊投票要受到各方信任也會用到它，而且未來中央銀行發行的的貨幣可能不再是紙幣而是數位貨幣。全球各國的產官學研各界紛紛加入…">FinTech（金融科技）波譎雲詭地像陣陣的浪潮席捲全球各地，對金融業帶來巨大的衝擊，然而在Fin...</p></div><div data-v-1ffe16c1="" class="extra content"><div data-v-1ffe16c1="" class="right floated author"><a data-v-1ffe16c1="" href="http://www.chinatimes.com" target="_blank">chinatimes.com</a></div></div></div></div></div><div data-v-1ffe16c1="" class="swiper-slide" style="width: 355px; margin-right: 40px;"><div data-v-1ffe16c1="" class="ui cards"><div data-v-1ffe16c1="" class="card"><div data-v-1ffe16c1="" class="image"><img data-v-1ffe16c1="" src="https://external.xx.fbcdn.net/safe_image.php?d=AQAHJ4v104reVLQn&amp;url=http%3A%2F%2Fbuzzorange.com%2Ftechorange%2Fwp-content%2Fuploads%2F2016%2F01%2FS__14450698.jpg&amp;_nc_hash=AQDtLAuike3J7jgg"></div><div data-v-1ffe16c1="" class="content"><p data-v-1ffe16c1=""> vtaiwan</p><a data-v-1ffe16c1="" href="http://buzzorange.com/techorange/2016/01/18/thank-you-jaclyn-tsai/" target="_blank" class="header">搭建創業者與政府的溝通橋樑，謝謝蔡玉玲政委把台灣新創圈推了這麼遠 | TechOrange</a></div><div data-v-1ffe16c1="" class="description"><p data-v-1ffe16c1="" class="JQellipsis" title="推廣 VTaiwan 虛擬世界法規交流平台、讓新創圈讚聲不斷的行政院政委蔡玉玲在臉書上發表辭職感言。這一位從業界轉入政壇，為改革帶來一抹光明的政委，讓許多科技、新創圈的業者都在底下留言：「謝謝政委！」 [...]">推廣 VTaiwan 虛擬世界法規交流平台、讓新創圈讚聲不斷的行政院政委蔡玉玲在臉書上發表辭職感言...</p></div><div data-v-1ffe16c1="" class="extra content"><div data-v-1ffe16c1="" class="right floated author"><a data-v-1ffe16c1="" href="http://buzzorange.com" target="_blank">buzzorange.com</a></div></div></div></div></div><div data-v-1ffe16c1="" class="swiper-slide" style="width: 355px; margin-right: 40px;"><div data-v-1ffe16c1="" class="ui cards"><div data-v-1ffe16c1="" class="card"><div data-v-1ffe16c1="" class="image"><img data-v-1ffe16c1="" src="https://external.xx.fbcdn.net/safe_image.php?d=AQDO1LAIPkdglVxL&amp;url=http%3A%2F%2Fudn.com%2Fstatic%2Fimg%2FUDN_BABY.png&amp;_nc_hash=AQDbdc6l6n1a-YnM"></div><div data-v-1ffe16c1="" class="content"><p data-v-1ffe16c1=""> innovation</p><a data-v-1ffe16c1="" href="http://udn.com/news/story/6811/1484103" target="_blank" class="header">名家瞭望／數位浪潮...帶領企業創新 | 國際財經 | 全球 | 聯合新聞網</a></div><div data-v-1ffe16c1="" class="description"><p data-v-1ffe16c1="" class="JQellipsis" title="科技變動一向是企業的一大挑戰。當今科技變動之快、規模之大，絕非以往所能望其項背，2015年亦復如是。從重工業到服務業，「創新」正橫掃所有領域，改變競爭的格局。能夠攀越顛峰之企業既非規模最大，也非資格最老，而是由科技最先進者掄元。">科技變動一向是企業的一大挑戰。當今科技變動之快、規模之大，絕非以往所能望其項背，2015年亦復如是...</p></div><div data-v-1ffe16c1="" class="extra content"><div data-v-1ffe16c1="" class="right floated author"><a data-v-1ffe16c1="" href="http://udn.com" target="_blank">udn.com</a></div></div></div></div></div><div data-v-1ffe16c1="" class="swiper-slide" style="width: 355px; margin-right: 40px;"><div data-v-1ffe16c1="" class="ui cards"><div data-v-1ffe16c1="" class="card"><div data-v-1ffe16c1="" class="image"><img data-v-1ffe16c1="" src="https://external.xx.fbcdn.net/safe_image.php?d=AQAe7yfOWTPKCXbG&amp;url=http%3A%2F%2Ftwimg.edgesuite.net%2Fimages%2FReNews%2F20160120%2F640_80f65e2bf667a442d9aa6c0af7bdfbde.jpg&amp;_nc_hash=AQAvq9ZDr5xoJ617"></div><div data-v-1ffe16c1="" class="content"><p data-v-1ffe16c1=""> 網路無障礙</p><a data-v-1ffe16c1="" href="http://www.appledaily.com.tw/realtimenews/article/new/20160120/779492/" target="_blank" class="header">NCC推無障礙法案 政府緊急訊息應供手語翻譯 | 即時新聞 | 20160120 | 蘋果日報</a></div><div data-v-1ffe16c1="" class="description"><p data-v-1ffe16c1="" class="JQellipsis" title="國家通訊傳播委員會（NCC）今通過「推動無障礙通傳近用行動方案草案」，包含發生重大災變時能以振動、聲音警示等方式提醒身障者，鼓勵電信業者比照低收入戶提供身心障礙者寬頻上網折扣、政府及電視業者重大活動或">國家通訊傳播委員會（NCC）今通過「推動無障礙通傳近用行動方案草案」，包含發生重大災變時能以振動、...</p></div><div data-v-1ffe16c1="" class="extra content"><div data-v-1ffe16c1="" class="right floated author"><a data-v-1ffe16c1="" href="http://www.appledaily.com.tw" target="_blank">appledaily.com.tw</a></div></div></div></div></div></div><div data-v-1ffe16c1="" class="swiper-button-prev swiper-button-disabled"></div><div data-v-1ffe16c1="" class="swiper-button-next"></div><div data-v-1ffe16c1="" class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets"><span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span></div><div data-v-1ffe16c1="" class="swiper-scrollbar" style="opacity: 0;"><div class="swiper-scrollbar-drag" style="width: 46.247706422018354px;"></div></div></div></div></div><div data-v-0aea0f33="" class="component proposalTab proposalTab" data-v-60640b22="" style="height: 1283px;"><div data-v-0aea0f33="" class="ui container"><div data-v-0aea0f33="" id="mobile-step" class="ui sticky mobile-step thin-only" style="width: 15px !important; height: 95px !important;"><div data-v-0aea0f33="" class="ui vertical menu"><a data-v-0aea0f33="" href="#soon" class="fitted item active"><p data-v-0aea0f33="">即將開始</p></a><a data-v-0aea0f33="" href="#discuss" class="fitted item"><p data-v-0aea0f33="">意見徵集</p></a><a data-v-0aea0f33="" href="#curate" class="fitted item"><p data-v-0aea0f33="">研擬草案</p></a><a data-v-0aea0f33="" href="#deploy" class="fitted item"><p data-v-0aea0f33="">送交院會</p></a><a data-v-0aea0f33="" href="#history" class="fitted item"><p data-v-0aea0f33="">歷史案件</p></a></div></div><div data-v-0aea0f33="" class="ui top attached big steps fat-only"><a data-v-0aea0f33="" class="step active"><div data-v-0aea0f33="" class="label">即將開始</div><div data-v-0aea0f33="" class="number">1</div></a><a data-v-0aea0f33="" class="step"><div data-v-0aea0f33="" class="label">意見徵集</div><div data-v-0aea0f33="" class="number">2</div></a><a data-v-0aea0f33="" class="step"><div data-v-0aea0f33="" class="label">研擬草案</div><div data-v-0aea0f33="" class="number">3</div></a><a data-v-0aea0f33="" class="step"><div data-v-0aea0f33="" class="label">送交院會</div><div data-v-0aea0f33="" class="number">4</div></a><a data-v-0aea0f33="" class="step"><div data-v-0aea0f33="" class="label">歷史案件</div><div data-v-0aea0f33="" class="number">5</div></a></div><div data-v-0aea0f33="" id="context" class="ui segment basic"><div data-v-67d7e20d="" class="component" data-v-0aea0f33="" style=""><div data-v-67d7e20d="" id="soon" class="ui container basic segment"><h2 data-v-67d7e20d="" class="ui sticky header m-title thin-only">即將開始</h2><div data-v-67d7e20d="" class="desc ui basic center aligned segment fat-only"><sup data-v-67d7e20d=""><i data-v-67d7e20d="" class="quote left icon"></i></sup>在草案未形成前跳脫時間空間限制，擴大搜集利害相關人之意見 <sub data-v-67d7e20d=""><i data-v-67d7e20d="" class="quote right icon"></i></sub></div><div data-v-67d7e20d="" class="ui compact info message">目前還沒有正在進行的議案…</div><div data-v-67d7e20d="" class="ui four column grid stackable"></div></div></div><div data-v-67d7e20d="" class="component" data-v-0aea0f33=""><div data-v-67d7e20d="" id="discuss" class="ui container basic segment"><h2 data-v-67d7e20d="" class="ui sticky header m-title thin-only">意見徵集</h2><div data-v-67d7e20d="" class="desc ui basic center aligned segment fat-only"><sup data-v-67d7e20d=""><i data-v-67d7e20d="" class="quote left icon"></i></sup>邀請核心利害相關者參與諮詢會議，加入實體見面討論，一同將意見化為草案 <sub data-v-67d7e20d=""><i data-v-67d7e20d="" class="quote right icon"></i></sub></div><!----><div data-v-67d7e20d="" class="ui four column grid stackable"><div data-v-67d7e20d="" class="box column"><a href="/topic/social-enterprise" class="box-inner ui segment" data-v-67d7e20d=""><img data-v-67d7e20d="" src="http://static.thousandwonders.net/Taiwan.original.3738.jpg" class="ui rounded bordered image"><h3 data-v-67d7e20d="" class="ui header">社會企業公司法</h3><div data-v-67d7e20d="" class="progress_bar"><div data-v-67d7e20d="" class="progress_text ui bottom attached red large label">討論已結束</div></div></a></div><div data-v-67d7e20d="" class="box column"><a href="/topic/directors-election" class="box-inner ui segment" data-v-67d7e20d=""><img data-v-67d7e20d="" src="https://images.unsplash.com/photo-1431540015161-0bf868a2d407?dpr=1.25&amp;auto=format&amp;fit=crop&amp;w=767&amp;h=511&amp;q=80&amp;cs=tinysrgb&amp;crop=" class="ui rounded bordered image"><h3 data-v-67d7e20d="" class="ui header">董監事選任</h3><div data-v-67d7e20d="" class="progress_bar" style="background-image: linear-gradient(to right, rgb(63, 173, 199) 0%, rgb(63, 173, 199) 100%, rgb(170, 170, 170) 100.1%, rgb(170, 170, 170) 100%); background-position: initial initial; background-repeat: initial initial;"><div data-v-67d7e20d="" class="progress_text ui bottom attached red large label">討論已結束</div></div></a></div><div data-v-67d7e20d="" class="box column"><a href="/topic/sandbox" class="box-inner ui segment" data-v-67d7e20d=""><img data-v-67d7e20d="" src="https://images.unsplash.com/photo-1465414829459-d228b58caf6e" class="ui rounded bordered image"><h3 data-v-67d7e20d="" class="ui header">金融監理沙盒</h3><div data-v-67d7e20d="" class="progress_bar" style="background-image: linear-gradient(to right, rgb(63, 173, 199) 0%, rgb(63, 173, 199) 100%, rgb(170, 170, 170) 100.1%, rgb(170, 170, 170) 100%); background-position: initial initial; background-repeat: initial initial;"><div data-v-67d7e20d="" class="progress_text ui bottom attached red large label">討論已結束</div></div></a></div></div></div></div><div data-v-67d7e20d="" class="component" data-v-0aea0f33="" style=""><div data-v-67d7e20d="" id="curate" class="ui container basic segment"><h2 data-v-67d7e20d="" class="ui sticky header m-title thin-only">研擬草案</h2><div data-v-67d7e20d="" class="desc ui basic center aligned segment fat-only"><sup data-v-67d7e20d=""><i data-v-67d7e20d="" class="quote left icon"></i></sup>將成熟的草案加強、寫成定案 <sub data-v-67d7e20d=""><i data-v-67d7e20d="" class="quote right icon"></i></sub></div><!----><div data-v-67d7e20d="" class="ui four column grid stackable"><div data-v-67d7e20d="" class="box column"><a href="/topic/securitization" class="box-inner ui segment" data-v-67d7e20d=""><img data-v-67d7e20d="" src="http://image.slidesharecdn.com/c8s7nxdwrwook9zljomq-signature-ec5edf5b8d62ee9ad208e4446437b7c1fc16efb6db28685b63bb2604d25236c7-poli-161203074816/95/-1-1024.jpg" class="ui rounded bordered image"><h3 data-v-67d7e20d="" class="ui header">企業資產擔保法</h3></a></div><div data-v-67d7e20d="" class="box column"><a href="/topic/personal-data-protection" class="box-inner ui segment" data-v-67d7e20d=""><img data-v-67d7e20d="" src="https://images.unsplash.com/photo-1457682524032-465ef406d105?dpr=1.25&amp;auto=format&amp;fit=crop&amp;w=767&amp;h=511&amp;q=80&amp;cs=tinysrgb&amp;crop=" class="ui rounded bordered image"><h3 data-v-67d7e20d="" class="ui header">個資利用與去識別化</h3></a></div><div data-v-67d7e20d="" class="box column"><a href="/topic/data-levy" class="box-inner ui segment" data-v-67d7e20d=""><img data-v-67d7e20d="" src="https://images.unsplash.com/photo-1482859602406-7659b00979fb" class="ui rounded bordered image"><h3 data-v-67d7e20d="" class="ui header">開放資料例外收費原則</h3></a></div><div data-v-67d7e20d="" class="box column"><a href="/topic/infosecurity" class="box-inner ui segment" data-v-67d7e20d=""><img data-v-67d7e20d="" src="https://images.unsplash.com/photo-1452796907770-ad6cd374b12d" class="ui rounded bordered image"><h3 data-v-67d7e20d="" class="ui header">資安管理</h3></a></div><div data-v-67d7e20d="" class="box column"><a href="/topic/naming" class="box-inner ui segment" data-v-67d7e20d=""><img data-v-67d7e20d="" src="http://static.thousandwonders.net/Taiwan.original.3738.jpg" class="ui rounded bordered image"><h3 data-v-67d7e20d="" class="ui header">公司英文名稱登記</h3></a></div><div data-v-67d7e20d="" class="box column"><a href="/topic/airbnb" class="box-inner ui segment" data-v-67d7e20d=""><img data-v-67d7e20d="" src="https://c1.staticflickr.com/1/430/19915395410_611f840957_b.jpg" class="ui rounded bordered image"><h3 data-v-67d7e20d="" class="ui header">Airbnb自用住宅招租</h3><!----></a></div></div></div></div><div data-v-67d7e20d="" class="component" data-v-0aea0f33="" style=""><div data-v-67d7e20d="" id="deploy" class="ui container basic segment"><h2 data-v-67d7e20d="" class="ui sticky header m-title thin-only">送交院會</h2><div data-v-67d7e20d="" class="desc ui basic center aligned segment fat-only"><sup data-v-67d7e20d=""><i data-v-67d7e20d="" class="quote left icon"></i></sup>送交立法院 <sub data-v-67d7e20d=""><i data-v-67d7e20d="" class="quote right icon"></i></sub></div><!----><div data-v-67d7e20d="" class="ui four column grid stackable"><div data-v-67d7e20d="" class="box column"><a href="/topic/eliquor" class="box-inner ui segment" data-v-67d7e20d=""><img data-v-67d7e20d="" src="http://image.slidesharecdn.com/zbxi01iqoy2zrsqzsu1a-signature-a2c1b04c1b0e46e92533427e0ed861b29a57eaa126a150b1594cb3e1174531a0-poli-160329231814/95/-1-1024.jpg" class="ui rounded bordered image"><h3 data-v-67d7e20d="" class="ui header">網路賣酒配套措施</h3></a></div></div></div></div><div data-v-67d7e20d="" class="component" data-v-0aea0f33="" style=""><div data-v-67d7e20d="" id="history" class="ui container basic segment"><h2 data-v-67d7e20d="" class="ui sticky header m-title thin-only">歷史案件</h2><div data-v-67d7e20d="" class="desc ui basic center aligned segment fat-only"><sup data-v-67d7e20d=""><i data-v-67d7e20d="" class="quote left icon"></i></sup>追蹤審查進度與結果 <sub data-v-67d7e20d=""><i data-v-67d7e20d="" class="quote right icon"></i></sub></div><!----><div data-v-67d7e20d="" class="ui four column grid stackable"><div data-v-67d7e20d="" class="box column"><a href="/topic/closelyheld" class="box-inner ui segment" data-v-67d7e20d=""><img data-v-67d7e20d="" src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?dpr=1.25&amp;auto=format&amp;fit=crop&amp;w=767&amp;h=512&amp;q=80&amp;cs=tinysrgb&amp;crop=" class="ui rounded bordered image"><h3 data-v-67d7e20d="" class="ui header">閉鎖型公司</h3></a></div><div data-v-67d7e20d="" class="box column"><a href="/topic/etax" class="box-inner ui segment" data-v-67d7e20d=""><img data-v-67d7e20d="" src="https://images.unsplash.com/photo-1483239546567-ccc4ce2b344a?dpr=2&amp;auto=format&amp;fit=crop&amp;w=1500&amp;h=877&amp;q=80&amp;cs=tinysrgb&amp;crop=" class="ui rounded bordered image"><h3 data-v-67d7e20d="" class="ui header">網路交易課稅</h3></a></div><div data-v-67d7e20d="" class="box column"><a href="/topic/distant-education" class="box-inner ui segment" data-v-67d7e20d=""><img data-v-67d7e20d="" src="https://upload.wikimedia.org/wikipedia/commons/2/2a/American%2C_Indonesian_Students_Link_Hands_Via_Distance_Learning.jpg" class="ui rounded bordered image"><h3 data-v-67d7e20d="" class="ui header">遠距教育</h3></a></div><div data-v-67d7e20d="" class="box column"><a href="/topic/crowdfunding" class="box-inner ui segment" data-v-67d7e20d=""><img data-v-67d7e20d="" src="https://c1.staticflickr.com/9/8124/8661000014_cb0056d718_z.jpg" class="ui rounded bordered image"><h3 data-v-67d7e20d="" class="ui header">群眾募資</h3></a></div><div data-v-67d7e20d="" class="box column"><a href="/topic/consumer-protection" class="box-inner ui segment" data-v-67d7e20d=""><img data-v-67d7e20d="" src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Walmartmexicaninteriors.jpg" class="ui rounded bordered image"><h3 data-v-67d7e20d="" class="ui header">零售業網路定型化契約</h3></a></div><div data-v-67d7e20d="" class="box column"><a href="/topic/telemedicine" class="box-inner ui segment" data-v-67d7e20d=""><img data-v-67d7e20d="" src="https://upload.wikimedia.org/wikipedia/commons/c/c9/%E8%95%AD%E4%B8%AD%E6%AD%A3%E9%99%A2%E9%95%B7%E9%80%B2%E8%A1%8CTelecare_conference.jpg" class="ui rounded bordered image"><h3 data-v-67d7e20d="" class="ui header">遠距健康照護</h3></a></div><div data-v-67d7e20d="" class="box column"><a href="/topic/telework" class="box-inner ui segment" data-v-67d7e20d=""><img data-v-67d7e20d="" src="https://c2.staticflickr.com/6/5295/5447249284_45af289868_b.jpg" class="ui rounded bordered image"><h3 data-v-67d7e20d="" class="ui header">電傳勞動</h3></a></div><div data-v-67d7e20d="" class="box column"><a href="/topic/cyberbullying" class="box-inner ui segment" data-v-67d7e20d=""><img data-v-67d7e20d="" src="https://images.unsplash.com/photo-1459983001447-eea6d4fbfbb1" class="ui rounded bordered image"><h3 data-v-67d7e20d="" class="ui header">網路霸凌</h3></a></div></div></div></div></div></div></div></div></div><div data-v-5120c3f7="" class="component footer"><div data-v-5120c3f7="" class="ui inverted vertical footer segment"><div data-v-5120c3f7="" class="ui center aligned container"><div data-v-5120c3f7="" class="ui stackable inverted divided grid"><div data-v-5120c3f7="" class="three wide column"><h4 data-v-5120c3f7="" class="ui inverted header">相關連結</h4><div data-v-5120c3f7="" class="ui inverted link list"><a data-v-5120c3f7="" href="https://talk.vtaiwan.tw/" title="vTaiwan討論區" target="_blank" class="item">討論區</a><a data-v-5120c3f7="" href="https://github.com/g0v/vue.vtaiwan.tw" title="Github" target="_blank" class="item">Github</a><a href="/" class="m-logo item router-link-active" title="Home" data-v-5120c3f7="">vTaiwan</a></div></div><div data-v-5120c3f7="" class="three wide column"><h4 data-v-5120c3f7="" class="ui inverted header">影音專區</h4><div data-v-5120c3f7="" class="ui inverted link list"><a data-v-5120c3f7="" href="https://www.youtube.com/channel/UChC85hbUuDAvFpc7Uuj69DA/" title="Youtube" target="_blank" class="item">Youtube</a><a data-v-5120c3f7="" href="https://www.facebook.com/vtaiwan.tw/" title="Fackbook" target="_blank" class="item">Fackbook              </a><a href="/subscribe" class="m-logo item" title="訂閱電子報" data-v-5120c3f7="">訂閱電子報</a></div></div><div data-v-5120c3f7="" class="three wide column"><h4 data-v-5120c3f7="" class="ui inverted header">關於我們</h4><div data-v-5120c3f7="" class="ui inverted link list"><a href="/Contactus" class="m-logo item" title="聯絡我們" data-v-5120c3f7="">聯絡我們</a><a href="/how-to-use" class="m-logo item" title="使用手冊" data-v-5120c3f7="">使用手冊</a><a href="/intro" class="m-logo item" title="關於vTaiwan" data-v-5120c3f7="">關於vTaiwan</a></div></div><div data-v-5120c3f7="" class="seven wide column"><h4 data-v-5120c3f7="" class="ui inverted header">vTaiwan</h4><p data-v-5120c3f7="">vTaiwan為討論法規該如何制定或修改的平台，透過彼此的意見交流，希望能夠產出符合各利益關係人期待，也貼近實際需求的法規內容。</p></div></div></div><div data-v-5120c3f7="" class="ui inverted section divider"></div><div data-v-5120c3f7="" class="ui centered"><a data-v-5120c3f7="" href="https://www.facebook.com/vtaiwan.tw/" title="Fackbook" target="_blank" class="big ui centered circular facebook icon button"><i data-v-5120c3f7="" class="facebook icon"></i></a><a data-v-5120c3f7="" href="https://www.youtube.com/channel/UChC85hbUuDAvFpc7Uuj69DA/" title="Youtube" target="_blank" class="big ui circular youtube icon button"><i data-v-5120c3f7="" class="youtube icon"></i></a><a data-v-5120c3f7="" href="https://github.com/g0v/vue.vtaiwan.tw" title="Github" target="_blank" class="big ui circular github icon grey button"><i data-v-5120c3f7="" class="github icon"></i></a><a href="/Contactus" class="m-logo big ui circular mail icon orange button" title="Contact Us" data-v-5120c3f7=""><i data-v-5120c3f7="" class="mail icon"></i></a><a href="/" class="m-logo item router-link-active" title="Home" data-v-5120c3f7=""><img data-v-5120c3f7="" src="/vTaiwan_logo_2017.png" alt="logo"></a></div></div></div></div>
+    <div id="app" class="app"><div data-v-8718f044="" class="component"><nav data-v-8718f044="" class="fat-only"><div data-v-8718f044="" class="ui grid"><div data-v-8718f044="" class="seven wide column"><div data-v-8718f044="" class="ui category search"><div data-v-8718f044="" class="ui icon input"><input data-v-8718f044="" type="search" placeholder="搜尋..." class="prompt"><i data-v-8718f044="" class="search icon"></i></div><div data-v-91a79d22="" id="searchresult" class="component" data-v-8718f044="" style="display: none;"><div data-v-91a79d22="" class="results"><div data-v-91a79d22="" class="category"><div data-v-91a79d22="" class="name">研擬草案 </div><a href="/topic/securitization" class="result" data-v-91a79d22=""><div data-v-91a79d22="" class="contents"><div data-v-91a79d22="" class="title"><strong></strong>企<strong></strong>業<strong></strong>資<strong></strong>產<strong></strong>擔<strong></strong>保<strong></strong>法<strong></strong></div><div data-v-91a79d22="" class="description"><strong></strong>s<strong></strong>e<strong></strong>c<strong></strong>u<strong></strong>r<strong></strong>i<strong></strong>t<strong></strong>i<strong></strong>z<strong></strong>a<strong></strong>t<strong></strong>i<strong></strong>o<strong></strong>n<strong></strong></div></div></a><!----><!----><!----><!----><!----><!----><a href="/topic/personal-data-protection" class="result" data-v-91a79d22=""><div data-v-91a79d22="" class="contents"><div data-v-91a79d22="" class="title"><strong></strong>個<strong></strong>資<strong></strong>利<strong></strong>用<strong></strong>與<strong></strong>去<strong></strong>識<strong></strong>別<strong></strong>化<strong></strong></div><div data-v-91a79d22="" class="description"><strong></strong>p<strong></strong>e<strong></strong>r<strong></strong>s<strong></strong>o<strong></strong>n<strong></strong>a<strong></strong>l<strong></strong>-<strong></strong>d<strong></strong>a<strong></strong>t<strong></strong>a<strong></strong>-<strong></strong>p<strong></strong>r<strong></strong>o<strong></strong>t<strong></strong>e<strong></strong>c<strong></strong>t<strong></strong>i<strong></strong>o<strong></strong>n<strong></strong></div></div></a><!----><a href="/topic/data-levy" class="result" data-v-91a79d22=""><div data-v-91a79d22="" class="contents"><div data-v-91a79d22="" class="title"><strong></strong>開<strong></strong>放<strong></strong>資<strong></strong>料<strong></strong>例<strong></strong>外<strong></strong>收<strong></strong>費<strong></strong>原<strong></strong>則<strong></strong></div><div data-v-91a79d22="" class="description"><strong></strong>d<strong></strong>a<strong></strong>t<strong></strong>a<strong></strong>-<strong></strong>l<strong></strong>e<strong></strong>v<strong></strong>y<strong></strong></div></div></a><!----><!----><!----><a href="/topic/infosecurity" class="result" data-v-91a79d22=""><div data-v-91a79d22="" class="contents"><div data-v-91a79d22="" class="title"><strong></strong>資<strong></strong>安<strong></strong>管<strong></strong>理<strong></strong></div><div data-v-91a79d22="" class="description"><strong></strong>i<strong></strong>n<strong></strong>f<strong></strong>o<strong></strong>s<strong></strong>e<strong></strong>c<strong></strong>u<strong></strong>r<strong></strong>i<strong></strong>t<strong></strong>y<strong></strong></div></div></a><!----><!----><!----><a href="/topic/naming" class="result" data-v-91a79d22=""><div data-v-91a79d22="" class="contents"><div data-v-91a79d22="" class="title"><strong></strong>公<strong></strong>司<strong></strong>英<strong></strong>文<strong></strong>名<strong></strong>稱<strong></strong>登<strong></strong>記<strong></strong></div><div data-v-91a79d22="" class="description"><strong></strong>n<strong></strong>a<strong></strong>m<strong></strong>i<strong></strong>n<strong></strong>g<strong></strong></div></div></a><a href="/topic/airbnb" class="result" data-v-91a79d22=""><div data-v-91a79d22="" class="contents"><div data-v-91a79d22="" class="title"><strong></strong>A<strong></strong>i<strong></strong>r<strong></strong>b<strong></strong>n<strong></strong>b<strong></strong>自<strong></strong>用<strong></strong>住<strong></strong>宅<strong></strong>招<strong></strong>租<strong></strong></div><div data-v-91a79d22="" class="description"><strong></strong>a<strong></strong>i<strong></strong>r<strong></strong>b<strong></strong>n<strong></strong>b<strong></strong></div></div></a></div><div data-v-91a79d22="" class="category"><div data-v-91a79d22="" class="name">意見徵集 </div><!----><a href="/topic/social-enterprise" class="result" data-v-91a79d22=""><div data-v-91a79d22="" class="contents"><div data-v-91a79d22="" class="title"><strong></strong>社<strong></strong>會<strong></strong>企<strong></strong>業<strong></strong>公<strong></strong>司<strong></strong>法<strong></strong></div><div data-v-91a79d22="" class="description"><strong></strong>s<strong></strong>o<strong></strong>c<strong></strong>i<strong></strong>a<strong></strong>l<strong></strong>-<strong></strong>e<strong></strong>n<strong></strong>t<strong></strong>e<strong></strong>r<strong></strong>p<strong></strong>r<strong></strong>i<strong></strong>s<strong></strong>e<strong></strong></div></div></a><a href="/topic/directors-election" class="result" data-v-91a79d22=""><div data-v-91a79d22="" class="contents"><div data-v-91a79d22="" class="title"><strong></strong>董<strong></strong>監<strong></strong>事<strong></strong>選<strong></strong>任<strong></strong></div><div data-v-91a79d22="" class="description"><strong></strong>d<strong></strong>i<strong></strong>r<strong></strong>e<strong></strong>c<strong></strong>t<strong></strong>o<strong></strong>r<strong></strong>s<strong></strong>-<strong></strong>e<strong></strong>l<strong></strong>e<strong></strong>c<strong></strong>t<strong></strong>i<strong></strong>o<strong></strong>n<strong></strong></div></div></a><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><a href="/topic/sandbox" class="result" data-v-91a79d22=""><div data-v-91a79d22="" class="contents"><div data-v-91a79d22="" class="title"><strong></strong>金<strong></strong>融<strong></strong>監<strong></strong>理<strong></strong>沙<strong></strong>盒<strong></strong></div><div data-v-91a79d22="" class="description"><strong></strong>s<strong></strong>a<strong></strong>n<strong></strong>d<strong></strong>b<strong></strong>o<strong></strong>x<strong></strong></div></div></a><!----><!----><!----><!----></div><div data-v-91a79d22="" class="category"><div data-v-91a79d22="" class="name">歷史案件 </div><!----><!----><!----><a href="/topic/closelyheld" class="result" data-v-91a79d22=""><div data-v-91a79d22="" class="contents"><div data-v-91a79d22="" class="title"><strong></strong>閉<strong></strong>鎖<strong></strong>型<strong></strong>公<strong></strong>司<strong></strong></div><div data-v-91a79d22="" class="description"><strong></strong>c<strong></strong>l<strong></strong>o<strong></strong>s<strong></strong>e<strong></strong>l<strong></strong>y<strong></strong>h<strong></strong>e<strong></strong>l<strong></strong>d<strong></strong></div></div></a><a href="/topic/distant-education" class="result" data-v-91a79d22=""><div data-v-91a79d22="" class="contents"><div data-v-91a79d22="" class="title"><strong></strong>遠<strong></strong>距<strong></strong>教<strong></strong>育<strong></strong></div><div data-v-91a79d22="" class="description"><strong></strong>d<strong></strong>i<strong></strong>s<strong></strong>t<strong></strong>a<strong></strong>n<strong></strong>t<strong></strong>-<strong></strong>e<strong></strong>d<strong></strong>u<strong></strong>c<strong></strong>a<strong></strong>t<strong></strong>i<strong></strong>o<strong></strong>n<strong></strong></div></div></a><a href="/topic/crowdfunding" class="result" data-v-91a79d22=""><div data-v-91a79d22="" class="contents"><div data-v-91a79d22="" class="title"><strong></strong>群<strong></strong>眾<strong></strong>募<strong></strong>資<strong></strong></div><div data-v-91a79d22="" class="description"><strong></strong>c<strong></strong>r<strong></strong>o<strong></strong>w<strong></strong>d<strong></strong>f<strong></strong>u<strong></strong>n<strong></strong>d<strong></strong>i<strong></strong>n<strong></strong>g<strong></strong></div></div></a><a href="/topic/etax" class="result" data-v-91a79d22=""><div data-v-91a79d22="" class="contents"><div data-v-91a79d22="" class="title"><strong></strong>網<strong></strong>路<strong></strong>交<strong></strong>易<strong></strong>課<strong></strong>稅<strong></strong></div><div data-v-91a79d22="" class="description"><strong></strong>e<strong></strong>t<strong></strong>a<strong></strong>x<strong></strong></div></div></a><!----><!----><!----><a href="/topic/consumer-protection" class="result" data-v-91a79d22=""><div data-v-91a79d22="" class="contents"><div data-v-91a79d22="" class="title"><strong></strong>零<strong></strong>售<strong></strong>業<strong></strong>網<strong></strong>路<strong></strong>定<strong></strong>型<strong></strong>化<strong></strong>契<strong></strong>約<strong></strong></div><div data-v-91a79d22="" class="description"><strong></strong>c<strong></strong>o<strong></strong>n<strong></strong>s<strong></strong>u<strong></strong>m<strong></strong>e<strong></strong>r<strong></strong>-<strong></strong>p<strong></strong>r<strong></strong>o<strong></strong>t<strong></strong>e<strong></strong>c<strong></strong>t<strong></strong>i<strong></strong>o<strong></strong>n<strong></strong></div></div></a><a href="/topic/telemedicine" class="result" data-v-91a79d22=""><div data-v-91a79d22="" class="contents"><div data-v-91a79d22="" class="title"><strong></strong>遠<strong></strong>距<strong></strong>健<strong></strong>康<strong></strong>照<strong></strong>護<strong></strong></div><div data-v-91a79d22="" class="description"><strong></strong>t<strong></strong>e<strong></strong>l<strong></strong>e<strong></strong>m<strong></strong>e<strong></strong>d<strong></strong>i<strong></strong>c<strong></strong>i<strong></strong>n<strong></strong>e<strong></strong></div></div></a><a href="/topic/telework" class="result" data-v-91a79d22=""><div data-v-91a79d22="" class="contents"><div data-v-91a79d22="" class="title"><strong></strong>電<strong></strong>傳<strong></strong>勞<strong></strong>動<strong></strong></div><div data-v-91a79d22="" class="description"><strong></strong>t<strong></strong>e<strong></strong>l<strong></strong>e<strong></strong>w<strong></strong>o<strong></strong>r<strong></strong>k<strong></strong></div></div></a><!----><!----><a href="/topic/uberx" class="result" data-v-91a79d22=""><div data-v-91a79d22="" class="contents"><div data-v-91a79d22="" class="title"><strong></strong>U<strong></strong>b<strong></strong>e<strong></strong>r<strong></strong>X<strong></strong>自<strong></strong>用<strong></strong>車<strong></strong>載<strong></strong>客<strong></strong></div><div data-v-91a79d22="" class="description"><strong></strong>u<strong></strong>b<strong></strong>e<strong></strong>r<strong></strong>x<strong></strong></div></div></a><a href="/topic/cyberbullying" class="result" data-v-91a79d22=""><div data-v-91a79d22="" class="contents"><div data-v-91a79d22="" class="title"><strong></strong>網<strong></strong>路<strong></strong>霸<strong></strong>凌<strong></strong></div><div data-v-91a79d22="" class="description"><strong></strong>c<strong></strong>y<strong></strong>b<strong></strong>e<strong></strong>r<strong></strong>b<strong></strong>u<strong></strong>l<strong></strong>l<strong></strong>y<strong></strong>i<strong></strong>n<strong></strong>g<strong></strong></div></div></a><!----><!----></div><div data-v-91a79d22="" class="category"><div data-v-91a79d22="" class="name">送交院會 </div><!----><!----><!----><!----><!----><!----><!----><!----><a href="/topic/eliquor" class="result" data-v-91a79d22=""><div data-v-91a79d22="" class="contents"><div data-v-91a79d22="" class="title"><strong></strong>網<strong></strong>路<strong></strong>賣<strong></strong>酒<strong></strong>配<strong></strong>套<strong></strong>措<strong></strong>施<strong></strong></div><div data-v-91a79d22="" class="description"><strong></strong>e<strong></strong>l<strong></strong>i<strong></strong>q<strong></strong>u<strong></strong>o<strong></strong>r<strong></strong></div></div></a><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----></div><!----></div></div></div></div><div data-v-8718f044="" class="two wide column"><a href="/" class="logo router-link-active" data-v-8718f044=""><img data-v-8718f044="" src="/vTaiwan_logo_2017.png" alt="logo"><span data-v-8718f044="">vTaiwan</span></a></div><div data-v-8718f044="" class="seven wide column right"><!----><a href="/how-to-use" class="item how-to-use" data-v-8718f044="">使用手冊</a><a href="/intro" class="item intro" data-v-8718f044="">關於 vTaiwan</a></div></div></nav><nav data-v-8718f044="" class="thin-only"><a href="/" class="m-logo router-link-active" data-v-8718f044=""><img data-v-8718f044="" src="/vTaiwan_logo_2017.png" alt="logo"><span data-v-8718f044="">vTaiwan</span></a><div data-v-8718f044="" class="menu"><a href="/how-to-use" class="m-item" data-v-8718f044="">使用手冊</a><a href="/" class="m-item router-link-active" data-v-8718f044="">探索議題</a><a href="/search" class="m-item" data-v-8718f044="">搜尋議題</a></div></nav></div><div id="main" class="main"><div data-v-60640b22="" class="home view"><div data-v-30cdb09e="" class="component slideshow" data-v-60640b22=""><div data-v-30cdb09e="" class="swiper-container swiper-container-horizontal"><div data-v-30cdb09e="" class="swiper-wrapper" style="-webkit-transform: translate3d(33.49999999999997px, 0px, 0px); transition: 0ms; -webkit-transition: 0ms;"><div data-v-30cdb09e="" class="swiper-slide swiper-slide-active" style="background-image: url(http://image.slidesharecdn.com/c8s7nxdwrwook9zljomq-signature-ec5edf5b8d62ee9ad208e4446437b7c1fc16efb6db28685b63bb2604d25236c7-poli-161203074816/95/-1-1024.jpg); background-size: cover; width: 333.00000000000006px; margin-right: 2px; background-position: 100% 100%; background-repeat: initial initial;"><div data-v-30cdb09e="" class="box"><div data-v-30cdb09e="" class="status ui basic huge label"> 
+研擬草案</div><h1 data-v-30cdb09e="" class="slogan ui header">企業資產擔保法<div data-v-30cdb09e="" class="sub header">企業資產擔保法</div></h1><a href="/topic/securitization" class="ui right labeled icon teal huge button" data-v-30cdb09e=""><i data-v-30cdb09e="" class="right arrow icon"></i><p data-v-30cdb09e="">進入議題</p></a><i data-v-30cdb09e="" class="folder icon background"></i></div></div><div data-v-30cdb09e="" class="swiper-slide swiper-slide-next" style="background-image: url(http://static.thousandwonders.net/Taiwan.original.3738.jpg); background-size: cover; width: 333.00000000000006px; margin-right: 2px; background-position: 100% 100%; background-repeat: initial initial;"><div data-v-30cdb09e="" class="box"><div data-v-30cdb09e="" class="status ui basic huge label"> 
+意見徵集</div><h1 data-v-30cdb09e="" class="slogan ui header">社會企業公司法<div data-v-30cdb09e="" class="sub header">邁向世界的舞台</div></h1><a href="/topic/social-enterprise" class="ui right labeled icon teal huge button" data-v-30cdb09e=""><i data-v-30cdb09e="" class="right arrow icon"></i><p data-v-30cdb09e="">進入議題</p></a><i data-v-30cdb09e="" class="folder icon background"></i></div></div><div data-v-30cdb09e="" class="swiper-slide" style="background-image: url(https://images.unsplash.com/photo-1431540015161-0bf868a2d407?dpr=1.25&amp;auto=format&amp;fit=crop&amp;w=767&amp;h=511&amp;q=80&amp;cs=tinysrgb&amp;crop=); background-size: cover; width: 333.00000000000006px; margin-right: 2px; background-position: 100% 100%; background-repeat: initial initial;"><div data-v-30cdb09e="" class="box"><div data-v-30cdb09e="" class="status ui basic huge label"> 
+意見徵集</div><h1 data-v-30cdb09e="" class="slogan ui header">董監事選任<div data-v-30cdb09e="" class="sub header">公司法：董監事選任 directors-election</div></h1><a href="/topic/directors-election" class="ui right labeled icon teal huge button" data-v-30cdb09e=""><i data-v-30cdb09e="" class="right arrow icon"></i><p data-v-30cdb09e="">進入議題</p></a><i data-v-30cdb09e="" class="folder icon background"></i></div></div><div data-v-30cdb09e="" class="swiper-slide" style="background-image: url(https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?dpr=1.25&amp;auto=format&amp;fit=crop&amp;w=767&amp;h=512&amp;q=80&amp;cs=tinysrgb&amp;crop=); background-size: cover; width: 333.00000000000006px; margin-right: 2px; background-position: 100% 100%; background-repeat: initial initial;"><div data-v-30cdb09e="" class="box"><div data-v-30cdb09e="" class="status ui basic huge label"> 
+歷史案件</div><h1 data-v-30cdb09e="" class="slogan ui header">閉鎖型公司<div data-v-30cdb09e="" class="sub header">閉鎖型公司 closelyheld</div></h1><a href="/topic/closelyheld" class="ui right labeled icon teal huge button" data-v-30cdb09e=""><i data-v-30cdb09e="" class="right arrow icon"></i><p data-v-30cdb09e="">進入議題</p></a><i data-v-30cdb09e="" class="folder icon background"></i></div></div><div data-v-30cdb09e="" class="swiper-slide" style="background-image: url(https://upload.wikimedia.org/wikipedia/commons/2/2a/American%2C_Indonesian_Students_Link_Hands_Via_Distance_Learning.jpg); background-size: cover; width: 333.00000000000006px; margin-right: 2px; background-position: 100% 100%; background-repeat: initial initial;"><div data-v-30cdb09e="" class="box"><div data-v-30cdb09e="" class="status ui basic huge label"> 
+歷史案件</div><h1 data-v-30cdb09e="" class="slogan ui header">遠距教育<div data-v-30cdb09e="" class="sub header">數位生活：遠距教育</div></h1><a href="/topic/distant-education" class="ui right labeled icon teal huge button" data-v-30cdb09e=""><i data-v-30cdb09e="" class="right arrow icon"></i><p data-v-30cdb09e="">進入議題</p></a><i data-v-30cdb09e="" class="folder icon background"></i></div></div></div><div data-v-30cdb09e="" class="swiper-scrollbar" style="opacity: 0; transition: 400ms; -webkit-transition: 400ms;"><div class="swiper-scrollbar-drag" style="-webkit-transform: translate3d(0px, 0, 0); transition: 0ms; -webkit-transition: 0ms; width: 95.63658099222951px;"></div></div></div></div><div data-v-0aea0f33="" class="component proposalTab proposalTab" data-v-60640b22="" style="height: 895px;"><div data-v-0aea0f33="" class="ui container"><div data-v-0aea0f33="" id="mobile-step" class="ui sticky mobile-step thin-only" style="width: 15px !important; height: 95px !important;"><div data-v-0aea0f33="" class="ui vertical menu"><a data-v-0aea0f33="" href="#soon" class="fitted item active"><p data-v-0aea0f33="">即將開始</p></a><a data-v-0aea0f33="" href="#discuss" class="fitted item"><p data-v-0aea0f33="">意見徵集</p></a><a data-v-0aea0f33="" href="#curate" class="fitted item"><p data-v-0aea0f33="">研擬草案</p></a><a data-v-0aea0f33="" href="#deploy" class="fitted item"><p data-v-0aea0f33="">送交院會</p></a><a data-v-0aea0f33="" href="#history" class="fitted item"><p data-v-0aea0f33="">歷史案件</p></a></div></div><div data-v-0aea0f33="" class="ui top attached big steps fat-only"><a data-v-0aea0f33="" class="step active"><div data-v-0aea0f33="" class="label">即將開始</div><div data-v-0aea0f33="" class="number">1</div></a><a data-v-0aea0f33="" class="step"><div data-v-0aea0f33="" class="label">意見徵集</div><div data-v-0aea0f33="" class="number">2</div></a><a data-v-0aea0f33="" class="step"><div data-v-0aea0f33="" class="label">研擬草案</div><div data-v-0aea0f33="" class="number">3</div></a><a data-v-0aea0f33="" class="step"><div data-v-0aea0f33="" class="label">送交院會</div><div data-v-0aea0f33="" class="number">4</div></a><a data-v-0aea0f33="" class="step"><div data-v-0aea0f33="" class="label">歷史案件</div><div data-v-0aea0f33="" class="number">5</div></a></div><div data-v-0aea0f33="" id="context" class="ui segment basic"><div data-v-67d7e20d="" class="component" data-v-0aea0f33=""><div data-v-67d7e20d="" id="soon" class="ui container basic segment"><h2 data-v-67d7e20d="" class="ui header m-title thin-only">即將開始</h2><div data-v-67d7e20d="" class="desc ui basic center aligned segment fat-only"><sup data-v-67d7e20d=""><i data-v-67d7e20d="" class="quote left icon"></i></sup>在草案未形成前跳脫時間空間限制，擴大搜集利害相關人之意見 <sub data-v-67d7e20d=""><i data-v-67d7e20d="" class="quote right icon"></i></sub></div><div data-v-67d7e20d="" class="ui compact info message">目前還沒有正在進行的議案…</div><div data-v-67d7e20d="" class="ui four stackable cards"></div></div></div><div data-v-67d7e20d="" class="component" data-v-0aea0f33=""><div data-v-67d7e20d="" id="discuss" class="ui container basic segment"><h2 data-v-67d7e20d="" class="ui header m-title thin-only">意見徵集</h2><div data-v-67d7e20d="" class="desc ui basic center aligned segment fat-only"><sup data-v-67d7e20d=""><i data-v-67d7e20d="" class="quote left icon"></i></sup>邀請核心利害相關者參與諮詢會議，加入實體見面討論，一同將意見化為草案 <sub data-v-67d7e20d=""><i data-v-67d7e20d="" class="quote right icon"></i></sub></div><!----><div data-v-67d7e20d="" class="ui four stackable cards"><a href="/topic/social-enterprise" class="card" data-v-67d7e20d=""><div data-v-67d7e20d="" class="image"><img data-v-67d7e20d="" src="http://static.thousandwonders.net/Taiwan.original.3738.jpg" class="ui image"></div><div data-v-67d7e20d="" class="content"><h3 data-v-67d7e20d="" class="ui header">社會企業公司法</h3></div><div data-v-67d7e20d="" class="extra content"><div data-v-67d7e20d="" class="progress_bar"><div data-v-67d7e20d="" class="progress_text">討論已結束</div><div data-v-67d7e20d="" class="progress_color"></div></div></div></a><a href="/topic/directors-election" class="card" data-v-67d7e20d=""><div data-v-67d7e20d="" class="image"><img data-v-67d7e20d="" src="https://images.unsplash.com/photo-1431540015161-0bf868a2d407?dpr=1.25&amp;auto=format&amp;fit=crop&amp;w=767&amp;h=511&amp;q=80&amp;cs=tinysrgb&amp;crop=" class="ui image"></div><div data-v-67d7e20d="" class="content"><h3 data-v-67d7e20d="" class="ui header">董監事選任</h3></div><div data-v-67d7e20d="" class="extra content"><div data-v-67d7e20d="" class="progress_bar"><div data-v-67d7e20d="" class="progress_text">討論已結束</div><div data-v-67d7e20d="" class="progress_color" style="width: 100%;"></div></div></div></a><a href="/topic/sandbox" class="card" data-v-67d7e20d=""><div data-v-67d7e20d="" class="image"><img data-v-67d7e20d="" src="https://images.unsplash.com/photo-1465414829459-d228b58caf6e" class="ui image"></div><div data-v-67d7e20d="" class="content"><h3 data-v-67d7e20d="" class="ui header">金融監理沙盒</h3></div><div data-v-67d7e20d="" class="extra content"><div data-v-67d7e20d="" class="progress_bar"><div data-v-67d7e20d="" class="progress_text">討論已結束</div><div data-v-67d7e20d="" class="progress_color" style="width: 100%;"></div></div></div></a></div></div></div><div data-v-67d7e20d="" class="component" data-v-0aea0f33=""><div data-v-67d7e20d="" id="curate" class="ui container basic segment"><h2 data-v-67d7e20d="" class="ui header m-title thin-only">研擬草案</h2><div data-v-67d7e20d="" class="desc ui basic center aligned segment fat-only"><sup data-v-67d7e20d=""><i data-v-67d7e20d="" class="quote left icon"></i></sup>將成熟的草案加強、寫成定案 <sub data-v-67d7e20d=""><i data-v-67d7e20d="" class="quote right icon"></i></sub></div><!----><div data-v-67d7e20d="" class="ui four stackable cards"><a href="/topic/securitization" class="card" data-v-67d7e20d=""><div data-v-67d7e20d="" class="image"><img data-v-67d7e20d="" src="http://image.slidesharecdn.com/c8s7nxdwrwook9zljomq-signature-ec5edf5b8d62ee9ad208e4446437b7c1fc16efb6db28685b63bb2604d25236c7-poli-161203074816/95/-1-1024.jpg" class="ui image"></div><div data-v-67d7e20d="" class="content"><h3 data-v-67d7e20d="" class="ui header">企業資產擔保法</h3></div></a><a href="/topic/personal-data-protection" class="card" data-v-67d7e20d=""><div data-v-67d7e20d="" class="image"><img data-v-67d7e20d="" src="https://images.unsplash.com/photo-1457682524032-465ef406d105?dpr=1.25&amp;auto=format&amp;fit=crop&amp;w=767&amp;h=511&amp;q=80&amp;cs=tinysrgb&amp;crop=" class="ui image"></div><div data-v-67d7e20d="" class="content"><h3 data-v-67d7e20d="" class="ui header">個資利用與去識別化</h3></div></a><a href="/topic/data-levy" class="card" data-v-67d7e20d=""><div data-v-67d7e20d="" class="image"><img data-v-67d7e20d="" src="https://images.unsplash.com/photo-1482859602406-7659b00979fb" class="ui image"></div><div data-v-67d7e20d="" class="content"><h3 data-v-67d7e20d="" class="ui header">開放資料例外收費原則</h3></div></a><a href="/topic/infosecurity" class="card" data-v-67d7e20d=""><div data-v-67d7e20d="" class="image"><img data-v-67d7e20d="" src="https://images.unsplash.com/photo-1452796907770-ad6cd374b12d" class="ui image"></div><div data-v-67d7e20d="" class="content"><h3 data-v-67d7e20d="" class="ui header">資安管理</h3></div></a><a href="/topic/naming" class="card" data-v-67d7e20d=""><div data-v-67d7e20d="" class="image"><img data-v-67d7e20d="" src="http://static.thousandwonders.net/Taiwan.original.3738.jpg" class="ui image"></div><div data-v-67d7e20d="" class="content"><h3 data-v-67d7e20d="" class="ui header">公司英文名稱登記</h3></div></a><a href="/topic/airbnb" class="card" data-v-67d7e20d=""><div data-v-67d7e20d="" class="image"><img data-v-67d7e20d="" src="https://c1.staticflickr.com/1/430/19915395410_611f840957_b.jpg" class="ui image"></div><div data-v-67d7e20d="" class="content"><h3 data-v-67d7e20d="" class="ui header">Airbnb自用住宅招租</h3></div><!----></a></div></div></div><div data-v-67d7e20d="" class="component" data-v-0aea0f33=""><div data-v-67d7e20d="" id="deploy" class="ui container basic segment"><h2 data-v-67d7e20d="" class="ui header m-title thin-only">送交院會</h2><div data-v-67d7e20d="" class="desc ui basic center aligned segment fat-only"><sup data-v-67d7e20d=""><i data-v-67d7e20d="" class="quote left icon"></i></sup>送交立法院 <sub data-v-67d7e20d=""><i data-v-67d7e20d="" class="quote right icon"></i></sub></div><!----><div data-v-67d7e20d="" class="ui four stackable cards"><a href="/topic/eliquor" class="card" data-v-67d7e20d=""><div data-v-67d7e20d="" class="image"><img data-v-67d7e20d="" src="http://image.slidesharecdn.com/zbxi01iqoy2zrsqzsu1a-signature-a2c1b04c1b0e46e92533427e0ed861b29a57eaa126a150b1594cb3e1174531a0-poli-160329231814/95/-1-1024.jpg" class="ui image"></div><div data-v-67d7e20d="" class="content"><h3 data-v-67d7e20d="" class="ui header">網路賣酒配套措施</h3></div></a></div></div></div><div data-v-67d7e20d="" class="component" data-v-0aea0f33=""><div data-v-67d7e20d="" id="history" class="ui container basic segment"><h2 data-v-67d7e20d="" class="ui header m-title thin-only">歷史案件</h2><div data-v-67d7e20d="" class="desc ui basic center aligned segment fat-only"><sup data-v-67d7e20d=""><i data-v-67d7e20d="" class="quote left icon"></i></sup>追蹤審查進度與結果 <sub data-v-67d7e20d=""><i data-v-67d7e20d="" class="quote right icon"></i></sub></div><!----><div data-v-67d7e20d="" class="ui four stackable cards"><a href="/topic/closelyheld" class="card" data-v-67d7e20d=""><div data-v-67d7e20d="" class="image"><img data-v-67d7e20d="" src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?dpr=1.25&amp;auto=format&amp;fit=crop&amp;w=767&amp;h=512&amp;q=80&amp;cs=tinysrgb&amp;crop=" class="ui image"></div><div data-v-67d7e20d="" class="content"><h3 data-v-67d7e20d="" class="ui header">閉鎖型公司</h3></div></a><a href="/topic/distant-education" class="card" data-v-67d7e20d=""><div data-v-67d7e20d="" class="image"><img data-v-67d7e20d="" src="https://upload.wikimedia.org/wikipedia/commons/2/2a/American%2C_Indonesian_Students_Link_Hands_Via_Distance_Learning.jpg" class="ui image"></div><div data-v-67d7e20d="" class="content"><h3 data-v-67d7e20d="" class="ui header">遠距教育</h3></div></a><a href="/topic/crowdfunding" class="card" data-v-67d7e20d=""><div data-v-67d7e20d="" class="image"><img data-v-67d7e20d="" src="https://c1.staticflickr.com/9/8124/8661000014_cb0056d718_z.jpg" class="ui image"></div><div data-v-67d7e20d="" class="content"><h3 data-v-67d7e20d="" class="ui header">群眾募資</h3></div></a><a href="/topic/etax" class="card" data-v-67d7e20d=""><div data-v-67d7e20d="" class="image"><img data-v-67d7e20d="" src="https://images.unsplash.com/photo-1483239546567-ccc4ce2b344a?dpr=2&amp;auto=format&amp;fit=crop&amp;w=1500&amp;h=877&amp;q=80&amp;cs=tinysrgb&amp;crop=" class="ui image"></div><div data-v-67d7e20d="" class="content"><h3 data-v-67d7e20d="" class="ui header">網路交易課稅</h3></div></a><a href="/topic/consumer-protection" class="card" data-v-67d7e20d=""><div data-v-67d7e20d="" class="image"><img data-v-67d7e20d="" src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Walmartmexicaninteriors.jpg" class="ui image"></div><div data-v-67d7e20d="" class="content"><h3 data-v-67d7e20d="" class="ui header">零售業網路定型化契約</h3></div></a><a href="/topic/telemedicine" class="card" data-v-67d7e20d=""><div data-v-67d7e20d="" class="image"><img data-v-67d7e20d="" src="https://upload.wikimedia.org/wikipedia/commons/c/c9/%E8%95%AD%E4%B8%AD%E6%AD%A3%E9%99%A2%E9%95%B7%E9%80%B2%E8%A1%8CTelecare_conference.jpg" class="ui image"></div><div data-v-67d7e20d="" class="content"><h3 data-v-67d7e20d="" class="ui header">遠距健康照護</h3></div></a><a href="/topic/telework" class="card" data-v-67d7e20d=""><div data-v-67d7e20d="" class="image"><img data-v-67d7e20d="" src="https://c2.staticflickr.com/6/5295/5447249284_45af289868_b.jpg" class="ui image"></div><div data-v-67d7e20d="" class="content"><h3 data-v-67d7e20d="" class="ui header">電傳勞動</h3></div></a><a href="/topic/uberx" class="card" data-v-67d7e20d=""><div data-v-67d7e20d="" class="image"><img data-v-67d7e20d="" src="https://c2.staticflickr.com/8/7043/27806414001_70bd4302de_z.jpg" class="ui image"></div><div data-v-67d7e20d="" class="content"><h3 data-v-67d7e20d="" class="ui header">UberX自用車載客</h3></div></a></div></div></div></div></div></div><div data-v-60640b22="" class="ui divider"></div><div data-v-1ffe16c1="" class="component" data-v-60640b22=""><div data-v-1ffe16c1="" class="fat-only"><div data-v-1ffe16c1="" class="swiper-container1 swiper-container-horizontal"><div data-v-1ffe16c1="" class="swiper-wrapper" style="transition: 0ms; -webkit-transition: 0ms;"><div data-v-1ffe16c1="" class="swiper-slide swiper-slide-active"><div data-v-1ffe16c1="" class="ui cards"><div data-v-1ffe16c1="" class="card"><div data-v-1ffe16c1="" class="image"><img data-v-1ffe16c1="" src="https://external.xx.fbcdn.net/safe_image.php?d=AQB3xgfguoezC6Jv&amp;url=https%3A%2F%2F3.bp.blogspot.com%2F-VnF-hZCJAcA%2FVhrcDUEimOI%2FAAAAAAAAOBg%2FKLbVsyCSG5Q%2Fs1280%2FScreen%252BShot%252B2015-10-11%252Bat%252B6.00.31%252BPM.png&amp;_nc_hash=AQBx3JxKkqaLfLkG"></div><div data-v-1ffe16c1="" class="content"><div data-v-1ffe16c1="" class="tags"><div data-v-1ffe16c1="" class="ui mini tag label">uber</div><div data-v-1ffe16c1="" class="ui mini tag label">分享經濟</div><div data-v-1ffe16c1="" class="ui mini tag label">交通運輸</div></div><a data-v-1ffe16c1="" href="https://www.bnext.com.tw/article/37614/BN-2015-10-12-060029-81" target="_blank" class="header">終結Uber爭議!中國正擬定法規管理叫車服務</a></div><div data-v-1ffe16c1="" class="description"><p data-v-1ffe16c1="" class="JQellipsis" title="雖然Uber開創的叫車服務引起許多法規爭議，但至今還沒有一個國家真正做出何相關法條限制，現在情勢可能改變，中國政府可能將成為限制Uber的先鋒。">雖然Uber開創的叫車服務引起許多法規爭議，但至今還沒有一個國家真正做出何相關法條限制，現在情勢可能改變，中國政府可能...</p></div><div data-v-1ffe16c1="" class="extra content"><div data-v-1ffe16c1="" class="right floated author"><a data-v-1ffe16c1="" href="http://www.bnext.com.tw" target="_blank">bnext.com.tw</a></div></div></div></div></div><div data-v-1ffe16c1="" class="swiper-slide swiper-slide-next"><div data-v-1ffe16c1="" class="ui cards"><div data-v-1ffe16c1="" class="card"><div data-v-1ffe16c1="" class="image"><img data-v-1ffe16c1="" src="https://external.xx.fbcdn.net/safe_image.php?d=AQA_c6UtB3PNlXmE&amp;url=http%3A%2F%2Fimg.chinatimes.com%2Fnewsphoto%2F2016-01-08%2Fclipping%2F656%2Fa12a00_t_05_02.jpg&amp;_nc_hash=AQBcRJZlzLVGHgV9"></div><div data-v-1ffe16c1="" class="content"><div data-v-1ffe16c1="" class="tags"><div data-v-1ffe16c1="" class="ui mini tag label">股權式群眾募資</div></div><a data-v-1ffe16c1="" href="http://www.chinatimes.com/newspapers/20160108000135-260205" target="_blank" class="header">群募8大鬆綁 提前上路</a></div><div data-v-1ffe16c1="" class="description"><p data-v-1ffe16c1="" class="JQellipsis" title="為了讓國內資本市場更多元化，金管會對於股權性質群眾募資法規再作八項鬆綁！金管會7日指出，自從去年4月30日開放民間業者經營股權性質群眾募資以來，已核准6家、其中3家業者開業，現再修法放寬讓群募平台業者可轉投資、可向募資公司或投資人收取費用等，讓台灣的資本市場更符合創新創業者的需要。 金管會表示，此次修法重點有二大項，一項針對新創的募資公司，其募資金額從1,500萬拉高到3,000萬元，另外，可引進專業機構投資人…">為了讓國內資本市場更多元化，金管會對於股權性質群眾募資法規再作八項鬆綁！金管會7日指出，自從去年4月30日開放民間業者...</p></div><div data-v-1ffe16c1="" class="extra content"><div data-v-1ffe16c1="" class="right floated author"><a data-v-1ffe16c1="" href="http://www.chinatimes.com" target="_blank">chinatimes.com</a></div></div></div></div></div><div data-v-1ffe16c1="" class="swiper-slide"><div data-v-1ffe16c1="" class="ui cards"><div data-v-1ffe16c1="" class="card"><div data-v-1ffe16c1="" class="image"><img data-v-1ffe16c1="" src="https://external.xx.fbcdn.net/safe_image.php?d=AQBDFU0NW9HrtYLC&amp;url=http%3A%2F%2Fstatic01.nyt.com%2Fimages%2F2016%2F01%2F25%2Fadmin%2Fcn-cooking4%2Fcn-cooking4-articleLarge.jpg&amp;_nc_hash=AQCUFJC46DLkU3hK"></div><div data-v-1ffe16c1="" class="content"><div data-v-1ffe16c1="" class="tags"><div data-v-1ffe16c1="" class="ui mini tag label">sharingeconomy</div></div><a data-v-1ffe16c1="" href="http://cn.nytstyle.com/living/20160125/tc25app/zh-hant" target="_blank" class="header">The New York Times Chinese -Traditional    紐約時報中文網</a></div><div data-v-1ffe16c1="" class="description"><p data-v-1ffe16c1="" class="JQellipsis" title="在北京、上海等城市，一些主婦、退休長者和烹飪愛好者正在利用家廚共享應用平台，給附近辦公大樓裡的白領做家常飯。看看這個新「職業」是如何誕生的：">在北京、上海等城市，一些主婦、退休長者和烹飪愛好者正在利用家廚共享應用平台，給附近辦公大樓裡的白領做家常飯。看看這個新...</p></div><div data-v-1ffe16c1="" class="extra content"><div data-v-1ffe16c1="" class="right floated author"><a data-v-1ffe16c1="" href="http://cn.nytstyle.com" target="_blank">cn.nytimes.com</a></div></div></div></div></div><div data-v-1ffe16c1="" class="swiper-slide"><div data-v-1ffe16c1="" class="ui cards"><div data-v-1ffe16c1="" class="card"><div data-v-1ffe16c1="" class="image"><img data-v-1ffe16c1="" src="https://external.xx.fbcdn.net/safe_image.php?d=AQA7Nrs60PB4VvcX&amp;url=https%3A%2F%2Fscontent.xx.fbcdn.net%2Ft45.1600-4%2F12480863_6043667308619_983551238_n.png&amp;_nc_hash=AQBt7G6Y1Z9yXqvQ"></div><div data-v-1ffe16c1="" class="content"><div data-v-1ffe16c1="" class="tags"><div data-v-1ffe16c1="" class="ui mini tag label">blockchain</div></div><a data-v-1ffe16c1="" href="http://www.chinatimes.com/newspapers/20160128000025-260202" target="_blank" class="header">社論－推動區塊鏈技術的應用已刻不容緩</a></div><div data-v-1ffe16c1="" class="description"><p data-v-1ffe16c1="" class="JQellipsis" title="FinTech（金融科技）波譎雲詭地像陣陣的浪潮席捲全球各地，對金融業帶來巨大的衝擊，然而在FinTech浪潮中有一個原本不被注意，甚至被視為異類的金融創新－比特幣，其背後所使用的區塊鏈（Blockchain）技術，即將改變未來人們的生活方式，各種金融交易、報稅、簽約、護照可能都會用到區塊鏈技術，甚至通訊投票要受到各方信任也會用到它，而且未來中央銀行發行的的貨幣可能不再是紙幣而是數位貨幣。全球各國的產官學研各界紛紛加入…">FinTech（金融科技）波譎雲詭地像陣陣的浪潮席捲全球各地，對金融業帶來巨大的衝擊，然而在FinTech浪潮中有一個...</p></div><div data-v-1ffe16c1="" class="extra content"><div data-v-1ffe16c1="" class="right floated author"><a data-v-1ffe16c1="" href="http://www.chinatimes.com" target="_blank">chinatimes.com</a></div></div></div></div></div><div data-v-1ffe16c1="" class="swiper-slide"><div data-v-1ffe16c1="" class="ui cards"><div data-v-1ffe16c1="" class="card"><div data-v-1ffe16c1="" class="image"><img data-v-1ffe16c1="" src="https://external.xx.fbcdn.net/safe_image.php?d=AQAHJ4v104reVLQn&amp;url=http%3A%2F%2Fbuzzorange.com%2Ftechorange%2Fwp-content%2Fuploads%2F2016%2F01%2FS__14450698.jpg&amp;_nc_hash=AQDtLAuike3J7jgg"></div><div data-v-1ffe16c1="" class="content"><div data-v-1ffe16c1="" class="tags"><div data-v-1ffe16c1="" class="ui mini tag label">vtaiwan</div></div><a data-v-1ffe16c1="" href="http://buzzorange.com/techorange/2016/01/18/thank-you-jaclyn-tsai/" target="_blank" class="header">搭建創業者與政府的溝通橋樑，謝謝蔡玉玲政委把台灣新創圈推了這麼遠 | TechOrange</a></div><div data-v-1ffe16c1="" class="description"><p data-v-1ffe16c1="" class="JQellipsis" title="推廣 VTaiwan 虛擬世界法規交流平台、讓新創圈讚聲不斷的行政院政委蔡玉玲在臉書上發表辭職感言。這一位從業界轉入政壇，為改革帶來一抹光明的政委，讓許多科技、新創圈的業者都在底下留言：「謝謝政委！」 [...]">推廣 VTaiwan 虛擬世界法規交流平台、讓新創圈讚聲不斷的行政院政委蔡玉玲在臉書上發表辭職感言。這一位從業界轉入政...</p></div><div data-v-1ffe16c1="" class="extra content"><div data-v-1ffe16c1="" class="right floated author"><a data-v-1ffe16c1="" href="http://buzzorange.com" target="_blank">buzzorange.com</a></div></div></div></div></div><div data-v-1ffe16c1="" class="swiper-slide"><div data-v-1ffe16c1="" class="ui cards"><div data-v-1ffe16c1="" class="card"><div data-v-1ffe16c1="" class="image"><img data-v-1ffe16c1="" src="https://external.xx.fbcdn.net/safe_image.php?d=AQDO1LAIPkdglVxL&amp;url=http%3A%2F%2Fudn.com%2Fstatic%2Fimg%2FUDN_BABY.png&amp;_nc_hash=AQDbdc6l6n1a-YnM"></div><div data-v-1ffe16c1="" class="content"><div data-v-1ffe16c1="" class="tags"><div data-v-1ffe16c1="" class="ui mini tag label">innovation</div></div><a data-v-1ffe16c1="" href="http://udn.com/news/story/6811/1484103" target="_blank" class="header">名家瞭望／數位浪潮...帶領企業創新 | 國際財經 | 全球 | 聯合新聞網</a></div><div data-v-1ffe16c1="" class="description"><p data-v-1ffe16c1="" class="JQellipsis" title="科技變動一向是企業的一大挑戰。當今科技變動之快、規模之大，絕非以往所能望其項背，2015年亦復如是。從重工業到服務業，「創新」正橫掃所有領域，改變競爭的格局。能夠攀越顛峰之企業既非規模最大，也非資格最老，而是由科技最先進者掄元。">科技變動一向是企業的一大挑戰。當今科技變動之快、規模之大，絕非以往所能望其項背，2015年亦復如是。從重工業到服務業，...</p></div><div data-v-1ffe16c1="" class="extra content"><div data-v-1ffe16c1="" class="right floated author"><a data-v-1ffe16c1="" href="http://udn.com" target="_blank">udn.com</a></div></div></div></div></div><div data-v-1ffe16c1="" class="swiper-slide"><div data-v-1ffe16c1="" class="ui cards"><div data-v-1ffe16c1="" class="card"><div data-v-1ffe16c1="" class="image"><img data-v-1ffe16c1="" src="https://external.xx.fbcdn.net/safe_image.php?d=AQAe7yfOWTPKCXbG&amp;url=http%3A%2F%2Ftwimg.edgesuite.net%2Fimages%2FReNews%2F20160120%2F640_80f65e2bf667a442d9aa6c0af7bdfbde.jpg&amp;_nc_hash=AQAvq9ZDr5xoJ617"></div><div data-v-1ffe16c1="" class="content"><div data-v-1ffe16c1="" class="tags"><div data-v-1ffe16c1="" class="ui mini tag label">網路無障礙</div></div><a data-v-1ffe16c1="" href="http://www.appledaily.com.tw/realtimenews/article/new/20160120/779492/" target="_blank" class="header">NCC推無障礙法案 政府緊急訊息應供手語翻譯 | 即時新聞 | 20160120 | 蘋果日報</a></div><div data-v-1ffe16c1="" class="description"><p data-v-1ffe16c1="" class="JQellipsis" title="國家通訊傳播委員會（NCC）今通過「推動無障礙通傳近用行動方案草案」，包含發生重大災變時能以振動、聲音警示等方式提醒身障者，鼓勵電信業者比照低收入戶提供身心障礙者寬頻上網折扣、政府及電視業者重大活動或">國家通訊傳播委員會（NCC）今通過「推動無障礙通傳近用行動方案草案」，包含發生重大災變時能以振動、聲音警示等方式提醒身...</p></div><div data-v-1ffe16c1="" class="extra content"><div data-v-1ffe16c1="" class="right floated author"><a data-v-1ffe16c1="" href="http://www.appledaily.com.tw" target="_blank">appledaily.com.tw</a></div></div></div></div></div><div data-v-1ffe16c1="" class="swiper-slide"><div data-v-1ffe16c1="" class="ui cards"><div data-v-1ffe16c1="" class="card"><div data-v-1ffe16c1="" class="image"><img data-v-1ffe16c1="" src="https://external.xx.fbcdn.net/safe_image.php?d=AQDO1LAIPkdglVxL&amp;url=http%3A%2F%2Fudn.com%2Fstatic%2Fimg%2FUDN_BABY.png&amp;_nc_hash=AQDbdc6l6n1a-YnM"></div><div data-v-1ffe16c1="" class="content"><div data-v-1ffe16c1="" class="tags"><div data-v-1ffe16c1="" class="ui mini tag label">Uber</div></div><a data-v-1ffe16c1="" href="http://udn.com/news/story/9482/1508553-Uber來台三年-法院認違法" target="_blank" class="header">Uber來台三年 法院認違法 | Uber低價攻高雄 | 要聞 | 聯合新聞網</a></div><div data-v-1ffe16c1="" class="description"><p data-v-1ffe16c1="" class="JQellipsis" title="Uber來台近三年，交通部認定Uber在台登記的台灣宇博公司違法，裁罰台灣宇博公司及司機累積近五千萬元，上百名司機被吊扣牌照兩個月。台北高等法院上月判決交通部勝訴，認定Uber確有違法事實，但可上訴。">Uber來台近三年，交通部認定Uber在台登記的台灣宇博公司違法，裁罰台灣宇博公司及司機累積近五千萬元，上百名司機被吊...</p></div><div data-v-1ffe16c1="" class="extra content"><div data-v-1ffe16c1="" class="right floated author"><a data-v-1ffe16c1="" href="http://udn.com" target="_blank">udn.com</a></div></div></div></div></div><div data-v-1ffe16c1="" class="swiper-slide"><div data-v-1ffe16c1="" class="ui cards"><div data-v-1ffe16c1="" class="card"><div data-v-1ffe16c1="" class="image"><img data-v-1ffe16c1="" src="https://external.xx.fbcdn.net/safe_image.php?d=AQBXYlahusoXk2fA&amp;url=https%3A%2F%2Fscontent.xx.fbcdn.net%2Ft45.1600-4%2F12409190_6045328714419_221726847_n.png&amp;_nc_hash=AQAqlPHfwjV2ES8F"></div><div data-v-1ffe16c1="" class="content"><div data-v-1ffe16c1="" class="tags"><div data-v-1ffe16c1="" class="ui mini tag label">電子通訊傳播法</div></div><a data-v-1ffe16c1="" href="http://udn.com/news/story/7238/1516411" target="_blank" class="header">數位匯流五法 拚4月送立院 | 財經焦點 | 產經 | 聯合新聞網</a></div><div data-v-1ffe16c1="" class="description"><p data-v-1ffe16c1="" class="JQellipsis" title="行政院政務委員蔡玉玲、鐘嘉德本周起將密集聯審「數位匯流五法」，目標是在4月送入立法院審查。蔡玉玲表示，數位五法將以水平管理取代目前對電信、通訊、傳播採取的行業分立管制；未來，匯流程度愈高的內容提供者，政府將減少管制，並提供誘因協助發展。">行政院政務委員蔡玉玲、鐘嘉德本周起將密集聯審「數位匯流五法」，目標是在4月送入立法院審查。蔡玉玲表示，數位五法將以水平...</p></div><div data-v-1ffe16c1="" class="extra content"><div data-v-1ffe16c1="" class="right floated author"><a data-v-1ffe16c1="" href="http://udn.com" target="_blank">udn.com</a></div></div></div></div></div><div data-v-1ffe16c1="" class="swiper-slide"><div data-v-1ffe16c1="" class="ui cards"><div data-v-1ffe16c1="" class="card"><div data-v-1ffe16c1="" class="image"><img data-v-1ffe16c1="" src="undefined"></div><div data-v-1ffe16c1="" class="content"><div data-v-1ffe16c1="" class="tags"><div data-v-1ffe16c1="" class="ui mini tag label">個人資料保護</div></div><a data-v-1ffe16c1="" href="http://gazette.nat.gov.tw/EG_FileManager/eguploadpub/eg022035/ch01/type1/gov01/num2/Eg.htm" target="_blank" class="header">行政院公報資訊網</a></div><div data-v-1ffe16c1="" class="description"><p data-v-1ffe16c1="" class="JQellipsis" title=" 服務專線：02-23924146 / 傳真專線：02-23569970           電子信箱：ego@gazette.nat.gov.tw 服務時間：每週一至週五上班時間AM 8:30~12:30 PM 1:30~5:30 公報紙本訂閱，請洽國家書店松江門市（秀威）：02-27960359 國家發展委員會 版權所有 / 本站建議使用IE7 以上瀏覽，800x600 或1024x768 螢幕解析"> 服務專線：02-23924146 / 傳真專線：02-23569970           電子信箱：ego@gaz...</p></div><div data-v-1ffe16c1="" class="extra content"><div data-v-1ffe16c1="" class="right floated author"><a data-v-1ffe16c1="" href="http://gazette.nat.gov.tw" target="_blank">gazette.nat.gov.tw</a></div></div></div></div></div><div data-v-1ffe16c1="" class="swiper-slide"><div data-v-1ffe16c1="" class="ui cards"><div data-v-1ffe16c1="" class="card"><div data-v-1ffe16c1="" class="image"><img data-v-1ffe16c1="" src="https://external.xx.fbcdn.net/safe_image.php?d=AQDMeGVOJLsy2zrh&amp;url=https%3A%2F%2Fscontent.xx.fbcdn.net%2Ft45.1600-4%2F12480872_6045854337619_1841699842_n.png&amp;_nc_hash=AQB4L6_xp8h9nf1E"></div><div data-v-1ffe16c1="" class="content"><div data-v-1ffe16c1="" class="tags"><div data-v-1ffe16c1="" class="ui mini tag label">個人資料保護</div></div><a data-v-1ffe16c1="" href="http://www.cna.com.tw/news/firstnews/201603015007-1.aspx" target="_blank" class="header">拒絕替FBI解密手機 紐約法官判蘋果勝訴 | 重點新聞 | 中央社即時新聞 CNA NEWS</a></div><div data-v-1ffe16c1="" class="description"><p data-v-1ffe16c1="" class="JQellipsis" title="（中央社記者曹宇帆洛杉磯29日專電）蘋果公司（Apple）拒絕替美國聯邦調查局（FBI）解密手機以調查毒販的官司，美國聯邦法官今天宣判，蘋果公司無需提供辦案協助。 | 重點新聞">（中央社記者曹宇帆洛杉磯29日專電）蘋果公司（Apple）拒絕替美國聯邦調查局（FBI）解密手機以調查毒販的官司，美國...</p></div><div data-v-1ffe16c1="" class="extra content"><div data-v-1ffe16c1="" class="right floated author"><a data-v-1ffe16c1="" href="http://www.cna.com.tw" target="_blank">cna.com.tw</a></div></div></div></div></div><div data-v-1ffe16c1="" class="swiper-slide"><div data-v-1ffe16c1="" class="ui cards"><div data-v-1ffe16c1="" class="card"><div data-v-1ffe16c1="" class="image"><img data-v-1ffe16c1="" src="https://external.xx.fbcdn.net/safe_image.php?d=AQAGDk6krWte3HwV&amp;url=http%3A%2F%2Fwww.inside.com.tw%2Fwp-content%2Fuploads%2F2016%2F03%2Fubertaxi.png&amp;_nc_hash=AQCLiqXuSiR6ALGu"></div><div data-v-1ffe16c1="" class="content"><div data-v-1ffe16c1="" class="tags"><div data-v-1ffe16c1="" class="ui mini tag label">Uber</div></div><a data-v-1ffe16c1="" href="http://www.inside.com.tw/2016/03/01/uber-sharing-economy-traffic-safety-system" target="_blank" class="header">Uber 是真共享經濟，還是破壞交通體制的吸金大法？</a></div><div data-v-1ffe16c1="" class="description"><p data-v-1ffe16c1="" class="JQellipsis" title="Uber 真的是具新創精神的共享經濟，還是罔顧司機乘客權利的斂財系統？不少人選擇 Uber 是因為「觀感」比較好，但這很可能正陷入了「因為我喜歡他，因此他就算犯法也沒關係」的嚴重謬誤。">Uber 真的是具新創精神的共享經濟，還是罔顧司機乘客權利的斂財系統？不少人選擇 Uber 是因為「觀感」比較好，但這...</p></div><div data-v-1ffe16c1="" class="extra content"><div data-v-1ffe16c1="" class="right floated author"><a data-v-1ffe16c1="" href="http://www.inside.com.tw" target="_blank">inside.com.tw</a></div></div></div></div></div><div data-v-1ffe16c1="" class="swiper-slide"><div data-v-1ffe16c1="" class="ui cards"><div data-v-1ffe16c1="" class="card"><div data-v-1ffe16c1="" class="image"><img data-v-1ffe16c1="" src="https://external.xx.fbcdn.net/safe_image.php?d=AQDO1LAIPkdglVxL&amp;url=http%3A%2F%2Fudn.com%2Fstatic%2Fimg%2FUDN_BABY.png&amp;_nc_hash=AQDbdc6l6n1a-YnM"></div><div data-v-1ffe16c1="" class="content"><div data-v-1ffe16c1="" class="tags"><div data-v-1ffe16c1="" class="ui mini tag label">個人資料</div><div data-v-1ffe16c1="" class="ui mini tag label">資訊安全</div></div><a data-v-1ffe16c1="" href="http://udn.com/news/story/6809/1533674" target="_blank" class="header">要求蘋果、Google解鎖 法國擬修法 | 全球 | 聯合新聞網</a></div><div data-v-1ffe16c1="" class="description"><p data-v-1ffe16c1="" class="JQellipsis" title="美國蘋果公司與FBI就恐怖殺人犯手機的解碼糾紛出現擴散效應。法國執政黨議員上月29日提案修法，未來如果蘋果、Google等公司不配合侵入恐怖分子的手機，將可罰100萬歐元（約台幣3620萬元）。">美國蘋果公司與FBI就恐怖殺人犯手機的解碼糾紛出現擴散效應。法國執政黨議員上月29日提案修法，未來如果蘋果、Googl...</p></div><div data-v-1ffe16c1="" class="extra content"><div data-v-1ffe16c1="" class="right floated author"><a data-v-1ffe16c1="" href="http://udn.com" target="_blank">udn.com</a></div></div></div></div></div><div data-v-1ffe16c1="" class="swiper-slide"><div data-v-1ffe16c1="" class="ui cards"><div data-v-1ffe16c1="" class="card"><div data-v-1ffe16c1="" class="image"><img data-v-1ffe16c1="" src="https://external.xx.fbcdn.net/safe_image.php?d=AQD_qkMykxm0C4oy&amp;url=http%3A%2F%2Fwww.inside.com.tw%2Fwp-content%2Fuploads%2F2016%2F03%2Fwhite-wine.jpeg&amp;_nc_hash=AQC00aJjiOqNjhsB"></div><div data-v-1ffe16c1="" class="content"><div data-v-1ffe16c1="" class="tags"><div data-v-1ffe16c1="" class="ui mini tag label">電子商務</div></div><a data-v-1ffe16c1="" href="http://www.inside.com.tw/2016/03/02/internet-wine-selling-restriction-update" target="_blank" class="header">網路賣酒草案 3 月底送審：買賣雙方皆需登記、限超商取貨</a></div><div data-v-1ffe16c1="" class="description"><p data-v-1ffe16c1="" class="JQellipsis" title="根據聯合新聞網報導，去年底行政院長毛治國同意開放網路買賣酒類一事，配套方案預計在今年 3 月底前出爐，並擬定修法草案送審。">根據聯合新聞網報導，去年底行政院長毛治國同意開放網路買賣酒類一事，配套方案預計在今年 3 月底前出爐，並擬定修法草案送...</p></div><div data-v-1ffe16c1="" class="extra content"><div data-v-1ffe16c1="" class="right floated author"><a data-v-1ffe16c1="" href="http://www.inside.com.tw" target="_blank">inside.com.tw</a></div></div></div></div></div><div data-v-1ffe16c1="" class="swiper-slide"><div data-v-1ffe16c1="" class="ui cards"><div data-v-1ffe16c1="" class="card"><div data-v-1ffe16c1="" class="image"><img data-v-1ffe16c1="" src="https://external.xx.fbcdn.net/safe_image.php?d=AQBPh82xTE4-5SR9&amp;url=http%3A%2F%2Fimg1.cna.com.tw%2FWww%2FPostWrite%2F2016%2F20160225%2F00188673.201602250892M.jpg&amp;_nc_hash=AQBMtUOcUObpY2vj"></div><div data-v-1ffe16c1="" class="content"><div data-v-1ffe16c1="" class="tags"><div data-v-1ffe16c1="" class="ui mini tag label">網路無障礙</div></div><a data-v-1ffe16c1="" href="http://www.cna.com.tw/postwrite/Detail/188673.aspx#.VthGTfl97IU" target="_blank" class="header">智慧手機助聽APP「智慧聽」（SmartHear） | 中央社訊息平台</a></div><div data-v-1ffe16c1="" class="description"><p data-v-1ffe16c1="" class="JQellipsis">undefined</p></div><div data-v-1ffe16c1="" class="extra content"><div data-v-1ffe16c1="" class="right floated author"><a data-v-1ffe16c1="" href="http://www.cna.com.tw" target="_blank">cna.com.tw</a></div></div></div></div></div><div data-v-1ffe16c1="" class="swiper-slide"><div data-v-1ffe16c1="" class="ui cards"><div data-v-1ffe16c1="" class="card"><div data-v-1ffe16c1="" class="image"><img data-v-1ffe16c1="" src="https://external.xx.fbcdn.net/safe_image.php?d=AQCz6eUu45ba13ln&amp;url=http%3A%2F%2Fcw1.tw%2FCW%2Fimages%2Farticle%2FC1444438029262.jpg&amp;_nc_hash=AQAp3zZGywhsHMYy"></div><div data-v-1ffe16c1="" class="content"><div data-v-1ffe16c1="" class="tags"><div data-v-1ffe16c1="" class="ui mini tag label">Fintech</div></div><a data-v-1ffe16c1="" href="http://www.cw.com.tw/article/article.action?id=5074582" target="_blank" class="header">Fintech 今年是否大爆發 這一步是關鍵｜財經時事｜即時｜天下雜誌</a></div><div data-v-1ffe16c1="" class="description"><p data-v-1ffe16c1="" class="JQellipsis">2016年，可能會是台灣Fintech（金融科技）的大爆發年。為什麼？</p></div><div data-v-1ffe16c1="" class="extra content"><div data-v-1ffe16c1="" class="right floated author"><a data-v-1ffe16c1="" href="http://www.cw.com.tw" target="_blank">cw.com.tw</a></div></div></div></div></div><div data-v-1ffe16c1="" class="swiper-slide"><div data-v-1ffe16c1="" class="ui cards"><div data-v-1ffe16c1="" class="card"><div data-v-1ffe16c1="" class="image"><img data-v-1ffe16c1="" src="https://external.xx.fbcdn.net/safe_image.php?d=AQB_KNagfN-eKO36&amp;url=http%3A%2F%2Fimg.technews.tw%2Fwp-content%2Fuploads%2F2016%2F03%2F24188222219_969c75f9e1_z.jpg&amp;_nc_hash=AQDRvGeRL3VeRttQ"></div><div data-v-1ffe16c1="" class="content"><div data-v-1ffe16c1="" class="tags"><div data-v-1ffe16c1="" class="ui mini tag label">電子商務</div></div><a data-v-1ffe16c1="" href="http://technews.tw/2016/03/03/wine-online-shopping/" target="_blank" class="header">網購酒類將試辦，政府擬推「購買、支付、取貨」三關查驗購買人年齡</a></div><div data-v-1ffe16c1="" class="description"><p data-v-1ffe16c1="" class="JQellipsis" title="網路買賣酒類將解禁！前行政院長毛治國在 2015 年底的「電子商務推動專案會議」中決定開放網購酒類，並且開始研擬試辦，由財政部國庫署負責規劃，預計 3 月底送出配套方案。 「購買、支付、取貨」三關卡查核年齡 有關爭議最大的購買人年齡查核，目前規劃透過「購買、支付、取貨」三道關卡把關：購買時的身分...">網路買賣酒類將解禁！前行政院長毛治國在 2015 年底的「電子商務推動專案會議」中決定開放網購酒類，並且開始研擬試辦，...</p></div><div data-v-1ffe16c1="" class="extra content"><div data-v-1ffe16c1="" class="right floated author"><a data-v-1ffe16c1="" href="http://technews.tw" target="_blank">technews.tw</a></div></div></div></div></div><div data-v-1ffe16c1="" class="swiper-slide"><div data-v-1ffe16c1="" class="ui cards"><div data-v-1ffe16c1="" class="card"><div data-v-1ffe16c1="" class="image"><img data-v-1ffe16c1="" src="https://external.xx.fbcdn.net/safe_image.php?d=AQDO1LAIPkdglVxL&amp;url=http%3A%2F%2Fudn.com%2Fstatic%2Fimg%2FUDN_BABY.png&amp;_nc_hash=AQDbdc6l6n1a-YnM"></div><div data-v-1ffe16c1="" class="content"><div data-v-1ffe16c1="" class="tags"><div data-v-1ffe16c1="" class="ui mini tag label">Fintech</div></div><a data-v-1ffe16c1="" href="http://udn.com/news/story/6/1520272-金融科技委員會3月底開會-拚電子支付" target="_blank" class="header">金融科技委員會3月底開會 拚電子支付 | 財經 | 即時 | 聯合新聞網</a></div><div data-v-1ffe16c1="" class="description"><p data-v-1ffe16c1="" class="JQellipsis" title="為力促國內電子支付使用，金融監督管理委員會預計，3月底、4月初召開金融科技諮詢委員會三次會，完成「金融科技發展策略白皮書...">為力促國內電子支付使用，金融監督管理委員會預計，3月底、4月初召開金融科技諮詢委員會三次會，完成「金融科技發展策略白皮...</p></div><div data-v-1ffe16c1="" class="extra content"><div data-v-1ffe16c1="" class="right floated author"><a data-v-1ffe16c1="" href="http://udn.com" target="_blank">udn.com</a></div></div></div></div></div><div data-v-1ffe16c1="" class="swiper-slide"><div data-v-1ffe16c1="" class="ui cards"><div data-v-1ffe16c1="" class="card"><div data-v-1ffe16c1="" class="image"><img data-v-1ffe16c1="" src="https://external.xx.fbcdn.net/safe_image.php?d=AQDO1LAIPkdglVxL&amp;url=http%3A%2F%2Fudn.com%2Fstatic%2Fimg%2FUDN_BABY.png&amp;_nc_hash=AQDbdc6l6n1a-YnM"></div><div data-v-1ffe16c1="" class="content"><div data-v-1ffe16c1="" class="tags"><div data-v-1ffe16c1="" class="ui mini tag label">數位內容</div></div><a data-v-1ffe16c1="" href="http://udn.com/news/story/7240/1563701" target="_blank" class="header">OTT平台該誰管？ NCC說不是我 | 產經 | 聯合新聞網</a></div><div data-v-1ffe16c1="" class="description"><p data-v-1ffe16c1="" class="JQellipsis" title="OTT視頻串流平台產業到底歸誰管，各方意見不一。國家通訊傳播委員會（NCC）主委石世豪表示，台灣是高度言論自由、傳播自由的國家，除非涉及犯罪，不會管制網路或媒體上播放的內容。他坦言，不管是大陸的愛奇藝或美國的網飛﹙Netflix），並不在NCC管轄業務內，因業者並未經營需要申請特許執照的廣播電視媒體業務。">OTT視頻串流平台產業到底歸誰管，各方意見不一。國家通訊傳播委員會（NCC）主委石世豪表示，台灣是高度言論自由、傳播自...</p></div><div data-v-1ffe16c1="" class="extra content"><div data-v-1ffe16c1="" class="right floated author"><a data-v-1ffe16c1="" href="http://udn.com" target="_blank">udn.com</a></div></div></div></div></div></div><div data-v-1ffe16c1="" class="swiper-button-prev"></div><div data-v-1ffe16c1="" class="swiper-button-next"></div></div></div><div data-v-1ffe16c1="" class="thin-only"><div data-v-1ffe16c1="" class="swiper-container2 swiper-container-horizontal"><div data-v-1ffe16c1="" class="swiper-wrapper" style="-webkit-transform: translate3d(-3555px, 0px, 0px); transition: 0ms; -webkit-transition: 0ms;"><div data-v-1ffe16c1="" class="swiper-slide" style="width: 355px; margin-right: 40px;"><div data-v-1ffe16c1="" class="ui cards"><div data-v-1ffe16c1="" class="card"><div data-v-1ffe16c1="" class="image"><img data-v-1ffe16c1="" src="https://external.xx.fbcdn.net/safe_image.php?d=AQB3xgfguoezC6Jv&amp;url=https%3A%2F%2F3.bp.blogspot.com%2F-VnF-hZCJAcA%2FVhrcDUEimOI%2FAAAAAAAAOBg%2FKLbVsyCSG5Q%2Fs1280%2FScreen%252BShot%252B2015-10-11%252Bat%252B6.00.31%252BPM.png&amp;_nc_hash=AQBx3JxKkqaLfLkG"></div><div data-v-1ffe16c1="" class="content"><div data-v-1ffe16c1="" class="tags"><div data-v-1ffe16c1="" class="ui mini tag label">uber</div><div data-v-1ffe16c1="" class="ui mini tag label">分享經濟</div><div data-v-1ffe16c1="" class="ui mini tag label">交通運輸</div></div><a data-v-1ffe16c1="" href="https://www.bnext.com.tw/article/37614/BN-2015-10-12-060029-81" target="_blank" class="header">終結Uber爭議!中國正擬定法規管理叫車服務</a></div><div data-v-1ffe16c1="" class="description"><p data-v-1ffe16c1="" class="JQellipsis" title="雖然Uber開創的叫車服務引起許多法規爭議，但至今還沒有一個國家真正做出何相關法條限制，現在情勢可能改變，中國政府可能將成為限制Uber的先鋒。">雖然Uber開創的叫車服務引起許多法規爭議，但至今還沒有一個國家真正做出何相關法條限制，現在情勢可能改變，中國政府可能...</p></div><div data-v-1ffe16c1="" class="extra content"><div data-v-1ffe16c1="" class="right floated author"><a data-v-1ffe16c1="" href="http://www.bnext.com.tw" target="_blank">bnext.com.tw</a></div></div></div></div></div><div data-v-1ffe16c1="" class="swiper-slide" style="width: 355px; margin-right: 40px;"><div data-v-1ffe16c1="" class="ui cards"><div data-v-1ffe16c1="" class="card"><div data-v-1ffe16c1="" class="image"><img data-v-1ffe16c1="" src="https://external.xx.fbcdn.net/safe_image.php?d=AQA_c6UtB3PNlXmE&amp;url=http%3A%2F%2Fimg.chinatimes.com%2Fnewsphoto%2F2016-01-08%2Fclipping%2F656%2Fa12a00_t_05_02.jpg&amp;_nc_hash=AQBcRJZlzLVGHgV9"></div><div data-v-1ffe16c1="" class="content"><div data-v-1ffe16c1="" class="tags"><div data-v-1ffe16c1="" class="ui mini tag label">股權式群眾募資</div></div><a data-v-1ffe16c1="" href="http://www.chinatimes.com/newspapers/20160108000135-260205" target="_blank" class="header">群募8大鬆綁 提前上路</a></div><div data-v-1ffe16c1="" class="description"><p data-v-1ffe16c1="" class="JQellipsis" title="為了讓國內資本市場更多元化，金管會對於股權性質群眾募資法規再作八項鬆綁！金管會7日指出，自從去年4月30日開放民間業者經營股權性質群眾募資以來，已核准6家、其中3家業者開業，現再修法放寬讓群募平台業者可轉投資、可向募資公司或投資人收取費用等，讓台灣的資本市場更符合創新創業者的需要。 金管會表示，此次修法重點有二大項，一項針對新創的募資公司，其募資金額從1,500萬拉高到3,000萬元，另外，可引進專業機構投資人…">為了讓國內資本市場更多元化，金管會對於股權性質群眾募資法規再作八項鬆綁！金管會7日指出，自從去年4月30日開放民間業者...</p></div><div data-v-1ffe16c1="" class="extra content"><div data-v-1ffe16c1="" class="right floated author"><a data-v-1ffe16c1="" href="http://www.chinatimes.com" target="_blank">chinatimes.com</a></div></div></div></div></div><div data-v-1ffe16c1="" class="swiper-slide" style="width: 355px; margin-right: 40px;"><div data-v-1ffe16c1="" class="ui cards"><div data-v-1ffe16c1="" class="card"><div data-v-1ffe16c1="" class="image"><img data-v-1ffe16c1="" src="https://external.xx.fbcdn.net/safe_image.php?d=AQBDFU0NW9HrtYLC&amp;url=http%3A%2F%2Fstatic01.nyt.com%2Fimages%2F2016%2F01%2F25%2Fadmin%2Fcn-cooking4%2Fcn-cooking4-articleLarge.jpg&amp;_nc_hash=AQCUFJC46DLkU3hK"></div><div data-v-1ffe16c1="" class="content"><div data-v-1ffe16c1="" class="tags"><div data-v-1ffe16c1="" class="ui mini tag label">sharingeconomy</div></div><a data-v-1ffe16c1="" href="http://cn.nytstyle.com/living/20160125/tc25app/zh-hant" target="_blank" class="header">The New York Times Chinese -Traditional    紐約時報中文網</a></div><div data-v-1ffe16c1="" class="description"><p data-v-1ffe16c1="" class="JQellipsis" title="在北京、上海等城市，一些主婦、退休長者和烹飪愛好者正在利用家廚共享應用平台，給附近辦公大樓裡的白領做家常飯。看看這個新「職業」是如何誕生的：">在北京、上海等城市，一些主婦、退休長者和烹飪愛好者正在利用家廚共享應用平台，給附近辦公大樓裡的白領做家常飯。看看這個新...</p></div><div data-v-1ffe16c1="" class="extra content"><div data-v-1ffe16c1="" class="right floated author"><a data-v-1ffe16c1="" href="http://cn.nytstyle.com" target="_blank">cn.nytimes.com</a></div></div></div></div></div><div data-v-1ffe16c1="" class="swiper-slide" style="width: 355px; margin-right: 40px;"><div data-v-1ffe16c1="" class="ui cards"><div data-v-1ffe16c1="" class="card"><div data-v-1ffe16c1="" class="image"><img data-v-1ffe16c1="" src="https://external.xx.fbcdn.net/safe_image.php?d=AQA7Nrs60PB4VvcX&amp;url=https%3A%2F%2Fscontent.xx.fbcdn.net%2Ft45.1600-4%2F12480863_6043667308619_983551238_n.png&amp;_nc_hash=AQBt7G6Y1Z9yXqvQ"></div><div data-v-1ffe16c1="" class="content"><div data-v-1ffe16c1="" class="tags"><div data-v-1ffe16c1="" class="ui mini tag label">blockchain</div></div><a data-v-1ffe16c1="" href="http://www.chinatimes.com/newspapers/20160128000025-260202" target="_blank" class="header">社論－推動區塊鏈技術的應用已刻不容緩</a></div><div data-v-1ffe16c1="" class="description"><p data-v-1ffe16c1="" class="JQellipsis" title="FinTech（金融科技）波譎雲詭地像陣陣的浪潮席捲全球各地，對金融業帶來巨大的衝擊，然而在FinTech浪潮中有一個原本不被注意，甚至被視為異類的金融創新－比特幣，其背後所使用的區塊鏈（Blockchain）技術，即將改變未來人們的生活方式，各種金融交易、報稅、簽約、護照可能都會用到區塊鏈技術，甚至通訊投票要受到各方信任也會用到它，而且未來中央銀行發行的的貨幣可能不再是紙幣而是數位貨幣。全球各國的產官學研各界紛紛加入…">FinTech（金融科技）波譎雲詭地像陣陣的浪潮席捲全球各地，對金融業帶來巨大的衝擊，然而在FinTech浪潮中有一個...</p></div><div data-v-1ffe16c1="" class="extra content"><div data-v-1ffe16c1="" class="right floated author"><a data-v-1ffe16c1="" href="http://www.chinatimes.com" target="_blank">chinatimes.com</a></div></div></div></div></div><div data-v-1ffe16c1="" class="swiper-slide" style="width: 355px; margin-right: 40px;"><div data-v-1ffe16c1="" class="ui cards"><div data-v-1ffe16c1="" class="card"><div data-v-1ffe16c1="" class="image"><img data-v-1ffe16c1="" src="https://external.xx.fbcdn.net/safe_image.php?d=AQAHJ4v104reVLQn&amp;url=http%3A%2F%2Fbuzzorange.com%2Ftechorange%2Fwp-content%2Fuploads%2F2016%2F01%2FS__14450698.jpg&amp;_nc_hash=AQDtLAuike3J7jgg"></div><div data-v-1ffe16c1="" class="content"><div data-v-1ffe16c1="" class="tags"><div data-v-1ffe16c1="" class="ui mini tag label">vtaiwan</div></div><a data-v-1ffe16c1="" href="http://buzzorange.com/techorange/2016/01/18/thank-you-jaclyn-tsai/" target="_blank" class="header">搭建創業者與政府的溝通橋樑，謝謝蔡玉玲政委把台灣新創圈推了這麼遠 | TechOrange</a></div><div data-v-1ffe16c1="" class="description"><p data-v-1ffe16c1="" class="JQellipsis" title="推廣 VTaiwan 虛擬世界法規交流平台、讓新創圈讚聲不斷的行政院政委蔡玉玲在臉書上發表辭職感言。這一位從業界轉入政壇，為改革帶來一抹光明的政委，讓許多科技、新創圈的業者都在底下留言：「謝謝政委！」 [...]">推廣 VTaiwan 虛擬世界法規交流平台、讓新創圈讚聲不斷的行政院政委蔡玉玲在臉書上發表辭職感言。這一位從業界轉入政...</p></div><div data-v-1ffe16c1="" class="extra content"><div data-v-1ffe16c1="" class="right floated author"><a data-v-1ffe16c1="" href="http://buzzorange.com" target="_blank">buzzorange.com</a></div></div></div></div></div><div data-v-1ffe16c1="" class="swiper-slide" style="width: 355px; margin-right: 40px;"><div data-v-1ffe16c1="" class="ui cards"><div data-v-1ffe16c1="" class="card"><div data-v-1ffe16c1="" class="image"><img data-v-1ffe16c1="" src="https://external.xx.fbcdn.net/safe_image.php?d=AQDO1LAIPkdglVxL&amp;url=http%3A%2F%2Fudn.com%2Fstatic%2Fimg%2FUDN_BABY.png&amp;_nc_hash=AQDbdc6l6n1a-YnM"></div><div data-v-1ffe16c1="" class="content"><div data-v-1ffe16c1="" class="tags"><div data-v-1ffe16c1="" class="ui mini tag label">innovation</div></div><a data-v-1ffe16c1="" href="http://udn.com/news/story/6811/1484103" target="_blank" class="header">名家瞭望／數位浪潮...帶領企業創新 | 國際財經 | 全球 | 聯合新聞網</a></div><div data-v-1ffe16c1="" class="description"><p data-v-1ffe16c1="" class="JQellipsis" title="科技變動一向是企業的一大挑戰。當今科技變動之快、規模之大，絕非以往所能望其項背，2015年亦復如是。從重工業到服務業，「創新」正橫掃所有領域，改變競爭的格局。能夠攀越顛峰之企業既非規模最大，也非資格最老，而是由科技最先進者掄元。">科技變動一向是企業的一大挑戰。當今科技變動之快、規模之大，絕非以往所能望其項背，2015年亦復如是。從重工業到服務業，...</p></div><div data-v-1ffe16c1="" class="extra content"><div data-v-1ffe16c1="" class="right floated author"><a data-v-1ffe16c1="" href="http://udn.com" target="_blank">udn.com</a></div></div></div></div></div><div data-v-1ffe16c1="" class="swiper-slide" style="width: 355px; margin-right: 40px;"><div data-v-1ffe16c1="" class="ui cards"><div data-v-1ffe16c1="" class="card"><div data-v-1ffe16c1="" class="image"><img data-v-1ffe16c1="" src="https://external.xx.fbcdn.net/safe_image.php?d=AQAe7yfOWTPKCXbG&amp;url=http%3A%2F%2Ftwimg.edgesuite.net%2Fimages%2FReNews%2F20160120%2F640_80f65e2bf667a442d9aa6c0af7bdfbde.jpg&amp;_nc_hash=AQAvq9ZDr5xoJ617"></div><div data-v-1ffe16c1="" class="content"><div data-v-1ffe16c1="" class="tags"><div data-v-1ffe16c1="" class="ui mini tag label">網路無障礙</div></div><a data-v-1ffe16c1="" href="http://www.appledaily.com.tw/realtimenews/article/new/20160120/779492/" target="_blank" class="header">NCC推無障礙法案 政府緊急訊息應供手語翻譯 | 即時新聞 | 20160120 | 蘋果日報</a></div><div data-v-1ffe16c1="" class="description"><p data-v-1ffe16c1="" class="JQellipsis" title="國家通訊傳播委員會（NCC）今通過「推動無障礙通傳近用行動方案草案」，包含發生重大災變時能以振動、聲音警示等方式提醒身障者，鼓勵電信業者比照低收入戶提供身心障礙者寬頻上網折扣、政府及電視業者重大活動或">國家通訊傳播委員會（NCC）今通過「推動無障礙通傳近用行動方案草案」，包含發生重大災變時能以振動、聲音警示等方式提醒身...</p></div><div data-v-1ffe16c1="" class="extra content"><div data-v-1ffe16c1="" class="right floated author"><a data-v-1ffe16c1="" href="http://www.appledaily.com.tw" target="_blank">appledaily.com.tw</a></div></div></div></div></div><div data-v-1ffe16c1="" class="swiper-slide" style="width: 355px; margin-right: 40px;"><div data-v-1ffe16c1="" class="ui cards"><div data-v-1ffe16c1="" class="card"><div data-v-1ffe16c1="" class="image"><img data-v-1ffe16c1="" src="https://external.xx.fbcdn.net/safe_image.php?d=AQDO1LAIPkdglVxL&amp;url=http%3A%2F%2Fudn.com%2Fstatic%2Fimg%2FUDN_BABY.png&amp;_nc_hash=AQDbdc6l6n1a-YnM"></div><div data-v-1ffe16c1="" class="content"><div data-v-1ffe16c1="" class="tags"><div data-v-1ffe16c1="" class="ui mini tag label">Uber</div></div><a data-v-1ffe16c1="" href="http://udn.com/news/story/9482/1508553-Uber來台三年-法院認違法" target="_blank" class="header">Uber來台三年 法院認違法 | Uber低價攻高雄 | 要聞 | 聯合新聞網</a></div><div data-v-1ffe16c1="" class="description"><p data-v-1ffe16c1="" class="JQellipsis" title="Uber來台近三年，交通部認定Uber在台登記的台灣宇博公司違法，裁罰台灣宇博公司及司機累積近五千萬元，上百名司機被吊扣牌照兩個月。台北高等法院上月判決交通部勝訴，認定Uber確有違法事實，但可上訴。">Uber來台近三年，交通部認定Uber在台登記的台灣宇博公司違法，裁罰台灣宇博公司及司機累積近五千萬元，上百名司機被吊...</p></div><div data-v-1ffe16c1="" class="extra content"><div data-v-1ffe16c1="" class="right floated author"><a data-v-1ffe16c1="" href="http://udn.com" target="_blank">udn.com</a></div></div></div></div></div><div data-v-1ffe16c1="" class="swiper-slide swiper-slide-prev" style="width: 355px; margin-right: 40px;"><div data-v-1ffe16c1="" class="ui cards"><div data-v-1ffe16c1="" class="card"><div data-v-1ffe16c1="" class="image"><img data-v-1ffe16c1="" src="https://external.xx.fbcdn.net/safe_image.php?d=AQBXYlahusoXk2fA&amp;url=https%3A%2F%2Fscontent.xx.fbcdn.net%2Ft45.1600-4%2F12409190_6045328714419_221726847_n.png&amp;_nc_hash=AQAqlPHfwjV2ES8F"></div><div data-v-1ffe16c1="" class="content"><div data-v-1ffe16c1="" class="tags"><div data-v-1ffe16c1="" class="ui mini tag label">電子通訊傳播法</div></div><a data-v-1ffe16c1="" href="http://udn.com/news/story/7238/1516411" target="_blank" class="header">數位匯流五法 拚4月送立院 | 財經焦點 | 產經 | 聯合新聞網</a></div><div data-v-1ffe16c1="" class="description"><p data-v-1ffe16c1="" class="JQellipsis" title="行政院政務委員蔡玉玲、鐘嘉德本周起將密集聯審「數位匯流五法」，目標是在4月送入立法院審查。蔡玉玲表示，數位五法將以水平管理取代目前對電信、通訊、傳播採取的行業分立管制；未來，匯流程度愈高的內容提供者，政府將減少管制，並提供誘因協助發展。">行政院政務委員蔡玉玲、鐘嘉德本周起將密集聯審「數位匯流五法」，目標是在4月送入立法院審查。蔡玉玲表示，數位五法將以水平...</p></div><div data-v-1ffe16c1="" class="extra content"><div data-v-1ffe16c1="" class="right floated author"><a data-v-1ffe16c1="" href="http://udn.com" target="_blank">udn.com</a></div></div></div></div></div><div data-v-1ffe16c1="" class="swiper-slide swiper-slide-active" style="width: 355px; margin-right: 40px;"><div data-v-1ffe16c1="" class="ui cards"><div data-v-1ffe16c1="" class="card"><div data-v-1ffe16c1="" class="image"><img data-v-1ffe16c1="" src="undefined"></div><div data-v-1ffe16c1="" class="content"><div data-v-1ffe16c1="" class="tags"><div data-v-1ffe16c1="" class="ui mini tag label">個人資料保護</div></div><a data-v-1ffe16c1="" href="http://gazette.nat.gov.tw/EG_FileManager/eguploadpub/eg022035/ch01/type1/gov01/num2/Eg.htm" target="_blank" class="header">行政院公報資訊網</a></div><div data-v-1ffe16c1="" class="description"><p data-v-1ffe16c1="" class="JQellipsis" title=" 服務專線：02-23924146 / 傳真專線：02-23569970           電子信箱：ego@gazette.nat.gov.tw 服務時間：每週一至週五上班時間AM 8:30~12:30 PM 1:30~5:30 公報紙本訂閱，請洽國家書店松江門市（秀威）：02-27960359 國家發展委員會 版權所有 / 本站建議使用IE7 以上瀏覽，800x600 或1024x768 螢幕解析"> 服務專線：02-23924146 / 傳真專線：02-23569970           電子信箱：ego@gaz...</p></div><div data-v-1ffe16c1="" class="extra content"><div data-v-1ffe16c1="" class="right floated author"><a data-v-1ffe16c1="" href="http://gazette.nat.gov.tw" target="_blank">gazette.nat.gov.tw</a></div></div></div></div></div><div data-v-1ffe16c1="" class="swiper-slide swiper-slide-next" style="width: 355px; margin-right: 40px;"><div data-v-1ffe16c1="" class="ui cards"><div data-v-1ffe16c1="" class="card"><div data-v-1ffe16c1="" class="image"><img data-v-1ffe16c1="" src="https://external.xx.fbcdn.net/safe_image.php?d=AQDMeGVOJLsy2zrh&amp;url=https%3A%2F%2Fscontent.xx.fbcdn.net%2Ft45.1600-4%2F12480872_6045854337619_1841699842_n.png&amp;_nc_hash=AQB4L6_xp8h9nf1E"></div><div data-v-1ffe16c1="" class="content"><div data-v-1ffe16c1="" class="tags"><div data-v-1ffe16c1="" class="ui mini tag label">個人資料保護</div></div><a data-v-1ffe16c1="" href="http://www.cna.com.tw/news/firstnews/201603015007-1.aspx" target="_blank" class="header">拒絕替FBI解密手機 紐約法官判蘋果勝訴 | 重點新聞 | 中央社即時新聞 CNA NEWS</a></div><div data-v-1ffe16c1="" class="description"><p data-v-1ffe16c1="" class="JQellipsis" title="（中央社記者曹宇帆洛杉磯29日專電）蘋果公司（Apple）拒絕替美國聯邦調查局（FBI）解密手機以調查毒販的官司，美國聯邦法官今天宣判，蘋果公司無需提供辦案協助。 | 重點新聞">（中央社記者曹宇帆洛杉磯29日專電）蘋果公司（Apple）拒絕替美國聯邦調查局（FBI）解密手機以調查毒販的官司，美國...</p></div><div data-v-1ffe16c1="" class="extra content"><div data-v-1ffe16c1="" class="right floated author"><a data-v-1ffe16c1="" href="http://www.cna.com.tw" target="_blank">cna.com.tw</a></div></div></div></div></div><div data-v-1ffe16c1="" class="swiper-slide" style="width: 355px; margin-right: 40px;"><div data-v-1ffe16c1="" class="ui cards"><div data-v-1ffe16c1="" class="card"><div data-v-1ffe16c1="" class="image"><img data-v-1ffe16c1="" src="https://external.xx.fbcdn.net/safe_image.php?d=AQAGDk6krWte3HwV&amp;url=http%3A%2F%2Fwww.inside.com.tw%2Fwp-content%2Fuploads%2F2016%2F03%2Fubertaxi.png&amp;_nc_hash=AQCLiqXuSiR6ALGu"></div><div data-v-1ffe16c1="" class="content"><div data-v-1ffe16c1="" class="tags"><div data-v-1ffe16c1="" class="ui mini tag label">Uber</div></div><a data-v-1ffe16c1="" href="http://www.inside.com.tw/2016/03/01/uber-sharing-economy-traffic-safety-system" target="_blank" class="header">Uber 是真共享經濟，還是破壞交通體制的吸金大法？</a></div><div data-v-1ffe16c1="" class="description"><p data-v-1ffe16c1="" class="JQellipsis" title="Uber 真的是具新創精神的共享經濟，還是罔顧司機乘客權利的斂財系統？不少人選擇 Uber 是因為「觀感」比較好，但這很可能正陷入了「因為我喜歡他，因此他就算犯法也沒關係」的嚴重謬誤。">Uber 真的是具新創精神的共享經濟，還是罔顧司機乘客權利的斂財系統？不少人選擇 Uber 是因為「觀感」比較好，但這...</p></div><div data-v-1ffe16c1="" class="extra content"><div data-v-1ffe16c1="" class="right floated author"><a data-v-1ffe16c1="" href="http://www.inside.com.tw" target="_blank">inside.com.tw</a></div></div></div></div></div><div data-v-1ffe16c1="" class="swiper-slide" style="width: 355px; margin-right: 40px;"><div data-v-1ffe16c1="" class="ui cards"><div data-v-1ffe16c1="" class="card"><div data-v-1ffe16c1="" class="image"><img data-v-1ffe16c1="" src="https://external.xx.fbcdn.net/safe_image.php?d=AQDO1LAIPkdglVxL&amp;url=http%3A%2F%2Fudn.com%2Fstatic%2Fimg%2FUDN_BABY.png&amp;_nc_hash=AQDbdc6l6n1a-YnM"></div><div data-v-1ffe16c1="" class="content"><div data-v-1ffe16c1="" class="tags"><div data-v-1ffe16c1="" class="ui mini tag label">個人資料</div><div data-v-1ffe16c1="" class="ui mini tag label">資訊安全</div></div><a data-v-1ffe16c1="" href="http://udn.com/news/story/6809/1533674" target="_blank" class="header">要求蘋果、Google解鎖 法國擬修法 | 全球 | 聯合新聞網</a></div><div data-v-1ffe16c1="" class="description"><p data-v-1ffe16c1="" class="JQellipsis" title="美國蘋果公司與FBI就恐怖殺人犯手機的解碼糾紛出現擴散效應。法國執政黨議員上月29日提案修法，未來如果蘋果、Google等公司不配合侵入恐怖分子的手機，將可罰100萬歐元（約台幣3620萬元）。">美國蘋果公司與FBI就恐怖殺人犯手機的解碼糾紛出現擴散效應。法國執政黨議員上月29日提案修法，未來如果蘋果、Googl...</p></div><div data-v-1ffe16c1="" class="extra content"><div data-v-1ffe16c1="" class="right floated author"><a data-v-1ffe16c1="" href="http://udn.com" target="_blank">udn.com</a></div></div></div></div></div><div data-v-1ffe16c1="" class="swiper-slide" style="width: 355px; margin-right: 40px;"><div data-v-1ffe16c1="" class="ui cards"><div data-v-1ffe16c1="" class="card"><div data-v-1ffe16c1="" class="image"><img data-v-1ffe16c1="" src="https://external.xx.fbcdn.net/safe_image.php?d=AQD_qkMykxm0C4oy&amp;url=http%3A%2F%2Fwww.inside.com.tw%2Fwp-content%2Fuploads%2F2016%2F03%2Fwhite-wine.jpeg&amp;_nc_hash=AQC00aJjiOqNjhsB"></div><div data-v-1ffe16c1="" class="content"><div data-v-1ffe16c1="" class="tags"><div data-v-1ffe16c1="" class="ui mini tag label">電子商務</div></div><a data-v-1ffe16c1="" href="http://www.inside.com.tw/2016/03/02/internet-wine-selling-restriction-update" target="_blank" class="header">網路賣酒草案 3 月底送審：買賣雙方皆需登記、限超商取貨</a></div><div data-v-1ffe16c1="" class="description"><p data-v-1ffe16c1="" class="JQellipsis" title="根據聯合新聞網報導，去年底行政院長毛治國同意開放網路買賣酒類一事，配套方案預計在今年 3 月底前出爐，並擬定修法草案送審。">根據聯合新聞網報導，去年底行政院長毛治國同意開放網路買賣酒類一事，配套方案預計在今年 3 月底前出爐，並擬定修法草案送...</p></div><div data-v-1ffe16c1="" class="extra content"><div data-v-1ffe16c1="" class="right floated author"><a data-v-1ffe16c1="" href="http://www.inside.com.tw" target="_blank">inside.com.tw</a></div></div></div></div></div><div data-v-1ffe16c1="" class="swiper-slide" style="width: 355px; margin-right: 40px;"><div data-v-1ffe16c1="" class="ui cards"><div data-v-1ffe16c1="" class="card"><div data-v-1ffe16c1="" class="image"><img data-v-1ffe16c1="" src="https://external.xx.fbcdn.net/safe_image.php?d=AQBPh82xTE4-5SR9&amp;url=http%3A%2F%2Fimg1.cna.com.tw%2FWww%2FPostWrite%2F2016%2F20160225%2F00188673.201602250892M.jpg&amp;_nc_hash=AQBMtUOcUObpY2vj"></div><div data-v-1ffe16c1="" class="content"><div data-v-1ffe16c1="" class="tags"><div data-v-1ffe16c1="" class="ui mini tag label">網路無障礙</div></div><a data-v-1ffe16c1="" href="http://www.cna.com.tw/postwrite/Detail/188673.aspx#.VthGTfl97IU" target="_blank" class="header">智慧手機助聽APP「智慧聽」（SmartHear） | 中央社訊息平台</a></div><div data-v-1ffe16c1="" class="description"><p data-v-1ffe16c1="" class="JQellipsis">undefined</p></div><div data-v-1ffe16c1="" class="extra content"><div data-v-1ffe16c1="" class="right floated author"><a data-v-1ffe16c1="" href="http://www.cna.com.tw" target="_blank">cna.com.tw</a></div></div></div></div></div><div data-v-1ffe16c1="" class="swiper-slide" style="width: 355px; margin-right: 40px;"><div data-v-1ffe16c1="" class="ui cards"><div data-v-1ffe16c1="" class="card"><div data-v-1ffe16c1="" class="image"><img data-v-1ffe16c1="" src="https://external.xx.fbcdn.net/safe_image.php?d=AQCz6eUu45ba13ln&amp;url=http%3A%2F%2Fcw1.tw%2FCW%2Fimages%2Farticle%2FC1444438029262.jpg&amp;_nc_hash=AQAp3zZGywhsHMYy"></div><div data-v-1ffe16c1="" class="content"><div data-v-1ffe16c1="" class="tags"><div data-v-1ffe16c1="" class="ui mini tag label">Fintech</div></div><a data-v-1ffe16c1="" href="http://www.cw.com.tw/article/article.action?id=5074582" target="_blank" class="header">Fintech 今年是否大爆發 這一步是關鍵｜財經時事｜即時｜天下雜誌</a></div><div data-v-1ffe16c1="" class="description"><p data-v-1ffe16c1="" class="JQellipsis">2016年，可能會是台灣Fintech（金融科技）的大爆發年。為什麼？</p></div><div data-v-1ffe16c1="" class="extra content"><div data-v-1ffe16c1="" class="right floated author"><a data-v-1ffe16c1="" href="http://www.cw.com.tw" target="_blank">cw.com.tw</a></div></div></div></div></div><div data-v-1ffe16c1="" class="swiper-slide" style="width: 355px; margin-right: 40px;"><div data-v-1ffe16c1="" class="ui cards"><div data-v-1ffe16c1="" class="card"><div data-v-1ffe16c1="" class="image"><img data-v-1ffe16c1="" src="https://external.xx.fbcdn.net/safe_image.php?d=AQB_KNagfN-eKO36&amp;url=http%3A%2F%2Fimg.technews.tw%2Fwp-content%2Fuploads%2F2016%2F03%2F24188222219_969c75f9e1_z.jpg&amp;_nc_hash=AQDRvGeRL3VeRttQ"></div><div data-v-1ffe16c1="" class="content"><div data-v-1ffe16c1="" class="tags"><div data-v-1ffe16c1="" class="ui mini tag label">電子商務</div></div><a data-v-1ffe16c1="" href="http://technews.tw/2016/03/03/wine-online-shopping/" target="_blank" class="header">網購酒類將試辦，政府擬推「購買、支付、取貨」三關查驗購買人年齡</a></div><div data-v-1ffe16c1="" class="description"><p data-v-1ffe16c1="" class="JQellipsis" title="網路買賣酒類將解禁！前行政院長毛治國在 2015 年底的「電子商務推動專案會議」中決定開放網購酒類，並且開始研擬試辦，由財政部國庫署負責規劃，預計 3 月底送出配套方案。 「購買、支付、取貨」三關卡查核年齡 有關爭議最大的購買人年齡查核，目前規劃透過「購買、支付、取貨」三道關卡把關：購買時的身分...">網路買賣酒類將解禁！前行政院長毛治國在 2015 年底的「電子商務推動專案會議」中決定開放網購酒類，並且開始研擬試辦，...</p></div><div data-v-1ffe16c1="" class="extra content"><div data-v-1ffe16c1="" class="right floated author"><a data-v-1ffe16c1="" href="http://technews.tw" target="_blank">technews.tw</a></div></div></div></div></div><div data-v-1ffe16c1="" class="swiper-slide" style="width: 355px; margin-right: 40px;"><div data-v-1ffe16c1="" class="ui cards"><div data-v-1ffe16c1="" class="card"><div data-v-1ffe16c1="" class="image"><img data-v-1ffe16c1="" src="https://external.xx.fbcdn.net/safe_image.php?d=AQDO1LAIPkdglVxL&amp;url=http%3A%2F%2Fudn.com%2Fstatic%2Fimg%2FUDN_BABY.png&amp;_nc_hash=AQDbdc6l6n1a-YnM"></div><div data-v-1ffe16c1="" class="content"><div data-v-1ffe16c1="" class="tags"><div data-v-1ffe16c1="" class="ui mini tag label">Fintech</div></div><a data-v-1ffe16c1="" href="http://udn.com/news/story/6/1520272-金融科技委員會3月底開會-拚電子支付" target="_blank" class="header">金融科技委員會3月底開會 拚電子支付 | 財經 | 即時 | 聯合新聞網</a></div><div data-v-1ffe16c1="" class="description"><p data-v-1ffe16c1="" class="JQellipsis" title="為力促國內電子支付使用，金融監督管理委員會預計，3月底、4月初召開金融科技諮詢委員會三次會，完成「金融科技發展策略白皮書...">為力促國內電子支付使用，金融監督管理委員會預計，3月底、4月初召開金融科技諮詢委員會三次會，完成「金融科技發展策略白皮...</p></div><div data-v-1ffe16c1="" class="extra content"><div data-v-1ffe16c1="" class="right floated author"><a data-v-1ffe16c1="" href="http://udn.com" target="_blank">udn.com</a></div></div></div></div></div><div data-v-1ffe16c1="" class="swiper-slide" style="width: 355px; margin-right: 40px;"><div data-v-1ffe16c1="" class="ui cards"><div data-v-1ffe16c1="" class="card"><div data-v-1ffe16c1="" class="image"><img data-v-1ffe16c1="" src="https://external.xx.fbcdn.net/safe_image.php?d=AQDO1LAIPkdglVxL&amp;url=http%3A%2F%2Fudn.com%2Fstatic%2Fimg%2FUDN_BABY.png&amp;_nc_hash=AQDbdc6l6n1a-YnM"></div><div data-v-1ffe16c1="" class="content"><div data-v-1ffe16c1="" class="tags"><div data-v-1ffe16c1="" class="ui mini tag label">數位內容</div></div><a data-v-1ffe16c1="" href="http://udn.com/news/story/7240/1563701" target="_blank" class="header">OTT平台該誰管？ NCC說不是我 | 產經 | 聯合新聞網</a></div><div data-v-1ffe16c1="" class="description"><p data-v-1ffe16c1="" class="JQellipsis" title="OTT視頻串流平台產業到底歸誰管，各方意見不一。國家通訊傳播委員會（NCC）主委石世豪表示，台灣是高度言論自由、傳播自由的國家，除非涉及犯罪，不會管制網路或媒體上播放的內容。他坦言，不管是大陸的愛奇藝或美國的網飛﹙Netflix），並不在NCC管轄業務內，因業者並未經營需要申請特許執照的廣播電視媒體業務。">OTT視頻串流平台產業到底歸誰管，各方意見不一。國家通訊傳播委員會（NCC）主委石世豪表示，台灣是高度言論自由、傳播自...</p></div><div data-v-1ffe16c1="" class="extra content"><div data-v-1ffe16c1="" class="right floated author"><a data-v-1ffe16c1="" href="http://udn.com" target="_blank">udn.com</a></div></div></div></div></div></div><div data-v-1ffe16c1="" class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-fraction"><span class="swiper-pagination-current">10</span> / <span class="swiper-pagination-total">19</span></div><div data-v-1ffe16c1="" class="swiper-scrollbar" style="opacity: 0; transition: 400ms; -webkit-transition: 400ms;"><div class="swiper-scrollbar-drag" style="width: 16.8821165438714px; -webkit-transform: translate3d(169.0589417280643px, 0px, 0px); transition: 0ms; -webkit-transition: 0ms;"></div></div></div></div></div></div></div><div data-v-5120c3f7="" class="component footer"><div data-v-5120c3f7="" class="ui inverted vertical footer segment"><div data-v-5120c3f7="" class="ui center aligned container"><div data-v-5120c3f7="" class="ui stackable inverted divided grid"><div data-v-5120c3f7="" class="three wide column"><h4 data-v-5120c3f7="" class="ui inverted header">相關連結</h4><div data-v-5120c3f7="" class="ui inverted link list"><a data-v-5120c3f7="" href="https://talk.vtaiwan.tw/" title="vTaiwan討論區" target="_blank" class="item">討論區</a><a data-v-5120c3f7="" href="https://github.com/g0v/vue.vtaiwan.tw" title="Github" target="_blank" class="item">Github</a><a href="/" class="item router-link-active" title="Home" data-v-5120c3f7="">vTaiwan</a></div></div><div data-v-5120c3f7="" class="three wide column"><h4 data-v-5120c3f7="" class="ui inverted header">影音專區</h4><div data-v-5120c3f7="" class="ui inverted link list"><a data-v-5120c3f7="" href="https://www.youtube.com/channel/UChC85hbUuDAvFpc7Uuj69DA/" title="Youtube" target="_blank" class="item">Youtube</a><a data-v-5120c3f7="" href="https://www.facebook.com/vtaiwan.tw/" title="Fackbook" target="_blank" class="item">Fackbook              </a><a href="/subscribe" class="item" title="訂閱電子報" data-v-5120c3f7="">訂閱電子報</a></div></div><div data-v-5120c3f7="" class="three wide column"><h4 data-v-5120c3f7="" class="ui inverted header">關於我們</h4><div data-v-5120c3f7="" class="ui inverted link list"><a href="/Contactus" class="item" title="聯絡我們" data-v-5120c3f7="">聯絡我們</a><a href="/how-to-use" class="item" title="使用手冊" data-v-5120c3f7="">使用手冊</a><a href="/intro" class="item" title="關於vTaiwan" data-v-5120c3f7="">關於vTaiwan</a></div></div><div data-v-5120c3f7="" class="seven wide column"><h4 data-v-5120c3f7="" class="ui inverted header">vTaiwan</h4><p data-v-5120c3f7="">vTaiwan為討論法規該如何制定或修改的平台，透過彼此的意見交流，希望能夠產出符合各利益關係人期待，也貼近實際需求的法規內容。</p></div></div></div><div data-v-5120c3f7="" class="ui inverted section divider"></div><div data-v-5120c3f7="" class="ui center aligned container"><a data-v-5120c3f7="" href="https://www.facebook.com/vtaiwan.tw/" title="Fackbook" target="_blank" class="ui circular facebook icon button"><i data-v-5120c3f7="" class="big facebook icon"></i></a><a data-v-5120c3f7="" href="https://www.youtube.com/channel/UChC85hbUuDAvFpc7Uuj69DA/" title="Youtube" target="_blank" class="ui circular youtube icon button"><i data-v-5120c3f7="" class="big youtube icon"></i></a><a href="/" class="ui icon router-link-active" title="Home" data-v-5120c3f7=""><img data-v-5120c3f7="" src="/vTaiwan_logo_2017.png" alt="logo"></a><a data-v-5120c3f7="" href="https://github.com/g0v/vue.vtaiwan.tw" title="Github" target="_blank" class="ui circular icon grey button"><i data-v-5120c3f7="" class="big github icon"></i></a><a href="/Contactus" class="ui circular icon orange button" title="Contact Us" data-v-5120c3f7=""><i data-v-5120c3f7="" class="big mail icon"></i></a></div></div></div></div>
 <script type="text/javascript" src="/app.js"></script><script type="text/javascript" src="/vendor.js"></script>
 
 </body></html>

@@ -61,7 +61,7 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 182);
+/******/ 	return __webpack_require__(__webpack_require__.s = 185);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -653,7 +653,7 @@ module.exports = {
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
 
 
@@ -6633,7 +6633,7 @@ function flush() {
 function attemptVertx() {
   try {
     var r = require;
-    var vertx = __webpack_require__(14);
+    var vertx = __webpack_require__(13);
     vertxNext = vertx.runOnLoop || vertx.runOnContext;
     return useVertxTimer();
   } catch (e) {
@@ -10102,12 +10102,6 @@ return index;
 /* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(24);
-
-/***/ },
-/* 11 */
-/***/ function(module, exports, __webpack_require__) {
-
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {'use strict';
 
@@ -10206,25 +10200,25 @@ module.exports = defaults;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 12 */
+/* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "vTaiwan_logo_2017.png";
 
 /***/ },
-/* 13 */
+/* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 
 /* styles */
-__webpack_require__(178)
+__webpack_require__(181)
 
 /* script */
 __vue_exports__ = __webpack_require__(47)
 
 /* template */
-var __vue_template__ = __webpack_require__(151)
+var __vue_template__ = __webpack_require__(154)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -10243,10 +10237,16 @@ module.exports = __vue_exports__
 
 
 /***/ },
-/* 14 */
+/* 13 */
 /***/ function(module, exports) {
 
 /* (ignored) */
+
+/***/ },
+/* 14 */
+/***/ function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(24);
 
 /***/ },
 /* 15 */
@@ -10569,13 +10569,13 @@ function pluralize(time, label) {
 var __vue_exports__, __vue_options__
 
 /* styles */
-__webpack_require__(177)
+__webpack_require__(180)
 
 /* script */
 __vue_exports__ = __webpack_require__(60)
 
 /* template */
-var __vue_template__ = __webpack_require__(150)
+var __vue_template__ = __webpack_require__(153)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -10601,11 +10601,11 @@ module.exports = __vue_exports__
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__App_vue__ = __webpack_require__(101);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__App_vue__ = __webpack_require__(104);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__App_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__App_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__store__ = __webpack_require__(68);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__router__ = __webpack_require__(67);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vuex_router_sync__ = __webpack_require__(180);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__store__ = __webpack_require__(70);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__router__ = __webpack_require__(69);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vuex_router_sync__ = __webpack_require__(183);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vuex_router_sync___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_vuex_router_sync__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__filters__ = __webpack_require__(20);
 /* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return app; });
@@ -10654,7 +10654,7 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a(_extends({
 var utils = __webpack_require__(2);
 var bind = __webpack_require__(19);
 var Axios = __webpack_require__(26);
-var defaults = __webpack_require__(11);
+var defaults = __webpack_require__(10);
 
 /**
  * Create an instance of Axios
@@ -10774,7 +10774,7 @@ module.exports = CancelToken;
 "use strict";
 'use strict';
 
-var defaults = __webpack_require__(11);
+var defaults = __webpack_require__(10);
 var utils = __webpack_require__(2);
 var InterceptorManager = __webpack_require__(27);
 var dispatchRequest = __webpack_require__(28);
@@ -10928,7 +10928,7 @@ module.exports = InterceptorManager;
 var utils = __webpack_require__(2);
 var transformData = __webpack_require__(31);
 var isCancel = __webpack_require__(17);
-var defaults = __webpack_require__(11);
+var defaults = __webpack_require__(10);
 
 /**
  * Throws a `Cancel` if cancellation has been requested.
@@ -11484,9 +11484,9 @@ module.exports = function spread(callback) {
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_app_navbar_vue__ = __webpack_require__(120);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_app_navbar_vue__ = __webpack_require__(123);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_app_navbar_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_app_navbar_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_MyFooter_vue__ = __webpack_require__(115);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_MyFooter_vue__ = __webpack_require__(118);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_MyFooter_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_MyFooter_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__js_request__ = __webpack_require__(3);
 //
@@ -11510,7 +11510,6 @@ module.exports = function spread(callback) {
 
 // import $ from 'jquery'
 // import jQuery from 'jquery'
-
 // window.jQuery = jQuery
 
 /* harmony default export */ exports["default"] = {
@@ -11535,20 +11534,26 @@ module.exports = function spread(callback) {
       return obj ? obj.r : '';
     },
     getProgress: function getProgress(raw) {
-      var regex = /(?: (?:init )?)|\n/g;
-      var start = new Date(raw.split(regex)[1] + "T00:00:00+08:00");
-      var end = new Date(raw.split(regex)[2] + "T00:00:00+08:00");
+      // var regex = /(?: (?:init )?)|\n/g;
+      // var start = new Date(raw.split(regex)[1]+"T00:00:00+08:00");
+      // var end = new Date(raw.split(regex)[2]+"T00:00:00+08:00");
+      var re = /[0-9]+-[0-9]+-[0-9]+(\s[0-9]+:[0-9]+:[0-9]*)?/g;
+      var start = new Date(raw.match(re)[0]);
+      var end = new Date(raw.match(re)[1] || raw.match(re)[0]);
       var now = new Date();
       if (now > end) {
-        return (end - start) / (24 * 60 * 60 * 1000);
+        return (end - start) / (24 * 60 * 60 * 1000); /* Math.floor? */
       } else {
         return (now - start) / (24 * 60 * 60 * 1000);
       }
     },
     getTotal: function getTotal(raw) {
-      var regex = /(?: (?:init )?)|\n/g;
-      var start = new Date(raw.split(regex)[1] + "T00:00:00+08:00");
-      var end = new Date(raw.split(regex)[2] + "T00:00:00+08:00");
+      // var regex = /(?: (?:init )?)|\n/g;
+      // var start = new Date(raw.split(regex)[1]+"T00:00:00+08:00");
+      // var end = new Date(raw.split(regex)[2]+"T00:00:00+08:00");
+      var re = /[0-9]+-[0-9]+-[0-9]+(\s[0-9]+:[0-9]+:[0-9]*)?/g;
+      var start = new Date(raw.match(re)[0]);
+      var end = new Date(raw.match(re)[1] || raw.match(re)[0]);
       return (end - start) / (24 * 60 * 60 * 1000);
     }
   },
@@ -11607,12 +11612,21 @@ module.exports = function spread(callback) {
 
       news.forEach(function (post) {
         var tmp = {};
+        var tag = {};
+        var tags = [];
         post = post['raw'].split("<br>");
         tmp['title'] = post[1];
         tmp['content'] = post[3];
         tmp['img_link'] = post[5];
         tmp['source'] = post[7];
-        tmp['tags'] = post[9].split("\n")[0].replace(/，|#/g, " ");
+        tag = post[9].split("\n")[0].replace(/，|#/g, " ");
+        tag = tag.split(" ");
+        for (var i in tag) {
+          if (tag[i] != "") {
+            tags.push(tag[i]);
+          }
+        }
+        tmp['tags'] = tags;
         tmp['news_link'] = post[11];
         tmp['source_link'] = post[11].split("/")[2];
         tmp['setup_time'] = post[13];
@@ -11628,7 +11642,7 @@ module.exports = function spread(callback) {
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Detail_Topic_Discussion_Comment_vue__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Detail_Topic_Discussion_Comment_vue__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Detail_Topic_Discussion_Comment_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__Detail_Topic_Discussion_Comment_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__js_request__ = __webpack_require__(3);
 //
@@ -11758,7 +11772,7 @@ module.exports = function spread(callback) {
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_HotProposal_vue__ = __webpack_require__(122);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_HotProposal_vue__ = __webpack_require__(125);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_HotProposal_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__home_HotProposal_vue__);
 //
 //
@@ -11808,11 +11822,11 @@ module.exports = function spread(callback) {
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Detail_Topic_Slide_vue__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Detail_Topic_Slide_vue__ = __webpack_require__(111);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Detail_Topic_Slide_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__Detail_Topic_Slide_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Detail_Topic_NextStage_vue__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Detail_Topic_NextStage_vue__ = __webpack_require__(110);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Detail_Topic_NextStage_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__Detail_Topic_NextStage_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Detail_info_vue__ = __webpack_require__(110);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Detail_info_vue__ = __webpack_require__(113);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Detail_info_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__Detail_info_vue__);
 //
 //
@@ -11854,18 +11868,6 @@ module.exports = function spread(callback) {
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
 
 // import axios from 'axios'
 
@@ -11902,9 +11904,9 @@ module.exports = function spread(callback) {
     }
   },
   methods: {
-    accordion: function accordion() {
-      $('.ui.accordion').accordion();
-    },
+    // accordion:function(){
+    //   $('.ui.accordion').accordion();
+    // },
     showSidebar: function showSidebar() {
       $('.ui.left.sidebar').sidebar('show');
       // $('.ui.left.sidebar').next().remove('.ui.left.sidebar'); 
@@ -11912,7 +11914,6 @@ module.exports = function spread(callback) {
     hideSidebar: function hideSidebar() {
       $('.ui.left.sidebar').sidebar('hide');
     },
-
     routename: function routename() {
       return this.$route.params.tRouteName;
     }
@@ -11999,8 +12000,11 @@ module.exports = function spread(callback) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__js_request__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Detail_Topic_Discussion_Comment_vue__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Detail_Topic_Discussion_Comment_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__Detail_Topic_Discussion_Comment_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__js_discourse_js__ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Detail_Topic_Discussion_Comment_vue__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Detail_Topic_Discussion_Comment_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__Detail_Topic_Discussion_Comment_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__js_chineseSort_js__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__js_chineseSort_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__js_chineseSort_js__);
 //
 //
 //
@@ -12032,6 +12036,16 @@ module.exports = function spread(callback) {
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+
+
 
 
 
@@ -12039,11 +12053,12 @@ module.exports = function spread(callback) {
 /* harmony default export */ exports["default"] = {
   props: ['article'],
   components: {
-    Discussion_Comment: __WEBPACK_IMPORTED_MODULE_1__Detail_Topic_Discussion_Comment_vue___default.a
+    Discussion_Comment: __WEBPACK_IMPORTED_MODULE_2__Detail_Topic_Discussion_Comment_vue___default.a
   },
   data: function data() {
     return {
-      dType: {}
+      dType: {},
+      lastStep: ""
     };
   },
 
@@ -12052,6 +12067,8 @@ module.exports = function spread(callback) {
       $('.ui.accordion').accordion();
     },
     discussionType: function discussionType(val) {
+      var _this = this;
+
       var id = val.id; // just for alias
       this.dType = { // initialize dType
         'type': []
@@ -12071,9 +12088,10 @@ module.exports = function spread(callback) {
           for (var _iterator = detail_info[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
             var i = _step.value;
 
-            if (i['raw'].indexOf("意見徵集") == 0) {
+            if (i['raw'].indexOf("意見徵集") == 0 || i['raw'].indexOf("研擬草案") == 0) {
               link = i['raw'].split(/\s/); // add link to link[]
             }
+            _this.lastStep = i['raw'].split(" ", 1)[0];
           }
         } catch (err) {
           _didIteratorError = true;
@@ -12116,8 +12134,10 @@ module.exports = function spread(callback) {
             } else if (j.indexOf("talk.vtaiwan.tw") > -1) {
               //篩出含有discourse的連結
               j = j.replace(/(.*)\/$/, "$1"); // discard last char '/'
-              __WEBPACK_IMPORTED_MODULE_0__js_request__["a" /* default */].get(j + '.json').then(function (response) {
-                var topics = response.data.topic_list.topics;
+              __WEBPACK_IMPORTED_MODULE_1__js_discourse_js__["a" /* default */].getAllTopics(j + '.json', 0).then(function (response) {
+                var topics = response.sort(function (a, b) {
+                  return __WEBPACK_IMPORTED_MODULE_3__js_chineseSort_js___default()(a.title, b.title);
+                });
                 dType.type.push('discourse');
                 dType.discourse = topics.map(function (t) {
                   return {
@@ -12289,8 +12309,6 @@ module.exports = function spread(callback) {
 //
 //
 //
-//
-//
 
 
 
@@ -12442,8 +12460,9 @@ module.exports = function spread(callback) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__js_request__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ParticipationLink_vue__ = __webpack_require__(116);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ParticipationLink_vue__ = __webpack_require__(119);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ParticipationLink_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__ParticipationLink_vue__);
+//
 //
 //
 //
@@ -12578,11 +12597,11 @@ module.exports = function spread(callback) {
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Detail_Topic_Description_vue__ = __webpack_require__(105);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Detail_Topic_Description_vue__ = __webpack_require__(108);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Detail_Topic_Description_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__Detail_Topic_Description_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Detail_Topic_Discussion_vue__ = __webpack_require__(106);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Detail_Topic_Discussion_vue__ = __webpack_require__(109);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Detail_Topic_Discussion_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__Detail_Topic_Discussion_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Detail_Topic_Timeline_vue__ = __webpack_require__(109);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Detail_Topic_Timeline_vue__ = __webpack_require__(112);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Detail_Topic_Timeline_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__Detail_Topic_Timeline_vue__);
 //
 //
@@ -12633,11 +12652,11 @@ module.exports = function spread(callback) {
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_Slideshow_vue__ = __webpack_require__(124);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_Slideshow_vue__ = __webpack_require__(127);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_Slideshow_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__home_Slideshow_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__home_ProposalTab_vue__ = __webpack_require__(123);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__home_ProposalTab_vue__ = __webpack_require__(126);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__home_ProposalTab_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__home_ProposalTab_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_News_vue__ = __webpack_require__(119);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_News_vue__ = __webpack_require__(122);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_News_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__app_News_vue__);
 //
 //
@@ -12856,8 +12875,11 @@ module.exports = function spread(callback) {
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
+//
+//
+//
+//
+//
 //
 //
 //
@@ -12867,7 +12889,7 @@ module.exports = function spread(callback) {
 //
 //
 
-
+// import axios from 'axios'
 // import $ from 'jQuery'
 var main = __webpack_require__(20);
 /* harmony default export */ exports["default"] = {
@@ -12876,32 +12898,41 @@ var main = __webpack_require__(20);
     return {
       ulinkall: [],
       data_base_non: [{
-        icon: "<a class='ui teal button'><i class='linkify icon'></i>相關</a>"
+        icon: "linkify",
+        text: "相關"
       }],
       data_base: [{
         key: 'hackpad',
-        icon: "<a class='ui teal button'><i class='pencil icon'></i>共筆</a>"
+        icon: "pencil",
+        text: "共筆"
       }, {
         key: 'sayit',
-        icon: "<a class='ui teal button'><i class='book icon'></i>記錄</a>"
+        icon: "book",
+        text: "記錄"
       }, {
         key: 'youtube',
-        icon: "<a class='ui teal button'><i class='youtube play icon'></i>影片</a>"
+        icon: "youtube play",
+        text: "影片"
       }, {
         key: 'pol.is',
-        icon: "<a class='ui teal button'><i class='users icon'></i>討論</a>"
+        icon: "users",
+        text: "討論"
       }, {
         key: 'talk.vtaiwan.tw',
-        icon: "<a class='ui teal button'><i class='edit icon'></i>留言</a>"
+        icon: "edit",
+        text: "留言"
       }, {
         key: 'app.sli.do',
-        icon: "<a class='ui teal button'><i class='bullhorn icon'></i>提問</a>"
+        icon: "bullhorn",
+        text: "提問"
       }, {
         key: 'PDF',
-        icon: "<a class='ui teal button'><i class='download disk icon'></i>PDF</a>"
+        icon: "download disk",
+        text: "PDF"
       }, {
         key: 'g0v.github',
-        icon: "<a class='ui teal button'><i class='github alternate icon'></i>GitBook</a>"
+        icon: "github alternate",
+        text: "GitBook"
       }]
     };
   },
@@ -12913,13 +12944,39 @@ var main = __webpack_require__(20);
       var tag = 0;
       for (var j = 0; j < this.data_base.length; j++) {
         if (this.urllink[i].indexOf(this.data_base[j].key) != -1) {
-          this.ulinkall.push("<a href= " + this.urllink[i] + " target='_blank'" + this.data_base[j].icon + "</a>"); //判斷是否為data_base中的連結
+
+          var item = {};
+          item.link = this.urllink[i];
+          item.icon = this.data_base[j].icon;
+          item.text = this.data_base[j].text;
+          this.ulinkall.push(item);
+          /* 判斷是否為data_base中的連結 */
+          // this.ulinkall 
+          //   .push("<a href="+this.urllink[i]+" target='_blank' class='ui teal icon button'>"+
+          //     this.data_base[j].icon+
+          //     "<span class='fat-only'> "+
+          //     this.data_base[j].text+
+          //     "</span>"+
+          //     "</a>"
+          //   );
           tag = 1;
         }
       }
-      if (tag != 1) //如果不是為data_base的連結 則變成相關連結
+      if (tag != 1) /* 如果不是為data_base的連結 則變成相關連結 */
         {
-          this.ulinkall.push("<a href= " + this.urllink[i] + " target='_blank'" + this.data_base_non[0].icon + "</a>");
+          var _item = {};
+          _item.link = this.urllink[i];
+          _item.icon = this.data_base_non[0].icon;
+          _item.text = this.data_base_non[0].text;
+          this.ulinkall.push(_item);
+          // this.ulinkall
+          //   .push("<a href="+this.urllink[i]+" target='_blank' class='ui teal icon button'>"+
+          //     this.data_base_non[0].icon+
+          //     "<span class='fat-only'> "+
+          //     this.data_base_non[0].text+
+          //     "</span>"+
+          //     "</a>"
+          //   );
         }
     }
   }
@@ -12930,10 +12987,10 @@ var main = __webpack_require__(20);
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Detail_Topic_Discussion_Comment_vue__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Detail_Topic_Discussion_Comment_vue__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Detail_Topic_Discussion_Comment_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__Detail_Topic_Discussion_Comment_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__js_request__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_axios__);
 //
 //
@@ -13136,70 +13193,67 @@ var main = __webpack_require__(20);
 //
 //
 //
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ exports["default"] = {
-  name: 'News',
-  props: ['allNews'],
-  mounted: function mounted() {
-    /* initialize swiper when document ready */
-    var mySwiper1 = new Swiper('.swiper-container1', {
-      observer: true,
-      direction: 'horizontal',
-      pagination: '.swiper-pagination',
-      //   autoplay: 4000,
-      slidesPerView: 5,
-      paginationClickable: true,
-      spaceBetween: 50,
-      nextButton: '.swiper-button-next',
-      prevButton: '.swiper-button-prev'
-    });
-    var mySwiper2 = new Swiper('.swiper-container2', {
-      observer: true,
-      //   autoplay: 5000,
-      direction: 'horizontal',
-      nextButton: '.swiper-button-next',
-      prevButton: '.swiper-button-prev',
-      pagination: '.swiper-pagination',
-      scrollbar: '.swiper-scrollbar',
-      spaceBetween: 40
-    });
-    mySwiper1.on('imagesReady', function () {
-      var len = 60; // 超過50個字以"..."取代
-      $(".JQellipsis").each(function (i) {
-        if ($(this).text().length > len) {
-          $(this).attr("title", $(this).text());
-          var text = $(this).text().substring(0, len - 1) + "...";
-          $(this).text(text);
-        }
-      });
-    });
-    mySwiper2.on('imagesReady', function () {
-      var len = 60; // 超過50個字以"..."取代
-      $(".JQellipsis").each(function (i) {
-        if ($(this).text().length > len) {
-          $(this).attr("title", $(this).text());
-          var text = $(this).text().substring(0, len - 1) + "...";
-          $(this).text(text);
-        }
-      });
-    });
-  },
-  updated: function updated() {
-    var len = 50; // 超過50個字以"..."取代
-    $(".JQellipsis").each(function (i) {
-      if ($(this).text().length > len) {
-        $(this).attr("title", $(this).text());
-        var text = $(this).text().substring(0, len - 1) + "...";
-        $(this).text(text);
-      }
-    });
-  }
+    name: 'News',
+    props: ['allNews'],
+    mounted: function mounted() {
+        /* initialize swiper when document ready */
+        var mySwiper1 = new Swiper('.swiper-container1', {
+            observer: true,
+            direction: 'horizontal',
+            pagination: '.swiper-pagination',
+            //   autoplay: 5000,
+            slidesPerView: 5,
+            paginationClickable: true,
+            spaceBetween: 50,
+            nextButton: '.swiper-button-next',
+            prevButton: '.swiper-button-prev'
+
+        });
+        var mySwiper2 = new Swiper('.swiper-container2', {
+            observer: true,
+            autoplay: 5000,
+            direction: 'horizontal',
+            nextButton: '.swiper-button-next',
+            prevButton: '.swiper-button-prev',
+            pagination: '.swiper-pagination',
+            paginationType: 'fraction',
+            scrollbar: '.swiper-scrollbar',
+            spaceBetween: 40
+        });
+        mySwiper1.on('imagesReady', function () {
+            var len = 60; // 超過50個字以"..."取代
+            $(".JQellipsis").each(function (i) {
+                if ($(this).text().length > len) {
+                    $(this).attr("title", $(this).text());
+                    var text = $(this).text().substring(0, len - 1) + "...";
+                    $(this).text(text);
+                }
+            });
+        });
+        mySwiper2.on('imagesReady', function () {
+            var len = 60; // 超過50個字以"..."取代
+            $(".JQellipsis").each(function (i) {
+                if ($(this).text().length > len) {
+                    $(this).attr("title", $(this).text());
+                    var text = $(this).text().substring(0, len - 1) + "...";
+                    $(this).text(text);
+                }
+            });
+        });
+    },
+    updated: function updated() {
+        var len = 60; // 超過50個字以"..."取代
+        $(".JQellipsis").each(function (i) {
+            if ($(this).text().length > len) {
+                $(this).attr("title", $(this).text());
+                var text = $(this).text().substring(0, len - 1) + "...";
+                $(this).text(text);
+            }
+        });
+    }
 };
 
 /***/ },
@@ -13418,8 +13472,13 @@ var main = __webpack_require__(20);
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_propTabs_Box_vue__ = __webpack_require__(125);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_propTabs_Box_vue__ = __webpack_require__(128);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_propTabs_Box_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__home_propTabs_Box_vue__);
+//
+//
+//
+//
+//
 //
 //
 //
@@ -13619,83 +13678,87 @@ var main = __webpack_require__(20);
   props: ['hotTopics', 'allTopics'],
   data: function data() {
     return {
-      c: 0,
-      lastC: 0,
-      isBusy: false
+      // c: 0,
+      // lastC: 0,
+      // isBusy: false
     };
   },
 
-  computed: {
-    mySlideTopics: function mySlideTopics() {
-      var c = this.c;
-      var lastC = this.lastC;
-      var ts = this.hotTopics;
-      return ts.map(function (o, idx) {
-        //o.transform = 'translateX('+ (idx-c) * 100 +'%)';
-        o.transform = 'translateX(0%)';
+  // computed: {
+  // mySlideTopics: function () {
+  //   var c = this.c;
+  //   var lastC = this.lastC;
+  //   var ts = this.hotTopics;
+  //   return ts.map(function (o, idx) {
+  //     //o.transform = 'translateX('+ (idx-c) * 100 +'%)';
+  //     o.transform = 'translateX(0%)';
 
-        if (idx == c - 1 || c == 0 && idx == ts.length - 1) {
-          o.transform = 'translateX(-100%)';
-        }
-        if (idx == c + 1 || c == ts.length - 1 && idx == 0) {
-          o.transform = 'translateX(100%)';
-        }
-        o.zIndex = idx == c || idx == lastC ? 4 : 3;
-        o.opacity = idx == c || idx == lastC ? 1 : 0;
+  //     if (idx == c-1 || (c == 0 && idx == ts.length-1)) {
+  //       o.transform = 'translateX(-100%)';
+  //     }
+  //     if (idx == c+1 || (c == ts.length-1 && idx == 0)) {
+  //       o.transform = 'translateX(100%)';
+  //     }
+  //     o.zIndex = (idx == c || idx == lastC) ? 4 : 3;
+  //     o.opacity = (idx == c || idx == lastC) ? 1 : 0;
 
-        // combine styles into single 
-        o.style = {
-          'z-index': o.zIndex,
-          'opacity': o.opacity,
-          'transform': o.transform,
-          '-ms-transform': o.transform,
-          '-webkit-transform': o.transform,
-          'background': 'url(' + o.cover + ') 100% 100% / cover'
-        };
+  //     // combine styles into single 
+  //     o.style = {
+  //       'z-index': o.zIndex, 
+  //       'opacity': o.opacity, 
+  //       'transform': o.transform, 
+  //       '-ms-transform': o.transform, 
+  //       '-webkit-transform': o.transform, 
+  //       'background': 'url(' + o.cover + ') 100% 100% / cover'
+  //     };
 
-        o.new_style = {
-          'background': 'url(' + o.cover + ') 100% 100% / cover'
-        };
-        return o;
-      });
-    }
-  },
-  methods: {
-    cycle: function cycle(n) {
+  //     o.new_style = {
+  //       'background': 'url(' + o.cover + ') 100% 100% / cover'
+  //     }
+  //     return o
+  //   })
+  // },
+  // },
+  // methods: {
+  //   cycle: function (n) {
 
-      var c = this.c;
-      var ts = this.hotTopics;
+  //     let c = this.c;
+  //     let ts = this.hotTopics;
 
-      if (!this.isBusy) {
-        this.lastC = c;
-        c = c + n;
+  //     if (!this.isBusy) {
+  //       this.lastC = c;
+  //       c = c + n;
 
-        if (c < 0) {
-          c = ts.length + c;
-        }
-        if (c >= ts.length) {
-          c = c - ts.length;
-        }
+  //       if (c < 0) {
+  //         c = ts.length + c;
+  //       }
+  //       if (c >= ts.length) {
+  //         c = c - ts.length;
+  //       }
 
-        this.isBusy = true;
-        setTimeout(function () {
-          this.isBusy = false;
-        }, 500);
-      }
-      return c;
-    }
-  },
+  //       this.isBusy = true;
+  //       setTimeout(function(){
+  //         this.isBusy = false;
+  //       }, 500)
+  //     }
+  //     return c;
+  //   }
+  // },
   mounted: function mounted() {
     /* initialize swiper when document ready */
     new Swiper('.swiper-container', {
-      observer: true,
-      autoplay: 5000,
-      direction: 'horizontal',
-      nextButton: '.swiper-button-next',
-      prevButton: '.swiper-button-prev',
-      pagination: '.swiper-pagination',
+      // nextButton: '.swiper-button-next',
+      // prevButton: '.swiper-button-prev',
+      // pagination: '.swiper-pagination',
       scrollbar: '.swiper-scrollbar',
-      keyboardControl: true
+      observer: true,
+      autoplay: 8000,
+      direction: 'horizontal',
+      keyboardControl: true,
+      slidesPerView: 1.2,
+      centeredSlides: true,
+      // paginationClickable: true,
+      spaceBetween: 2
     });
   }
 };
@@ -13705,6 +13768,13 @@ var main = __webpack_require__(20);
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -13750,19 +13820,12 @@ var main = __webpack_require__(20);
   },
 
   mounted: function mounted() {
-    /* make mobile's m-title sticky to its own content */
-    // let self = this /* save vm for later use */
-    // let btn_name = this.name
-    // $('.m-title.sticky[data-name="'+btn_name+'"]').sticky({
-    //   observeChanges: true,
-    //   onStick       : function(){
-    //     self.$emit('stickTo', btn_name)
-    //   }
-    // })
-
     /* bind event scroll to window */
     window.addEventListener('scroll', this.mTitleHitEvent);
     // $(window).scroll(this.mTitleHitEvent)
+  },
+  beforeDestroy: function beforeDestroy() {
+    window.removeEventListener('scroll', this.mTitleHitEvent);
   },
   methods: {
     mTitleHitEvent: function mTitleHitEvent() {
@@ -13784,10 +13847,12 @@ var main = __webpack_require__(20);
         this.isSent = false;
       }
     },
-    progressStyle: function progressStyle(t) {
-      var color = $('.progress_bar').css('color');
-      var percent = t.progress / t.total * 100;
-      return { "background": "linear-gradient(to right, " + color + " 0%, " + color + " " + percent + "%, #AAA " + percent + ".1%, #AAA 100%)" };
+    progressStyle: function progressStyle(progress, total) {
+      var color = '#3fadc7'; /* $main_color */
+      var percent = progress / total * 100;
+      // let style = {"background": "linear-gradient(to right, "+color+" 0%, "+color+" "+percent+"%, #AAA "+percent+".1%, #AAA 100%)"}
+      var style = { "width": percent + "%" };
+      return style;
     }
   }
 };
@@ -13796,30 +13861,100 @@ var main = __webpack_require__(20);
 /* 67 */
 /***/ function(module, exports, __webpack_require__) {
 
+module.exports = function (a, b) {
+
+    var naturalSort = __webpack_require__(100);
+
+    var c2n = { "一": "1", "二": "2", "三": "3", "四": "4", "五": "5", "六": "6", "七": "7", "八": "8", "九": "9", "十": "10" };
+
+    function ChineseToNumber(str) {
+        str = str.replace(/一|二|三|四|五|六|七|八|九|十/gi, function (matched) {
+            return c2n[matched];
+        });
+        return str;
+    }
+
+    return naturalSort(ChineseToNumber(a), ChineseToNumber(b));
+};
+
+/***/ },
+/* 68 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__request__ = __webpack_require__(3);
+
+
+/* harmony default export */ exports["a"] = {
+    getAllTopics: function getAllTopics(categoryUri) {
+
+        var allTopics = [];
+
+        function getTopics(categoryUri, page) {
+            return __WEBPACK_IMPORTED_MODULE_0__request__["a" /* default */].get(categoryUri + "?include_raw=1&page=" + page).then(function (result) {
+                var topics = result['data']['topic_list']['topics'];
+                allTopics = allTopics.concat(topics);
+                if (topics.length > 0) {
+                    page += 1;
+                    return getTopics(categoryUri, page);
+                } else {
+                    return allTopics;
+                }
+            });
+        }
+
+        return getTopics(categoryUri, 0);
+    },
+
+    getAllPosts: function getAllPosts(categoryUri) {
+
+        var allPosts = [];
+
+        function getPosts(categoryUri, page) {
+            return __WEBPACK_IMPORTED_MODULE_0__request__["a" /* default */].get(categoryUri + "?include_raw=1&page=" + page).then(function (result) {
+                var posts = result['data']['post_stream']['posts'];
+                allPosts = allPosts.concat(posts);
+                if (posts.length > 0) {
+                    page += 1;
+                    return getPosts(categoryUri, page);
+                } else {
+                    return allPosts;
+                }
+            });
+        }
+
+        return getPosts(categoryUri, 0);
+    }
+};
+
+/***/ },
+/* 69 */
+/***/ function(module, exports, __webpack_require__) {
+
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_router__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_router___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue_router__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_Home_vue__ = __webpack_require__(111);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_Home_vue__ = __webpack_require__(114);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_Home_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_Home_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_HowToUse_vue__ = __webpack_require__(112);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_HowToUse_vue__ = __webpack_require__(115);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_HowToUse_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_HowToUse_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_Intro_vue__ = __webpack_require__(113);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_Intro_vue__ = __webpack_require__(116);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_Intro_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__components_Intro_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_Login_vue__ = __webpack_require__(114);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_Login_vue__ = __webpack_require__(117);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_Login_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__components_Login_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_Track_vue__ = __webpack_require__(118);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_Track_vue__ = __webpack_require__(121);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_Track_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__components_Track_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_Detail_Topic_vue__ = __webpack_require__(104);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_Detail_Topic_vue__ = __webpack_require__(107);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_Detail_Topic_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__components_Detail_Topic_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_Detail_Catagory_vue__ = __webpack_require__(103);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_Detail_Catagory_vue__ = __webpack_require__(106);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_Detail_Catagory_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__components_Detail_Catagory_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_ContactUs_vue__ = __webpack_require__(102);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_ContactUs_vue__ = __webpack_require__(105);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_ContactUs_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__components_ContactUs_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_app_navbar_search_vue__ = __webpack_require__(121);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_app_navbar_search_vue__ = __webpack_require__(124);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_app_navbar_search_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__components_app_navbar_search_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_Subscribe_vue__ = __webpack_require__(117);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_Subscribe_vue__ = __webpack_require__(120);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_Subscribe_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__components_Subscribe_vue__);
 
 
@@ -13868,7 +14003,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_
 });
 
 /***/ },
-/* 68 */
+/* 70 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13894,34 +14029,6 @@ var store = new __WEBPACK_IMPORTED_MODULE_1_vuex___default.a.Store({
 /* harmony default export */ exports["a"] = store;
 
 /***/ },
-/* 69 */
-/***/ function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(0)();
-// imports
-
-
-// module
-exports.push([module.i, "\n.ui.teal.button {\n  margin-bottom: 0.5em;\n  background-color: #40B3BF;\n}\n@media only screen and (max-width: 767px) {\n.ui.teal.button {\n      padding: 0.7em;\n}\n}\n", ""]);
-
-// exports
-
-
-/***/ },
-/* 70 */
-/***/ function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(0)();
-// imports
-
-
-// module
-exports.push([module.i, "\n.component[data-v-0638e068] {\n  position: relative;\n}\np[data-v-0638e068] {\n  text-align: left;\n}\n", ""]);
-
-// exports
-
-
-/***/ },
 /* 71 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -13930,7 +14037,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n*[data-v-0aea0f33] {\n  box-sizing: border-box;\n}\nbody[data-v-0aea0f33] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.component[data-v-0aea0f33] {\n  position: relative;\n}\n.component h1[data-v-0aea0f33], .component h2[data-v-0aea0f33], .component h3[data-v-0aea0f33], .component h4[data-v-0aea0f33], .component h5[data-v-0aea0f33], .component h6[data-v-0aea0f33], .component p[data-v-0aea0f33] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-0aea0f33], .component h2 a[data-v-0aea0f33], .component h3 a[data-v-0aea0f33], .component h4 a[data-v-0aea0f33], .component h5 a[data-v-0aea0f33], .component h6 a[data-v-0aea0f33], .component p a[data-v-0aea0f33] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-0aea0f33] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-0aea0f33] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-0aea0f33] {\n    display: none !important;\n}\n}\n.component[data-v-0aea0f33] {\n  padding: 1em 0;\n  min-height: 72vh;\n}\n.ui.steps .step[data-v-0aea0f33] {\n  -ms-flex: 1 1 auto;\n      flex: 1 1 auto;\n  overflow: hidden;\n}\n.ui.steps .number[data-v-0aea0f33] {\n  font-family: Lobster, \"Microsoft JhengHei\", \"Heiti TC\", serif;\n  font-weight: 700;\n  position: absolute;\n  font-size: 10rem;\n  color: rgba(219, 79, 79, 0.5);\n  margin: 0 0 0 -30%;\n}\n.ui.steps .label[data-v-0aea0f33] {\n  padding: .3em 0 0 .3em;\n  z-index: 100;\n}\n@media only screen and (max-width: 767px) {\n.component[data-v-0aea0f33] {\n    padding: 0px;\n    border: 0px;\n}\n.ui.container[data-v-0aea0f33] {\n    margin: 0 !important;\n}\n.ui.segment.basic[data-v-0aea0f33] {\n    padding: 0;\n    margin-left: 1em;\n    width: 100%;\n}\n.proposalTab[data-v-0aea0f33] {\n    padding: 1em 0;\n    min-height: 72vh;\n}\n.mobile-step[data-v-0aea0f33] {\n    /* do not use #mobile-step, otherwise sticky won't work */\n    position: absolute;\n    top: 1em;\n}\n.mobile-step .ui.menu[data-v-0aea0f33] {\n      width: 2em;\n}\n.mobile-step .ui.menu .item[data-v-0aea0f33] {\n        padding: 1em 0;\n}\n.mobile-step .ui.menu .item.active[data-v-0aea0f33] {\n          color: white;\n          background: #db4f4f;\n}\n}\n", ""]);
+exports.push([module.i, "\n* {\n  box-sizing: border-box;\n}\nbody {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter,\n.fade-leave-active {\n  opacity: 0;\n}\n.fade-leave-active,\n.fade-enter-active {\n  transition: opacity .3s ease;\n}\n.component {\n  position: relative;\n}\n.component h1, .component h2, .component h3, .component h4, .component h5, .component h6, .component p {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a, .component h2 a, .component h3 a, .component h4 a, .component h5 a, .component h6 a, .component p a {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only {\n    display: none !important;\n}\n}\na.ui.icon.button {\n  background-color: #3fadc7;\n}\na.ui.icon.button span {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n", ""]);
 
 // exports
 
@@ -13944,7 +14051,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n*[data-v-1568d51d] {\n  box-sizing: border-box;\n}\nbody[data-v-1568d51d] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.component[data-v-1568d51d] {\n  position: relative;\n}\n.component h1[data-v-1568d51d], .component h2[data-v-1568d51d], .component h3[data-v-1568d51d], .component h4[data-v-1568d51d], .component h5[data-v-1568d51d], .component h6[data-v-1568d51d], .component p[data-v-1568d51d] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-1568d51d], .component h2 a[data-v-1568d51d], .component h3 a[data-v-1568d51d], .component h4 a[data-v-1568d51d], .component h5 a[data-v-1568d51d], .component h6 a[data-v-1568d51d], .component p a[data-v-1568d51d] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-1568d51d] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-1568d51d] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-1568d51d] {\n    display: none !important;\n}\n}\n.step-progress-bar[data-v-1568d51d] {\n  width: 600px;\n  margin: 0 auto;\n  display: block;\n  height: 100px;\n  padding: 10px;\n}\n@media only screen and (max-width: 767px) {\n.step-progress-bar[data-v-1568d51d] {\n      width: 100%;\n}\n.step-progress-bar li[data-v-1568d51d] {\n        font-size: 1rem;\n}\n}\n@media only screen and (min-width: 767px) {\n.step-progress-bar li[data-v-1568d51d] {\n      font-size: 1.2rem;\n}\n}\nul.progress-bar[data-v-1568d51d] {\n  counter-reset: step;\n  padding: 0;\n}\n.step-progress-bar li[data-v-1568d51d] {\n  list-style-type: none;\n  float: left;\n  color: #40B3BF;\n  width: 20%;\n  position: relative;\n  text-align: center;\n  font-weight: 600;\n}\n.step-progress-bar li[data-v-1568d51d]:before {\n  content: counter(step);\n  counter-increment: step;\n  width: 30px;\n  height: 30px;\n  border: 2px solid #40B3BF;\n  border-radius: 50%;\n  display: block;\n  text-align: center;\n  line-height: 30px;\n  margin: 0 auto 10px auto;\n  z-index: 9;\n  background-color: white;\n  font-weight: 600;\n}\n.step-progress-bar li[data-v-1568d51d]:after {\n  content: \"\";\n  width: 100%;\n  position: absolute;\n  height: 2px;\n  background-color: #40B3BF;\n  top: 16px;\n  left: 50%;\n  z-index: -1;\n}\n.step-progress-bar li[data-v-1568d51d]:last-child:after {\n  content: none;\n}\n.step-progress-bar li.active[data-v-1568d51d] {\n  color: gray;\n}\n.step-progress-bar li.current[data-v-1568d51d] {\n  color: #DB5252;\n}\n.step-progress-bar li.active[data-v-1568d51d]:before {\n  border-color: gray;\n}\n.step-progress-bar li.current[data-v-1568d51d]:before {\n  border-color: #DB5252;\n}\n.step-progress-bar li.active[data-v-1568d51d]:after {\n  background-color: gray;\n}\n.step-progress-bar li.current[data-v-1568d51d]:after {\n  background-color: #DB5252;\n}\n", ""]);
+exports.push([module.i, "\n.component[data-v-0638e068] {\n  position: relative;\n}\np[data-v-0638e068] {\n  text-align: left;\n}\n", ""]);
 
 // exports
 
@@ -13958,7 +14065,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n* {\n  box-sizing: border-box;\n}\nbody {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.component {\n  position: relative;\n}\n.component h1, .component h2, .component h3, .component h4, .component h5, .component h6, .component p {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a, .component h2 a, .component h3 a, .component h4 a, .component h5 a, .component h6 a, .component p a {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only {\n    display: none !important;\n}\n}\n.Discoussioncomponent {\n  font-size: 1.5rem;\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  line-height: 1.5em;\n}\n.textleft {\n  text-align: left;\n}\n.ui.styled.accordion {\n  width: 100%;\n}\n.ui.styled.accordion .title {\n  color: rgba(0, 0, 0, 0.6);\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.ui.accordion .active.content {\n  display: block;\n  max-width: 100%;\n}\n", ""]);
+exports.push([module.i, "\n*[data-v-0aea0f33] {\n  box-sizing: border-box;\n}\nbody[data-v-0aea0f33] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter[data-v-0aea0f33],\n.fade-leave-active[data-v-0aea0f33] {\n  opacity: 0;\n}\n.fade-leave-active[data-v-0aea0f33],\n.fade-enter-active[data-v-0aea0f33] {\n  transition: opacity .3s ease;\n}\n.component[data-v-0aea0f33] {\n  position: relative;\n}\n.component h1[data-v-0aea0f33], .component h2[data-v-0aea0f33], .component h3[data-v-0aea0f33], .component h4[data-v-0aea0f33], .component h5[data-v-0aea0f33], .component h6[data-v-0aea0f33], .component p[data-v-0aea0f33] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-0aea0f33], .component h2 a[data-v-0aea0f33], .component h3 a[data-v-0aea0f33], .component h4 a[data-v-0aea0f33], .component h5 a[data-v-0aea0f33], .component h6 a[data-v-0aea0f33], .component p a[data-v-0aea0f33] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-0aea0f33] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-0aea0f33] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-0aea0f33] {\n    display: none !important;\n}\n}\n.component[data-v-0aea0f33] {\n  padding: 1em 0;\n}\n.ui.steps .step[data-v-0aea0f33] {\n  -ms-flex: 1 1 auto;\n      flex: 1 1 auto;\n  overflow: hidden;\n}\n.ui.steps .number[data-v-0aea0f33] {\n  font-family: Lobster, \"Microsoft JhengHei\", \"Heiti TC\", serif;\n  font-weight: 700;\n  position: absolute;\n  font-size: 10rem;\n  color: rgba(219, 79, 79, 0.5);\n  margin: 0 0 0 30%;\n}\n.ui.steps .label[data-v-0aea0f33] {\n  padding: .3em 0 0 .3em;\n  z-index: 100;\n}\n@media only screen and (max-width: 767px) {\n.component[data-v-0aea0f33] {\n    padding: 0px;\n    border: 0px;\n}\n.ui.container[data-v-0aea0f33] {\n    margin: 0 !important;\n}\n.ui.segment.basic[data-v-0aea0f33] {\n    padding: 0;\n    margin-left: 1em;\n    width: 100%;\n}\n.proposalTab[data-v-0aea0f33] {\n    padding: 1em 0;\n    min-height: 72vh;\n}\n.mobile-step[data-v-0aea0f33] {\n    /* do not use #mobile-step, otherwise sticky won't work */\n    position: absolute;\n    top: 1em;\n}\n.mobile-step .ui.menu[data-v-0aea0f33] {\n      width: 2em;\n}\n.mobile-step .ui.menu .item[data-v-0aea0f33] {\n        padding: 1em 0;\n}\n.mobile-step .ui.menu .item.active[data-v-0aea0f33] {\n          color: white;\n          background: #db4f4f;\n}\n}\n", ""]);
 
 // exports
 
@@ -13972,7 +14079,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n*[data-v-1ffe16c1] {\n  box-sizing: border-box;\n}\nbody[data-v-1ffe16c1] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.component[data-v-1ffe16c1] {\n  position: relative;\n}\n.component h1[data-v-1ffe16c1], .component h2[data-v-1ffe16c1], .component h3[data-v-1ffe16c1], .component h4[data-v-1ffe16c1], .component h5[data-v-1ffe16c1], .component h6[data-v-1ffe16c1], .component p[data-v-1ffe16c1] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-1ffe16c1], .component h2 a[data-v-1ffe16c1], .component h3 a[data-v-1ffe16c1], .component h4 a[data-v-1ffe16c1], .component h5 a[data-v-1ffe16c1], .component h6 a[data-v-1ffe16c1], .component p a[data-v-1ffe16c1] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-1ffe16c1] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-1ffe16c1] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-1ffe16c1] {\n    display: none !important;\n}\n}\n.component[data-v-1ffe16c1] {\n  padding: 1em 0;\n  min-height: 72vh;\n}\n.component .swiper-container1[data-v-1ffe16c1] {\n    margin: 4.5em 1em 0 3em;\n}\n.component .ui.card > .content > .header[data-v-1ffe16c1]:not(.ui), .component .ui.cards > .card > .content > .header[data-v-1ffe16c1]:not(.ui) {\n    font-weight: 700;\n    text-align: left;\n    font-size: 1em;\n    margin-top: -.21425em;\n    line-height: 1.2em;\n}\n.component .ui.cards > .card > .content > p[data-v-1ffe16c1] {\n    font-size: 0.6em;\n    text-align: left;\n    color: red;\n    background-color: #e8e8e8;\n    margin-bottom: 1em;\n}\n.component .ui.cards > .card > .image:not(.ui) > img[data-v-1ffe16c1] {\n    height: 150px;\n}\n.component .ui.cards > .card [class*=\"right floated\"][data-v-1ffe16c1] {\n    float: right;\n    font-size: 0.6em;\n}\n.component .ui.cards > .card > .extra.content[data-v-1ffe16c1] {\n    padding: 0 0.5em 0 0;\n}\n.component .description > p[data-v-1ffe16c1] {\n    font-size: 0.6em;\n    text-align: left;\n    text-indent: 25px;\n}\n.component .ui.cards > .card > .content[data-v-1ffe16c1] {\n    padding: 1em 0 1em 0;\n}\n.component .ui.cards > .card[data-v-1ffe16c1] {\n    min-height: 350px;\n}\n.thin-only .swiper-container2[data-v-1ffe16c1] {\n  margin: 5em 3em 0 3em;\n}\n.thin-only .swiper-container2 .ui.cards[data-v-1ffe16c1] {\n    margin: 0;\n}\n.thin-only .swiper-container2 .ui.cards > .card[data-v-1ffe16c1] {\n    min-height: 300px;\n}\n", ""]);
+exports.push([module.i, "\n*[data-v-1568d51d] {\n  box-sizing: border-box;\n}\nbody[data-v-1568d51d] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter[data-v-1568d51d],\n.fade-leave-active[data-v-1568d51d] {\n  opacity: 0;\n}\n.fade-leave-active[data-v-1568d51d],\n.fade-enter-active[data-v-1568d51d] {\n  transition: opacity .3s ease;\n}\n.component[data-v-1568d51d] {\n  position: relative;\n}\n.component h1[data-v-1568d51d], .component h2[data-v-1568d51d], .component h3[data-v-1568d51d], .component h4[data-v-1568d51d], .component h5[data-v-1568d51d], .component h6[data-v-1568d51d], .component p[data-v-1568d51d] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-1568d51d], .component h2 a[data-v-1568d51d], .component h3 a[data-v-1568d51d], .component h4 a[data-v-1568d51d], .component h5 a[data-v-1568d51d], .component h6 a[data-v-1568d51d], .component p a[data-v-1568d51d] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-1568d51d] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-1568d51d] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-1568d51d] {\n    display: none !important;\n}\n}\n.step-progress-bar[data-v-1568d51d] {\n  width: 600px;\n  margin: 0 auto;\n  display: block;\n  height: 100px;\n  padding: 10px;\n}\n@media only screen and (max-width: 767px) {\n.step-progress-bar[data-v-1568d51d] {\n      width: 100%;\n}\n.step-progress-bar li[data-v-1568d51d] {\n        font-size: 1rem;\n}\n}\n@media only screen and (min-width: 767px) {\n.step-progress-bar li[data-v-1568d51d] {\n      font-size: 1.2rem;\n}\n}\nul.progress-bar[data-v-1568d51d] {\n  counter-reset: step;\n  padding: 0;\n}\n.step-progress-bar li[data-v-1568d51d] {\n  list-style-type: none;\n  float: left;\n  color: #40B3BF;\n  width: 20%;\n  position: relative;\n  text-align: center;\n  font-weight: 600;\n}\n.step-progress-bar li[data-v-1568d51d]:before {\n  content: counter(step);\n  counter-increment: step;\n  width: 32px;\n  height: 32px;\n  border: 2px solid #40B3BF;\n  border-radius: 50%;\n  display: block;\n  text-align: center;\n  line-height: 31px;\n  margin: 0 auto 10px auto;\n  z-index: 9;\n  background-color: white;\n  font-weight: 600;\n}\n.step-progress-bar li[data-v-1568d51d]:after {\n  content: \"\";\n  width: 100%;\n  position: absolute;\n  height: 2px;\n  background-color: #40B3BF;\n  top: 16px;\n  left: 50%;\n  z-index: -1;\n}\n.step-progress-bar li[data-v-1568d51d]:last-child:after {\n  content: none;\n}\n.step-progress-bar li.active[data-v-1568d51d] {\n  color: gray;\n}\n.step-progress-bar li.current[data-v-1568d51d] {\n  color: #DB5252;\n}\n.step-progress-bar li.active[data-v-1568d51d]:before {\n  border-color: gray;\n}\n.step-progress-bar li.current[data-v-1568d51d]:before {\n  border-color: #DB5252;\n}\n.step-progress-bar li.active[data-v-1568d51d]:after {\n  background-color: gray;\n}\n.step-progress-bar li.current[data-v-1568d51d]:after {\n  background-color: #DB5252;\n}\n", ""]);
 
 // exports
 
@@ -13986,7 +14093,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n*[data-v-27dbf9ac] {\n  box-sizing: border-box;\n}\nbody[data-v-27dbf9ac] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.component[data-v-27dbf9ac] {\n  position: relative;\n}\n.component h1[data-v-27dbf9ac], .component h2[data-v-27dbf9ac], .component h3[data-v-27dbf9ac], .component h4[data-v-27dbf9ac], .component h5[data-v-27dbf9ac], .component h6[data-v-27dbf9ac], .component p[data-v-27dbf9ac] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-27dbf9ac], .component h2 a[data-v-27dbf9ac], .component h3 a[data-v-27dbf9ac], .component h4 a[data-v-27dbf9ac], .component h5 a[data-v-27dbf9ac], .component h6 a[data-v-27dbf9ac], .component p a[data-v-27dbf9ac] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-27dbf9ac] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-27dbf9ac] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-27dbf9ac] {\n    display: none !important;\n}\n}\n.component[data-v-27dbf9ac] {\n  padding-top: 1em;\n}\n", ""]);
+exports.push([module.i, "\n* {\n  box-sizing: border-box;\n}\nbody {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter,\n.fade-leave-active {\n  opacity: 0;\n}\n.fade-leave-active,\n.fade-enter-active {\n  transition: opacity .3s ease;\n}\n.component {\n  position: relative;\n}\n.component h1, .component h2, .component h3, .component h4, .component h5, .component h6, .component p {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a, .component h2 a, .component h3 a, .component h4 a, .component h5 a, .component h6 a, .component p a {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only {\n    display: none !important;\n}\n}\n.Discoussioncomponent {\n  font-size: 1.5rem;\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  line-height: 1.5em;\n}\n.textleft {\n  text-align: left;\n}\n.ui.styled.accordion {\n  width: 100%;\n}\n.ui.styled.accordion .title {\n  color: rgba(0, 0, 0, 0.6);\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.ui.accordion .active.content {\n  display: block;\n  max-width: 100%;\n}\n", ""]);
 
 // exports
 
@@ -14000,7 +14107,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n*[data-v-280eaafe] {\n  box-sizing: border-box;\n}\nbody[data-v-280eaafe] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.component[data-v-280eaafe] {\n  position: relative;\n}\n.component h1[data-v-280eaafe], .component h2[data-v-280eaafe], .component h3[data-v-280eaafe], .component h4[data-v-280eaafe], .component h5[data-v-280eaafe], .component h6[data-v-280eaafe], .component p[data-v-280eaafe] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-280eaafe], .component h2 a[data-v-280eaafe], .component h3 a[data-v-280eaafe], .component h4 a[data-v-280eaafe], .component h5 a[data-v-280eaafe], .component h6 a[data-v-280eaafe], .component p a[data-v-280eaafe] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-280eaafe] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-280eaafe] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-280eaafe] {\n    display: none !important;\n}\n}\n.row.BGgray[data-v-280eaafe] {\n  background-color: #efefef;\n  padding-top: 2em;\n  margin-bottom: 1em;\n}\n.left[data-v-280eaafe] {\n  text-align: left;\n}\n.ui.green.button[data-v-280eaafe] {\n  background-color: #40B3BF;\n  margin-bottom: 1em;\n}\n.componentcontactus[data-v-280eaafe] {\n  min-height: 91vh;\n}\n.ui.form .field > label[data-v-280eaafe] {\n  font-size: 1rem;\n}\n", ""]);
+exports.push([module.i, "\n*[data-v-1ffe16c1] {\n  box-sizing: border-box;\n}\nbody[data-v-1ffe16c1] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter[data-v-1ffe16c1],\n.fade-leave-active[data-v-1ffe16c1] {\n  opacity: 0;\n}\n.fade-leave-active[data-v-1ffe16c1],\n.fade-enter-active[data-v-1ffe16c1] {\n  transition: opacity .3s ease;\n}\n.component[data-v-1ffe16c1] {\n  position: relative;\n}\n.component h1[data-v-1ffe16c1], .component h2[data-v-1ffe16c1], .component h3[data-v-1ffe16c1], .component h4[data-v-1ffe16c1], .component h5[data-v-1ffe16c1], .component h6[data-v-1ffe16c1], .component p[data-v-1ffe16c1] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-1ffe16c1], .component h2 a[data-v-1ffe16c1], .component h3 a[data-v-1ffe16c1], .component h4 a[data-v-1ffe16c1], .component h5 a[data-v-1ffe16c1], .component h6 a[data-v-1ffe16c1], .component p a[data-v-1ffe16c1] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-1ffe16c1] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-1ffe16c1] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-1ffe16c1] {\n    display: none !important;\n}\n}\n.component[data-v-1ffe16c1] {\n  padding: 1em 0;\n  min-height: 72vh;\n}\n.component .swiper-container1[data-v-1ffe16c1] {\n    margin: 4.5em 1em 0 3em;\n}\n.component .ui.card > .content > .header[data-v-1ffe16c1]:not(.ui), .component .ui.cards > .card > .content > .header[data-v-1ffe16c1]:not(.ui) {\n    font-weight: 700;\n    font-size: 1em;\n    margin-top: -.21425em;\n    line-height: 1.2em;\n}\n.component .ui.cards > .card > .content[data-v-1ffe16c1] {\n    text-align: left;\n}\n.component .ui.cards > .card > .content > .tags[data-v-1ffe16c1] {\n      border-bottom: 1px solid #d7d7d7;\n      margin-bottom: .5em;\n}\n.component .ui.cards > .card > .content > .tags .ui.label[data-v-1ffe16c1] {\n        font-size: 0.6em;\n        margin-bottom: .5em;\n        margin-right: 0.8em;\n        padding-left: 1em;\n        padding-right: 1em;\n}\n.component .ui.cards > .card > .image:not(.ui) > img[data-v-1ffe16c1] {\n    height: 150px;\n}\n.component .ui.cards > .card [class*=\"right floated\"][data-v-1ffe16c1] {\n    float: right;\n    font-size: 0.6em;\n}\n.component .ui.cards > .card > .extra.content[data-v-1ffe16c1] {\n    padding: 0 0.5em 0 0;\n    border-top: none !important;\n}\n.component .description[data-v-1ffe16c1] {\n    padding: 0 .5em;\n}\n.component .description > p[data-v-1ffe16c1] {\n      font-size: 0.6em;\n      text-align: left;\n      text-indent: 25px;\n      border-bottom: 1px solid #d7d7d7;\n}\n.component .ui.cards > .card > .content[data-v-1ffe16c1] {\n    padding: .5em;\n}\n.component .ui.cards > .card[data-v-1ffe16c1] {\n    min-height: 300px;\n}\n.thin-only .swiper-container2[data-v-1ffe16c1] {\n  margin: 5em 3em 0 3em;\n}\n.thin-only .swiper-container2 .ui.cards[data-v-1ffe16c1] {\n    margin: 0;\n}\n.thin-only .swiper-container2 .ui.cards > .card[data-v-1ffe16c1] {\n    min-height: 300px;\n}\n.thin-only .swiper-container2 .ui.cards > .card > .image:not(.ui) > img[data-v-1ffe16c1] {\n    height: 150px;\n}\n.thin-only .swiper-container2 .ui.card > .content > .header[data-v-1ffe16c1]:not(.ui), .thin-only .swiper-container2 .ui.cards > .card > .content > .header[data-v-1ffe16c1]:not(.ui) {\n    font-size: 1.5em;\n}\n", ""]);
 
 // exports
 
@@ -14014,7 +14121,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n*[data-v-287bb503] {\n  box-sizing: border-box;\n}\nbody[data-v-287bb503] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.component[data-v-287bb503] {\n  position: relative;\n}\n.component h1[data-v-287bb503], .component h2[data-v-287bb503], .component h3[data-v-287bb503], .component h4[data-v-287bb503], .component h5[data-v-287bb503], .component h6[data-v-287bb503], .component p[data-v-287bb503] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-287bb503], .component h2 a[data-v-287bb503], .component h3 a[data-v-287bb503], .component h4 a[data-v-287bb503], .component h5 a[data-v-287bb503], .component h6 a[data-v-287bb503], .component p a[data-v-287bb503] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-287bb503] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-287bb503] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-287bb503] {\n    display: none !important;\n}\n}\n.content[data-v-287bb503] {\n  margin-top: 10px;\n}\n.fat-only[data-v-287bb503] {\n  margin-bottom: 25px;\n}\n", ""]);
+exports.push([module.i, "\n*[data-v-27dbf9ac] {\n  box-sizing: border-box;\n}\nbody[data-v-27dbf9ac] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter[data-v-27dbf9ac],\n.fade-leave-active[data-v-27dbf9ac] {\n  opacity: 0;\n}\n.fade-leave-active[data-v-27dbf9ac],\n.fade-enter-active[data-v-27dbf9ac] {\n  transition: opacity .3s ease;\n}\n.component[data-v-27dbf9ac] {\n  position: relative;\n}\n.component h1[data-v-27dbf9ac], .component h2[data-v-27dbf9ac], .component h3[data-v-27dbf9ac], .component h4[data-v-27dbf9ac], .component h5[data-v-27dbf9ac], .component h6[data-v-27dbf9ac], .component p[data-v-27dbf9ac] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-27dbf9ac], .component h2 a[data-v-27dbf9ac], .component h3 a[data-v-27dbf9ac], .component h4 a[data-v-27dbf9ac], .component h5 a[data-v-27dbf9ac], .component h6 a[data-v-27dbf9ac], .component p a[data-v-27dbf9ac] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-27dbf9ac] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-27dbf9ac] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-27dbf9ac] {\n    display: none !important;\n}\n}\n.component[data-v-27dbf9ac] {\n  padding-top: 1em;\n}\n", ""]);
 
 // exports
 
@@ -14028,7 +14135,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n*[data-v-30cdb09e] {\n  box-sizing: border-box;\n}\nbody[data-v-30cdb09e] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.component[data-v-30cdb09e] {\n  position: relative;\n}\n.component h1[data-v-30cdb09e], .component h2[data-v-30cdb09e], .component h3[data-v-30cdb09e], .component h4[data-v-30cdb09e], .component h5[data-v-30cdb09e], .component h6[data-v-30cdb09e], .component p[data-v-30cdb09e] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-30cdb09e], .component h2 a[data-v-30cdb09e], .component h3 a[data-v-30cdb09e], .component h4 a[data-v-30cdb09e], .component h5 a[data-v-30cdb09e], .component h6 a[data-v-30cdb09e], .component p a[data-v-30cdb09e] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-30cdb09e] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-30cdb09e] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-30cdb09e] {\n    display: none !important;\n}\n}\n.swiper-container[data-v-30cdb09e] {\n  height: 100vh;\n}\n@media only screen and (max-width: 767px) {\n.swiper-container[data-v-30cdb09e] {\n      height: 70vh;\n}\n}\n.slide-page[data-v-30cdb09e] {\n  height: 100vh;\n}\n@media only screen and (max-width: 767px) {\n.slide-page[data-v-30cdb09e] {\n      height: 70vh;\n}\n}\n.slide-item[data-v-30cdb09e] {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  overflow: hidden;\n  height: 100%;\n  transition: all .3s ease;\n}\n.box[data-v-30cdb09e] {\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-pack: center;\n      justify-content: center;\n  -ms-flex-flow: column;\n      flex-flow: column;\n  -ms-flex-align: center;\n      align-items: center;\n  width: 100%;\n  height: 100%;\n  background: radial-gradient(circle, rgba(0, 0, 0, 0.8), transparent);\n}\n.box .status[data-v-30cdb09e] {\n    color: #db4f4f;\n    border: 2px solid #db4f4f;\n    background: rgba(77, 77, 77, 0.5);\n}\n.box .title[data-v-30cdb09e] {\n    color: white;\n}\n.box .slogan[data-v-30cdb09e] {\n    margin: .5em 0 1em 0;\n    font-size: 3rem;\n    color: white;\n    text-shadow: 0 0 5px gray;\n}\n@media only screen and (max-width: 767px) {\n.box .slogan[data-v-30cdb09e] {\n        font-size: 2rem;\n}\n}\n.box .slogan .sub.header[data-v-30cdb09e] {\n      color: white;\n      text-shadow: 0 0 5px gray;\n}\na[data-v-30cdb09e] {\n  cursor: pointer;\n}\na:hover i[data-v-30cdb09e] {\n    color: white !important;\n    transition: all .3s ease;\n}\na.pre[data-v-30cdb09e], a.next[data-v-30cdb09e] {\n    position: absolute;\n    z-index: 5;\n    text-shadow: 0 0 5px white;\n    top: 44vh;\n}\na.pre[data-v-30cdb09e] {\n    left: 5px;\n}\na.next[data-v-30cdb09e] {\n    right: 5px;\n}\n", ""]);
+exports.push([module.i, "\n*[data-v-280eaafe] {\n  box-sizing: border-box;\n}\nbody[data-v-280eaafe] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter[data-v-280eaafe],\n.fade-leave-active[data-v-280eaafe] {\n  opacity: 0;\n}\n.fade-leave-active[data-v-280eaafe],\n.fade-enter-active[data-v-280eaafe] {\n  transition: opacity .3s ease;\n}\n.component[data-v-280eaafe] {\n  position: relative;\n}\n.component h1[data-v-280eaafe], .component h2[data-v-280eaafe], .component h3[data-v-280eaafe], .component h4[data-v-280eaafe], .component h5[data-v-280eaafe], .component h6[data-v-280eaafe], .component p[data-v-280eaafe] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-280eaafe], .component h2 a[data-v-280eaafe], .component h3 a[data-v-280eaafe], .component h4 a[data-v-280eaafe], .component h5 a[data-v-280eaafe], .component h6 a[data-v-280eaafe], .component p a[data-v-280eaafe] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-280eaafe] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-280eaafe] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-280eaafe] {\n    display: none !important;\n}\n}\n.row.BGgray[data-v-280eaafe] {\n  background-color: #efefef;\n  padding-top: 2em;\n  margin-bottom: 1em;\n}\n.left[data-v-280eaafe] {\n  text-align: left;\n}\n.ui.green.button[data-v-280eaafe] {\n  background-color: #40B3BF;\n  margin-bottom: 1em;\n}\n.componentcontactus[data-v-280eaafe] {\n  min-height: 91vh;\n}\n.ui.form .field > label[data-v-280eaafe] {\n  font-size: 1rem;\n}\n", ""]);
 
 // exports
 
@@ -14042,7 +14149,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n* {\n  box-sizing: border-box;\n}\nbody {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.component {\n  position: relative;\n}\n.component h1, .component h2, .component h3, .component h4, .component h5, .component h6, .component p {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a, .component h2 a, .component h3 a, .component h4 a, .component h5 a, .component h6 a, .component p a {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only {\n    display: none !important;\n}\n}\n.app {\n  min-height: 100vh;\n  width: 100%;\n  margin: 0;\n  transition: border-color 0.5s ease;\n}\n.app.join {\n    border-color: #f4719d;\n}\n.app.intro {\n    border-color: #ec8013;\n}\n.app.live {\n    border-color: #1313ec;\n}\n.app.track {\n    border-color: #8e8e0b;\n}\n.main {\n  position: relative;\n  top: 0;\n  width: 100%;\n  text-align: center;\n}\n.fade-in-enter, .fade-in-leave-active {\n  opacity: 0;\n}\n.fade-in-enter-active {\n  transition: all 0.5s ease-in;\n}\n.navbar {\n  position: fixed;\n  z-index: 999999;\n  top: 0;\n  left: 0;\n  right: 0;\n}\n.footer {\n  position: relative;\n  margin: 0 auto;\n  margin-top: 40px;\n  max-width: 100%;\n}\n", ""]);
+exports.push([module.i, "\n*[data-v-287bb503] {\n  box-sizing: border-box;\n}\nbody[data-v-287bb503] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter[data-v-287bb503],\n.fade-leave-active[data-v-287bb503] {\n  opacity: 0;\n}\n.fade-leave-active[data-v-287bb503],\n.fade-enter-active[data-v-287bb503] {\n  transition: opacity .3s ease;\n}\n.component[data-v-287bb503] {\n  position: relative;\n}\n.component h1[data-v-287bb503], .component h2[data-v-287bb503], .component h3[data-v-287bb503], .component h4[data-v-287bb503], .component h5[data-v-287bb503], .component h6[data-v-287bb503], .component p[data-v-287bb503] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-287bb503], .component h2 a[data-v-287bb503], .component h3 a[data-v-287bb503], .component h4 a[data-v-287bb503], .component h5 a[data-v-287bb503], .component h6 a[data-v-287bb503], .component p a[data-v-287bb503] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-287bb503] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-287bb503] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-287bb503] {\n    display: none !important;\n}\n}\n.content[data-v-287bb503] {\n  margin-top: 10px;\n}\n.fat-only[data-v-287bb503] {\n  margin-bottom: 25px;\n}\n", ""]);
 
 // exports
 
@@ -14056,7 +14163,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n*[data-v-3b7b10e8] {\n  box-sizing: border-box;\n}\nbody[data-v-3b7b10e8] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.component[data-v-3b7b10e8] {\n  position: relative;\n}\n.component h1[data-v-3b7b10e8], .component h2[data-v-3b7b10e8], .component h3[data-v-3b7b10e8], .component h4[data-v-3b7b10e8], .component h5[data-v-3b7b10e8], .component h6[data-v-3b7b10e8], .component p[data-v-3b7b10e8] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-3b7b10e8], .component h2 a[data-v-3b7b10e8], .component h3 a[data-v-3b7b10e8], .component h4 a[data-v-3b7b10e8], .component h5 a[data-v-3b7b10e8], .component h6 a[data-v-3b7b10e8], .component p a[data-v-3b7b10e8] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-3b7b10e8] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-3b7b10e8] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-3b7b10e8] {\n    display: none !important;\n}\n}\n.component[data-v-3b7b10e8] {\n  padding-top: 1em;\n}\n", ""]);
+exports.push([module.i, "\n*[data-v-30cdb09e] {\n  box-sizing: border-box;\n}\nbody[data-v-30cdb09e] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter[data-v-30cdb09e],\n.fade-leave-active[data-v-30cdb09e] {\n  opacity: 0;\n}\n.fade-leave-active[data-v-30cdb09e],\n.fade-enter-active[data-v-30cdb09e] {\n  transition: opacity .3s ease;\n}\n.component[data-v-30cdb09e] {\n  position: relative;\n}\n.component h1[data-v-30cdb09e], .component h2[data-v-30cdb09e], .component h3[data-v-30cdb09e], .component h4[data-v-30cdb09e], .component h5[data-v-30cdb09e], .component h6[data-v-30cdb09e], .component p[data-v-30cdb09e] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-30cdb09e], .component h2 a[data-v-30cdb09e], .component h3 a[data-v-30cdb09e], .component h4 a[data-v-30cdb09e], .component h5 a[data-v-30cdb09e], .component h6 a[data-v-30cdb09e], .component p a[data-v-30cdb09e] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-30cdb09e] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-30cdb09e] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-30cdb09e] {\n    display: none !important;\n}\n}\n.component[data-v-30cdb09e] {\n  border-bottom: 1px #DDD solid;\n  background: linear-gradient(to right, lightgray 0%, white 10%, white 90%, lightgray 100%);\n}\n.swiper-container[data-v-30cdb09e] {\n  height: 100vh;\n}\n@media only screen and (max-width: 767px) {\n.swiper-container[data-v-30cdb09e] {\n      height: 70vh;\n}\n}\n.slide-page[data-v-30cdb09e] {\n  height: 100vh;\n}\n@media only screen and (max-width: 767px) {\n.slide-page[data-v-30cdb09e] {\n      height: 70vh;\n}\n}\n.slide-item[data-v-30cdb09e] {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  overflow: hidden;\n  height: 100%;\n  transition: all .3s ease;\n}\n.box[data-v-30cdb09e] {\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-pack: center;\n      justify-content: center;\n  -ms-flex-flow: column;\n      flex-flow: column;\n  -ms-flex-align: center;\n      align-items: center;\n  width: 100%;\n  height: 100%;\n  background: radial-gradient(circle, rgba(0, 0, 0, 0.5), transparent);\n  overflow: hidden;\n}\n.box i.background[data-v-30cdb09e] {\n    color: #333333;\n    font-size: 40rem;\n    position: absolute;\n    height: initial;\n}\n@media only screen and (max-width: 767px) {\n.box i.background[data-v-30cdb09e] {\n        font-size: 20rem;\n}\n}\n.box .status[data-v-30cdb09e],\n  .box .title[data-v-30cdb09e],\n  .box .slogan[data-v-30cdb09e],\n  .box .ui.button[data-v-30cdb09e] {\n    z-index: 10;\n    font-size: 100%;\n}\n.box .status[data-v-30cdb09e] {\n    color: #db4f4f;\n    border: 1px solid #db4f4f;\n    background: transparent;\n}\n.box .title[data-v-30cdb09e] {\n    color: white;\n}\n.box .slogan[data-v-30cdb09e] {\n    margin: .5em 0;\n    font-size: 3rem;\n    color: white;\n    text-shadow: 0 0 5px gray;\n}\n@media only screen and (max-width: 767px) {\n.box .slogan[data-v-30cdb09e] {\n        font-size: 2rem;\n}\n}\n.box .slogan .sub.header[data-v-30cdb09e] {\n      color: white;\n      text-shadow: 0 0 5px gray;\n}\n", ""]);
 
 // exports
 
@@ -14070,7 +14177,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n*[data-v-4144f431] {\n  box-sizing: border-box;\n}\nbody[data-v-4144f431] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.component[data-v-4144f431] {\n  position: relative;\n}\n.component h1[data-v-4144f431], .component h2[data-v-4144f431], .component h3[data-v-4144f431], .component h4[data-v-4144f431], .component h5[data-v-4144f431], .component h6[data-v-4144f431], .component p[data-v-4144f431] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-4144f431], .component h2 a[data-v-4144f431], .component h3 a[data-v-4144f431], .component h4 a[data-v-4144f431], .component h5 a[data-v-4144f431], .component h6 a[data-v-4144f431], .component p a[data-v-4144f431] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-4144f431] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-4144f431] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-4144f431] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 767px) {\n.ui.huge.header[data-v-4144f431] {\n    font-size: 1.2rem;\n}\n}\n@media only screen and (max-width: 767px) {\n.ui.huge.header[data-v-4144f431] {\n    font-size: 2.2rem;\n}\n}\n#sidebar.sidebar[data-v-4144f431] {\n  text-align: left;\n}\n#sidebar.sidebar .menu[data-v-4144f431] {\n    margin: 0;\n}\n#sidebar.sidebar .menu .router-link-active[data-v-4144f431] {\n      color: white;\n}\n#opener.button[data-v-4144f431] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 100;\n}\n.ui.top.menu[data-v-4144f431] {\n  width: 100%;\n}\n.ui.container.pusher[data-v-4144f431] {\n  min-height: 90vh;\n}\n.ui.styled.accordion[data-v-4144f431] {\n  margin-bottom: 1em;\n}\n.ui.styled.accordion .title[data-v-4144f431] {\n  font-size: 1.5rem;\n}\n", ""]);
+exports.push([module.i, "\n* {\n  box-sizing: border-box;\n}\nbody {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter,\n.fade-leave-active {\n  opacity: 0;\n}\n.fade-leave-active,\n.fade-enter-active {\n  transition: opacity .3s ease;\n}\n.component {\n  position: relative;\n}\n.component h1, .component h2, .component h3, .component h4, .component h5, .component h6, .component p {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a, .component h2 a, .component h3 a, .component h4 a, .component h5 a, .component h6 a, .component p a {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only {\n    display: none !important;\n}\n}\n.app {\n  min-height: 100vh;\n  width: 100%;\n  margin: 0;\n  transition: border-color 0.5s ease;\n}\n.app.join {\n    border-color: #f4719d;\n}\n.app.intro {\n    border-color: #ec8013;\n}\n.app.live {\n    border-color: #1313ec;\n}\n.app.track {\n    border-color: #8e8e0b;\n}\n.main {\n  position: relative;\n  top: 0;\n  width: 100%;\n  text-align: center;\n}\n.navbar {\n  position: fixed;\n  z-index: 999999;\n  top: 0;\n  left: 0;\n  right: 0;\n}\n.footer {\n  position: relative;\n  margin: 0 auto;\n  max-width: 100%;\n}\n", ""]);
 
 // exports
 
@@ -14084,7 +14191,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n*[data-v-47d63a09] {\n  box-sizing: border-box;\n}\nbody[data-v-47d63a09] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.component[data-v-47d63a09] {\n  position: relative;\n}\n.component h1[data-v-47d63a09], .component h2[data-v-47d63a09], .component h3[data-v-47d63a09], .component h4[data-v-47d63a09], .component h5[data-v-47d63a09], .component h6[data-v-47d63a09], .component p[data-v-47d63a09] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-47d63a09], .component h2 a[data-v-47d63a09], .component h3 a[data-v-47d63a09], .component h4 a[data-v-47d63a09], .component h5 a[data-v-47d63a09], .component h6 a[data-v-47d63a09], .component p a[data-v-47d63a09] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-47d63a09] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-47d63a09] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-47d63a09] {\n    display: none !important;\n}\n}\n", ""]);
+exports.push([module.i, "\n*[data-v-3b7b10e8] {\n  box-sizing: border-box;\n}\nbody[data-v-3b7b10e8] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter[data-v-3b7b10e8],\n.fade-leave-active[data-v-3b7b10e8] {\n  opacity: 0;\n}\n.fade-leave-active[data-v-3b7b10e8],\n.fade-enter-active[data-v-3b7b10e8] {\n  transition: opacity .3s ease;\n}\n.component[data-v-3b7b10e8] {\n  position: relative;\n}\n.component h1[data-v-3b7b10e8], .component h2[data-v-3b7b10e8], .component h3[data-v-3b7b10e8], .component h4[data-v-3b7b10e8], .component h5[data-v-3b7b10e8], .component h6[data-v-3b7b10e8], .component p[data-v-3b7b10e8] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-3b7b10e8], .component h2 a[data-v-3b7b10e8], .component h3 a[data-v-3b7b10e8], .component h4 a[data-v-3b7b10e8], .component h5 a[data-v-3b7b10e8], .component h6 a[data-v-3b7b10e8], .component p a[data-v-3b7b10e8] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-3b7b10e8] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-3b7b10e8] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-3b7b10e8] {\n    display: none !important;\n}\n}\n.component[data-v-3b7b10e8] {\n  padding-top: 1em;\n}\n", ""]);
 
 // exports
 
@@ -14098,7 +14205,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n*[data-v-4144f431] {\n  box-sizing: border-box;\n}\nbody[data-v-4144f431] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter[data-v-4144f431],\n.fade-leave-active[data-v-4144f431] {\n  opacity: 0;\n}\n.fade-leave-active[data-v-4144f431],\n.fade-enter-active[data-v-4144f431] {\n  transition: opacity .3s ease;\n}\n.component[data-v-4144f431] {\n  position: relative;\n}\n.component h1[data-v-4144f431], .component h2[data-v-4144f431], .component h3[data-v-4144f431], .component h4[data-v-4144f431], .component h5[data-v-4144f431], .component h6[data-v-4144f431], .component p[data-v-4144f431] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-4144f431], .component h2 a[data-v-4144f431], .component h3 a[data-v-4144f431], .component h4 a[data-v-4144f431], .component h5 a[data-v-4144f431], .component h6 a[data-v-4144f431], .component p a[data-v-4144f431] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-4144f431] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-4144f431] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-4144f431] {\n    display: none !important;\n}\n}\n#sidebar.sidebar[data-v-4144f431] {\n  text-align: left;\n}\n#sidebar.sidebar .menu[data-v-4144f431] {\n    margin: 0;\n}\n#sidebar.sidebar .menu .router-link-active[data-v-4144f431] {\n      color: white;\n}\n#opener[data-v-4144f431] {\n  height: 100%;\n  width: 1ch;\n  background: #1B1C1D;\n  /* the color of sidebar */\n  position: fixed;\n  left: 0;\n  z-index: 100;\n}\n.ui.top.menu[data-v-4144f431] {\n  width: 100%;\n}\n#pusher[data-v-4144f431] {\n  min-height: 90vh;\n}\n", ""]);
 
 // exports
 
@@ -14112,7 +14219,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n*[data-v-5120c3f7] {\n  box-sizing: border-box;\n}\nbody[data-v-5120c3f7] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.component[data-v-5120c3f7] {\n  position: relative;\n}\n.component h1[data-v-5120c3f7], .component h2[data-v-5120c3f7], .component h3[data-v-5120c3f7], .component h4[data-v-5120c3f7], .component h5[data-v-5120c3f7], .component h6[data-v-5120c3f7], .component p[data-v-5120c3f7] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-5120c3f7], .component h2 a[data-v-5120c3f7], .component h3 a[data-v-5120c3f7], .component h4 a[data-v-5120c3f7], .component h5 a[data-v-5120c3f7], .component h6 a[data-v-5120c3f7], .component p a[data-v-5120c3f7] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-5120c3f7] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-5120c3f7] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-5120c3f7] {\n    display: none !important;\n}\n}\nimg[data-v-5120c3f7] {\n  width: 3.2em;\n  height: auto;\n  vertical-align: bottom;\n}\n.ui.centered[data-v-5120c3f7] {\n  text-align: center;\n}\n.linkicon[data-v-5120c3f7] {\n  text-align: center;\n}\n", ""]);
+exports.push([module.i, "\n*[data-v-47d63a09] {\n  box-sizing: border-box;\n}\nbody[data-v-47d63a09] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter[data-v-47d63a09],\n.fade-leave-active[data-v-47d63a09] {\n  opacity: 0;\n}\n.fade-leave-active[data-v-47d63a09],\n.fade-enter-active[data-v-47d63a09] {\n  transition: opacity .3s ease;\n}\n.component[data-v-47d63a09] {\n  position: relative;\n}\n.component h1[data-v-47d63a09], .component h2[data-v-47d63a09], .component h3[data-v-47d63a09], .component h4[data-v-47d63a09], .component h5[data-v-47d63a09], .component h6[data-v-47d63a09], .component p[data-v-47d63a09] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-47d63a09], .component h2 a[data-v-47d63a09], .component h3 a[data-v-47d63a09], .component h4 a[data-v-47d63a09], .component h5 a[data-v-47d63a09], .component h6 a[data-v-47d63a09], .component p a[data-v-47d63a09] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-47d63a09] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-47d63a09] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-47d63a09] {\n    display: none !important;\n}\n}\n", ""]);
 
 // exports
 
@@ -14126,7 +14233,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n*[data-v-5da6cb6a] {\n  box-sizing: border-box;\n}\nbody[data-v-5da6cb6a] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.component[data-v-5da6cb6a] {\n  position: relative;\n}\n.component h1[data-v-5da6cb6a], .component h2[data-v-5da6cb6a], .component h3[data-v-5da6cb6a], .component h4[data-v-5da6cb6a], .component h5[data-v-5da6cb6a], .component h6[data-v-5da6cb6a], .component p[data-v-5da6cb6a] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-5da6cb6a], .component h2 a[data-v-5da6cb6a], .component h3 a[data-v-5da6cb6a], .component h4 a[data-v-5da6cb6a], .component h5 a[data-v-5da6cb6a], .component h6 a[data-v-5da6cb6a], .component p a[data-v-5da6cb6a] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-5da6cb6a] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-5da6cb6a] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-5da6cb6a] {\n    display: none !important;\n}\n}\n.row.BGgray[data-v-5da6cb6a] {\n  background-color: #efefef;\n  padding-top: 2em;\n  margin-bottom: 1em;\n}\n.left[data-v-5da6cb6a] {\n  text-align: left;\n}\n.ui.styled.accordion > .title[data-v-5da6cb6a]:first-child {\n  font-size: 1.5rem;\n}\n.ui.green.button[data-v-5da6cb6a] {\n  background-color: #40B3BF;\n  margin-bottom: 1em;\n}\n.ui.container[data-v-5da6cb6a] {\n  height: 100%;\n}\n.componentsubscribe[data-v-5da6cb6a] {\n  min-height: 91vh;\n}\n.ui.text.container[data-v-5da6cb6a] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 1 rem;\n}\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -14140,7 +14247,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n*[data-v-60640b22] {\n  box-sizing: border-box;\n}\nbody[data-v-60640b22] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.component[data-v-60640b22] {\n  position: relative;\n}\n.component h1[data-v-60640b22], .component h2[data-v-60640b22], .component h3[data-v-60640b22], .component h4[data-v-60640b22], .component h5[data-v-60640b22], .component h6[data-v-60640b22], .component p[data-v-60640b22] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-60640b22], .component h2 a[data-v-60640b22], .component h3 a[data-v-60640b22], .component h4 a[data-v-60640b22], .component h5 a[data-v-60640b22], .component h6 a[data-v-60640b22], .component p a[data-v-60640b22] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-60640b22] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-60640b22] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-60640b22] {\n    display: none !important;\n}\n}\n.home[data-v-60640b22] {\n  width: 100%;\n  min-width: 320px;\n  margin-left: auto;\n  margin-right: auto;\n}\n@media screen and (min-width: 767px) {\n.home[data-v-60640b22] {\n      margin-top: calc( -1 * 55px);\n}\n}\np[data-v-60640b22] {\n  font-size: 1rem;\n  text-align: left;\n  line-height: 155%;\n  padding: 5px;\n}\n", ""]);
+exports.push([module.i, "\n*[data-v-5120c3f7] {\n  box-sizing: border-box;\n}\nbody[data-v-5120c3f7] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter[data-v-5120c3f7],\n.fade-leave-active[data-v-5120c3f7] {\n  opacity: 0;\n}\n.fade-leave-active[data-v-5120c3f7],\n.fade-enter-active[data-v-5120c3f7] {\n  transition: opacity .3s ease;\n}\n.component[data-v-5120c3f7] {\n  position: relative;\n}\n.component h1[data-v-5120c3f7], .component h2[data-v-5120c3f7], .component h3[data-v-5120c3f7], .component h4[data-v-5120c3f7], .component h5[data-v-5120c3f7], .component h6[data-v-5120c3f7], .component p[data-v-5120c3f7] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-5120c3f7], .component h2 a[data-v-5120c3f7], .component h3 a[data-v-5120c3f7], .component h4 a[data-v-5120c3f7], .component h5 a[data-v-5120c3f7], .component h6 a[data-v-5120c3f7], .component p a[data-v-5120c3f7] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-5120c3f7] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-5120c3f7] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-5120c3f7] {\n    display: none !important;\n}\n}\nimg[data-v-5120c3f7] {\n  width: 3.5em;\n  height: auto;\n  vertical-align: bottom;\n}\n.ui.icon[data-v-5120c3f7] {\n  margin: 0 1ch;\n}\n", ""]);
 
 // exports
 
@@ -14154,7 +14261,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n*[data-v-67d7e20d] {\n  box-sizing: border-box;\n}\nbody[data-v-67d7e20d] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.component[data-v-67d7e20d] {\n  position: relative;\n}\n.component h1[data-v-67d7e20d], .component h2[data-v-67d7e20d], .component h3[data-v-67d7e20d], .component h4[data-v-67d7e20d], .component h5[data-v-67d7e20d], .component h6[data-v-67d7e20d], .component p[data-v-67d7e20d] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-67d7e20d], .component h2 a[data-v-67d7e20d], .component h3 a[data-v-67d7e20d], .component h4 a[data-v-67d7e20d], .component h5 a[data-v-67d7e20d], .component h6 a[data-v-67d7e20d], .component p a[data-v-67d7e20d] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-67d7e20d] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-67d7e20d] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-67d7e20d] {\n    display: none !important;\n}\n}\n.desc[data-v-67d7e20d] {\n  width: 100%;\n  margin-top: -1em;\n}\n.box[data-v-67d7e20d] {\n  display: -ms-flexbox !important;\n  display: flex !important;\n}\n.box .box-inner[data-v-67d7e20d] {\n    box-shadow: 0 3px 1em rgba(0, 0, 0, 0.1);\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-flow: column nowrap;\n        flex-flow: column nowrap;\n    overflow: hidden;\n}\n.box .box-inner img.ui[data-v-67d7e20d] {\n      -ms-flex: 1 1;\n          flex: 1 1;\n}\n.box .box-inner h3.ui[data-v-67d7e20d] {\n      margin-top: 1em;\n}\n.box .box-inner .progress_bar[data-v-67d7e20d] {\n      margin: 0 -1em -1em -1em;\n      width: calc(2em+100%);\n      height: 2em;\n      color: #3fadc7;\n      position: relative;\n}\n.box .box-inner .progress_bar .progress_text[data-v-67d7e20d] {\n        padding: 0 0 .5em 0;\n        background: transparent !important;\n}\n\n/********************************* mobile view */\n.m-title[data-v-67d7e20d] {\n  background-color: #E6E6E6;\n  padding: .5em;\n}\n", ""]);
+exports.push([module.i, "\n*[data-v-5da6cb6a] {\n  box-sizing: border-box;\n}\nbody[data-v-5da6cb6a] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter[data-v-5da6cb6a],\n.fade-leave-active[data-v-5da6cb6a] {\n  opacity: 0;\n}\n.fade-leave-active[data-v-5da6cb6a],\n.fade-enter-active[data-v-5da6cb6a] {\n  transition: opacity .3s ease;\n}\n.component[data-v-5da6cb6a] {\n  position: relative;\n}\n.component h1[data-v-5da6cb6a], .component h2[data-v-5da6cb6a], .component h3[data-v-5da6cb6a], .component h4[data-v-5da6cb6a], .component h5[data-v-5da6cb6a], .component h6[data-v-5da6cb6a], .component p[data-v-5da6cb6a] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-5da6cb6a], .component h2 a[data-v-5da6cb6a], .component h3 a[data-v-5da6cb6a], .component h4 a[data-v-5da6cb6a], .component h5 a[data-v-5da6cb6a], .component h6 a[data-v-5da6cb6a], .component p a[data-v-5da6cb6a] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-5da6cb6a] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-5da6cb6a] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-5da6cb6a] {\n    display: none !important;\n}\n}\n.row.BGgray[data-v-5da6cb6a] {\n  background-color: #efefef;\n  padding-top: 2em;\n  margin-bottom: 1em;\n}\n.left[data-v-5da6cb6a] {\n  text-align: left;\n}\n.ui.styled.accordion > .title[data-v-5da6cb6a]:first-child {\n  font-size: 1.5rem;\n}\n.ui.green.button[data-v-5da6cb6a] {\n  background-color: #40B3BF;\n  margin-bottom: 1em;\n}\n.ui.container[data-v-5da6cb6a] {\n  height: 100%;\n}\n.componentsubscribe[data-v-5da6cb6a] {\n  min-height: 91vh;\n}\n.ui.text.container[data-v-5da6cb6a] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 1 rem;\n}\n", ""]);
 
 // exports
 
@@ -14168,7 +14275,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n* {\n  box-sizing: border-box;\n}\nbody {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.component {\n  position: relative;\n}\n.component h1, .component h2, .component h3, .component h4, .component h5, .component h6, .component p {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a, .component h2 a, .component h3 a, .component h4 a, .component h5 a, .component h6 a, .component p a {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only {\n    display: none !important;\n}\n}\n.fat-only .content {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 1.2rem;\n  max-width: 800px;\n  margin: 0 auto;\n}\n.fat-only .content h1, .fat-only .content h2, .fat-only .content h3, .fat-only .content h4, .fat-only .content h5, .fat-only .content h6 {\n    text-align: center;\n}\n.fat-only .content p, .fat-only .content li, .fat-only .content ol {\n    text-align: left;\n}\n.fat-only .content p iframe {\n    display: block;\n    margin: 0 auto;\n}\n.fat-only .content blockquote {\n    margin: 0 0 10px 0;\n    text-align: left;\n    padding: 5px;\n    border-left: 5px solid #e9e9e9;\n    background-color: #f8f8f8;\n    font-weight: 600;\n}\n.thin-only .content {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 1rem;\n}\n.thin-only .content iframe {\n    width: 100%;\n}\n.thin-only .content h1, .thin-only .content h2, .thin-only .content h3, .thin-only .content h4, .thin-only .content h5, .thin-only .content h6 {\n    text-align: center;\n}\n.thin-only .content p, .thin-only .content li, .thin-only .content ol {\n    text-align: left;\n}\n.thin-only .content blockquote {\n    margin: 0 0 10px 0;\n    text-align: left;\n    padding: 5px;\n    border-left: 5px solid #e9e9e9;\n    background-color: #f8f8f8;\n    font-weight: 600;\n}\n", ""]);
+exports.push([module.i, "\n*[data-v-60640b22] {\n  box-sizing: border-box;\n}\nbody[data-v-60640b22] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter[data-v-60640b22],\n.fade-leave-active[data-v-60640b22] {\n  opacity: 0;\n}\n.fade-leave-active[data-v-60640b22],\n.fade-enter-active[data-v-60640b22] {\n  transition: opacity .3s ease;\n}\n.component[data-v-60640b22] {\n  position: relative;\n}\n.component h1[data-v-60640b22], .component h2[data-v-60640b22], .component h3[data-v-60640b22], .component h4[data-v-60640b22], .component h5[data-v-60640b22], .component h6[data-v-60640b22], .component p[data-v-60640b22] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-60640b22], .component h2 a[data-v-60640b22], .component h3 a[data-v-60640b22], .component h4 a[data-v-60640b22], .component h5 a[data-v-60640b22], .component h6 a[data-v-60640b22], .component p a[data-v-60640b22] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-60640b22] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-60640b22] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-60640b22] {\n    display: none !important;\n}\n}\n.home[data-v-60640b22] {\n  width: 100%;\n  min-width: 320px;\n  margin-left: auto;\n  margin-right: auto;\n}\n@media screen and (min-width: 767px) {\n.home[data-v-60640b22] {\n      margin-top: calc( -1 * 55px);\n}\n}\np[data-v-60640b22] {\n  font-size: 1rem;\n  text-align: left;\n  line-height: 155%;\n  padding: 5px;\n}\n", ""]);
 
 // exports
 
@@ -14182,7 +14289,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n*[data-v-67d7e20d] {\n  box-sizing: border-box;\n}\nbody[data-v-67d7e20d] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter[data-v-67d7e20d],\n.fade-leave-active[data-v-67d7e20d] {\n  opacity: 0;\n}\n.fade-leave-active[data-v-67d7e20d],\n.fade-enter-active[data-v-67d7e20d] {\n  transition: opacity .3s ease;\n}\n.component[data-v-67d7e20d] {\n  position: relative;\n}\n.component h1[data-v-67d7e20d], .component h2[data-v-67d7e20d], .component h3[data-v-67d7e20d], .component h4[data-v-67d7e20d], .component h5[data-v-67d7e20d], .component h6[data-v-67d7e20d], .component p[data-v-67d7e20d] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-67d7e20d], .component h2 a[data-v-67d7e20d], .component h3 a[data-v-67d7e20d], .component h4 a[data-v-67d7e20d], .component h5 a[data-v-67d7e20d], .component h6 a[data-v-67d7e20d], .component p a[data-v-67d7e20d] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-67d7e20d] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-67d7e20d] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-67d7e20d] {\n    display: none !important;\n}\n}\n.desc[data-v-67d7e20d] {\n  width: 100%;\n  margin-top: -1em;\n}\n.cards .card[data-v-67d7e20d] {\n  margin: 0;\n  overflow: hidden;\n}\n.cards .card .content h3.ui.header[data-v-67d7e20d] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.cards .card .progress_bar[data-v-67d7e20d] {\n    background: #AAAAAA;\n    margin: -1em;\n    height: 2em;\n    line-height: 2em;\n    position: relative;\n}\n.cards .card .progress_bar .progress_text[data-v-67d7e20d] {\n      color: white;\n      position: absolute;\n      z-index: 200;\n      width: 100%;\n      text-align: center;\n}\n.cards .card .progress_bar .progress_color[data-v-67d7e20d] {\n      background: #3fadc7;\n      position: absolute;\n      z-index: 100;\n      height: 100%;\n}\n\n/********************************* mobile view */\n.m-title[data-v-67d7e20d] {\n  background-color: #E6E6E6;\n  margin: 0 0 1em 0;\n  padding: .5em;\n}\n", ""]);
 
 // exports
 
@@ -14196,7 +14303,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n*[data-v-86ffac4e] {\n  box-sizing: border-box;\n}\nbody[data-v-86ffac4e] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.component[data-v-86ffac4e] {\n  position: relative;\n}\n.component h1[data-v-86ffac4e], .component h2[data-v-86ffac4e], .component h3[data-v-86ffac4e], .component h4[data-v-86ffac4e], .component h5[data-v-86ffac4e], .component h6[data-v-86ffac4e], .component p[data-v-86ffac4e] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-86ffac4e], .component h2 a[data-v-86ffac4e], .component h3 a[data-v-86ffac4e], .component h4 a[data-v-86ffac4e], .component h5 a[data-v-86ffac4e], .component h6 a[data-v-86ffac4e], .component p a[data-v-86ffac4e] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-86ffac4e] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-86ffac4e] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-86ffac4e] {\n    display: none !important;\n}\n}\n.component[data-v-86ffac4e] {\n  min-height: 47vh;\n}\np[data-v-86ffac4e] {\n  text-align: left;\n  margin-top: 10px;\n  margin-bottom: 0;\n  font-size: 1em;\n  color: gray;\n}\n.ui.icon.input[data-v-86ffac4e] {\n  margin-top: 40px;\n  width: 250px;\n  font-size: 1.5em;\n}\n.ui.icon.input input[data-v-86ffac4e] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.ui.icon.input i.icon[data-v-86ffac4e] {\n    font-size: 1.2em;\n    top: -1px;\n    /*right:5px;*/\n}\n", ""]);
+exports.push([module.i, "\n* {\n  box-sizing: border-box;\n}\nbody {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter,\n.fade-leave-active {\n  opacity: 0;\n}\n.fade-leave-active,\n.fade-enter-active {\n  transition: opacity .3s ease;\n}\n.component {\n  position: relative;\n}\n.component h1, .component h2, .component h3, .component h4, .component h5, .component h6, .component p {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a, .component h2 a, .component h3 a, .component h4 a, .component h5 a, .component h6 a, .component p a {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only {\n    display: none !important;\n}\n}\n.fat-only .content {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 1.2rem;\n  max-width: 800px;\n  margin: 0 auto;\n}\n.fat-only .content h1, .fat-only .content h2, .fat-only .content h3, .fat-only .content h4, .fat-only .content h5, .fat-only .content h6 {\n    text-align: center;\n}\n.fat-only .content p, .fat-only .content li, .fat-only .content ol {\n    text-align: left;\n}\n.fat-only .content p iframe {\n    display: block;\n    margin: 0 auto;\n}\n.fat-only .content blockquote {\n    margin: 0 0 10px 0;\n    text-align: left;\n    padding: 5px;\n    border-left: 5px solid #e9e9e9;\n    background-color: #f8f8f8;\n    font-weight: 600;\n}\n.thin-only .content {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 1rem;\n}\n.thin-only .content iframe {\n    width: 100%;\n}\n.thin-only .content h1, .thin-only .content h2, .thin-only .content h3, .thin-only .content h4, .thin-only .content h5, .thin-only .content h6 {\n    text-align: center;\n}\n.thin-only .content p, .thin-only .content li, .thin-only .content ol {\n    text-align: left;\n}\n.thin-only .content blockquote {\n    margin: 0 0 10px 0;\n    text-align: left;\n    padding: 5px;\n    border-left: 5px solid #e9e9e9;\n    background-color: #f8f8f8;\n    font-weight: 600;\n}\n", ""]);
 
 // exports
 
@@ -14210,7 +14317,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n*[data-v-8718f044] {\n  box-sizing: border-box;\n}\nbody[data-v-8718f044] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.component[data-v-8718f044] {\n  position: relative;\n}\n.component h1[data-v-8718f044], .component h2[data-v-8718f044], .component h3[data-v-8718f044], .component h4[data-v-8718f044], .component h5[data-v-8718f044], .component h6[data-v-8718f044], .component p[data-v-8718f044] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-8718f044], .component h2 a[data-v-8718f044], .component h3 a[data-v-8718f044], .component h4 a[data-v-8718f044], .component h5 a[data-v-8718f044], .component h6 a[data-v-8718f044], .component p a[data-v-8718f044] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-8718f044] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-8718f044] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-8718f044] {\n    display: none !important;\n}\n}\n@media screen and (min-width: 767px) {\n.component[data-v-8718f044] {\n    height: 55px;\n}\n}\n.component nav.fat-only[data-v-8718f044] {\n  position: fixed;\n  z-index: 999999;\n  top: 0;\n  left: 0;\n  right: 0;\n  height: 55px;\n  overflow: visible;\n  background: rgba(255, 255, 255, 0.95);\n  border-bottom: 1px solid lightgray;\n}\n.ui.icon.input[data-v-8718f044] {\n  height: 50px;\n  padding: 10px;\n}\n.ui.icon.input input[data-v-8718f044] {\n    font-size: 1.2rem;\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n    padding: 0.5em 1em;\n}\n.ui.icon.input i.icon[data-v-8718f044] {\n    font-size: 0.8em;\n    top: -1px;\n    right: 10px;\n}\nform.search[data-v-8718f044] {\n  font-size: 1.5rem;\n  position: relative;\n  display: inline-block;\n  line-height: 55px;\n  padding: 0 0 0 1em;\n}\nform.search i.search.icon[data-v-8718f044] {\n    position: absolute;\n    z-index: -1;\n    right: .55em;\n    line-height: 55px;\n    color: gray;\n}\nform.search input[data-v-8718f044] {\n    color: gray;\n    height: calc( 55px * 0.55);\n    border: 1px solid lightgray;\n    border-radius: 1em;\n    padding: 0 .6em;\n    background-color: transparent;\n}\nform.search input[data-v-8718f044]:focus {\n      outline: none;\n}\nform.search.active i.icon[data-v-8718f044] {\n    visibility: hidden;\n}\n.logo[data-v-8718f044] {\n  height: 55px;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-align: center;\n      align-items: center;\n  -ms-flex-pack: center;\n      justify-content: center;\n}\n.logo img[data-v-8718f044] {\n    width: auto;\n    max-height: 75%;\n}\n.logo span[data-v-8718f044] {\n    color: black;\n    font-family: Lobster, \"Microsoft JhengHei\", \"Heiti TC\", serif;\n    font-size: 2rem;\n    margin-left: .3em;\n}\n.right[data-v-8718f044] {\n  text-align: right;\n}\n.right a.item[data-v-8718f044] {\n    font-size: 1.2rem;\n    display: inline-block;\n    line-height: 55px;\n    padding: 0 1em;\n    color: dimgray;\n    cursor: pointer;\n    text-decoration: none;\n    transition: background-color 0.5s ease;\n}\n.right a.item[data-v-8718f044]:hover {\n      color: white;\n      background: #3fadc7;\n}\n.right a.item.active[data-v-8718f044], .right a.item.router-link-active[data-v-8718f044] {\n      background-color: #f4e025;\n}\n@media screen and (max-width: 767px) {\n.thin-only[data-v-8718f044] {\n    border-bottom: 1px solid #ccc;\n}\n}\n.m-logo[data-v-8718f044] {\n  width: 50%;\n  margin: 0 auto;\n  height: 20vh;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-flow: row nowrap;\n      flex-flow: row nowrap;\n  -ms-flex-align: center;\n      align-items: center;\n  -ms-flex-pack: center;\n      justify-content: center;\n}\n.m-logo img[data-v-8718f044] {\n    width: 60px;\n    height: 60px;\n    margin: 0;\n}\n.m-logo span[data-v-8718f044] {\n    color: black;\n    font-family: Lobster, \"Microsoft JhengHei\", \"Heiti TC\", serif;\n    font-size: 1.6rem;\n    padding: 0 0 0 .3em;\n}\n.menu[data-v-8718f044] {\n  height: 10vh;\n  line-height: 10vh;\n  display: -ms-flexbox;\n  display: flex;\n}\n.menu a.m-item[data-v-8718f044], .menu a.item[data-v-8718f044] {\n    cursor: pointer !important;\n    -ms-flex: 1;\n        flex: 1;\n    text-align: center;\n    font-size: 1.3rem;\n    color: dimgray;\n}\n.menu a.m-item[data-v-8718f044]:hover, .menu a.item[data-v-8718f044]:hover {\n      color: white;\n      background: #3fadc7;\n}\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -14224,7 +14331,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\ntbody tr td span[data-v-88189242] {\n  margin-right: 6px;\n}\ntbody tr td p[data-v-88189242] {\n  font-size: 1.1em;\n  font-weight: 600;\n}\n.thin-only[data-v-88189242] {\n  font-size: 1rem;\n}\n", ""]);
+exports.push([module.i, "\n*[data-v-86ffac4e] {\n  box-sizing: border-box;\n}\nbody[data-v-86ffac4e] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter[data-v-86ffac4e],\n.fade-leave-active[data-v-86ffac4e] {\n  opacity: 0;\n}\n.fade-leave-active[data-v-86ffac4e],\n.fade-enter-active[data-v-86ffac4e] {\n  transition: opacity .3s ease;\n}\n.component[data-v-86ffac4e] {\n  position: relative;\n}\n.component h1[data-v-86ffac4e], .component h2[data-v-86ffac4e], .component h3[data-v-86ffac4e], .component h4[data-v-86ffac4e], .component h5[data-v-86ffac4e], .component h6[data-v-86ffac4e], .component p[data-v-86ffac4e] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-86ffac4e], .component h2 a[data-v-86ffac4e], .component h3 a[data-v-86ffac4e], .component h4 a[data-v-86ffac4e], .component h5 a[data-v-86ffac4e], .component h6 a[data-v-86ffac4e], .component p a[data-v-86ffac4e] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-86ffac4e] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-86ffac4e] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-86ffac4e] {\n    display: none !important;\n}\n}\n.component[data-v-86ffac4e] {\n  min-height: 47vh;\n}\np[data-v-86ffac4e] {\n  text-align: left;\n  margin-top: 10px;\n  margin-bottom: 0;\n  font-size: 1em;\n  color: gray;\n}\n.ui.icon.input[data-v-86ffac4e] {\n  margin-top: 40px;\n  width: 250px;\n  font-size: 1.5em;\n}\n.ui.icon.input input[data-v-86ffac4e] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.ui.icon.input i.icon[data-v-86ffac4e] {\n    font-size: 1.2em;\n    top: -1px;\n    /*right:5px;*/\n}\n", ""]);
 
 // exports
 
@@ -14238,7 +14345,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n*[data-v-91a79d22] {\n  box-sizing: border-box;\n}\nbody[data-v-91a79d22] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.component[data-v-91a79d22] {\n  position: relative;\n}\n.component h1[data-v-91a79d22], .component h2[data-v-91a79d22], .component h3[data-v-91a79d22], .component h4[data-v-91a79d22], .component h5[data-v-91a79d22], .component h6[data-v-91a79d22], .component p[data-v-91a79d22] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-91a79d22], .component h2 a[data-v-91a79d22], .component h3 a[data-v-91a79d22], .component h4 a[data-v-91a79d22], .component h5 a[data-v-91a79d22], .component h6 a[data-v-91a79d22], .component p a[data-v-91a79d22] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-91a79d22] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-91a79d22] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-91a79d22] {\n    display: none !important;\n}\n}\n.component[data-v-91a79d22] {\n  position: absolute;\n  z-index: 11;\n  margin-top: 4px;\n  height: 150px;\n  overflow: auto;\n  font-size: 1rem;\n}\n.results[data-v-91a79d22] {\n  left: 0;\n  transform-origin: center top;\n  white-space: normal;\n  background: #FFF;\n  margin: 0 auto;\n  border-radius: .28571429rem;\n  box-shadow: 0 2px 4px 0 rgba(34, 36, 38, 0.12), 0 2px 10px 0 rgba(34, 36, 38, 0.15);\n  border: 1px solid #D4D4D5;\n  z-index: 998;\n}\n.results .category[data-v-91a79d22] {\n    background: #F3F4F5;\n    box-shadow: none;\n    border-bottom: 1px solid rgba(34, 36, 38, 0.1);\n    transition: background .1s ease,border-color .1s ease;\n}\n.results .name[data-v-91a79d22] {\n    width: 100px;\n    background: 0 0;\n    font-size: 1em;\n    float: 1em;\n    float: left;\n    padding: 1em 1em;\n    font-weight: 700;\n    color: rgba(0, 0, 0, 0.4);\n}\n.results .result[data-v-91a79d22] {\n    background: #FFF;\n    margin-left: 100px;\n    border-left: 1px solid rgba(34, 36, 38, 0.15);\n    border-bottom: 1px solid rgba(34, 36, 38, 0.1);\n    transition: background .1s ease,border-color .1s ease;\n    padding: .85714286em 1.14285714em;\n    cursor: pointer;\n    display: block;\n    overflow: hidden;\n    font-size: 1em;\n    color: rgba(0, 0, 0, 0.87);\n}\n.results .result[data-v-91a79d22]:hover {\n      background-color: #f3c7c7;\n}\n.results .title[data-v-91a79d22] {\n    margin: -.14285em 0 0;\n    font-weight: 700;\n    font-size: 1em;\n    color: rgba(0, 0, 0, 0.85);\n}\n.results .description[data-v-91a79d22] {\n    margin-top: 0;\n    font-size: .92857143em;\n    color: rgba(0, 0, 0, 0.4);\n}\n.message.empty[data-v-91a79d22] {\n  text-align: left;\n  padding: 0.6em;\n  font-size: 1.2rem;\n}\n.message.empty .header[data-v-91a79d22] {\n    padding-bottom: 0.2rem;\n}\n.message.empty .description[data-v-91a79d22] {\n    font-size: 0.8em;\n    color: rgba(0, 0, 0, 0.6);\n}\n@media only screen and (max-width: 768px) {\n.component[data-v-91a79d22] {\n    height: 100%;\n    width: 100%;\n    font-size: 1rem;\n}\n.component .ui.category.search .results[data-v-91a79d22] {\n      width: 95%;\n}\n.component .message.empty[data-v-91a79d22] {\n      font-size: 1.2em;\n}\n}\n", ""]);
+exports.push([module.i, "\n*[data-v-8718f044] {\n  box-sizing: border-box;\n}\nbody[data-v-8718f044] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter[data-v-8718f044],\n.fade-leave-active[data-v-8718f044] {\n  opacity: 0;\n}\n.fade-leave-active[data-v-8718f044],\n.fade-enter-active[data-v-8718f044] {\n  transition: opacity .3s ease;\n}\n.component[data-v-8718f044] {\n  position: relative;\n}\n.component h1[data-v-8718f044], .component h2[data-v-8718f044], .component h3[data-v-8718f044], .component h4[data-v-8718f044], .component h5[data-v-8718f044], .component h6[data-v-8718f044], .component p[data-v-8718f044] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-8718f044], .component h2 a[data-v-8718f044], .component h3 a[data-v-8718f044], .component h4 a[data-v-8718f044], .component h5 a[data-v-8718f044], .component h6 a[data-v-8718f044], .component p a[data-v-8718f044] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-8718f044] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-8718f044] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-8718f044] {\n    display: none !important;\n}\n}\n@media screen and (min-width: 767px) {\n.component[data-v-8718f044] {\n    height: 55px;\n}\n}\n.component nav.fat-only[data-v-8718f044] {\n  position: fixed;\n  z-index: 999999;\n  top: 0;\n  left: 0;\n  right: 0;\n  height: 55px;\n  overflow: visible;\n  background: rgba(255, 255, 255, 0.95);\n  border-bottom: 1px solid lightgray;\n}\n.ui.icon.input[data-v-8718f044] {\n  height: 50px;\n  padding: 10px;\n}\n.ui.icon.input input[data-v-8718f044] {\n    font-size: 1.2rem;\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n    padding: 0.5em 1em;\n}\n.ui.icon.input i.icon[data-v-8718f044] {\n    font-size: 0.8em;\n    top: -1px;\n    right: 10px;\n}\nform.search[data-v-8718f044] {\n  font-size: 1.5rem;\n  position: relative;\n  display: inline-block;\n  line-height: 55px;\n  padding: 0 0 0 1em;\n}\nform.search i.search.icon[data-v-8718f044] {\n    position: absolute;\n    z-index: -1;\n    right: .55em;\n    line-height: 55px;\n    color: gray;\n}\nform.search input[data-v-8718f044] {\n    color: gray;\n    height: calc( 55px * 0.55);\n    border: 1px solid lightgray;\n    border-radius: 1em;\n    padding: 0 .6em;\n    background-color: transparent;\n}\nform.search input[data-v-8718f044]:focus {\n      outline: none;\n}\nform.search.active i.icon[data-v-8718f044] {\n    visibility: hidden;\n}\n.logo[data-v-8718f044] {\n  height: 55px;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-align: center;\n      align-items: center;\n  -ms-flex-pack: center;\n      justify-content: center;\n}\n.logo img[data-v-8718f044] {\n    width: auto;\n    max-height: 75%;\n}\n.logo span[data-v-8718f044] {\n    color: black;\n    font-family: Lobster, \"Microsoft JhengHei\", \"Heiti TC\", serif;\n    font-size: 2rem;\n    margin-left: .3em;\n}\n.right[data-v-8718f044] {\n  text-align: right;\n}\n.right a.item[data-v-8718f044] {\n    font-size: 1.2rem;\n    display: inline-block;\n    line-height: 55px;\n    padding: 0 1em;\n    color: dimgray;\n    cursor: pointer;\n    text-decoration: none;\n    transition: background-color 0.5s ease;\n}\n.right a.item[data-v-8718f044]:hover {\n      color: white;\n      background: #3fadc7;\n}\n.right a.item.active[data-v-8718f044], .right a.item.router-link-active[data-v-8718f044] {\n      background-color: #f4e025;\n}\n@media screen and (max-width: 767px) {\n.thin-only[data-v-8718f044] {\n    border-bottom: 1px solid #ccc;\n}\n}\n.m-logo[data-v-8718f044] {\n  width: 50%;\n  margin: 0 auto;\n  height: 20vh;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-flow: row nowrap;\n      flex-flow: row nowrap;\n  -ms-flex-align: center;\n      align-items: center;\n  -ms-flex-pack: center;\n      justify-content: center;\n}\n.m-logo img[data-v-8718f044] {\n    width: 60px;\n    height: 60px;\n    margin: 0;\n}\n.m-logo span[data-v-8718f044] {\n    color: black;\n    font-family: Lobster, \"Microsoft JhengHei\", \"Heiti TC\", serif;\n    font-size: 1.6rem;\n    padding: 0 0 0 .3em;\n}\n.menu[data-v-8718f044] {\n  height: 10vh;\n  line-height: 10vh;\n  display: -ms-flexbox;\n  display: flex;\n}\n.menu a.m-item[data-v-8718f044], .menu a.item[data-v-8718f044] {\n    cursor: pointer !important;\n    -ms-flex: 1;\n        flex: 1;\n    text-align: center;\n    font-size: 1.3rem;\n    color: dimgray;\n}\n.menu a.m-item[data-v-8718f044]:hover, .menu a.item[data-v-8718f044]:hover {\n      color: white;\n      background: #3fadc7;\n}\n", ""]);
 
 // exports
 
@@ -14252,7 +14359,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n* {\n  box-sizing: border-box;\n}\nbody {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.component {\n  position: relative;\n}\n.component h1, .component h2, .component h3, .component h4, .component h5, .component h6, .component p {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a, .component h2 a, .component h3 a, .component h4 a, .component h5 a, .component h6 a, .component p a {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only {\n    display: none !important;\n}\n}\n.Commentcomponent {\n  font-size: 1.2rem;\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.ui.compact.menu {\n  margin-bottom: 2em;\n}\n.ui.menu .item {\n  padding: 0.5em 0.8em;\n}\n.ui.green.button {\n  background-color: #40B3BF;\n}\n.ui.fluid.button {\n  width: 76%;\n  margin: auto;\n  margin-bottom: 1em;\n  font-size: 1.2rem;\n}\n@media only screen and (max-width: 767px) {\n.ui.fluid.button {\n      min-height: 3em;\n      font-size: 1rem;\n      line-height: 3em;\n      margin-left: 2em;\n}\n}\n.commentline {\n  border-bottom: 2px solid rgba(0, 0, 0, 0.1);\n  margin: 2em 0em 2em 0em;\n}\n.ui.comments .comment .text {\n  margin: 0.5em 0em 0em 3em;\n}\n@media only screen and (max-width: 767px) {\n.ui.comments .comment .text {\n      margin: 2em 0em 0em 0.5em;\n}\n}\n.ui.comments {\n  max-width: 93%;\n}\n.discussioncontent blockquote {\n  margin: 0 0 10px 0;\n  text-align: left;\n  padding: 5px;\n  border: 0px;\n}\n.discussioncontent blockquote p {\n    text-align: left;\n    font-weight: normal;\n}\n.ui.comments .comment a.author {\n  margin: 0em 1em 0em 0.5em;\n}\n.ui.comments .comment img.avatar {\n  width: 2em;\n}\n", ""]);
+exports.push([module.i, "\n*[data-v-88189242] {\n  box-sizing: border-box;\n}\nbody[data-v-88189242] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter[data-v-88189242],\n.fade-leave-active[data-v-88189242] {\n  opacity: 0;\n}\n.fade-leave-active[data-v-88189242],\n.fade-enter-active[data-v-88189242] {\n  transition: opacity .3s ease;\n}\n.component[data-v-88189242] {\n  position: relative;\n}\n.component h1[data-v-88189242], .component h2[data-v-88189242], .component h3[data-v-88189242], .component h4[data-v-88189242], .component h5[data-v-88189242], .component h6[data-v-88189242], .component p[data-v-88189242] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-88189242], .component h2 a[data-v-88189242], .component h3 a[data-v-88189242], .component h4 a[data-v-88189242], .component h5 a[data-v-88189242], .component h6 a[data-v-88189242], .component p a[data-v-88189242] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-88189242] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-88189242] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-88189242] {\n    display: none !important;\n}\n}\n.ui.status[data-v-88189242] {\n  color: #db4f4f;\n  border: 1px solid #db4f4f;\n}\n", ""]);
 
 // exports
 
@@ -14266,30 +14373,176 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
+exports.push([module.i, "\n*[data-v-91a79d22] {\n  box-sizing: border-box;\n}\nbody[data-v-91a79d22] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter[data-v-91a79d22],\n.fade-leave-active[data-v-91a79d22] {\n  opacity: 0;\n}\n.fade-leave-active[data-v-91a79d22],\n.fade-enter-active[data-v-91a79d22] {\n  transition: opacity .3s ease;\n}\n.component[data-v-91a79d22] {\n  position: relative;\n}\n.component h1[data-v-91a79d22], .component h2[data-v-91a79d22], .component h3[data-v-91a79d22], .component h4[data-v-91a79d22], .component h5[data-v-91a79d22], .component h6[data-v-91a79d22], .component p[data-v-91a79d22] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-91a79d22], .component h2 a[data-v-91a79d22], .component h3 a[data-v-91a79d22], .component h4 a[data-v-91a79d22], .component h5 a[data-v-91a79d22], .component h6 a[data-v-91a79d22], .component p a[data-v-91a79d22] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-91a79d22] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-91a79d22] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-91a79d22] {\n    display: none !important;\n}\n}\n.component[data-v-91a79d22] {\n  position: absolute;\n  z-index: 11;\n  margin-top: 4px;\n  height: 150px;\n  overflow: auto;\n  font-size: 1rem;\n}\n.results[data-v-91a79d22] {\n  left: 0;\n  transform-origin: center top;\n  white-space: normal;\n  background: #FFF;\n  margin: 0 auto;\n  border-radius: .28571429rem;\n  box-shadow: 0 2px 4px 0 rgba(34, 36, 38, 0.12), 0 2px 10px 0 rgba(34, 36, 38, 0.15);\n  border: 1px solid #D4D4D5;\n  z-index: 998;\n}\n.results .category[data-v-91a79d22] {\n    background: #F3F4F5;\n    box-shadow: none;\n    border-bottom: 1px solid rgba(34, 36, 38, 0.1);\n    transition: background .1s ease,border-color .1s ease;\n}\n.results .name[data-v-91a79d22] {\n    width: 100px;\n    background: 0 0;\n    font-size: 1em;\n    float: 1em;\n    float: left;\n    padding: 1em 1em;\n    font-weight: 700;\n    color: rgba(0, 0, 0, 0.4);\n}\n.results .result[data-v-91a79d22] {\n    background: #FFF;\n    margin-left: 100px;\n    border-left: 1px solid rgba(34, 36, 38, 0.15);\n    border-bottom: 1px solid rgba(34, 36, 38, 0.1);\n    transition: background .1s ease,border-color .1s ease;\n    padding: .85714286em 1.14285714em;\n    cursor: pointer;\n    display: block;\n    overflow: hidden;\n    font-size: 1em;\n    color: rgba(0, 0, 0, 0.87);\n}\n.results .result[data-v-91a79d22]:hover {\n      background-color: #f3c7c7;\n}\n.results .title[data-v-91a79d22] {\n    margin: -.14285em 0 0;\n    font-weight: 700;\n    font-size: 1em;\n    color: rgba(0, 0, 0, 0.85);\n}\n.results .description[data-v-91a79d22] {\n    margin-top: 0;\n    font-size: .92857143em;\n    color: rgba(0, 0, 0, 0.4);\n}\n.message.empty[data-v-91a79d22] {\n  text-align: left;\n  padding: 0.6em;\n  font-size: 1.2rem;\n}\n.message.empty .header[data-v-91a79d22] {\n    padding-bottom: 0.2rem;\n}\n.message.empty .description[data-v-91a79d22] {\n    font-size: 0.8em;\n    color: rgba(0, 0, 0, 0.6);\n}\n@media only screen and (max-width: 768px) {\n.component[data-v-91a79d22] {\n    height: 100%;\n    width: 100%;\n    font-size: 1rem;\n}\n.component .ui.category.search .results[data-v-91a79d22] {\n      width: 95%;\n}\n.component .message.empty[data-v-91a79d22] {\n      font-size: 1.2em;\n}\n}\n", ""]);
+
+// exports
+
+
+/***/ },
+/* 96 */
+/***/ function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(0)();
+// imports
+
+
+// module
+exports.push([module.i, "\n* {\n  box-sizing: border-box;\n}\nbody {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter,\n.fade-leave-active {\n  opacity: 0;\n}\n.fade-leave-active,\n.fade-enter-active {\n  transition: opacity .3s ease;\n}\n.component {\n  position: relative;\n}\n.component h1, .component h2, .component h3, .component h4, .component h5, .component h6, .component p {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a, .component h2 a, .component h3 a, .component h4 a, .component h5 a, .component h6 a, .component p a {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only {\n    display: none !important;\n}\n}\n.Commentcomponent {\n  font-size: 1.2rem;\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.ui.compact.menu {\n  margin-bottom: 2em;\n}\n.ui.menu .item {\n  padding: 0.5em 0.8em;\n}\n.ui.green.button {\n  background-color: #40B3BF;\n}\n.ui.fluid.button {\n  width: 76%;\n  margin: auto;\n  margin-bottom: 1em;\n  font-size: 1.2rem;\n}\n@media only screen and (max-width: 767px) {\n.ui.fluid.button {\n      min-height: 3em;\n      font-size: 1rem;\n      line-height: 3em;\n      margin-left: 2em;\n}\n}\n.commentline {\n  border-bottom: 2px solid rgba(0, 0, 0, 0.1);\n  margin: 2em 0em 2em 0em;\n}\n.ui.comments .comment .text {\n  margin: 0.5em 0em 0em 3em;\n}\n@media only screen and (max-width: 767px) {\n.ui.comments .comment .text {\n      margin: 2em 0em 0em 0.5em;\n}\n}\n.ui.comments {\n  max-width: 93%;\n}\n.discussioncontent blockquote {\n  margin: 0 0 10px 0;\n  text-align: left;\n  padding: 5px;\n  border: 0px;\n}\n.discussioncontent blockquote p {\n    text-align: left;\n    font-weight: normal;\n}\n.ui.comments .comment a.author {\n  margin: 0em 1em 0em 0.5em;\n}\n.ui.comments .comment img.avatar {\n  width: 2em;\n}\n", ""]);
+
+// exports
+
+
+/***/ },
+/* 97 */
+/***/ function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(0)();
+// imports
+
+
+// module
 exports.push([module.i, "\n.component[data-v-f3276f62] {\n  width: 100%;\n  max-width: 1200px;\n  margin: 0 auto;\n  padding: 0 20px;\n  font-size: 0.8rem;\n}\n.subtitle[data-v-f3276f62] {\n  text-align: left;\n  font-size: 1.2rem;\n}\n.container[data-v-f3276f62] {\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-flow: row wrap;\n      flex-flow: row wrap;\n  text-align: left;\n  -ms-flex-pack: distribute;\n      justify-content: space-around;\n  margin: 0 -10px;\n}\n.container .item[data-v-f3276f62] {\n    -ms-flex: 1;\n        flex: 1;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-flow: column nowrap;\n        flex-flow: column nowrap;\n    position: relative;\n    margin: 10px;\n    min-width: 22vw;\n    max-width: 40vw;\n}\n@media only screen and (max-width: 420px) {\n.container .item[data-v-f3276f62] {\n        min-width: 40vw;\n}\n}\n.container .item a[data-v-f3276f62] {\n      -ms-flex: 0 0 6em;\n          flex: 0 0 6em;\n}\n.container .item a[data-v-f3276f62]:hover {\n        opacity: 0.5;\n}\n.container .item a img.cover[data-v-f3276f62] {\n        width: 100%;\n        transition: all 0.3s;\n}\n.container .item .null[data-v-f3276f62] {\n      -ms-flex: 1 1 0;\n          flex: 1 1 0;\n}\n.container .item .foot[data-v-f3276f62] {\n      -ms-flex: 0 0 10em;\n          flex: 0 0 10em;\n      display: -ms-flexbox;\n      display: flex;\n      -ms-flex-flow: column nowrap;\n          flex-flow: column nowrap;\n}\n.container .item .foot .title[data-v-f3276f62] {\n        font-size: 2vw;\n        line-height: 1.1;\n        margin: .5em 0;\n}\n.container .item .foot .owner[data-v-f3276f62] {\n        color: #AAA;\n        margin: 5px;\n}\n.container .item .foot .progress_bar[data-v-f3276f62] {\n        background-color: #CCC;\n        padding: 2px 0;\n        margin-bottom: 4px;\n}\n.container .item .foot .progress_bar .progress[data-v-f3276f62] {\n          height: 6px;\n          background-color: #000;\n          border-radius: 0 5px 0 0;\n}\n", ""]);
 
 // exports
 
 
 /***/ },
-/* 96 */,
-/* 97 */,
 /* 98 */,
 /* 99 */,
-/* 100 */,
-/* 101 */
+/* 100 */
+/***/ function(module, exports) {
+
+"use strict";
+'use strict';
+
+var alphabet;
+var alphabetIndexMap;
+var alphabetIndexMapLength = 0;
+
+function isNumberCode(code) {
+  return code >= 48 && code <= 57;
+}
+
+function naturalCompare(a, b) {
+  var lengthA = (a += '').length;
+  var lengthB = (b += '').length;
+  var aIndex = 0;
+  var bIndex = 0;
+
+  while (aIndex < lengthA && bIndex < lengthB) {
+    var charCodeA = a.charCodeAt(aIndex);
+    var charCodeB = b.charCodeAt(bIndex);
+
+    if (isNumberCode(charCodeA)) {
+      if (!isNumberCode(charCodeB)) {
+        return charCodeA - charCodeB;
+      }
+
+      var numStartA = aIndex;
+      var numStartB = bIndex;
+
+      while (charCodeA === 48 && ++numStartA < lengthA) {
+        charCodeA = a.charCodeAt(numStartA);
+      }
+      while (charCodeB === 48 && ++numStartB < lengthB) {
+        charCodeB = b.charCodeAt(numStartB);
+      }
+
+      var numEndA = numStartA;
+      var numEndB = numStartB;
+
+      while (numEndA < lengthA && isNumberCode(a.charCodeAt(numEndA))) {
+        ++numEndA;
+      }
+      while (numEndB < lengthB && isNumberCode(b.charCodeAt(numEndB))) {
+        ++numEndB;
+      }
+
+      var difference = numEndA - numStartA - numEndB + numStartB; // numA length - numB length
+      if (difference) {
+        return difference;
+      }
+
+      while (numStartA < numEndA) {
+        difference = a.charCodeAt(numStartA++) - b.charCodeAt(numStartB++);
+        if (difference) {
+          return difference;
+        }
+      }
+
+      aIndex = numEndA;
+      bIndex = numEndB;
+      continue;
+    }
+
+    if (charCodeA !== charCodeB) {
+      if (
+        charCodeA < alphabetIndexMapLength &&
+        charCodeB < alphabetIndexMapLength &&
+        alphabetIndexMap[charCodeA] !== -1 &&
+        alphabetIndexMap[charCodeB] !== -1
+      ) {
+        return alphabetIndexMap[charCodeA] - alphabetIndexMap[charCodeB];
+      }
+
+      return charCodeA - charCodeB;
+    }
+
+    ++aIndex;
+    ++bIndex;
+  }
+
+  return lengthA - lengthB;
+}
+
+naturalCompare.caseInsensitive = naturalCompare.i = function(a, b) {
+  return naturalCompare(('' + a).toLowerCase(), ('' + b).toLowerCase());
+};
+
+Object.defineProperties(naturalCompare, {
+  alphabet: {
+    get: function() {
+      return alphabet;
+    },
+    set: function(value) {
+      alphabet = value;
+      alphabetIndexMap = [];
+      var i = 0;
+      if (alphabet) {
+        for (; i < alphabet.length; i++) {
+          alphabetIndexMap[alphabet.charCodeAt(i)] = i;
+        }
+      }
+      alphabetIndexMapLength = alphabetIndexMap.length;
+      for (i = 0; i < alphabetIndexMapLength; i++) {
+        if (alphabetIndexMap[i] === undefined) {
+          alphabetIndexMap[i] = -1;
+        }
+      }
+    },
+  },
+});
+
+module.exports = naturalCompare;
+
+
+/***/ },
+/* 101 */,
+/* 102 */,
+/* 103 */,
+/* 104 */
 /***/ function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 
 /* styles */
-__webpack_require__(163)
+__webpack_require__(166)
 
 /* script */
 __vue_exports__ = __webpack_require__(41)
 
 /* template */
-var __vue_template__ = __webpack_require__(136)
+var __vue_template__ = __webpack_require__(139)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -14308,19 +14561,19 @@ module.exports = __vue_exports__
 
 
 /***/ },
-/* 102 */
+/* 105 */
 /***/ function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 
 /* styles */
-__webpack_require__(160)
+__webpack_require__(163)
 
 /* script */
 __vue_exports__ = __webpack_require__(42)
 
 /* template */
-var __vue_template__ = __webpack_require__(133)
+var __vue_template__ = __webpack_require__(136)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -14340,19 +14593,19 @@ module.exports = __vue_exports__
 
 
 /***/ },
-/* 103 */
+/* 106 */
 /***/ function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 
 /* styles */
-__webpack_require__(154)
+__webpack_require__(157)
 
 /* script */
 __vue_exports__ = __webpack_require__(43)
 
 /* template */
-var __vue_template__ = __webpack_require__(127)
+var __vue_template__ = __webpack_require__(130)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -14372,19 +14625,19 @@ module.exports = __vue_exports__
 
 
 /***/ },
-/* 104 */
+/* 107 */
 /***/ function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 
 /* styles */
-__webpack_require__(165)
+__webpack_require__(168)
 
 /* script */
 __vue_exports__ = __webpack_require__(44)
 
 /* template */
-var __vue_template__ = __webpack_require__(138)
+var __vue_template__ = __webpack_require__(141)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -14404,19 +14657,19 @@ module.exports = __vue_exports__
 
 
 /***/ },
-/* 105 */
+/* 108 */
 /***/ function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 
 /* styles */
-__webpack_require__(172)
+__webpack_require__(175)
 
 /* script */
 __vue_exports__ = __webpack_require__(45)
 
 /* template */
-var __vue_template__ = __webpack_require__(145)
+var __vue_template__ = __webpack_require__(148)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -14435,19 +14688,19 @@ module.exports = __vue_exports__
 
 
 /***/ },
-/* 106 */
+/* 109 */
 /***/ function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 
 /* styles */
-__webpack_require__(157)
+__webpack_require__(160)
 
 /* script */
 __vue_exports__ = __webpack_require__(46)
 
 /* template */
-var __vue_template__ = __webpack_require__(130)
+var __vue_template__ = __webpack_require__(133)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -14466,19 +14719,19 @@ module.exports = __vue_exports__
 
 
 /***/ },
-/* 107 */
+/* 110 */
 /***/ function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 
 /* styles */
-__webpack_require__(156)
+__webpack_require__(159)
 
 /* script */
 __vue_exports__ = __webpack_require__(48)
 
 /* template */
-var __vue_template__ = __webpack_require__(129)
+var __vue_template__ = __webpack_require__(132)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -14498,19 +14751,19 @@ module.exports = __vue_exports__
 
 
 /***/ },
-/* 108 */
+/* 111 */
 /***/ function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 
 /* styles */
-__webpack_require__(161)
+__webpack_require__(164)
 
 /* script */
 __vue_exports__ = __webpack_require__(49)
 
 /* template */
-var __vue_template__ = __webpack_require__(134)
+var __vue_template__ = __webpack_require__(137)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -14530,19 +14783,19 @@ module.exports = __vue_exports__
 
 
 /***/ },
-/* 109 */
+/* 112 */
 /***/ function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 
 /* styles */
-__webpack_require__(176)
+__webpack_require__(179)
 
 /* script */
 __vue_exports__ = __webpack_require__(50)
 
 /* template */
-var __vue_template__ = __webpack_require__(149)
+var __vue_template__ = __webpack_require__(152)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -14562,19 +14815,19 @@ module.exports = __vue_exports__
 
 
 /***/ },
-/* 110 */
+/* 113 */
 /***/ function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 
 /* styles */
-__webpack_require__(173)
+__webpack_require__(176)
 
 /* script */
 __vue_exports__ = __webpack_require__(51)
 
 /* template */
-var __vue_template__ = __webpack_require__(146)
+var __vue_template__ = __webpack_require__(149)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -14594,19 +14847,19 @@ module.exports = __vue_exports__
 
 
 /***/ },
-/* 111 */
+/* 114 */
 /***/ function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 
 /* styles */
-__webpack_require__(170)
+__webpack_require__(173)
 
 /* script */
 __vue_exports__ = __webpack_require__(52)
 
 /* template */
-var __vue_template__ = __webpack_require__(143)
+var __vue_template__ = __webpack_require__(146)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -14626,19 +14879,19 @@ module.exports = __vue_exports__
 
 
 /***/ },
-/* 112 */
+/* 115 */
 /***/ function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 
 /* styles */
-__webpack_require__(159)
+__webpack_require__(162)
 
 /* script */
 __vue_exports__ = __webpack_require__(53)
 
 /* template */
-var __vue_template__ = __webpack_require__(132)
+var __vue_template__ = __webpack_require__(135)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -14658,19 +14911,19 @@ module.exports = __vue_exports__
 
 
 /***/ },
-/* 113 */
+/* 116 */
 /***/ function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 
 /* styles */
-__webpack_require__(164)
+__webpack_require__(167)
 
 /* script */
 __vue_exports__ = __webpack_require__(54)
 
 /* template */
-var __vue_template__ = __webpack_require__(137)
+var __vue_template__ = __webpack_require__(140)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -14690,19 +14943,19 @@ module.exports = __vue_exports__
 
 
 /***/ },
-/* 114 */
+/* 117 */
 /***/ function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 
 /* styles */
-__webpack_require__(166)
+__webpack_require__(169)
 
 /* script */
 __vue_exports__ = __webpack_require__(55)
 
 /* template */
-var __vue_template__ = __webpack_require__(139)
+var __vue_template__ = __webpack_require__(142)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -14722,16 +14975,16 @@ module.exports = __vue_exports__
 
 
 /***/ },
-/* 115 */
+/* 118 */
 /***/ function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 
 /* styles */
-__webpack_require__(168)
+__webpack_require__(171)
 
 /* template */
-var __vue_template__ = __webpack_require__(141)
+var __vue_template__ = __webpack_require__(144)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -14751,19 +15004,19 @@ module.exports = __vue_exports__
 
 
 /***/ },
-/* 116 */
+/* 119 */
 /***/ function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 
 /* styles */
-__webpack_require__(153)
+__webpack_require__(156)
 
 /* script */
 __vue_exports__ = __webpack_require__(56)
 
 /* template */
-var __vue_template__ = __webpack_require__(126)
+var __vue_template__ = __webpack_require__(129)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -14782,19 +15035,19 @@ module.exports = __vue_exports__
 
 
 /***/ },
-/* 117 */
+/* 120 */
 /***/ function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 
 /* styles */
-__webpack_require__(169)
+__webpack_require__(172)
 
 /* script */
 __vue_exports__ = __webpack_require__(57)
 
 /* template */
-var __vue_template__ = __webpack_require__(142)
+var __vue_template__ = __webpack_require__(145)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -14814,19 +15067,19 @@ module.exports = __vue_exports__
 
 
 /***/ },
-/* 118 */
+/* 121 */
 /***/ function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 
 /* styles */
-__webpack_require__(167)
+__webpack_require__(170)
 
 /* script */
 __vue_exports__ = __webpack_require__(58)
 
 /* template */
-var __vue_template__ = __webpack_require__(140)
+var __vue_template__ = __webpack_require__(143)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -14845,19 +15098,19 @@ module.exports = __vue_exports__
 
 
 /***/ },
-/* 119 */
+/* 122 */
 /***/ function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 
 /* styles */
-__webpack_require__(158)
+__webpack_require__(161)
 
 /* script */
 __vue_exports__ = __webpack_require__(59)
 
 /* template */
-var __vue_template__ = __webpack_require__(131)
+var __vue_template__ = __webpack_require__(134)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -14877,19 +15130,19 @@ module.exports = __vue_exports__
 
 
 /***/ },
-/* 120 */
+/* 123 */
 /***/ function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 
 /* styles */
-__webpack_require__(175)
+__webpack_require__(178)
 
 /* script */
 __vue_exports__ = __webpack_require__(61)
 
 /* template */
-var __vue_template__ = __webpack_require__(148)
+var __vue_template__ = __webpack_require__(151)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -14909,19 +15162,19 @@ module.exports = __vue_exports__
 
 
 /***/ },
-/* 121 */
+/* 124 */
 /***/ function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 
 /* styles */
-__webpack_require__(174)
+__webpack_require__(177)
 
 /* script */
 __vue_exports__ = __webpack_require__(62)
 
 /* template */
-var __vue_template__ = __webpack_require__(147)
+var __vue_template__ = __webpack_require__(150)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -14941,19 +15194,19 @@ module.exports = __vue_exports__
 
 
 /***/ },
-/* 122 */
+/* 125 */
 /***/ function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 
 /* styles */
-__webpack_require__(179)
+__webpack_require__(182)
 
 /* script */
 __vue_exports__ = __webpack_require__(63)
 
 /* template */
-var __vue_template__ = __webpack_require__(152)
+var __vue_template__ = __webpack_require__(155)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -14973,19 +15226,19 @@ module.exports = __vue_exports__
 
 
 /***/ },
-/* 123 */
+/* 126 */
 /***/ function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 
 /* styles */
-__webpack_require__(155)
+__webpack_require__(158)
 
 /* script */
 __vue_exports__ = __webpack_require__(64)
 
 /* template */
-var __vue_template__ = __webpack_require__(128)
+var __vue_template__ = __webpack_require__(131)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -15005,19 +15258,19 @@ module.exports = __vue_exports__
 
 
 /***/ },
-/* 124 */
+/* 127 */
 /***/ function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 
 /* styles */
-__webpack_require__(162)
+__webpack_require__(165)
 
 /* script */
 __vue_exports__ = __webpack_require__(65)
 
 /* template */
-var __vue_template__ = __webpack_require__(135)
+var __vue_template__ = __webpack_require__(138)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -15037,19 +15290,19 @@ module.exports = __vue_exports__
 
 
 /***/ },
-/* 125 */
+/* 128 */
 /***/ function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 
 /* styles */
-__webpack_require__(171)
+__webpack_require__(174)
 
 /* script */
 __vue_exports__ = __webpack_require__(66)
 
 /* template */
-var __vue_template__ = __webpack_require__(144)
+var __vue_template__ = __webpack_require__(147)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -15069,7 +15322,7 @@ module.exports = __vue_exports__
 
 
 /***/ },
-/* 126 */
+/* 129 */
 /***/ function(module, exports) {
 
 module.exports={render:function (){with(this) {
@@ -15080,16 +15333,23 @@ module.exports={render:function (){with(this) {
   }, [_l((ulinkall), function(item, index) {
     return _h('span', {
       staticClass: "urllink"
-    }, [_h('span', {
-      domProps: {
-        "innerHTML": _s(ulinkall[index])
+    }, [_h('span', [_h('a', {
+      staticClass: "ui teal icon button",
+      attrs: {
+        "href": item.link,
+        "target": "_blank"
       }
-    })])
+    }, [_h('i', {
+      staticClass: "icon",
+      class: item.icon
+    }), _h('span', {
+      staticClass: "fat-only"
+    }, [" \n" + _s(item.text)])])])])
   })]) : _e()])
 }},staticRenderFns: []}
 
 /***/ },
-/* 127 */
+/* 130 */
 /***/ function(module, exports) {
 
 module.exports={render:function (){with(this) {
@@ -15109,7 +15369,7 @@ module.exports={render:function (){with(this) {
 }},staticRenderFns: []}
 
 /***/ },
-/* 128 */
+/* 131 */
 /***/ function(module, exports) {
 
 module.exports={render:function (){with(this) {
@@ -15165,14 +15425,22 @@ module.exports={render:function (){with(this) {
     attrs: {
       "id": "context"
     }
+  }, [(!onMobile) ? _h('transition', {
+    attrs: {
+      "name": "fade",
+      "mode": "out-in"
+    }
   }, [_l((steps), function(step, idx) {
+    return (idx == myIdx) ? _h('Box', {
+      attrs: {
+        "list": mySort(step.dataName),
+        "desc": step.description,
+        "label": step.label,
+        "name": step.dataName
+      }
+    }) : _e()
+  })]) : [_l((steps), function(step, idx) {
     return _h('Box', {
-      directives: [{
-        name: "show",
-        rawName: "v-show",
-        value: (idx == myIdx || onMobile),
-        expression: "idx == myIdx || onMobile"
-      }],
       attrs: {
         "list": mySort(step.dataName),
         "desc": step.description,
@@ -15185,11 +15453,11 @@ module.exports={render:function (){with(this) {
         }
       }
     })
-  })])])])
+  })]])])])
 }},staticRenderFns: []}
 
 /***/ },
-/* 129 */
+/* 132 */
 /***/ function(module, exports) {
 
 module.exports={render:function (){with(this) {
@@ -15209,7 +15477,7 @@ module.exports={render:function (){with(this) {
 }},staticRenderFns: []}
 
 /***/ },
-/* 130 */
+/* 133 */
 /***/ function(module, exports) {
 
 module.exports={render:function (){with(this) {
@@ -15224,11 +15492,6 @@ module.exports={render:function (){with(this) {
     staticClass: "slido",
     domProps: {
       "innerHTML": _s(dType.polis)
-    }
-  })]) : _e(), (dType.type.includes('hackpad')) ? _h('div', [_h('div', {
-    staticClass: "hackpad",
-    domProps: {
-      "innerHTML": _s(dType.hackpad)
     }
   })]) : _e(), (dType.check == true && dType.type.includes('discourse')) ? _h('div', [_l((dType.discourse), function(disc, index) {
     return _h('div', [_h('div', {
@@ -15259,7 +15522,7 @@ module.exports={render:function (){with(this) {
         "slice": false
       }
     })])])])
-  })]) : _e()] : _e()])
+  })]) : _h('div', [(lastStep === '歷史案件') ? _h('div', ["本案已討論結束，詳細歷程可參考「議題時間軸」"]) : _h('div', [(lastStep === '送交院會') ? _h('div', ["本案已擬定草案，送交院會審查中"]) : _h('div', ["本案目前無可線上參與的項目"])])])] : _e()])
 }},staticRenderFns: [function (){with(this) {
   return _h('i', {
     staticClass: "dropdown icon"
@@ -15271,7 +15534,7 @@ module.exports={render:function (){with(this) {
 }}]}
 
 /***/ },
-/* 131 */
+/* 134 */
 /***/ function(module, exports) {
 
 module.exports={render:function (){with(this) {
@@ -15298,7 +15561,13 @@ module.exports={render:function (){with(this) {
       }
     })]), _h('div', {
       staticClass: "content"
-    }, [_h('p', [_s(n.tags)]), _h('a', {
+    }, [_h('div', {
+      staticClass: "tags"
+    }, [_l((n.tags), function(t) {
+      return _h('div', {
+        staticClass: "ui mini tag label"
+      }, [_s(t)])
+    })]), _h('a', {
       staticClass: "header",
       attrs: {
         "href": n.news_link,
@@ -15339,7 +15608,13 @@ module.exports={render:function (){with(this) {
       }
     })]), _h('div', {
       staticClass: "content"
-    }, [_h('p', [_s(n.tags)]), _h('a', {
+    }, [_h('div', {
+      staticClass: "tags"
+    }, [_l((n.tags), function(t) {
+      return _h('div', {
+        staticClass: "ui mini tag label"
+      }, [_s(t)])
+    })]), _h('a', {
       staticClass: "header",
       attrs: {
         "href": n.news_link,
@@ -15359,16 +15634,8 @@ module.exports={render:function (){with(this) {
         "target": "_blank"
       }
     }, [_s(n.source)])])])])])])
-  })]), _m(2), _m(3), _m(4), _m(5)])])])
+  })]), _m(2), _m(3)])])])
 }},staticRenderFns: [function (){with(this) {
-  return _h('div', {
-    staticClass: "swiper-button-prev"
-  })
-}},function (){with(this) {
-  return _h('div', {
-    staticClass: "swiper-button-next"
-  })
-}},function (){with(this) {
   return _h('div', {
     staticClass: "swiper-button-prev"
   })
@@ -15387,7 +15654,7 @@ module.exports={render:function (){with(this) {
 }}]}
 
 /***/ },
-/* 132 */
+/* 135 */
 /***/ function(module, exports) {
 
 module.exports={render:function (){with(this) {
@@ -15437,7 +15704,7 @@ module.exports={render:function (){with(this) {
 }}]}
 
 /***/ },
-/* 133 */
+/* 136 */
 /***/ function(module, exports) {
 
 module.exports={render:function (){with(this) {
@@ -15547,7 +15814,7 @@ module.exports={render:function (){with(this) {
 }}]}
 
 /***/ },
-/* 134 */
+/* 137 */
 /***/ function(module, exports) {
 
 module.exports={render:function (){with(this) {
@@ -15571,7 +15838,7 @@ module.exports={render:function (){with(this) {
 }},staticRenderFns: []}
 
 /***/ },
-/* 135 */
+/* 138 */
 /***/ function(module, exports) {
 
 module.exports={render:function (){with(this) {
@@ -15581,25 +15848,27 @@ module.exports={render:function (){with(this) {
     staticClass: "swiper-container"
   }, [_h('div', {
     staticClass: "swiper-wrapper"
-  }, [_l((mySlideTopics), function(t, idx) {
+  }, [_l((hotTopics), function(item, idx) {
     return _h('div', {
       staticClass: "swiper-slide",
-      style: (t.new_style)
+      style: ({
+        'background': 'url(' + item.cover + ') 100% 100% / cover'
+      })
     }, [_h('div', {
       staticClass: "box"
     }, [_h('div', {
       staticClass: "status ui basic huge label"
-    }, [" \n" + _s(t.status)]), _h('h1', {
+    }, [" \n" + _s(item.status)]), _h('h1', {
       staticClass: "slogan ui header"
-    }, [_s(t.title), _h('div', {
+    }, [_s(item.title), _h('div', {
       staticClass: "sub header"
-    }, [_s(t.slogan)])]), _h('router-link', {
+    }, [_s(item.slogan)])]), _h('router-link', {
       staticClass: "ui right labeled icon teal huge button",
       attrs: {
-        "to": '/topic/' + t.routeName
+        "to": '/topic/' + item.routeName
       }
-    }, [_m(0, true), _m(1, true)])])])
-  })]), _m(2), _m(3), _m(4), _m(5)])])
+    }, [_m(0, true), _m(1, true)]), _m(2, true)])])
+  })]), _m(3)])])
 }},staticRenderFns: [function (){with(this) {
   return _h('i', {
     staticClass: "right arrow icon"
@@ -15607,16 +15876,8 @@ module.exports={render:function (){with(this) {
 }},function (){with(this) {
   return _h('p', ["進入議題"])
 }},function (){with(this) {
-  return _h('div', {
-    staticClass: "swiper-button-prev"
-  })
-}},function (){with(this) {
-  return _h('div', {
-    staticClass: "swiper-button-next"
-  })
-}},function (){with(this) {
-  return _h('div', {
-    staticClass: "swiper-pagination"
+  return _h('i', {
+    staticClass: "folder icon background"
   })
 }},function (){with(this) {
   return _h('div', {
@@ -15625,7 +15886,7 @@ module.exports={render:function (){with(this) {
 }}]}
 
 /***/ },
-/* 136 */
+/* 139 */
 /***/ function(module, exports) {
 
 module.exports={render:function (){with(this) {
@@ -15646,7 +15907,7 @@ module.exports={render:function (){with(this) {
     }
   }, [_h('transition', {
     attrs: {
-      "name": "fade-in",
+      "name": "fade",
       "mode": "out-in"
     }
   }, [_h('router-view', {
@@ -15662,7 +15923,7 @@ module.exports={render:function (){with(this) {
 }},staticRenderFns: []}
 
 /***/ },
-/* 137 */
+/* 140 */
 /***/ function(module, exports) {
 
 module.exports={render:function (){with(this) {
@@ -15698,7 +15959,7 @@ module.exports={render:function (){with(this) {
 }}]}
 
 /***/ },
-/* 138 */
+/* 141 */
 /***/ function(module, exports) {
 
 module.exports={render:function (){with(this) {
@@ -15736,28 +15997,29 @@ module.exports={render:function (){with(this) {
       }, [_h('p', [_s(obj.title) + "   "])]) : _e()
     })])])
   })]), _h('div', {
-    staticClass: "fat-only ui container pusher"
-  }, [_h('div', {
-    staticClass: "ui icon basic button fat-only",
     attrs: {
       "id": "opener"
     },
     on: {
-      "click": showSidebar,
       "mouseover": showSidebar
     }
-  }, [_m(0), _m(1)]), (article.id !== undefined) ? _h('NextStage', {
+  }), _h('div', {
+    staticClass: "ui container pusher",
+    attrs: {
+      "id": "pusher"
+    }
+  }, [(article.id !== undefined) ? _h('NextStage', {
     attrs: {
       "article": article
     }
   }) : _e(), _h('h1', {
-    staticClass: "ui huge header"
+    staticClass: "ui header"
   }, [_s(article.title)]), (article.id !== undefined) ? _h('Slide', {
     attrs: {
       "article": article
     }
   }) : _e(), _h('div', {
-    staticClass: "ui top attached three item stackable big menu"
+    staticClass: "ui three item big menu"
   }, [_l((tabcontent), function(step, idx) {
     return _h('a', {
       staticClass: "item",
@@ -15774,9 +16036,11 @@ module.exports={render:function (){with(this) {
       class: {
         'info circle': step === '詳細內容', 'calendar': step === '議題時間軸', 'comments': step === '參與討論'
       }
-    }), _h('p', [_s(step)])])
+    }), _h('p', {
+      staticClass: "fat-only"
+    }, [_s(step)])])
   })]), (article.id !== undefined) ? _h('div', {
-    staticClass: "ui segment attached"
+    staticClass: "info"
   }, [_l((tabcontent), function(step, idx) {
     return _h('info', {
       directives: [{
@@ -15790,74 +16054,11 @@ module.exports={render:function (){with(this) {
         "desc": step
       }
     })
-  })]) : _e()]), _h('div', {
-    staticClass: "thin-only"
-  }, [_h('div', {
-    staticClass: "ui container"
-  }, [(article.id !== undefined) ? _h('NextStage', {
-    attrs: {
-      "article": article
-    }
-  }) : _e(), _h('h1', {
-    staticClass: "ui huge header"
-  }, [_s(article.title) + "           ", (article.id !== undefined) ? _h('Slide', {
-    attrs: {
-      "article": article
-    }
-  }) : _e(), _h('div', {
-    staticClass: "ui styled accordion",
-    on: {
-      "mouseover": accordion
-    }
-  }, [_l((tabcontent), function(step, idx) {
-    return _h('a', {
-      staticClass: "step",
-      class: {
-        'active': idx == myIdx
-      },
-      on: {
-        "click": function($event) {
-          myIdx = idx
-        }
-      }
-    }, [_h('div', {
-      staticClass: "title"
-    }, [_h('i', {
-      staticClass: "dropdown icon",
-      class: {
-        'info circle': step === '詳細內容', 'calendar': step === '議題時間軸', 'comments': step === '參與討論'
-      }
-    }), _s(step)]), _h('div', {
-      staticClass: "content"
-    }, [(article.id !== undefined) ? _h('div', {
-      staticClass: "ui attached"
-    }, [_l((tabcontent), function(step, idx) {
-      return _h('info', {
-        directives: [{
-          name: "show",
-          rawName: "v-show",
-          value: (idx == myIdx),
-          expression: "idx == myIdx"
-        }],
-        attrs: {
-          "article": article,
-          "desc": step
-        }
-      })
-    })]) : _e()])])
-  })])])])])])
-}},staticRenderFns: [function (){with(this) {
-  return _h('i', {
-    staticClass: "sidebar icon"
-  })
-}},function (){with(this) {
-  return _h('span', {
-    staticClass: "fat-only"
-  }, ["議題目錄"])
-}}]}
+  })]) : _e()])])
+}},staticRenderFns: []}
 
 /***/ },
-/* 139 */
+/* 142 */
 /***/ function(module, exports) {
 
 module.exports={render:function (){with(this) {
@@ -15883,7 +16084,7 @@ module.exports={render:function (){with(this) {
 }}]}
 
 /***/ },
-/* 140 */
+/* 143 */
 /***/ function(module, exports) {
 
 module.exports={render:function (){with(this) {
@@ -15897,7 +16098,7 @@ module.exports={render:function (){with(this) {
 }}]}
 
 /***/ },
-/* 141 */
+/* 144 */
 /***/ function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){with(this) {
@@ -15914,7 +16115,7 @@ module.exports={render:function (){with(this) {
   }, [_m(0), _h('div', {
     staticClass: "ui inverted link list"
   }, [_m(1), _m(2), _h('router-link', {
-    staticClass: "m-logo item",
+    staticClass: "item",
     attrs: {
       "to": "/",
       "exact": "",
@@ -15925,7 +16126,7 @@ module.exports={render:function (){with(this) {
   }, [_m(3), _h('div', {
     staticClass: "ui inverted link list"
   }, [_m(4), _m(5), _h('router-link', {
-    staticClass: "m-logo item",
+    staticClass: "item",
     attrs: {
       "to": "/subscribe",
       "exact": "",
@@ -15936,41 +16137,41 @@ module.exports={render:function (){with(this) {
   }, [_m(6), _h('div', {
     staticClass: "ui inverted link list"
   }, [_h('router-link', {
-    staticClass: "m-logo item",
+    staticClass: "item",
     attrs: {
       "to": "/Contactus",
       "exact": "",
       "title": "聯絡我們"
     }
   }, ["聯絡我們"]), _h('router-link', {
-    staticClass: "m-logo item",
+    staticClass: "item",
     attrs: {
       "to": "/how-to-use",
       "exact": "",
       "title": "使用手冊"
     }
   }, ["使用手冊"]), _h('router-link', {
-    staticClass: "m-logo item",
+    staticClass: "item",
     attrs: {
       "to": "/intro",
       "exact": "",
       "title": "關於vTaiwan"
     }
   }, ["關於vTaiwan"])])]), _m(7)])]), _m(8), _h('div', {
-    staticClass: "ui centered"
-  }, [_m(9), _m(10), _m(11), _h('router-link', {
-    staticClass: "m-logo big ui circular mail icon orange button",
-    attrs: {
-      "to": "/Contactus",
-      "exact": "",
-      "title": "Contact Us"
-    }
-  }, [_m(12)]), _h('router-link', {
-    staticClass: "m-logo item",
+    staticClass: "ui center aligned container"
+  }, [_m(9), _m(10), _h('router-link', {
+    staticClass: "ui icon",
     attrs: {
       "to": "/",
       "exact": "",
       "title": "Home"
+    }
+  }, [_m(11)]), _m(12), _h('router-link', {
+    staticClass: "ui circular icon orange button",
+    attrs: {
+      "to": "/Contactus",
+      "exact": "",
+      "title": "Contact Us"
     }
   }, [_m(13)])])])])
 }},staticRenderFns: [function (){with(this) {
@@ -16033,52 +16234,52 @@ module.exports={render:function (){with(this) {
   })
 }},function (){with(this) {
   return _h('a', {
-    staticClass: "big ui centered circular facebook icon button",
+    staticClass: "ui circular facebook icon button",
     attrs: {
       "href": "https://www.facebook.com/vtaiwan.tw/",
       "title": "Fackbook",
       "target": "_blank"
     }
   }, [_h('i', {
-    staticClass: "facebook icon"
+    staticClass: "big facebook icon"
   })])
 }},function (){with(this) {
   return _h('a', {
-    staticClass: "big ui circular youtube icon button",
+    staticClass: "ui circular youtube icon button",
     attrs: {
       "href": "https://www.youtube.com/channel/UChC85hbUuDAvFpc7Uuj69DA/",
       "title": "Youtube",
       "target": "_blank"
     }
   }, [_h('i', {
-    staticClass: "youtube icon"
+    staticClass: "big youtube icon"
   })])
 }},function (){with(this) {
+  return _h('img', {
+    attrs: {
+      "src": __webpack_require__(11),
+      "alt": "logo"
+    }
+  })
+}},function (){with(this) {
   return _h('a', {
-    staticClass: "big ui circular github icon grey button",
+    staticClass: "ui circular icon grey button",
     attrs: {
       "href": "https://github.com/g0v/vue.vtaiwan.tw",
       "title": "Github",
       "target": "_blank"
     }
   }, [_h('i', {
-    staticClass: "github icon"
+    staticClass: "big github icon"
   })])
 }},function (){with(this) {
   return _h('i', {
-    staticClass: "mail icon"
-  })
-}},function (){with(this) {
-  return _h('img', {
-    attrs: {
-      "src": __webpack_require__(12),
-      "alt": "logo"
-    }
+    staticClass: "big mail icon"
   })
 }}]}
 
 /***/ },
-/* 142 */
+/* 145 */
 /***/ function(module, exports) {
 
 module.exports={render:function (){with(this) {
@@ -16169,7 +16370,7 @@ module.exports={render:function (){with(this) {
 }}]}
 
 /***/ },
-/* 143 */
+/* 146 */
 /***/ function(module, exports) {
 
 module.exports={render:function (){with(this) {
@@ -16181,20 +16382,24 @@ module.exports={render:function (){with(this) {
       "hotTopics": hotTopics,
       "allTopics": allTopics
     }
-  }), _h('News', {
-    attrs: {
-      "allNews": allNews
-    }
   }), _h('ProposalTab', {
     staticClass: "proposalTab",
     attrs: {
       "allTopics": allTopics
     }
+  }), _m(0), _h('News', {
+    attrs: {
+      "allNews": allNews
+    }
   })])
-}},staticRenderFns: []}
+}},staticRenderFns: [function (){with(this) {
+  return _h('div', {
+    staticClass: "ui divider"
+  })
+}}]}
 
 /***/ },
-/* 144 */
+/* 147 */
 /***/ function(module, exports) {
 
 module.exports={render:function (){with(this) {
@@ -16206,36 +16411,42 @@ module.exports={render:function (){with(this) {
       "id": name
     }
   }, [_h('h2', {
-    staticClass: "ui sticky header m-title thin-only"
+    staticClass: "ui header m-title thin-only"
   }, [_s(label)]), _h('div', {
     staticClass: "desc ui basic center aligned segment fat-only"
   }, [_m(0), _s(desc) + " ", _m(1)]), (!list.length) ? _h('div', {
     staticClass: "ui compact info message"
   }, ["目前還沒有正在進行的議案…"]) : _e(), _h('div', {
-    staticClass: "ui four column grid stackable"
-  }, [_l((list), function(t) {
-    return _h('div', {
-      staticClass: "box column"
-    }, [_h('router-link', {
-      staticClass: "box-inner ui segment",
+    staticClass: "ui four stackable cards"
+  }, [_l((list), function(item) {
+    return _h('router-link', {
+      staticClass: "card",
       attrs: {
-        "to": '/topic/' + t.routeName
+        "to": '/topic/' + item.routeName
       }
+    }, [_h('div', {
+      staticClass: "image"
     }, [_h('img', {
-      staticClass: "ui rounded bordered image",
+      staticClass: "ui image",
       attrs: {
-        "src": t.cover || 'http://lorempixel.com/320/240/sports'
+        "src": item.cover || 'http://lorempixel.com/320/240/sports'
       }
-    }), _h('h3', {
+    })]), _h('div', {
+      staticClass: "content"
+    }, [_h('h3', {
       staticClass: "ui header"
-    }, [_s(t.title)]), (name == 'discuss') ? _h('div', {
-      staticClass: "progress_bar",
-      style: (progressStyle(t))
-    }, [(t.status === '討論中') ? _h('div', {
-      staticClass: "progress_text ui bottom attached red large label"
-    }, ["還有" + _s(Math.floor(t.total - t.progress)) + "天"]) : _h('div', {
-      staticClass: "progress_text ui bottom attached red large label"
-    }, ["討論已結束"])]) : _e()])])
+    }, [_s(item.title)])]), (name === 'discuss') ? _h('div', {
+      staticClass: "extra content"
+    }, [_h('div', {
+      staticClass: "progress_bar"
+    }, [(item.status === '討論中') ? _h('div', {
+      staticClass: "progress_text"
+    }, ["還有" + _s(Math.floor(item.total - item.progress)) + "天"]) : _h('div', {
+      staticClass: "progress_text"
+    }, ["討論已結束"]), _h('div', {
+      staticClass: "progress_color",
+      style: (progressStyle(item.progress, item.total))
+    })])]) : _e()])
   })])])])
 }},staticRenderFns: [function (){with(this) {
   return _h('sup', [_h('i', {
@@ -16248,7 +16459,7 @@ module.exports={render:function (){with(this) {
 }}]}
 
 /***/ },
-/* 145 */
+/* 148 */
 /***/ function(module, exports) {
 
 module.exports={render:function (){with(this) {
@@ -16272,7 +16483,7 @@ module.exports={render:function (){with(this) {
 }},staticRenderFns: []}
 
 /***/ },
-/* 146 */
+/* 149 */
 /***/ function(module, exports) {
 
 module.exports={render:function (){with(this) {
@@ -16294,7 +16505,7 @@ module.exports={render:function (){with(this) {
 }},staticRenderFns: []}
 
 /***/ },
-/* 147 */
+/* 150 */
 /***/ function(module, exports) {
 
 module.exports={render:function (){with(this) {
@@ -16356,7 +16567,7 @@ module.exports={render:function (){with(this) {
 }}]}
 
 /***/ },
-/* 148 */
+/* 151 */
 /***/ function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){with(this) {
@@ -16466,7 +16677,7 @@ module.exports={render:function (){with(this) {
 }},function (){with(this) {
   return _h('img', {
     attrs: {
-      "src": __webpack_require__(12),
+      "src": __webpack_require__(11),
       "alt": "logo"
     }
   })
@@ -16475,7 +16686,7 @@ module.exports={render:function (){with(this) {
 }},function (){with(this) {
   return _h('img', {
     attrs: {
-      "src": __webpack_require__(12),
+      "src": __webpack_require__(11),
       "alt": "logo"
     }
   })
@@ -16484,53 +16695,41 @@ module.exports={render:function (){with(this) {
 }}]}
 
 /***/ },
-/* 149 */
+/* 152 */
 /***/ function(module, exports) {
 
 module.exports={render:function (){with(this) {
   return _h('div', {
     staticClass: "component"
-  }, [_h('div', {
-    staticClass: "fat-only"
   }, [_h('table', {
-    staticClass: "ui fixed striped table"
+    staticClass: "ui fixed striped unstackable table"
   }, [_h('thead', [_h('tr', {
     staticClass: "center aligned"
   }, [_l((timeline_title), function(t) {
-    return _h('th', [_h('h3', [_s(t)])])
-  })])]), _h('tbody', [_l((timeline.time), function(ev, idx) {
-    return _h('tr', [_h('td', [_h('span', [_s(ev.start) + " "]), (ev.end != null) ? _h('i', {
-      staticClass: "arrow right icon"
-    }) : _e(), _h('span', [" " + _s(ev.end)])]), _h('td', [_h('p', [_s(ev.title)]), (ev.info != null) ? _h('i', {
-      staticClass: "caret right icon"
-    }) : _e(), (ev.info != null) ? _h('span', [_s(ev.info) + " "]) : _e()]), _h('td', [_h('Plink', {
-      attrs: {
-        "urllink": ev.link
-      }
-    })])])
-  })])])]), _h('div', {
-    staticClass: "thin-only"
-  }, [_h('table', {
-    staticClass: "ui fixed striped unstackable table"
-  }, [_h('thead', [_h('tr', [_l((timeline_title), function(t) {
     return _h('th', [_h('h3', {
-      staticClass: "left aligned"
+      staticClass: "ui header"
     }, [_s(t)])])
   })])]), _h('tbody', [_l((timeline.time), function(ev, idx) {
-    return _h('tr', [_h('td', [_h('span', [_s(ev.start) + " "]), (ev.end != null) ? _h('i', {
-      staticClass: "arrow right icon"
-    }) : _e(), _h('span', [" " + _s(ev.end)])]), _h('td', [_h('p', [_s(ev.title)]), (ev.info != null) ? _h('i', {
-      staticClass: "caret right icon"
-    }) : _e(), (ev.info != null) ? _h('span', [_s(ev.info) + " "]) : _e()]), _h('td', [_h('Plink', {
+    return _h('tr', [_h('td', {
+      staticClass: "center aligned"
+    }, [_h('div', [_s(ev.start) + " "]), (ev.end != null) ? _h('i', {
+      staticClass: "arrow down icon"
+    }) : _e(), _h('div', [_s(ev.end)])]), _h('td', [_h('div', {
+      staticClass: "status ui basic huge label fat-only"
+    }, [_s(ev.title)]), _h('div', {
+      staticClass: "status ui basic small label thin-only"
+    }, [_s(ev.title)]), (ev.info != null) ? _h('h4', {
+      staticClass: "ui header"
+    }, [_s(ev.info) + " "]) : _e()]), _h('td', [_h('Plink', {
       attrs: {
         "urllink": ev.link
       }
     })])])
-  })])])])])
+  })])])])
 }},staticRenderFns: []}
 
 /***/ },
-/* 150 */
+/* 153 */
 /***/ function(module, exports) {
 
 module.exports={render:function (){with(this) {
@@ -16581,7 +16780,7 @@ module.exports={render:function (){with(this) {
 }}]}
 
 /***/ },
-/* 151 */
+/* 154 */
 /***/ function(module, exports) {
 
 module.exports={render:function (){with(this) {
@@ -16674,7 +16873,7 @@ module.exports={render:function (){with(this) {
 }}]}
 
 /***/ },
-/* 152 */
+/* 155 */
 /***/ function(module, exports) {
 
 module.exports={render:function (){with(this) {
@@ -16682,13 +16881,13 @@ module.exports={render:function (){with(this) {
 }},staticRenderFns: []}
 
 /***/ },
-/* 153 */
+/* 156 */
 /***/ function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(69);
+var content = __webpack_require__(71);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
 var update = __webpack_require__(1)(content, {});
@@ -16708,13 +16907,13 @@ if(false) {
 }
 
 /***/ },
-/* 154 */
+/* 157 */
 /***/ function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(70);
+var content = __webpack_require__(72);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
 var update = __webpack_require__(1)(content, {});
@@ -16734,13 +16933,13 @@ if(false) {
 }
 
 /***/ },
-/* 155 */
+/* 158 */
 /***/ function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(71);
+var content = __webpack_require__(73);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
 var update = __webpack_require__(1)(content, {});
@@ -16760,13 +16959,13 @@ if(false) {
 }
 
 /***/ },
-/* 156 */
+/* 159 */
 /***/ function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(72);
+var content = __webpack_require__(74);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
 var update = __webpack_require__(1)(content, {});
@@ -16786,13 +16985,13 @@ if(false) {
 }
 
 /***/ },
-/* 157 */
+/* 160 */
 /***/ function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(73);
+var content = __webpack_require__(75);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
 var update = __webpack_require__(1)(content, {});
@@ -16812,13 +17011,13 @@ if(false) {
 }
 
 /***/ },
-/* 158 */
+/* 161 */
 /***/ function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(74);
+var content = __webpack_require__(76);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
 var update = __webpack_require__(1)(content, {});
@@ -16838,13 +17037,13 @@ if(false) {
 }
 
 /***/ },
-/* 159 */
+/* 162 */
 /***/ function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(75);
+var content = __webpack_require__(77);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
 var update = __webpack_require__(1)(content, {});
@@ -16864,13 +17063,13 @@ if(false) {
 }
 
 /***/ },
-/* 160 */
+/* 163 */
 /***/ function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(76);
+var content = __webpack_require__(78);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
 var update = __webpack_require__(1)(content, {});
@@ -16890,13 +17089,13 @@ if(false) {
 }
 
 /***/ },
-/* 161 */
+/* 164 */
 /***/ function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(77);
+var content = __webpack_require__(79);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
 var update = __webpack_require__(1)(content, {});
@@ -16916,13 +17115,13 @@ if(false) {
 }
 
 /***/ },
-/* 162 */
+/* 165 */
 /***/ function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(78);
+var content = __webpack_require__(80);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
 var update = __webpack_require__(1)(content, {});
@@ -16942,13 +17141,13 @@ if(false) {
 }
 
 /***/ },
-/* 163 */
+/* 166 */
 /***/ function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(79);
+var content = __webpack_require__(81);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
 var update = __webpack_require__(1)(content, {});
@@ -16968,13 +17167,13 @@ if(false) {
 }
 
 /***/ },
-/* 164 */
+/* 167 */
 /***/ function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(80);
+var content = __webpack_require__(82);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
 var update = __webpack_require__(1)(content, {});
@@ -16994,13 +17193,13 @@ if(false) {
 }
 
 /***/ },
-/* 165 */
+/* 168 */
 /***/ function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(81);
+var content = __webpack_require__(83);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
 var update = __webpack_require__(1)(content, {});
@@ -17020,13 +17219,13 @@ if(false) {
 }
 
 /***/ },
-/* 166 */
+/* 169 */
 /***/ function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(82);
+var content = __webpack_require__(84);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
 var update = __webpack_require__(1)(content, {});
@@ -17046,13 +17245,13 @@ if(false) {
 }
 
 /***/ },
-/* 167 */
+/* 170 */
 /***/ function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(83);
+var content = __webpack_require__(85);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
 var update = __webpack_require__(1)(content, {});
@@ -17072,13 +17271,13 @@ if(false) {
 }
 
 /***/ },
-/* 168 */
+/* 171 */
 /***/ function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(84);
+var content = __webpack_require__(86);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
 var update = __webpack_require__(1)(content, {});
@@ -17098,13 +17297,13 @@ if(false) {
 }
 
 /***/ },
-/* 169 */
+/* 172 */
 /***/ function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(85);
+var content = __webpack_require__(87);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
 var update = __webpack_require__(1)(content, {});
@@ -17124,13 +17323,13 @@ if(false) {
 }
 
 /***/ },
-/* 170 */
+/* 173 */
 /***/ function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(86);
+var content = __webpack_require__(88);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
 var update = __webpack_require__(1)(content, {});
@@ -17150,13 +17349,13 @@ if(false) {
 }
 
 /***/ },
-/* 171 */
+/* 174 */
 /***/ function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(87);
+var content = __webpack_require__(89);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
 var update = __webpack_require__(1)(content, {});
@@ -17176,13 +17375,13 @@ if(false) {
 }
 
 /***/ },
-/* 172 */
+/* 175 */
 /***/ function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(88);
+var content = __webpack_require__(90);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
 var update = __webpack_require__(1)(content, {});
@@ -17202,13 +17401,13 @@ if(false) {
 }
 
 /***/ },
-/* 173 */
+/* 176 */
 /***/ function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(89);
+var content = __webpack_require__(91);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
 var update = __webpack_require__(1)(content, {});
@@ -17228,13 +17427,13 @@ if(false) {
 }
 
 /***/ },
-/* 174 */
+/* 177 */
 /***/ function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(90);
+var content = __webpack_require__(92);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
 var update = __webpack_require__(1)(content, {});
@@ -17254,13 +17453,13 @@ if(false) {
 }
 
 /***/ },
-/* 175 */
+/* 178 */
 /***/ function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(91);
+var content = __webpack_require__(93);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
 var update = __webpack_require__(1)(content, {});
@@ -17280,13 +17479,13 @@ if(false) {
 }
 
 /***/ },
-/* 176 */
+/* 179 */
 /***/ function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(92);
+var content = __webpack_require__(94);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
 var update = __webpack_require__(1)(content, {});
@@ -17306,13 +17505,13 @@ if(false) {
 }
 
 /***/ },
-/* 177 */
+/* 180 */
 /***/ function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(93);
+var content = __webpack_require__(95);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
 var update = __webpack_require__(1)(content, {});
@@ -17332,13 +17531,13 @@ if(false) {
 }
 
 /***/ },
-/* 178 */
+/* 181 */
 /***/ function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(94);
+var content = __webpack_require__(96);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
 var update = __webpack_require__(1)(content, {});
@@ -17358,13 +17557,13 @@ if(false) {
 }
 
 /***/ },
-/* 179 */
+/* 182 */
 /***/ function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(95);
+var content = __webpack_require__(97);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
 var update = __webpack_require__(1)(content, {});
@@ -17384,7 +17583,7 @@ if(false) {
 }
 
 /***/ },
-/* 180 */
+/* 183 */
 /***/ function(module, exports) {
 
 exports.sync = function (store, router) {
@@ -17434,8 +17633,8 @@ exports.sync = function (store, router) {
 
 
 /***/ },
-/* 181 */,
-/* 182 */
+/* 184 */,
+/* 185 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";

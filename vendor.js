@@ -61,12 +61,54 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 183);
+/******/ 	return __webpack_require__(__webpack_require__.s = 186);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 100:
+/***/ 101:
+/***/ function(module, exports) {
+
+if (typeof Object.create === 'function') {
+  // implementation from standard node.js 'util' module
+  module.exports = function inherits(ctor, superCtor) {
+    ctor.super_ = superCtor
+    ctor.prototype = Object.create(superCtor.prototype, {
+      constructor: {
+        value: ctor,
+        enumerable: false,
+        writable: true,
+        configurable: true
+      }
+    });
+  };
+} else {
+  // old school shim for old browsers
+  module.exports = function inherits(ctor, superCtor) {
+    ctor.super_ = superCtor
+    var TempCtor = function () {}
+    TempCtor.prototype = superCtor.prototype
+    ctor.prototype = new TempCtor()
+    ctor.prototype.constructor = ctor
+  }
+}
+
+
+/***/ },
+
+/***/ 102:
+/***/ function(module, exports) {
+
+module.exports = function isBuffer(arg) {
+  return arg && typeof arg === 'object'
+    && typeof arg.copy === 'function'
+    && typeof arg.fill === 'function'
+    && typeof arg.readUInt8 === 'function';
+}
+
+/***/ },
+
+/***/ 103:
 /***/ function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, process) {// Copyright Joyent, Inc. and other Node contributors.
@@ -594,7 +636,7 @@ function isPrimitive(arg) {
 }
 exports.isPrimitive = isPrimitive;
 
-exports.isBuffer = __webpack_require__(99);
+exports.isBuffer = __webpack_require__(102);
 
 function objectToString(o) {
   return Object.prototype.toString.call(o);
@@ -638,7 +680,7 @@ exports.log = function() {
  *     prototype.
  * @param {function} superCtor Constructor function to inherit prototype from.
  */
-exports.inherits = __webpack_require__(98);
+exports.inherits = __webpack_require__(101);
 
 exports._extend = function(origin, add) {
   // Don't do anything if add isn't an object
@@ -660,14 +702,14 @@ function hasOwnProperty(obj, prop) {
 
 /***/ },
 
-/***/ 14:
+/***/ 13:
 /***/ function(module, exports) {
 
 /* (ignored) */
 
 /***/ },
 
-/***/ 181:
+/***/ 184:
 /***/ function(module, exports) {
 
 module.exports = Yallist
@@ -1034,7 +1076,7 @@ function Node (value, prev, next, list) {
 
 /***/ },
 
-/***/ 183:
+/***/ 186:
 /***/ function(module, exports, __webpack_require__) {
 
 __webpack_require__(5);
@@ -1053,11 +1095,11 @@ module.exports = LRUCache
 
 // This will be a proper iterable 'Map' in engines that support it,
 // or a fakey-fake PseudoMap in older versions.
-var Map = __webpack_require__(96)
-var util = __webpack_require__(100)
+var Map = __webpack_require__(98)
+var util = __webpack_require__(103)
 
 // A linked list to keep track of recently-used-ness
-var Yallist = __webpack_require__(181)
+var Yallist = __webpack_require__(184)
 
 // use symbols if possible, otherwise just _props
 var symbols = {}
@@ -7466,7 +7508,7 @@ function flush() {
 function attemptVertx() {
   try {
     var r = require;
-    var vertx = __webpack_require__(14);
+    var vertx = __webpack_require__(13);
     vertxNext = vertx.runOnLoop || vertx.runOnContext;
     return useVertxTimer();
   } catch (e) {
@@ -10936,7 +10978,7 @@ return index;
 
 /***/ },
 
-/***/ 96:
+/***/ 98:
 /***/ function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(process) {if (process.env.npm_package_name === 'pseudomap' &&
@@ -10946,14 +10988,14 @@ return index;
 if (typeof Map === 'function' && !process.env.TEST_PSEUDOMAP) {
   module.exports = Map
 } else {
-  module.exports = __webpack_require__(97)
+  module.exports = __webpack_require__(99)
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
 
-/***/ 97:
+/***/ 99:
 /***/ function(module, exports) {
 
 var hasOwnProperty = Object.prototype.hasOwnProperty
@@ -11070,48 +11112,6 @@ function set (data, k, v) {
   data[key] = new Entry(k, v, key)
 }
 
-
-/***/ },
-
-/***/ 98:
-/***/ function(module, exports) {
-
-if (typeof Object.create === 'function') {
-  // implementation from standard node.js 'util' module
-  module.exports = function inherits(ctor, superCtor) {
-    ctor.super_ = superCtor
-    ctor.prototype = Object.create(superCtor.prototype, {
-      constructor: {
-        value: ctor,
-        enumerable: false,
-        writable: true,
-        configurable: true
-      }
-    });
-  };
-} else {
-  // old school shim for old browsers
-  module.exports = function inherits(ctor, superCtor) {
-    ctor.super_ = superCtor
-    var TempCtor = function () {}
-    TempCtor.prototype = superCtor.prototype
-    ctor.prototype = new TempCtor()
-    ctor.prototype.constructor = ctor
-  }
-}
-
-
-/***/ },
-
-/***/ 99:
-/***/ function(module, exports) {
-
-module.exports = function isBuffer(arg) {
-  return arg && typeof arg === 'object'
-    && typeof arg.copy === 'function'
-    && typeof arg.fill === 'function'
-    && typeof arg.readUInt8 === 'function';
-}
 
 /***/ }
 
