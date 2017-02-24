@@ -14,9 +14,13 @@
         .number {{idx + 1}}
 
     .ui.segment(id="context" v-bind:class="{ 'basic': onMobile, 'attached': !onMobile}")
-      transition(name='fade', mode='out-in')
-        Box(v-for="(step, idx) in steps", :list = "mySort(step.dataName)", :desc = "step.description", :label = "step.label", :name = "step.dataName", v-if="idx == myIdx || onMobile", @stickTo="onStickTo(idx, $event)")
-  
+
+      transition(name='fade', mode='out-in', v-if="!onMobile")
+        Box(v-for="(step, idx) in steps", :list = "mySort(step.dataName)", :desc = "step.description", :label = "step.label", :name = "step.dataName", v-if="idx == myIdx")
+
+      template(v-else)
+        Box(v-for="(step, idx) in steps", :list = "mySort(step.dataName)", :desc = "step.description", :label = "step.label", :name = "step.dataName", @stickTo="onStickTo(idx, $event)")
+
 </template>
 
 <script>

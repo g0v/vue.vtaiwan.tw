@@ -131,7 +131,7 @@
 
 .ui.status {
   color: $step_color;
-  border: 2px solid $step_color;
+  border: 1px solid $step_color;
 }
 
 // tbody tr td {

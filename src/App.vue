@@ -190,7 +190,7 @@ export default {
 .footer {
   position: relative;
   margin: 0 auto;
-  margin-top: 40px;
+  // margin-top: 40px;
   max-width: 100%;
 }
 

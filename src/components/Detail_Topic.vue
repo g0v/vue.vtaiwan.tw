@@ -13,11 +13,13 @@
                         @click="routename = obj.routeName") 
           p {{obj.title}}   
 
+  #opener(@mouseover="showSidebar")
+
   #pusher.ui.container.pusher
 
-    #opener.ui.icon.basic.button.fat-only(@mouseover="showSidebar")
-      i.sidebar.icon
-      span 議題目錄
+    //- #opener.ui.icon.basic.button.fat-only(@mouseover="showSidebar")
+    //-   i.sidebar.icon
+    //-   span 議題目錄
 
     NextStage(v-if = "article.id !== undefined", :article="article")
 
@@ -37,8 +39,6 @@
 </template>
 
 <script>
-
-
 // import axios from 'axios'
 import Slide from './Detail_Topic_Slide.vue'
 import NextStage from './Detail_Topic_NextStage.vue'
@@ -129,24 +129,29 @@ export default {
 //     }
 // }
 #sidebar.sidebar {
-
   text-align: left;
-
   .menu {
     margin: 0;
     .router-link-active{
       color: white;
-
     }
   }
 }
 
-#opener.button {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 100;
+#opener {
+  height: 100%;
+  width: 1ch;
+  background: #1B1C1D; /* the color of sidebar */
+  position: fixed;
+  left: 0;
+  z-index: 100;
 }
+// #opener.button {
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   z-index: 100;
+// }
 
 .ui.top.menu {
   width: 100%;
