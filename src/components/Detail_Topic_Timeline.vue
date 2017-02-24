@@ -15,9 +15,9 @@
             div {{ev.end}}
           td
             .status.ui.basic.huge.label.fat-only
-              {{ev.title}}
+            | {{ev.title}}
             .status.ui.basic.small.label.thin-only
-              {{ev.title}}
+            | {{ev.title}}
             h4.ui.header(v-if="ev.info != null") {{ev.info}} 
           td 
             Plink(:urllink="ev.link")

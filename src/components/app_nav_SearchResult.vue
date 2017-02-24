@@ -69,40 +69,40 @@ export default {
 .component {
   position: absolute;
   z-index: 11;
-  margin-top: 4px;
-  height: 150px;
+  margin-top: 5px;
+  height: 90vh;
   overflow: auto;
   // background-color: rgba(255,255,255,0.8);
   font-size: 1rem;
 }
 
 .results {
-    left:0;
-    transform-origin: center top;
-    white-space: normal;
+    // left:0;
+    // transform-origin: center top;
+    // white-space: normal;
     background: #FFF;
-    margin:0 auto;
+    // margin:0 auto;
     // width: 18em;
-    border-radius: .28571429rem;
-    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12), 0 2px 10px 0 rgba(34,36,38,.15);
-    border: 1px solid #D4D4D5;
+    // border-radius: .28571429rem;
+    // box-shadow: 0 2px 4px 0 rgba(34,36,38,.12), 0 2px 10px 0 rgba(34,36,38,.15);
+    // border: 1px solid #D4D4D5;
     z-index: 998;
     .category {
       background: #F3F4F5;
-      box-shadow: none;
+      // box-shadow: none;
       border-bottom: 1px solid rgba(34,36,38,.1);
-      -webkit-transition: background .1s ease,border-color .1s ease;
-      transition: background .1s ease,border-color .1s ease;
+      // -webkit-transition: background .1s ease,border-color .1s ease;
+      // transition: background .1s ease,border-color .1s ease;
     }
     .name {
       width: 100px;
-      background: 0 0;
+      // background: 0 0;
       // font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
       font-size: 1em;
-      float: 1em;
+      // float: 1em;
       float: left;
       // padding: 1.2em 1em;
-      padding: 1em 1em;
+      padding: 1em;
       font-weight: 700;
       color: rgba(0,0,0,.4); 
     }
@@ -113,7 +113,7 @@ export default {
       border-bottom: 1px solid rgba(34,36,38,.1);
       // -webkit-transition: background .1s ease,border-color .1s ease;
       transition: background .1s ease,border-color .1s ease;
-      padding: .85714286em 1.14285714em;
+      padding: 1em;
       cursor: pointer;
       display: block;
       overflow: hidden;
@@ -125,16 +125,19 @@ export default {
       &:hover{
         background-color: #f3c7c7;
       }
+      &:last-child{
+        border-bottom: 0;
+      }
     }
     .title {
-        margin: -.14285em 0 0;
+        // margin: -.14285em 0 0;
         // font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
         font-weight: 700;
         font-size: 1em;
         color: rgba(0,0,0,.85);
     }
     .description {
-        margin-top: 0;
+        // margin-top: 0;
         font-size: .92857143em;
         color: rgba(0,0,0,.4);
     }
