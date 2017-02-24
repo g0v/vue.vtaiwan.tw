@@ -129,12 +129,21 @@ export default {
       
       news.forEach((post)=>{
         var tmp = {};
+        var tag = {};
+        var tags = [];
         post = post['raw'].split("<br>");
         tmp['title'] = post[1];
         tmp['content'] = post[3];
         tmp['img_link'] = post[5];
         tmp['source'] = post[7];
-        tmp['tags'] = post[9].split("\n")[0].replace(/，|#/g," ");
+        tag = post[9].split("\n")[0].replace(/，|#/g," ");
+        tag = tag.split(" ");
+        for(var i in tag){
+          if(tag[i]!=""){
+            tags.push(tag[i]);
+          }
+        }
+        tmp['tags'] = tags;
         tmp['news_link'] = post[11];
         tmp['source_link'] = post[11].split("/")[2];
         tmp['setup_time'] = post[13];
