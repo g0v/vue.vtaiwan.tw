@@ -40,7 +40,12 @@ export default {
         {
           key: 'youtube',
           icon:"youtube play",
-          text:"影片"
+          text:"直播"
+        },
+        {
+          key: 'livehouse',
+          icon:"youtube play",
+          text:"直播"
         },
         {
           key: 'pol.is',

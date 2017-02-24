@@ -7,6 +7,8 @@
       .slido(v-html="dType.slido")
     div(v-if = "dType.type.includes('polis')") 
       .slido(v-html="dType.polis")
+    div(v-if = "dType.type.includes('livehouse')") 
+      .slido(v-html="dType.livehouse")
       // .polis(:data-conversation_id = "dType.polis")
       // script(async = 'true', src = 'https://pol.is/embed.js')
     // div(v-if = "dType.type.includes('hackpad')")
@@ -27,14 +29,14 @@
               | {{disc.title}}
             div.content
               Discussion_Comment(:comment_id="disc.id", :slice="false")
+  div(v-else)
+    div(v-if = "lastStep==='歷史案件'")
+      |本案已討論結束，詳細歷程可參考「議題時間軸」
     div(v-else)
-      div(v-if = "lastStep==='歷史案件'")
-        |本案已討論結束，詳細歷程可參考「議題時間軸」
+      div(v-if = "lastStep==='送交院會'")
+        |本案已擬定草案，送交院會審查中
       div(v-else)
-        div(v-if = "lastStep==='送交院會'")
-          |本案已擬定草案，送交院會審查中
-        div(v-else)
-          |本案目前無可線上參與的項目
+        |本案目前無可線上參與的項目
 </template>
 
 <script>
@@ -87,6 +89,10 @@ export default {
           else if(j.indexOf("sli.do") > -1){ //篩出含有slido的連結    
             dType.type.push('slido')
             dType.slido = "<iframe src="+j+ "frameborder='0' width='100%' height='1000px' data-reactid='.0.2.0.0.0'></iframe>"
+          }
+          else if(j.indexOf("livehouse") > -1){ //篩出含有slido的連結    
+            dType.type.push('livehouse')
+            dType.livehouse = "<iframe width='100%' height='1000px' src='"+j.replace("livehouse.in/","livehouse.in/embed/")+"' frameborder='0' allowfullscreen></iframe>"
           }
           else if(j.indexOf("hackpad.com") > -1){ //篩出含有hackpad的連結    
             let hack = j.replace(/https.*-/,"");
