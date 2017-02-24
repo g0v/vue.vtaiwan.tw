@@ -9,8 +9,8 @@
       .slido(v-html="dType.polis")
       // .polis(:data-conversation_id = "dType.polis")
       // script(async = 'true', src = 'https://pol.is/embed.js')
-    div(v-if = "dType.type.includes('hackpad')")
-      .hackpad(v-html="dType.hackpad")
+    // div(v-if = "dType.type.includes('hackpad')")
+    //   .hackpad(v-html="dType.hackpad")
     div(v-if = "dType.check == true && dType.type.includes('discourse')")
       div(v-for = "(disc, index) in dType.discourse")
         .fat-only
@@ -27,11 +27,22 @@
               | {{disc.title}}
             div.content
               Discussion_Comment(:comment_id="disc.id", :slice="false")
+    div(v-else)
+      div(v-if = "lastStep==='歷史案件'")
+        |本案已討論結束，詳細歷程可參考「議題時間軸」
+      div(v-else)
+        div(v-if = "lastStep==='送交院會'")
+          |本案已擬定草案，送交院會審查中
+        div(v-else)
+          |本案目前無可線上參與的項目
 </template>
 
 <script>
 import caxios from '../js/request'
+import discourse from '../js/discourse.js'
 import Discussion_Comment from './Detail_Topic_Discussion_Comment.vue'
+import chineseSort from '../js/chineseSort.js'
+
 
 export default {
   props: ['article'],
@@ -40,7 +51,8 @@ export default {
   },
   data () {
     return {
-      dType: {}
+      dType: {},
+      lastStep: ""
     }
   },
   methods: {
@@ -61,9 +73,10 @@ export default {
         let link = []
         detail_info = detail_info['post_stream']['posts'].slice(1) // 取得議題時間軸內容
         for(let i of detail_info){
-          if(i['raw'].indexOf("意見徵集") == 0){
+          if(i['raw'].indexOf("意見徵集") == 0 || i['raw'].indexOf("研擬草案") == 0){
             link=i['raw'].split(/\s/) // add link to link[]
           }
+          this.lastStep = i['raw'].split(" ",1)[0]
         }
         for(let j of link){
           if(j.indexOf("pol.is") > -1){ //篩出含有polis的連結  
@@ -83,9 +96,9 @@ export default {
           }
           else if(j.indexOf("talk.vtaiwan.tw") > -1){ //篩出含有discourse的連結
             j = j.replace(/(.*)\/$/, "$1") // discard last char '/'
-            caxios.get(j + '.json')
+            discourse.getAllTopics(j + '.json',0)
             .then((response) => {
-              let topics = response.data.topic_list.topics
+              let topics = response.sort((a,b)=>chineseSort(a.title,b.title))
               dType.type.push('discourse')
               dType.discourse = topics.map( t => {
                 return {
