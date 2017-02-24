@@ -3,8 +3,6 @@
     .step-progress-bar
       ul.progress-bar
         li(v-for="(s,idx) in steps.stage", v-bind:class='{active:s.active, current:s.current}') {{s.title}}
-
-
      
 </template>
 
@@ -140,13 +138,13 @@ ul.progress-bar {
 .step-progress-bar li:before {
   content: counter(step);
   counter-increment: step;
-  width: 30px;
-  height: 30px;
+  width: 32px;
+  height: 32px;
   border: 2px solid #40B3BF;
   border-radius: 50%;
   display: block;
   text-align: center;
-  line-height: 30px;
+  line-height: 31px;
   margin: 0 auto 10px auto;
   z-index: 9;
   background-color: white;

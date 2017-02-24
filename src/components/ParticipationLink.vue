@@ -5,8 +5,8 @@
       span.urllink(v-for="(item, index) in ulinkall")
         span
           a.ui.teal.icon.button(:href='item.link' target='_blank')
-            i.icon(:class="item.icon")
-            span.fat-only
+            i.icon(:class="item.icon") 
+            span.fat-only 
               {{ item.text }}
               
 </template>
@@ -40,7 +40,12 @@ export default {
         {
           key: 'youtube',
           icon:"youtube play",
-          text:"影片"
+          text:"直播"
+        },
+        {
+          key: 'livehouse',
+          icon:"youtube play",
+          text:"直播"
         },
         {
           key: 'pol.is',
@@ -116,12 +121,12 @@ export default {
 }
 
 </script>
-<style lang="scss" >
-  .ui.teal.button{
-    margin-bottom: 0.5em;
-    background-color: #40B3BF;
-    @media only screen and (max-width: 767px){
-      padding: 0.7em;
-    }
+<style lang="scss">
+@import "../sass/global.scss";
+a.ui.icon.button{
+  background-color: $main_color;
+  span {
+    font-family: $main-font;
   }
+}
 </style>
