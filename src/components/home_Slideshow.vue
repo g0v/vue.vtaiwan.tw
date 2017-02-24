@@ -30,7 +30,7 @@
             router-link.ui.right.labeled.icon.teal.huge.button(:to="'/topic/' + item.routeName")
               i.right.arrow.icon
               p 進入議題
-            i.certificate.loading.icon.background
+            i.certificate.icon.background
       //- .swiper-button-prev
       //- .swiper-button-next
       //- .swiper-pagination 
@@ -182,10 +182,11 @@ export default {
   // ********************* 
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle, hsla(0, 0, 0%, 0.5), transparent);
+  background: radial-gradient(circle, rgba(#ffffff, 0.3), transparent);
   overflow: hidden;
   i.background {
-    color: rgba(#333333, 0.8);
+    color: rgba(#333333, 0.9);
+    text-shadow: 1px 3px 7px;
     font-size: 40rem;
     @media only screen and (max-width: $breakpoint) {
       font-size: 20rem;
