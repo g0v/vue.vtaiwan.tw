@@ -12,6 +12,8 @@
       // div(v-if = "dType.type.includes('hackpad')")
       //   .hackpad(v-html="dType.hackpad")
 
+      .livehouse(v-html="dType.livehouse", v-if = "dType.type.includes('livehouse')") 
+
       .discourse.ui.fluid.styled.accordion(v-for="(disc, index) in dType.discourse", v-if="dType.type.includes('discourse')")
         .title.discoursetitle
           i.dropdown.icon
@@ -95,6 +97,10 @@ export default {
           else if(j.indexOf("sli.do") > -1){ //篩出含有slido的連結    
             dType.type.push('slido')
             dType.slido = "<iframe src="+j+ "frameborder='0' width='100%' height='1000px' data-reactid='.0.2.0.0.0'></iframe>"
+          }
+          else if(j.indexOf("livehouse") > -1){ //篩出含有slido的連結    
+            dType.type.push('livehouse')
+            dType.livehouse = "<iframe width='100%' height='1000px' src='"+j.replace("livehouse.in/","livehouse.in/embed/")+"' frameborder='0' allowfullscreen></iframe>"
           }
           else if(j.indexOf("hackpad.com") > -1){ //篩出含有hackpad的連結    
             let hack = j.replace(/https.*-/,"");
