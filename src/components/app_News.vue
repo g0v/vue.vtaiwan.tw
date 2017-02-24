@@ -1,6 +1,7 @@
 <template lang="jade">
 
 .component
+    h2 重要資訊
     .fat-only
         .swiper-container1
             .swiper-wrapper
@@ -37,9 +38,7 @@
                                 .extra.content
                                     .right.floated.author
                                         a(:href="'http://'+n.source_link", target='_blank'){{n.source}}
-            .swiper-pagination
-            //- .swiper-button-prev
-            //- .swiper-button-next
+            .swiper-pagination2
             .swiper-scrollbar 
 
 
@@ -55,14 +54,22 @@ export default {
     var mySwiper1 =new Swiper ('.swiper-container1', {
       observer: true,
       direction: 'horizontal',
-      pagination: '.swiper-pagination',
-    //   autoplay: 5000,
+    //   pagination: '.swiper-pagination1',
+      autoplay: 5000,
+      paginationHide :true,
       slidesPerView: 5,
-      paginationClickable: true,
+    //   paginationClickable: true,
       spaceBetween: 50,
       nextButton: '.swiper-button-next',
-      prevButton: '.swiper-button-prev'
-       
+      prevButton: '.swiper-button-prev',
+      onSlideChangeEnd: function(swiper){
+        if(swiper.isEnd){
+            swiper.nextButton[0].style.display='none';
+        }
+        else{
+            swiper.nextButton[0].style.display='block';
+        }
+      } 
     })
     var mySwiper2 =new Swiper ('.swiper-container2', {
       observer: true,
@@ -70,11 +77,13 @@ export default {
       direction: 'horizontal',
       nextButton: '.swiper-button-next',
       prevButton: '.swiper-button-prev',
-      pagination: '.swiper-pagination',
+      pagination: '.swiper-pagination2',
       paginationType: 'fraction',
+    //   paginationClickable: true,
       scrollbar: '.swiper-scrollbar',
       spaceBetween: 40
     })
+    
     mySwiper1.on('imagesReady', function(){
         var len = 60; // 超過50個字以"..."取代
         $(".JQellipsis").each(function(i){
@@ -115,6 +124,11 @@ export default {
 .component {
   padding: 1em 0;
   min-height: 72vh;
+  >h2{
+    text-align: left;
+    margin: 1em 1em 0 1em;
+    border-bottom: 1px solid #d7d7d7;
+  }
   .swiper-container1{
       margin:4.5em 1em 0 3em;
   }
@@ -140,6 +154,8 @@ export default {
   }
   .ui.cards>.card>.image:not(.ui)>img {
     height: 150px;
+    width: auto;
+    margin: auto;
   }
   .ui.cards>.card [class*="right floated"] {
     float: right;
@@ -164,6 +180,10 @@ export default {
   }
   .ui.cards>.card{
       min-height:300px;
+      .image{
+          height: 150px;
+          overflow: hidden;
+      }
   }  
 }
 
