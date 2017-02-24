@@ -6,11 +6,11 @@ let file_name = './build/prerender-route.json';
 // var prerender = "module.exports = { routes : ['/','/how-to-use','/intro','/search'";
 let prerender_json = {} /* output to prerender-route.json */
 let routes = [ /* array for all routes */
-        '/',
-        '/how-to-use',
-        '/intro',
-        'search'
-    ]
+    '/',
+    '/how-to-use',
+    '/intro',
+    '/search'
+]
 var headers = {
     'User-Agent': 'Super Agent/0.0.1',
     'Content-Type': 'application/x-www-form-urlencoded'
@@ -37,7 +37,7 @@ request(opts, function(error, response, results) {
         }
         // prerender += "]}";
         prerender_json.routes = routes
-        // fs.writeFile(file_name, prerender);
+            // fs.writeFile(file_name, prerender);
         fs.writeFile(file_name, JSON.stringify(prerender_json, null, '\t'));
     } else {
         console.log('get topic list error=' + error + ' ' + response.statusCode);
