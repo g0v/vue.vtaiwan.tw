@@ -18,7 +18,11 @@
         a.fat-only.next(@click="c = cycle(1)")
           i.huge.black.caret.right.icon
 
+    #loader.ui.active.inverted.dimmer
+      .ui.loader
+
     .swiper-container
+      .swiper-scrollbar 
       .swiper-wrapper
         .swiper-slide(v-for="(item, idx) in hotTopics", :style="{'background': 'url(' + item.cover + ') 100% 100% / cover'}")
           .box
@@ -30,11 +34,7 @@
             router-link.ui.right.labeled.icon.teal.huge.button(:to="'/topic/' + item.routeName")
               i.right.arrow.icon
               p 進入議題
-            i.folder.icon.background
-      //- .swiper-button-prev
-      //- .swiper-button-next
-      //- .swiper-pagination 
-      .swiper-scrollbar 
+            i.certificate.icon.background
       
 </template>
 
@@ -114,22 +114,41 @@ export default {
   //   }
   // },
   mounted: function () {
-    /* initialize swiper when document ready */
-    new Swiper ('.swiper-container', {
-      // nextButton: '.swiper-button-next',
-      // prevButton: '.swiper-button-prev',
-      // pagination: '.swiper-pagination',
-      scrollbar: '.swiper-scrollbar',
-      observer: true,
-      autoplay: 8000,
-      direction: 'horizontal',
-      keyboardControl: true,
-      slidesPerView: 1.2,
-      centeredSlides: true,
-      // paginationClickable: true,
-      spaceBetween: 2,
-      // loop: true,
-    })
+
+    setTimeout(function(){
+
+      /* initialize swiper when document ready */
+      new Swiper ('.swiper-container', {
+        scrollbar: '.swiper-scrollbar',
+        autoplay: 8000,
+        direction: 'horizontal',
+        keyboardControl: true,
+        slidesPerView: 1.2,
+        centeredSlides: true,
+        spaceBetween: 2,
+        loop: true,
+      })
+
+      /* disable loader */
+      $('#loader').removeClass('active')
+
+    }, 1000)
+
+    // new Swiper ('.swiper-container', {
+    //   // nextButton: '.swiper-button-next',
+    //   // prevButton: '.swiper-button-prev',
+    //   // pagination: '.swiper-pagination',
+    //   scrollbar: '.swiper-scrollbar',
+    //   observer: true,
+    //   autoplay: 8000,
+    //   direction: 'horizontal',
+    //   keyboardControl: true,
+    //   slidesPerView: 1.2,
+    //   centeredSlides: true,
+    //   // paginationClickable: true,
+    //   spaceBetween: 2,
+    //   // loop: true,
+    // })
   }
 }
 
@@ -182,10 +201,11 @@ export default {
   // ********************* 
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle, hsla(0, 0, 0%, 0.5), transparent);
+  background: radial-gradient(circle, rgba(#ffffff, 0.3), transparent);
   overflow: hidden;
   i.background {
-    color: #333333;
+    color: rgba(#333333, 0.9);
+    text-shadow: 1px 3px 7px;
     font-size: 40rem;
     @media only screen and (max-width: $breakpoint) {
       font-size: 20rem;

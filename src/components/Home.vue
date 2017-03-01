@@ -7,7 +7,7 @@
     // HotProposal(:hotProposal="hotTopics", header="熱門議題").hotproposal
     // .ui.divider
     ProposalTab.proposalTab(:allTopics="allTopics")
-    .ui.divider
+    // .ui.divider
     News(:allNews="allNews")
    // Catagories(:catagories="catagories").catagories
 

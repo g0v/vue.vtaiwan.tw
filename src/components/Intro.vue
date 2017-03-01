@@ -1,7 +1,7 @@
 <style scoped lang="scss">
   @import "../sass/global.scss";
   .component {
-    padding-top: 1em
+    padding: 1em 0;
   }
 </style>
 

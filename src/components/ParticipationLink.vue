@@ -7,7 +7,7 @@
           a.ui.teal.icon.button(:href='item.link' target='_blank')
             i.icon(:class="item.icon") 
             span.fat-only 
-              {{ item.text }}
+            | {{ item.text }}
               
 </template>
 

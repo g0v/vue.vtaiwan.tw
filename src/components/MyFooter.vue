@@ -22,11 +22,11 @@
               .ui.inverted.link.list                
                 router-link.item(to='/Contactus', exact='', title="聯絡我們") 聯絡我們
                 router-link.item(to='/how-to-use', exact='', title="使用手冊") 使用手冊
-                router-link.item(to='/intro', exact='', title="關於vTaiwan") 關於vTaiwan
+                router-link.item(to='/intro', exact='', title="關於vTaiwan") 關於 vTaiwan
             .seven.wide.column
               h4.ui.inverted.header vTaiwan
               p
-                | vTaiwan為討論法規該如何制定或修改的平台，透過彼此的意見交流，希望能夠產出符合各利益關係人期待，也貼近實際需求的法規內容。
+                | vTaiwan 為討論法規該如何制定或修改的平台，透過彼此的意見交流，希望能夠產出符合各利益關係人期待，也貼近實際需求的法規內容。
 
         .ui.inverted.section.divider
 

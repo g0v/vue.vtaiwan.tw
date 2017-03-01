@@ -1,11 +1,7 @@
 <template lang="jade">
   .component
 
-    .thin-only
-     .content(v-html = "slide.content")
-
-    .fat-only
-     .content(v-html = "slide.content")
+     .content.ui.compact.segment(v-html = "slide.content")
 
 </template>
 
@@ -56,11 +52,7 @@ export default {
 @import "../sass/global.scss";
 
 .content {
-  margin-top:10px;
-}
-
-.fat-only {
-  margin-bottom: 25px;
+  margin: 0 auto;
 }
 
 </style>

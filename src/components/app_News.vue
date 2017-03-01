@@ -1,51 +1,52 @@
 <template lang="jade">
 
 .component
-    h2 重要資訊
+    h1.ui.horizontal.divider News
     .fat-only
         .swiper-container1
-            .swiper-wrapper
-                .swiper-slide(v-for="(n,idx) in allNews")
-                        .ui.cards
-                            .card
-                                .image
-                                    img(:src="n.img_link")
-                                .content
-                                    .tags
-                                        .ui.mini.tag.label(v-for="t in n.tags") {{t}}
-                                    a.header(:href="n.news_link", target='_blank') {{n.title}}
-                                .description 
-                                    p.JQellipsis {{n.content}}
-                                .extra.content
-                                    .right.floated.author
-                                        a(:href="'http://'+n.source_link", target='_blank'){{n.source}}
             .swiper-button-prev
             .swiper-button-next                            
-    .thin-only
-       .swiper-container2
             .swiper-wrapper
                 .swiper-slide(v-for="(n,idx) in allNews")
                     .ui.cards
-                            .card
-                                .image
-                                    img(:src="n.img_link")
-                                .content
-                                    .tags
-                                        .ui.mini.tag.label(v-for="t in n.tags") {{t}}
-                                    a.header(:href="n.news_link", target='_blank') {{n.title}}
-                                .description 
-                                    p.JQellipsis {{n.content}}
-                                .extra.content
-                                    .right.floated.author
-                                        a(:href="'http://'+n.source_link", target='_blank'){{n.source}}
-            .swiper-pagination2
+                        .card
+                            .image
+                                img(:src="n.img_link")
+                            .content
+                                .tags
+                                    .ui.mini.label(v-for="t in n.tags") {{t}}
+                                a(:href="n.news_link", target='_blank') {{n.title}}
+                            .description 
+                                p.JQellipsis {{n.content}}
+                            .extra.content
+                                .right.floated.author
+                                    a(:href="n.source_link", target='_blank') {{n.source}}
+    .thin-only
+       .swiper-container2
+            .swiper-pagination
+            //- .swiper-button-prev
+            //- .swiper-button-next
             .swiper-scrollbar 
+            .swiper-wrapper
+                .swiper-slide(v-for="(n,idx) in allNews")
+                    .ui.cards
+                        .card
+                            .image
+                                img(:src="n.img_link")
+                            .content
+                                .tags
+                                    .ui.mini.label(v-for="t in n.tags") {{t}}
+                                a(:href="n.news_link", target='_blank') {{n.title}}
+                            .description 
+                                p.JQellipsis {{n.content}}
+                            .extra.content
+                                .right.floated.author
+                                    a(:href="+n.source_link", target='_blank') {{n.source}}
 
 
 </template>
 
 <script>
-
 export default {
   name: 'News',
   props:['allNews'],
@@ -54,59 +55,35 @@ export default {
     var mySwiper1 =new Swiper ('.swiper-container1', {
       observer: true,
       direction: 'horizontal',
-    //   pagination: '.swiper-pagination1',
-      autoplay: 5000,
-      paginationHide :true,
+    //   pagination: '.swiper-pagination',
+    //   autoplay: 5000,
       slidesPerView: 5,
     //   paginationClickable: true,
-      spaceBetween: 50,
+      spaceBetween: 10,
       nextButton: '.swiper-button-next',
-      prevButton: '.swiper-button-prev',
-      onSlideChangeEnd: function(swiper){
-        if(swiper.isEnd){
-            swiper.nextButton[0].style.display='none';
-        }
-        else{
-            swiper.nextButton[0].style.display='block';
-        }
-      } 
+      prevButton: '.swiper-button-prev'
+       
     })
     var mySwiper2 =new Swiper ('.swiper-container2', {
       observer: true,
       autoplay: 5000,
       direction: 'horizontal',
-      nextButton: '.swiper-button-next',
-      prevButton: '.swiper-button-prev',
-      pagination: '.swiper-pagination2',
+    //   nextButton: '.swiper-button-next',
+    //   prevButton: '.swiper-button-prev',
+      pagination: '.swiper-pagination',
       paginationType: 'fraction',
-    //   paginationClickable: true,
       scrollbar: '.swiper-scrollbar',
-      spaceBetween: 40
+    //   spaceBetween: 40
     })
-    
-    mySwiper1.on('imagesReady', function(){
-        var len = 60; // 超過50個字以"..."取代
-        $(".JQellipsis").each(function(i){
-        if($(this).text().length>len){
-            $(this).attr("title",$(this).text());
-            var text=$(this).text().substring(0,len-1)+"...";
-            $(this).text(text);
-            }
-        });
-    })
-    mySwiper2.on('imagesReady', function(){
-        var len = 60; // 超過50個字以"..."取代
-        $(".JQellipsis").each(function(i){
-        if($(this).text().length>len){
-            $(this).attr("title",$(this).text());
-            var text=$(this).text().substring(0,len-1)+"...";
-            $(this).text(text);
-            }
-        });
-    })
+    mySwiper1.on('imagesReady', this.ellipsis)
+    mySwiper2.on('imagesReady', this.ellipsis)
   },
   updated:function(){
-    var len = 60; // 超過50個字以"..."取代
+      this.ellipsis()
+  },
+  methods: {
+      ellipsis: function(){
+        var len = 60; // 超過50個字以"..."取代
         $(".JQellipsis").each(function(i){
         if($(this).text().length>len){
             $(this).attr("title",$(this).text());
@@ -114,24 +91,25 @@ export default {
             $(this).text(text);
             }
         });
+      }
   }
 }
 </script>
 
 <style lang="scss" scoped>
 @import "../sass/global.scss";
-
 .component {
-  padding: 1em 0;
-  min-height: 72vh;
-  >h2{
-    text-align: left;
-    margin: 1em 1em 0 1em;
-    border-bottom: 1px solid #d7d7d7;
+  padding: 0 0 2em 0;
+  h1 {
+      font-size: 4rem;
+      font-family: $logo_font;
+      font-weight: normal;
+      text-transform: initial;
   }
-  .swiper-container1{
-      margin:4.5em 1em 0 3em;
-  }
+//   min-height: 72vh;
+//   .swiper-container1{
+    //   margin:4.5em 1em 0 3em;
+//   }
   .ui.card>.content>.header:not(.ui), .ui.cards>.card>.content>.header:not(.ui) {
     font-weight: 700;
     font-size: 1em;
@@ -141,8 +119,8 @@ export default {
   .ui.cards>.card>.content {
       text-align: left;
     >.tags{
-        border-bottom: 1px solid #d7d7d7;
-        margin-bottom: .5em;
+        // border-bottom: 1px solid #d7d7d7;
+        // margin-bottom: .5em;
         .ui.label{
             font-size: 0.6em;  
             margin-bottom:.5em;
@@ -153,9 +131,11 @@ export default {
     } 
   }
   .ui.cards>.card>.image:not(.ui)>img {
-    height: 150px;
-    width: auto;
-    margin: auto;
+    // height: 150px;
+  }
+  .ui.cards>.card>.image {
+    max-height: 300px;
+    overflow: hidden;
   }
   .ui.cards>.card [class*="right floated"] {
     float: right;
@@ -180,13 +160,8 @@ export default {
   }
   .ui.cards>.card{
       min-height:300px;
-      .image{
-          height: 150px;
-          overflow: hidden;
-      }
   }  
 }
-
 .thin-only{
     .swiper-container2{
         margin:5em 3em 0 3em;

@@ -17,15 +17,16 @@
 
     .ui.four.stackable.cards
       router-link.card(:to="'/topic/' + item.routeName", v-for="item in list")
+        .progress_bar(v-if="name === 'discuss'")
+          .progress_text(v-if="item.status === '討論中'") 還有{{Math.floor(item.total - item.progress)}}天
+          .progress_text(v-else) 討論已結束
+          .progress_color(:style = "progressStyle(item.progress, item.total)")
         .image
           img.ui.image(:src ="item.cover || 'http://lorempixel.com/320/240/sports'")
         .content
           h3.ui.header {{ item.title }}
-        .extra.content(v-if="name === 'discuss'")
-          .progress_bar
-            .progress_text(v-if="item.status === '討論中'") 還有{{Math.floor(item.total - item.progress)}}天
-            .progress_text(v-else) 討論已結束
-            .progress_color(:style = "progressStyle(item.progress, item.total)")
+        .extra.content
+          p {{ item.slogan }}
 
     //- .ui.four.column.grid.stackable
     //-   .box.column(v-for="item in list")
@@ -96,17 +97,19 @@
 }
 
 .cards .card {
-    margin: 0;
+    margin: 0 0 1em 0;
     overflow: hidden;
     .content h3.ui.header {
       font-family: $main-font;
     }
     .progress_bar {
       background: #AAAAAA;
-      margin: -1em;
+      // margin: 0 -1em;
       height: 2em;
       line-height: 2em;
-      position: relative;
+      position: absolute;
+      top: 0;
+      width: 100%;
       
       .progress_text {
         color: white;
