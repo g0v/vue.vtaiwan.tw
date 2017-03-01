@@ -130,9 +130,6 @@ export default {
         }
     } 
   }
-  .ui.cards>.card>.image:not(.ui)>img {
-    // height: 150px;
-  }
   .ui.cards>.card>.image {
     max-height: 300px;
     overflow: hidden;
@@ -171,8 +168,10 @@ export default {
         .ui.cards>.card{
             min-height:300px;
         }
-        .ui.cards>.card>.image:not(.ui)>img {
-            height: 150px;
+        .ui.cards>.card>.image{
+            // height: 150px;
+            margin: auto;
+            overflow: hidden;
         }
         .ui.card>.content>.header:not(.ui), .ui.cards>.card>.content>.header:not(.ui) {
             font-size: 1.5em;
