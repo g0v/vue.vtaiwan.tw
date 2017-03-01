@@ -11605,7 +11605,7 @@ module.exports = function spread(callback) {
       });
     });
 
-    __WEBPACK_IMPORTED_MODULE_2__js_request__["a" /* default */].get('https://talk.vtaiwan.tw/t/facebook/1249.json?include_raw=1') //news
+    __WEBPACK_IMPORTED_MODULE_2__js_request__["a" /* default */].get('https://talk.vtaiwan.tw/t/facebook/1249/last.json?include_raw=1') //news
     .then(function (response) {
       var news = response.data;
       news = news['post_stream']['posts'].slice(1);
@@ -11619,11 +11619,13 @@ module.exports = function spread(callback) {
         tmp['content'] = post[3];
         tmp['img_link'] = post[5];
         tmp['source'] = post[7];
-        tag = post[9].split("\n")[0].replace(/，|#/g, " ");
-        tag = tag.split(" ");
-        for (var i in tag) {
-          if (tag[i] != "") {
-            tags.push(tag[i]);
+        if (post[9] != "") {
+          tag = post[9].split("\n")[0].replace(/，|#/g, " ");
+          tag = tag.split(" ");
+          for (var i in tag) {
+            if (tag[i] != "") {
+              tags.push(tag[i]);
+            }
           }
         }
         tmp['tags'] = tags;
@@ -13167,7 +13169,6 @@ var main = __webpack_require__(20);
 //
 //
 //
-
 
 /* harmony default export */ exports["default"] = {
   name: 'News',
