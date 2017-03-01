@@ -13630,6 +13630,7 @@ var main = __webpack_require__(20);
 //
 //
 //
+//
 
 
 // import $ from 'jquery'
@@ -13718,6 +13719,8 @@ var main = __webpack_require__(20);
         slidesPerView: 1.2,
         centeredSlides: true,
         spaceBetween: 2,
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
         loop: true
       });
 
@@ -13974,7 +13977,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_
     name: 'topic_step',
     component: __WEBPACK_IMPORTED_MODULE_7__components_Detail_Topic_vue___default.a }, { path: '/catagory/:cRouteName',
     name: 'catagory',
-    component: __WEBPACK_IMPORTED_MODULE_8__components_Detail_Catagory_vue___default.a }, { path: '/Contactus',
+    component: __WEBPACK_IMPORTED_MODULE_8__components_Detail_Catagory_vue___default.a }, { path: '/contactus',
     name: 'Contactus',
     component: __WEBPACK_IMPORTED_MODULE_9__components_ContactUs_vue___default.a }, { path: '/search',
     name: 'search',
@@ -15779,7 +15782,7 @@ module.exports={render:function (){with(this) {
     staticClass: "component"
   }, [_m(0), _h('div', {
     staticClass: "swiper-container"
-  }, [_m(1), _h('div', {
+  }, [_m(1), _m(2), _h('div', {
     staticClass: "swiper-wrapper"
   }, [_l((hotTopics), function(item, idx) {
     return _h('div', {
@@ -15800,7 +15803,7 @@ module.exports={render:function (){with(this) {
       attrs: {
         "to": '/topic/' + item.routeName
       }
-    }, [_m(2, true), _m(3, true)]), _m(4, true)])])
+    }, [_m(3, true), _m(4, true)]), _m(5, true)])])
   })])])])
 }},staticRenderFns: [function (){with(this) {
   return _h('div', {
@@ -15814,6 +15817,10 @@ module.exports={render:function (){with(this) {
 }},function (){with(this) {
   return _h('div', {
     staticClass: "swiper-scrollbar"
+  })
+}},function (){with(this) {
+  return _h('div', {
+    staticClass: "swiper-pagination"
   })
 }},function (){with(this) {
   return _h('i', {
