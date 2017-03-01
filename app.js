@@ -16092,7 +16092,7 @@ module.exports={render:function (){with(this) {
   }, [_h('router-link', {
     staticClass: "item",
     attrs: {
-      "to": "/Contactus",
+      "to": "/contactus",
       "exact": "",
       "title": "聯絡我們"
     }
