@@ -56,5 +56,10 @@ img {
 .ui.icon {
   margin: 0 1ch;
 }
+
+a.ui.icon.button{
+  background-color: #333;
+}
+
   
 </style>
