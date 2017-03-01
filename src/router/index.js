@@ -42,7 +42,7 @@ export default new Router({
     { path: '/catagory/:cRouteName',  
       name: 'catagory', 
       component: Detail_Catagory },
-    { path: '/Contactus',  
+    { path: '/contactus',  
       name: 'Contactus', 
       component: Contactus },
     { path: '/search',
