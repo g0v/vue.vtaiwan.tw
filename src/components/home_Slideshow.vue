@@ -22,7 +22,8 @@
       .ui.loader
 
     .swiper-container
-      .swiper-scrollbar 
+      .swiper-scrollbar
+      .swiper-pagination 
       .swiper-wrapper
         .swiper-slide(v-for="(item, idx) in hotTopics", :style="{'background': 'url(' + item.cover + ') 100% 100% / cover'}")
           .box
@@ -126,6 +127,8 @@ export default {
         slidesPerView: 1.2,
         centeredSlides: true,
         spaceBetween: 2,
+        pagination : '.swiper-pagination',
+        paginationClickable :true,
         loop: true,
       })
 
