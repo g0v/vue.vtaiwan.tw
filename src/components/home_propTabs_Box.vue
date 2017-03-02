@@ -95,6 +95,7 @@
 .desc {
   width: 100%;
   margin-top: -1em;
+  font-size: 120%;
 }
 .info.message {
   text-align: center;
@@ -127,49 +128,10 @@
         position: absolute;
         z-index: 100;
         height: 100%;
+        box-shadow: rgba(0, 0, 0, 0.20) 0 0 3px 3px;
       }
     }
 }
-// .box {
-//   display: flex !important;
-
-//   .box-inner {
-//     box-shadow: 0 3px 1em hsla(0,0,0%,0.1);
-//     display: flex;
-//     flex-flow: column nowrap;
-//     overflow: hidden;
-
-//     img.ui {
-//       flex: 1 1;
-//     }
-//     h3.ui {
-//       margin-top: 1em;
-//     }
-//     .progress_bar {
-//       background: #AAAAAA;
-//       margin: 0 -1em -1em -1em;
-//       height: 2em;
-//       width: calc(2em + 100%);
-//       position: relative;
-      
-//       .progress_text {
-//         z-index: 200;
-//         padding: 0 0 .5em 0;
-//         background: transparent !important;
-//       }
-
-//       .progress_color{
-//         background: $main_color;
-//         position: absolute;
-//         z-index: 100;
-//         left: 0;
-//         // width: 100%;
-//         height: 100%;
-//       }
-//     }
-//   }
-// }
-
 
 /********************************* mobile view */
 
@@ -180,24 +142,5 @@
   margin: 0 0 1em 0;
   padding: .5em;
 }
-// .m-step-title {
-//   background-color: #E6E6E6;
-//   text-align: left;
-//   padding: 1rem;
-//   font-size: 1.3rem;
-//   margin-right: -2rem;
-//   position: absolute;
-//   z-index: 1;
-//   width: 120%;
-// }
-
-// .thin-only {
-//   margin-top: -1em;
-// }
-
-// .m-context {
-//   padding-top: 50px;
-// }
-
 
 </style>

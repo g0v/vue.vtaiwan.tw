@@ -38,9 +38,11 @@
               p 進入議題
 
             i.square.icon.background
-            a.go-to.ui.yellow.button(href="#proposaltab", @click.prevent="goAnchor")
-              i.down.arrow.icon
-              | 還有更多議案
+            button.go-to.ui.yellow.vertical.animated.button(@click.prevent="goAnchor('#proposaltab')")
+              .visible.content
+                | 還有更多議案
+              .hidden.content
+                i.down.arrow.icon
       
 </template>
 
@@ -55,14 +57,17 @@ export default {
     }
   },
   methods: {
-    goAnchor: function(event){
-      if(event){
-        /* get the hash name */
-        let anchor = event.target.hash
+    goAnchor: function(anchor){
+      if(anchor == "top"){
+        /* go to top */
+        $('html, body').animate({
+          scrollTop: 0,
+        }, 1000)
+      }
+      else if(anchor){
         /* get the top position of anchor */
         let anchor_y = $(anchor).offset().top
         /* go to anchor (animation to do) */
-        // window.scrollTo(0, anchor_y)
         $('html, body').animate({
           scrollTop: anchor_y,
         }, 1000)

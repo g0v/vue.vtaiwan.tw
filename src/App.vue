@@ -151,7 +151,7 @@ export default {
         tmp['setup_time'] = post[13];
         this.allNews.push(tmp);
       })
-      console.log(this.allNews);
+      // console.log(this.allNews);
     })
 
   }
