@@ -6501,6 +6501,12 @@ module.exports = Vue$2;
 /* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
+module.exports = __webpack_require__.p + "vTaiwan_logo_2017.png";
+
+/***/ },
+/* 7 */
+/***/ function(module, exports, __webpack_require__) {
+
 /* WEBPACK VAR INJECTION */(function(process, global) {var require;/*!
  * @overview es6-promise - a tiny implementation of Promises/A+.
  * @copyright Copyright (c) 2014 Yehuda Katz, Tom Dale, Stefan Penner and contributors (Conversion to ES6 API by Jake Archibald)
@@ -7656,12 +7662,6 @@ return Promise;
 })));
 //# sourceMappingURL=es6-promise.map
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4), __webpack_require__(8)))
-
-/***/ },
-/* 7 */
-/***/ function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "vTaiwan_logo_2017.png";
 
 /***/ },
 /* 8 */
@@ -12512,27 +12512,6 @@ module.exports = function spread(callback) {
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -13170,6 +13149,7 @@ var main = __webpack_require__(20);
 //
 //
 //
+//
 
 /* harmony default export */ exports["default"] = {
   name: 'News',
@@ -13203,7 +13183,6 @@ var main = __webpack_require__(20);
   },
   updated: function updated() {
     this.ellipsis();
-    $('#image').resizable();
   },
   methods: {
     ellipsis: function ellipsis() {
@@ -14107,7 +14086,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n*[data-v-1ffe16c1] {\n  box-sizing: border-box;\n}\nbody[data-v-1ffe16c1] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter[data-v-1ffe16c1],\n.fade-leave-active[data-v-1ffe16c1] {\n  opacity: 0;\n}\n.fade-leave-active[data-v-1ffe16c1],\n.fade-enter-active[data-v-1ffe16c1] {\n  transition: opacity .3s ease;\n}\n.component[data-v-1ffe16c1] {\n  position: relative;\n}\n.component h1[data-v-1ffe16c1], .component h2[data-v-1ffe16c1], .component h3[data-v-1ffe16c1], .component h4[data-v-1ffe16c1], .component h5[data-v-1ffe16c1], .component h6[data-v-1ffe16c1], .component p[data-v-1ffe16c1] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-1ffe16c1], .component h2 a[data-v-1ffe16c1], .component h3 a[data-v-1ffe16c1], .component h4 a[data-v-1ffe16c1], .component h5 a[data-v-1ffe16c1], .component h6 a[data-v-1ffe16c1], .component p a[data-v-1ffe16c1] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-1ffe16c1] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-1ffe16c1] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-1ffe16c1] {\n    display: none !important;\n}\n}\n.component[data-v-1ffe16c1] {\n  padding: 0 0 2em 0;\n}\n.component h1[data-v-1ffe16c1] {\n    font-size: 4rem;\n    font-family: Lobster, \"Microsoft JhengHei\", \"Heiti TC\", serif;\n    font-weight: normal;\n    text-transform: initial;\n}\n.component .ui.card > .content > .header[data-v-1ffe16c1]:not(.ui), .component .ui.cards > .card > .content > .header[data-v-1ffe16c1]:not(.ui) {\n    font-weight: 700;\n    font-size: 1em;\n    margin-top: -.21425em;\n    line-height: 1.2em;\n}\n.component .ui.cards > .card > .content[data-v-1ffe16c1] {\n    text-align: left;\n}\n.component .ui.cards > .card > .content > .tags .ui.label[data-v-1ffe16c1] {\n      font-size: 0.6em;\n      margin-bottom: .5em;\n      margin-right: 0.8em;\n      padding-left: 1em;\n      padding-right: 1em;\n}\n.component .ui.cards > .card > .image[data-v-1ffe16c1] {\n    max-height: 300px;\n    overflow: hidden;\n}\n.component .ui.cards > .card > .image img#image[data-v-1ffe16c1] {\n      display: block;\n      max-width: 200px;\n      height: auto;\n      margin: auto;\n}\n.component .ui.cards > .card [class*=\"right floated\"][data-v-1ffe16c1] {\n    float: right;\n    font-size: 0.6em;\n}\n.component .ui.cards > .card > .extra.content[data-v-1ffe16c1] {\n    padding: 0 0.5em 0 0;\n    border-top: none !important;\n}\n.component .description[data-v-1ffe16c1] {\n    padding: 0 .5em;\n}\n.component .description > p[data-v-1ffe16c1] {\n      font-size: 0.6em;\n      text-align: left;\n      text-indent: 25px;\n      border-bottom: 1px solid #d7d7d7;\n}\n.component .ui.cards > .card > .content[data-v-1ffe16c1] {\n    padding: .5em;\n}\n.component .ui.cards > .card[data-v-1ffe16c1] {\n    min-height: 300px;\n}\n.thin-only .swiper-container2[data-v-1ffe16c1] {\n  margin: 5em 3em 0 3em;\n}\n.thin-only .swiper-container2 .ui.cards[data-v-1ffe16c1] {\n    margin: 0;\n}\n.thin-only .swiper-container2 .ui.cards > .card[data-v-1ffe16c1] {\n    min-height: 300px;\n}\n.thin-only .swiper-container2 .ui.cards > .card > .image[data-v-1ffe16c1] {\n    margin: auto;\n    overflow: hidden;\n}\n.thin-only .swiper-container2 .ui.card > .content > .header[data-v-1ffe16c1]:not(.ui), .thin-only .swiper-container2 .ui.cards > .card > .content > .header[data-v-1ffe16c1]:not(.ui) {\n    font-size: 1.5em;\n}\n", ""]);
+exports.push([module.i, "\n*[data-v-1ffe16c1] {\n  box-sizing: border-box;\n}\nbody[data-v-1ffe16c1] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter[data-v-1ffe16c1],\n.fade-leave-active[data-v-1ffe16c1] {\n  opacity: 0;\n}\n.fade-leave-active[data-v-1ffe16c1],\n.fade-enter-active[data-v-1ffe16c1] {\n  transition: opacity .3s ease;\n}\n.component[data-v-1ffe16c1] {\n  position: relative;\n}\n.component h1[data-v-1ffe16c1], .component h2[data-v-1ffe16c1], .component h3[data-v-1ffe16c1], .component h4[data-v-1ffe16c1], .component h5[data-v-1ffe16c1], .component h6[data-v-1ffe16c1], .component p[data-v-1ffe16c1] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-1ffe16c1], .component h2 a[data-v-1ffe16c1], .component h3 a[data-v-1ffe16c1], .component h4 a[data-v-1ffe16c1], .component h5 a[data-v-1ffe16c1], .component h6 a[data-v-1ffe16c1], .component p a[data-v-1ffe16c1] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-1ffe16c1] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-1ffe16c1] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-1ffe16c1] {\n    display: none !important;\n}\n}\n.component[data-v-1ffe16c1] {\n  padding: 0 0 2em 0;\n}\n.component h1[data-v-1ffe16c1] {\n    font-size: 4rem;\n    font-family: Lobster, \"Microsoft JhengHei\", \"Heiti TC\", serif;\n    font-weight: normal;\n    text-transform: initial;\n}\n.component .ui.card > .content > .header[data-v-1ffe16c1]:not(.ui), .component .ui.cards > .card > .content > .header[data-v-1ffe16c1]:not(.ui) {\n    font-weight: 700;\n    font-size: 1em;\n    margin-top: -.21425em;\n    line-height: 1.2em;\n}\n.component .ui.cards > .card > .content[data-v-1ffe16c1] {\n    text-align: left;\n}\n.component .ui.cards > .card > .content > .tags .ui.label[data-v-1ffe16c1] {\n      font-size: 0.6em;\n      margin-bottom: .5em;\n      margin-right: 0.8em;\n      padding-left: 1em;\n      padding-right: 1em;\n}\n.component .ui.cards > .card > .image[data-v-1ffe16c1] {\n    max-height: 300px;\n    overflow: hidden;\n}\n.component .ui.cards > .card > .image img#image[data-v-1ffe16c1] {\n      display: block;\n      max-width: 200px;\n      height: auto;\n      margin: auto;\n}\n.component .ui.cards > .card [class*=\"right floated\"][data-v-1ffe16c1] {\n    float: right;\n    font-size: 0.6em;\n}\n.component .ui.cards > .card > .extra.content[data-v-1ffe16c1] {\n    padding: 0 0.5em 0 0;\n    border-top: none !important;\n}\n.component .description[data-v-1ffe16c1] {\n    padding: 0 .5em;\n}\n.component .description > p[data-v-1ffe16c1] {\n      font-size: 0.6em;\n      text-align: left;\n      text-indent: 25px;\n      border-bottom: 1px solid #d7d7d7;\n}\n.component .ui.cards > .card > .content[data-v-1ffe16c1] {\n    padding: .5em;\n}\n.component .ui.cards > .card[data-v-1ffe16c1] {\n    min-height: 300px;\n}\n.thin-only .swiper-container2[data-v-1ffe16c1] {\n  margin: 5em 3em 0 3em;\n}\n.thin-only .swiper-container2 .ui.cards[data-v-1ffe16c1] {\n    margin: 0;\n}\n.thin-only .swiper-container2 .ui.cards > .card[data-v-1ffe16c1] {\n    min-height: 300px;\n}\n.thin-only .swiper-container2 .ui.card > .content > .header[data-v-1ffe16c1]:not(.ui), .thin-only .swiper-container2 .ui.cards > .card > .content > .header[data-v-1ffe16c1]:not(.ui) {\n    font-size: 1.5em;\n}\n", ""]);
 
 // exports
 
@@ -15507,7 +15486,7 @@ module.exports={render:function (){with(this) {
     }) : _h('img', {
       attrs: {
         "id": "image",
-        "src": __webpack_require__(7)
+        "src": __webpack_require__(6)
       }
     })]), _h('div', {
       staticClass: "content"
@@ -15551,9 +15530,14 @@ module.exports={render:function (){with(this) {
       staticClass: "card"
     }, [_h('div', {
       staticClass: "image"
-    }, [_h('img', {
+    }, [(n.img_link != 'undefined') ? _h('img', {
       attrs: {
         "src": n.img_link
+      }
+    }) : _h('img', {
+      attrs: {
+        "id": "image",
+        "src": __webpack_require__(6)
       }
     })]), _h('div', {
       staticClass: "content"
@@ -16217,7 +16201,7 @@ module.exports={render:function (){with(this) {
 }},function (){with(this) {
   return _h('img', {
     attrs: {
-      "src": __webpack_require__(7),
+      "src": __webpack_require__(6),
       "alt": "logo"
     }
   })
@@ -16611,7 +16595,7 @@ module.exports={render:function (){with(this) {
 }},function (){with(this) {
   return _h('img', {
     attrs: {
-      "src": __webpack_require__(7),
+      "src": __webpack_require__(6),
       "alt": "logo"
     }
   })
@@ -16620,7 +16604,7 @@ module.exports={render:function (){with(this) {
 }},function (){with(this) {
   return _h('img', {
     attrs: {
-      "src": __webpack_require__(7),
+      "src": __webpack_require__(6),
       "alt": "logo"
     }
   })
@@ -16648,7 +16632,11 @@ module.exports={render:function (){with(this) {
       staticClass: "center aligned"
     }, [_h('div', [_s(ev.start) + " "]), (ev.end != null) ? _h('i', {
       staticClass: "arrow down icon"
-    }) : _e(), _h('div', [_s(ev.end)])]), _h('td', [_m(0, true), _s(ev.title), _m(1, true), _s(ev.title), (ev.info != null) ? _h('h4', {
+    }) : _e(), _h('div', [_s(ev.end)])]), _h('td', [_h('div', {
+      staticClass: "status ui basic huge label fat-only"
+    }, [_s(ev.title)]), _h('div', {
+      staticClass: "status ui basic small label thin-only"
+    }, [_s(ev.title)]), (ev.info != null) ? _h('h4', {
       staticClass: "ui header"
     }, [_s(ev.info) + " "]) : _e()]), _h('td', [_h('Plink', {
       attrs: {
@@ -16656,15 +16644,7 @@ module.exports={render:function (){with(this) {
       }
     })])])
   })])])])
-}},staticRenderFns: [function (){with(this) {
-  return _h('div', {
-    staticClass: "status ui basic huge label fat-only"
-  })
-}},function (){with(this) {
-  return _h('div', {
-    staticClass: "status ui basic small label thin-only"
-  })
-}}]}
+}},staticRenderFns: []}
 
 /***/ },
 /* 150 */
@@ -17577,7 +17557,7 @@ exports.sync = function (store, router) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__app__ = __webpack_require__(22);
-__webpack_require__(6).polyfill();
+__webpack_require__(7).polyfill();
 
 
 // prime the store with server-initialized state.
