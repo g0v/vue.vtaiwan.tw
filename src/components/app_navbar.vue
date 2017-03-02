@@ -3,18 +3,24 @@
 
     nav.fat-only
       .ui.grid
+
         .seven.wide.column
           .ui.category.search(:class="{active: myKey}", @keyup.down="onKeyDown()")   
            .ui.icon.input
              input.prompt(type="search", v-model="myKey", placeholder="搜尋...")
              i.search.icon 
             SearchResult(v-show="myKey", :allTopics="allTopics", :myKey = "myKey", :myIdx="myIdx")
+
         .two.wide.column
           router-link.logo(to='/', exact='')
             img(src='../assets/vTaiwan_logo_2017.png', alt='logo')
             span vTaiwan
 
         .seven.wide.column.right
+        
+          button.go-to.ui.yellow.icon.button(@click.prevent="goAnchor('top')")
+            i.up.arrow.icon
+
           router-link.item(v-for='r in routes', v-if="r.r", :to="'/'+r.r", :class='r.r', exact='')
             | {{ r.t }}
 
@@ -51,6 +57,26 @@ export default {
       this.myIdx++;
       this.showDropDown = true;
       // body...
+    },
+    goAnchor: function(event){
+      if(event == "top"){
+        /* go to top */
+        // window.scrollTo(0, 0)
+        $('html, body').animate({
+          scrollTop: 0,
+        }, 1000)
+      }
+      else if(event){
+        /* get the hash name */
+        let anchor = event.target.hash
+        /* get the top position of anchor */
+        let anchor_y = $(anchor).offset().top
+        /* go to anchor */
+        // window.scrollTo(0, anchor_y)
+        $('html, body').animate({
+          scrollTop: anchor_y,
+        }, 1000)
+      }
     }
   }
 }
@@ -62,7 +88,7 @@ export default {
 @import "../sass/global.scss";
 
 // $navHeight: 55px;
-// $navBgColor: hsla(0, 0%, 100%, 0.95);
+$navBgColor: hsla(0, 0%, 95%, 1);
 
 .component {
   // ****************** push home by nav height

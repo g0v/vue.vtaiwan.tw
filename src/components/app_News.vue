@@ -105,6 +105,7 @@ export default {
       font-family: $logo_font;
       font-weight: normal;
       text-transform: initial;
+      margin: .5em;
   }
 //   min-height: 72vh;
 //   .swiper-container1{

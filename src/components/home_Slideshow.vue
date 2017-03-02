@@ -35,91 +35,45 @@
             router-link.ui.right.labeled.icon.teal.huge.button(:to="'/topic/' + item.routeName")
               i.right.arrow.icon
               p 進入議題
-            i.certificate.icon.background
+
+            i.square.icon.background
+            a.go-to.ui.yellow.button(href="#proposaltab", @click.prevent="goAnchor")
+              i.down.arrow.icon
+              | 還有更多議案
       
 </template>
 
 
 <script>
 
-// import $ from 'jquery'
-
 export default {
   name: 'SlideShow',
   props: ['hotTopics', 'allTopics'],
   data () {
     return {
-      // c: 0,
-      // lastC: 0,
-      // isBusy: false
     }
   },
-  // computed: {
-    // mySlideTopics: function () {
-    //   var c = this.c;
-    //   var lastC = this.lastC;
-    //   var ts = this.hotTopics;
-    //   return ts.map(function (o, idx) {
-    //     //o.transform = 'translateX('+ (idx-c) * 100 +'%)';
-    //     o.transform = 'translateX(0%)';
-
-    //     if (idx == c-1 || (c == 0 && idx == ts.length-1)) {
-    //       o.transform = 'translateX(-100%)';
-    //     }
-    //     if (idx == c+1 || (c == ts.length-1 && idx == 0)) {
-    //       o.transform = 'translateX(100%)';
-    //     }
-    //     o.zIndex = (idx == c || idx == lastC) ? 4 : 3;
-    //     o.opacity = (idx == c || idx == lastC) ? 1 : 0;
-
-    //     // combine styles into single 
-    //     o.style = {
-    //       'z-index': o.zIndex, 
-    //       'opacity': o.opacity, 
-    //       'transform': o.transform, 
-    //       '-ms-transform': o.transform, 
-    //       '-webkit-transform': o.transform, 
-    //       'background': 'url(' + o.cover + ') 100% 100% / cover'
-    //     };
-
-    //     o.new_style = {
-    //       'background': 'url(' + o.cover + ') 100% 100% / cover'
-    //     }
-    //     return o
-    //   })
-    // },
-  // },
-  // methods: {
-  //   cycle: function (n) {
-
-  //     let c = this.c;
-  //     let ts = this.hotTopics;
-
-  //     if (!this.isBusy) {
-  //       this.lastC = c;
-  //       c = c + n;
-
-  //       if (c < 0) {
-  //         c = ts.length + c;
-  //       }
-  //       if (c >= ts.length) {
-  //         c = c - ts.length;
-  //       }
-
-  //       this.isBusy = true;
-  //       setTimeout(function(){
-  //         this.isBusy = false;
-  //       }, 500)
-  //     }
-  //     return c;
-  //   }
-  // },
+  methods: {
+    goAnchor: function(event){
+      if(event){
+        /* get the hash name */
+        let anchor = event.target.hash
+        /* get the top position of anchor */
+        let anchor_y = $(anchor).offset().top
+        /* go to anchor (animation to do) */
+        // window.scrollTo(0, anchor_y)
+        $('html, body').animate({
+          scrollTop: anchor_y,
+        }, 1000)
+      }
+    }
+  },
   mounted: function () {
 
     setTimeout(function(){
-
       /* initialize swiper when document ready */
       new Swiper ('.swiper-container', {
+        observer: true,
         scrollbar: '.swiper-scrollbar',
         autoplay: 8000,
         direction: 'horizontal',
@@ -131,27 +85,10 @@ export default {
         paginationClickable :true,
         loop: true,
       })
-
       /* disable loader */
       $('#loader').removeClass('active')
-
     }, 1000)
 
-    // new Swiper ('.swiper-container', {
-    //   // nextButton: '.swiper-button-next',
-    //   // prevButton: '.swiper-button-prev',
-    //   // pagination: '.swiper-pagination',
-    //   scrollbar: '.swiper-scrollbar',
-    //   observer: true,
-    //   autoplay: 8000,
-    //   direction: 'horizontal',
-    //   keyboardControl: true,
-    //   slidesPerView: 1.2,
-    //   centeredSlides: true,
-    //   // paginationClickable: true,
-    //   spaceBetween: 2,
-    //   // loop: true,
-    // })
   }
 }
 
@@ -206,16 +143,6 @@ export default {
   height: 100%;
   background: radial-gradient(circle, rgba(#ffffff, 0.3), transparent);
   overflow: hidden;
-  i.background {
-    color: rgba(#333333, 0.9);
-    text-shadow: 1px 3px 7px;
-    font-size: 40rem;
-    @media only screen and (max-width: $breakpoint) {
-      font-size: 20rem;
-    }
-    position: absolute;
-    height: initial;
-  }
   .status,
   .title,
   .slogan,
@@ -244,35 +171,21 @@ export default {
       text-shadow: 0 0 5px gray;
     }
   }
+  .background {
+    color: rgba(#333333, 0.9);
+    text-shadow: 1px 3px 7px;
+    font-size: 40rem;
+    @media only screen and (max-width: $breakpoint) {
+      font-size: 20rem;
+    }
+    position: absolute;
+    height: initial;
+  }
+  .go-to {
+    position: absolute;
+    bottom: 3em;
+    font-family: $main_font;
+  }
 }
-
-// a {
-//   cursor: pointer;
-//   &:hover {
-//     i {
-//       color: white !important;
-//       transition: all .3s ease;
-//     }
-//   }
-//   &.pre,
-//   &.next {
-//     position: absolute;
-//     z-index: 5;
-//     text-shadow: 0 0 5px white;
-//     top: 44vh;
-//     // @media only screen and (max-width: $breakpoint) {
-//     //   top: 33vh;
-//     // }
-//   }
-//   &.pre {
-//     left: 5px;
-//   }
-//   &.next {
-//     right: 5px;
-//   }
-//   // i {
-//     // @include transition(all 0.3s);
-//   // }
-// }
 
 </style>

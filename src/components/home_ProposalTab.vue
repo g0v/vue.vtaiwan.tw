@@ -1,5 +1,9 @@
 <template lang="jade">
-.component.proposalTab
+
+#proposaltab.component
+
+  h1.ui.horizontal.divider Proposals
+
   .ui.container
     
     #mobile-step.ui.sticky.mobile-step.thin-only
@@ -171,6 +175,13 @@ export default {
 .component {
   padding: 1em 0;
   // min-height: 72vh;
+  h1 {
+      font-size: 4rem;
+      font-family: $logo_font;
+      font-weight: normal;
+      text-transform: initial;
+      margin: .5em;
+  }
 }
 
 .ui.steps {
@@ -207,8 +218,9 @@ export default {
 
 @media only screen and (max-width: $breakpoint) {
   .component {
-    padding: 0px;
     border: 0px;
+    padding: 1em 0;
+    min-height: 72vh;
   }
   .ui.container {
     margin: 0 !important;
@@ -217,10 +229,6 @@ export default {
     padding: 0;
     margin-left: 1em;
     width: 100%;
-  }
-  .proposalTab{
-        padding: 1em 0;
-    min-height: 72vh;
   }
   .mobile-step { /* do not use #mobile-step, otherwise sticky won't work */
     position: absolute;

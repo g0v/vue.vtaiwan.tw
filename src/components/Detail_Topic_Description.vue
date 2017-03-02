@@ -1,9 +1,9 @@
 <template lang="jade">
   .component 
-    .fat-only 
-      div.styles.content(v-html='information') 
-    .thin-only 
-      div.styles.content(v-html='information')
+    //- .fat-only 
+    div.styles.content(v-html='information') 
+    //- .thin-only 
+    //-   div.styles.content(v-html='information')
 
 </template>
 
@@ -42,55 +42,53 @@
 
 @import "../sass/global.scss";
 
-.fat-only {
-    .content {
-      font-family: $main_font;
-      font-size:1.2rem;
-      max-width: 800px;
-      margin:0 auto;
-      h1,h2,h3,h4,h5,h6 {
-        text-align: center;
-      }
-      p,li,ol {
-        text-align: left;
-      }
-      p {
-        iframe{
-          display: block;
-          margin: 0 auto;
-        }
-      }
-      blockquote{
-        margin:0 0 10px 0;
-        text-align: left;
-        padding: 5px;
-        border-left: 5px solid #e9e9e9;
-        background-color: #f8f8f8;
-        font-weight: 600;
-      }
+.content {
+  font-family: $main_font;
+  font-size:1.2rem;
+  max-width: 800px;
+  margin:0 auto;
+  h1,h2,h3,h4,h5,h6 {
+    text-align: center;
+  }
+  p,li,ol {
+    text-align: left;
+  }
+  p {
+    iframe{
+      display: block;
+      margin: 0 auto;
     }
-}
-.thin-only { 
-    .content {
-      font-family: $main_font;
-      font-size: 1rem;
-      iframe {
-        width:100%;
-      }
-      h1,h2,h3,h4,h5,h6 {
-        text-align: center;
-      }
-      p,li,ol {
-        text-align: left;
-      }
-      blockquote {
-        margin:0 0 10px 0;
-        text-align: left;
-        padding: 5px;
-        border-left: 5px solid #e9e9e9;
-        background-color: #f8f8f8;
-        font-weight: 600;
-      }
+  }
+  blockquote{
+    margin:0 0 10px 0;
+    text-align: left;
+    padding: 5px;
+    border-left: 5px solid #e9e9e9;
+    background-color: #f8f8f8;
+    font-weight: 600;
+  }
+  @media only screen and (max-width: $breakpoint) { 
+    // .content {
+    // font-family: $main_font;
+    font-size: 1rem;
+    iframe {
+      width:100%;
     }
+    // h1,h2,h3,h4,h5,h6 {
+      // text-align: center;
+    // }
+    // p,li,ol {
+      // text-align: left;
+    // }
+    // blockquote {
+      // margin:0 0 10px 0;
+      // text-align: left;
+      // padding: 5px;
+      // border-left: 5px solid #e9e9e9;
+      // background-color: #f8f8f8;
+      // font-weight: 600;
+    // }
+  }
+  // }
 }
 </style>
