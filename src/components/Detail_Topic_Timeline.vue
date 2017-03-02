@@ -14,32 +14,11 @@
             i.arrow.down.icon(v-if="ev.end != null")
             div {{ev.end}}
           td
-            .status.ui.basic.huge.label.fat-only
-            | {{ev.title}}
-            .status.ui.basic.small.label.thin-only
-            | {{ev.title}}
+            .status.ui.basic.huge.label.fat-only {{ev.title}}
+            .status.ui.basic.small.label.thin-only {{ev.title}}
             h4.ui.header(v-if="ev.info != null") {{ev.info}} 
           td 
             Plink(:urllink="ev.link")
-
-    //- .thin-only
-      table.ui.fixed.striped.unstackable.table
-        thead
-          tr
-            th(v-for="t in timeline_title")
-              h3.left.aligned {{t}}
-        tbody
-          tr(v-for = "(ev,idx) in timeline.time")
-            td  
-              span {{ev.start}} 
-              i.arrow.right.icon(v-if="ev.end != null")
-              span  {{ev.end}}
-            td
-              p {{ev.title}}
-              i.caret.right.icon(v-if="ev.info != null") 
-              span(v-if="ev.info != null") {{ev.info}} 
-            td 
-              Plink(:urllink="ev.link")
 
 </template>
 
@@ -133,21 +112,5 @@
   color: $step_color;
   border: 1px solid $step_color;
 }
-
-// tbody tr td {
-//   span{
-//     margin-right: 6px;
-//   }
-//   p{
-//     font-size: 1.1em;
-//     font-weight: 600;
-//   }
-// }
-
-// .thin-only {
-//   font-size: 1rem;
-// }
-
-
 
 </style>
