@@ -2,7 +2,7 @@
 
 #proposaltab.component
 
-  h1.ui.horizontal.divider Proposals
+  h1.ui.horizontal.divider.fat-only 議題 Proposal
 
   .ui.container
     
@@ -220,7 +220,7 @@ export default {
   .component {
     border: 0px;
     padding: 1em 0;
-    min-height: 72vh;
+    // min-height: 72vh;
   }
   .ui.container {
     margin: 0 !important;
@@ -238,6 +238,7 @@ export default {
     .ui.menu {
       width: 2em;
       .item {
+        text-align: center;
         padding: 1em 0;
         &.active {
           color: white;

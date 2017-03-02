@@ -2,7 +2,7 @@
 .component
   .ui.container.basic.segment(:id="name")
 
-    h2.ui.header.m-title.thin-only
+    h2.ui.center.aligned.header.m-title.thin-only
       | {{ label }}
 
     .desc.ui.basic.center.aligned.segment.fat-only
@@ -12,7 +12,8 @@
       sub
         i.quote.right.icon
 
-    .ui.compact.info.message(v-if="!list.length")
+    .ui.info.message(v-if="!list.length")
+        i.archive.icon
         | 目前還沒有正在進行的議案…
 
     .ui.four.stackable.cards
@@ -95,7 +96,9 @@
   width: 100%;
   margin-top: -1em;
 }
-
+.info.message {
+  text-align: center;
+}
 .cards .card {
     margin: 0 0 1em 0;
     overflow: hidden;

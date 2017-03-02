@@ -88,7 +88,7 @@ export default {
 @import "../sass/global.scss";
 
 // $navHeight: 55px;
-$navBgColor: hsla(0, 0%, 95%, 1);
+$navBgColor: hsla(0, 0%, 98%, .98);
 
 .component {
   // ****************** push home by nav height

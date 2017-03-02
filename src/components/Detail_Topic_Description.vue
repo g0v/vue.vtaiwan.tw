@@ -1,9 +1,9 @@
 <template lang="jade">
   .component 
     //- .fat-only 
-    div.styles.content(v-html='information') 
+    div.styles.context(v-html='information') 
     //- .thin-only 
-    //-   div.styles.content(v-html='information')
+    //-   div.styles.context(v-html='information')
 
 </template>
 
@@ -42,7 +42,7 @@
 
 @import "../sass/global.scss";
 
-.content {
+.context {
   font-family: $main_font;
   font-size:1.2rem;
   max-width: 800px;
@@ -68,7 +68,7 @@
     font-weight: 600;
   }
   @media only screen and (max-width: $breakpoint) { 
-    // .content {
+    // .context {
     // font-family: $main_font;
     font-size: 1rem;
     iframe {

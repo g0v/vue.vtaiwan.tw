@@ -29,9 +29,10 @@
           .box
             .status.ui.basic.huge.label 
               | {{item.status}}
-            h1.slogan.ui.header
+            h1.slogan.ui.center.aligned.header
               | {{item.title}}
-              .sub.header {{item.slogan}}
+              .sub.center.aligned.header
+                | {{item.slogan}}
             router-link.ui.right.labeled.icon.teal.huge.button(:to="'/topic/' + item.routeName")
               i.right.arrow.icon
               p 進入議題
