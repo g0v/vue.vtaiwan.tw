@@ -8,7 +8,7 @@ import Login from '../components/Login.vue'
 import Track from '../components/Track.vue'
 import Detail_Topic from '../components/Detail_Topic.vue'
 import Detail_Catagory from '../components/Detail_Catagory.vue'
-import Contactus from '../components/ContactUs.vue'
+import contactus from '../components/ContactUs.vue'
 import Search from '../components/app_navbar_search.vue'
 import subscribe from '../components/Subscribe.vue'
 
@@ -43,8 +43,8 @@ export default new Router({
       name: 'catagory', 
       component: Detail_Catagory },
     { path: '/contactus',  
-      name: 'Contactus', 
-      component: Contactus },
+      name: 'contactus', 
+      component: contactus },
     { path: '/search',
       name: 'search',
       component: Search },

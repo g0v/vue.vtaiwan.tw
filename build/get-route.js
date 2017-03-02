@@ -10,7 +10,8 @@ let routes = [ /* array for all routes */
     '/how-to-use',
     '/intro',
     '/search',
-    '/contactus'
+    '/contactus',
+    '/subscribe'
 ]
 var headers = {
     'User-Agent': 'Super Agent/0.0.1',
