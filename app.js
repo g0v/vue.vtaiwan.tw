@@ -13978,7 +13978,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_
     component: __WEBPACK_IMPORTED_MODULE_7__components_Detail_Topic_vue___default.a }, { path: '/catagory/:cRouteName',
     name: 'catagory',
     component: __WEBPACK_IMPORTED_MODULE_8__components_Detail_Catagory_vue___default.a }, { path: '/contactus',
-    name: 'Contactus',
+    name: 'contactus',
     component: __WEBPACK_IMPORTED_MODULE_9__components_ContactUs_vue___default.a }, { path: '/search',
     name: 'search',
     component: __WEBPACK_IMPORTED_MODULE_10__components_app_navbar_search_vue___default.a }, { path: '/subscribe',
