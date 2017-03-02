@@ -11,7 +11,8 @@
                     .ui.cards
                         .card
                             .image
-                                img(:src="n.img_link")
+                                img(v-if="n.img_link != 'undefined'", :src="n.img_link ")
+                                img#image(v-else='', src="../assets/vTaiwan_logo_2017.png" )
                             .content
                                 .tags
                                     .ui.mini.label(v-for="t in n.tags") {{t}}
@@ -80,6 +81,7 @@ export default {
   },
   updated:function(){
       this.ellipsis()
+      $('#image').resizable();
   },
   methods: {
       ellipsis: function(){
@@ -133,6 +135,12 @@ export default {
   .ui.cards>.card>.image {
     max-height: 300px;
     overflow: hidden;
+    img#image{
+        display: block;
+        max-width: 200px;
+        height: auto;
+        margin:auto;
+    }
   }
   .ui.cards>.card [class*="right floated"] {
     float: right;
