@@ -1,7 +1,7 @@
 <style scoped lang="scss">
   @import "../sass/global.scss";
   .component {
-    padding-top: 1em
+    padding: 2em 0;
   }
 </style>
 
@@ -9,7 +9,7 @@
   .component
     .ui.container
 
-      h1.ui.icon.header
+      h1.ui.center.aligned.icon.header
         i.circular.talk.icon
         | 如何有效的發言？
 
@@ -21,7 +21,7 @@
         p 第二，針對討論主題，也歡迎提出詢問。例如，行政機關的文字說明不夠清晰，或者是為了討論需要，希望行政機關能夠提供更多資訊的時候。
         p 第三，若您單純只是認同某個建議，可以直接為它按「讚」，而不用再說一次一樣的東西。若您不認同某個建議，或是某段說明的內容，可以提出建議或詢問，但請避免加入過多的個人情緒，例如直接的批評或是嘲諷，這樣無助於您意見的被採納。
 
-      h1.ui.icon.header
+      h1.ui.center.aligned.icon.header
         i.circular.flag.icon
         | 為何有些發言被標示？
 
@@ -35,13 +35,13 @@
         | 來提個案吧！
 
       .ui.text.container
-        p 由下而上的提案，經網路連署後由各部會處理並回應
+        p 由下而上的提案，經網路連署後由各部會處理並回應。
 
       // h1.ui.header
       //   i.edit.icon
       //   | 提案
 
-      .ui.basic.segment
+      .ui.center.aligned.basic.segment
         a(href='http://join.gov.tw/idea/', target='_blank')
           .ui.massive.teal.labeled.icon.button
             i.edit.icon
@@ -49,7 +49,8 @@
         h3
           a(href='http://join.gov.tw/idea/', target='_blank')
             | 公共政策網路參與平台 
-            i.external.link.icon
+            sup
+              i.external.link.icon
 
 </template>
 

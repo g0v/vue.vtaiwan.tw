@@ -1,7 +1,7 @@
 <style scoped lang="scss">
   @import "../sass/global.scss";
   .component {
-    padding: 1em 0;
+    padding: 2em 0;
   }
 </style>
 
@@ -9,7 +9,7 @@
   .component
     .ui.container
 
-      h1.ui.icon.header 
+      h1.ui.center.aligned.icon.header 
         i.circular.idea.icon
         | vTaiwan 是什麼？
 
@@ -17,7 +17,7 @@
 
         p 這是一個討論法規該如何制定或修改的平台，透過彼此的意見交流，希望能夠產出符合各利益關係人期待，也貼近實際需求的法規內容。
 
-      h1.ui.icon.header 
+      h1.ui.center.aligned.icon.header 
         i.circular.hand.rock.icon
         | 為什麼要參與 vTaiwan？
 
@@ -26,7 +26,7 @@
         p 法律規定了社會上每個人的權利與義務，因此法規應該具備哪些內容，不只是行政機關，或是立法部門的工作，而是與每個人都切身相關。
         p 此外，越多利益關係人加入討論，就能夠讓法規的內容越完整周延，避免出現權益受到影響、但意見又無法表達的矛盾狀況。簡單來說，參與 vTaiwan，不只能夠照顧到自己的權益，同時也是在幫助每一個可能的利益關係人。
 
-      h1.ui.icon.header 
+      h1.ui.center.aligned.icon.header 
         i.circular.announcement.icon
         | 在 vTaiwan 表達意見有什麼用？
 

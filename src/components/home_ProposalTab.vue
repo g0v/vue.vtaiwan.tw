@@ -206,7 +206,7 @@ export default {
     position: absolute;
     font-size: 10rem;
     color: fade_out($step_color, 0.5);
-    margin: 0 0 0 30%;
+    margin: 1% 0 0 30%;
   }
 
   .label {

@@ -18,8 +18,11 @@
 
         .seven.wide.column.right
         
-          button.go-to.ui.yellow.icon.button(@click.prevent="goAnchor('top')")
-            i.up.arrow.icon
+          button.go-to.ui.yellow.vertical.animated.button(@click.prevent="goAnchor('top')")
+            .visible.content
+              i.up.arrow.icon
+            .hidden.content
+              | Top
 
           router-link.item(v-for='r in routes', v-if="r.r", :to="'/'+r.r", :class='r.r', exact='')
             | {{ r.t }}
@@ -58,21 +61,17 @@ export default {
       this.showDropDown = true;
       // body...
     },
-    goAnchor: function(event){
-      if(event == "top"){
+    goAnchor: function(anchor){
+      if(anchor == "top"){
         /* go to top */
-        // window.scrollTo(0, 0)
         $('html, body').animate({
           scrollTop: 0,
         }, 1000)
       }
-      else if(event){
-        /* get the hash name */
-        let anchor = event.target.hash
+      else if(anchor){
         /* get the top position of anchor */
         let anchor_y = $(anchor).offset().top
-        /* go to anchor */
-        // window.scrollTo(0, anchor_y)
+        /* go to anchor (animation to do) */
         $('html, body').animate({
           scrollTop: anchor_y,
         }, 1000)
