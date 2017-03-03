@@ -13,7 +13,7 @@
                         @click="routename = obj.routeName") 
           p {{obj.title}}   
 
-  #opener(@mouseover="showSidebar")
+  #opener.fat-only(@mouseover="showSidebar")
 
   #pusher.ui.container.pusher
 

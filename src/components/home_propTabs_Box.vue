@@ -106,6 +106,17 @@
     .content h3.ui.header {
       font-family: $main-font;
     }
+    .image{
+      max-height: 12em;
+      overflow: hidden;
+      img{
+        margin: auto;
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+      }
+    }
     .progress_bar {
       background: #AAAAAA;
       // margin: 0 -1em;
@@ -128,7 +139,7 @@
         position: absolute;
         z-index: 100;
         height: 100%;
-        box-shadow: rgba(0, 0, 0, 0.20) 0 0 3px 3px;
+        box-shadow: gray 0 -10px 10px 10px;
       }
     }
 }

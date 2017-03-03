@@ -1,7 +1,7 @@
 <template lang="jade">
   .component
 
-     .content.ui.compact.segment(v-html = "slide.content")
+     .content(v-html = "slide.content")
 
 </template>
 
@@ -53,6 +53,7 @@ export default {
 
 .content {
   margin: 0 auto;
+  text-align: center;
 }
 
 </style>

@@ -86,8 +86,8 @@ export default {
 
 @import "../sass/global.scss";
 
-// $navHeight: 55px;
-$navBgColor: hsla(0, 0%, 98%, .98);
+$navHeight: $navHeight;
+$navBgColor: white;
 
 .component {
   // ****************** push home by nav height
@@ -106,7 +106,8 @@ $navBgColor: hsla(0, 0%, 98%, .98);
     height: $navHeight;
     overflow: visible;
     background: $navBgColor;
-    border-bottom: 1px solid lightgray;
+    // border-bottom: 1px solid lightgray;
+    box-shadow: lightgray 0 -10px 10px 10px;
   }
 }
 .ui.icon.input{
@@ -203,16 +204,17 @@ form.search {
 
 // ************************* m-obile version
 
-@media screen and (max-width: $breakpoint){
-  .thin-only {
-    border-bottom: 1px solid #ccc;
-  }
+// @media screen and (max-width: $breakpoint){
+nav.thin-only {
+  box-shadow: lightgray 0 -10px 10px 10px;
+//   border-bottom: 1px solid #ccc;
 }
+// }
 
 .m-logo {
   width: 50%;
   margin: 0 auto;
-  height: 20vh;
+  height: 18vh;
   display: flex;
   flex-flow: row nowrap;
   align-items: center;

@@ -2,7 +2,9 @@
 
 .component
 
-  h1.ui.horizontal.divider.fat-only 新聞 News
+  .ui.horizontal.divider
+    i.eye.icon 
+    |  news
 
   .swiper-container1.fat-only
     .swiper-pagination                          
@@ -17,7 +19,7 @@
           .description 
             p.JQellipsis {{n.content}}
         .extra.content
-            .ui.big.label(v-for="t in n.tags") 
+            .ui.mini.label(v-for="t in n.tags") 
               | {{t}}
             .right.floated.author
                 a(:href="n.source_link", target='_blank') 
@@ -26,7 +28,7 @@
   .swiper-container2.thin-only
     .swiper-pagination
     .swiper-wrapper
-      .swiper-slide.ui.card(v-for="(n,idx) in allNews")
+      a.swiper-slide.ui.link.card(v-for="(n,idx) in allNews", :href="n.news_link", target='_blank')
         .image
           img(v-if="n.img_link != 'undefined'", :src="n.img_link")
           img(v-else, src="../assets/vTaiwan_logo_2017.png")
@@ -55,9 +57,11 @@ export default {
       observer: true,
       direction: 'horizontal',
       pagination: '.swiper-pagination',
+      paginationType: 'fraction',
       slidesPerView: 4,
       paginationClickable: true,
       spaceBetween: 20,
+      grabCursor: true,
     })
     var mySwiper2 = new Swiper ('.swiper-container2', {
       observer: true,
@@ -93,21 +97,16 @@ export default {
 .component {
   margin: 1em 20px;
   padding: 0 0 2em 0;
-  h1 {
-      font-size: 4rem;
-      font-family: $logo_font;
-      font-weight: normal;
-      text-transform: initial;
-      margin: .5em;
-  }
+
   .ui.card{
     margin: 0;
     .image{
-      height: 10em;
+      max-height: 12em;
+      overflow: hidden;
       img{
         margin: auto;
-        max-width:100%;
-        max-height:100%;
+        max-width: 100%;
+        max-height: 100%;
         width: auto;
         height: auto;
       }

@@ -86,10 +86,11 @@ export default {
         keyboardControl: true,
         slidesPerView: 1.2,
         centeredSlides: true,
-        spaceBetween: 2,
+        spaceBetween: 20,
         pagination : '.swiper-pagination',
         paginationClickable :true,
         loop: true,
+        grabCursor: true,
       })
       /* disable loader */
       $('#loader').removeClass('active')
@@ -104,16 +105,16 @@ export default {
 @import "../sass/global.scss";
 
 .component {
-  border-bottom: 1px #DDD solid;
-  background: linear-gradient(to right, lightgray 0%, white 10%, white 90%, lightgray 100%);
+  // border-bottom: 1px #DDD solid;
+  // background: linear-gradient(to right, lightgray 0%, white 10%, white 90%, lightgray 100%);
 }
 
 // ******************************* Swiper slide
 
 .swiper-container {
-  height: 100vh;
+  height: 100vh - 2vh;
   @media only screen and (max-width: $breakpoint) {
-    height: 70vh;
+    height: 70vh - 2vh;
   }
 }
 

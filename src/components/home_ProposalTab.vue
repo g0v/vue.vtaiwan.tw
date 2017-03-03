@@ -2,7 +2,9 @@
 
 #proposaltab.component
 
-  h1.ui.horizontal.divider.fat-only 議題 Proposal
+  .ui.horizontal.divider
+    i.open.envelope.outline.icon 
+    |  proposal
 
   .ui.container
     
@@ -175,12 +177,10 @@ export default {
 .component {
   padding: 1em 0;
   // min-height: 72vh;
-  h1 {
-      font-size: 4rem;
-      font-family: $logo_font;
-      font-weight: normal;
-      text-transform: initial;
-      margin: .5em;
+  #context {
+    @media only screen and (max-width: $breakpoint){
+      margin: -1.5em 0 0 0;
+    }
   }
 }
 
