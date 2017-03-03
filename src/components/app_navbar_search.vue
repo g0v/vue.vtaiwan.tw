@@ -1,8 +1,6 @@
 <template lang="jade">
 .component
-  .thin-only
-   .ui.category.search(:class="{active: myKey}", @keyup.down="onKeyDown()")
-     // p 關鍵字搜尋   
+   .ui.category.search.thin-only(:class="{active: myKey}", @keyup.down="onKeyDown()")  
      .ui.icon.input
       input.prompt(type="search", v-model="myKey", placeholder="搜尋...")
       i.search.icon 
@@ -48,13 +46,8 @@ export default {
 .component {
   min-height: 47vh;;
 }
-p {
-   text-align: left;
-   margin-top: 10px;
-   margin-bottom: 0;
-   font-size: 1em;
-   color: gray;
-
+.ui.category.search {
+  text-align: center;
 }
 .ui.icon.input{
   margin-top: 40px;
