@@ -50,7 +50,7 @@ export default {
       var ans = ''+str;
       var reg = new RegExp(k,'gi');
       ans = ans.replace(/</g, '&lt;').replace(/>/g, '&gt;');      
-      ans = ans.replace(reg, '<strong>' + k + '</strong>');
+      ans = ans.replace(reg, '<strong style="color:red;">' + k + '</strong>');
       return ans;
     },
     sHide:function(){
