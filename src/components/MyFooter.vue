@@ -10,7 +10,7 @@
               .ui.inverted.link.list
                 a.item(href="https://talk.vtaiwan.tw/" title="vTaiwan討論區" target="_blank") 討論區
                 a.item(href="https://github.com/g0v/vue.vtaiwan.tw" title="Github" target="_blank") Github
-                router-link.item(to='/', exact='', title="Home") vTaiwan
+                a.item(href="https://pdis.tw/" title="PDIS 公共數位創新空間" target="_blank") PDIS
             .three.wide.column
               h4.ui.inverted.header 影音專區
               .ui.inverted.link.list
