@@ -13254,8 +13254,6 @@ var main = __webpack_require__(20);
 //
 //
 //
-//
-//
 
 
 
@@ -14074,7 +14072,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n*[data-v-86ffac4e] {\n  box-sizing: border-box;\n}\nbody[data-v-86ffac4e] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter[data-v-86ffac4e],\n.fade-leave-active[data-v-86ffac4e] {\n  opacity: 0;\n}\n.fade-leave-active[data-v-86ffac4e],\n.fade-enter-active[data-v-86ffac4e] {\n  transition: opacity .3s ease;\n}\n.component[data-v-86ffac4e] {\n  position: relative;\n}\n.component h1[data-v-86ffac4e], .component h2[data-v-86ffac4e], .component h3[data-v-86ffac4e], .component h4[data-v-86ffac4e], .component h5[data-v-86ffac4e], .component h6[data-v-86ffac4e], .component p[data-v-86ffac4e] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-86ffac4e], .component h2 a[data-v-86ffac4e], .component h3 a[data-v-86ffac4e], .component h4 a[data-v-86ffac4e], .component h5 a[data-v-86ffac4e], .component h6 a[data-v-86ffac4e], .component p a[data-v-86ffac4e] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-86ffac4e] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-86ffac4e] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-86ffac4e] {\n    display: none !important;\n}\n}\n.component[data-v-86ffac4e] {\n  min-height: 47vh;\n}\np[data-v-86ffac4e] {\n  text-align: left;\n  margin-top: 10px;\n  margin-bottom: 0;\n  font-size: 1em;\n  color: gray;\n}\n.ui.icon.input[data-v-86ffac4e] {\n  margin-top: 40px;\n  width: 250px;\n  font-size: 1.5em;\n}\n.ui.icon.input input[data-v-86ffac4e] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.ui.icon.input i.icon[data-v-86ffac4e] {\n    font-size: 1.2em;\n    top: -1px;\n    /*right:5px;*/\n}\n", ""]);
+exports.push([module.i, "\n*[data-v-86ffac4e] {\n  box-sizing: border-box;\n}\nbody[data-v-86ffac4e] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter[data-v-86ffac4e],\n.fade-leave-active[data-v-86ffac4e] {\n  opacity: 0;\n}\n.fade-leave-active[data-v-86ffac4e],\n.fade-enter-active[data-v-86ffac4e] {\n  transition: opacity .3s ease;\n}\n.component[data-v-86ffac4e] {\n  position: relative;\n}\n.component h1[data-v-86ffac4e], .component h2[data-v-86ffac4e], .component h3[data-v-86ffac4e], .component h4[data-v-86ffac4e], .component h5[data-v-86ffac4e], .component h6[data-v-86ffac4e], .component p[data-v-86ffac4e] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-86ffac4e], .component h2 a[data-v-86ffac4e], .component h3 a[data-v-86ffac4e], .component h4 a[data-v-86ffac4e], .component h5 a[data-v-86ffac4e], .component h6 a[data-v-86ffac4e], .component p a[data-v-86ffac4e] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-86ffac4e] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-86ffac4e] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-86ffac4e] {\n    display: none !important;\n}\n}\n.component[data-v-86ffac4e] {\n  min-height: 47vh;\n}\n.ui.category.search[data-v-86ffac4e] {\n  text-align: center;\n}\n.ui.icon.input[data-v-86ffac4e] {\n  margin-top: 40px;\n  width: 250px;\n  font-size: 1.5em;\n}\n.ui.icon.input input[data-v-86ffac4e] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.ui.icon.input i.icon[data-v-86ffac4e] {\n    font-size: 1.2em;\n    top: -1px;\n    /*right:5px;*/\n}\n", ""]);
 
 // exports
 
@@ -14116,7 +14114,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n*[data-v-91a79d22] {\n  box-sizing: border-box;\n}\nbody[data-v-91a79d22] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter[data-v-91a79d22],\n.fade-leave-active[data-v-91a79d22] {\n  opacity: 0;\n}\n.fade-leave-active[data-v-91a79d22],\n.fade-enter-active[data-v-91a79d22] {\n  transition: opacity .3s ease;\n}\n.component[data-v-91a79d22] {\n  position: relative;\n}\n.component h1[data-v-91a79d22], .component h2[data-v-91a79d22], .component h3[data-v-91a79d22], .component h4[data-v-91a79d22], .component h5[data-v-91a79d22], .component h6[data-v-91a79d22], .component p[data-v-91a79d22] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-91a79d22], .component h2 a[data-v-91a79d22], .component h3 a[data-v-91a79d22], .component h4 a[data-v-91a79d22], .component h5 a[data-v-91a79d22], .component h6 a[data-v-91a79d22], .component p a[data-v-91a79d22] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-91a79d22] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-91a79d22] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-91a79d22] {\n    display: none !important;\n}\n}\n.component[data-v-91a79d22] {\n  position: absolute;\n  z-index: 11;\n  margin-top: 5px;\n  height: 90vh;\n  overflow: auto;\n  font-size: 1rem;\n}\n.results[data-v-91a79d22] {\n  background: #FFF;\n  z-index: 998;\n}\n.results .category[data-v-91a79d22] {\n    background: #F3F4F5;\n    border-bottom: 1px solid rgba(34, 36, 38, 0.1);\n}\n.results .name[data-v-91a79d22] {\n    width: 100px;\n    font-size: 1em;\n    float: left;\n    padding: 1em;\n    font-weight: 700;\n    color: rgba(0, 0, 0, 0.4);\n}\n.results .result[data-v-91a79d22] {\n    background: #FFF;\n    margin-left: 100px;\n    border-left: 1px solid rgba(34, 36, 38, 0.15);\n    border-bottom: 1px solid rgba(34, 36, 38, 0.1);\n    transition: background .1s ease,border-color .1s ease;\n    padding: 1em;\n    cursor: pointer;\n    display: block;\n    overflow: hidden;\n    font-size: 1em;\n    color: rgba(0, 0, 0, 0.87);\n}\n.results .result[data-v-91a79d22]:hover {\n      background-color: #f3c7c7;\n}\n.results .result[data-v-91a79d22]:last-child {\n      border-bottom: 0;\n}\n.results .title[data-v-91a79d22] {\n    font-weight: 700;\n    font-size: 1em;\n    color: rgba(0, 0, 0, 0.85);\n}\n.results .description[data-v-91a79d22] {\n    font-size: .92857143em;\n    color: rgba(0, 0, 0, 0.4);\n}\n.message.empty[data-v-91a79d22] {\n  text-align: left;\n  padding: 0.6em;\n  font-size: 1.2rem;\n}\n.message.empty .header[data-v-91a79d22] {\n    padding-bottom: 0.2rem;\n}\n.message.empty .description[data-v-91a79d22] {\n    font-size: 0.8em;\n    color: rgba(0, 0, 0, 0.6);\n}\n@media only screen and (max-width: 768px) {\n.component[data-v-91a79d22] {\n    height: 100%;\n    width: 100%;\n    font-size: 1rem;\n}\n.component .ui.category.search .results[data-v-91a79d22] {\n      width: 95%;\n}\n.component .message.empty[data-v-91a79d22] {\n      font-size: 1.2em;\n}\n}\n", ""]);
+exports.push([module.i, "\n*[data-v-91a79d22] {\n  box-sizing: border-box;\n}\nbody[data-v-91a79d22] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter[data-v-91a79d22],\n.fade-leave-active[data-v-91a79d22] {\n  opacity: 0;\n}\n.fade-leave-active[data-v-91a79d22],\n.fade-enter-active[data-v-91a79d22] {\n  transition: opacity .3s ease;\n}\n.component[data-v-91a79d22] {\n  position: relative;\n}\n.component h1[data-v-91a79d22], .component h2[data-v-91a79d22], .component h3[data-v-91a79d22], .component h4[data-v-91a79d22], .component h5[data-v-91a79d22], .component h6[data-v-91a79d22], .component p[data-v-91a79d22] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-91a79d22], .component h2 a[data-v-91a79d22], .component h3 a[data-v-91a79d22], .component h4 a[data-v-91a79d22], .component h5 a[data-v-91a79d22], .component h6 a[data-v-91a79d22], .component p a[data-v-91a79d22] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-91a79d22] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-91a79d22] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-91a79d22] {\n    display: none !important;\n}\n}\n.component[data-v-91a79d22] {\n  position: absolute;\n  z-index: 11;\n  margin-top: 5px;\n  height: 90vh;\n  overflow: auto;\n  font-size: 1rem;\n}\n.results[data-v-91a79d22] {\n  background: #FFF;\n  z-index: 998;\n}\n.results .category[data-v-91a79d22] {\n    background: #F3F4F5;\n    border-bottom: 1px solid rgba(34, 36, 38, 0.1);\n}\n.results .name[data-v-91a79d22] {\n    width: 100px;\n    font-size: 1em;\n    float: left;\n    padding: 1em;\n    font-weight: 700;\n    color: rgba(0, 0, 0, 0.4);\n}\n.results .result[data-v-91a79d22] {\n    background: #FFF;\n    margin-left: 100px;\n    border-left: 1px solid rgba(34, 36, 38, 0.15);\n    border-bottom: 1px solid rgba(34, 36, 38, 0.1);\n    transition: background .1s ease,border-color .1s ease;\n    padding: 1em;\n    cursor: pointer;\n    display: block;\n    overflow: hidden;\n    font-size: 1em;\n    color: rgba(0, 0, 0, 0.87);\n}\n.results .result[data-v-91a79d22]:hover {\n      background-color: #f3c7c7;\n}\n.results .result[data-v-91a79d22]:last-child {\n      border-bottom: 0;\n}\n.results .title[data-v-91a79d22] {\n    font-weight: 700;\n    font-size: 1em;\n    color: rgba(0, 0, 0, 0.85);\n}\n.results .description[data-v-91a79d22] {\n    font-size: .92857143em;\n    color: rgba(0, 0, 0, 0.4);\n}\n.message.empty[data-v-91a79d22] {\n  text-align: left;\n  padding: 0.6em;\n  font-size: 1.2rem;\n}\n.message.empty .header[data-v-91a79d22] {\n    padding-bottom: 0.2rem;\n}\n.message.empty .description[data-v-91a79d22] {\n    font-size: 0.8em;\n    color: rgba(0, 0, 0, 0.6);\n}\n.thin-only .component[data-v-91a79d22] {\n  height: 100%;\n  width: 100%;\n  font-size: 1rem;\n}\n.thin-only .component .results[data-v-91a79d22] {\n    width: 95%;\n    margin: auto;\n    border: 1px solid rgba(34, 36, 38, 0.1);\n}\n.thin-only .component .message.empty[data-v-91a79d22] {\n    font-size: 1.2em;\n}\n", ""]);
 
 // exports
 
@@ -15567,7 +15565,7 @@ module.exports={render:function (){with(this) {
       "article": article
     }
   }) : _e(), _h('h1', {
-    staticClass: "ui header"
+    staticClass: "ui centered header"
   }, [_s(article.title)]), (article.id !== undefined) ? _h('Slide', {
     attrs: {
       "article": article
@@ -15628,22 +15626,11 @@ module.exports={render:function (){with(this) {
     staticClass: "ui center aligned container"
   }, [_h('div', {
     staticClass: "ui stackable inverted divided grid"
-  }, [_h('div', {
-    staticClass: "three wide column"
   }, [_m(0), _h('div', {
-    staticClass: "ui inverted link list"
-  }, [_m(1), _m(2), _h('router-link', {
-    staticClass: "item",
-    attrs: {
-      "to": "/",
-      "exact": "",
-      "title": "Home"
-    }
-  }, ["vTaiwan"])])]), _h('div', {
     staticClass: "three wide column"
-  }, [_m(3), _h('div', {
+  }, [_m(1), _h('div', {
     staticClass: "ui inverted link list"
-  }, [_m(4), _m(5), _h('router-link', {
+  }, [_m(2), _m(3), _h('router-link', {
     staticClass: "item",
     attrs: {
       "to": "/subscribe",
@@ -15652,7 +15639,7 @@ module.exports={render:function (){with(this) {
     }
   }, ["訂閱電子報"])])]), _h('div', {
     staticClass: "three wide column"
-  }, [_m(6), _h('div', {
+  }, [_m(4), _h('div', {
     staticClass: "ui inverted link list"
   }, [_h('router-link', {
     staticClass: "item",
@@ -15675,45 +15662,52 @@ module.exports={render:function (){with(this) {
       "exact": "",
       "title": "關於vTaiwan"
     }
-  }, ["關於 vTaiwan"])])]), _m(7)])]), _m(8), _h('div', {
+  }, ["關於 vTaiwan"])])]), _m(5)])]), _m(6), _h('div', {
     staticClass: "ui center aligned container"
-  }, [_m(9), _m(10), _h('router-link', {
+  }, [_m(7), _m(8), _h('router-link', {
     staticClass: "ui icon",
     attrs: {
       "to": "/",
       "exact": "",
       "title": "Home"
     }
-  }, [_m(11)]), _m(12), _h('router-link', {
+  }, [_m(9)]), _m(10), _h('router-link', {
     staticClass: "ui circular icon orange button",
     attrs: {
       "to": "/Contactus",
       "exact": "",
       "title": "Contact Us"
     }
-  }, [_m(13)])])])])
+  }, [_m(11)])])])])
 }},staticRenderFns: [function (){with(this) {
-  return _h('h4', {
+  return _h('div', {
+    staticClass: "three wide column"
+  }, [_h('h4', {
     staticClass: "ui inverted header"
-  }, ["相關連結"])
-}},function (){with(this) {
-  return _h('a', {
+  }, ["相關連結"]), _h('div', {
+    staticClass: "ui inverted link list"
+  }, [_h('a', {
     staticClass: "item",
     attrs: {
       "href": "https://talk.vtaiwan.tw/",
       "title": "vTaiwan討論區",
       "target": "_blank"
     }
-  }, ["討論區"])
-}},function (){with(this) {
-  return _h('a', {
+  }, ["討論區"]), _h('a', {
     staticClass: "item",
     attrs: {
       "href": "https://github.com/g0v/vue.vtaiwan.tw",
       "title": "Github",
       "target": "_blank"
     }
-  }, ["Github"])
+  }, ["Github"]), _h('a', {
+    staticClass: "item",
+    attrs: {
+      "href": "https://pdis.tw/",
+      "title": "PDIS 公共數位創新空間",
+      "target": "_blank"
+    }
+  }, ["PDIS"])])])
 }},function (){with(this) {
   return _h('h4', {
     staticClass: "ui inverted header"
@@ -15999,9 +15993,7 @@ module.exports={render:function (){with(this) {
   return _h('div', {
     staticClass: "component"
   }, [_h('div', {
-    staticClass: "thin-only"
-  }, [_h('div', {
-    staticClass: "ui category search",
+    staticClass: "ui category search thin-only",
     class: {
       active: myKey
     },
@@ -16046,7 +16038,7 @@ module.exports={render:function (){with(this) {
       "myKey": myKey,
       "myIdx": myIdx
     }
-  })])])])
+  })])])
 }},staticRenderFns: [function (){with(this) {
   return _h('i', {
     staticClass: "search icon"
