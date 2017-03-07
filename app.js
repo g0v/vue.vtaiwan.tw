@@ -11615,16 +11615,19 @@ module.exports = function spread(callback) {
         var tag = {};
         var tags = [];
         post = post['raw'].split("<br>");
+        var tag_tmp = post[9].split("\n");
         tmp['title'] = post[1];
         tmp['content'] = post[3];
         tmp['img_link'] = post[5];
         tmp['source'] = post[7];
-        if (post[9] != "") {
-          tag = post[9].split("\n")[0].replace(/，|#/g, " ");
-          tag = tag.split(" ");
-          for (var i in tag) {
-            if (tag[i] != "") {
-              tags.push(tag[i]);
+        for (var i in tag_tmp) {
+          if (tag_tmp[i] != "【新聞快遞】" && tag_tmp[i].indexOf("http") == -1) {
+            tag = tag_tmp[i].replace(/，|#|、|\//g, " ");
+            tag = tag.split(" ");
+            for (var j in tag) {
+              if (tag[j] != "") {
+                tags.push(tag[j]);
+              }
             }
           }
         }
@@ -11634,7 +11637,6 @@ module.exports = function spread(callback) {
         tmp['setup_time'] = post[13];
         _this.allNews.push(tmp);
       });
-      // console.log(this.allNews);
     });
   }
 };
