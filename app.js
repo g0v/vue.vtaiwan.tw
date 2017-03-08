@@ -11637,6 +11637,9 @@ module.exports = function spread(callback) {
         tmp['setup_time'] = post[13];
         _this.allNews.push(tmp);
       });
+      _this.allNews.sort(function (a, b) {
+        return new Date(b.setup_time).getTime() - new Date(a.setup_time).getTime();
+      });
     });
   }
 };
@@ -11870,6 +11873,7 @@ module.exports = function spread(callback) {
         return t;
       };
     }
+
   },
   methods: {
     // accordion:function(){
@@ -11895,6 +11899,12 @@ module.exports = function spread(callback) {
       // scrollLock: true,
       delaySetup: true
     }).sidebar('attach events', '#sidebar .menu');
+    if (this.article.status == "歷史案件") {
+      console.log("1234567");
+      this.tabcontent[2] = "歷史案件";
+      console.log(this.tabcontent);
+      return this.tabcontent;
+    }
   },
   watch: {
     article: function article() {
@@ -11910,6 +11920,7 @@ module.exports = function spread(callback) {
       $('meta[property="og:title"]').remove();
       document.getElementsByTagName('head')[0].appendChild(meta_title);
     }
+
   },
   updated: function updated() {
     //$('.ui.accordion').accordion();
@@ -13047,32 +13058,41 @@ var main = __webpack_require__(20);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ exports["default"] = {
   name: 'News',
   props: ['allNews'],
   mounted: function mounted() {
-    /* initialize swiper when document ready */
-    var mySwiper1 = new Swiper('.swiper-container1', {
-      observer: true,
-      direction: 'horizontal',
-      pagination: '.swiper-pagination',
-      paginationType: 'fraction',
-      slidesPerView: 4,
-      paginationClickable: true,
-      spaceBetween: 20,
-      grabCursor: true
-    });
-    var mySwiper2 = new Swiper('.swiper-container2', {
-      observer: true,
-      autoplay: 5000,
-      direction: 'horizontal',
-      pagination: '.swiper-pagination',
-      paginationType: 'fraction',
-      spaceBetween: 20
-    });
-    mySwiper1.on('imagesReady', this.ellipsis);
-    mySwiper2.on('imagesReady', this.ellipsis);
+
+    setTimeout(function () {
+      /* initialize swiper when document ready */
+      var mySwiper1 = new Swiper('.swiper-container1', {
+        observer: true,
+        direction: 'horizontal',
+        pagination: '.swiper-pagination',
+        paginationType: 'fraction',
+        slidesPerView: 4,
+        autoplay: 5000,
+        paginationClickable: true,
+        spaceBetween: 20,
+        grabCursor: true
+      });
+      var mySwiper2 = new Swiper('.swiper-container2', {
+        observer: true,
+        autoplay: 5000,
+        direction: 'horizontal',
+        pagination: '.swiper-pagination',
+        paginationType: 'fraction',
+        spaceBetween: 20
+      });
+      mySwiper1.on('imagesReady', this.ellipsis);
+      mySwiper2.on('imagesReady', this.ellipsis);
+
+      $('#loader1').removeClass('active');
+    }, 1000);
   },
   updated: function updated() {
     this.ellipsis();
@@ -15101,9 +15121,9 @@ module.exports={render:function (){with(this) {
 module.exports={render:function (){with(this) {
   return _h('div', {
     staticClass: "component"
-  }, [_m(0), _h('div', {
+  }, [_m(0), _m(1), _h('div', {
     staticClass: "swiper-container1 fat-only"
-  }, [_m(1), _h('div', {
+  }, [_m(2), _h('div', {
     staticClass: "swiper-wrapper"
   }, [_l((allNews), function(n, idx) {
     return _h('a', {
@@ -15146,7 +15166,7 @@ module.exports={render:function (){with(this) {
     }, [" \n" + _s(n.source)])])])])
   })])]), _h('div', {
     staticClass: "swiper-container2 thin-only"
-  }, [_m(2), _h('div', {
+  }, [_m(3), _h('div', {
     staticClass: "swiper-wrapper"
   }, [_l((allNews), function(n, idx) {
     return _h('a', {
@@ -15189,6 +15209,15 @@ module.exports={render:function (){with(this) {
     }, [" \n" + _s(n.source)])])])])
   })])])])
 }},staticRenderFns: [function (){with(this) {
+  return _h('div', {
+    staticClass: "ui active inverted dimmer",
+    attrs: {
+      "id": "loader1"
+    }
+  }, [_h('div', {
+    staticClass: "ui loader"
+  })])
+}},function (){with(this) {
   return _h('div', {
     staticClass: "ui horizontal divider"
   }, [_h('i', {
@@ -15612,7 +15641,7 @@ module.exports={render:function (){with(this) {
       }
     }), _h('p', {
       staticClass: "fat-only"
-    }, [_s(step)])])
+    }, [_s(step) + " "])])
   })]), (article.id !== undefined) ? _h('div', {
     staticClass: "info"
   }, [_h('transition', {
