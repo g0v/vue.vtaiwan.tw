@@ -12839,6 +12839,10 @@ var main = __webpack_require__(20);
           _item.link = this.urllink[i];
           _item.icon = this.data_base_non[0].icon;
           _item.text = this.data_base_non[0].text;
+          if (/^\[(.*?)\]\((.*)\)/.test(_item.link)) {
+            _item.text = RegExp.$1;
+            _item.link = RegExp.$2;
+          }
           this.ulinkall.push(_item);
           // this.ulinkall
           //   .push("<a href="+this.urllink[i]+" target='_blank' class='ui teal icon button'>"+
