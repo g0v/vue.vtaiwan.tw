@@ -154,7 +154,9 @@ export default {
         tmp['setup_time'] = post[13];
         this.allNews.push(tmp);
       })
-
+      this.allNews.sort(function(a,b){
+        return new Date(b.setup_time).getTime() - new Date(a.setup_time).getTime();
+      })
     })
 
   }
