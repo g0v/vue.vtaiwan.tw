@@ -181,7 +181,7 @@ export default {
   .background {
     color: rgba(#333333, 0.9);
     text-shadow: 1px 3px 7px;
-    font-size: 40rem;
+    font-size: 0rem;
     @media only screen and (max-width: $breakpoint) {
       font-size: 20rem;
     }
