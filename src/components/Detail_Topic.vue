@@ -30,8 +30,8 @@
 
     .ui.three.item.big.menu
       a.item(v-for="(step, idx) in tabcontent", :class="{'active': idx == myIdx}", @click="myIdx = idx")
-        i.icon(v-bind:class="{'info circle': step === '詳細內容','calendar': step === '議題時間軸','comments': step === '參與討論' }")
-        p.fat-only {{step}}
+        i.icon(v-bind:class="{'info circle': step === '詳細內容','calendar': step === '議題時間軸','comments': step === '參與討論'}")
+        p.fat-only {{step}} 
 
     .info(v-if = "article.id !== undefined")
       transition(name='fade', mode='out-in')
@@ -78,6 +78,7 @@ export default {
       if(t===undefined){return new Object()}
       else{return t};
     }
+    
   },
   methods:{
     // accordion:function(){
@@ -103,6 +104,12 @@ export default {
         // scrollLock: true,
         delaySetup: true
     }).sidebar('attach events', '#sidebar .menu')
+    if(this.article.status =="歷史案件"){
+      console.log("1234567");
+      this.tabcontent[2] = "歷史案件";
+      console.log(this.tabcontent);
+      return this.tabcontent;
+    }
   },
   watch:{
     article:function(){
@@ -118,6 +125,7 @@ export default {
       $('meta[property="og:title"]').remove();
       document.getElementsByTagName('head')[0].appendChild(meta_title);
     }
+    
   },
   updated: function(){
     //$('.ui.accordion').accordion();
