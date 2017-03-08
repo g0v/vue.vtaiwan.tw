@@ -2,10 +2,13 @@
 
 .component
 
+  #loader1.ui.active.inverted.dimmer
+    .ui.loader
+
   .ui.horizontal.divider
     i.eye.icon 
     |  news
-
+      
   .swiper-container1.fat-only
     .swiper-pagination                          
     .swiper-wrapper
@@ -52,27 +55,34 @@ export default {
   name: 'News',
   props:['allNews'],
   mounted: function () {
-    /* initialize swiper when document ready */
-    var mySwiper1 = new Swiper ('.swiper-container1', {
-      observer: true,
-      direction: 'horizontal',
-      pagination: '.swiper-pagination',
-      paginationType: 'fraction',
-      slidesPerView: 4,
-      paginationClickable: true,
-      spaceBetween: 20,
-      grabCursor: true,
-    })
-    var mySwiper2 = new Swiper ('.swiper-container2', {
-      observer: true,
-      autoplay: 5000,
-      direction: 'horizontal',
-      pagination: '.swiper-pagination',
-      paginationType: 'fraction',
-      spaceBetween: 20,
-    })
-    mySwiper1.on('imagesReady', this.ellipsis)
-    mySwiper2.on('imagesReady', this.ellipsis)
+    
+    setTimeout(function(){
+      /* initialize swiper when document ready */
+      var mySwiper1 = new Swiper ('.swiper-container1', {
+        observer: true,
+        direction: 'horizontal',
+        pagination: '.swiper-pagination',
+        paginationType: 'fraction',
+        slidesPerView: 4,
+        autoplay: 5000,
+        paginationClickable: true,
+        spaceBetween: 20,
+        grabCursor: true,
+      })
+      var mySwiper2 = new Swiper ('.swiper-container2', {
+        observer: true,
+        autoplay: 5000,
+        direction: 'horizontal',
+        pagination: '.swiper-pagination',
+        paginationType: 'fraction',
+        spaceBetween: 20,
+      })
+      mySwiper1.on('imagesReady', this.ellipsis)
+      mySwiper2.on('imagesReady', this.ellipsis)
+      
+      $('#loader1').removeClass('active')
+    }, 1000)
+    
   },
   updated:function(){
       this.ellipsis()
