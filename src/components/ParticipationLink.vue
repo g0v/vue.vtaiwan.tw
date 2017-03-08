@@ -106,6 +106,10 @@ export default {
         item.link = this.urllink[i]
         item.icon = this.data_base_non[0].icon
         item.text = this.data_base_non[0].text
+        if (/^\[(.*?)\]\((.*)\)/.test(item.link)) {
+            item.text = RegExp.$1;
+            item.link = RegExp.$2;
+        }
         this.ulinkall.push(item)
         // this.ulinkall
         //   .push("<a href="+this.urllink[i]+" target='_blank' class='ui teal icon button'>"+
