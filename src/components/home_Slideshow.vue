@@ -126,6 +126,9 @@ export default {
     height: 70vh;
   }
 }
+.ui.label{
+  border-radius: 0px;
+}
 
 .slide-item {
   position: absolute;
@@ -148,14 +151,20 @@ export default {
   // ********************* 
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle, rgba(#ffffff, 0.3), transparent);
+  background: linear-gradient(rgba(0,0,0, 0.5), rgba(0,0,0, 0.7));
   overflow: hidden;
-  .status,
+  .status, .status[data-v-5122aa90]{
+    radius: 0px;
+    color: white;
+    background: rgba(255,255,255,0.4);
+    border: 0px;
+    font-size: 1.2rem;  
+  },
   .title,
   .slogan,
   .ui.button {
     z-index: 10;
-    font-size: 100%;
+    
   }
   .status {
     color: $step_color;
@@ -168,18 +177,21 @@ export default {
   .slogan {
     margin: .5em 0;
     font-size: 3rem;
+    .sub.header {
+      color: white;
+      margin: 10px;
+    }
+
     @media only screen and (max-width: $breakpoint) {
       font-size: 2rem;
     }
     color: white;
-    text-shadow: 0 0 5px gray;
-    .sub.header {
-      color: white;
-      text-shadow: 0 0 5px gray;
-    }
+    
+    
   }
   .background {
-    color: rgba(#333333, 0.9);
+    
+    
     text-shadow: 1px 3px 7px;
     font-size: 0rem;
     @media only screen and (max-width: $breakpoint) {
