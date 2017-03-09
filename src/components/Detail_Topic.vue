@@ -123,8 +123,10 @@ export default {
       document.getElementsByTagName('head')[0].appendChild(meta_title);
 
       this.status_modify(this.article.status);
-    }
-    
+    } 
+  },
+  created:function(){
+     this.status_modify(this.article.status);
   }
 }
 </script>
