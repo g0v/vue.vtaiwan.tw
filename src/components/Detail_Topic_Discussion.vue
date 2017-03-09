@@ -22,7 +22,7 @@
         .content
           Discussion_Comment(:comment_id="disc.id", :slice="false")
 
-    template(v-if="lastStep == '歷史案件'")
+    template(v-if="lastStep == '歷史案件' || lastStep == '送交院會'")
           #history.div(v-if = "lastStep==='歷史案件'")
             | 本案已討論結束，詳細歷程可參考「議題時間軸」
           #other.div(v-else)
