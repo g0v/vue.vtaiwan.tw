@@ -11888,6 +11888,16 @@ module.exports = function spread(callback) {
     },
     routename: function routename() {
       return this.$route.params.tRouteName;
+    },
+    status_modify: function status_modify(status) {
+      if (status == "歷史案件") {
+        this.tabcontent[2] = "歷史案件";
+        return this.tabcontent;
+      }
+      if (status == "送交院會") {
+        this.tabcontent[2] = "院會討論";
+        return this.tabcontent;
+      }
     }
   },
   mounted: function mounted() {
@@ -11899,12 +11909,6 @@ module.exports = function spread(callback) {
       // scrollLock: true,
       delaySetup: true
     }).sidebar('attach events', '#sidebar .menu');
-    if (this.article.status == "歷史案件") {
-      console.log("1234567");
-      this.tabcontent[2] = "歷史案件";
-      console.log(this.tabcontent);
-      return this.tabcontent;
-    }
   },
   watch: {
     article: function article() {
@@ -11922,8 +11926,11 @@ module.exports = function spread(callback) {
     }
 
   },
+  created: function created() {
+    this.status_modify(this.article.status);
+  },
   updated: function updated() {
-    //$('.ui.accordion').accordion();
+    this.status_modify(this.article.status);
   }
 };
 
@@ -11984,21 +11991,6 @@ module.exports = function spread(callback) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Detail_Topic_Discussion_Comment_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__Detail_Topic_Discussion_Comment_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__js_chineseSort_js__ = __webpack_require__(62);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__js_chineseSort_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__js_chineseSort_js__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -13895,7 +13887,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n* {\n  box-sizing: border-box;\n}\nbody {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter,\n.fade-leave-active {\n  opacity: 0;\n}\n.fade-leave-active,\n.fade-enter-active {\n  transition: opacity .3s ease;\n}\n.component {\n  position: relative;\n}\n.component h1, .component h2, .component h3, .component h4, .component h5, .component h6, .component p {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a, .component h2 a, .component h3 a, .component h4 a, .component h5 a, .component h6 a, .component p a {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only {\n    display: none !important;\n}\n}\n.ui.styled.accordion .title {\n  color: rgba(0, 0, 0, 0.6);\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.ui.styled.accordion .active.content {\n  display: block;\n  max-width: 100%;\n}\n", ""]);
+exports.push([module.i, "\n* {\n  box-sizing: border-box;\n}\nbody {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter,\n.fade-leave-active {\n  opacity: 0;\n}\n.fade-leave-active,\n.fade-enter-active {\n  transition: opacity .3s ease;\n}\n.component {\n  position: relative;\n}\n.component h1, .component h2, .component h3, .component h4, .component h5, .component h6, .component p {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a, .component h2 a, .component h3 a, .component h4 a, .component h5 a, .component h6 a, .component p a {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only {\n    display: none !important;\n}\n}\n#history, #other {\n  text-align: center;\n}\n.ui.styled.accordion .title {\n  color: rgba(0, 0, 0, 0.6);\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.ui.styled.accordion .active.content {\n  display: block;\n  max-width: 100%;\n}\n", ""]);
 
 // exports
 
@@ -15106,8 +15098,18 @@ module.exports={render:function (){with(this) {
         "comment_id": disc.id,
         "slice": false
       }
-    })])]) : [(lastStep === '歷史案件') ? _h('div', ["本案已討論結束，詳細歷程可參考「議題時間軸」"]) : _h('div', [(lastStep === '送交院會') ? _h('div', ["本案已擬定草案，送交院會審查中"]) : _h('div', ["本案目前無可線上參與的項目"])])]
-  })] : _e()])])
+    })])]) : _e()
+  })] : _e(), (lastStep == '歷史案件' || lastStep == '送交院會') ? [(lastStep === '歷史案件') ? _h('div', {
+    staticClass: "div",
+    attrs: {
+      "id": "history"
+    }
+  }, ["本案已討論結束，詳細歷程可參考「議題時間軸」"]) : _h('div', {
+    staticClass: "div",
+    attrs: {
+      "id": "other"
+    }
+  }, [(lastStep === '送交院會') ? _h('div', ["本案已擬定草案，送交院會審查中"]) : _h('div', ["本案目前無可線上參與的項目 "])])] : _e()])])
 }},staticRenderFns: [function (){with(this) {
   return _h('i', {
     staticClass: "dropdown icon"
@@ -15637,7 +15639,7 @@ module.exports={render:function (){with(this) {
     }, [_h('i', {
       staticClass: "icon",
       class: {
-        'info circle': step === '詳細內容', 'calendar': step === '議題時間軸', 'comments': step === '參與討論'
+        'info circle': step == '詳細內容', 'calendar': step == '議題時間軸', 'comments': step == '參與討論', 'history': step == '歷史案件', 'university': step == '院會討論'
       }
     }), _h('p', {
       staticClass: "fat-only"
