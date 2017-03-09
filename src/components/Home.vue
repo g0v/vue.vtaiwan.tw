@@ -9,6 +9,7 @@
     ProposalTab.proposalTab(:allTopics="allTopics")
     // .ui.divider
     News(:allNews="allNews")
+    Info(:allInfo="allInfo")
    // Catagories(:catagories="catagories").catagories
 
 </template>
@@ -21,6 +22,7 @@ import Slideshow from './home_Slideshow.vue'
 import ProposalTab from './home_ProposalTab.vue'
 // import Catagories from './home_Catagories.vue'
 import News from './app_News.vue'
+import Info from './home_observe.vue'
 
 
 export default {
@@ -30,12 +32,13 @@ export default {
     // StepGuide,
     // HotProposal,
     ProposalTab,
-    News
+    News,
+    Info
     // Catagories,
 
 
   },
-  props:['allTopics', 'catagories','allNews'],
+  props:['allTopics', 'catagories','allNews','allInfo'],
   data () {
     return {
       n_hot: 5

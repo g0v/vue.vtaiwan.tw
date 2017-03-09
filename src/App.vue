@@ -6,7 +6,7 @@
 
   #main.main
     transition(name='fade', mode='out-in')
-      router-view.view(:allTopics="allTopics", :catagories="catagories", :allNews="allNews")
+      router-view.view(:allTopics="allTopics", :catagories="catagories", :allNews="allNews", :allInfo="allInfo")
 
   MyFooter.footer
 </template>
@@ -36,7 +36,8 @@ export default {
       ],
       catagories: [],
       allTopics: [],
-      allNews: []
+      allNews: [],
+      allInfo: []
     }
   },
   methods: {
@@ -156,6 +157,30 @@ export default {
       })
       this.allNews.sort(function(a,b){
         return new Date(b.setup_time).getTime() - new Date(a.setup_time).getTime();
+      })
+    })
+
+    caxios.get('https://talk.vtaiwan.tw/t/around-the-globe/1258/last.json?include_raw=1') //重要觀測
+    .then((response)=>{
+      var info = response.data;
+      info = info['post_stream']['posts'].slice(1);
+
+      info.forEach((post)=>{
+        var tmp ={};
+        post = post['raw'].split("<br>");
+        tmp['title'] = post[1];
+        tmp['category'] = post[3].substring(3);
+        tmp['region'] =post[4].substring(3);
+        tmp['year'] = post[5].substring(3);
+        tmp['author'] = post[6].substring(3);
+        tmp['organization'] = post[7].split("\n")[0].substring(10);
+        tmp['link'] = post[7].split("\n")[2];
+        tmp['date'] = post[8].substring(5);
+        tmp['content'] = post[10];
+        this.allInfo.push(tmp);
+      })
+      this.allInfo.sort(function(a,b){
+        return new Date(b.date).getTime() - new Date(a.date).getTime();
       })
     })
 
