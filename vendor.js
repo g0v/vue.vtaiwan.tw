@@ -61,7 +61,7 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 163);
+/******/ 	return __webpack_require__(__webpack_require__.s = 168);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -607,7 +607,7 @@ return index;
 
 /***/ },
 
-/***/ 161:
+/***/ 166:
 /***/ function(module, exports) {
 
 module.exports = Yallist
@@ -974,7 +974,7 @@ function Node (value, prev, next, list) {
 
 /***/ },
 
-/***/ 163:
+/***/ 168:
 /***/ function(module, exports, __webpack_require__) {
 
 __webpack_require__(5);
@@ -993,11 +993,11 @@ module.exports = LRUCache
 
 // This will be a proper iterable 'Map' in engines that support it,
 // or a fakey-fake PseudoMap in older versions.
-var Map = __webpack_require__(89)
-var util = __webpack_require__(94)
+var Map = __webpack_require__(91)
+var util = __webpack_require__(96)
 
 // A linked list to keep track of recently-used-ness
-var Yallist = __webpack_require__(161)
+var Yallist = __webpack_require__(166)
 
 // use symbols if possible, otherwise just _props
 var symbols = {}
@@ -8458,23 +8458,6 @@ module.exports = g;
 
 /***/ },
 
-/***/ 89:
-/***/ function(module, exports, __webpack_require__) {
-
-/* WEBPACK VAR INJECTION */(function(process) {if (process.env.npm_package_name === 'pseudomap' &&
-    process.env.npm_lifecycle_script === 'test')
-  process.env.TEST_PSEUDOMAP = 'true'
-
-if (typeof Map === 'function' && !process.env.TEST_PSEUDOMAP) {
-  module.exports = Map
-} else {
-  module.exports = __webpack_require__(90)
-}
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
-
-/***/ },
-
 /***/ 9:
 /***/ function(module, exports, __webpack_require__) {
 
@@ -10359,7 +10342,24 @@ return VueRouter;
 
 /***/ },
 
-/***/ 90:
+/***/ 91:
+/***/ function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(process) {if (process.env.npm_package_name === 'pseudomap' &&
+    process.env.npm_lifecycle_script === 'test')
+  process.env.TEST_PSEUDOMAP = 'true'
+
+if (typeof Map === 'function' && !process.env.TEST_PSEUDOMAP) {
+  module.exports = Map
+} else {
+  module.exports = __webpack_require__(92)
+}
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
+
+/***/ },
+
+/***/ 92:
 /***/ function(module, exports) {
 
 var hasOwnProperty = Object.prototype.hasOwnProperty
@@ -10479,7 +10479,7 @@ function set (data, k, v) {
 
 /***/ },
 
-/***/ 92:
+/***/ 94:
 /***/ function(module, exports) {
 
 if (typeof Object.create === 'function') {
@@ -10509,7 +10509,7 @@ if (typeof Object.create === 'function') {
 
 /***/ },
 
-/***/ 93:
+/***/ 95:
 /***/ function(module, exports) {
 
 module.exports = function isBuffer(arg) {
@@ -10521,7 +10521,7 @@ module.exports = function isBuffer(arg) {
 
 /***/ },
 
-/***/ 94:
+/***/ 96:
 /***/ function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, process) {// Copyright Joyent, Inc. and other Node contributors.
@@ -11049,7 +11049,7 @@ function isPrimitive(arg) {
 }
 exports.isPrimitive = isPrimitive;
 
-exports.isBuffer = __webpack_require__(93);
+exports.isBuffer = __webpack_require__(95);
 
 function objectToString(o) {
   return Object.prototype.toString.call(o);
@@ -11093,7 +11093,7 @@ exports.log = function() {
  *     prototype.
  * @param {function} superCtor Constructor function to inherit prototype from.
  */
-exports.inherits = __webpack_require__(92);
+exports.inherits = __webpack_require__(94);
 
 exports._extend = function(origin, add) {
   // Don't do anything if add isn't an object
