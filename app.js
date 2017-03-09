@@ -11828,16 +11828,10 @@ module.exports = function spread(callback) {
 //
 //
 //
-//
-//
-//
-//
-//
-
-// import axios from 'axios'
 
 
-// import info from './Detail_info.vue'
+
+
 
 
 
@@ -11848,7 +11842,6 @@ module.exports = function spread(callback) {
   components: {
     NextStage: __WEBPACK_IMPORTED_MODULE_1__Detail_Topic_NextStage_vue___default.a,
     Slide: __WEBPACK_IMPORTED_MODULE_0__Detail_Topic_Slide_vue___default.a,
-    // info,
     Description: __WEBPACK_IMPORTED_MODULE_2__Detail_Topic_Description_vue___default.a,
     Discussion: __WEBPACK_IMPORTED_MODULE_3__Detail_Topic_Discussion_vue___default.a,
     Timeline: __WEBPACK_IMPORTED_MODULE_4__Detail_Topic_Timeline_vue___default.a
@@ -11856,7 +11849,7 @@ module.exports = function spread(callback) {
   data: function data() {
     return {
       myIdx: 0, /* default page */
-      tabcontent: ["詳細內容", "議題時間軸", "參與討論"],
+      tabcontent: ["詳細內容", "議題時間軸"],
       stage: ["即將開始", "意見徵集", "研擬草案", "送交院會", "歷史案件"]
     };
   },
@@ -11873,15 +11866,11 @@ module.exports = function spread(callback) {
         return t;
       };
     }
-
   },
   methods: {
-    // accordion:function(){
-    //   $('.ui.accordion').accordion();
-    // },
+
     showSidebar: function showSidebar() {
       $('.ui.left.sidebar').sidebar('show');
-      // $('.ui.left.sidebar').next().remove('.ui.left.sidebar'); 
     },
     hideSidebar: function hideSidebar() {
       $('.ui.left.sidebar').sidebar('hide');
@@ -11896,6 +11885,10 @@ module.exports = function spread(callback) {
       }
       if (status == "送交院會") {
         this.tabcontent[2] = "院會討論";
+        return this.tabcontent;
+      }
+      if (status == "即將開始" || status == "意見徵集" || status == "研擬草案") {
+        this.tabcontent[2] = "參與討論";
         return this.tabcontent;
       }
     }
@@ -11923,14 +11916,10 @@ module.exports = function spread(callback) {
       meta_title.content = this.article.title + " - vTaiwan.tw";
       $('meta[property="og:title"]').remove();
       document.getElementsByTagName('head')[0].appendChild(meta_title);
+
+      this.status_modify(this.article.status);
     }
 
-  },
-  created: function created() {
-    this.status_modify(this.article.status);
-  },
-  updated: function updated() {
-    this.status_modify(this.article.status);
   }
 };
 
