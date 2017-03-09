@@ -11919,7 +11919,9 @@ module.exports = function spread(callback) {
 
       this.status_modify(this.article.status);
     }
-
+  },
+  created: function created() {
+    this.status_modify(this.article.status);
   }
 };
 
