@@ -30,7 +30,7 @@
 
     .ui.three.item.big.menu
       a.item(v-for="(step, idx) in tabcontent", :class="{'active': idx == myIdx}", @click="myIdx = idx")
-        i.icon(v-bind:class="{'info circle': step === '詳細內容','calendar': step === '議題時間軸','comments': step === '參與討論'}")
+        i.icon(v-bind:class="{'info circle': step == '詳細內容','calendar': step == '議題時間軸','comments': step == '參與討論','history': step == '歷史案件'}")
         p.fat-only {{step}} 
 
     .info(v-if = "article.id !== undefined")
@@ -93,6 +93,12 @@ export default {
     },
     routename:function(){
       return this.$route.params.tRouteName;
+    },
+    history_case:function(status){
+      if(status =="歷史案件"){
+        this.tabcontent[2] = "歷史案件";
+        return this.tabcontent;
+      }
     }
   },
   mounted:function(){
@@ -104,12 +110,6 @@ export default {
         // scrollLock: true,
         delaySetup: true
     }).sidebar('attach events', '#sidebar .menu')
-    if(this.article.status =="歷史案件"){
-      console.log("1234567");
-      this.tabcontent[2] = "歷史案件";
-      console.log(this.tabcontent);
-      return this.tabcontent;
-    }
   },
   watch:{
     article:function(){
@@ -127,9 +127,12 @@ export default {
     }
     
   },
-  updated: function(){
-    //$('.ui.accordion').accordion();
+  created: function(){
+    this.history_case(this.article.status);
   },
+  updated:function(){
+    this.history_case(this.article.status);
+  }
 }
 </script>
 
