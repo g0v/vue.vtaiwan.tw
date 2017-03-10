@@ -22,7 +22,7 @@
           .description 
             p.JQellipsis {{n.content}}
         .extra.content
-            .ui.mini.label(v-for="t in n.tags") 
+            .ui.teal.label(v-for="t in n.tags") 
               | {{t}}
             .right.floated.author
                 a(:href="n.source_link", target='_blank') 
@@ -41,7 +41,7 @@
           .description 
             p.JQellipsis {{n.content}}
         .extra.content
-            .ui.mini.label(v-for="t in n.tags") 
+            .ui.teal.label(v-for="t in n.tags") 
               | {{t}}
             .right.floated.author
                 a(:href="n.source_link", target='_blank') 
