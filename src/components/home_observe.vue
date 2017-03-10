@@ -9,7 +9,7 @@
     |  Important Observations
 
   .ui.container  
-    .ui.centered.card(v-for="(n,idx) in allInfo", :href="n.link", target='_blank')         
+    .ui.centered.card(v-for="n in limitedItems", :item="allInfo")         
       .content
         .header
           span.ui.header {{n.title}}
@@ -27,8 +27,12 @@
         .ui.teal.label {{n.category}}
         .right.floated.author
           a(:href="n.link", target='_blank') 
-           | {{n.organization}}      
-           
+           | {{n.organization}}
+    .ui.fluid.vertical.animated.button(@click='limitNumber += 2')      
+      .visible.content 
+        i.repeat.icon
+      .hidden.content 載入更多
+
 
 
 
@@ -42,20 +46,21 @@ export default {
   name: 'observe',
   props:['allInfo'],
   data () {
-    return {
-
+    return{
+      limitNumber:2,
+      items:[]
+    }
+  },
+  computed: {
+    limitedItems() {
+      return this.items.slice(0,this.limitNumber)
     }
   },
   mounted: function () {
-    
-    
-    
+    this.items = this.allInfo;  
   },
-  updated:function(){
-   
-  },
-  methods: {
-      
+  created: function(){
+     this.items = this.allInfo; 
   }
 }
 </script>
@@ -81,4 +86,8 @@ export default {
     font-size: 1.5rem;
   }
 }
+.ui.button{
+    font-family: $main_font;
+    // font-size:80%;
+  }
 </style>
