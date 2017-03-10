@@ -13633,18 +13633,33 @@ var main = __webpack_require__(20);
 //
 //
 //
+//
+//
+//
+//
 
 
 /* harmony default export */ exports["default"] = {
   name: 'observe',
   props: ['allInfo'],
   data: function data() {
-    return {};
+    return {
+      limitNumber: 2,
+      items: []
+    };
   },
 
-  mounted: function mounted() {},
-  updated: function updated() {},
-  methods: {}
+  computed: {
+    limitedItems: function limitedItems() {
+      return this.items.slice(0, this.limitNumber);
+    }
+  },
+  mounted: function mounted() {
+    this.items = this.allInfo;
+  },
+  created: function created() {
+    this.items = this.allInfo;
+  }
 };
 
 /***/ },
@@ -14174,7 +14189,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n*[data-v-84f59ea8] {\n  box-sizing: border-box;\n}\nbody[data-v-84f59ea8] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter[data-v-84f59ea8],\n.fade-leave-active[data-v-84f59ea8] {\n  opacity: 0;\n}\n.fade-leave-active[data-v-84f59ea8],\n.fade-enter-active[data-v-84f59ea8] {\n  transition: opacity .3s ease;\n}\n.component[data-v-84f59ea8] {\n  position: relative;\n}\n.component h1[data-v-84f59ea8], .component h2[data-v-84f59ea8], .component h3[data-v-84f59ea8], .component h4[data-v-84f59ea8], .component h5[data-v-84f59ea8], .component h6[data-v-84f59ea8], .component p[data-v-84f59ea8] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-84f59ea8], .component h2 a[data-v-84f59ea8], .component h3 a[data-v-84f59ea8], .component h4 a[data-v-84f59ea8], .component h5 a[data-v-84f59ea8], .component h6 a[data-v-84f59ea8], .component p a[data-v-84f59ea8] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-84f59ea8] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-84f59ea8] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-84f59ea8] {\n    display: none !important;\n}\n}\n.ui.centered.card[data-v-84f59ea8] {\n  width: 100%;\n}\n.ui.centered.card .ui.raised.segment[data-v-84f59ea8] {\n    border: none;\n    box-shadow: none;\n}\n.ui.centered.card .header[data-v-84f59ea8] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.ui.centered.card .ui.teal.ribbon.label[data-v-84f59ea8] {\n    bottom: 0.3rem;\n}\n.ui.centered.card .description[data-v-84f59ea8] {\n    text-indent: 42px;\n    font-size: 1.5rem;\n}\n", ""]);
+exports.push([module.i, "\n*[data-v-84f59ea8] {\n  box-sizing: border-box;\n}\nbody[data-v-84f59ea8] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter[data-v-84f59ea8],\n.fade-leave-active[data-v-84f59ea8] {\n  opacity: 0;\n}\n.fade-leave-active[data-v-84f59ea8],\n.fade-enter-active[data-v-84f59ea8] {\n  transition: opacity .3s ease;\n}\n.component[data-v-84f59ea8] {\n  position: relative;\n}\n.component h1[data-v-84f59ea8], .component h2[data-v-84f59ea8], .component h3[data-v-84f59ea8], .component h4[data-v-84f59ea8], .component h5[data-v-84f59ea8], .component h6[data-v-84f59ea8], .component p[data-v-84f59ea8] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-84f59ea8], .component h2 a[data-v-84f59ea8], .component h3 a[data-v-84f59ea8], .component h4 a[data-v-84f59ea8], .component h5 a[data-v-84f59ea8], .component h6 a[data-v-84f59ea8], .component p a[data-v-84f59ea8] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-84f59ea8] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-84f59ea8] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-84f59ea8] {\n    display: none !important;\n}\n}\n.ui.centered.card[data-v-84f59ea8] {\n  width: 100%;\n}\n.ui.centered.card .ui.raised.segment[data-v-84f59ea8] {\n    border: none;\n    box-shadow: none;\n}\n.ui.centered.card .header[data-v-84f59ea8] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.ui.centered.card .ui.teal.ribbon.label[data-v-84f59ea8] {\n    bottom: 0.3rem;\n}\n.ui.centered.card .description[data-v-84f59ea8] {\n    text-indent: 42px;\n    font-size: 1.5rem;\n}\n.ui.button[data-v-84f59ea8] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n", ""]);
 
 // exports
 
@@ -16175,12 +16190,11 @@ module.exports={render:function (){with(this) {
     staticClass: "component"
   }, [_m(0), _h('div', {
     staticClass: "ui container"
-  }, [_l((allInfo), function(n, idx) {
+  }, [_l((limitedItems), function(n) {
     return _h('div', {
       staticClass: "ui centered card",
       attrs: {
-        "href": n.link,
-        "target": "_blank"
+        "item": allInfo
       }
     }, [_h('div', {
       staticClass: "content"
@@ -16209,14 +16223,31 @@ module.exports={render:function (){with(this) {
         "href": n.link,
         "target": "_blank"
       }
-    }, [" \n" + _s(n.organization) + "      "])])])])
-  })])])
+    }, [" \n" + _s(n.organization)])])])])
+  }), _h('div', {
+    staticClass: "ui fluid vertical animated button",
+    on: {
+      "click": function($event) {
+        limitNumber += 2
+      }
+    }
+  }, [_m(1), _m(2)])])])
 }},staticRenderFns: [function (){with(this) {
   return _h('div', {
     staticClass: "ui horizontal divider"
   }, [_h('i', {
     staticClass: "world icon"
   }), " Important Observations"])
+}},function (){with(this) {
+  return _h('div', {
+    staticClass: "visible content"
+  }, [_h('i', {
+    staticClass: "repeat icon"
+  })])
+}},function (){with(this) {
+  return _h('div', {
+    staticClass: "hidden content"
+  }, ["載入更多"])
 }}]}
 
 /***/ },
