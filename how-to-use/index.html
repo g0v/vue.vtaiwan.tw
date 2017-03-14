@@ -269,7 +269,7 @@ nav.thin-only[data-v-8718f044] {
 .m-logo[data-v-8718f044] {
   width: 50%;
   margin: 0 auto;
-  height: 18vh;
+  height: 15vh;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-flow: row nowrap;
@@ -485,6 +485,11 @@ img[data-v-5120c3f7] {
 .ui.icon[data-v-5120c3f7] {
   margin: 0 1ch;
 }
+@media only screen and (max-width: 767px) {
+.ui.icon[data-v-5120c3f7] {
+      font-size: x-small;
+}
+}
 a.ui.icon.button[data-v-5120c3f7] {
   background-color: #333;
 }
@@ -597,33 +602,20 @@ body[data-v-30cdb09e] {
     display: none !important;
 }
 }
-.swiper-container[data-v-30cdb09e] {
-  height: 98vh;
-}
-@media only screen and (max-width: 767px) {
-.swiper-container[data-v-30cdb09e] {
-      height: 68vh;
-}
-}
-.slide-page[data-v-30cdb09e] {
+.component[data-v-30cdb09e] {
   height: 100vh;
+  padding: 0 0 1em 0;
 }
 @media only screen and (max-width: 767px) {
-.slide-page[data-v-30cdb09e] {
-      height: 70vh;
+.component[data-v-30cdb09e] {
+      height: 75vh;
 }
+}
+.swiper-container[data-v-30cdb09e] {
+  height: 100%;
 }
 .ui.label[data-v-30cdb09e] {
-  border-radius: 0px;
-}
-.slide-item[data-v-30cdb09e] {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  overflow: hidden;
-  height: 100%;
-  transition: all .3s ease;
+  border-radius: 0;
 }
 .box[data-v-30cdb09e] {
   display: -ms-flexbox;
@@ -636,7 +628,7 @@ body[data-v-30cdb09e] {
       align-items: center;
   width: 100%;
   height: 100%;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7));
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5));
   overflow: hidden;
 }
 .box .status[data-v-30cdb09e], .box .status[data-v-5122aa90][data-v-30cdb09e] {
@@ -647,6 +639,7 @@ body[data-v-30cdb09e] {
     font-size: 1.2rem;
 }
 .box[data-v-30cdb09e],
+  .box .status[data-v-30cdb09e],
   .box .title[data-v-30cdb09e],
   .box .slogan[data-v-30cdb09e],
   .box .ui.button[data-v-30cdb09e] {
@@ -665,25 +658,14 @@ body[data-v-30cdb09e] {
     font-size: 3rem;
     color: white;
 }
-.box .slogan .sub.header[data-v-30cdb09e] {
-      color: white;
-      margin: 10px;
-}
 @media only screen and (max-width: 767px) {
 .box .slogan[data-v-30cdb09e] {
         font-size: 2rem;
 }
 }
-.box .background[data-v-30cdb09e] {
-    text-shadow: 1px 3px 7px;
-    font-size: 0rem;
-    position: absolute;
-    height: initial;
-}
-@media only screen and (max-width: 767px) {
-.box .background[data-v-30cdb09e] {
-        font-size: 20rem;
-}
+.box .slogan .sub.header[data-v-30cdb09e] {
+      color: white;
+      margin: 10px;
 }
 .box .go-to[data-v-30cdb09e] {
     position: absolute;
@@ -1207,10 +1189,10 @@ body[data-v-4144f431] {
   padding-bottom: 1em;
 }
 </style><style type="text/css">
-*[data-v-287bb503] {
+* {
   box-sizing: border-box;
 }
-body[data-v-287bb503] {
+body {
   font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
   font-size: 2.5vmin;
   padding: 0;
@@ -1219,42 +1201,47 @@ body[data-v-287bb503] {
   opacity: 1;
   transition: opacity 0.5s ease;
 }
-.fade-enter[data-v-287bb503],
-.fade-leave-active[data-v-287bb503] {
+.fade-enter,
+.fade-leave-active {
   opacity: 0;
 }
-.fade-leave-active[data-v-287bb503],
-.fade-enter-active[data-v-287bb503] {
+.fade-leave-active,
+.fade-enter-active {
   transition: opacity .3s ease;
 }
-.component[data-v-287bb503] {
+.component {
   position: relative;
 }
-.component h1[data-v-287bb503], .component h2[data-v-287bb503], .component h3[data-v-287bb503], .component h4[data-v-287bb503], .component h5[data-v-287bb503], .component h6[data-v-287bb503], .component p[data-v-287bb503] {
+.component h1, .component h2, .component h3, .component h4, .component h5, .component h6, .component p {
     font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
 }
-.component h1 a[data-v-287bb503], .component h2 a[data-v-287bb503], .component h3 a[data-v-287bb503], .component h4 a[data-v-287bb503], .component h5 a[data-v-287bb503], .component h6 a[data-v-287bb503], .component p a[data-v-287bb503] {
+.component h1 a, .component h2 a, .component h3 a, .component h4 a, .component h5 a, .component h6 a, .component p a {
       cursor: pointer !important;
       color: dimgray;
       border-bottom: 1px dashed lightgray;
 }
-.component strong[data-v-287bb503] {
+.component strong {
     font-weight: 900;
     color: black;
 }
 @media only screen and (max-width: 767px) {
-.fat-only[data-v-287bb503] {
+.fat-only {
     display: none !important;
 }
 }
 @media only screen and (min-width: 768px) {
-.thin-only[data-v-287bb503] {
+.thin-only {
     display: none !important;
 }
 }
-.content[data-v-287bb503] {
+.content {
   margin: 0 auto;
   text-align: center;
+}
+@media only screen and (max-width: 767px) {
+.content iframe {
+      width: auto;
+}
 }
 </style><style type="text/css">
 *[data-v-1568d51d] {
@@ -1303,11 +1290,14 @@ body[data-v-1568d51d] {
 }
 }
 .step-progress-bar[data-v-1568d51d] {
-  width: 600px;
   margin: 0 auto;
   display: block;
+  padding: 10px 0;
   height: 100px;
-  padding: 10px;
+  width: 600px;
+}
+.step-progress-bar li[data-v-1568d51d] {
+    font-size: 1.2rem;
 }
 @media only screen and (max-width: 767px) {
 .step-progress-bar[data-v-1568d51d] {
@@ -1317,11 +1307,6 @@ body[data-v-1568d51d] {
         font-size: 1rem;
 }
 }
-@media only screen and (min-width: 767px) {
-.step-progress-bar li[data-v-1568d51d] {
-      font-size: 1.2rem;
-}
-}
 ul.progress-bar[data-v-1568d51d] {
   counter-reset: step;
   padding: 0;
@@ -1329,18 +1314,17 @@ ul.progress-bar[data-v-1568d51d] {
 .step-progress-bar li[data-v-1568d51d] {
   list-style-type: none;
   float: left;
-  color: #40B3BF;
+  color: #3fadc7;
   width: 20%;
   position: relative;
   text-align: center;
-  font-weight: 600;
 }
 .step-progress-bar li[data-v-1568d51d]:before {
   content: counter(step);
   counter-increment: step;
   width: 32px;
   height: 32px;
-  border: 2px solid #40B3BF;
+  border: 1px solid #3fadc7;
   border-radius: 50%;
   display: block;
   text-align: center;
@@ -1348,14 +1332,13 @@ ul.progress-bar[data-v-1568d51d] {
   margin: 0 auto 10px auto;
   z-index: 9;
   background-color: white;
-  font-weight: 600;
 }
 .step-progress-bar li[data-v-1568d51d]:after {
   content: "";
   width: 100%;
   position: absolute;
-  height: 2px;
-  background-color: #40B3BF;
+  height: 1px;
+  background-color: #3fadc7;
   top: 16px;
   left: 50%;
   z-index: -1;
@@ -1367,19 +1350,19 @@ ul.progress-bar[data-v-1568d51d] {
   color: gray;
 }
 .step-progress-bar li.current[data-v-1568d51d] {
-  color: #DB5252;
+  color: #db4f4f;
 }
 .step-progress-bar li.active[data-v-1568d51d]:before {
   border-color: gray;
 }
 .step-progress-bar li.current[data-v-1568d51d]:before {
-  border-color: #DB5252;
+  border-color: #db4f4f;
 }
 .step-progress-bar li.active[data-v-1568d51d]:after {
   background-color: gray;
 }
 .step-progress-bar li.current[data-v-1568d51d]:after {
-  background-color: #DB5252;
+  background-color: #3fadc7;
 }
 </style><style type="text/css">
 * {
