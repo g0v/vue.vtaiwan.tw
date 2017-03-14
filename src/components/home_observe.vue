@@ -7,8 +7,14 @@
   .ui.horizontal.divider
     i.world.icon 
     |  Around the Globe
-
+  #gosticky.ui.sticky.thin-only
+      button.go-to.ui.yellow.vertical.animated.button(@click.prevent="goAnchor('#footer')")
+        .visible.content
+        | 點我至頁尾
+        .hidden.content
+        i.down.arrow.icon  
   
+
   .ui.segment.fat-only
       .ui.container  
         .ui.centered.card(v-for="n in allInfo", :item="allInfo")         
@@ -30,7 +36,8 @@
             .right.floated.author
               a(:href="n.link", target='_blank') 
               | {{n.organization}}
-  .ui.segment.thin-only
+  #mobile.ui.segment.thin-only
+    
     .ui.container  
         .ui.centered.card(v-for="n in limitedItems", :item="allInfo")         
           .content
@@ -75,13 +82,37 @@ export default {
       items:[]
     }
   },
+  methods:{
+    goAnchor: function(anchor){
+      if(anchor == "top"){
+        /* go to top */
+        $('html, body').animate({
+          scrollTop: 0,
+        }, 1000)
+      }
+      else if(anchor){
+        /* get the top position of anchor */
+        let anchor_y = $(anchor).offset().top
+        /* go to anchor (animation to do) */
+        $('html, body').animate({
+          scrollTop: anchor_y,
+        }, 1000)
+      }
+    }
+  },
   computed: {
     limitedItems() {
       return this.items.slice(0,this.limitNumber)
     }
   },
   mounted: function () {
-    this.items = this.allInfo;  
+    $("#gosticky.ui.sticky").sticky({
+      context: "#mobile",
+      pushing: true,
+      observeChanges: true,
+      // silent: true
+    })
+    this.items = this.allInfo;
   },
   created: function(){
      this.items = this.allInfo; 
@@ -99,6 +130,13 @@ export default {
 }
 .ui.segment.thin-only{
   width:auto;
+}
+#gosticky{
+  // text-align: left;
+  button{
+    opacity: 0.8;
+    // margin-bottom: 10px;
+  }
 }
 .ui.centered.card{
   width: 100%;

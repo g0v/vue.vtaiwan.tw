@@ -1,5 +1,5 @@
 <template lang="jade">
-  .component
+  #footer.component
     
       .ui.inverted.vertical.footer.segment
 
@@ -56,7 +56,7 @@ img {
 .ui.icon {
   margin: 0 1ch;
   @media only screen and (max-width: $breakpoint){
-    font-size: x-small;
+   font-size: x-small;
   }
 }
 
