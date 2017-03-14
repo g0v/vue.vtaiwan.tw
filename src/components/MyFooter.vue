@@ -55,6 +55,9 @@ img {
 
 .ui.icon {
   margin: 0 1ch;
+  @media only screen and (max-width: $breakpoint){
+    font-size: x-small;
+  }
 }
 
 a.ui.icon.button{

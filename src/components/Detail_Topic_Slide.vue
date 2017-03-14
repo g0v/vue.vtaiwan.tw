@@ -47,13 +47,17 @@ export default {
 
 </script>
 
-<style lang="scss" scoped>
-
+<style lang="scss">
 @import "../sass/global.scss";
 
 .content {
   margin: 0 auto;
   text-align: center;
+  @media only screen and (max-width: $breakpoint){
+    iframe {
+      width: auto;
+    }
+  }
 }
 
 </style>

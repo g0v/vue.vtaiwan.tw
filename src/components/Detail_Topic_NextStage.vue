@@ -103,21 +103,18 @@ export default {
 @import "../sass/global.scss";
 
 .step-progress-bar {
-  width: 600px;
   margin: 0 auto;
   display: block;
+  padding: 10px 0;
   height: 100px; 
-  padding: 10px;
+  width: 600px;
+  li {
+    font-size:1.2rem;
+  }
   @media only screen and (max-width: $breakpoint) {
     width:100%;
     li {
       font-size:1rem;
-    }
-  }
-  @media only screen and (min-width: $breakpoint) {
-    
-    li {
-      font-size:1.2rem;
     }
   }
 }
@@ -128,11 +125,11 @@ ul.progress-bar {
 .step-progress-bar li {
   list-style-type: none;
   float: left;
-  color: #40B3BF;
+  color: $main_color;
   width: 20%;
   position: relative;
   text-align: center;
-  font-weight: 600;
+  // font-weight: 600;
   // font-size:1.2rem;
 }
 .step-progress-bar li:before {
@@ -140,7 +137,7 @@ ul.progress-bar {
   counter-increment: step;
   width: 32px;
   height: 32px;
-  border: 2px solid #40B3BF;
+  border: 1px solid $main_color;
   border-radius: 50%;
   display: block;
   text-align: center;
@@ -148,14 +145,14 @@ ul.progress-bar {
   margin: 0 auto 10px auto;
   z-index: 9;
   background-color: white;
-  font-weight: 600;
+  // font-weight: 600;
 }
 .step-progress-bar li:after {
   content: "";
   width: 100%;
   position: absolute;
-  height: 2px;
-  background-color: #40B3BF;
+  height: 1px;
+  background-color: $main_color;
   top: 16px;
   left: 50%;
   z-index: -1;
@@ -167,19 +164,19 @@ ul.progress-bar {
   color: gray;
 }
 .step-progress-bar li.current {
-  color: #DB5252;
+  color: $step_color;
 }
 .step-progress-bar li.active:before{
   border-color: gray;
 }
 .step-progress-bar li.current:before{
-  border-color: #DB5252;
+  border-color: $step_color;
 }
 .step-progress-bar li.active:after{
   background-color: gray;
 }
 .step-progress-bar li.current:after{
-  background-color: #DB5252;
+  background-color: $main_color;
 }
 
 

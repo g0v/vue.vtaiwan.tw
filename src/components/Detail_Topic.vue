@@ -19,7 +19,12 @@
 
     NextStage(v-if = "article.id !== undefined", :article="article")
 
-    h1.ui.centered.header {{article.title}}
+    h1.ui.centered.header 
+      sup
+        i.quote.left.icon
+      | {{article.title}} 
+      sub
+        i.quote.right.icon
     
     Slide(v-if = "article.id !== undefined", :article="article")
       // video(:style="{'background-image': 'url('+article.cover+')'}")
