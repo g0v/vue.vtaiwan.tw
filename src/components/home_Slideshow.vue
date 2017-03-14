@@ -1,22 +1,6 @@
 <template lang="jade">
 
   .component
-    // .ui.fluid.container
-      .slide-page
-        .slide-item(v-for="(t, idx) in mySlideTopics", :style="t.style")
-          .box
-            .status.ui.basic.huge.label 
-              | {{t.status}}
-            h1.slogan.ui.header
-              | {{t.title}}
-              .sub.header {{t.slogan}}
-            router-link.ui.right.labeled.icon.teal.huge.button(:to="'/topic/' + t.routeName")
-              i.right.arrow.icon
-              p 進入議題
-        a.fat-only.pre(@click="c = cycle(-1)")
-          i.huge.black.caret.left.icon
-        a.fat-only.next(@click="c = cycle(1)")
-          i.huge.black.caret.right.icon
 
     #loader.ui.active.inverted.dimmer
       .ui.loader
@@ -33,14 +17,13 @@
               | {{item.title}}
               .sub.center.aligned.header
                 | {{item.slogan}}
-            router-link.ui.right.labeled.icon.teal.huge.button(:to="'/topic/' + item.routeName")
+            router-link.ui.right.labeled.icon.teal.big.button(:to="'/topic/' + item.routeName")
               i.right.arrow.icon
               p 進入議題
-
-            i.square.icon.background
-            button.go-to.ui.yellow.vertical.animated.button(@click.prevent="goAnchor('#proposaltab')")
+            //- i.square.icon.background
+            button.go-to.ui.yellow.vertical.animated.button(@click="goAnchor('#proposaltab')")
               .visible.content
-                | 還有更多議案
+                p 還有更多議案
               .hidden.content
                 i.down.arrow.icon
       
@@ -81,16 +64,16 @@ export default {
       new Swiper ('.swiper-container', {
         observer: true,
         scrollbar: '.swiper-scrollbar',
+        pagination : '.swiper-pagination',
         autoplay: 8000,
         direction: 'horizontal',
         keyboardControl: true,
         slidesPerView: 1.2,
         centeredSlides: true,
         spaceBetween: 20,
-        pagination : '.swiper-pagination',
         paginationClickable :true,
         loop: true,
-        grabCursor: true,
+        grabCursor: true
       })
       /* disable loader */
       $('#loader').removeClass('active')
@@ -104,41 +87,24 @@ export default {
 <style lang="scss" scoped>
 @import "../sass/global.scss";
 
-.component {
-  // border-bottom: 1px #DDD solid;
-  // background: linear-gradient(to right, lightgray 0%, white 10%, white 90%, lightgray 100%);
-}
-
 // ******************************* Swiper slide
 
-.swiper-container {
-  height: 100vh - 2vh;
+.component {
+  height: 100vh;
   @media only screen and (max-width: $breakpoint) {
-    height: 70vh - 2vh;
+    height: 100vh - $m-navHeight;
   }
+  padding: 0 0 1em 0;
+}
+
+.swiper-container {
+  height: 100%;
 }
 
 // ******************************* Desktop CSS
 
-.slide-page {
-  height: 100vh;
-  @media only screen and (max-width: $breakpoint) {
-    height: 70vh;
-  }
-}
 .ui.label{
-  border-radius: 0px;
-}
-
-.slide-item {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  overflow: hidden;
-  height: 100%;
-  // @include transition(transform .5s ease-in-out, z-index .3s ease-in-out);
-  transition: all .3s ease;
+  border-radius: 0;
 }
 
 .box {
@@ -151,7 +117,7 @@ export default {
   // ********************* 
   width: 100%;
   height: 100%;
-  background: linear-gradient(rgba(0,0,0, 0.5), rgba(0,0,0, 0.7));
+  background: radial-gradient(circle, rgba(0,0,0, 0.7), rgba(0,0,0, 0.5));
   overflow: hidden;
   .status, .status[data-v-5122aa90]{
     radius: 0px;
@@ -160,11 +126,11 @@ export default {
     border: 0px;
     font-size: 1.2rem;  
   },
+  .status,
   .title,
   .slogan,
   .ui.button {
     z-index: 10;
-    
   }
   .status {
     color: $step_color;
@@ -177,29 +143,15 @@ export default {
   .slogan {
     margin: .5em 0;
     font-size: 3rem;
+    @media only screen and (max-width: $breakpoint) {
+      font-size: 2rem;
+    }
     .sub.header {
       color: white;
       margin: 10px;
     }
-
-    @media only screen and (max-width: $breakpoint) {
-      font-size: 2rem;
-    }
     color: white;
-    
-    
-  }
-  .background {
-    
-    
-    text-shadow: 1px 3px 7px;
-    font-size: 0rem;
-    @media only screen and (max-width: $breakpoint) {
-      font-size: 20rem;
     }
-    position: absolute;
-    height: initial;
-  }
   .go-to {
     position: absolute;
     bottom: 3em;

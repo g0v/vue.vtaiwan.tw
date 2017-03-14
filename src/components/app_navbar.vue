@@ -204,17 +204,14 @@ form.search {
 
 // ************************* m-obile version
 
-// @media screen and (max-width: $breakpoint){
 nav.thin-only {
   box-shadow: lightgray 0 -10px 10px 10px;
-//   border-bottom: 1px solid #ccc;
 }
-// }
 
 .m-logo {
   width: 50%;
   margin: 0 auto;
-  height: 18vh;
+  height: $m-navHeight * 0.6;
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
@@ -233,7 +230,7 @@ nav.thin-only {
 }
 
 .menu {
-  height: 10vh;
+  height: $m-navHeight * 0.4;
   line-height: 10vh;
   display: flex;
   a.m-item, a.item {
