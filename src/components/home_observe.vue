@@ -6,32 +6,56 @@
 
   .ui.horizontal.divider
     i.world.icon 
-    |  Important Observations
+    |  Around the Globe
 
-  .ui.container  
-    .ui.centered.card(v-for="n in limitedItems", :item="allInfo")         
-      .content
-        .header
-          span.ui.header {{n.title}}
-      .content
-        .meta
-          span 
-           | 年度: {{n.year}}
-          span 
-           | 區域: {{n.region}}
-          span 
-           |  發佈日期: {{n.date}}      
-        .description 
-          p(v-html="n.content")       
-      .extra.content
-        .ui.teal.label {{n.category}}
-        .right.floated.author
-          a(:href="n.link", target='_blank') 
-           | {{n.organization}}
-    .ui.fluid.vertical.animated.button(@click='limitNumber += 2')      
-      .visible.content 
-        i.repeat.icon
-      .hidden.content 載入更多
+  
+  .ui.segment.fat-only
+      .ui.container  
+        .ui.centered.card(v-for="n in allInfo", :item="allInfo")         
+          .content
+            .header
+              span.ui.header {{n.title}}
+          .content
+            .meta
+              span 
+              | 年度: {{n.year}}
+              span 
+              | 區域: {{n.region}}
+              span 
+              |  發佈日期: {{n.date}}      
+            .description 
+              p(v-html="n.content")       
+          .extra.content
+            .ui.teal.label {{n.category}}
+            .right.floated.author
+              a(:href="n.link", target='_blank') 
+              | {{n.organization}}
+  .ui.segment.thin-only
+    .ui.container  
+        .ui.centered.card(v-for="n in limitedItems", :item="allInfo")         
+          .content
+            .header
+              span.ui.header {{n.title}}
+          .content
+            .meta
+              span 
+              | 年度: {{n.year}}
+              span 
+              | 區域: {{n.region}}
+              span 
+              |  發佈日期: {{n.date}}      
+            .description 
+              p(v-html="n.content")       
+          .extra.content
+            .ui.teal.label {{n.category}}
+            .right.floated.author
+              a(:href="n.link", target='_blank') 
+              | {{n.organization}}
+       
+      //- .ui.fluid.vertical.animated.button(@click='limitNumber += 2')      
+      //-   .visible.content 
+      //-     i.repeat.icon
+      //-   .hidden.content 載入更多    
 
 
 
@@ -67,7 +91,15 @@ export default {
 
 <style scoped lang="scss">
 @import "../sass/global.scss";
-
+.ui.segment{
+  height: 1000px;
+  width:1130px;
+  overflow: scroll;
+  margin: auto;
+}
+.ui.segment.thin-only{
+  width:auto;
+}
 .ui.centered.card{
   width: 100%;
   
