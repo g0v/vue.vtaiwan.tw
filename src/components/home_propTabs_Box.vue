@@ -105,6 +105,7 @@
     overflow: hidden;
     .content h3.ui.header {
       font-family: $main-font;
+      font-size: 150%;
     }
     .image{
       max-height: 12em;

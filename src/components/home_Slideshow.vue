@@ -17,14 +17,14 @@
               | {{item.title}}
               .sub.center.aligned.header
                 | {{item.slogan}}
-            router-link.ui.right.labeled.icon.teal.big.button(:to="'/topic/' + item.routeName")
+            router-link.go-inside.ui.right.labeled.icon.teal.big.button(:to="'/topic/' + item.routeName")
               i.right.arrow.icon
               p 進入議題
             //- i.square.icon.background
             button.go-to.ui.yellow.vertical.animated.button(@click="goAnchor('#proposaltab')")
-              .visible.content
-                p 還有更多議案
               .hidden.content
+                | 還有更多議案
+              .visible.content
                 i.down.arrow.icon
       
 </template>
@@ -129,7 +129,7 @@ export default {
   .status,
   .title,
   .slogan,
-  .ui.button {
+  .go-inside {
     z-index: 10;
   }
   .status {
@@ -151,11 +151,16 @@ export default {
       margin: 10px;
     }
     color: white;
-    }
+  }
+  .go-inside {
+    margin: 0 0 1em 0;
+  }
   .go-to {
+    width: 20ch;
     position: absolute;
     bottom: 3em;
     font-family: $main_font;
+    font-size: 60%;
   }
 }
 

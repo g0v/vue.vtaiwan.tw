@@ -1,7 +1,7 @@
 <template lang="jade">
   .component
 
-     .content(v-html = "slide.content")
+     .slide-iframe(v-html = "slide.content")
 
 </template>
 
@@ -50,7 +50,7 @@ export default {
 <style lang="scss">
 @import "../sass/global.scss";
 
-.content {
+.slide-iframe {
   margin: 0 auto;
   text-align: center;
   @media only screen and (max-width: $breakpoint){

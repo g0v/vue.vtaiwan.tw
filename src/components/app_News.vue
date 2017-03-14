@@ -9,43 +9,45 @@
     i.eye.icon 
     |  news
       
-  .swiper-container1.fat-only
-    .swiper-pagination                          
-    .swiper-wrapper
-      a.swiper-slide.ui.link.card(v-for="(n,idx) in allNews", :href="n.news_link", target='_blank')
-        .image
-          img(v-if="n.img_link != 'undefined'", :src="n.img_link")
-          img(v-else, src="../assets/vTaiwan_logo_2017.png")
-        .content
-          .header
-            h2 {{n.title}}
-          .description 
-            p.JQellipsis {{n.content}}
-        .extra.content
-            .ui.teal.label(v-for="t in n.tags") 
-              | {{t}}
-            .right.floated.author
-                a(:href="n.source_link", target='_blank') 
-                  | {{n.source}}
+  .ui.container
 
-  .swiper-container2.thin-only
-    .swiper-pagination
-    .swiper-wrapper
-      a.swiper-slide.ui.link.card(v-for="(n,idx) in allNews", :href="n.news_link", target='_blank')
-        .image
-          img(v-if="n.img_link != 'undefined'", :src="n.img_link")
-          img(v-else, src="../assets/vTaiwan_logo_2017.png")
-        .content
-          .header
-            h2 {{n.title}}
-          .description 
-            p.JQellipsis {{n.content}}
-        .extra.content
-            .ui.teal.label(v-for="t in n.tags") 
-              | {{t}}
-            .right.floated.author
-                a(:href="n.source_link", target='_blank') 
-                  | {{n.source}}
+    .swiper-container1.fat-only
+      .swiper-pagination                          
+      .swiper-wrapper
+        a.swiper-slide.ui.link.card(v-for="(n,idx) in allNews", :href="n.news_link", target='_blank')
+          .image
+            img(v-if="n.img_link != 'undefined'", :src="n.img_link")
+            img(v-else, src="../assets/vTaiwan_logo_2017.png")
+          .content
+            .header
+              h2 {{n.title}}
+            .description 
+              p.JQellipsis {{n.content}}
+          .extra.content
+              .ui.teal.label(v-for="t in n.tags") 
+                | {{t}}
+              .right.floated.author
+                  a(:href="n.source_link", target='_blank') 
+                    | {{n.source}}
+
+    .swiper-container2.thin-only
+      .swiper-pagination
+      .swiper-wrapper
+        a.swiper-slide.ui.link.card(v-for="(n,idx) in allNews", :href="n.news_link", target='_blank')
+          .image
+            img(v-if="n.img_link != 'undefined'", :src="n.img_link")
+            img(v-else, src="../assets/vTaiwan_logo_2017.png")
+          .content
+            .header
+              h2 {{n.title}}
+            .description 
+              p.JQellipsis {{n.content}}
+          .extra.content
+              .ui.teal.label(v-for="t in n.tags") 
+                | {{t}}
+              .right.floated.author
+                  a(:href="n.source_link", target='_blank') 
+                    | {{n.source}}
 
 
 </template>
@@ -104,9 +106,10 @@ export default {
 
 <style lang="scss" scoped>
 @import "../sass/global.scss";
-.component {
-  margin: 1em 20px;
-  padding: 0 0 2em 0;
+.ui.container {
+  margin: 1em auto;
+  padding: 5px 1px; /* to prevent overlapped border */
+  overflow: hidden;
 
   .ui.card{
     margin: 0;
@@ -121,11 +124,11 @@ export default {
         height: auto;
       }
     }
-    .description{
-      font-size: 80%;
+    .content {
+      font-size: 60%;
     }
     .extra .author{
-      font-size: 80%;
+      font-size: 50%;
     }
   }
 //   min-height: 72vh;
