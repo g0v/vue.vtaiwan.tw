@@ -1000,8 +1000,10 @@ body[data-v-84f59ea8] {
 }
 .ui.segment[data-v-84f59ea8] {
   height: 1000px;
-  width: 1130px;
-  overflow: scroll;
+  width: 1170px;
+  overflow-y: scroll;
+  /* has to be scroll, not auto */
+  -webkit-overflow-scrolling: touch;
   margin: auto;
 }
 .ui.segment.thin-only[data-v-84f59ea8] {
