@@ -36,10 +36,10 @@
             .right.floated.author
               a(:href="n.link", target='_blank') 
               | {{n.organization}}
+
   #mobile.ui.segment.thin-only
-    
     .ui.container  
-        .ui.centered.card(v-for="n in limitedItems", :item="allInfo")         
+        .ui.centered.card(v-for="n in allInfo", :item="allInfo")         
           .content
             .header
               span.ui.header {{n.title}}
@@ -127,11 +127,13 @@ export default {
   width:1170px;
   // overflow: scroll;
   overflow-y: scroll; /* has to be scroll, not auto */
-  -webkit-overflow-scrolling: touch;
+  // -webkit-overflow-scrolling: touch;
   margin: auto;
 }
 .ui.segment.thin-only{
   width:auto;
+  overflow-y: scroll; /* has to be scroll, not auto */
+  -webkit-overflow-scrolling: touch;
 }
 #gosticky{
   // text-align: left;
