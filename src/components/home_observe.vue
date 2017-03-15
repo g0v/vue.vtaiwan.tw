@@ -1,20 +1,15 @@
 <template lang="jade">
 .component
 
-  //- #loader2.ui.active.inverted.dimmer
-  //-   .ui.loader
-
   .ui.horizontal.divider
     i.world.icon 
     |  Around the Globe
-  #gosticky.ui.sticky.thin-only
-      button.go-to.ui.yellow.vertical.animated.button(@click.prevent="goAnchor('#footer')")
-        .visible.content
-        | 點我至頁尾
-        .hidden.content
-        i.down.arrow.icon  
-  
 
+  #gosticky.ui.sticky.thin-only
+      #godown.button.ui.yellow.vertical.button(@click.prevent="goAnchor('#footer')")
+        p 點我至頁尾
+          i.down.arrow.icon  
+  
   #desktop.ui.segment.fat-only
       .ui.container  
         .ui.centered.card(v-for="n in allInfo", :item="allInfo")         
@@ -38,7 +33,6 @@
               | {{n.organization}}
 
   #mobile.ui.segment.thin-only
-    
     .ui.container  
         .ui.centered.card(v-for="n in allInfo", :item="allInfo")         
           .content
@@ -60,14 +54,7 @@
               a(:href="n.link", target='_blank') 
               | {{n.organization}}
       #goTop.button.ui.icon.yellow.button(@click.prevent="goAnchor('top')")
-          i.long.arrow.up.icon     
-      //- .ui.fluid.vertical.animated.button(@click='limitNumber += 2')      
-      //-   .visible.content 
-      //-     i.repeat.icon
-      //-   .hidden.content 載入更多    
-
-
-
+          i.long.arrow.up.icon        
 
 </template>
 
@@ -112,13 +99,22 @@ export default {
       context: "#mobile",
       pushing: true,
       observeChanges: true,
-      // silent: true
+      silent:true
     });
     $(window).scroll(function() {
         if ( $(this).scrollTop() > 600){
             $('#mobile').fadeIn("fast");
-        } else {
+        } 
+        else {
             $('#mobile').stop().fadeOut("fast");
+        }
+        /* when press the godown button to the bottom of the page, hide the button */
+        if($(window).scrollTop() + $(window).height() == $(document).height()) { 
+          $('#godown').stop().fadeOut("fast");
+        }
+        /* scroll top again, then the button reveals itself again */
+        else{
+          $('#godown').fadeIn("fast");
         }
     });
     this.items = this.allInfo;
@@ -131,37 +127,45 @@ export default {
 
 <style scoped lang="scss">
 @import "../sass/global.scss";
+
 .ui.segment{
   height: 1000px;
   width:1170px;
   overflow-y: scroll; 
   margin: auto;
 }
-.ui.segment.thin-only{
+
+#mobile.thin-only{
   width:auto;
   overflow-y: scroll; 
   -webkit-overflow-scrolling: touch;
-}
-#gosticky{
-  button{
+  #goTop{
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    width: 40px;
+    height:40px;
+    padding: 10px 15px;    
+    font-size: 20px;
+    border-radius: 50px;
+    cursor: pointer;
     opacity: 0.8;
+    z-index: 20;
+    i.long.arrow.up.icon{
+      width: auto;
+    }
   }
 }
-#goTop{
-  position: fixed;
-  right: 30px;
-  bottom: 30px;
-  width: 40px;
-  height:40px;
-  padding: 10px 15px;    
-  font-size: 20px;
-  border-radius: 50px;
-  cursor: pointer;
-  opacity: 0.8;
-  i.long.arrow.up.icon{
-    width: auto;
+
+#gosticky{
+  margin-bottom: 5px;
+  #godown.button{
+    opacity: 0.8;
+    font-family: $main_font;
+    padding: 10px;
   }
 }
+
 .ui.centered.card{
   width: 100%;
   
@@ -180,8 +184,5 @@ export default {
     font-size: 1.5rem;
   }
 }
-.ui.button{
-    font-family: $main_font;
-    // font-size:80%;
-  }
+
 </style>
