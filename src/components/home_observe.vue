@@ -124,8 +124,10 @@ export default {
 @import "../sass/global.scss";
 .ui.segment{
   height: 1000px;
-  width:1130px;
-  overflow: scroll;
+  width:1170px;
+  // overflow: scroll;
+  overflow-y: scroll; /* has to be scroll, not auto */
+  -webkit-overflow-scrolling: touch;
   margin: auto;
 }
 .ui.segment.thin-only{
