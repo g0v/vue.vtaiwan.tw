@@ -15,7 +15,7 @@
         i.down.arrow.icon  
   
 
-  .ui.segment.fat-only
+  #desktop.ui.segment.fat-only
       .ui.container  
         .ui.centered.card(v-for="n in allInfo", :item="allInfo")         
           .content
@@ -38,6 +38,7 @@
               | {{n.organization}}
 
   #mobile.ui.segment.thin-only
+    
     .ui.container  
         .ui.centered.card(v-for="n in allInfo", :item="allInfo")         
           .content
@@ -58,7 +59,8 @@
             .right.floated.author
               a(:href="n.link", target='_blank') 
               | {{n.organization}}
-       
+      #goTop.button.ui.icon.yellow.button(@click.prevent="goAnchor('top')")
+          i.long.arrow.up.icon     
       //- .ui.fluid.vertical.animated.button(@click='limitNumber += 2')      
       //-   .visible.content 
       //-     i.repeat.icon
@@ -111,7 +113,14 @@ export default {
       pushing: true,
       observeChanges: true,
       // silent: true
-    })
+    });
+    $(window).scroll(function() {
+        if ( $(this).scrollTop() > 600){
+            $('#mobile').fadeIn("fast");
+        } else {
+            $('#mobile').stop().fadeOut("fast");
+        }
+    });
     this.items = this.allInfo;
   },
   created: function(){
@@ -125,21 +134,32 @@ export default {
 .ui.segment{
   height: 1000px;
   width:1170px;
-  // overflow: scroll;
-  overflow-y: scroll; /* has to be scroll, not auto */
-  // -webkit-overflow-scrolling: touch;
+  overflow-y: scroll; 
   margin: auto;
 }
 .ui.segment.thin-only{
   width:auto;
-  overflow-y: scroll; /* has to be scroll, not auto */
+  overflow-y: scroll; 
   -webkit-overflow-scrolling: touch;
 }
 #gosticky{
-  // text-align: left;
   button{
     opacity: 0.8;
-    // margin-bottom: 10px;
+  }
+}
+#goTop{
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  width: 40px;
+  height:40px;
+  padding: 10px 15px;    
+  font-size: 20px;
+  border-radius: 50px;
+  cursor: pointer;
+  opacity: 0.8;
+  i.long.arrow.up.icon{
+    width: auto;
   }
 }
 .ui.centered.card{
