@@ -13647,19 +13647,6 @@ var main = __webpack_require__(20);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ exports["default"] = {
@@ -13698,7 +13685,8 @@ var main = __webpack_require__(20);
     $("#gosticky.ui.sticky").sticky({
       context: "#mobile",
       pushing: true,
-      observeChanges: true
+      observeChanges: true,
+      silent: true
     });
     $(window).scroll(function () {
       if ($(this).scrollTop() > 600) {
@@ -13706,6 +13694,14 @@ var main = __webpack_require__(20);
       } else {
         $('#mobile').stop().fadeOut("fast");
       }
+      /* when press the godown button to the bottom of the page, hide the button */
+      if ($(window).scrollTop() + $(window).height() == $(document).height()) {
+        $('#godown').stop().fadeOut("fast");
+      }
+      /* scroll top again, then the button reveals itself again */
+      else {
+          $('#godown').fadeIn("fast");
+        }
     });
     this.items = this.allInfo;
   },
@@ -14241,7 +14237,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n*[data-v-84f59ea8] {\n  box-sizing: border-box;\n}\nbody[data-v-84f59ea8] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter[data-v-84f59ea8],\n.fade-leave-active[data-v-84f59ea8] {\n  opacity: 0;\n}\n.fade-leave-active[data-v-84f59ea8],\n.fade-enter-active[data-v-84f59ea8] {\n  transition: opacity .3s ease;\n}\n.component[data-v-84f59ea8] {\n  position: relative;\n}\n.component h1[data-v-84f59ea8], .component h2[data-v-84f59ea8], .component h3[data-v-84f59ea8], .component h4[data-v-84f59ea8], .component h5[data-v-84f59ea8], .component h6[data-v-84f59ea8], .component p[data-v-84f59ea8] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-84f59ea8], .component h2 a[data-v-84f59ea8], .component h3 a[data-v-84f59ea8], .component h4 a[data-v-84f59ea8], .component h5 a[data-v-84f59ea8], .component h6 a[data-v-84f59ea8], .component p a[data-v-84f59ea8] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-84f59ea8] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-84f59ea8] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-84f59ea8] {\n    display: none !important;\n}\n}\n.ui.segment[data-v-84f59ea8] {\n  height: 1000px;\n  width: 1170px;\n  overflow-y: scroll;\n  margin: auto;\n}\n.ui.segment.thin-only[data-v-84f59ea8] {\n  width: auto;\n  overflow-y: scroll;\n  -webkit-overflow-scrolling: touch;\n}\n#gosticky button[data-v-84f59ea8] {\n  opacity: 0.8;\n}\n#goTop[data-v-84f59ea8] {\n  position: fixed;\n  right: 30px;\n  bottom: 30px;\n  width: 40px;\n  height: 40px;\n  padding: 10px 15px;\n  font-size: 20px;\n  border-radius: 50px;\n  cursor: pointer;\n  opacity: 0.8;\n}\n#goTop i.long.arrow.up.icon[data-v-84f59ea8] {\n    width: auto;\n}\n.ui.centered.card[data-v-84f59ea8] {\n  width: 100%;\n}\n.ui.centered.card .ui.raised.segment[data-v-84f59ea8] {\n    border: none;\n    box-shadow: none;\n}\n.ui.centered.card .header[data-v-84f59ea8] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.ui.centered.card .ui.teal.ribbon.label[data-v-84f59ea8] {\n    bottom: 0.3rem;\n}\n.ui.centered.card .description[data-v-84f59ea8] {\n    text-indent: 42px;\n    font-size: 1.5rem;\n}\n.ui.button[data-v-84f59ea8] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n", ""]);
+exports.push([module.i, "\n*[data-v-84f59ea8] {\n  box-sizing: border-box;\n}\nbody[data-v-84f59ea8] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter[data-v-84f59ea8],\n.fade-leave-active[data-v-84f59ea8] {\n  opacity: 0;\n}\n.fade-leave-active[data-v-84f59ea8],\n.fade-enter-active[data-v-84f59ea8] {\n  transition: opacity .3s ease;\n}\n.component[data-v-84f59ea8] {\n  position: relative;\n}\n.component h1[data-v-84f59ea8], .component h2[data-v-84f59ea8], .component h3[data-v-84f59ea8], .component h4[data-v-84f59ea8], .component h5[data-v-84f59ea8], .component h6[data-v-84f59ea8], .component p[data-v-84f59ea8] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-84f59ea8], .component h2 a[data-v-84f59ea8], .component h3 a[data-v-84f59ea8], .component h4 a[data-v-84f59ea8], .component h5 a[data-v-84f59ea8], .component h6 a[data-v-84f59ea8], .component p a[data-v-84f59ea8] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-84f59ea8] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-84f59ea8] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-84f59ea8] {\n    display: none !important;\n}\n}\n.ui.segment[data-v-84f59ea8] {\n  height: 1000px;\n  width: 1170px;\n  overflow-y: scroll;\n  margin: auto;\n}\n#mobile.thin-only[data-v-84f59ea8] {\n  width: auto;\n  overflow-y: scroll;\n  -webkit-overflow-scrolling: touch;\n}\n#mobile.thin-only #goTop[data-v-84f59ea8] {\n    position: fixed;\n    right: 30px;\n    bottom: 30px;\n    width: 40px;\n    height: 40px;\n    padding: 10px 15px;\n    font-size: 20px;\n    border-radius: 50px;\n    cursor: pointer;\n    opacity: 0.8;\n    z-index: 20;\n}\n#mobile.thin-only #goTop i.long.arrow.up.icon[data-v-84f59ea8] {\n      width: auto;\n}\n#gosticky[data-v-84f59ea8] {\n  margin-bottom: 5px;\n}\n#gosticky #godown.button[data-v-84f59ea8] {\n    opacity: 0.8;\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n    padding: 10px;\n}\n.ui.centered.card[data-v-84f59ea8] {\n  width: 100%;\n}\n.ui.centered.card .ui.raised.segment[data-v-84f59ea8] {\n    border: none;\n    box-shadow: none;\n}\n.ui.centered.card .header[data-v-84f59ea8] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.ui.centered.card .ui.teal.ribbon.label[data-v-84f59ea8] {\n    bottom: 0.3rem;\n}\n.ui.centered.card .description[data-v-84f59ea8] {\n    text-indent: 42px;\n    font-size: 1.5rem;\n}\n", ""]);
 
 // exports
 
@@ -16252,15 +16248,18 @@ module.exports={render:function (){with(this) {
     attrs: {
       "id": "gosticky"
     }
-  }, [_h('button', {
-    staticClass: "go-to ui yellow vertical animated button",
+  }, [_h('div', {
+    staticClass: "button ui yellow vertical button",
+    attrs: {
+      "id": "godown"
+    },
     on: {
       "click": function($event) {
         $event.preventDefault();
         goAnchor('#footer')
       }
     }
-  }, [_m(1), "點我至頁尾", _m(2), _m(3)])]), _h('div', {
+  }, [_m(1)])]), _h('div', {
     staticClass: "ui segment fat-only",
     attrs: {
       "id": "desktop"
@@ -16283,7 +16282,7 @@ module.exports={render:function (){with(this) {
       staticClass: "content"
     }, [_h('div', {
       staticClass: "meta"
-    }, [_m(4, true), "年度: " + _s(n.year), _m(5, true), "區域: " + _s(n.region), _m(6, true), " 發佈日期: " + _s(n.date) + "      "]), _h('div', {
+    }, [_m(2, true), "年度: " + _s(n.year), _m(3, true), "區域: " + _s(n.region), _m(4, true), " 發佈日期: " + _s(n.date) + "      "]), _h('div', {
       staticClass: "description"
     }, [_h('p', {
       domProps: {
@@ -16324,7 +16323,7 @@ module.exports={render:function (){with(this) {
       staticClass: "content"
     }, [_h('div', {
       staticClass: "meta"
-    }, [_m(7, true), "年度: " + _s(n.year), _m(8, true), "區域: " + _s(n.region), _m(9, true), " 發佈日期: " + _s(n.date) + "      "]), _h('div', {
+    }, [_m(5, true), "年度: " + _s(n.year), _m(6, true), "區域: " + _s(n.region), _m(7, true), " 發佈日期: " + _s(n.date) + "      "]), _h('div', {
       staticClass: "description"
     }, [_h('p', {
       domProps: {
@@ -16353,7 +16352,7 @@ module.exports={render:function (){with(this) {
         goAnchor('top')
       }
     }
-  }, [_m(10)])])])
+  }, [_m(8)])])])
 }},staticRenderFns: [function (){with(this) {
   return _h('div', {
     staticClass: "ui horizontal divider"
@@ -16361,17 +16360,9 @@ module.exports={render:function (){with(this) {
     staticClass: "world icon"
   }), " Around the Globe"])
 }},function (){with(this) {
-  return _h('div', {
-    staticClass: "visible content"
-  })
-}},function (){with(this) {
-  return _h('div', {
-    staticClass: "hidden content"
-  })
-}},function (){with(this) {
-  return _h('i', {
+  return _h('p', ["點我至頁尾", _h('i', {
     staticClass: "down arrow icon"
-  })
+  })])
 }},function (){with(this) {
   return _h('span')
 }},function (){with(this) {

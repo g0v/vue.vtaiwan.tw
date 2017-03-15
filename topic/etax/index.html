@@ -1004,28 +1004,34 @@ body[data-v-84f59ea8] {
   overflow-y: scroll;
   margin: auto;
 }
-.ui.segment.thin-only[data-v-84f59ea8] {
+#mobile.thin-only[data-v-84f59ea8] {
   width: auto;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
 }
-#gosticky button[data-v-84f59ea8] {
-  opacity: 0.8;
+#mobile.thin-only #goTop[data-v-84f59ea8] {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    width: 40px;
+    height: 40px;
+    padding: 10px 15px;
+    font-size: 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    opacity: 0.8;
+    z-index: 20;
 }
-#goTop[data-v-84f59ea8] {
-  position: fixed;
-  right: 30px;
-  bottom: 30px;
-  width: 40px;
-  height: 40px;
-  padding: 10px 15px;
-  font-size: 20px;
-  border-radius: 50px;
-  cursor: pointer;
-  opacity: 0.8;
+#mobile.thin-only #goTop i.long.arrow.up.icon[data-v-84f59ea8] {
+      width: auto;
 }
-#goTop i.long.arrow.up.icon[data-v-84f59ea8] {
-    width: auto;
+#gosticky[data-v-84f59ea8] {
+  margin-bottom: 5px;
+}
+#gosticky #godown.button[data-v-84f59ea8] {
+    opacity: 0.8;
+    font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
+    padding: 10px;
 }
 .ui.centered.card[data-v-84f59ea8] {
   width: 100%;
@@ -1043,9 +1049,6 @@ body[data-v-84f59ea8] {
 .ui.centered.card .description[data-v-84f59ea8] {
     text-indent: 42px;
     font-size: 1.5rem;
-}
-.ui.button[data-v-84f59ea8] {
-  font-family: Roboto, "Microsoft JhengHei", "Heiti TC", sans-serif;
 }
 </style><style type="text/css">
 *[data-v-27dbf9ac] {
