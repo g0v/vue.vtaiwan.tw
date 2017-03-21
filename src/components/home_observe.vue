@@ -23,7 +23,7 @@
               span 
               | 區域: {{n.region}}
               span 
-              |  發佈日期: {{n.date}}      
+              |  發佈日期: {{n.publish_date}}      
             .description 
               p(v-html="n.content")       
           .extra.content
@@ -45,7 +45,7 @@
               span 
               | 區域: {{n.region}}
               span 
-              |  發佈日期: {{n.date}}      
+              |  發佈日期: {{n.publish_date}}      
             .description 
               p(v-html="n.content")       
           .extra.content

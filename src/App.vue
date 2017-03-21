@@ -164,7 +164,7 @@ export default {
     .then((response)=>{
       var info = response.data;
       info = info['post_stream']['posts'].slice(1);
-
+      console.log(info)
       info.forEach((post)=>{
         var tmp ={};
         post = post['raw'].split("<br>");
@@ -175,12 +175,12 @@ export default {
         tmp['author'] = post[6].substring(3);
         tmp['organization'] = post[7].split("\n")[0].substring(10);
         tmp['link'] = post[7].split("\n")[2];
-        tmp['date'] = post[8].substring(5);
+        tmp['publish_date'] = post[8].substring(5);
         tmp['content'] = post[10];
         this.allInfo.push(tmp);
-      })
-      this.allInfo.sort(function(a,b){
-        return new Date(b.date).getTime() - new Date(a.date).getTime();
+        this.allInfo.sort(function(a,b){
+          return new Date(b.publish_date).getTime() - new Date(a.publish_date).getTime();
+        })
       })
     })
 
