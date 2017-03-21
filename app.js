@@ -11647,7 +11647,7 @@ module.exports = function spread(callback) {
     .then(function (response) {
       var info = response.data;
       info = info['post_stream']['posts'].slice(1);
-
+      console.log(info);
       info.forEach(function (post) {
         var tmp = {};
         post = post['raw'].split("<br>");
@@ -11658,12 +11658,12 @@ module.exports = function spread(callback) {
         tmp['author'] = post[6].substring(3);
         tmp['organization'] = post[7].split("\n")[0].substring(10);
         tmp['link'] = post[7].split("\n")[2];
-        tmp['date'] = post[8].substring(5);
+        tmp['publish_date'] = post[8].substring(5);
         tmp['content'] = post[10];
         _this.allInfo.push(tmp);
-      });
-      _this.allInfo.sort(function (a, b) {
-        return new Date(b.date).getTime() - new Date(a.date).getTime();
+        _this.allInfo.sort(function (a, b) {
+          return new Date(b.publish_date).getTime() - new Date(a.publish_date).getTime();
+        });
       });
     });
   }
@@ -16282,7 +16282,7 @@ module.exports={render:function (){with(this) {
       staticClass: "content"
     }, [_h('div', {
       staticClass: "meta"
-    }, [_m(2, true), "年度: " + _s(n.year), _m(3, true), "區域: " + _s(n.region), _m(4, true), " 發佈日期: " + _s(n.date) + "      "]), _h('div', {
+    }, [_m(2, true), "年度: " + _s(n.year), _m(3, true), "區域: " + _s(n.region), _m(4, true), " 發佈日期: " + _s(n.publish_date) + "      "]), _h('div', {
       staticClass: "description"
     }, [_h('p', {
       domProps: {
@@ -16323,7 +16323,7 @@ module.exports={render:function (){with(this) {
       staticClass: "content"
     }, [_h('div', {
       staticClass: "meta"
-    }, [_m(5, true), "年度: " + _s(n.year), _m(6, true), "區域: " + _s(n.region), _m(7, true), " 發佈日期: " + _s(n.date) + "      "]), _h('div', {
+    }, [_m(5, true), "年度: " + _s(n.year), _m(6, true), "區域: " + _s(n.region), _m(7, true), " 發佈日期: " + _s(n.publish_date) + "      "]), _h('div', {
       staticClass: "description"
     }, [_h('p', {
       domProps: {
