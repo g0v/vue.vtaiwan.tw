@@ -174,7 +174,7 @@ export default {
         tmp['year'] = post[5].substring(3);
         tmp['author'] = post[6].substring(3);
         tmp['organization'] = post[7].split("\n")[0].substring(10);
-        tmp['link'] = post[7].split("\n")[2];
+        tmp['link'] = post[7].split("\n\n")[1];
         tmp['publish_date'] = post[8].substring(5).match(reg)[0];
         tmp['content'] = post[10];
         this.allInfo.push(tmp);

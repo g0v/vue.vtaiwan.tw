@@ -27,8 +27,7 @@
               .ui.teal.label(v-for="t in n.tags") 
                 | {{t}}
               .right.floated.author
-                  a(:href="n.source_link", target='_blank') 
-                    | {{n.source}}
+                | {{n.source}}
 
     .swiper-container2.thin-only
       .swiper-pagination

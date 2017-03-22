@@ -30,8 +30,7 @@
             .ui.teal.label {{n.category}}
             .right.floated.author
               a(:href="n.link", target='_blank') 
-              | {{n.organization}}
-
+                  | {{n.organization}} 
   #mobile.ui.segment.thin-only
     .ui.container  
         .ui.centered.card(v-for="n in allInfo", :item="allInfo")         
