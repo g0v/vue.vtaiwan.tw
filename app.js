@@ -13688,17 +13688,17 @@ var main = __webpack_require__(20);
     });
     $(window).scroll(function () {
       if ($(this).scrollTop() > 600) {
-        $('#mobile').fadeIn("fast");
+        $('#mobile').fadeIn("slow");
       } else {
-        $('#mobile').stop().fadeOut("fast");
+        $('#mobile').stop().fadeOut("slow");
       }
       /* when press the godown button to the bottom of the page, hide the button */
       if ($(window).scrollTop() + $(window).height() == $(document).height()) {
-        $('#godown').stop().fadeOut("fast");
+        $('#godown').stop().fadeOut("slow");
       }
       /* scroll top again, then the button reveals itself again */
       else {
-          $('#godown').fadeIn("fast");
+          $('#godown').fadeIn("slow");
         }
     });
     this.items = this.allInfo;
