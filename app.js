@@ -11657,7 +11657,7 @@ module.exports = function spread(callback) {
         tmp['year'] = post[5].substring(3);
         tmp['author'] = post[6].substring(3);
         tmp['organization'] = post[7].split("\n")[0].substring(10);
-        tmp['link'] = post[7].split("\n")[2];
+        tmp['link'] = post[7].split("\n\n")[1];
         tmp['publish_date'] = post[8].substring(5).match(reg)[0];
         tmp['content'] = post[10];
         _this.allInfo.push(tmp);
@@ -13080,7 +13080,6 @@ var main = __webpack_require__(20);
 //
 //
 //
-//
 
 /* harmony default export */ exports["default"] = {
   name: 'News',
@@ -13586,7 +13585,6 @@ var main = __webpack_require__(20);
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-//
 //
 //
 //
@@ -15347,12 +15345,7 @@ module.exports={render:function (){with(this) {
       }, [" \n" + _s(t)])
     }), _h('div', {
       staticClass: "right floated author"
-    }, [_h('a', {
-      attrs: {
-        "href": n.source_link,
-        "target": "_blank"
-      }
-    }, [" \n" + _s(n.source)])])])])
+    }, [_s(n.source)])])])
   })])]), _h('div', {
     staticClass: "swiper-container2 thin-only"
   }, [_m(3), _h('div', {
@@ -16299,7 +16292,7 @@ module.exports={render:function (){with(this) {
         "href": n.link,
         "target": "_blank"
       }
-    }), _s(n.organization)])])])
+    }, [" \n" + _s(n.organization) + " "])])])])
   })])]), _h('div', {
     staticClass: "ui segment thin-only",
     attrs: {
