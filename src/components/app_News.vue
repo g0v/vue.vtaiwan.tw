@@ -38,7 +38,7 @@
             img(v-else, src="../assets/vTaiwan_logo_2017.png")
           .content
             .header
-              h2 {{n.title}}
+              h3 {{n.title}}
             .description 
               p.JQellipsis {{n.content}}
           .extra.content
@@ -124,7 +124,7 @@ export default {
       }
     }
     .content {
-      font-size: 60%;
+      font-size: 1rem;
       text-align: justify;
     }
     .extra .author{

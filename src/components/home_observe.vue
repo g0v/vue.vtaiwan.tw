@@ -27,7 +27,7 @@
         a.swiper-slide.ui.link.card(v-for="(n,idx) in allInfo", data-fancybox='', data-src="#hidden-content-2", href="javascript:;", v-on:click ="myTitle = n.title")
           .content
             .header
-              h2 {{n.title}}
+              h3 {{n.title}}
           .content
             .meta
               span {{n.publish_date}}     
@@ -142,8 +142,8 @@ export default {
   .ui.card{
     margin: 0;
     .content {
-      font-size: 60%;
-      text-align: justify;
+      font-size: 1rem;
+      text-align: justify; 
     }
     .extra .author{
       font-size: 50%;
