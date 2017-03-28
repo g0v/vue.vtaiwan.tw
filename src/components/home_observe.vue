@@ -4,73 +4,69 @@
   .ui.horizontal.divider
     i.world.icon 
     |  Around the Globe
-
-  #gosticky.ui.sticky.thin-only
-      #godown.button.ui.yellow.vertical.button(@click.prevent="goAnchor('#footer')")
-        p 點我至頁尾
-          i.down.arrow.icon  
-  
-  #desktop.ui.segment.fat-only
-      .ui.container  
-        .ui.centered.card(v-for="n in allInfo", :item="allInfo")         
+    
+  .ui.container
+    
+    .swiper-container3.fat-only
+      .swiper-pagination
+      .swiper-wrapper
+        a.swiper-slide.ui.link.card(v-for="(n,idx) in allInfo", data-fancybox='', data-src="#hidden-content", href="javascript:;", v-on:click ="myTitle = n.title")
           .content
             .header
-              span.ui.header {{n.title}}
+              h2 {{n.title}}
           .content
             .meta
-              span 
-              | 年度: {{n.year}}
-              span 
-              | 區域: {{n.region}}
-              span 
-              |  發佈日期: {{n.publish_date}}      
+              span
+              | {{n.publish_date}}     
             .description 
-              p(v-html="n.content")       
-          .extra.content
-            .ui.teal.label {{n.category}}
-            .right.floated.author
-              a(:href="n.link", target='_blank') 
-                  | {{n.organization}} 
-  #mobile.ui.segment.thin-only
-    .ui.container  
-        .ui.centered.card(v-for="n in allInfo", :item="allInfo")         
+              p.JQellipsis(v-html="n.content")       
+          #hidden-content(style='display: none;')    
+            fancy(:locate="locate") 
+    #mobile.swiper-container4.thin-only
+      .swiper-pagination
+      .swiper-wrapper
+        a.swiper-slide.ui.link.card(v-for="(n,idx) in allInfo", data-fancybox='', data-src="#hidden-content-2", href="javascript:;", v-on:click ="myTitle = n.title")
           .content
             .header
-              span.ui.header {{n.title}}
+              h2 {{n.title}}
           .content
             .meta
-              span 
-              | 年度: {{n.year}}
-              span 
-              | 區域: {{n.region}}
-              span 
-              |  發佈日期: {{n.publish_date}}      
+              span
+              | {{n.publish_date}}     
             .description 
-              p(v-html="n.content")       
-          .extra.content
-            .ui.teal.label {{n.category}}
-            .right.floated.author
-              a(:href="n.link", target='_blank') 
-              | {{n.organization}}
+              p.JQellipsis(v-html="n.content")       
+          #hidden-content-2(style='display: none;')    
+            fancy(:locate="locate")
       #goTop.button.ui.icon.yellow.button(@click.prevent="goAnchor('top')")
-          i.long.arrow.up.icon        
-
+          i.long.arrow.up.icon     
 </template>
 
 
 <script>
-
+import fancy from "./fancybox.vue"
 
 export default {
   name: 'observe',
   props:['allInfo'],
+  components:{
+    fancy
+  },
   data () {
     return{
-      limitNumber:2,
-      items:[]
+      myTitle:""
     }
   },
   methods:{
+    ellipsis: function(){
+        var len = 80; // 超過50個字以"..."取代
+        $(".JQellipsis").each(function(i){
+        if($(this).text().length>len){
+            $(this).attr("title",$(this).text());
+            var text=$(this).text().substring(0,len-1)+"...";
+            $(this).text(text);
+            }
+        });
+    },
     goAnchor: function(anchor){
       if(anchor == "top"){
         /* go to top */
@@ -88,18 +84,35 @@ export default {
       }
     }
   },
-  computed: {
-    limitedItems() {
-      return this.items.slice(0,this.limitNumber)
-    }
+  updated:function() {
+    this.ellipsis();
   },
   mounted: function () {
-    $("#gosticky.ui.sticky").sticky({
-      context: "#mobile",
-      pushing: true,
-      observeChanges: true,
-      silent:true
-    });
+    setTimeout(function(){
+      /* initialize swiper when document ready */
+      var mySwiper3 = new Swiper ('.swiper-container3', {
+        observer: true,
+        direction: 'horizontal',
+        pagination: '.swiper-pagination',
+        paginationType: 'fraction',
+        slidesPerView: 4,
+        autoplay: 5000,
+        paginationClickable: true,
+        spaceBetween: 20,
+        grabCursor: true,
+      })
+      var mySwiper4 = new Swiper ('.swiper-container4', {
+        observer: true,
+        autoplay: 5000,
+        direction: 'horizontal',
+        pagination: '.swiper-pagination',
+        paginationType: 'fraction',
+        paginationClickable: true,
+        spaceBetween: 20,
+      })
+      mySwiper3.on('Init', this.ellipsis)
+      mySwiper4.on('Init', this.ellipsis)
+    }, 1000)
     $(window).scroll(function() {
         if ( $(this).scrollTop() > 600){
             $('#mobile').fadeIn("slow");
@@ -107,38 +120,38 @@ export default {
         else {
             $('#mobile').stop().fadeOut("slow");
         }
-        /* when press the godown button to the bottom of the page, hide the button */
-        if($(window).scrollTop() + $(window).height() == $(document).height()) { 
-          $('#godown').stop().fadeOut("slow");
-        }
-        /* scroll top again, then the button reveals itself again */
-        else{
-          $('#godown').fadeIn("slow");
-        }
     });
-    this.items = this.allInfo;
   },
-  created: function(){
-     this.items = this.allInfo; 
+  computed: {
+    locate: function(){
+        var t = this.allInfo.filter( (o)=> {
+          return o.title == this.myTitle;
+        })[0];
+        if(t===undefined){return new Object()}
+        else{return t};
+    }
   }
 }
 </script>
 
 <style scoped lang="scss">
 @import "../sass/global.scss";
+.ui.container {
+  margin: 1em auto;
+  padding: 5px 1px; /* to prevent overlapped border */
+  overflow: hidden;
 
-.ui.segment{
-  height: 1000px;
-  width:1170px;
-  overflow-y: scroll; 
-  margin: auto;
+  .ui.card{
+    margin: 0;
+    .content {
+      font-size: 60%;
+    }
+    .extra .author{
+      font-size: 50%;
+    }
+  }
 }
-
-#mobile.thin-only{
-  width:auto;
-  overflow-y: scroll; 
-  -webkit-overflow-scrolling: touch;
-  #goTop{
+#goTop{
     position: fixed;
     right: 30px;
     bottom: 30px;
@@ -153,35 +166,41 @@ export default {
     i.long.arrow.up.icon{
       width: auto;
     }
-  }
 }
+#hidden-content {
 
-#gosticky{
-  margin-bottom: 5px;
-  #godown.button{
-    opacity: 0.8;
-    font-family: $main_font;
-    padding: 10px;
-  }
-}
-
-.ui.centered.card{
-  width: 100%;
+    width:70%;
+		padding: 15px 40px 15px 32px;
+		border-radius: 4px;
   
-  .ui.raised.segment{
-    border: none;
-    box-shadow: none;
+    /* Custom transition - fade from top*/
+		opacity: 0;
+    transform: translateY(-50px);
+    transition: all .5s;
+	}
+  .ui.centered.card{
+    margin: auto;
+    width: auto;
+    height: auto;
   }
-  .header{
-    font-family: $main_font;
-  }
-  .ui.teal.ribbon.label{
-    bottom: 0.3rem;
-  }
-  .description{
-    text-indent: 42px;
-    font-size: 1.5rem;
-  }
+	.fancybox-slide--complete #hidden-content {
+		opacity: 1;
+		transform: translateY(0);
+}
+#hidden-content-2 {
+
+    width:98%;
+		padding: 15px 40px 15px 32px;
+		border-radius: 4px;
+  
+    /* Custom transition - fade from top*/
+		opacity: 0;
+    transform: translateY(-50px);
+    transition: all .5s;
+	}
+	.fancybox-slide--complete #hidden-content-2 {
+		opacity: 1;
+		transform: translateY(0);
 }
 
 </style>
