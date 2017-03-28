@@ -13669,8 +13669,6 @@ var main = __webpack_require__(20);
 //
 //
 //
-//
-//
 
 
 
@@ -14111,7 +14109,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n*[data-v-1ffe16c1] {\n  box-sizing: border-box;\n}\nbody[data-v-1ffe16c1] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter[data-v-1ffe16c1],\n.fade-leave-active[data-v-1ffe16c1] {\n  opacity: 0;\n}\n.fade-leave-active[data-v-1ffe16c1],\n.fade-enter-active[data-v-1ffe16c1] {\n  transition: opacity .3s ease;\n}\n.component[data-v-1ffe16c1] {\n  position: relative;\n}\n.component h1[data-v-1ffe16c1], .component h2[data-v-1ffe16c1], .component h3[data-v-1ffe16c1], .component h4[data-v-1ffe16c1], .component h5[data-v-1ffe16c1], .component h6[data-v-1ffe16c1], .component p[data-v-1ffe16c1] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-1ffe16c1], .component h2 a[data-v-1ffe16c1], .component h3 a[data-v-1ffe16c1], .component h4 a[data-v-1ffe16c1], .component h5 a[data-v-1ffe16c1], .component h6 a[data-v-1ffe16c1], .component p a[data-v-1ffe16c1] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-1ffe16c1] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-1ffe16c1] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-1ffe16c1] {\n    display: none !important;\n}\n}\n.ui.container[data-v-1ffe16c1] {\n  margin: 1em auto;\n  padding: 5px 1px;\n  /* to prevent overlapped border */\n  overflow: hidden;\n}\n.ui.container .ui.card[data-v-1ffe16c1] {\n    margin: 0;\n}\n.ui.container .ui.card .image[data-v-1ffe16c1] {\n      max-height: 12em;\n      overflow: hidden;\n}\n.ui.container .ui.card .image img[data-v-1ffe16c1] {\n        margin: auto;\n        max-width: 100%;\n        max-height: 100%;\n        width: auto;\n        height: auto;\n}\n.ui.container .ui.card .content[data-v-1ffe16c1] {\n      font-size: 60%;\n}\n.ui.container .ui.card .extra .author[data-v-1ffe16c1] {\n      font-size: 50%;\n}\n", ""]);
+exports.push([module.i, "\n*[data-v-1ffe16c1] {\n  box-sizing: border-box;\n}\nbody[data-v-1ffe16c1] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter[data-v-1ffe16c1],\n.fade-leave-active[data-v-1ffe16c1] {\n  opacity: 0;\n}\n.fade-leave-active[data-v-1ffe16c1],\n.fade-enter-active[data-v-1ffe16c1] {\n  transition: opacity .3s ease;\n}\n.component[data-v-1ffe16c1] {\n  position: relative;\n}\n.component h1[data-v-1ffe16c1], .component h2[data-v-1ffe16c1], .component h3[data-v-1ffe16c1], .component h4[data-v-1ffe16c1], .component h5[data-v-1ffe16c1], .component h6[data-v-1ffe16c1], .component p[data-v-1ffe16c1] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-1ffe16c1], .component h2 a[data-v-1ffe16c1], .component h3 a[data-v-1ffe16c1], .component h4 a[data-v-1ffe16c1], .component h5 a[data-v-1ffe16c1], .component h6 a[data-v-1ffe16c1], .component p a[data-v-1ffe16c1] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-1ffe16c1] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-1ffe16c1] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-1ffe16c1] {\n    display: none !important;\n}\n}\n.ui.container[data-v-1ffe16c1] {\n  margin: 1em auto;\n  padding: 5px 1px;\n  /* to prevent overlapped border */\n  overflow: hidden;\n}\n.ui.container .ui.card[data-v-1ffe16c1] {\n    margin: 0;\n}\n.ui.container .ui.card .image[data-v-1ffe16c1] {\n      max-height: 12em;\n      overflow: hidden;\n}\n.ui.container .ui.card .image img[data-v-1ffe16c1] {\n        margin: auto;\n        max-width: 100%;\n        max-height: 100%;\n        width: auto;\n        height: auto;\n}\n.ui.container .ui.card .content[data-v-1ffe16c1] {\n      font-size: 60%;\n      text-align: justify;\n}\n.ui.container .ui.card .extra .author[data-v-1ffe16c1] {\n      font-size: 50%;\n}\n", ""]);
 
 // exports
 
@@ -14293,7 +14291,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n*[data-v-84f59ea8] {\n  box-sizing: border-box;\n}\nbody[data-v-84f59ea8] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter[data-v-84f59ea8],\n.fade-leave-active[data-v-84f59ea8] {\n  opacity: 0;\n}\n.fade-leave-active[data-v-84f59ea8],\n.fade-enter-active[data-v-84f59ea8] {\n  transition: opacity .3s ease;\n}\n.component[data-v-84f59ea8] {\n  position: relative;\n}\n.component h1[data-v-84f59ea8], .component h2[data-v-84f59ea8], .component h3[data-v-84f59ea8], .component h4[data-v-84f59ea8], .component h5[data-v-84f59ea8], .component h6[data-v-84f59ea8], .component p[data-v-84f59ea8] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-84f59ea8], .component h2 a[data-v-84f59ea8], .component h3 a[data-v-84f59ea8], .component h4 a[data-v-84f59ea8], .component h5 a[data-v-84f59ea8], .component h6 a[data-v-84f59ea8], .component p a[data-v-84f59ea8] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-84f59ea8] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-84f59ea8] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-84f59ea8] {\n    display: none !important;\n}\n}\n.ui.container[data-v-84f59ea8] {\n  margin: 1em auto;\n  padding: 5px 1px;\n  /* to prevent overlapped border */\n  overflow: hidden;\n}\n.ui.container .ui.card[data-v-84f59ea8] {\n    margin: 0;\n}\n.ui.container .ui.card .content[data-v-84f59ea8] {\n      font-size: 60%;\n}\n.ui.container .ui.card .extra .author[data-v-84f59ea8] {\n      font-size: 50%;\n}\n#goTop[data-v-84f59ea8] {\n  position: fixed;\n  right: 30px;\n  bottom: 30px;\n  width: 40px;\n  height: 40px;\n  padding: 10px 15px;\n  font-size: 20px;\n  border-radius: 50px;\n  cursor: pointer;\n  opacity: 0.8;\n  z-index: 20;\n}\n#goTop i.long.arrow.up.icon[data-v-84f59ea8] {\n    width: auto;\n}\n#hidden-content[data-v-84f59ea8] {\n  width: 70%;\n  padding: 15px 40px 15px 32px;\n  border-radius: 4px;\n  /* Custom transition - fade from top*/\n  opacity: 0;\n  transform: translateY(-50px);\n  transition: all .5s;\n}\n.ui.centered.card[data-v-84f59ea8] {\n  margin: auto;\n  width: auto;\n  height: auto;\n}\n.fancybox-slide--complete #hidden-content[data-v-84f59ea8] {\n  opacity: 1;\n  transform: translateY(0);\n}\n#hidden-content-2[data-v-84f59ea8] {\n  width: 98%;\n  padding: 15px 40px 15px 32px;\n  border-radius: 4px;\n  /* Custom transition - fade from top*/\n  opacity: 0;\n  transform: translateY(-50px);\n  transition: all .5s;\n}\n.fancybox-slide--complete #hidden-content-2[data-v-84f59ea8] {\n  opacity: 1;\n  transform: translateY(0);\n}\n", ""]);
+exports.push([module.i, "\n*[data-v-84f59ea8] {\n  box-sizing: border-box;\n}\nbody[data-v-84f59ea8] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter[data-v-84f59ea8],\n.fade-leave-active[data-v-84f59ea8] {\n  opacity: 0;\n}\n.fade-leave-active[data-v-84f59ea8],\n.fade-enter-active[data-v-84f59ea8] {\n  transition: opacity .3s ease;\n}\n.component[data-v-84f59ea8] {\n  position: relative;\n}\n.component h1[data-v-84f59ea8], .component h2[data-v-84f59ea8], .component h3[data-v-84f59ea8], .component h4[data-v-84f59ea8], .component h5[data-v-84f59ea8], .component h6[data-v-84f59ea8], .component p[data-v-84f59ea8] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-84f59ea8], .component h2 a[data-v-84f59ea8], .component h3 a[data-v-84f59ea8], .component h4 a[data-v-84f59ea8], .component h5 a[data-v-84f59ea8], .component h6 a[data-v-84f59ea8], .component p a[data-v-84f59ea8] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-84f59ea8] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-84f59ea8] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-84f59ea8] {\n    display: none !important;\n}\n}\n.ui.container[data-v-84f59ea8] {\n  margin: 1em auto;\n  padding: 5px 1px;\n  /* to prevent overlapped border */\n  overflow: hidden;\n}\n.ui.container .ui.card[data-v-84f59ea8] {\n    margin: 0;\n}\n.ui.container .ui.card .content[data-v-84f59ea8] {\n      font-size: 60%;\n      text-align: justify;\n}\n.ui.container .ui.card .extra .author[data-v-84f59ea8] {\n      font-size: 50%;\n}\n#goTop[data-v-84f59ea8] {\n  position: fixed;\n  right: 30px;\n  bottom: 30px;\n  width: 40px;\n  height: 40px;\n  padding: 10px 15px;\n  font-size: 20px;\n  border-radius: 50px;\n  cursor: pointer;\n  opacity: 0.8;\n  z-index: 20;\n}\n#goTop i.long.arrow.up.icon[data-v-84f59ea8] {\n    width: auto;\n}\n#hidden-content[data-v-84f59ea8] {\n  width: 70%;\n  padding: 15px 40px 15px 32px;\n  border-radius: 4px;\n  /* Custom transition - fade from top*/\n  opacity: 0;\n  transform: translateY(-50px);\n  transition: all .5s;\n}\n.ui.centered.card[data-v-84f59ea8] {\n  margin: auto;\n  width: auto;\n  height: auto;\n}\n.fancybox-slide--complete #hidden-content[data-v-84f59ea8] {\n  opacity: 1;\n  transform: translateY(0);\n}\n#hidden-content-2[data-v-84f59ea8] {\n  width: 98%;\n  padding: 15px 40px 15px 32px;\n  border-radius: 4px;\n  /* Custom transition - fade from top*/\n  opacity: 0;\n  transform: translateY(-50px);\n  transition: all .5s;\n}\n.fancybox-slide--complete #hidden-content-2[data-v-84f59ea8] {\n  opacity: 1;\n  transform: translateY(0);\n}\n", ""]);
 
 // exports
 
@@ -14335,7 +14333,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n*[data-v-87638b5c] {\n  box-sizing: border-box;\n}\nbody[data-v-87638b5c] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter[data-v-87638b5c],\n.fade-leave-active[data-v-87638b5c] {\n  opacity: 0;\n}\n.fade-leave-active[data-v-87638b5c],\n.fade-enter-active[data-v-87638b5c] {\n  transition: opacity .3s ease;\n}\n.component[data-v-87638b5c] {\n  position: relative;\n}\n.component h1[data-v-87638b5c], .component h2[data-v-87638b5c], .component h3[data-v-87638b5c], .component h4[data-v-87638b5c], .component h5[data-v-87638b5c], .component h6[data-v-87638b5c], .component p[data-v-87638b5c] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-87638b5c], .component h2 a[data-v-87638b5c], .component h3 a[data-v-87638b5c], .component h4 a[data-v-87638b5c], .component h5 a[data-v-87638b5c], .component h6 a[data-v-87638b5c], .component p a[data-v-87638b5c] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-87638b5c] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-87638b5c] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-87638b5c] {\n    display: none !important;\n}\n}\n.ui.centered.card .header[data-v-87638b5c] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.ui.centered.card .ui.teal.label[data-v-87638b5c] {\n  font-size: 1rem;\n}\n.ui.centered.card .meta[data-v-87638b5c] {\n  margin-bottom: 20px;\n}\n.ui.centered.card .description[data-v-87638b5c] {\n  text-indent: 42px;\n  font-size: 1.5rem;\n}\n.ui.centered.card .description p[data-v-87638b5c] {\n    line-height: 35px;\n}\n.ui.centered.card .right.floated.author[data-v-87638b5c] {\n  font-weight: 600;\n  margin-top: 5px;\n}\n@media only screen and (max-width: 768px) {\n.ui.centered.card .description[data-v-87638b5c] {\n    font-size: 1rem;\n}\n.ui.centered.card .description p[data-v-87638b5c] {\n      line-height: 20px;\n}\n.ui.centered.card .ui.teal.label[data-v-87638b5c] {\n    font-size: 0.5rem;\n}\n}\n", ""]);
+exports.push([module.i, "\n*[data-v-87638b5c] {\n  box-sizing: border-box;\n}\nbody[data-v-87638b5c] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter[data-v-87638b5c],\n.fade-leave-active[data-v-87638b5c] {\n  opacity: 0;\n}\n.fade-leave-active[data-v-87638b5c],\n.fade-enter-active[data-v-87638b5c] {\n  transition: opacity .3s ease;\n}\n.component[data-v-87638b5c] {\n  position: relative;\n}\n.component h1[data-v-87638b5c], .component h2[data-v-87638b5c], .component h3[data-v-87638b5c], .component h4[data-v-87638b5c], .component h5[data-v-87638b5c], .component h6[data-v-87638b5c], .component p[data-v-87638b5c] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-87638b5c], .component h2 a[data-v-87638b5c], .component h3 a[data-v-87638b5c], .component h4 a[data-v-87638b5c], .component h5 a[data-v-87638b5c], .component h6 a[data-v-87638b5c], .component p a[data-v-87638b5c] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-87638b5c] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-87638b5c] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-87638b5c] {\n    display: none !important;\n}\n}\n.ui.centered.card .header[data-v-87638b5c] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.ui.centered.card .ui.teal.label[data-v-87638b5c] {\n  font-size: 1rem;\n}\n.ui.centered.card .meta[data-v-87638b5c] {\n  margin-bottom: 20px;\n}\n.ui.centered.card .description[data-v-87638b5c] {\n  text-indent: 32px;\n  text-align: justify;\n  font-size: 1.5rem;\n}\n.ui.centered.card .description p[data-v-87638b5c] {\n    line-height: 35px;\n}\n.ui.centered.card .right.floated.author[data-v-87638b5c] {\n  font-weight: 600;\n  margin-top: 5px;\n}\n@media only screen and (max-width: 768px) {\n.ui.centered.card .description[data-v-87638b5c] {\n    font-size: 1rem;\n}\n.ui.centered.card .description p[data-v-87638b5c] {\n      line-height: 20px;\n}\n.ui.centered.card .ui.teal.label[data-v-87638b5c] {\n    font-size: 0.5rem;\n}\n}\n", ""]);
 
 // exports
 
@@ -16367,7 +16365,7 @@ module.exports={render:function (){with(this) {
       staticClass: "content"
     }, [_h('div', {
       staticClass: "meta"
-    }, [_m(2, true), _s(n.publish_date) + "     "]), _h('div', {
+    }, [_h('span', [_s(n.publish_date) + "     "])]), _h('div', {
       staticClass: "description"
     }, [_h('p', {
       staticClass: "JQellipsis",
@@ -16389,7 +16387,7 @@ module.exports={render:function (){with(this) {
     attrs: {
       "id": "mobile"
     }
-  }, [_m(3), _h('div', {
+  }, [_m(2), _h('div', {
     staticClass: "swiper-wrapper"
   }, [_l((allInfo), function(n, idx) {
     return _h('a', {
@@ -16412,7 +16410,7 @@ module.exports={render:function (){with(this) {
       staticClass: "content"
     }, [_h('div', {
       staticClass: "meta"
-    }, [_m(4, true), _s(n.publish_date) + "     "]), _h('div', {
+    }, [_h('span', [_s(n.publish_date) + "     "])]), _h('div', {
       staticClass: "description"
     }, [_h('p', {
       staticClass: "JQellipsis",
@@ -16440,7 +16438,7 @@ module.exports={render:function (){with(this) {
         goAnchor('top')
       }
     }
-  }, [_m(5)])])])])
+  }, [_m(3)])])])])
 }},staticRenderFns: [function (){with(this) {
   return _h('div', {
     staticClass: "ui horizontal divider"
@@ -16452,13 +16450,9 @@ module.exports={render:function (){with(this) {
     staticClass: "swiper-pagination"
   })
 }},function (){with(this) {
-  return _h('span')
-}},function (){with(this) {
   return _h('div', {
     staticClass: "swiper-pagination"
   })
-}},function (){with(this) {
-  return _h('span')
 }},function (){with(this) {
   return _h('i', {
     staticClass: "long arrow up icon"
