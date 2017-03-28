@@ -125,6 +125,7 @@ export default {
     }
     .content {
       font-size: 60%;
+      text-align: justify;
     }
     .extra .author{
       font-size: 50%;

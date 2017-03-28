@@ -51,7 +51,8 @@ export default {
       margin-bottom: 20px;
   }
   .description{
-    text-indent: 42px;
+    text-indent: 32px;
+    text-align: justify;
     font-size: 1.5rem;
     p{
       line-height: 35px;

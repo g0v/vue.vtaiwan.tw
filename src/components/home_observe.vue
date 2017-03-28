@@ -16,8 +16,7 @@
               h2 {{n.title}}
           .content
             .meta
-              span
-              | {{n.publish_date}}     
+              span {{n.publish_date}}     
             .description 
               p.JQellipsis(v-html="n.content")       
           #hidden-content(style='display: none;')    
@@ -31,8 +30,7 @@
               h2 {{n.title}}
           .content
             .meta
-              span
-              | {{n.publish_date}}     
+              span {{n.publish_date}}     
             .description 
               p.JQellipsis(v-html="n.content")       
           #hidden-content-2(style='display: none;')    
@@ -145,6 +143,7 @@ export default {
     margin: 0;
     .content {
       font-size: 60%;
+      text-align: justify;
     }
     .extra .author{
       font-size: 50%;
