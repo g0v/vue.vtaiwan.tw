@@ -11878,13 +11878,17 @@ module.exports = function spread(callback) {
   },
   data: function data() {
     return {
-      myIdx: 0, /* default page */
       tabcontent: ["詳細內容", "議題時間軸"],
-      stage: ["即將開始", "意見徵集", "研擬草案", "送交院會", "歷史案件"]
+      stage: ["即將開始", "意見徵集", "研擬草案", "送交院會", "歷史案件"],
+      tabList: ['#desc', '#time', '#disc']
     };
   },
 
   computed: {
+    myIdx: function myIdx() {
+      /* return 0 when hash is empty (-1) */
+      if (this.$route.hash) return this.hashIdx(this.$route.hash);else return 0;
+    },
     article: function article() {
       var rtName = this.$route.params.tRouteName;
       var t = this.allTopics.filter(function (o) {
@@ -11898,7 +11902,6 @@ module.exports = function spread(callback) {
     }
   },
   methods: {
-
     showSidebar: function showSidebar() {
       $('.ui.left.sidebar').sidebar('show');
     },
@@ -11921,6 +11924,12 @@ module.exports = function spread(callback) {
         this.tabcontent[2] = "參與討論";
         return this.tabcontent;
       }
+    },
+    hashIdx: function hashIdx(hash) {
+      return this.tabList.indexOf(hash);
+    },
+    hashName: function hashName(idx) {
+      return this.tabList[idx];
     }
   },
   mounted: function mounted() {
@@ -15904,10 +15913,13 @@ module.exports={render:function (){with(this) {
   }) : _e(), _h('div', {
     staticClass: "ui three item big menu"
   }, [_l((tabcontent), function(step, idx) {
-    return _h('a', {
+    return _h('router-link', {
       staticClass: "item",
       class: {
-        'active': idx == myIdx
+        'active': idx === myIdx
+      },
+      attrs: {
+        "to": $route.path + hashName(idx)
       },
       on: {
         "click": function($event) {
@@ -15933,11 +15945,11 @@ module.exports={render:function (){with(this) {
     attrs: {
       "article": article
     }
-  }) : _e(), (myIdx === 1) ? _h('Timeline', {
+  }) : _e(), (myIdx === hashIdx('#time')) ? _h('Timeline', {
     attrs: {
       "article": article
     }
-  }) : _e(), (myIdx === 2) ? _h('Discussion', {
+  }) : _e(), (myIdx === hashIdx('#disc')) ? _h('Discussion', {
     attrs: {
       "article": article
     }
