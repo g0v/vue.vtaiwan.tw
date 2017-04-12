@@ -18,7 +18,7 @@
   #pusher.ui.container.pusher
 
     NextStage(v-if = "article.id !== undefined", :article="article")
-
+    
     h1.ui.centered.header 
       sup
         i.quote.left.icon
@@ -30,15 +30,15 @@
       // video(:style="{'background-image': 'url('+article.cover+')'}")
 
     .ui.three.item.big.menu
-      a.item(v-for="(step, idx) in tabcontent", :class="{'active': idx == myIdx}", @click="myIdx = idx")
+      router-link.item(v-for="(step, idx) in tabcontent", :to="$route.path+hashName(idx)", :class="{'active':idx===myIdx}", @click="myIdx=idx")
         i.icon(v-bind:class="{'info circle': step == '詳細內容','calendar': step == '議題時間軸','comments': step == '參與討論','history': step == '歷史案件','university': step =='院會討論'}")
         p.fat-only {{step}} 
 
     .info(v-if = "article.id !== undefined")
       transition(name='fade', mode='out-in')
         Description(v-if="myIdx === 0", :article="article")
-        Timeline(v-if="myIdx === 1", :article="article")
-        Discussion(v-if="myIdx === 2", :article="article")
+        Timeline(v-if="myIdx === hashIdx('#time')", :article="article")
+        Discussion(v-if="myIdx === hashIdx('#disc')", :article="article")
 
 </template>
 
@@ -62,12 +62,23 @@ export default {
   },
   data () {
     return {
-      myIdx: 0, /* default page */
       tabcontent:["詳細內容","議題時間軸"],
-      stage:["即將開始","意見徵集","研擬草案","送交院會","歷史案件"]
+      stage:["即將開始","意見徵集","研擬草案","送交院會","歷史案件"],
+      tabList: [
+        '#desc',
+        '#time',
+        '#disc'
+      ]
     }
   },
   computed: {
+    myIdx: function () {
+      /* return 0 when hash is empty (-1) */
+      if(this.$route.hash)
+        return this.hashIdx(this.$route.hash)
+      else
+        return 0
+    },
     article:function(){
       var rtName = this.$route.params.tRouteName;
       var t = this.allTopics.filter( (o)=> {
@@ -78,7 +89,6 @@ export default {
     }
   },
   methods:{
-
     showSidebar:function(){
       $('.ui.left.sidebar').sidebar('show');
     },
@@ -101,6 +111,12 @@ export default {
         this.tabcontent[2] ="參與討論";
         return this.tabcontent;
       }
+    },
+    hashIdx: function(hash){
+      return this.tabList.indexOf(hash)
+    },
+    hashName: function(idx){
+      return this.tabList[idx]
     }
   },
   mounted:function(){
