@@ -11650,16 +11650,16 @@ module.exports = function spread(callback) {
       var reg = /^[0-9]{4}-[0-9]{2}-[0-9]{2}/g;
       info.forEach(function (post) {
         var tmp = {};
-        post = post['raw'].split("<br>");
-        tmp['title'] = post[1];
-        tmp['category'] = post[3].substring(3);
-        tmp['region'] = post[4].substring(3);
-        tmp['year'] = post[5].substring(3);
-        tmp['author'] = post[6].substring(3);
-        tmp['organization'] = post[7].split("\n")[0].substring(10);
-        tmp['link'] = post[7].split("\n\n")[1];
-        tmp['publish_date'] = post[8].substring(5).match(reg)[0];
-        tmp['content'] = post[10];
+        var postt = post['raw'].split("<br>");
+        tmp['title'] = postt[1];
+        tmp['category'] = postt[3].substring(3);
+        tmp['region'] = postt[4].substring(3);
+        tmp['year'] = postt[5].substring(3);
+        tmp['author'] = postt[6].substring(3);
+        tmp['organization'] = postt[7].split("\n")[0].substring(10);
+        tmp['link'] = postt[7].split("\n\n")[1];
+        tmp['publish_date'] = postt[8].substring(5).match(reg)[0];
+        tmp['content'] = post["cooked"].split("<br>")[11];
         _this.allInfo.push(tmp);
         _this.allInfo.sort(function (a, b) {
           return new Date(b.publish_date).getTime() - new Date(a.publish_date).getTime();
@@ -13101,7 +13101,6 @@ var main = __webpack_require__(20);
         observer: true,
         direction: 'horizontal',
         pagination: '.swiper-pagination',
-        paginationType: 'fraction',
         slidesPerView: 4,
         autoplay: 5000,
         paginationClickable: true,
@@ -13113,7 +13112,6 @@ var main = __webpack_require__(20);
         autoplay: 5000,
         direction: 'horizontal',
         pagination: '.swiper-pagination',
-        paginationType: 'fraction',
         spaceBetween: 20
       });
       mySwiper1.on('imagesReady', this.ellipsis);
@@ -13730,7 +13728,6 @@ var main = __webpack_require__(20);
         observer: true,
         direction: 'horizontal',
         pagination: '.swiper-pagination',
-        paginationType: 'fraction',
         slidesPerView: 4,
         autoplay: 5000,
         paginationClickable: true,
@@ -14300,7 +14297,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n*[data-v-84f59ea8] {\n  box-sizing: border-box;\n}\nbody[data-v-84f59ea8] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter[data-v-84f59ea8],\n.fade-leave-active[data-v-84f59ea8] {\n  opacity: 0;\n}\n.fade-leave-active[data-v-84f59ea8],\n.fade-enter-active[data-v-84f59ea8] {\n  transition: opacity .3s ease;\n}\n.component[data-v-84f59ea8] {\n  position: relative;\n}\n.component h1[data-v-84f59ea8], .component h2[data-v-84f59ea8], .component h3[data-v-84f59ea8], .component h4[data-v-84f59ea8], .component h5[data-v-84f59ea8], .component h6[data-v-84f59ea8], .component p[data-v-84f59ea8] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-84f59ea8], .component h2 a[data-v-84f59ea8], .component h3 a[data-v-84f59ea8], .component h4 a[data-v-84f59ea8], .component h5 a[data-v-84f59ea8], .component h6 a[data-v-84f59ea8], .component p a[data-v-84f59ea8] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-84f59ea8] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-84f59ea8] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-84f59ea8] {\n    display: none !important;\n}\n}\n.ui.container[data-v-84f59ea8] {\n  margin: 1em auto;\n  padding: 5px 1px;\n  /* to prevent overlapped border */\n  overflow: hidden;\n}\n.ui.container .ui.card[data-v-84f59ea8] {\n    margin: 0;\n}\n.ui.container .ui.card .content[data-v-84f59ea8] {\n      font-size: 1rem;\n      text-align: justify;\n}\n.ui.container .ui.card .extra .author[data-v-84f59ea8] {\n      font-size: 50%;\n}\n#goTop[data-v-84f59ea8] {\n  position: fixed;\n  right: 30px;\n  bottom: 30px;\n  width: 40px;\n  height: 40px;\n  padding: 10px 15px;\n  font-size: 20px;\n  border-radius: 50px;\n  cursor: pointer;\n  opacity: 0.8;\n  z-index: 20;\n}\n#goTop i.long.arrow.up.icon[data-v-84f59ea8] {\n    width: auto;\n}\n#hidden-content[data-v-84f59ea8] {\n  width: 70%;\n  padding: 15px 40px 15px 32px;\n  border-radius: 4px;\n  /* Custom transition - fade from top*/\n  opacity: 0;\n  transform: translateY(-50px);\n  transition: all .5s;\n}\n.ui.centered.card[data-v-84f59ea8] {\n  margin: auto;\n  width: auto;\n  height: auto;\n}\n.fancybox-slide--complete #hidden-content[data-v-84f59ea8] {\n  opacity: 1;\n  transform: translateY(0);\n}\n#hidden-content-2[data-v-84f59ea8] {\n  width: 98%;\n  padding: 15px 40px 15px 32px;\n  border-radius: 4px;\n  /* Custom transition - fade from top*/\n  opacity: 0;\n  transform: translateY(-50px);\n  transition: all .5s;\n}\n.fancybox-slide--complete #hidden-content-2[data-v-84f59ea8] {\n  opacity: 1;\n  transform: translateY(0);\n}\n", ""]);
+exports.push([module.i, "\n*[data-v-84f59ea8] {\n  box-sizing: border-box;\n}\nbody[data-v-84f59ea8] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter[data-v-84f59ea8],\n.fade-leave-active[data-v-84f59ea8] {\n  opacity: 0;\n}\n.fade-leave-active[data-v-84f59ea8],\n.fade-enter-active[data-v-84f59ea8] {\n  transition: opacity .3s ease;\n}\n.component[data-v-84f59ea8] {\n  position: relative;\n}\n.component h1[data-v-84f59ea8], .component h2[data-v-84f59ea8], .component h3[data-v-84f59ea8], .component h4[data-v-84f59ea8], .component h5[data-v-84f59ea8], .component h6[data-v-84f59ea8], .component p[data-v-84f59ea8] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-84f59ea8], .component h2 a[data-v-84f59ea8], .component h3 a[data-v-84f59ea8], .component h4 a[data-v-84f59ea8], .component h5 a[data-v-84f59ea8], .component h6 a[data-v-84f59ea8], .component p a[data-v-84f59ea8] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-84f59ea8] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-84f59ea8] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-84f59ea8] {\n    display: none !important;\n}\n}\n.ui.container[data-v-84f59ea8] {\n  margin: 1em auto;\n  padding: 5px 1px;\n  /* to prevent overlapped border */\n  overflow: hidden;\n}\n.ui.container .swiper-pagination[data-v-84f59ea8] {\n    bottom: -6px;\n}\n.ui.container .ui.card[data-v-84f59ea8] {\n    margin: 0;\n}\n.ui.container .ui.card .content[data-v-84f59ea8] {\n      font-size: 1rem;\n      text-align: justify;\n}\n.ui.container .ui.card .extra .author[data-v-84f59ea8] {\n      font-size: 50%;\n}\n#goTop[data-v-84f59ea8] {\n  position: fixed;\n  right: 30px;\n  bottom: 30px;\n  width: 40px;\n  height: 40px;\n  padding: 10px 15px;\n  font-size: 20px;\n  border-radius: 50px;\n  cursor: pointer;\n  opacity: 0.8;\n  z-index: 20;\n}\n#goTop i.long.arrow.up.icon[data-v-84f59ea8] {\n    width: auto;\n}\n#hidden-content[data-v-84f59ea8] {\n  width: 70%;\n  padding: 15px 40px 15px 32px;\n  border-radius: 4px;\n  /* Custom transition - fade from top*/\n  opacity: 0;\n  transform: translateY(-50px);\n  transition: all .5s;\n}\n.ui.centered.card[data-v-84f59ea8] {\n  margin: auto;\n  width: auto;\n  height: auto;\n}\n.fancybox-slide--complete #hidden-content[data-v-84f59ea8] {\n  opacity: 1;\n  transform: translateY(0);\n}\n#hidden-content-2[data-v-84f59ea8] {\n  width: 98%;\n  padding: 15px 40px 15px 32px;\n  border-radius: 4px;\n  /* Custom transition - fade from top*/\n  opacity: 0;\n  transform: translateY(-50px);\n  transition: all .5s;\n}\n.fancybox-slide--complete #hidden-content-2[data-v-84f59ea8] {\n  opacity: 1;\n  transform: translateY(0);\n}\n", ""]);
 
 // exports
 
@@ -15425,7 +15422,7 @@ module.exports={render:function (){with(this) {
     staticClass: "swiper-wrapper"
   }, [_l((allNews), function(n, idx) {
     return _h('a', {
-      staticClass: "swiper-slide ui link card",
+      staticClass: "swiper-slide ui centered card",
       attrs: {
         "href": n.news_link,
         "target": "_blank"
@@ -16696,7 +16693,8 @@ module.exports={render:function (){with(this) {
     staticClass: "meta"
   }, [_m(0), "年度: " + _s(locate.year), _m(1), "區域: " + _s(locate.region), _m(2), " 發佈日期: " + _s(locate.publish_date) + "      "]), _h('div', {
     staticClass: "description"
-  }, [_h('p', {
+  }, [_h('div', {
+    staticClass: "body",
     domProps: {
       "innerHTML": _s(locate.content)
     }
