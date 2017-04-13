@@ -167,16 +167,16 @@ export default {
       var reg = /^[0-9]{4}-[0-9]{2}-[0-9]{2}/g;
       info.forEach((post)=>{
         var tmp ={};
-        post = post['raw'].split("<br>");
-        tmp['title'] = post[1];
-        tmp['category'] = post[3].substring(3);
-        tmp['region'] =post[4].substring(3);
-        tmp['year'] = post[5].substring(3);
-        tmp['author'] = post[6].substring(3);
-        tmp['organization'] = post[7].split("\n")[0].substring(10);
-        tmp['link'] = post[7].split("\n\n")[1];
-        tmp['publish_date'] = post[8].substring(5).match(reg)[0];
-        tmp['content'] = post[10];
+        var postt = post['raw'].split("<br>");
+        tmp['title'] = postt[1];
+        tmp['category'] = postt[3].substring(3);
+        tmp['region'] =postt[4].substring(3);
+        tmp['year'] = postt[5].substring(3);
+        tmp['author'] = postt[6].substring(3);
+        tmp['organization'] = postt[7].split("\n")[0].substring(10);
+        tmp['link'] = postt[7].split("\n\n")[1];
+        tmp['publish_date'] = postt[8].substring(5).match(reg)[0];
+        tmp['content'] = post["cooked"].split("<br>")[11];
         this.allInfo.push(tmp);
         this.allInfo.sort(function(a,b){
           return new Date(b.publish_date).getTime() - new Date(a.publish_date).getTime();

@@ -12,9 +12,9 @@
   .ui.container
 
     .swiper-container1.fat-only
-      .swiper-pagination                          
+      .swiper-pagination
       .swiper-wrapper
-        a.swiper-slide.ui.link.card(v-for="(n,idx) in allNews", :href="n.news_link", target='_blank')
+        a.swiper-slide.ui.centered.card(v-for="(n,idx) in allNews", :href="n.news_link", target='_blank')
           .image
             img(v-if="n.img_link != 'undefined'", :src="n.img_link")
             img(v-else, src="../assets/vTaiwan_logo_2017.png")
@@ -63,7 +63,6 @@ export default {
         observer: true,
         direction: 'horizontal',
         pagination: '.swiper-pagination',
-        paginationType: 'fraction',
         slidesPerView: 4,
         autoplay: 5000,
         paginationClickable: true,
@@ -75,7 +74,6 @@ export default {
         autoplay: 5000,
         direction: 'horizontal',
         pagination: '.swiper-pagination',
-        paginationType: 'fraction',
         spaceBetween: 20,
       })
       mySwiper1.on('imagesReady', this.ellipsis)

@@ -12,7 +12,7 @@
         span 
         |  發佈日期: {{locate.publish_date}}      
       .description 
-        p(v-html="locate.content")       
+        div.body(v-html="locate.content")       
      .extra.content
         a(href='http://vtaiwan.tw/')
         .ui.teal.label {{locate.category}}

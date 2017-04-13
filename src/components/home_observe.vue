@@ -92,7 +92,6 @@ export default {
         observer: true,
         direction: 'horizontal',
         pagination: '.swiper-pagination',
-        paginationType: 'fraction',
         slidesPerView: 4,
         autoplay: 5000,
         paginationClickable: true,
@@ -138,7 +137,9 @@ export default {
   margin: 1em auto;
   padding: 5px 1px; /* to prevent overlapped border */
   overflow: hidden;
-
+  .swiper-pagination{
+    bottom:-6px;
+  }
   .ui.card{
     margin: 0;
     .content {
