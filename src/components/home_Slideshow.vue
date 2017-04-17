@@ -6,8 +6,8 @@
       .ui.loader
 
     .swiper-container
-      .swiper-scrollbar
-      .swiper-pagination 
+      //- .swiper-scrollbar
+      //- .swiper-pagination 
       .swiper-wrapper
         .swiper-slide(v-for="(item, idx) in hotTopics", :style="{'background': 'url(' + item.cover + ') 100% 100% / cover'}")
           .box
@@ -17,16 +17,16 @@
               | {{item.title}}
               .sub.center.aligned.header
                 | {{item.slogan}}
-            router-link.go-inside.ui.right.labeled.icon.teal.big.button(:to="'/topic/' + item.routeName")
-              i.right.arrow.icon
+            router-link.go-inside.ui.teal.big.button(:to="'/topic/' + item.routeName")
               p 進入議題
-            //- i.square.icon.background
-            button.go-to.ui.yellow.vertical.animated.button(@click="goAnchor('#proposaltab')")
-              .hidden.content
-                | 還有更多議案
-              .visible.content
-                i.down.arrow.icon
-      
+            button.go-to.ui.yellow.right.labeled.icon.button(@click="goAnchor('#proposaltab')")
+              i.down.arrow.icon
+              p 還有更多議案
+            //- button.go-to.ui.yellow.vertical.animated.button(@click="goAnchor('#proposaltab')")
+            //-   .hidden.content
+            //-     | 還有更多議案
+            //-   .visible.content
+            //-     i.down.arrow.icon
 </template>
 
 
@@ -63,8 +63,8 @@ export default {
       /* initialize swiper when document ready */
       new Swiper ('.swiper-container', {
         observer: true,
-        scrollbar: '.swiper-scrollbar',
-        pagination : '.swiper-pagination',
+        // scrollbar: '.swiper-scrollbar',
+        // pagination : '.swiper-pagination',
         autoplay: 8000,
         direction: 'horizontal',
         keyboardControl: true,
@@ -101,6 +101,11 @@ export default {
   height: 100%;
 }
 
+.swiper-slide {
+  border-radius: 5px;
+  overflow: hidden;
+}
+
 // ******************************* Desktop CSS
 
 .ui.label{
@@ -111,21 +116,14 @@ export default {
   // font-size: 1rem;
   // ********************* centering
   display: flex;
-  justify-content: center;
   flex-flow: column;
+  justify-content: center;
   align-items: center;
   // ********************* 
   width: 100%;
   height: 100%;
   background: radial-gradient(circle, rgba(0,0,0, 0.7), rgba(0,0,0, 0.5));
   overflow: hidden;
-  .status, .status[data-v-5122aa90]{
-    radius: 0px;
-    color: white;
-    background: rgba(255,255,255,0.4);
-    border: 0px;
-    font-size: 1.2rem;  
-  },
   .status,
   .title,
   .slogan,
@@ -133,6 +131,10 @@ export default {
     z-index: 10;
   }
   .status {
+    // color: white;
+    // background: rgba(255,255,255,0.4);
+    // border: 0px;
+    font-size: 1.2rem;  
     color: $step_color;
     border: 1px solid $step_color;
     background: transparent;
@@ -156,11 +158,11 @@ export default {
     margin: 0 0 1em 0;
   }
   .go-to {
-    width: 20ch;
-    position: absolute;
-    bottom: 3em;
-    font-family: $main_font;
-    font-size: 60%;
+    // width: 17ch;
+    // position: absolute;
+    // bottom: 3em;
+    // font-family: $main_font;
+    font-size: 70%;
   }
 }
 

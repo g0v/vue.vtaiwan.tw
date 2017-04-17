@@ -2,6 +2,7 @@
 node_modules/
 dist/
 npm-debug.log
-/_public
+_public/
 debug.log
-prerender-route.json
+build/prerender-route.json
+.vscode/
