@@ -92,7 +92,7 @@ export default {
           tmp['likes'] = 0 ;
 
           var firstPost = topic.post_stream.posts[0];
-          var lastPost = topic.post_stream.posts.slice(-1)[0]; 
+          var lastPost = topic.post_stream.posts.slice(-1)[0];
 
           tmp['slogan'] = /slogan *: *(.*)/g.exec(firstPost.raw)[1];
           tmp['status'] = (firstPost.id===lastPost.id) ? "即將開始" : lastPost.raw.split(" ")[0];
@@ -127,7 +127,7 @@ export default {
     .then((response)=>{
       var news = response.data;
       news = news['post_stream']['posts'].slice(1);
-      
+
       news.forEach((post)=>{
         var tmp = {};
         var tag = {};
@@ -148,7 +148,7 @@ export default {
               }
             }
           }
-        }   
+        }
         tmp['tags'] = tags;
         tmp['news_link'] = post[11];
         tmp['source_link'] = post[11].split("/")[2];

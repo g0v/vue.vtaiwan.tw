@@ -1,14 +1,12 @@
-<template lang="jade">  
+<template lang="jade">
 
-  .ParticipationLink_components
-    .urllink(v-if = "ulinkall.length > 0")
-      span.urllink(v-for="(item, index) in ulinkall")
-        span
-          a.ui.teal.icon.button(:href='item.link' target='_blank')
-            i.icon(:class="item.icon") 
-            span.fat-only 
-            | {{ item.text }}
-              
+  .component
+    div(v-if = "ulinkall.length > 0")
+      a.ui.teal.icon.button(v-for="(item, index) in ulinkall", :href='item.link' target='_blank')
+        p
+          i.icon(:class="item.icon")
+          | {{ item.text }}
+
 </template>
 
 <script>
@@ -77,7 +75,7 @@ export default {
   },
 
   created:function(a,b){
-        
+
     for(var i=0;i<this.urllink.length;i++){
       var tag=0;
       for(var j=0; j<this.data_base.length ;j++){
@@ -89,7 +87,7 @@ export default {
           item.text = this.data_base[j].text
           this.ulinkall.push(item)
           /* 判斷是否為data_base中的連結 */
-          // this.ulinkall 
+          // this.ulinkall
           //   .push("<a href="+this.urllink[i]+" target='_blank' class='ui teal icon button'>"+
           //     this.data_base[j].icon+
           //     "<span class='fat-only'> "+
@@ -119,7 +117,7 @@ export default {
         //     "</span>"+
         //     "</a>"
         //   );
-      }            
+      }
     }
   }
 }
