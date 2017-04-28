@@ -25,7 +25,7 @@
 <script>
 
   import caxios from '../js/request'
-  import Plink from './ParticipationLink.vue'
+  import Plink from './Detail_Topic_Timeline_ParticipationLink.vue'
 
   export default {
 

@@ -8,13 +8,13 @@
     transition(name='fade', mode='out-in')
       router-view.view(:allTopics="allTopics", :catagories="catagories", :allNews="allNews", :allInfo="allInfo")
 
-  MyFooter.footer
+  Footer.footer
 </template>
 
 <script>
 
 import Navbar from './components/app_navbar.vue'
-import MyFooter from './components/MyFooter.vue'
+import Footer from './components/app_footer.vue'
 import caxios from './js/request'
 
 // import $ from 'jquery'
@@ -24,7 +24,7 @@ import caxios from './js/request'
 export default {
   components: {
     Navbar,
-    MyFooter
+    Footer
   },
   data () {
     return {

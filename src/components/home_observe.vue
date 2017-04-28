@@ -41,7 +41,7 @@
 
 
 <script>
-import fancy from "./fancybox.vue"
+import fancy from "./home_observe_fancybox.vue"
 
 export default {
   name: 'observe',

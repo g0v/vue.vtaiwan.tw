@@ -21,7 +21,7 @@ import Slideshow from './home_Slideshow.vue'
 // import HotProposal from './home_HotProposal.vue'
 import ProposalTab from './home_ProposalTab.vue'
 // import Catagories from './home_Catagories.vue'
-import News from './app_News.vue'
+import News from './home_News.vue'
 import Info from './home_observe.vue'
 
 

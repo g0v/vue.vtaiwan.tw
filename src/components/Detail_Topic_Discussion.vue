@@ -35,8 +35,8 @@
 <script>
 import caxios from '../js/request'
 import discourse from '../js/discourse.js'
-import Discussion_Comment from './Detail_Topic_Discussion_Comment.vue'
 import chineseSort from '../js/chineseSort.js'
+import Discussion_Comment from './Detail_Topic_Discussion_Comment.vue'
 
 
 export default {
