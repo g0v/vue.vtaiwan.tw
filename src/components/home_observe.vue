@@ -2,11 +2,11 @@
 .component
 
   .ui.horizontal.divider
-    i.world.icon 
+    i.world.icon
     |  Around the Globe
-    
+
   .ui.container
-    
+
     .swiper-container3.fat-only
       .swiper-pagination
       .swiper-wrapper
@@ -16,11 +16,11 @@
               h2 {{n.title}}
           .content
             .meta
-              span {{n.publish_date}}     
-            .description 
-              p.JQellipsis(v-html="n.content")       
-          #hidden-content(style='display: none;')    
-            fancy(:locate="locate") 
+              span {{n.publish_date}}
+            .description
+              p.JQellipsis(v-html="n.content")
+          #hidden-content(style='display: none;')
+            fancy(:locate="locate")
     #mobile.swiper-container4.thin-only
       .swiper-pagination
       .swiper-wrapper
@@ -30,13 +30,13 @@
               h3 {{n.title}}
           .content
             .meta
-              span {{n.publish_date}}     
-            .description 
-              p.JQellipsis(v-html="n.content")       
-          #hidden-content-2(style='display: none;')    
+              span {{n.publish_date}}
+            .description
+              p.JQellipsis(v-html="n.content")
+          #hidden-content-2(style='display: none;')
             fancy(:locate="locate")
-      #goTop.button.ui.icon.yellow.button(@click.prevent="goAnchor('top')")
-          i.long.arrow.up.icon     
+      //- #goTop.button.ui.icon.yellow.button(@click.prevent="goAnchor('top')")
+          i.long.arrow.up.icon
 </template>
 
 
@@ -110,14 +110,14 @@ export default {
       mySwiper3.on('Init', this.ellipsis)
       mySwiper4.on('Init', this.ellipsis)
     }, 1000)
-    $(window).scroll(function() {
-        if ( $(this).scrollTop() > 600){
-            $('#mobile').fadeIn("slow");
-        } 
-        else {
-            $('#mobile').stop().fadeOut("slow");
-        }
-    });
+    // $(window).scroll(function() {
+    //     if ( $(this).scrollTop() > 600){
+    //         $('#mobile').fadeIn("slow");
+    //     }
+    //     else {
+    //         $('#mobile').stop().fadeOut("slow");
+    //     }
+    // });
   },
   computed: {
     locate: function(){
@@ -144,7 +144,7 @@ export default {
     margin: 0;
     .content {
       font-size: 1rem;
-      text-align: justify; 
+      text-align: justify;
     }
     .extra .author{
       font-size: 50%;
@@ -157,7 +157,7 @@ export default {
     bottom: 30px;
     width: 40px;
     height:40px;
-    padding: 10px 15px;    
+    padding: 10px 15px;
     font-size: 20px;
     border-radius: 50px;
     cursor: pointer;
@@ -172,7 +172,7 @@ export default {
     width:70%;
 		padding: 15px 40px 15px 32px;
 		border-radius: 4px;
-  
+
     /* Custom transition - fade from top*/
 		opacity: 0;
     transform: translateY(-50px);
@@ -192,7 +192,7 @@ export default {
     width:98%;
 		padding: 15px 40px 15px 32px;
 		border-radius: 4px;
-  
+
     /* Custom transition - fade from top*/
 		opacity: 0;
     transform: translateY(-50px);

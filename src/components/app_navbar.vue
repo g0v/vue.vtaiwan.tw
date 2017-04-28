@@ -1,14 +1,17 @@
 <template lang="jade">
   .component
 
+    button.goto.ui.yellow.button(@click.prevent="goAnchor('top')")
+      i.big.up.arrow.icon
+
     nav.fat-only
       .ui.grid
 
         .seven.wide.column
-          .ui.category.search(:class="{active: myKey}", @keyup.down="onKeyDown()")   
+          .ui.category.search(:class="{active: myKey}", @keyup.down="onKeyDown()")
            .ui.icon.input
              input.prompt(type="search", v-model="myKey", placeholder="搜尋...")
-             i.search.icon 
+             i.search.icon
             SearchResult(v-show="myKey", :allTopics="allTopics", :myKey = "myKey", :myIdx="myIdx")
 
         .two.wide.column
@@ -17,12 +20,6 @@
             span vTaiwan
 
         .seven.wide.column.right
-        
-          button.go-to.ui.yellow.vertical.animated.button(@click.prevent="goAnchor('top')")
-            .visible.content
-              i.up.arrow.icon
-            .hidden.content
-              | Top
 
           router-link.item(v-for='r in routes', v-if="r.r", :to="'/'+r.r", :class='r.r', exact='')
             | {{ r.t }}
@@ -35,7 +32,7 @@
         router-link.m-item(to='/how-to-use') 使用手冊
         router-link.m-item(to='/') 探索議題
         router-link.m-item(to='/search') 搜尋議題
-        
+
 </template>
 
 <script>
@@ -77,6 +74,17 @@ export default {
         }, 1000)
       }
     }
+  },
+  mounted () {
+    let boundary = 500 // px
+    $(window).scroll(function() {
+      if ( $(this).scrollTop() > boundary){
+        $('button.goto').show()
+      }
+      else {
+        $('button.goto').hide()
+      }
+    })
   }
 }
 </script>
@@ -89,12 +97,29 @@ export default {
 $navHeight: $navHeight;
 $navBgColor: white;
 
+button.goto {
+  position: fixed;
+  right: 1ch;
+  bottom: 1em;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  padding: 0 0 .3em 1.3ch;
+  // font-size: 20px;
+  // cursor: pointer;
+  opacity: 0.8;
+  z-index: 20;
+  // i.long.arrow.up.icon{
+    // width: auto;
+  // }
+}
+
 .component {
   // ****************** push home by nav height
   @media screen and (min-width: $breakpoint){
     height: $navHeight;
   }
-  
+
   nav.fat-only {
     position: fixed;
     z-index: 999999;
@@ -191,7 +216,7 @@ form.search {
     cursor: pointer;
     text-decoration: none;
     @include transition(background-color 0.5s ease);
-    
+
     &:hover {
       color: white;
       background: $main_color;
