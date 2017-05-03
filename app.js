@@ -11515,7 +11515,7 @@ module.exports = function spread(callback) {
 /* harmony default export */ exports["default"] = {
   components: {
     Navbar: __WEBPACK_IMPORTED_MODULE_0__components_app_navbar_vue___default.a,
-    Footer: __WEBPACK_IMPORTED_MODULE_1__components_app_footer_vue___default.a
+    footNav: __WEBPACK_IMPORTED_MODULE_1__components_app_footer_vue___default.a
   },
   data: function data() {
     return {
@@ -11565,7 +11565,9 @@ module.exports = function spread(callback) {
 
     __WEBPACK_IMPORTED_MODULE_2__js_request__["a" /* default */].get('https://talk.vtaiwan.tw/c/meta-data.json').then(function (response) {
       var topics = response.data.topic_list.topics.slice(1);
+      console.log(response.data.topic_list.topics[0].title + ' removed');
       topics.forEach(function (topic) {
+        console.log(topic.title);
         __WEBPACK_IMPORTED_MODULE_2__js_request__["a" /* default */].get('https://talk.vtaiwan.tw/t/' + topic.id + '.json?include_raw=1').then(function (response) {
           var topic = response.data;
 
@@ -13439,7 +13441,7 @@ var main = __webpack_require__(20);
           }).sort(function (a, b) {
             return 1;
             // replace this by other logic...
-          }).slice(0, 8);
+          });
           break;
 
         case "discuss":
@@ -13448,7 +13450,7 @@ var main = __webpack_require__(20);
           }).sort(function (a, b) {
             return 1;
             // replace this by other logic...
-          }).slice(0, 8);
+          });
           break;
 
         case "curate":
@@ -13457,7 +13459,7 @@ var main = __webpack_require__(20);
           }).sort(function (a, b) {
             return 1;
             // replace this by other logic...
-          }).slice(0, 8);
+          });
           break;
 
         case "deploy":
@@ -13466,7 +13468,7 @@ var main = __webpack_require__(20);
           }).sort(function (a, b) {
             return 1;
             // replace this by other logic...
-          }).slice(0, 8);
+          });
           break;
 
         case "history":
@@ -13475,7 +13477,7 @@ var main = __webpack_require__(20);
           }).sort(function (a, b) {
             return 1;
             // replace this by other logic...
-          }).slice(0, 8);
+          });
           break;
       }
 
@@ -16012,7 +16014,7 @@ module.exports={render:function (){with(this) {
       "allNews": allNews,
       "allInfo": allInfo
     }
-  })])]), _h('Footer', {
+  })])]), _h('footNav', {
     staticClass: "footer"
   })])
 }},staticRenderFns: []}
