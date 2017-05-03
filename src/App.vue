@@ -8,13 +8,13 @@
     transition(name='fade', mode='out-in')
       router-view.view(:allTopics="allTopics", :catagories="catagories", :allNews="allNews", :allInfo="allInfo")
 
-  Footer.footer
+  footNav.footer
 </template>
 
 <script>
 
 import Navbar from './components/app_navbar.vue'
-import Footer from './components/app_footer.vue'
+import footNav from './components/app_footer.vue'
 import caxios from './js/request'
 
 // import $ from 'jquery'
@@ -24,7 +24,7 @@ import caxios from './js/request'
 export default {
   components: {
     Navbar,
-    Footer
+    footNav
   },
   data () {
     return {
@@ -78,7 +78,9 @@ export default {
     caxios.get('https://talk.vtaiwan.tw/c/meta-data.json')
     .then((response)=>{
       var topics = response.data.topic_list.topics.slice(1);
+      console.log(response.data.topic_list.topics[0].title + ' removed')
       topics.forEach((topic)=>{
+        console.log(topic.title)
         caxios.get('https://talk.vtaiwan.tw/t/'+topic.id+'.json?include_raw=1')
         .then((response)=>{
           var topic = response.data;

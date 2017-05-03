@@ -95,7 +95,7 @@ export default {
             .sort(function(a,b) {
               return 1; 
               // replace this by other logic...
-            }).slice(0,8);
+            })
           break;
           
         case "discuss":
@@ -106,7 +106,7 @@ export default {
             .sort(function(a,b) {
               return 1; 
               // replace this by other logic...
-            }).slice(0,8);
+            })
           break;
 
         case "curate":
@@ -117,7 +117,7 @@ export default {
             .sort(function(a,b) {
               return 1; 
               // replace this by other logic...
-            }).slice(0,8);
+            })
           break;
 
         case "deploy":
@@ -128,7 +128,7 @@ export default {
             .sort(function(a,b) {
               return 1; 
               // replace this by other logic...
-            }).slice(0,8);
+            })
           break;
 
         case "history":
@@ -139,7 +139,7 @@ export default {
             .sort(function(a,b) {
               return 1; 
               // replace this by other logic...
-            }).slice(0,8);
+            })
           break;
       }
 
