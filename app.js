@@ -13295,7 +13295,6 @@ var main = __webpack_require__(20);
 //
 //
 //
-//
 
 /* harmony default export */ exports["default"] = {
   name: 'News',
@@ -13332,7 +13331,7 @@ var main = __webpack_require__(20);
   },
   methods: {
     ellipsis: function ellipsis() {
-      var len = 60; // 超過50個字以"..."取代
+      var len = 60; // exceed 60 characters
       $(".JQellipsis").each(function (i) {
         if ($(this).text().length > len) {
           $(this).attr("title", $(this).text());
@@ -13642,6 +13641,8 @@ var main = __webpack_require__(20);
 //
 //
 //
+//
+//
 
 
 
@@ -13659,7 +13660,7 @@ var main = __webpack_require__(20);
 
   methods: {
     ellipsis: function ellipsis() {
-      var len = 80; // 超過50個字以"..."取代
+      var len = 80; // exceed 80 characters
       $(".JQellipsis").each(function (i) {
         if ($(this).text().length > len) {
           $(this).attr("title", $(this).text());
@@ -13688,6 +13689,7 @@ var main = __webpack_require__(20);
     this.ellipsis();
   },
   mounted: function mounted() {
+    this.ellipsis();
     setTimeout(function () {
       /* initialize swiper when document ready */
       var mySwiper3 = new Swiper('.swiper-container3', {
@@ -13711,15 +13713,9 @@ var main = __webpack_require__(20);
       });
       mySwiper3.on('Init', this.ellipsis);
       mySwiper4.on('Init', this.ellipsis);
+
+      $('#loader2').removeClass('active');
     }, 1000);
-    // $(window).scroll(function() {
-    //     if ( $(this).scrollTop() > 600){
-    //         $('#mobile').fadeIn("slow");
-    //     }
-    //     else {
-    //         $('#mobile').stop().fadeOut("slow");
-    //     }
-    // });
   },
   computed: {
     locate: function locate() {
@@ -16372,11 +16368,11 @@ module.exports={render:function (){with(this) {
 module.exports={render:function (){with(this) {
   return _h('div', {
     staticClass: "component"
-  }, [_m(0), _h('div', {
+  }, [_m(0), _m(1), _h('div', {
     staticClass: "ui container"
   }, [_h('div', {
     staticClass: "swiper-container3 fat-only"
-  }, [_m(1), _h('div', {
+  }, [_m(2), _h('div', {
     staticClass: "swiper-wrapper"
   }, [_l((allInfo), function(n, idx) {
     return _h('a', {
@@ -16421,7 +16417,7 @@ module.exports={render:function (){with(this) {
     attrs: {
       "id": "mobile"
     }
-  }, [_m(2), _h('div', {
+  }, [_m(3), _h('div', {
     staticClass: "swiper-wrapper"
   }, [_l((allInfo), function(n, idx) {
     return _h('a', {
@@ -16463,6 +16459,15 @@ module.exports={render:function (){with(this) {
     })])])
   })])])])])
 }},staticRenderFns: [function (){with(this) {
+  return _h('div', {
+    staticClass: "ui active inverted dimmer",
+    attrs: {
+      "id": "loader2"
+    }
+  }, [_h('div', {
+    staticClass: "ui loader"
+  })])
+}},function (){with(this) {
   return _h('div', {
     staticClass: "ui horizontal divider"
   }, [_h('i', {
