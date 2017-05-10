@@ -1,5 +1,4 @@
 <template lang="jade">
-
 .component
 
   #loader1.ui.active.inverted.dimmer
@@ -88,7 +87,7 @@ export default {
   },
   methods: {
       ellipsis: function(){
-        var len = 60; // 超過50個字以"..."取代
+        var len = 60; // exceed 60 characters
         $(".JQellipsis").each(function(i){
         if($(this).text().length>len){
             $(this).attr("title",$(this).text());

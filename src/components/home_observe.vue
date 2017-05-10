@@ -1,6 +1,9 @@
 <template lang="jade">
 .component
 
+  #loader2.ui.active.inverted.dimmer
+    .ui.loader
+
   .ui.horizontal.divider
     i.world.icon
     |  Around the Globe
@@ -35,8 +38,7 @@
               p.JQellipsis(v-html="n.content")
           #hidden-content-2(style='display: none;')
             fancy(:locate="locate")
-      //- #goTop.button.ui.icon.yellow.button(@click.prevent="goAnchor('top')")
-          i.long.arrow.up.icon
+
 </template>
 
 
@@ -56,7 +58,7 @@ export default {
   },
   methods:{
     ellipsis: function(){
-        var len = 80; // 超過50個字以"..."取代
+        var len = 80; // exceed 80 characters
         $(".JQellipsis").each(function(i){
         if($(this).text().length>len){
             $(this).attr("title",$(this).text());
@@ -86,6 +88,7 @@ export default {
     this.ellipsis();
   },
   mounted: function () {
+    this.ellipsis();
     setTimeout(function(){
       /* initialize swiper when document ready */
       var mySwiper3 = new Swiper ('.swiper-container3', {
@@ -109,15 +112,10 @@ export default {
       })
       mySwiper3.on('Init', this.ellipsis)
       mySwiper4.on('Init', this.ellipsis)
+
+      $('#loader2').removeClass('active')
     }, 1000)
-    // $(window).scroll(function() {
-    //     if ( $(this).scrollTop() > 600){
-    //         $('#mobile').fadeIn("slow");
-    //     }
-    //     else {
-    //         $('#mobile').stop().fadeOut("slow");
-    //     }
-    // });
+
   },
   computed: {
     locate: function(){
