@@ -1,6 +1,6 @@
 <template lang="jade">
 .component.pushable
-
+  
   #sidebar.ui.left.inverted.vertical.menu.sidebar(@mouseleave="hideSidebar")
     .item(v-for = "(step,idx) in stage")
       .header 
@@ -22,7 +22,7 @@
     h1.ui.centered.header 
       sup
         i.quote.left.icon
-      | {{article.title}} 
+      | {{article.title}}
       sub
         i.quote.right.icon
     
@@ -68,7 +68,8 @@ export default {
         '#desc',
         '#time',
         '#disc'
-      ]
+      ],
+      p:''
     }
   },
   computed: {
@@ -84,8 +85,12 @@ export default {
       var t = this.allTopics.filter( (o)=> {
         return o.routeName == rtName;
       })[0];
-      if(t===undefined){return new Object()}
-      else{return t};
+      if(t===undefined){
+        return new Object()
+      }
+      else{
+        return t
+      };
     }
   },
   methods:{
@@ -142,12 +147,21 @@ export default {
       meta_title.content = this.article.title + " - vTaiwan.tw";
       $('meta[property="og:title"]').remove();
       document.getElementsByTagName('head')[0].appendChild(meta_title);
-
-      this.status_modify(this.article.status);
+      if (this.article.status !== undefined) {
+        this.status_modify(this.article.status);
+      }
+      else {
+        this.$router.push({path:'/PageNotFound'})
+      }
     } 
   },
   created:function(){
-     this.status_modify(this.article.status);
+      if (this.article.status !== undefined) {
+        this.status_modify(this.article.status);
+      }
+      else {
+        this.$router.push({path:'/PageNotFound'})
+      }
   }
 }
 </script>

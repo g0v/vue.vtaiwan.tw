@@ -28,12 +28,7 @@
 
 export default {
   name: 'fancybox',
-  props:['locate'],
-  data () {
-    return{
-        
-    }
-  }
+  props:['locate']
 }
 </script>
 

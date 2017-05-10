@@ -4,13 +4,11 @@ import Router from 'vue-router'
 import Home from '../components/Home.vue'
 import HowToUse from '../components/HowToUse.vue'
 import Intro from '../components/Intro.vue'
-// import Login from '../components/Login.vue'
-// import Track from '../components/Track.vue'
 import Detail_Topic from '../components/Detail_Topic.vue'
-// import Detail_Catagory from '../components/Detail_Catagory.vue'
 import contactus from '../components/ContactUs.vue'
 import Search from '../components/app_navbar_search.vue'
 import subscribe from '../components/Subscribe.vue'
+import PageNotFound from '../components/PageNotFound.vue'
 
 Vue.use(Router)
 
@@ -27,21 +25,12 @@ export default new Router({
     { path: '/intro', 
       name: 'intro', 
       component: Intro },
-    // { path: '/login', 
-    //   name: 'login', 
-    //   component: Login },
-    // { path: '/track', 
-    //   name: 'track', 
-    //   component: Track },
     { path: '/topic/:tRouteName', 
       name: 'topic', 
       component: Detail_Topic },
     { path: '/topic/:tRouteName/step/:sId', 
       name: 'topic_step', 
       component: Detail_Topic },
-    // { path: '/catagory/:cRouteName',  
-    //   name: 'catagory', 
-    //   component: Detail_Catagory },
     { path: '/contactus',  
       name: 'contactus', 
       component: contactus },
@@ -50,6 +39,14 @@ export default new Router({
       component: Search },
     { path: '/subscribe',
       name: 'subscribe',
-      component: subscribe }
+      component: subscribe },
+    { path: '/PageNotFound',
+      name: 'PageNotFound', 
+      component: PageNotFound
+    },
+    { path: '*',
+      name: 'PageNotFound2', 
+      component: PageNotFound
+    }
   ]
 })
