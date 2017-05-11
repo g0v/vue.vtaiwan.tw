@@ -1,12 +1,13 @@
 <script>
 // "/foo/bar" => "foo"
-// var topic = location.pathname.split("/")[1];
-// if (topic && topic !== 'topic') {
-//     // "foo" => "/topic/foo"
-//     location.replace("/topic/" + topic);
-// }
+var topic = location.pathname.split("/")[1];
+if (topic && topic !== 'topic') {
+    // "foo" => "/topic/foo"
+    location.replace("/topic/" + topic);
+}
 </script>
 
 
 <!-- in case /topic/foo is missing -->
+<h1>404 Not Found</h1>
 <h1>404 Not Found</h1>
