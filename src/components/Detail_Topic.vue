@@ -29,7 +29,7 @@
     Slide(v-if = "article.id !== undefined", :article="article")
       // video(:style="{'background-image': 'url('+article.cover+')'}")
 
-    .ui.three.item.big.menu
+    .ui.three.item.big.menu(v-if = "article.id !== undefined")
       router-link.item(v-for="(step, idx) in tabcontent", :to="$route.path+hashName(idx)", :class="{'active':idx===myIdx}", @click="myIdx=idx")
         i.icon(v-bind:class="{'info circle': step == '詳細內容','calendar': step == '議題時間軸','comments': step == '參與討論','history': step == '歷史案件','university': step =='院會討論'}")
         p.fat-only {{step}} 
@@ -151,7 +151,7 @@ export default {
         this.status_modify(this.article.status);
       }
       else {
-        this.$router.push({path:'/PageNotFound'})
+        this.$router.push('/PageNotFound')
       }
     } 
   },
@@ -160,7 +160,7 @@ export default {
         this.status_modify(this.article.status);
       }
       else {
-        this.$router.push({path:'/PageNotFound'})
+        this.$router.push('/PageNotFound')
       }
   }
 }

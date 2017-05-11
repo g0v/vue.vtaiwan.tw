@@ -44,9 +44,8 @@ export default new Router({
       name: 'PageNotFound', 
       component: PageNotFound
     },
-    { path: '*',
-      name: 'PageNotFound2', 
-      component: PageNotFound
+    { path: '/*',
+      redirect: '/PageNotFound'
     }
   ]
 })
