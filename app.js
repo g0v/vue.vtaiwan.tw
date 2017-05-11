@@ -11860,6 +11860,10 @@ module.exports = function spread(callback) {
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -11958,19 +11962,12 @@ module.exports = function spread(callback) {
       meta_title.content = this.article.title + " - vTaiwan.tw";
       $('meta[property="og:title"]').remove();
       document.getElementsByTagName('head')[0].appendChild(meta_title);
-      if (this.article.status !== undefined) {
-        this.status_modify(this.article.status);
-      } else {
-        this.$router.push('/PageNotFound');
-      }
+
+      this.status_modify(this.article.status);
     }
   },
   created: function created() {
-    if (this.article.status !== undefined) {
-      this.status_modify(this.article.status);
-    } else {
-      this.$router.push('/PageNotFound');
-    }
+    this.status_modify(this.article.status);
   }
 };
 
@@ -16171,13 +16168,15 @@ module.exports={render:function (){with(this) {
     attrs: {
       "id": "pusher"
     }
-  }, [(article.id !== undefined) ? _h('NextStage', {
+  }, [(article.id === undefined) ? _h('h1', {
+    staticClass: "ui centered header"
+  }, [_m(0), "抱歉，找不到該議題!"]) : _e(), (article.id !== undefined) ? _h('NextStage', {
     attrs: {
       "article": article
     }
-  }) : _e(), _h('h1', {
+  }) : _e(), (article.id !== undefined) ? _h('h1', {
     staticClass: "ui centered header"
-  }, [_m(0), _s(article.title), _m(1)]), (article.id !== undefined) ? _h('Slide', {
+  }, [_m(1), _s(article.title), _m(2)]) : _e(), (article.id !== undefined) ? _h('Slide', {
     attrs: {
       "article": article
     }
@@ -16226,6 +16225,8 @@ module.exports={render:function (){with(this) {
     }
   }) : _e()])]) : _e()])])
 }},staticRenderFns: [function (){with(this) {
+  return _h('br')
+}},function (){with(this) {
   return _h('sup', [_h('i', {
     staticClass: "quote left icon"
   })])
