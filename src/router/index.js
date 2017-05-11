@@ -8,7 +8,6 @@ import Detail_Topic from '../components/Detail_Topic.vue'
 import contactus from '../components/ContactUs.vue'
 import Search from '../components/app_navbar_search.vue'
 import subscribe from '../components/Subscribe.vue'
-import PageNotFound from '../components/PageNotFound.vue'
 
 Vue.use(Router)
 
@@ -40,12 +39,8 @@ export default new Router({
     { path: '/subscribe',
       name: 'subscribe',
       component: subscribe },
-    { path: '/PageNotFound',
-      name: 'PageNotFound', 
-      component: PageNotFound
-    },
     { path: '/*',
-      redirect: '/PageNotFound'
+      redirect: '/'
     }
   ]
 })

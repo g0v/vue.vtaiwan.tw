@@ -17,10 +17,6 @@
 
   #pusher.ui.container.pusher
 
-    h1.ui.centered.header(v-if = "article.id === undefined")
-      br 
-      | 抱歉，找不到該議題!
-
     NextStage(v-if = "article.id !== undefined", :article="article")
     
     h1.ui.centered.header(v-if = "article.id !== undefined") 
