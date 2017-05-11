@@ -11961,7 +11961,7 @@ module.exports = function spread(callback) {
       if (this.article.status !== undefined) {
         this.status_modify(this.article.status);
       } else {
-        this.$router.push({ path: '/PageNotFound' });
+        this.$router.push('/PageNotFound');
       }
     }
   },
@@ -11969,7 +11969,7 @@ module.exports = function spread(callback) {
     if (this.article.status !== undefined) {
       this.status_modify(this.article.status);
     } else {
-      this.$router.push({ path: '/PageNotFound' });
+      this.$router.push('/PageNotFound');
     }
   }
 };
@@ -14031,9 +14031,8 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_
     component: __WEBPACK_IMPORTED_MODULE_8__components_Subscribe_vue___default.a }, { path: '/PageNotFound',
     name: 'PageNotFound',
     component: __WEBPACK_IMPORTED_MODULE_9__components_PageNotFound_vue___default.a
-  }, { path: '*',
-    name: 'PageNotFound2',
-    component: __WEBPACK_IMPORTED_MODULE_9__components_PageNotFound_vue___default.a
+  }, { path: '/*',
+    redirect: '/PageNotFound'
   }]
 });
 
@@ -16182,7 +16181,7 @@ module.exports={render:function (){with(this) {
     attrs: {
       "article": article
     }
-  }) : _e(), _h('div', {
+  }) : _e(), (article.id !== undefined) ? _h('div', {
     staticClass: "ui three item big menu"
   }, [_l((tabcontent), function(step, idx) {
     return _h('router-link', {
@@ -16206,7 +16205,7 @@ module.exports={render:function (){with(this) {
     }), _h('p', {
       staticClass: "fat-only"
     }, [_s(step) + " "])])
-  })]), (article.id !== undefined) ? _h('div', {
+  })]) : _e(), (article.id !== undefined) ? _h('div', {
     staticClass: "info"
   }, [_h('transition', {
     attrs: {
