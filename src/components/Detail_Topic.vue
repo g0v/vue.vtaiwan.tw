@@ -17,9 +17,13 @@
 
   #pusher.ui.container.pusher
 
+    h1.ui.centered.header(v-if = "article.id === undefined")
+      br 
+      | 抱歉，找不到該議題!
+
     NextStage(v-if = "article.id !== undefined", :article="article")
     
-    h1.ui.centered.header 
+    h1.ui.centered.header(v-if = "article.id !== undefined") 
       sup
         i.quote.left.icon
       | {{article.title}}
@@ -147,21 +151,13 @@ export default {
       meta_title.content = this.article.title + " - vTaiwan.tw";
       $('meta[property="og:title"]').remove();
       document.getElementsByTagName('head')[0].appendChild(meta_title);
-      if (this.article.status !== undefined) {
-        this.status_modify(this.article.status);
-      }
-      else {
-        this.$router.push('/PageNotFound')
-      }
+
+      this.status_modify(this.article.status);
+
     } 
   },
   created:function(){
-      if (this.article.status !== undefined) {
-        this.status_modify(this.article.status);
-      }
-      else {
-        this.$router.push('/PageNotFound')
-      }
+      this.status_modify(this.article.status);
   }
 }
 </script>

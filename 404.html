@@ -3,7 +3,8 @@
 var topic = location.pathname.split("/")[1];
 if (topic && topic !== 'topic') {
     // "foo" => "/topic/foo"
-    location.replace("/topic/" + topic);
+    // location.replace("/topic/" + topic);
+    location.replace("/PageNotFound")
 }
 </script>
 
