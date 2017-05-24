@@ -11880,7 +11880,7 @@ module.exports = function spread(callback) {
   },
   data: function data() {
     return {
-      tabcontent: ["詳細內容", "議題時間軸"],
+      tabcontent: ["詳細內容", "議題時間軸", '歷史案件'],
       stage: ["即將開始", "意見徵集", "研擬草案", "送交院會", "歷史案件"],
       tabList: ['#desc', '#time', '#disc'],
       p: ''
@@ -11889,8 +11889,8 @@ module.exports = function spread(callback) {
 
   computed: {
     myIdx: function myIdx() {
-      /* return 0 when hash is empty (-1) */
-      if (this.$route.hash) return this.hashIdx(this.$route.hash);else return 0;
+      /* return default when hash is empty (-1) */
+      if (this.$route.hash) return this.getHash(this.$route.hash);else return this.getHash('#time');
     },
     article: function article() {
       var rtName = this.$route.params.tRouteName;
@@ -11905,11 +11905,12 @@ module.exports = function spread(callback) {
     }
   },
   methods: {
-    showSidebar: function showSidebar() {
-      $('.ui.left.sidebar').sidebar('show');
-    },
-    hideSidebar: function hideSidebar() {
-      $('.ui.left.sidebar').sidebar('hide');
+    showSidebar: function showSidebar(param) {
+      if (param === 'hide') {
+        $('.ui.left.sidebar').sidebar('hide');
+      } else {
+        $('.ui.left.sidebar').sidebar('show');
+      }
     },
     routename: function routename() {
       return this.$route.params.tRouteName;
@@ -11917,22 +11918,19 @@ module.exports = function spread(callback) {
     status_modify: function status_modify(status) {
       if (status == "歷史案件") {
         this.tabcontent[2] = "歷史案件";
-        return this.tabcontent;
-      }
-      if (status == "送交院會") {
+      } else if (status == "送交院會") {
         this.tabcontent[2] = "院會討論";
-        return this.tabcontent;
-      }
-      if (status == "即將開始" || status == "意見徵集" || status == "研擬草案") {
+      } else if (status == "即將開始" || status == "意見徵集" || status == "研擬草案") {
         this.tabcontent[2] = "參與討論";
-        return this.tabcontent;
       }
+      return this.tabcontent;
     },
-    hashIdx: function hashIdx(hash) {
-      return this.tabList.indexOf(hash);
-    },
-    hashName: function hashName(idx) {
-      return this.tabList[idx];
+    getHash: function getHash(param) {
+      if (typeof param === 'string') {
+        return this.tabList.indexOf(param);
+      } else {
+        return this.tabList[param];
+      }
     }
   },
   mounted: function mounted() {
@@ -14188,7 +14186,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n* {\n  box-sizing: border-box;\n}\nbody {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter,\n.fade-leave-active {\n  opacity: 0;\n}\n.fade-leave-active,\n.fade-enter-active {\n  transition: opacity .3s ease;\n}\n.component {\n  position: relative;\n}\n.component h1, .component h2, .component h3, .component h4, .component h5, .component h6, .component p {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a, .component h2 a, .component h3 a, .component h4 a, .component h5 a, .component h6 a, .component p a {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only {\n    display: none !important;\n}\n}\na.ui.icon.button {\n  background-color: #3fadc7;\n}\na.ui.icon.button span {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n", ""]);
+exports.push([module.i, "\n* {\n  box-sizing: border-box;\n}\nbody {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter,\n.fade-leave-active {\n  opacity: 0;\n}\n.fade-leave-active,\n.fade-enter-active {\n  transition: opacity .3s ease;\n}\n.component {\n  position: relative;\n}\n.component h1, .component h2, .component h3, .component h4, .component h5, .component h6, .component p {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a, .component h2 a, .component h3 a, .component h4 a, .component h5 a, .component h6 a, .component p a {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only {\n    display: none !important;\n}\n}\na.ui.icon.button {\n  background-color: #3fadc7;\n  margin: .1em .2ch;\n}\na.ui.icon.button span {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n", ""]);
 
 // exports
 
@@ -14230,7 +14228,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n*[data-v-4144f431] {\n  box-sizing: border-box;\n}\nbody[data-v-4144f431] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter[data-v-4144f431],\n.fade-leave-active[data-v-4144f431] {\n  opacity: 0;\n}\n.fade-leave-active[data-v-4144f431],\n.fade-enter-active[data-v-4144f431] {\n  transition: opacity .3s ease;\n}\n.component[data-v-4144f431] {\n  position: relative;\n}\n.component h1[data-v-4144f431], .component h2[data-v-4144f431], .component h3[data-v-4144f431], .component h4[data-v-4144f431], .component h5[data-v-4144f431], .component h6[data-v-4144f431], .component p[data-v-4144f431] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-4144f431], .component h2 a[data-v-4144f431], .component h3 a[data-v-4144f431], .component h4 a[data-v-4144f431], .component h5 a[data-v-4144f431], .component h6 a[data-v-4144f431], .component p a[data-v-4144f431] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-4144f431] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-4144f431] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-4144f431] {\n    display: none !important;\n}\n}\n#sidebar.sidebar[data-v-4144f431] {\n  text-align: left;\n}\n#sidebar.sidebar .menu[data-v-4144f431] {\n    margin: 0;\n}\n#sidebar.sidebar .menu .router-link-active[data-v-4144f431] {\n      color: white;\n}\n#opener[data-v-4144f431] {\n  height: 100%;\n  width: 1ch;\n  background: #1B1C1D;\n  /* the color of sidebar */\n  position: fixed;\n  left: 0;\n  z-index: 100;\n}\n.ui.top.menu[data-v-4144f431] {\n  width: 100%;\n}\n#pusher[data-v-4144f431] {\n  min-height: 90vh;\n  padding-bottom: 1em;\n}\n", ""]);
+exports.push([module.i, "\n*[data-v-4144f431] {\n  box-sizing: border-box;\n}\nbody[data-v-4144f431] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter[data-v-4144f431],\n.fade-leave-active[data-v-4144f431] {\n  opacity: 0;\n}\n.fade-leave-active[data-v-4144f431],\n.fade-enter-active[data-v-4144f431] {\n  transition: opacity .3s ease;\n}\n.component[data-v-4144f431] {\n  position: relative;\n}\n.component h1[data-v-4144f431], .component h2[data-v-4144f431], .component h3[data-v-4144f431], .component h4[data-v-4144f431], .component h5[data-v-4144f431], .component h6[data-v-4144f431], .component p[data-v-4144f431] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-4144f431], .component h2 a[data-v-4144f431], .component h3 a[data-v-4144f431], .component h4 a[data-v-4144f431], .component h5 a[data-v-4144f431], .component h6 a[data-v-4144f431], .component p a[data-v-4144f431] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-4144f431] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-4144f431] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-4144f431] {\n    display: none !important;\n}\n}\n#sidebar.sidebar[data-v-4144f431] {\n  text-align: left;\n}\n#sidebar.sidebar .menu[data-v-4144f431] {\n    margin: 0;\n}\n#sidebar.sidebar .menu .router-link-active[data-v-4144f431] {\n      color: white;\n}\n#opener[data-v-4144f431] {\n  height: 100%;\n  width: 1ch;\n  background: #1B1C1D;\n  /* the color of sidebar */\n  position: fixed;\n  left: 0;\n  z-index: 100;\n}\n.ui.top.menu[data-v-4144f431] {\n  width: 100%;\n}\n#pusher[data-v-4144f431] {\n  min-height: 90vh;\n  padding-bottom: 1em;\n}\n.information[data-v-4144f431] {\n  min-height: 10em;\n}\n", ""]);
 
 // exports
 
@@ -16050,7 +16048,9 @@ module.exports={render:function (){with(this) {
       "id": "sidebar"
     },
     on: {
-      "mouseleave": hideSidebar
+      "mouseleave": function($event) {
+        showSidebar('hide')
+      }
     }
   }, [_l((stage), function(step, idx) {
     return _h('div', {
@@ -16094,11 +16094,11 @@ module.exports={render:function (){with(this) {
     }
   }) : _e(), (article.id !== undefined) ? _h('h1', {
     staticClass: "ui centered header"
-  }, [_m(0), _s(article.title), _m(1)]) : _e(), (article.id !== undefined) ? _h('Slide', {
+  }, [_m(0), _s(article.title) + "  ", _m(1)]) : _e(), (article.id !== undefined) ? _h('Slide', {
     attrs: {
       "article": article
     }
-  }) : _e(), (article.id !== undefined) ? _h('div', {
+  }) : _e(), (article.id) ? _h('div', {
     staticClass: "ui three item big menu"
   }, [_l((tabcontent), function(step, idx) {
     return _h('router-link', {
@@ -16107,10 +16107,11 @@ module.exports={render:function (){with(this) {
         'active': idx === myIdx
       },
       attrs: {
-        "to": $route.path + hashName(idx)
+        "to": $route.path + getHash(idx)
       },
       on: {
         "click": function($event) {
+          $event.preventDefault();
           myIdx = idx
         }
       }
@@ -16122,22 +16123,22 @@ module.exports={render:function (){with(this) {
     }), _h('p', {
       staticClass: "fat-only"
     }, [_s(step) + " "])])
-  })]) : _e(), (article.id !== undefined) ? _h('div', {
-    staticClass: "info"
+  })]) : _e(), (article.id) ? _h('div', {
+    staticClass: "information"
   }, [_h('transition', {
     attrs: {
       "name": "fade",
       "mode": "out-in"
     }
-  }, [(myIdx === 0) ? _h('Description', {
+  }, [(myIdx === getHash('#desc')) ? _h('Description', {
     attrs: {
       "article": article
     }
-  }) : _e(), (myIdx === hashIdx('#time')) ? _h('Timeline', {
+  }) : _e(), (myIdx === getHash('#time')) ? _h('Timeline', {
     attrs: {
       "article": article
     }
-  }) : _e(), (myIdx === hashIdx('#disc')) ? _h('Discussion', {
+  }) : _e(), (myIdx === getHash('#disc')) ? _h('Discussion', {
     attrs: {
       "article": article
     }
