@@ -12138,7 +12138,7 @@ module.exports = function spread(callback) {
             } else if (j.indexOf("sli.do") > -1) {
               //篩出含有slido的連結    
               dType.type.push('slido');
-              dType.slido = "<iframe src=" + j + "frameborder='0' width='100%' height='1000px' data-reactid='.0.2.0.0.0'></iframe>";
+              dType.slido = "<iframe src='" + j + "' frameborder='0' width='100%' height='1000px' data-reactid='.0.2.0.0.0'></iframe>";
             } else if (j.indexOf("livehouse") > -1) {
               //篩出含有slido的連結    
               dType.type.push('livehouse');
