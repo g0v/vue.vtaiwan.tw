@@ -1,7 +1,7 @@
 <template lang="jade">
 .component.pushable
   
-  #sidebar.ui.left.inverted.vertical.menu.sidebar(@mouseleave="hideSidebar")
+  #sidebar.ui.left.inverted.vertical.menu.sidebar(@mouseleave="showSidebar('hide')")
     .item(v-for = "(step,idx) in stage")
       .header 
         p {{step}} 
@@ -22,23 +22,23 @@
     h1.ui.centered.header(v-if = "article.id !== undefined") 
       sup
         i.quote.left.icon
-      | {{article.title}}
+      | {{article.title}} &nbsp;
       sub
         i.quote.right.icon
     
     Slide(v-if = "article.id !== undefined", :article="article")
       // video(:style="{'background-image': 'url('+article.cover+')'}")
 
-    .ui.three.item.big.menu(v-if = "article.id !== undefined")
-      router-link.item(v-for="(step, idx) in tabcontent", :to="$route.path+hashName(idx)", :class="{'active':idx===myIdx}", @click="myIdx=idx")
+    .ui.three.item.big.menu(v-if = "article.id")
+      router-link.item(v-for="(step, idx) in tabcontent", :to="$route.path+getHash(idx)", :class="{'active':idx===myIdx}", @click.prevent="myIdx=idx")
         i.icon(v-bind:class="{'info circle': step == '詳細內容','calendar': step == '議題時間軸','comments': step == '參與討論','history': step == '歷史案件','university': step =='院會討論'}")
         p.fat-only {{step}} 
 
-    .info(v-if = "article.id !== undefined")
+    .information(v-if = "article.id")
       transition(name='fade', mode='out-in')
-        Description(v-if="myIdx === 0", :article="article")
-        Timeline(v-if="myIdx === hashIdx('#time')", :article="article")
-        Discussion(v-if="myIdx === hashIdx('#disc')", :article="article")
+        Description(v-if="myIdx === getHash('#desc')", :article="article")
+        Timeline(v-if="myIdx === getHash('#time')", :article="article")
+        Discussion(v-if="myIdx === getHash('#disc')", :article="article")
 
 </template>
 
@@ -62,7 +62,7 @@ export default {
   },
   data () {
     return {
-      tabcontent:["詳細內容","議題時間軸"],
+      tabcontent:["詳細內容","議題時間軸",'歷史案件'],
       stage:["即將開始","意見徵集","研擬草案","送交院會","歷史案件"],
       tabList: [
         '#desc',
@@ -74,11 +74,11 @@ export default {
   },
   computed: {
     myIdx: function () {
-      /* return 0 when hash is empty (-1) */
+      /* return default when hash is empty (-1) */
       if(this.$route.hash)
-        return this.hashIdx(this.$route.hash)
+        return this.getHash(this.$route.hash)
       else
-        return 0
+        return this.getHash('#time')
     },
     article:function(){
       var rtName = this.$route.params.tRouteName;
@@ -94,11 +94,13 @@ export default {
     }
   },
   methods:{
-    showSidebar:function(){
-      $('.ui.left.sidebar').sidebar('show');
-    },
-    hideSidebar:function(){
-      $('.ui.left.sidebar').sidebar('hide');
+    showSidebar:function(param){
+      if (param === 'hide') {
+        $('.ui.left.sidebar').sidebar('hide');
+      }
+      else {
+        $('.ui.left.sidebar').sidebar('show');
+      }
     },
     routename:function(){
       return this.$route.params.tRouteName;
@@ -106,23 +108,23 @@ export default {
     status_modify:function(status){
       if(status =="歷史案件"){
         this.tabcontent[2] = "歷史案件";
-        return this.tabcontent;
       }
-      if(status == "送交院會"){
+      else if(status == "送交院會"){
         this.tabcontent[2] = "院會討論";
-        return this.tabcontent;
       }
-      if(status == "即將開始" || status == "意見徵集" || status == "研擬草案"){
+      else if(status == "即將開始" || status == "意見徵集" || status == "研擬草案"){
         this.tabcontent[2] ="參與討論";
-        return this.tabcontent;
+      }
+      return this.tabcontent;
+    },
+    getHash: function(param) {
+      if (typeof param === 'string') {
+        return this.tabList.indexOf(param)
+      }
+      else {
+        return this.tabList[param]
       }
     },
-    hashIdx: function(hash){
-      return this.tabList.indexOf(hash)
-    },
-    hashName: function(idx){
-      return this.tabList[idx]
-    }
   },
   mounted:function(){
     $('.ui.left.sidebar').sidebar({
@@ -189,4 +191,7 @@ export default {
   padding-bottom: 1em;
 }
 
+.information {
+  min-height: 10em;
+}
 </style>

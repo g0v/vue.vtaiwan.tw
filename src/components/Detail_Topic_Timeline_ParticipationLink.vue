@@ -127,6 +127,7 @@ export default {
 @import "../sass/global.scss";
 a.ui.icon.button{
   background-color: $main_color;
+  margin: .1em .2ch;
   span {
     font-family: $main-font;
   }
