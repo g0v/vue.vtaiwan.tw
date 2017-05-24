@@ -162,7 +162,7 @@ export default {
     // position: absolute;
     // bottom: 3em;
     // font-family: $main_font;
-    font-size: 70%;
+    font-size: 100%;
   }
 }
 

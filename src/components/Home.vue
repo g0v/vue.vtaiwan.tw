@@ -47,8 +47,8 @@ export default {
   computed: {
       hotTopics: function () {
           return this.allTopics.sort(function(a, b){
-              return (b.likes - a.likes)
-          }).slice(0,this.n_hot)
+              return (a.lastat - b.lastat)
+          }).slice(0, this.n_hot)
       }
   }
 }

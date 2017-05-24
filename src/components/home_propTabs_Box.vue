@@ -19,7 +19,7 @@
     .ui.four.stackable.cards
       router-link.card(:to="'/topic/' + item.routeName", v-for="item in list")
         .progress_bar(v-if="name === 'discuss'")
-          .progress_text(v-if="item.status === '討論中'") 還有{{Math.floor(item.total - item.progress)}}天
+          .progress_text(v-if="item.status === '意見徵集'") 還有{{Math.floor(item.total - item.progress)}}天
           .progress_text(v-else) 討論已結束
           .progress_color(:style = "progressStyle(item.progress, item.total)")
         .image
@@ -119,18 +119,17 @@
       }
     }
     .progress_bar {
-      background: #AAAAAA;
-      // margin: 0 -1em;
+      background: rgba(0,0,0,0.8);
       height: 2em;
       line-height: 2em;
       position: absolute;
       top: 0;
+      z-index: 100;
       width: 100%;
       
       .progress_text {
         color: white;
         position: absolute;
-        z-index: 200;
         width: 100%;
         text-align: center;
       }
@@ -138,9 +137,7 @@
       .progress_color{
         background: $main_color;
         position: absolute;
-        z-index: 100;
         height: 100%;
-        box-shadow: gray 0 -10px 10px 10px;
       }
     }
 }
