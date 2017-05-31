@@ -1,7 +1,7 @@
 <template lang="jade">
-#app.app
+#app.app(style='display:none')
   Navbar(:routes = "myRoutes", :allTopics = "allTopics")
-
+  
   // #test0 test jQuery
 
   #main.main
@@ -74,7 +74,11 @@ export default {
   },
   mounted: function(){
     // $('#test0').hide(); // tester
-
+    setTimeout(function(){ 
+      $('#app')[0].style.display="block";
+      $('#spinner-box')[0].style.display="none";
+    }, 1000);
+    
     caxios.get('https://talk.vtaiwan.tw/c/meta-data.json')
     .then((response)=>{
       var topics = response.data.topic_list.topics.slice(1);

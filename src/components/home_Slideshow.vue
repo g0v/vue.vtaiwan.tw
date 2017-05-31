@@ -2,8 +2,7 @@
 
   .component
 
-    #loader.ui.active.inverted.dimmer
-      .ui.loader
+  
 
     .swiper-container
       //- .swiper-scrollbar
