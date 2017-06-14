@@ -1,19 +1,18 @@
 <template lang="jade">
-
-#proposaltab.component
+.component
 
   .ui.horizontal.divider
-    i.open.envelope.outline.icon 
+    i.open.envelope.outline.icon
     |  proposal
 
   .ui.container
-    
-    #mobile-step.ui.sticky.mobile-step.thin-only
+
+    #mobile-step.mobile-step.ui.sticky.thin-only
       // a.step(v-for="(step, idx) in steps", :class="{'active': idx == myIdx}", @click="myIdx = idx", v-bind:href="'#'+step.dataName")
       .ui.vertical.menu
         a.fitted.item(v-for="(step, idx) in steps", :class="{'active': idx == myIdx}", @click="myIdx = idx", :href="'#'+step.dataName")
           p {{step.label}}
-    
+
     .ui.top.attached.big.steps.fat-only
       a.step(v-for="(step, idx) in steps", :class="{'active': idx == myIdx}", @click="myIdx = idx")
         .label {{step.label}}
@@ -44,22 +43,22 @@ export default {
       onMobile: false,
       steps: [
         {
-          label: '即將開始',
+          label: '即將開始的專案',
           description: '在草案未形成前跳脫時間空間限制，擴大搜集利害相關人之意見',
           dataName: 'soon'
         },
         {
-          label: '意見徵集',
+          label: '意見徵集的專案',
           description: '邀請核心利害相關者參與諮詢會議，加入實體見面討論，一同將意見化為草案',
           dataName: 'discuss'
         },
         {
-          label: '研擬草案',
+          label: '研擬草案中專案',
           description: '將成熟的草案加強、寫成定案',
           dataName: 'curate'
         },
         {
-          label: '送交院會',
+          label: '送交院會的專案',
           description: '送交立法院',
           dataName: 'deploy'
         },
@@ -83,9 +82,8 @@ export default {
     this.handleResize();
   },
   methods: {
-    mySort: function (dataName) { 
+    mySort: function (dataName) {
       let boxes;
-
       switch (dataName) {
         case "soon":
           boxes = this.allTopics.slice()
@@ -93,72 +91,59 @@ export default {
               return topic.status==="即將開始"
             })
             .sort(function(a,b) {
-              return 1; 
+              return 1;
               // replace this by other logic...
             })
           break;
-          
         case "discuss":
           boxes = this.allTopics.slice()
             .filter((topic)=>{
               return topic.status==="意見徵集"
             })
             .sort(function(a,b) {
-              return 1; 
+              return 1;
               // replace this by other logic...
             })
           break;
-
         case "curate":
           boxes = this.allTopics.slice()
             .filter((topic)=>{
               return topic.status==="研擬草案"
             })
             .sort(function(a,b) {
-              return 1; 
+              return 1;
               // replace this by other logic...
             })
           break;
-
         case "deploy":
           boxes = this.allTopics.slice()
             .filter((topic)=>{
               return topic.status==="送交院會"
             })
             .sort(function(a,b) {
-              return 1; 
+              return 1;
               // replace this by other logic...
             })
           break;
-
         case "history":
           boxes = this.allTopics.slice()
             .filter((topic)=>{
               return topic.status==="歷史案件"
             })
             .sort(function(a,b) {
-              return 1; 
+              return 1;
               // replace this by other logic...
             })
           break;
       }
-
       return boxes;
     },
     onStickTo: function(idx, e){
       let el = "#mobile-step a[href='#"+e[0]+"']"
-      $(el).parent().children().removeClass('active') 
+      $(el).parent().children().removeClass('active')
       $(el).addClass('active')
       this.myIdx = idx
     },
-    // handleScroll: function(){
-    //   var mobile_steps = $("#mobile-step");
-    //   if(mobile_steps.length>0)
-    //   {
-    //     mobile_steps.sticky('refresh');
-    //     // mobile_steps[0].style.left="0px"
-    //   }
-    // },
     handleResize: function(){
       if(typeof window !== 'undefined') {
           this.onMobile = window.innerWidth < 768;
@@ -184,36 +169,35 @@ export default {
   }
 }
 
+$tabColor: darken($step_color, 20%);
 .ui.steps {
-
   .step {
-    // make tab item flexible
+    /*make tab item flexible*/
     flex: 1 1 auto;
-    overflow: hidden;
+    // overflow: hidden;
+    &.active, &.active:hover {
+      background: $tabColor;
+      color: white;
+      &::after {
+        background: $tabColor;
+        top: 100%;
+        right: 50%;
+        border-width: 0 0 1px 1px;
+      }
+    }
+    .number {
+      // font-family: $logo_font;
+      font-weight: 700;
+      position: absolute;
+      font-size: 9rem;
+      color: fade_out($step_color, 0.5);
+      margin: 5% 0 0 25%;
+    }
+    .label {
+      // padding: .3em 0 0 .3em;
+      z-index: 100;
+    }
   }
-
-  .number {
-    // border-radius: 1em;
-    // color: white;
-    // background: $step_color;
-    // font-size: 2em;
-    font-family: $logo_font;
-    font-weight: 700;
-    // line-height: 1.2em;
-    // width: 1.2em;
-    // height: 1.2em;
-    // margin: .2em .2em .2em 0;
-    position: absolute;
-    font-size: 10rem;
-    color: fade_out($step_color, 0.5);
-    margin: 1% 0 0 30%;
-  }
-
-  .label {
-    padding: .3em 0 0 .3em;
-    z-index: 100;
-  }
-
 }
 
 @media only screen and (max-width: $breakpoint) {
