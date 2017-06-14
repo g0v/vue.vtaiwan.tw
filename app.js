@@ -13384,7 +13384,6 @@ var main = __webpack_require__(20);
 //
 //
 //
-//
 
 
 
@@ -13399,19 +13398,19 @@ var main = __webpack_require__(20);
       myIdx: 1, /* default tab */
       onMobile: false,
       steps: [{
-        label: '即將開始',
+        label: '即將開始的專案',
         description: '在草案未形成前跳脫時間空間限制，擴大搜集利害相關人之意見',
         dataName: 'soon'
       }, {
-        label: '意見徵集',
+        label: '意見徵集的專案',
         description: '邀請核心利害相關者參與諮詢會議，加入實體見面討論，一同將意見化為草案',
         dataName: 'discuss'
       }, {
-        label: '研擬草案',
+        label: '研擬草案中專案',
         description: '將成熟的草案加強、寫成定案',
         dataName: 'curate'
       }, {
-        label: '送交院會',
+        label: '送交院會的專案',
         description: '送交立法院',
         dataName: 'deploy'
       }, {
@@ -13436,7 +13435,6 @@ var main = __webpack_require__(20);
   methods: {
     mySort: function mySort(dataName) {
       var boxes = void 0;
-
       switch (dataName) {
         case "soon":
           boxes = this.allTopics.slice().filter(function (topic) {
@@ -13446,7 +13444,6 @@ var main = __webpack_require__(20);
             // replace this by other logic...
           });
           break;
-
         case "discuss":
           boxes = this.allTopics.slice().filter(function (topic) {
             return topic.status === "意見徵集";
@@ -13455,7 +13452,6 @@ var main = __webpack_require__(20);
             // replace this by other logic...
           });
           break;
-
         case "curate":
           boxes = this.allTopics.slice().filter(function (topic) {
             return topic.status === "研擬草案";
@@ -13464,7 +13460,6 @@ var main = __webpack_require__(20);
             // replace this by other logic...
           });
           break;
-
         case "deploy":
           boxes = this.allTopics.slice().filter(function (topic) {
             return topic.status === "送交院會";
@@ -13473,7 +13468,6 @@ var main = __webpack_require__(20);
             // replace this by other logic...
           });
           break;
-
         case "history":
           boxes = this.allTopics.slice().filter(function (topic) {
             return topic.status === "歷史案件";
@@ -13483,7 +13477,6 @@ var main = __webpack_require__(20);
           });
           break;
       }
-
       return boxes;
     },
     onStickTo: function onStickTo(idx, e) {
@@ -13492,14 +13485,6 @@ var main = __webpack_require__(20);
       $(el).addClass('active');
       this.myIdx = idx;
     },
-    // handleScroll: function(){
-    //   var mobile_steps = $("#mobile-step");
-    //   if(mobile_steps.length>0)
-    //   {
-    //     mobile_steps.sticky('refresh');
-    //     // mobile_steps[0].style.left="0px"
-    //   }
-    // },
     handleResize: function handleResize() {
       if (typeof window !== 'undefined') {
         this.onMobile = window.innerWidth < 768;
@@ -14036,7 +14021,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n*[data-v-0aea0f33] {\n  box-sizing: border-box;\n}\nbody[data-v-0aea0f33] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter[data-v-0aea0f33],\n.fade-leave-active[data-v-0aea0f33] {\n  opacity: 0;\n}\n.fade-leave-active[data-v-0aea0f33],\n.fade-enter-active[data-v-0aea0f33] {\n  transition: opacity .3s ease;\n}\n.component[data-v-0aea0f33] {\n  position: relative;\n}\n.component h1[data-v-0aea0f33], .component h2[data-v-0aea0f33], .component h3[data-v-0aea0f33], .component h4[data-v-0aea0f33], .component h5[data-v-0aea0f33], .component h6[data-v-0aea0f33], .component p[data-v-0aea0f33] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-0aea0f33], .component h2 a[data-v-0aea0f33], .component h3 a[data-v-0aea0f33], .component h4 a[data-v-0aea0f33], .component h5 a[data-v-0aea0f33], .component h6 a[data-v-0aea0f33], .component p a[data-v-0aea0f33] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-0aea0f33] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-0aea0f33] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-0aea0f33] {\n    display: none !important;\n}\n}\n.component[data-v-0aea0f33] {\n  padding: 1em 0;\n}\n@media only screen and (max-width: 767px) {\n.component #context[data-v-0aea0f33] {\n      margin: -1.5em 0 0 0;\n}\n}\n.ui.steps .step[data-v-0aea0f33] {\n  -ms-flex: 1 1 auto;\n      flex: 1 1 auto;\n  overflow: hidden;\n}\n.ui.steps .number[data-v-0aea0f33] {\n  font-family: Lobster, \"Microsoft JhengHei\", \"Heiti TC\", serif;\n  font-weight: 700;\n  position: absolute;\n  font-size: 10rem;\n  color: rgba(219, 79, 79, 0.5);\n  margin: 1% 0 0 30%;\n}\n.ui.steps .label[data-v-0aea0f33] {\n  padding: .3em 0 0 .3em;\n  z-index: 100;\n}\n@media only screen and (max-width: 767px) {\n.component[data-v-0aea0f33] {\n    border: 0px;\n    padding: 1em 0;\n}\n.ui.container[data-v-0aea0f33] {\n    margin: 0 !important;\n}\n.ui.segment.basic[data-v-0aea0f33] {\n    padding: 0;\n    margin-left: 1em;\n    width: 100%;\n}\n.mobile-step[data-v-0aea0f33] {\n    /* do not use #mobile-step, otherwise sticky won't work */\n    position: absolute;\n    top: 1em;\n}\n.mobile-step .ui.menu[data-v-0aea0f33] {\n      width: 2em;\n}\n.mobile-step .ui.menu .item[data-v-0aea0f33] {\n        text-align: center;\n        padding: 1em 0;\n}\n.mobile-step .ui.menu .item.active[data-v-0aea0f33] {\n          color: white;\n          background: #db4f4f;\n}\n}\n", ""]);
+exports.push([module.i, "\n*[data-v-0aea0f33] {\n  box-sizing: border-box;\n}\nbody[data-v-0aea0f33] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter[data-v-0aea0f33],\n.fade-leave-active[data-v-0aea0f33] {\n  opacity: 0;\n}\n.fade-leave-active[data-v-0aea0f33],\n.fade-enter-active[data-v-0aea0f33] {\n  transition: opacity .3s ease;\n}\n.component[data-v-0aea0f33] {\n  position: relative;\n}\n.component h1[data-v-0aea0f33], .component h2[data-v-0aea0f33], .component h3[data-v-0aea0f33], .component h4[data-v-0aea0f33], .component h5[data-v-0aea0f33], .component h6[data-v-0aea0f33], .component p[data-v-0aea0f33] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-0aea0f33], .component h2 a[data-v-0aea0f33], .component h3 a[data-v-0aea0f33], .component h4 a[data-v-0aea0f33], .component h5 a[data-v-0aea0f33], .component h6 a[data-v-0aea0f33], .component p a[data-v-0aea0f33] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-0aea0f33] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-0aea0f33] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-0aea0f33] {\n    display: none !important;\n}\n}\n.component[data-v-0aea0f33] {\n  padding: 1em 0;\n}\n@media only screen and (max-width: 767px) {\n.component #context[data-v-0aea0f33] {\n      margin: -1.5em 0 0 0;\n}\n}\n.ui.steps .step[data-v-0aea0f33] {\n  /*make tab item flexible*/\n  -ms-flex: 1 1 auto;\n      flex: 1 1 auto;\n}\n.ui.steps .step.active[data-v-0aea0f33], .ui.steps .step.active[data-v-0aea0f33]:hover {\n    background: #a32121;\n    color: white;\n}\n.ui.steps .step.active[data-v-0aea0f33]::after, .ui.steps .step.active[data-v-0aea0f33]:hover::after {\n      background: #a32121;\n      top: 100%;\n      right: 50%;\n      border-width: 0 0 1px 1px;\n}\n.ui.steps .step .number[data-v-0aea0f33] {\n    font-weight: 700;\n    position: absolute;\n    font-size: 9rem;\n    color: rgba(219, 79, 79, 0.5);\n    margin: 5% 0 0 25%;\n}\n.ui.steps .step .label[data-v-0aea0f33] {\n    z-index: 100;\n}\n@media only screen and (max-width: 767px) {\n.component[data-v-0aea0f33] {\n    border: 0px;\n    padding: 1em 0;\n}\n.ui.container[data-v-0aea0f33] {\n    margin: 0 !important;\n}\n.ui.segment.basic[data-v-0aea0f33] {\n    padding: 0;\n    margin-left: 1em;\n    width: 100%;\n}\n.mobile-step[data-v-0aea0f33] {\n    /* do not use #mobile-step, otherwise sticky won't work */\n    position: absolute;\n    top: 1em;\n}\n.mobile-step .ui.menu[data-v-0aea0f33] {\n      width: 2em;\n}\n.mobile-step .ui.menu .item[data-v-0aea0f33] {\n        text-align: center;\n        padding: 1em 0;\n}\n.mobile-step .ui.menu .item.active[data-v-0aea0f33] {\n          color: white;\n          background: #db4f4f;\n}\n}\n", ""]);
 
 // exports
 
@@ -15210,14 +15195,11 @@ module.exports = __vue_exports__
 
 module.exports={render:function (){with(this) {
   return _h('div', {
-    staticClass: "component",
-    attrs: {
-      "id": "proposaltab"
-    }
+    staticClass: "component"
   }, [_m(0), _h('div', {
     staticClass: "ui container"
   }, [_h('div', {
-    staticClass: "ui sticky mobile-step thin-only",
+    staticClass: "mobile-step ui sticky thin-only",
     attrs: {
       "id": "mobile-step"
     }
