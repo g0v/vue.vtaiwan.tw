@@ -8,7 +8,7 @@
     .desc.ui.basic.center.aligned.segment.fat-only
       sup
         i.quote.left.icon
-      | {{ desc }} 
+      | {{ desc }}
       sub
         i.quote.right.icon
 
@@ -16,28 +16,22 @@
         i.archive.icon
         | 目前還沒有正在進行的議案…
 
-    .ui.four.stackable.cards
+    .ui.four.stackable.doubling.cards
       router-link.card(:to="'/topic/' + item.routeName", v-for="item in list")
-        .progress_bar(v-if="name === 'discuss'")
-          .progress_text(v-if="item.status === '意見徵集'") 還有{{Math.floor(item.total - item.progress)}}天
-          .progress_text(v-else) 討論已結束
-          .progress_color(:style = "progressStyle(item.progress, item.total)")
-        .image
-          img.ui.image(:src ="item.cover || 'http://lorempixel.com/320/240/sports'")
+        .image(:style="'background-image:url(' + item.cover + ')'")
+          template(v-if="name === 'discuss'")
+            .progressbar(v-if="item.status === '意見徵集'")
+              | 剩
+              .active-border(:data-degrees='Math.floor(item.progress / item.total * 360)')
+                .circle
+                  span.percent
+                    | {{Math.floor(item.total - item.progress)}}
+              | 天
+            .progressbar(v-else) 討論已結束
         .content
           h3.ui.header {{ item.title }}
         .extra.content
           p {{ item.slogan }}
-
-    //- .ui.four.column.grid.stackable
-    //-   .box.column(v-for="item in list")
-    //-     router-link.box-inner.ui.segment(:to="'/topic/' + item.routeName")
-    //-       img.ui.rounded.bordered.image(:src ="item.cover || 'http://lorempixel.com/320/240/sports'")
-    //-       h3.ui.header {{ item.title }}
-    //-       .progress_bar(v-if="name === 'discuss'")
-    //-         .progress_text.ui.bottom.attached.red.large.label(v-if="item.status === '討論中'") 還有{{Math.floor(item.total - item.progress)}}天
-    //-         .progress_text.ui.bottom.attached.red.large.label(v-else) 討論已結束
-    //-         .progress_color(:style = "progressStyle(item.progress, item.total)")
 
 </template>
 
@@ -54,6 +48,7 @@
       /* bind event scroll to window */
       window.addEventListener('scroll', this.mTitleHitEvent)
       // $(window).scroll(this.mTitleHitEvent)
+      setTimeout( () => this.drawProgress(), 1000)
     },
     beforeDestroy: function(){
       window.removeEventListener('scroll', this.mTitleHitEvent)
@@ -78,12 +73,16 @@
           this.isSent = false
         }
       },
-      progressStyle: function(progress, total) {
-        let color = '#3fadc7' /* $main_color */
-        let percent = progress / total * 100
-        // let style = {"background": "linear-gradient(to right, "+color+" 0%, "+color+" "+percent+"%, #AAA "+percent+".1%, #AAA 100%)"}
-        let style = {"width": percent + "%"}
-        return style
+      drawProgress: function () {
+        $(".active-border").map( function () {
+          let degrees = $(this).data("degrees");
+          if (degrees <= 180) {
+            $(this).css('background-image','linear-gradient(' + (90+degrees) + 'deg, transparent 50%, #A2ECFB 50%),linear-gradient(90deg, #A2ECFB 50%, transparent 50%)');
+          }
+          else {
+            $(this).css('background-image','linear-gradient(' + (degrees-90) + 'deg, transparent 50%, #39B4CC 50%),linear-gradient(90deg, #A2ECFB 50%, transparent 50%)');
+          }
+        })
       }
     }
   }
@@ -108,36 +107,46 @@
       font-size: 150%;
     }
     .image{
-      max-height: 12em;
-      overflow: hidden;
-      img{
-        margin: auto;
-        max-width: 100%;
-        max-height: 100%;
-        width: auto;
-        height: auto;
-      }
-    }
-    .progress_bar {
-      background: rgba(0,0,0,0.8);
-      height: 2em;
-      line-height: 2em;
-      position: absolute;
-      top: 0;
-      z-index: 100;
-      width: 100%;
-      
-      .progress_text {
+      position: relative;
+      height: 12em;
+      background-size: cover;
+      background-position: center;
+      .progressbar {
         color: white;
         position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         width: 100%;
-        text-align: center;
-      }
-
-      .progress_color{
-        background: $main_color;
-        position: absolute;
         height: 100%;
+        z-index: 100;
+        /* below is for circular progbar */
+        .active-border{
+          font-size: 2rem;
+          margin: 0 1ch;
+          position: relative;
+          text-align: center;
+          width: calc( 2em + 10px );
+          height: calc( 2em + 10px );
+          border-radius: 50%;
+          background-color: #39B4CC;
+          // background-image:
+          //   linear-gradient(91deg, transparent 50%, #A2ECFB 50%),
+          //   linear-gradient(90deg, #A2ECFB 50%, transparent 50%);
+          .circle {
+            position: relative;
+            top: 5px;
+            left: 5px;
+            width: 2em;
+            height: 2em;
+            border-radius: 50%;
+            background-color: black;
+            .percent{
+              position: relative;
+              top: .4em;
+            }
+          }
+        }
       }
     }
 }
