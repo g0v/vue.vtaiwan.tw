@@ -22,7 +22,7 @@
           template(v-if="name === 'discuss'")
             .progressbar(v-if="item.status === '意見徵集'")
               | 剩
-              .active-border(:data-degrees='Math.floor(item.progress / item.total * 360)')
+              .active-border(:data-degrees='Math.floor(item.progress / item.total * 360)', data-color='#39B4CC', data-bgcolor='gray', style='background-color:gray')
                 .circle
                   span.percent
                     | {{Math.floor(item.total - item.progress)}}
@@ -76,11 +76,13 @@
       drawProgress: function () {
         $(".active-border").map( function () {
           let degrees = $(this).data("degrees");
+          let color = $(this).data("color");
+          let bgcolor = $(this).data("bgcolor");
           if (degrees <= 180) {
-            $(this).css('background-image','linear-gradient(' + (90+degrees) + 'deg, transparent 50%, #A2ECFB 50%),linear-gradient(90deg, #A2ECFB 50%, transparent 50%)');
+            $(this).css('background-image','linear-gradient(' + (90+degrees) + 'deg, transparent 50%, ' + color + ' 50%),linear-gradient(90deg, ' + color + ' 50%, transparent 50%)');
           }
           else {
-            $(this).css('background-image','linear-gradient(' + (degrees-90) + 'deg, transparent 50%, #39B4CC 50%),linear-gradient(90deg, #A2ECFB 50%, transparent 50%)');
+            $(this).css('background-image','linear-gradient(' + (degrees-90) + 'deg, transparent 50%, ' + bgcolor + ' 50%),linear-gradient(90deg, ' + color + ' 50%, transparent 50%)');
           }
         })
       }
@@ -129,7 +131,7 @@
           width: calc( 2em + 10px );
           height: calc( 2em + 10px );
           border-radius: 50%;
-          background-color: #39B4CC;
+          // background-color: #39B4CC;
           // background-image:
           //   linear-gradient(91deg, transparent 50%, #A2ECFB 50%),
           //   linear-gradient(90deg, #A2ECFB 50%, transparent 50%);
@@ -140,9 +142,10 @@
             width: 2em;
             height: 2em;
             border-radius: 50%;
-            background-color: black;
+            // background-color: black;
             .percent{
               position: relative;
+              line-height: 1;
               top: .4em;
             }
           }
