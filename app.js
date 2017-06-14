@@ -13800,12 +13800,6 @@ var main = __webpack_require__(20);
 //
 //
 //
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ exports["default"] = {
   name: 'box',
@@ -13817,9 +13811,14 @@ var main = __webpack_require__(20);
   },
 
   mounted: function mounted() {
+    var _this = this;
+
     /* bind event scroll to window */
     window.addEventListener('scroll', this.mTitleHitEvent);
     // $(window).scroll(this.mTitleHitEvent)
+    setTimeout(function () {
+      return _this.drawProgress();
+    }, 1000);
   },
   beforeDestroy: function beforeDestroy() {
     window.removeEventListener('scroll', this.mTitleHitEvent);
@@ -13844,12 +13843,15 @@ var main = __webpack_require__(20);
         this.isSent = false;
       }
     },
-    progressStyle: function progressStyle(progress, total) {
-      var color = '#3fadc7'; /* $main_color */
-      var percent = progress / total * 100;
-      // let style = {"background": "linear-gradient(to right, "+color+" 0%, "+color+" "+percent+"%, #AAA "+percent+".1%, #AAA 100%)"}
-      var style = { "width": percent + "%" };
-      return style;
+    drawProgress: function drawProgress() {
+      $(".active-border").map(function () {
+        var degrees = $(this).data("degrees");
+        if (degrees <= 180) {
+          $(this).css('background-image', 'linear-gradient(' + (90 + degrees) + 'deg, transparent 50%, #A2ECFB 50%),linear-gradient(90deg, #A2ECFB 50%, transparent 50%)');
+        } else {
+          $(this).css('background-image', 'linear-gradient(' + (degrees - 90) + 'deg, transparent 50%, #39B4CC 50%),linear-gradient(90deg, #A2ECFB 50%, transparent 50%)');
+        }
+      });
     }
   }
 };
@@ -14259,7 +14261,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n*[data-v-67d7e20d] {\n  box-sizing: border-box;\n}\nbody[data-v-67d7e20d] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter[data-v-67d7e20d],\n.fade-leave-active[data-v-67d7e20d] {\n  opacity: 0;\n}\n.fade-leave-active[data-v-67d7e20d],\n.fade-enter-active[data-v-67d7e20d] {\n  transition: opacity .3s ease;\n}\n.component[data-v-67d7e20d] {\n  position: relative;\n}\n.component h1[data-v-67d7e20d], .component h2[data-v-67d7e20d], .component h3[data-v-67d7e20d], .component h4[data-v-67d7e20d], .component h5[data-v-67d7e20d], .component h6[data-v-67d7e20d], .component p[data-v-67d7e20d] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-67d7e20d], .component h2 a[data-v-67d7e20d], .component h3 a[data-v-67d7e20d], .component h4 a[data-v-67d7e20d], .component h5 a[data-v-67d7e20d], .component h6 a[data-v-67d7e20d], .component p a[data-v-67d7e20d] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-67d7e20d] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-67d7e20d] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-67d7e20d] {\n    display: none !important;\n}\n}\n.desc[data-v-67d7e20d] {\n  width: 100%;\n  margin-top: -1em;\n  font-size: 120%;\n}\n.info.message[data-v-67d7e20d] {\n  text-align: center;\n}\n.cards .card[data-v-67d7e20d] {\n  margin: 0 0 1em 0;\n  overflow: hidden;\n}\n.cards .card .content h3.ui.header[data-v-67d7e20d] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n    font-size: 150%;\n}\n.cards .card .image[data-v-67d7e20d] {\n    max-height: 12em;\n    overflow: hidden;\n}\n.cards .card .image img[data-v-67d7e20d] {\n      margin: auto;\n      max-width: 100%;\n      max-height: 100%;\n      width: auto;\n      height: auto;\n}\n.cards .card .progress_bar[data-v-67d7e20d] {\n    background: rgba(0, 0, 0, 0.8);\n    height: 2em;\n    line-height: 2em;\n    position: absolute;\n    top: 0;\n    z-index: 100;\n    width: 100%;\n}\n.cards .card .progress_bar .progress_text[data-v-67d7e20d] {\n      color: white;\n      position: absolute;\n      width: 100%;\n      text-align: center;\n}\n.cards .card .progress_bar .progress_color[data-v-67d7e20d] {\n      background: #3fadc7;\n      position: absolute;\n      height: 100%;\n}\n\n/********************************* mobile view */\n.m-title[data-v-67d7e20d] {\n  background-color: #E6E6E6;\n  margin: 0 0 1em 0;\n  padding: .5em;\n}\n", ""]);
+exports.push([module.i, "\n*[data-v-67d7e20d] {\n  box-sizing: border-box;\n}\nbody[data-v-67d7e20d] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter[data-v-67d7e20d],\n.fade-leave-active[data-v-67d7e20d] {\n  opacity: 0;\n}\n.fade-leave-active[data-v-67d7e20d],\n.fade-enter-active[data-v-67d7e20d] {\n  transition: opacity .3s ease;\n}\n.component[data-v-67d7e20d] {\n  position: relative;\n}\n.component h1[data-v-67d7e20d], .component h2[data-v-67d7e20d], .component h3[data-v-67d7e20d], .component h4[data-v-67d7e20d], .component h5[data-v-67d7e20d], .component h6[data-v-67d7e20d], .component p[data-v-67d7e20d] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-67d7e20d], .component h2 a[data-v-67d7e20d], .component h3 a[data-v-67d7e20d], .component h4 a[data-v-67d7e20d], .component h5 a[data-v-67d7e20d], .component h6 a[data-v-67d7e20d], .component p a[data-v-67d7e20d] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-67d7e20d] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-67d7e20d] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-67d7e20d] {\n    display: none !important;\n}\n}\n.desc[data-v-67d7e20d] {\n  width: 100%;\n  margin-top: -1em;\n  font-size: 120%;\n}\n.info.message[data-v-67d7e20d] {\n  text-align: center;\n}\n.cards .card[data-v-67d7e20d] {\n  margin: 0 0 1em 0;\n  overflow: hidden;\n}\n.cards .card .content h3.ui.header[data-v-67d7e20d] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n    font-size: 150%;\n}\n.cards .card .image[data-v-67d7e20d] {\n    position: relative;\n    height: 12em;\n    background-size: cover;\n    background-position: center;\n}\n.cards .card .image .progressbar[data-v-67d7e20d] {\n      color: white;\n      position: absolute;\n      display: -ms-flexbox;\n      display: flex;\n      -ms-flex-align: center;\n          align-items: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n      width: 100%;\n      height: 100%;\n      z-index: 100;\n      /* below is for circular progbar */\n}\n.cards .card .image .progressbar .active-border[data-v-67d7e20d] {\n        font-size: 2rem;\n        margin: 0 1ch;\n        position: relative;\n        text-align: center;\n        width: calc( 2em + 10px);\n        height: calc( 2em + 10px);\n        border-radius: 50%;\n        background-color: #39B4CC;\n}\n.cards .card .image .progressbar .active-border .circle[data-v-67d7e20d] {\n          position: relative;\n          top: 5px;\n          left: 5px;\n          width: 2em;\n          height: 2em;\n          border-radius: 50%;\n          background-color: black;\n}\n.cards .card .image .progressbar .active-border .circle .percent[data-v-67d7e20d] {\n            position: relative;\n            top: .4em;\n}\n\n/********************************* mobile view */\n.m-title[data-v-67d7e20d] {\n  background-color: #E6E6E6;\n  margin: 0 0 1em 0;\n  padding: .5em;\n}\n", ""]);
 
 // exports
 
@@ -16276,33 +16278,33 @@ module.exports={render:function (){with(this) {
     staticClass: "ui center aligned header m-title thin-only"
   }, [_s(label)]), _h('div', {
     staticClass: "desc ui basic center aligned segment fat-only"
-  }, [_m(0), _s(desc) + " ", _m(1)]), (!list.length) ? _h('div', {
+  }, [_m(0), _s(desc), _m(1)]), (!list.length) ? _h('div', {
     staticClass: "ui info message"
   }, [_m(2), "目前還沒有正在進行的議案…"]) : _e(), _h('div', {
-    staticClass: "ui four stackable cards"
+    staticClass: "ui four stackable doubling cards"
   }, [_l((list), function(item) {
     return _h('router-link', {
       staticClass: "card",
       attrs: {
         "to": '/topic/' + item.routeName
       }
-    }, [(name === 'discuss') ? _h('div', {
-      staticClass: "progress_bar"
-    }, [(item.status === '意見徵集') ? _h('div', {
-      staticClass: "progress_text"
-    }, ["還有" + _s(Math.floor(item.total - item.progress)) + "天"]) : _h('div', {
-      staticClass: "progress_text"
-    }, ["討論已結束"]), _h('div', {
-      staticClass: "progress_color",
-      style: (progressStyle(item.progress, item.total))
-    })]) : _e(), _h('div', {
-      staticClass: "image"
-    }, [_h('img', {
-      staticClass: "ui image",
+    }, [_h('div', {
+      staticClass: "image",
+      style: ('background-image:url(' + item.cover + ')')
+    }, [(name === 'discuss') ? [(item.status === '意見徵集') ? _h('div', {
+      staticClass: "progressbar"
+    }, ["剩", _h('div', {
+      staticClass: "active-border",
       attrs: {
-        "src": item.cover || 'http://lorempixel.com/320/240/sports'
+        "data-degrees": Math.floor(item.progress / item.total * 360)
       }
-    })]), _h('div', {
+    }, [_h('div', {
+      staticClass: "circle"
+    }, [_h('span', {
+      staticClass: "percent"
+    }, [_s(Math.floor(item.total - item.progress))])])]), "天"]) : _h('div', {
+      staticClass: "progressbar"
+    }, ["討論已結束"])] : _e()]), _h('div', {
       staticClass: "content"
     }, [_h('h3', {
       staticClass: "ui header"
