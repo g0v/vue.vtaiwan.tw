@@ -78,11 +78,9 @@ export default {
       var topics = response.data.topic_list.topics.slice(1);
       // console.log(response.data.topic_list.topics[0].title + ' removed')
       topics.forEach((topic)=>{
-        // console.log(topic.title)
         caxios.get('https://talk.vtaiwan.tw/t/'+topic.id+'.json?include_raw=1')
         .then((response)=>{
           var topic = response.data;
-
           var tmp = {};
 
           tmp['id'] = topic['id'];
