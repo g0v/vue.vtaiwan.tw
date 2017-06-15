@@ -48,8 +48,8 @@
       /* bind event scroll to window */
       window.addEventListener('scroll', this.mTitleHitEvent)
       // $(window).scroll(this.mTitleHitEvent)
-      // setTimeout( () => this.drawProgress(), 1000)
-      this.$nextTick( () => this.drawProgress())
+      setTimeout( () => this.drawProgress(), 1000)
+      // this.$nextTick( () => this.drawProgress())
     },
     beforeDestroy: function(){
       window.removeEventListener('scroll', this.mTitleHitEvent)

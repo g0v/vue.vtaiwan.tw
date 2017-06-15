@@ -86,9 +86,6 @@ export default {
     //   }
     // }
   },
-  updated:function() {
-    this.ellipsis();
-  },
   mounted: function () {
     this.ellipsis();
     this.$nextTick( () => {
@@ -117,12 +114,14 @@ export default {
       //   paginationClickable: true,
       //   spaceBetween: 20,
       // })
-      mySwiper3.on('Init', this.ellipsis)
+      // mySwiper3.on('Init', this.ellipsis)
       // mySwiper4.on('Init', this.ellipsis)
 
       // $('#loader2').removeClass('active')
     })
-
+  },
+  updated:function() {
+    this.ellipsis();
   },
   computed: {
     locate: function(){

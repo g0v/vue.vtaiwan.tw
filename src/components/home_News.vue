@@ -57,7 +57,7 @@ export default {
   name: 'News',
   props:['allNews'],
   mounted: function () {
-
+    this.ellipsis()
     this.$nextTick( () => {
       /* initialize swiper when document ready */
       var mySwiper1 = new Swiper ('.swiper-container1', {
@@ -82,7 +82,7 @@ export default {
       //   pagination: '.swiper-pagination',
       //   spaceBetween: 20,
       // })
-      mySwiper1.on('imagesReady', this.ellipsis)
+      // mySwiper1.on('imagesReady', this.ellipsis)
       // mySwiper2.on('imagesReady', this.ellipsis)
 
       // $('#loader1').removeClass('active')
@@ -119,7 +119,7 @@ export default {
     .image{
       background-position: center;
       background-size: cover;
-      height: 10em;
+      height: 12rem;
       // max-height: 12em;
       // overflow: hidden;
       // img{

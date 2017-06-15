@@ -1,11 +1,14 @@
 <template lang="jade">
-
   .component
+
+    #loader.ui.active.inverted.dimmer
+      .ui.loader
+
     .swiper-container
       .swiper-button-prev
       .swiper-button-next
       //- .swiper-scrollbar
-      .swiper-pagination
+      //- .swiper-pagination
       .swiper-wrapper
         .swiper-slide(v-for="(item, idx) in hotTopics", :style="{'background': 'url(' + item.cover + ') center / cover'}")
           .box
@@ -56,48 +59,25 @@ export default {
     }
   },
   mounted: function () {
-    this.$nextTick(() => {
+    setTimeout(function(){
       /* initialize swiper when document ready */
       new Swiper ('.swiper-container', {
         observer: true,
         // scrollbar: '.swiper-scrollbar',
-        pagination : '.swiper-pagination',
-        nextButton: 'swiper-button-next',
-        prevButton: 'swiper-button-prev',
+        // pagination : '.swiper-pagination',
         autoplay: 8000,
         direction: 'horizontal',
         keyboardControl: true,
-        loop: true,
         slidesPerView: 1.2,
         centeredSlides: true,
         spaceBetween: 20,
-        paginationClickable :true,
+        // paginationClickable :true,
+        loop: true,
         grabCursor: true
       })
       /* disable loader */
       $('#loader').removeClass('active')
-    })
-
-    // setTimeout(function(){
-    //   /* initialize swiper when document ready */
-    //   new Swiper ('.swiper-container', {
-    //     observer: true,
-    //     // scrollbar: '.swiper-scrollbar',
-    //     // pagination : '.swiper-pagination',
-    //     autoplay: 8000,
-    //     direction: 'horizontal',
-    //     keyboardControl: true,
-    //     slidesPerView: 1.2,
-    //     centeredSlides: true,
-    //     spaceBetween: 20,
-    //     paginationClickable :true,
-    //     loop: true,
-    //     grabCursor: true
-    //   })
-    //   /* disable loader */
-    //   $('#loader').removeClass('active')
-    // }, 1000)
-
+    }, 1500)
   }
 }
 
