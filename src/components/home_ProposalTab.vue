@@ -169,7 +169,7 @@ export default {
   }
 }
 
-$tabColor: rgba(219,79,79,100);
+$tabColor: #d94f4f;
 .ui.steps {
   .step {
     /*make tab item flexible*/
@@ -194,7 +194,7 @@ $tabColor: rgba(219,79,79,100);
       font-weight: 700;
       font-size: 8.5rem;
       transform: scale(1, 0.9);
-      color: rgba(237,167,167,100);
+      color: #eda7a7;
       margin: 3% 0 0 25%;
     }
     .label {

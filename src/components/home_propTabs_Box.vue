@@ -22,7 +22,7 @@
           template(v-if="name === 'discuss'")
             .progressbar(v-if="item.status === '意見徵集'")
               | 剩
-              .active-border(:data-degrees='Math.floor(item.progress / item.total * 360)', data-color='#39B4CC', data-bgcolor='gray', style='background-color:gray')
+              .active-border(:data-degrees='Math.floor(item.progress / item.total * 360)', data-color='#565656', data-bgcolor='#3fadc7')
                 .circle
                   span.percent
                     | {{Math.floor(item.total - item.progress)}}
@@ -48,7 +48,8 @@
       /* bind event scroll to window */
       window.addEventListener('scroll', this.mTitleHitEvent)
       // $(window).scroll(this.mTitleHitEvent)
-      setTimeout( () => this.drawProgress(), 1000)
+      // setTimeout( () => this.drawProgress(), 1000)
+      this.$nextTick( () => this.drawProgress())
     },
     beforeDestroy: function(){
       window.removeEventListener('scroll', this.mTitleHitEvent)
@@ -75,15 +76,17 @@
       },
       drawProgress: function () {
         $(".active-border").map( function () {
-          let degrees = $(this).data("degrees");
-          let color = $(this).data("color");
-          let bgcolor = $(this).data("bgcolor");
+          let degrees = $(this).data("degrees")
+          let color = $(this).data("color")
+          let bgcolor = $(this).data("bgcolor")
           if (degrees <= 180) {
-            $(this).css('background-image','linear-gradient(' + (90+degrees) + 'deg, transparent 50%, ' + color + ' 50%),linear-gradient(90deg, ' + color + ' 50%, transparent 50%)');
+            $(this).css('background-image','linear-gradient(' + (90+degrees) + 'deg, transparent 50%, ' + color + ' 50%),linear-gradient(90deg, ' + color + ' 50%, transparent 50%)')
           }
           else {
-            $(this).css('background-image','linear-gradient(' + (degrees-90) + 'deg, transparent 50%, ' + bgcolor + ' 50%),linear-gradient(90deg, ' + color + ' 50%, transparent 50%)');
+            $(this).css('background-image','linear-gradient(' + (degrees-90) + 'deg, transparent 50%, ' + bgcolor + ' 50%),linear-gradient(90deg, ' + color + ' 50%, transparent 50%)')
           }
+          $(this).css('background-color', bgcolor)
+          $(this).find('.circle').css('background-color', color)
         })
       }
     }
@@ -115,37 +118,36 @@
       background-position: center;
       .progressbar {
         color: white;
+        background: rgba(0,0,0,0.5);
+        width: 100%;
         position: absolute;
+        right: 0;
         display: flex;
         align-items: center;
-        justify-content: center;
-        width: 100%;
-        height: 100%;
+        justify-content: flex-end;
+        padding: 8px 8px 8px 0;
         z-index: 100;
-        /* below is for circular progbar */
         .active-border{
-          font-size: 2rem;
-          margin: 0 1ch;
+          font-size: 1.1rem;
+          margin: 0 .5ch;
           position: relative;
           text-align: center;
-          width: calc( 2em + 10px );
-          height: calc( 2em + 10px );
+          width: calc( 2em + 4px );
+          height: calc( 2em + 4px );
           border-radius: 50%;
-          // background-color: #39B4CC;
-          // background-image:
-          //   linear-gradient(91deg, transparent 50%, #A2ECFB 50%),
-          //   linear-gradient(90deg, #A2ECFB 50%, transparent 50%);
+          // background-color: #3fadc7;
           .circle {
             position: relative;
-            top: 5px;
-            left: 5px;
+            top: 2px;
+            left: 2px;
             width: 2em;
             height: 2em;
             border-radius: 50%;
-            // background-color: black;
+            // background-color: #565656;
+            line-height: 1;
             .percent{
+              font-size: 1.1em;
               position: relative;
-              line-height: 1;
               top: .4em;
             }
           }
