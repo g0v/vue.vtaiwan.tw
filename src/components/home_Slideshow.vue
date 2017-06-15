@@ -1,16 +1,15 @@
 <template lang="jade">
 
   .component
-
-  
-
     .swiper-container
+      .swiper-button-prev
+      .swiper-button-next
       //- .swiper-scrollbar
-      //- .swiper-pagination 
+      .swiper-pagination
       .swiper-wrapper
-        .swiper-slide(v-for="(item, idx) in hotTopics", :style="{'background': 'url(' + item.cover + ') 100% 100% / cover'}")
+        .swiper-slide(v-for="(item, idx) in hotTopics", :style="{'background': 'url(' + item.cover + ') center / cover'}")
           .box
-            .status.ui.basic.huge.label 
+            .status.ui.basic.huge.label
               | {{item.status}}
             h1.slogan.ui.center.aligned.header
               | {{item.title}}
@@ -57,26 +56,47 @@ export default {
     }
   },
   mounted: function () {
-
-    setTimeout(function(){
+    this.$nextTick(() => {
       /* initialize swiper when document ready */
       new Swiper ('.swiper-container', {
         observer: true,
         // scrollbar: '.swiper-scrollbar',
-        // pagination : '.swiper-pagination',
+        pagination : '.swiper-pagination',
+        nextButton: 'swiper-button-next',
+        prevButton: 'swiper-button-prev',
         autoplay: 8000,
         direction: 'horizontal',
         keyboardControl: true,
+        loop: true,
         slidesPerView: 1.2,
         centeredSlides: true,
         spaceBetween: 20,
         paginationClickable :true,
-        loop: true,
         grabCursor: true
       })
       /* disable loader */
       $('#loader').removeClass('active')
-    }, 1000)
+    })
+
+    // setTimeout(function(){
+    //   /* initialize swiper when document ready */
+    //   new Swiper ('.swiper-container', {
+    //     observer: true,
+    //     // scrollbar: '.swiper-scrollbar',
+    //     // pagination : '.swiper-pagination',
+    //     autoplay: 8000,
+    //     direction: 'horizontal',
+    //     keyboardControl: true,
+    //     slidesPerView: 1.2,
+    //     centeredSlides: true,
+    //     spaceBetween: 20,
+    //     paginationClickable :true,
+    //     loop: true,
+    //     grabCursor: true
+    //   })
+    //   /* disable loader */
+    //   $('#loader').removeClass('active')
+    // }, 1000)
 
   }
 }
@@ -118,7 +138,7 @@ export default {
   flex-flow: column;
   justify-content: center;
   align-items: center;
-  // ********************* 
+  // *********************
   width: 100%;
   height: 100%;
   background: radial-gradient(circle, rgba(0,0,0, 0.7), rgba(0,0,0, 0.5));
@@ -133,7 +153,7 @@ export default {
     // color: white;
     // background: rgba(255,255,255,0.4);
     // border: 0px;
-    font-size: 1.2rem;  
+    font-size: 1.2rem;
     color: $step_color;
     border: 1px solid $step_color;
     background: transparent;

@@ -1,6 +1,6 @@
 <template lang="jade">
   #footer.component
-    
+
       .ui.inverted.vertical.footer.segment
 
         .ui.center.aligned.container
@@ -15,11 +15,11 @@
               h4.ui.inverted.header 影音專區
               .ui.inverted.link.list
                 a.item(href="https://www.youtube.com/channel/UChC85hbUuDAvFpc7Uuj69DA/" title="Youtube" target="_blank") Youtube
-                a.item(href="https://www.facebook.com/vtaiwan.tw/" title="Fackbook" target="_blank") Fackbook              
+                a.item(href="https://www.facebook.com/vtaiwan.tw/" title="Fackbook" target="_blank") Fackbook
                 router-link.item(to='/subscribe', exact='', title="訂閱電子報") 訂閱電子報
             .three.wide.column
               h4.ui.inverted.header 關於我們
-              .ui.inverted.link.list                
+              .ui.inverted.link.list
                 router-link.item(to='/contactus', exact='', title="聯絡我們") 聯絡我們
                 router-link.item(to='/how-to-use', exact='', title="使用手冊") 使用手冊
                 router-link.item(to='/intro', exact='', title="關於vTaiwan") 關於 vTaiwan
@@ -35,15 +35,15 @@
             i.big.facebook.icon
           a.ui.circular.youtube.icon.button(href="https://www.youtube.com/channel/UChC85hbUuDAvFpc7Uuj69DA/" title="Youtube" target="_blank")
             i.big.youtube.icon
-          router-link.ui.icon(to='/', exact='', title="Home") 
+          router-link.ui.icon(to='/', exact='', title="Home")
             img(src='../assets/vTaiwan_logo_2017.png', alt='logo')
-            img(src='../assets/rolling.gif', alt='logo')
           a.ui.circular.icon.grey.button(href="https://github.com/g0v/vue.vtaiwan.tw" title="Github" target="_blank")
             i.big.github.icon
           router-link.ui.circular.icon.orange.button(to='/Contactus', exact='', title="Contact Us")
             i.big.mail.icon
-      
-    
+
+          img.hidden(src='../assets/rolling.gif', alt='loading')
+
 </template>
 <style lang="scss" scoped>
 @import "../sass/global.scss";
@@ -52,6 +52,9 @@ img {
     width: 3.5em;
     height: auto;
     vertical-align: bottom;
+    &.hidden {
+      display: none;
+    }
 }
 
 .ui.icon {
@@ -65,5 +68,5 @@ a.ui.icon.button{
   background-color: #333;
 }
 
-  
+
 </style>

@@ -1,8 +1,8 @@
 <template lang="jade">
 .component
 
-  #loader2.ui.active.inverted.dimmer
-    .ui.loader
+  //- #loader2.ui.active.inverted.dimmer
+  //-   .ui.loader
 
   .ui.horizontal.divider
     i.world.icon
@@ -10,10 +10,13 @@
 
   .ui.container
 
-    .swiper-container3.fat-only
+    #fancybox
+      fancy(:locate="locate")
+
+    .swiper-container3
       .swiper-pagination
       .swiper-wrapper
-        a.swiper-slide.ui.link.card(v-for="(n,idx) in allInfo", data-fancybox='', data-src="#hidden-content", href="javascript:;", v-on:click ="myTitle = n.title")
+        a.swiper-slide.ui.link.card(v-for="(n,idx) in allInfo", data-fancybox, data-src="#fancybox", href="#", @click.prevent ="myTitle = n.title")
           .content
             .header
               h2 {{n.title}}
@@ -22,22 +25,21 @@
               span {{n.publish_date}}
             .description
               p.JQellipsis(v-html="n.content")
-          #hidden-content(style='display: none;')
-            fancy(:locate="locate")
-    #mobile.swiper-container4.thin-only
-      .swiper-pagination
-      .swiper-wrapper
-        a.swiper-slide.ui.link.card(v-for="(n,idx) in allInfo", data-fancybox='', data-src="#hidden-content-2", href="javascript:;", v-on:click ="myTitle = n.title")
-          .content
-            .header
-              h3 {{n.title}}
-          .content
-            .meta
-              span {{n.publish_date}}
-            .description
-              p.JQellipsis(v-html="n.content")
-          #hidden-content-2(style='display: none;')
-            fancy(:locate="locate")
+
+    //- #mobile.swiper-container4.thin-only
+    //-   .swiper-pagination
+    //-   .swiper-wrapper
+    //-     a.swiper-slide.ui.link.card(v-for="(n,idx) in allInfo", data-fancybox='', data-src="#fancybox-2", href="javascript:;", v-on:click ="myTitle = n.title")
+    //-       .content
+    //-         .header
+    //-           h3 {{n.title}}
+    //-       .content
+    //-         .meta
+    //-           span {{n.publish_date}}
+    //-         .description
+    //-           p.JQellipsis(v-html="n.content")
+    //-       #fancybox-2(style='display: none;')
+    //-         fancy(:locate="locate")
 
 </template>
 
@@ -67,63 +69,65 @@ export default {
             }
         });
     },
-    goAnchor: function(anchor){
-      if(anchor == "top"){
-        /* go to top */
-        $('html, body').animate({
-          scrollTop: 0,
-        }, 1000)
-      }
-      else if(anchor){
-        /* get the top position of anchor */
-        let anchor_y = $(anchor).offset().top
-        /* go to anchor (animation to do) */
-        $('html, body').animate({
-          scrollTop: anchor_y,
-        }, 1000)
-      }
-    }
+    // goAnchor: function(anchor){
+    //   if(anchor == "top"){
+    //     /* go to top */
+    //     $('html, body').animate({
+    //       scrollTop: 0,
+    //     }, 1000)
+    //   }
+    //   else if(anchor){
+    //     /* get the top position of anchor */
+    //     let anchor_y = $(anchor).offset().top
+    //     /* go to anchor (animation to do) */
+    //     $('html, body').animate({
+    //       scrollTop: anchor_y,
+    //     }, 1000)
+    //   }
+    // }
   },
   updated:function() {
     this.ellipsis();
   },
   mounted: function () {
     this.ellipsis();
-    setTimeout(function(){
+    this.$nextTick( () => {
       /* initialize swiper when document ready */
       var mySwiper3 = new Swiper ('.swiper-container3', {
         observer: true,
+        autoplay: 5000,
         direction: 'horizontal',
         pagination: '.swiper-pagination',
+        paginationClickable: true,
+        spaceBetween: 20,
         slidesPerView: 4,
-        autoplay: 5000,
-        paginationClickable: true,
-        spaceBetween: 20,
         grabCursor: true,
+        breakpoints: {
+          767: {
+            slidesPerView: 1
+          }
+        }
       })
-      var mySwiper4 = new Swiper ('.swiper-container4', {
-        observer: true,
-        autoplay: 5000,
-        direction: 'horizontal',
-        pagination: '.swiper-pagination',
-        paginationType: 'fraction',
-        paginationClickable: true,
-        spaceBetween: 20,
-      })
+      // var mySwiper4 = new Swiper ('.swiper-container4', {
+      //   observer: true,
+      //   autoplay: 5000,
+      //   direction: 'horizontal',
+      //   pagination: '.swiper-pagination',
+      //   paginationType: 'fraction',
+      //   paginationClickable: true,
+      //   spaceBetween: 20,
+      // })
       mySwiper3.on('Init', this.ellipsis)
-      mySwiper4.on('Init', this.ellipsis)
+      // mySwiper4.on('Init', this.ellipsis)
 
-      $('#loader2').removeClass('active')
-    }, 1000)
+      // $('#loader2').removeClass('active')
+    })
 
   },
   computed: {
     locate: function(){
-        var t = this.allInfo.filter( (o)=> {
-          return o.title == this.myTitle;
-        })[0];
-        if(t===undefined){return new Object()}
-        else{return t};
+      var t = this.allInfo.filter(o => o.title == this.myTitle)[0];
+      return (t) ? t : new Object()
     }
   }
 }
@@ -149,56 +153,55 @@ export default {
     }
   }
 }
-#goTop{
-    position: fixed;
-    right: 30px;
-    bottom: 30px;
-    width: 40px;
-    height:40px;
-    padding: 10px 15px;
-    font-size: 20px;
-    border-radius: 50px;
-    cursor: pointer;
-    opacity: 0.8;
-    z-index: 20;
-    i.long.arrow.up.icon{
-      width: auto;
-    }
+// #goTop{
+//     position: fixed;
+//     right: 30px;
+//     bottom: 30px;
+//     width: 40px;
+//     height:40px;
+//     padding: 10px 15px;
+//     font-size: 20px;
+//     border-radius: 50px;
+//     cursor: pointer;
+//     opacity: 0.8;
+//     z-index: 20;
+//     i.long.arrow.up.icon{
+//       width: auto;
+//     }
+// }
+#fancybox {
+  display: none;
+  // width:70%;
+  // padding: 15px 40px 15px 32px;
+  // border-radius: 4px;
+  /* Custom transition - fade from top*/
+  opacity: 0;
+  transform: translateY(-50px);
+  transition: all .5s;
+  // .ui.centered.card{
+  //   margin: auto;
+  //   width: auto;
+  //   height: auto;
+  // }
 }
-#hidden-content {
-
-    width:70%;
-		padding: 15px 40px 15px 32px;
-		border-radius: 4px;
-
-    /* Custom transition - fade from top*/
-		opacity: 0;
-    transform: translateY(-50px);
-    transition: all .5s;
-	}
-  .ui.centered.card{
-    margin: auto;
-    width: auto;
-    height: auto;
-  }
-	.fancybox-slide--complete #hidden-content {
-		opacity: 1;
-		transform: translateY(0);
+.fancybox-slide--complete #fancybox {
+  opacity: 1;
+  transform: translateY(0);
 }
-#hidden-content-2 {
+// #fancybox-2 {
 
-    width:98%;
-		padding: 15px 40px 15px 32px;
-		border-radius: 4px;
+//     width:98%;
+// 		padding: 15px 40px 15px 32px;
+// 		border-radius: 4px;
 
-    /* Custom transition - fade from top*/
-		opacity: 0;
-    transform: translateY(-50px);
-    transition: all .5s;
-	}
-	.fancybox-slide--complete #hidden-content-2 {
-		opacity: 1;
-		transform: translateY(0);
-}
+//     /* Custom transition - fade from top*/
+// 		opacity: 0;
+//     transform: translateY(-50px);
+//     transition: all .5s;
+// 	}
+// 	.fancybox-slide--complete #fancybox-2 {
+// 		opacity: 1;
+// 		transform: translateY(0);
+// }
 
 </style>

@@ -1,8 +1,6 @@
 <template lang="jade">
 #app.app(style='display:none')
   Navbar(:routes = "myRoutes", :allTopics = "allTopics")
-  
-  // #test0 test jQuery
 
   #main.main
     transition(name='fade', mode='out-in')
@@ -16,10 +14,6 @@
 import Navbar from './components/app_navbar.vue'
 import footNav from './components/app_footer.vue'
 import caxios from './js/request'
-
-// import $ from 'jquery'
-// import jQuery from 'jquery'
-// window.jQuery = jQuery
 
 export default {
   components: {
@@ -74,17 +68,17 @@ export default {
   },
   mounted: function(){
     // $('#test0').hide(); // tester
-    setTimeout(function(){ 
+    setTimeout(function(){
       $('#app')[0].style.display="block";
       $('#spinner-box')[0].style.display="none";
     }, 1000);
-    
+
     caxios.get('https://talk.vtaiwan.tw/c/meta-data.json')
     .then((response)=>{
       var topics = response.data.topic_list.topics.slice(1);
-      console.log(response.data.topic_list.topics[0].title + ' removed')
+      // console.log(response.data.topic_list.topics[0].title + ' removed')
       topics.forEach((topic)=>{
-        console.log(topic.title)
+        // console.log(topic.title)
         caxios.get('https://talk.vtaiwan.tw/t/'+topic.id+'.json?include_raw=1')
         .then((response)=>{
           var topic = response.data;
