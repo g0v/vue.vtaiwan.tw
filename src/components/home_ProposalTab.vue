@@ -43,12 +43,12 @@ export default {
       onMobile: false,
       steps: [
         {
-          label: '即將開始的專案',
+          label: '即將開始專案',
           description: '在草案未形成前跳脫時間空間限制，擴大搜集利害相關人之意見',
           dataName: 'soon'
         },
         {
-          label: '意見徵集的專案',
+          label: '意見徵集專案',
           description: '邀請核心利害相關者參與諮詢會議，加入實體見面討論，一同將意見化為草案',
           dataName: 'discuss'
         },
@@ -58,7 +58,7 @@ export default {
           dataName: 'curate'
         },
         {
-          label: '送交院會的專案',
+          label: '送交院會專案',
           description: '送交立法院',
           dataName: 'deploy'
         },
@@ -169,16 +169,19 @@ export default {
   }
 }
 
-$tabColor: darken($step_color, 20%);
+$tabColor: rgba(219,79,79,100);
 .ui.steps {
   .step {
     /*make tab item flexible*/
-    flex: 1 1 auto;
-    // overflow: hidden;
+    flex: 1 0 0px;
+    &::after {
+      visibility: hidden;
+    }
     &.active, &.active:hover {
       background: $tabColor;
       color: white;
       &::after {
+        visibility: visible;
         background: $tabColor;
         top: 100%;
         right: 50%;
@@ -187,11 +190,12 @@ $tabColor: darken($step_color, 20%);
     }
     .number {
       // font-family: $logo_font;
-      font-weight: 700;
       position: absolute;
-      font-size: 9rem;
-      color: fade_out($step_color, 0.5);
-      margin: 5% 0 0 25%;
+      font-weight: 700;
+      font-size: 8.5rem;
+      transform: scale(1, 0.9);
+      color: rgba(237,167,167,100);
+      margin: 3% 0 0 25%;
     }
     .label {
       // padding: .3em 0 0 .3em;
