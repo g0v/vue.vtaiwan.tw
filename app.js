@@ -13613,27 +13613,6 @@ var main = __webpack_require__(20);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
 
 
 /* harmony default export */ exports["default"] = {
@@ -13679,19 +13658,6 @@ var main = __webpack_require__(20);
           }
         }
       });
-      // var mySwiper4 = new Swiper ('.swiper-container4', {
-      //   observer: true,
-      //   autoplay: 5000,
-      //   direction: 'horizontal',
-      //   pagination: '.swiper-pagination',
-      //   paginationType: 'fraction',
-      //   paginationClickable: true,
-      //   spaceBetween: 20,
-      // })
-      // mySwiper3.on('Init', this.ellipsis)
-      // mySwiper4.on('Init', this.ellipsis)
-
-      // $('#loader2').removeClass('active')
     });
   },
   updated: function updated() {
@@ -14273,7 +14239,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n*[data-v-84f59ea8] {\n  box-sizing: border-box;\n}\nbody[data-v-84f59ea8] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter[data-v-84f59ea8],\n.fade-leave-active[data-v-84f59ea8] {\n  opacity: 0;\n}\n.fade-leave-active[data-v-84f59ea8],\n.fade-enter-active[data-v-84f59ea8] {\n  transition: opacity .3s ease;\n}\n.component[data-v-84f59ea8] {\n  position: relative;\n}\n.component h1[data-v-84f59ea8], .component h2[data-v-84f59ea8], .component h3[data-v-84f59ea8], .component h4[data-v-84f59ea8], .component h5[data-v-84f59ea8], .component h6[data-v-84f59ea8], .component p[data-v-84f59ea8] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-84f59ea8], .component h2 a[data-v-84f59ea8], .component h3 a[data-v-84f59ea8], .component h4 a[data-v-84f59ea8], .component h5 a[data-v-84f59ea8], .component h6 a[data-v-84f59ea8], .component p a[data-v-84f59ea8] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-84f59ea8] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-84f59ea8] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-84f59ea8] {\n    display: none !important;\n}\n}\n.ui.container[data-v-84f59ea8] {\n  margin: 1em auto;\n  padding: 5px 1px;\n  /* to prevent overlapped border */\n  overflow: hidden;\n}\n.ui.container .swiper-pagination[data-v-84f59ea8] {\n    bottom: -6px;\n}\n.ui.container .ui.card[data-v-84f59ea8] {\n    margin: 0;\n}\n.ui.container .ui.card .content[data-v-84f59ea8] {\n      font-size: 1rem;\n      text-align: justify;\n}\n.ui.container .ui.card .extra .author[data-v-84f59ea8] {\n      font-size: 50%;\n}\n#fancybox[data-v-84f59ea8] {\n  display: none;\n  /* Custom transition - fade from top*/\n  opacity: 0;\n  transform: translateY(-50px);\n  transition: all .5s;\n}\n.fancybox-slide--complete #fancybox[data-v-84f59ea8] {\n  opacity: 1;\n  transform: translateY(0);\n}\n", ""]);
+exports.push([module.i, "\n*[data-v-84f59ea8] {\n  box-sizing: border-box;\n}\nbody[data-v-84f59ea8] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter[data-v-84f59ea8],\n.fade-leave-active[data-v-84f59ea8] {\n  opacity: 0;\n}\n.fade-leave-active[data-v-84f59ea8],\n.fade-enter-active[data-v-84f59ea8] {\n  transition: opacity .3s ease;\n}\n.component[data-v-84f59ea8] {\n  position: relative;\n}\n.component h1[data-v-84f59ea8], .component h2[data-v-84f59ea8], .component h3[data-v-84f59ea8], .component h4[data-v-84f59ea8], .component h5[data-v-84f59ea8], .component h6[data-v-84f59ea8], .component p[data-v-84f59ea8] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-84f59ea8], .component h2 a[data-v-84f59ea8], .component h3 a[data-v-84f59ea8], .component h4 a[data-v-84f59ea8], .component h5 a[data-v-84f59ea8], .component h6 a[data-v-84f59ea8], .component p a[data-v-84f59ea8] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-84f59ea8] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-84f59ea8] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-84f59ea8] {\n    display: none !important;\n}\n}\n.ui.container[data-v-84f59ea8] {\n  margin: 1em auto;\n  padding: 5px 1px;\n  /* to prevent overlapped border */\n  overflow: hidden;\n}\n.ui.container .swiper-pagination[data-v-84f59ea8] {\n    bottom: -6px;\n}\n.ui.container .ui.card[data-v-84f59ea8] {\n    margin: 0;\n}\n.ui.container .ui.card .content[data-v-84f59ea8] {\n      font-size: 1rem;\n      text-align: justify;\n}\n.ui.container .ui.card .extra .author[data-v-84f59ea8] {\n      font-size: 50%;\n}\n.fancybox[data-v-84f59ea8] {\n  display: none;\n  opacity: 0;\n  transform: translateY(-50px);\n  transition: all .5s;\n}\n.fancybox-slide--complete .fancybox[data-v-84f59ea8] {\n  opacity: 1;\n  transform: translateY(0);\n}\n.fancybox-slide > *[data-v-84f59ea8] {\n  padding: 24px 0;\n}\n", ""]);
 
 // exports
 
@@ -16277,9 +16243,7 @@ module.exports={render:function (){with(this) {
   }, [_m(0), _h('div', {
     staticClass: "ui container"
   }, [_h('div', {
-    attrs: {
-      "id": "fancybox"
-    }
+    staticClass: "fancybox"
   }, [_h('fancy', {
     attrs: {
       "locate": locate
@@ -16293,7 +16257,7 @@ module.exports={render:function (){with(this) {
       staticClass: "swiper-slide ui link card",
       attrs: {
         "data-fancybox": "data-fancybox",
-        "data-src": "#fancybox",
+        "data-src": ".fancybox",
         "href": "#"
       },
       on: {
