@@ -17,7 +17,7 @@
         | 目前還沒有正在進行的議案…
 
     .ui.four.stackable.doubling.cards
-      router-link.card(:to="'/topic/' + item.routeName", v-for="item in list")
+      router-link.card(:to="'/topic/' + item.routeName", v-for="item in list", :key='item.title')
         .image(:style="'background-image:url(' + item.cover + ')'")
           template(v-if="name === 'discuss'")
             .progressbar(v-if="item.status === '意見徵集'")
@@ -48,8 +48,10 @@
       /* bind event scroll to window */
       window.addEventListener('scroll', this.mTitleHitEvent)
       // $(window).scroll(this.mTitleHitEvent)
-      setTimeout( () => this.drawProgress(), 1000)
-      // this.$nextTick( () => this.drawProgress())
+      this.drawProgress()
+    },
+    updated: function () {
+      this.drawProgress()
     },
     beforeDestroy: function(){
       window.removeEventListener('scroll', this.mTitleHitEvent)

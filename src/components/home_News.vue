@@ -58,7 +58,7 @@ export default {
   props:['allNews'],
   mounted: function () {
     this.ellipsis()
-    this.$nextTick( () => {
+    setTimeout( () => {
       /* initialize swiper when document ready */
       var mySwiper1 = new Swiper ('.swiper-container1', {
         observer: true,
@@ -86,7 +86,7 @@ export default {
       // mySwiper2.on('imagesReady', this.ellipsis)
 
       // $('#loader1').removeClass('active')
-    })
+    }, 1500)
 
   },
   updated:function(){

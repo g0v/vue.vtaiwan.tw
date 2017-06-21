@@ -51,7 +51,7 @@ export default {
   },
   mounted: function () {
     this.ellipsis();
-    this.$nextTick( () => {
+    setTimeout( () => {
       /* initialize swiper when document ready */
       var mySwiper3 = new Swiper ('.swiper-container3', {
         observer: true,
@@ -68,7 +68,7 @@ export default {
           }
         }
       })
-    })
+    }, 1500)
   },
   updated:function() {
     this.ellipsis();
