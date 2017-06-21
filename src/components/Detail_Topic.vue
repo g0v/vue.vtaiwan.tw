@@ -1,7 +1,7 @@
 <template lang="jade">
 .component.pushable
   
-  #sidebar.ui.left.inverted.vertical.menu.sidebar(@mouseleave="showSidebar('hide')")
+  .sidebar.ui.left.inverted.vertical.menu(@mouseleave="showSidebar('hide')")
     .item(v-for = "(step,idx) in stage")
       .header 
         p {{step}} 
@@ -13,9 +13,9 @@
                         @click="routename = obj.routeName") 
           p {{obj.title}}   
 
-  #opener.fat-only(@mouseover="showSidebar")
+  .opener.fat-only(@mouseover="showSidebar")
 
-  #pusher.ui.container.pusher
+  .pusher.ui.container
 
     NextStage(v-if = "article.id !== undefined", :article="article")
     
@@ -40,7 +40,7 @@
         Timeline(v-if="myIdx === getHash('#time')", :article="article")
         Discussion(v-if="myIdx === getHash('#disc')", :article="article")
 
-</template>
+ !important</template>
 
 <script>
 
@@ -163,30 +163,41 @@ export default {
 <style lang="scss" scoped>
 @import "../sass/global.scss";
 
-#sidebar.sidebar {
+.ui.sidebar {
   text-align: left;
   .menu {
-    margin: 0;
+    margin: 0 !important;
     .router-link-active{
       color: white;
     }
   }
 }
 
-#opener {
+.opener {
   height: 100%;
   width: 1ch;
   background: #1B1C1D; /* the color of sidebar */
   position: fixed;
   left: 0;
   z-index: 100;
+  &::after {
+    content: '其它提案';
+    word-wrap: break-word;
+    width: 3ch;
+    padding: 1em 5px;
+    position: fixed;
+    top: 2em;
+    left: 1ch;
+    color: white;
+    background: #1B1C1D;
+  }
 }
 
 .ui.top.menu {
   width: 100%;
 }
 
-#pusher{
+.pusher{
   min-height:90vh;
   padding-bottom: 1em;
 }
