@@ -14167,7 +14167,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n*[data-v-4144f431] {\n  box-sizing: border-box;\n}\nbody[data-v-4144f431] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter[data-v-4144f431],\n.fade-leave-active[data-v-4144f431] {\n  opacity: 0;\n}\n.fade-leave-active[data-v-4144f431],\n.fade-enter-active[data-v-4144f431] {\n  transition: opacity .3s ease;\n}\n.component[data-v-4144f431] {\n  position: relative;\n}\n.component h1[data-v-4144f431], .component h2[data-v-4144f431], .component h3[data-v-4144f431], .component h4[data-v-4144f431], .component h5[data-v-4144f431], .component h6[data-v-4144f431], .component p[data-v-4144f431] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-4144f431], .component h2 a[data-v-4144f431], .component h3 a[data-v-4144f431], .component h4 a[data-v-4144f431], .component h5 a[data-v-4144f431], .component h6 a[data-v-4144f431], .component p a[data-v-4144f431] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-4144f431] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-4144f431] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-4144f431] {\n    display: none !important;\n}\n}\n#sidebar.sidebar[data-v-4144f431] {\n  text-align: left;\n}\n#sidebar.sidebar .menu[data-v-4144f431] {\n    margin: 0;\n}\n#sidebar.sidebar .menu .router-link-active[data-v-4144f431] {\n      color: white;\n}\n#opener[data-v-4144f431] {\n  height: 100%;\n  width: 1ch;\n  background: #1B1C1D;\n  /* the color of sidebar */\n  position: fixed;\n  left: 0;\n  z-index: 100;\n}\n.ui.top.menu[data-v-4144f431] {\n  width: 100%;\n}\n#pusher[data-v-4144f431] {\n  min-height: 90vh;\n  padding-bottom: 1em;\n}\n.information[data-v-4144f431] {\n  min-height: 10em;\n}\n", ""]);
+exports.push([module.i, "\n@charset \"UTF-8\";\n*[data-v-4144f431] {\n  box-sizing: border-box;\n}\nbody[data-v-4144f431] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter[data-v-4144f431],\n.fade-leave-active[data-v-4144f431] {\n  opacity: 0;\n}\n.fade-leave-active[data-v-4144f431],\n.fade-enter-active[data-v-4144f431] {\n  transition: opacity .3s ease;\n}\n.component[data-v-4144f431] {\n  position: relative;\n}\n.component h1[data-v-4144f431], .component h2[data-v-4144f431], .component h3[data-v-4144f431], .component h4[data-v-4144f431], .component h5[data-v-4144f431], .component h6[data-v-4144f431], .component p[data-v-4144f431] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-4144f431], .component h2 a[data-v-4144f431], .component h3 a[data-v-4144f431], .component h4 a[data-v-4144f431], .component h5 a[data-v-4144f431], .component h6 a[data-v-4144f431], .component p a[data-v-4144f431] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-4144f431] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-4144f431] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-4144f431] {\n    display: none !important;\n}\n}\n.ui.sidebar[data-v-4144f431] {\n  text-align: left;\n}\n.ui.sidebar .menu[data-v-4144f431] {\n    margin: 0 !important;\n}\n.ui.sidebar .menu .router-link-active[data-v-4144f431] {\n      color: white;\n}\n.opener[data-v-4144f431] {\n  height: 100%;\n  width: 1ch;\n  background: #1B1C1D;\n  /* the color of sidebar */\n  position: fixed;\n  left: 0;\n  z-index: 100;\n}\n.opener[data-v-4144f431]::after {\n    content: '\\5176\\5B83\\63D0\\6848';\n    word-wrap: break-word;\n    width: 3ch;\n    padding: 1em 5px;\n    position: fixed;\n    top: 2em;\n    left: 1ch;\n    color: white;\n    background: #1B1C1D;\n}\n.ui.top.menu[data-v-4144f431] {\n  width: 100%;\n}\n.pusher[data-v-4144f431] {\n  min-height: 90vh;\n  padding-bottom: 1em;\n}\n.information[data-v-4144f431] {\n  min-height: 10em;\n}\n", ""]);
 
 // exports
 
@@ -15924,10 +15924,7 @@ module.exports={render:function (){with(this) {
   return _h('div', {
     staticClass: "component pushable"
   }, [_h('div', {
-    staticClass: "ui left inverted vertical menu sidebar",
-    attrs: {
-      "id": "sidebar"
-    },
+    staticClass: "sidebar ui left inverted vertical menu",
     on: {
       "mouseleave": function($event) {
         showSidebar('hide')
@@ -15957,18 +15954,12 @@ module.exports={render:function (){with(this) {
       }, [_h('p', [_s(obj.title) + "   "])]) : _e()
     })])])
   })]), _h('div', {
-    staticClass: "fat-only",
-    attrs: {
-      "id": "opener"
-    },
+    staticClass: "opener fat-only",
     on: {
       "mouseover": showSidebar
     }
   }), _h('div', {
-    staticClass: "ui container pusher",
-    attrs: {
-      "id": "pusher"
-    }
+    staticClass: "pusher ui container"
   }, [(article.id !== undefined) ? _h('NextStage', {
     attrs: {
       "article": article
