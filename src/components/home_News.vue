@@ -110,7 +110,7 @@ export default {
 <style lang="scss" scoped>
 @import "../sass/global.scss";
 .ui.container {
-  margin: 1em auto;
+  margin: 1em auto 2em auto;
   padding: 5px 1px; /* to prevent overlapped border */
   overflow: hidden;
 
@@ -139,5 +139,8 @@ export default {
     }
   }
 
+  .swiper-container-horizontal > .swiper-pagination-bullets {
+    bottom: -10px;
+  }
 }
 </style>

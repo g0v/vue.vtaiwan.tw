@@ -84,7 +84,7 @@ export default {
 <style scoped lang="scss">
 @import "../sass/global.scss";
 .ui.container {
-  margin: 1em auto;
+  margin: 1em auto 2em auto;
   padding: 5px 1px; /* to prevent overlapped border */
   overflow: hidden;
   .swiper-pagination{
@@ -99,6 +99,10 @@ export default {
     .extra .author{
       font-size: 50%;
     }
+  }
+
+  .swiper-container-horizontal > .swiper-pagination-bullets {
+    bottom: -10px;
   }
 }
 .fancybox {
