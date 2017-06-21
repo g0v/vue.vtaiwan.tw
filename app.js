@@ -11977,6 +11977,9 @@ module.exports = function spread(callback) {
 //
 //
 //
+//
+//
+//
 
 
 
@@ -16220,8 +16223,19 @@ module.exports={render:function (){with(this) {
     domProps: {
       "innerHTML": _s(information)
     }
-  })])
-}},staticRenderFns: []}
+  }), _h('h1', {
+    staticClass: "centered ui header"
+  }, [_h('router-link', {
+    staticClass: "ui big teal button",
+    attrs: {
+      "to": $route.path + '#disc'
+    }
+  }, [_m(0), "參與討論"])])])
+}},staticRenderFns: [function (){with(this) {
+  return _h('i', {
+    staticClass: "comments icon"
+  })
+}}]}
 
 /***/ },
 /* 140 */
