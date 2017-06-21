@@ -4,7 +4,10 @@
     div.styles.context(v-html='information') 
     //- .thin-only 
     //-   div.styles.context(v-html='information')
-
+    h1.centered.ui.header
+      router-link.ui.big.teal.button(:to="$route.path + '#disc'") 
+        i.comments.icon
+        | 參與討論
 </template>
 
 <script>
