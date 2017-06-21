@@ -13299,7 +13299,7 @@ var main = __webpack_require__(20);
   props: ['allNews'],
   mounted: function mounted() {
     this.ellipsis();
-    this.$nextTick(function () {
+    setTimeout(function () {
       /* initialize swiper when document ready */
       var mySwiper1 = new Swiper('.swiper-container1', {
         observer: true,
@@ -13327,7 +13327,7 @@ var main = __webpack_require__(20);
       // mySwiper2.on('imagesReady', this.ellipsis)
 
       // $('#loader1').removeClass('active')
-    });
+    }, 1500);
   },
   updated: function updated() {
     this.ellipsis();
@@ -13641,7 +13641,7 @@ var main = __webpack_require__(20);
   },
   mounted: function mounted() {
     this.ellipsis();
-    this.$nextTick(function () {
+    setTimeout(function () {
       /* initialize swiper when document ready */
       var mySwiper3 = new Swiper('.swiper-container3', {
         observer: true,
@@ -13658,7 +13658,7 @@ var main = __webpack_require__(20);
           }
         }
       });
-    });
+    }, 1500);
   },
   updated: function updated() {
     this.ellipsis();
@@ -13756,15 +13756,13 @@ var main = __webpack_require__(20);
   },
 
   mounted: function mounted() {
-    var _this = this;
-
     /* bind event scroll to window */
     window.addEventListener('scroll', this.mTitleHitEvent);
     // $(window).scroll(this.mTitleHitEvent)
-    setTimeout(function () {
-      return _this.drawProgress();
-    }, 1000);
-    // this.$nextTick( () => this.drawProgress())
+    this.drawProgress();
+  },
+  updated: function updated() {
+    this.drawProgress();
   },
   beforeDestroy: function beforeDestroy() {
     window.removeEventListener('scroll', this.mTitleHitEvent);
@@ -16174,6 +16172,7 @@ module.exports={render:function (){with(this) {
     staticClass: "ui four stackable doubling cards"
   }, [_l((list), function(item) {
     return _h('router-link', {
+      key: item.title,
       staticClass: "card",
       attrs: {
         "to": '/topic/' + item.routeName
