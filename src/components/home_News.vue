@@ -20,9 +20,9 @@
             //- img(v-else, src="../assets/vTaiwan_logo_2017.png")
           .content
             .header
-              h2 {{n.title}}
-            .description
-              p.JQellipsis {{n.content}}
+              h3 {{n.title}}
+            // .description
+            //   p.JQellipsis {{n.content}}
           .extra.content
               .ui.teal.label(v-for="t in n.tags")
                 | {{t}}
@@ -89,10 +89,27 @@ export default {
     }, 1500)
 
   },
+  created: function () {
+    // console.log(this.allNews)
+    // this.news()
+    
+  },
+  watch: {
+    allNews: function () {
+      // this.news()
+    }
+  },
   updated:function(){
       this.ellipsis()
+      // this.news()
   },
   methods: {
+      // news: function () {
+      //   let len = 20; // exceed 60 characters
+      //   this.allNews.forEach( (news) => {
+      //     news.title = news.title.substring(0, len)+"...";
+      //   })
+      // },
       ellipsis: function(){
         var len = 60; // exceed 60 characters
         $(".JQellipsis").each(function(i){
@@ -110,6 +127,7 @@ export default {
 <style lang="scss" scoped>
 @import "../sass/global.scss";
 .ui.container {
+      min-height: 15em;
   margin: 1em auto 2em auto;
   padding: 5px 1px; /* to prevent overlapped border */
   overflow: hidden;
@@ -131,7 +149,7 @@ export default {
       // }
     }
     .content {
-      font-size: 1rem;
+      // font-size: 1rem;
       text-align: justify;
     }
     .extra .author{
