@@ -22,7 +22,7 @@
           template(v-if="name === 'discuss'")
             .progressbar(v-if="item.status === '意見徵集'")
               | 剩
-              .active-border(:data-degrees='Math.floor(item.progress / item.total * 360)', data-color='#565656', data-bgcolor='#3fadc7')
+              .active-border(:data-degrees='Math.floor(item.progress / item.total * 360)', data-color='#000000', data-bgcolor='#3fadc7')
                 .circle
                   span.percent
                     | {{Math.floor(item.total - item.progress)}}
@@ -82,10 +82,10 @@
           let color = $(this).data("color")
           let bgcolor = $(this).data("bgcolor")
           if (degrees <= 180) {
-            $(this).css('background-image','linear-gradient(' + (90+degrees) + 'deg, transparent 50%, ' + color + ' 50%),linear-gradient(90deg, ' + color + ' 50%, transparent 50%)')
+            $(this).css('background-image','linear-gradient(' + (90+degrees) + 'deg, transparent 49.9%, ' + color + ' 50%),linear-gradient(90deg, ' + color + ' 50%, transparent 50%)')
           }
           else {
-            $(this).css('background-image','linear-gradient(' + (degrees-90) + 'deg, transparent 50%, ' + bgcolor + ' 50%),linear-gradient(90deg, ' + color + ' 50%, transparent 50%)')
+            $(this).css('background-image','linear-gradient(' + (degrees-90) + 'deg, transparent 49.9%, ' + bgcolor + ' 50%),linear-gradient(90deg, ' + color + ' 50%, transparent 50%)')
           }
           $(this).css('background-color', bgcolor)
           $(this).find('.circle').css('background-color', color)
@@ -120,7 +120,7 @@
       background-position: center;
       .progressbar {
         color: white;
-        background: rgba(0,0,0,0.5);
+        background: linear-gradient(to bottom, rgba(0,0,0,0.7) 75%, rgba(0,0,0,0) 75%);
         width: 100%;
         position: absolute;
         right: 0;
@@ -130,18 +130,18 @@
         padding: 8px 8px 8px 0;
         z-index: 100;
         .active-border{
-          font-size: 1.1rem;
+          font-size: 1.2rem;
           margin: 0 .5ch;
           position: relative;
           text-align: center;
-          width: calc( 2em + 4px );
-          height: calc( 2em + 4px );
+          width: calc( 2em + 8px );
+          height: calc( 2em + 8px );
           border-radius: 50%;
           // background-color: #3fadc7;
           .circle {
             position: relative;
-            top: 2px;
-            left: 2px;
+            top: 4px;
+            left: 4px;
             width: 2em;
             height: 2em;
             border-radius: 50%;
