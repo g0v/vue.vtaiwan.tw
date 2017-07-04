@@ -195,7 +195,9 @@ $tabColor: #d94f4f;
       font-size: 8.5rem;
       transform: scale(1, 0.9);
       color: #eda7a7;
-      margin: 3% 0 0 25%;
+      // margin: 3% 0 0 25%;
+      right: -0%;
+      bottom: 20%;
     }
     .label {
       // padding: .3em 0 0 .3em;
