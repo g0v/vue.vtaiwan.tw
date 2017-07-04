@@ -14,7 +14,7 @@
       .swiper-pagination
       .swiper-wrapper
         a.swiper-slide.ui.centered.card(v-for="(n,idx) in allNews", :href="n.news_link", target='_blank')
-          .image(v-if="n.img_link === 'undefined'", :style='"background-image: url(/dist/vTaiwan_logo_2017.png)"')
+          .image(v-if="n.img_link === 'undefined'", :style='"background-image: url(/vTaiwan_logo_2017.png)"')
           .image(v-else, :style='"background-image: url(" + n.img_link + ")"')
             //- img(v-if="n.img_link != 'undefined'", :src="n.img_link")
             //- img(v-else, src="../assets/vTaiwan_logo_2017.png")
@@ -92,7 +92,7 @@ export default {
   created: function () {
     // console.log(this.allNews)
     // this.news()
-    
+
   },
   watch: {
     allNews: function () {
