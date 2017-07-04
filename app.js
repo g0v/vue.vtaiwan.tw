@@ -15740,7 +15740,7 @@ module.exports={render:function (){with(this) {
       }
     }, [(n.img_link === 'undefined') ? _h('div', {
       staticClass: "image",
-      style: ("background-image: url(/dist/vTaiwan_logo_2017.png)")
+      style: ("background-image: url(/vTaiwan_logo_2017.png)")
     }) : _h('div', {
       staticClass: "image",
       style: ("background-image: url(" + n.img_link + ")")
