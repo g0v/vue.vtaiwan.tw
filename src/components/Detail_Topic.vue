@@ -40,7 +40,7 @@
         Timeline(v-if="myIdx === getHash('#time')", :article="article")
         Discussion(v-if="myIdx === getHash('#disc')", :article="article")
 
- !important</template>
+</template>
 
 <script>
 

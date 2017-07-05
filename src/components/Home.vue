@@ -47,7 +47,7 @@ export default {
   computed: {
       hotTopics: function () {
           return this.allTopics.sort(function(a, b){
-              return (a.lastat - b.lastat)
+              return (new Date(b.lastat) - new Date(a.lastat))
           }).slice(0, this.n_hot)
       }
   }
