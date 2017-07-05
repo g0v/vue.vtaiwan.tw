@@ -9,12 +9,12 @@
     |  Around the Globe
 
   .ui.container
-    .fancybox
+    #popout.fancybox
       fancy(:locate="locate")
     .swiper-container3
       .swiper-pagination
       .swiper-wrapper
-        a.swiper-slide.ui.link.card(v-for="(n,idx) in allInfo", data-fancybox, data-src=".fancybox", href="#", @click.prevent ="myTitle = n.title")
+        a.swiper-slide.ui.link.card(v-for="(n,idx) in allInfo", data-fancybox='', data-src="#popout", href="#", @click.prevent ="myTitle = n.title")
           .content
             .header
               h2 {{n.title}}
@@ -116,6 +116,6 @@ export default {
   transform: translateY(0);
 }
 .fancybox-slide > * {
-  padding: 24px 0;
+  padding: 24px auto;
 }
 </style>
