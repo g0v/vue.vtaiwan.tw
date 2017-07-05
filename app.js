@@ -12763,7 +12763,7 @@ var main = __webpack_require__(20);
   computed: {
     hotTopics: function hotTopics() {
       return this.allTopics.sort(function (a, b) {
-        return a.lastat - b.lastat;
+        return new Date(b.lastat) - new Date(a.lastat);
       }).slice(0, this.n_hot);
     }
   }
