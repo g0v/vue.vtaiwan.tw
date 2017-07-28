@@ -12055,7 +12055,6 @@ module.exports = function spread(callback) {
 //
 //
 //
-//
 
 
 
@@ -12078,32 +12077,30 @@ module.exports = function spread(callback) {
     accordion: function accordion() {
       $('.ui.accordion').accordion();
     },
-    discussionType: function discussionType(val) {
+    discussionType: function discussionType(article) {
       var _this = this;
 
-      var id = val.id; // just for alias
-      this.dType = { // initialize dType
-        'type': []
-      };
+      var id = article.id;
+      var dType = this.dType; // just for alias, it's shallow-copy, not deep-copy
 
-      var dType = this.dType; // just for alias
       __WEBPACK_IMPORTED_MODULE_0__js_request__["a" /* default */].get('https://talk.vtaiwan.tw/t/' + id + '.json?include_raw=1').then(function (response) {
-        var detail_info = response.data;
         var regex = /(?: (?:init )?)|\n/g;
-        var link = [];
-        detail_info = detail_info['post_stream']['posts'].slice(1); // 取得議題時間軸內容
+        var rawlinks = [];
+        var posts = response.data['post_stream']['posts'].slice(1); // 取得議題時間軸內容 except first post
         var _iteratorNormalCompletion = true;
         var _didIteratorError = false;
         var _iteratorError = undefined;
 
         try {
-          for (var _iterator = detail_info[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-            var i = _step.value;
+          for (var _iterator = posts[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+            var post = _step.value;
 
-            if (i['raw'].indexOf("意見徵集") == 0 || i['raw'].indexOf("研擬草案") == 0) {
-              link = i['raw'].split(/\s/); // add link to link[]
+            /* 尋找最新階段 */
+            _this.lastStep = post['raw'].split(/\s/, 1)[0];
+            /* 尋找最新階段為 意見徵集 or 研擬草案 的 post */
+            if (post['raw'].indexOf("意見徵集") > -1 || post['raw'].indexOf("研擬草案") > -1) {
+              rawlinks = post['raw'].split(/\s/);
             }
-            _this.lastStep = i['raw'].split(" ", 1)[0];
           }
         } catch (err) {
           _didIteratorError = true;
@@ -12125,47 +12122,47 @@ module.exports = function spread(callback) {
         var _iteratorError2 = undefined;
 
         try {
-          for (var _iterator2 = link[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-            var j = _step2.value;
+          for (var _iterator2 = rawlinks[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+            var link = _step2.value;
 
-            if (j.indexOf("pol.is") > -1) {
-              //篩出含有polis的連結  
-              dType.type.push('polis');
-              // dType.polis = j.replace(/.*\//, "")
-              dType.polis = "<iframe src=" + j + " frameborder='0' width='100%' height='1000px' data-reactid='.0.2.0.0.0'></iframe>";
-            } else if (j.indexOf("sli.do") > -1) {
-              //篩出含有slido的連結    
-              dType.type.push('slido');
-              dType.slido = "<iframe src='" + j + "' frameborder='0' width='100%' height='1000px' data-reactid='.0.2.0.0.0'></iframe>";
-            } else if (j.indexOf("livehouse") > -1) {
-              //篩出含有slido的連結    
-              dType.type.push('livehouse');
-              dType.livehouse = "<iframe width='100%' height='1000px' src='" + j.replace("livehouse.in/", "livehouse.in/embed/") + "' frameborder='0' allowfullscreen></iframe>";
-            } else if (j.indexOf("hackpad.com") > -1) {
-              //篩出含有hackpad的連結    
-              var hack = j.replace(/https.*-/, "");
-              dType.type.push('hackpad');
-              dType.hackpad = "<iframe id='hackpad-" + hack + "' src='https://hackpad.com/" + hack + "' scrolling='yes' height='1000px' width='100%' frameborder='0'></iframe>";
-              // https://hackpad.com/ep/api/embed-pad?padId=
-            } else if (j.indexOf("talk.vtaiwan.tw") > -1) {
+            if (link.indexOf("pol.is") > -1) {
+              //篩出含有polis的連結
+              dType.type = 'polis';
+              dType.polis = "<iframe src=" + link + " frameborder='0' width='100%' height='1000px' data-reactid='.0.2.0.0.0'></iframe>";
+            } else if (link.indexOf("sli.do") > -1) {
+              //篩出含有slido的連結
+              dType.type = 'slido';
+              dType.slido = "<iframe src='" + link + "' frameborder='0' width='100%' height='1000px' data-reactid='.0.2.0.0.0'></iframe>";
+            } else if (link.indexOf("livehouse") > -1) {
+              //篩出含有slido的連結
+              dType.type = 'livehouse';
+              dType.livehouse = "<iframe width='100%' height='1000px' src='" + link.replace("livehouse.in/", "livehouse.in/embed/") + "' frameborder='0' allowfullscreen></iframe>";
+            } else if (link.indexOf("talk.vtaiwan.tw") > -1) {
               //篩出含有discourse的連結
-              j = j.replace(/(.*)\/$/, "$1"); // discard last char '/'
-              __WEBPACK_IMPORTED_MODULE_1__js_discourse_js__["a" /* default */].getAllTopics(j + '.json', 0).then(function (response) {
+              link = link.replace(/(.*)\/$/, "$1"); // discard last char '/'
+              __WEBPACK_IMPORTED_MODULE_1__js_discourse_js__["a" /* default */].getAllTopics(link + '.json', 0).then(function (response) {
                 var topics = response.sort(function (a, b) {
                   return __WEBPACK_IMPORTED_MODULE_2__js_chineseSort_js___default()(a.title, b.title);
                 });
-                dType.type.push('discourse');
+                dType.type = 'discourse';
                 dType.discourse = topics.map(function (t) {
                   return {
                     'title': t.title,
                     'id': t.id
                   };
                 });
-                // dType.check = true
-                /* "return" cannot return outside axios, so use this.var instead */
               });
             }
+            /* 篩出 typeform 連結 */
+            else if (link.indexOf('typeform') > -1) {
+                dType.type = 'typeform';
+                link = link.replace(/.*\((.*)\)/, "$1");
+                dType.embeder = '<iframe src=\'' + link + '\' frameborder=\'0\' width=\'100%\' height=\'1000px\'></iframe>';
+              } else {
+                console.log(link);
+              }
           }
+          // this.dType = dType
         } catch (err) {
           _didIteratorError2 = true;
           _iteratorError2 = err;
@@ -14033,7 +14030,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n* {\n  box-sizing: border-box;\n}\nbody {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter,\n.fade-leave-active {\n  opacity: 0;\n}\n.fade-leave-active,\n.fade-enter-active {\n  transition: opacity .3s ease;\n}\n.component {\n  position: relative;\n}\n.component h1, .component h2, .component h3, .component h4, .component h5, .component h6, .component p {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a, .component h2 a, .component h3 a, .component h4 a, .component h5 a, .component h6 a, .component p a {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only {\n    display: none !important;\n}\n}\n#history, #other {\n  text-align: center;\n}\n.ui.styled.accordion .title {\n  color: rgba(0, 0, 0, 0.6);\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.ui.styled.accordion .active.content {\n  display: block;\n  max-width: 100%;\n}\n", ""]);
+exports.push([module.i, "\n* {\n  box-sizing: border-box;\n}\nbody {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter,\n.fade-leave-active {\n  opacity: 0;\n}\n.fade-leave-active,\n.fade-enter-active {\n  transition: opacity .3s ease;\n}\n.component {\n  position: relative;\n}\n.component h1, .component h2, .component h3, .component h4, .component h5, .component h6, .component p {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a, .component h2 a, .component h3 a, .component h4 a, .component h5 a, .component h6 a, .component p a {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only {\n    display: none !important;\n}\n}\n.history, .other {\n  text-align: center;\n}\n.ui.styled.accordion .title {\n  color: rgba(0, 0, 0, 0.6);\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.ui.styled.accordion .active.content {\n  display: block;\n  max-width: 100%;\n}\n", ""]);
 
 // exports
 
@@ -15470,23 +15467,28 @@ module.exports={render:function (){with(this) {
     staticClass: "component"
   }, [_h('div', {
     staticClass: "ui left aligned container"
-  }, [(dType) ? [(dType.type.includes('slido')) ? _h('div', {
+  }, [(dType) ? [(dType.type === 'typeform') ? _h('div', {
+    staticClass: "slido",
+    domProps: {
+      "innerHTML": _s(dType.embeder)
+    }
+  }) : _e(), (dType.type === 'slido') ? _h('div', {
     staticClass: "slido",
     domProps: {
       "innerHTML": _s(dType.slido)
     }
-  }) : _e(), (dType.type.includes('polis')) ? _h('div', {
+  }) : _e(), (dType.type === 'polis') ? _h('div', {
     staticClass: "polis",
     domProps: {
       "innerHTML": _s(dType.polis)
     }
-  }) : _e(), (dType.type.includes('livehouse')) ? _h('div', {
+  }) : _e(), (dType.type === 'livehouse') ? _h('div', {
     staticClass: "livehouse",
     domProps: {
       "innerHTML": _s(dType.livehouse)
     }
   }) : _e(), _l((dType.discourse), function(disc, index) {
-    return (dType.type.includes('discourse')) ? _h('div', {
+    return (dType.type === 'discourse') ? _h('div', {
       staticClass: "discourse ui fluid styled accordion"
     }, [_h('div', {
       staticClass: "title discoursetitle"
@@ -15499,16 +15501,10 @@ module.exports={render:function (){with(this) {
       }
     })])]) : _e()
   })] : _e(), (lastStep == '歷史案件' || lastStep == '送交院會') ? [(lastStep === '歷史案件') ? _h('div', {
-    staticClass: "div",
-    attrs: {
-      "id": "history"
-    }
+    staticClass: "history div"
   }, ["本案已討論結束，詳細歷程可參考「議題時間軸」"]) : _h('div', {
-    staticClass: "div",
-    attrs: {
-      "id": "other"
-    }
-  }, [(lastStep === '送交院會') ? _h('div', ["本案已擬定草案，送交院會審查中"]) : _h('div', ["本案目前無可線上參與的項目 "])])] : _e()])])
+    staticClass: "other div"
+  }, [(lastStep === '送交院會') ? _h('div', ["本案已擬定草案，送交院會審查中"]) : _h('div', ["本案目前無可線上參與的項目"])])] : _e()])])
 }},staticRenderFns: [function (){with(this) {
   return _h('i', {
     staticClass: "dropdown icon"
