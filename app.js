@@ -11876,7 +11876,7 @@ module.exports = function spread(callback) {
   },
   data: function data() {
     return {
-      tabcontent: ["詳細內容", "時程與相關連結", '歷史案件'],
+      tabcontent: ["詳細內容", "時程與相關連結"],
       stage: ["即將開始", "意見徵集", "研擬草案", "送交院會", "歷史案件"],
       hashList: ['#desc', '#time', '#disc'],
       tabList: ['Description', 'Timeline', 'Discussion']
@@ -11913,13 +11913,13 @@ module.exports = function spread(callback) {
     },
     status_modify: function status_modify(status) {
       if (status == "歷史案件") {
-        this.tabcontent[2] = "歷史案件";
+        this.tabcontent[2] = null;
       } else if (status == "送交院會") {
-        this.tabcontent[2] = "院會討論";
+        this.tabcontent[2] = null;
       } else if (status == "即將開始" || status == "意見徵集" || status == "研擬草案") {
         this.tabcontent[2] = "參與討論";
       }
-      return this.tabcontent;
+      // return this.tabcontent;
     },
     getHash: function getHash(param) {
       if (typeof param === 'string') {
@@ -14229,7 +14229,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n@charset \"UTF-8\";\n*[data-v-4144f431] {\n  box-sizing: border-box;\n}\nbody[data-v-4144f431] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter[data-v-4144f431],\n.fade-leave-active[data-v-4144f431] {\n  opacity: 0;\n}\n.fade-leave-active[data-v-4144f431],\n.fade-enter-active[data-v-4144f431] {\n  transition: opacity .3s ease;\n}\n.component[data-v-4144f431] {\n  position: relative;\n}\n.component h1[data-v-4144f431], .component h2[data-v-4144f431], .component h3[data-v-4144f431], .component h4[data-v-4144f431], .component h5[data-v-4144f431], .component h6[data-v-4144f431], .component p[data-v-4144f431] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-4144f431], .component h2 a[data-v-4144f431], .component h3 a[data-v-4144f431], .component h4 a[data-v-4144f431], .component h5 a[data-v-4144f431], .component h6 a[data-v-4144f431], .component p a[data-v-4144f431] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-4144f431] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-4144f431] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-4144f431] {\n    display: none !important;\n}\n}\n.ui.sidebar[data-v-4144f431] {\n  text-align: left;\n}\n.ui.sidebar .menu[data-v-4144f431] {\n    margin: 0 !important;\n}\n.ui.sidebar .menu .router-link-active[data-v-4144f431] {\n      color: white;\n}\n.opener[data-v-4144f431] {\n  height: 100%;\n  width: 1ch;\n  background: #1B1C1D;\n  /* the color of sidebar */\n  position: fixed;\n  left: 0;\n  z-index: 100;\n}\n.opener[data-v-4144f431]::after {\n    content: '\\5176\\5B83\\63D0\\6848';\n    word-wrap: break-word;\n    width: 3ch;\n    padding: 1em 5px;\n    position: fixed;\n    top: 2em;\n    left: 1ch;\n    color: white;\n    background: #1B1C1D;\n}\n.ui.top.menu[data-v-4144f431] {\n  width: 100%;\n}\n.pusher[data-v-4144f431] {\n  min-height: 90vh;\n  padding-bottom: 1em;\n}\n.information[data-v-4144f431] {\n  min-height: 10em;\n}\n", ""]);
+exports.push([module.i, "\n@charset \"UTF-8\";\n*[data-v-4144f431] {\n  box-sizing: border-box;\n}\nbody[data-v-4144f431] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter[data-v-4144f431],\n.fade-leave-active[data-v-4144f431] {\n  opacity: 0;\n}\n.fade-leave-active[data-v-4144f431],\n.fade-enter-active[data-v-4144f431] {\n  transition: opacity .3s ease;\n}\n.component[data-v-4144f431] {\n  position: relative;\n}\n.component h1[data-v-4144f431], .component h2[data-v-4144f431], .component h3[data-v-4144f431], .component h4[data-v-4144f431], .component h5[data-v-4144f431], .component h6[data-v-4144f431], .component p[data-v-4144f431] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-4144f431], .component h2 a[data-v-4144f431], .component h3 a[data-v-4144f431], .component h4 a[data-v-4144f431], .component h5 a[data-v-4144f431], .component h6 a[data-v-4144f431], .component p a[data-v-4144f431] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-4144f431] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-4144f431] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-4144f431] {\n    display: none !important;\n}\n}\n.ui.sidebar[data-v-4144f431] {\n  text-align: left;\n}\n.ui.sidebar .menu[data-v-4144f431] {\n    margin: 0 !important;\n}\n.ui.sidebar .menu .router-link-active[data-v-4144f431] {\n      color: white;\n}\n.opener[data-v-4144f431] {\n  height: 100%;\n  width: 1ch;\n  background: #1B1C1D;\n  /* the color of sidebar */\n  position: fixed;\n  left: 0;\n  z-index: 100;\n}\n.opener[data-v-4144f431]::after {\n    content: '\\5176\\5B83\\63D0\\6848';\n    word-wrap: break-word;\n    width: 3ch;\n    padding: 1em 5px;\n    position: fixed;\n    top: 2em;\n    left: 1ch;\n    color: white;\n    background: #1B1C1D;\n}\n.pusher[data-v-4144f431] {\n  min-height: 90vh;\n  padding-bottom: 1em;\n}\n.information[data-v-4144f431] {\n  min-height: 10em;\n}\n.ui.menu .item[data-v-4144f431] {\n  -ms-flex: 1 0 auto;\n      flex: 1 0 auto;\n  -ms-flex-pack: center;\n      justify-content: center;\n}\n", ""]);
 
 // exports
 
@@ -16030,9 +16030,9 @@ module.exports={render:function (){with(this) {
       "article": article
     }
   }) : _e(), (article.id) ? _h('div', {
-    staticClass: "ui three item big menu"
+    staticClass: "ui big menu"
   }, [_l((tabcontent), function(step, idx) {
-    return _h('router-link', {
+    return (step) ? _h('router-link', {
       staticClass: "item",
       class: {
         'active': idx === myIdx
@@ -16053,7 +16053,7 @@ module.exports={render:function (){with(this) {
       }
     }), _h('p', {
       staticClass: "fat-only"
-    }, [_s(step)])])
+    }, [_s(step)])]) : _e()
   })]) : _e(), (article.id) ? _h('div', {
     staticClass: "information"
   }, [_h('transition', {
