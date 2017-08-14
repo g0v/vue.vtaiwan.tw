@@ -11856,7 +11856,6 @@ module.exports = function spread(callback) {
 //
 //
 //
-//
 
 
 
@@ -11877,10 +11876,10 @@ module.exports = function spread(callback) {
   },
   data: function data() {
     return {
-      tabcontent: ["詳細內容", "議題時間軸", '歷史案件'],
+      tabcontent: ["詳細內容", "時程與相關連結", '歷史案件'],
       stage: ["即將開始", "意見徵集", "研擬草案", "送交院會", "歷史案件"],
-      tabList: ['#desc', '#time', '#disc'],
-      p: ''
+      hashList: ['#desc', '#time', '#disc'],
+      tabList: ['Description', 'Timeline', 'Discussion']
     };
   },
 
@@ -11924,9 +11923,9 @@ module.exports = function spread(callback) {
     },
     getHash: function getHash(param) {
       if (typeof param === 'string') {
-        return this.tabList.indexOf(param);
+        return this.hashList.indexOf(param);
       } else {
-        return this.tabList[param];
+        return this.hashList[param];
       }
     }
   },
@@ -11985,6 +11984,7 @@ module.exports = function spread(callback) {
 
 
 /* harmony default export */ exports["default"] = {
+  name: 'Detial_Topic_Description',
   props: ['article'],
   data: function data() {
     return {
@@ -12062,6 +12062,7 @@ module.exports = function spread(callback) {
 
 
 /* harmony default export */ exports["default"] = {
+  name: 'Detial_Topic_Discussion',
   props: ['article'],
   components: {
     Discussion_Comment: __WEBPACK_IMPORTED_MODULE_3__Detail_Topic_Discussion_Comment_vue___default.a
@@ -12501,7 +12502,7 @@ module.exports = function spread(callback) {
 
 
 /* harmony default export */ exports["default"] = {
-
+  name: 'Detial_Topic_Timeline',
   props: ['article'],
   components: {
     Plink: __WEBPACK_IMPORTED_MODULE_1__Detail_Topic_Timeline_ParticipationLink_vue___default.a
@@ -12509,7 +12510,7 @@ module.exports = function spread(callback) {
   data: function data() {
     return {
       timeline: {}, // 時間軸
-      timeline_title: ["議題時間", "議題階段", "相關連結"]
+      timeline_title: ["議題時間", "議題階段", "相關外部連結"]
     };
   },
 
@@ -15947,7 +15948,7 @@ module.exports={render:function (){with(this) {
       staticClass: "item"
     }, [_h('div', {
       staticClass: "header"
-    }, [_h('p', [_s(step) + " "])]), _h('div', {
+    }, [_h('p', [_s(step)])]), _h('div', {
       staticClass: "menu"
     }, [_l((allTopics), function(obj, idx) {
       return (step === obj.status) ? _h('router-link', {
@@ -15963,7 +15964,7 @@ module.exports={render:function (){with(this) {
             routename = obj.routeName
           }
         }
-      }, [_h('p', [_s(obj.title) + "   "])]) : _e()
+      }, [_h('p', [_s(obj.title)])]) : _e()
     })])])
   })]), _h('div', {
     staticClass: "opener fat-only",
@@ -16002,11 +16003,11 @@ module.exports={render:function (){with(this) {
     }, [_h('i', {
       staticClass: "icon",
       class: {
-        'info circle': step == '詳細內容', 'calendar': step == '議題時間軸', 'comments': step == '參與討論', 'history': step == '歷史案件', 'university': step == '院會討論'
+        'info circle': step == '詳細內容', 'calendar': step == '時程與相關連結', 'comments': step == '參與討論', 'history': step == '歷史案件', 'university': step == '院會討論'
       }
     }), _h('p', {
       staticClass: "fat-only"
-    }, [_s(step) + " "])])
+    }, [_s(step)])])
   })]) : _e(), (article.id) ? _h('div', {
     staticClass: "information"
   }, [_h('transition', {
@@ -16014,19 +16015,13 @@ module.exports={render:function (){with(this) {
       "name": "fade",
       "mode": "out-in"
     }
-  }, [(myIdx === getHash('#desc')) ? _h('Description', {
+  }, [_h('keep-alive', [_h(tabList[myIdx], {
+    tag: "component",
+    class: tabList[myIdx],
     attrs: {
       "article": article
     }
-  }) : _e(), (myIdx === getHash('#time')) ? _h('Timeline', {
-    attrs: {
-      "article": article
-    }
-  }) : _e(), (myIdx === getHash('#disc')) ? _h('Discussion', {
-    attrs: {
-      "article": article
-    }
-  }) : _e()])]) : _e()])])
+  })])])]) : _e()])])
 }},staticRenderFns: [function (){with(this) {
   return _h('sup', [_h('i', {
     staticClass: "quote left icon"
@@ -16239,7 +16234,7 @@ module.exports={render:function (){with(this) {
     attrs: {
       "to": $route.path + '#disc'
     }
-  }, [_m(0), "參與討論"])])])
+  }, [_m(0), "進入討論"])])])
 }},staticRenderFns: [function (){with(this) {
   return _h('i', {
     staticClass: "comments icon"
@@ -16529,7 +16524,7 @@ module.exports={render:function (){with(this) {
   })])]), _h('tbody', [_l((timeline.time), function(ev, idx) {
     return _h('tr', [_h('td', {
       staticClass: "center aligned"
-    }, [_h('div', [_s(ev.start) + " "]), (ev.end != null) ? _h('i', {
+    }, [_h('div', [_s(ev.start)]), (ev.end != null) ? _h('i', {
       staticClass: "arrow down icon"
     }) : _e(), _h('div', [_s(ev.end)])]), _h('td', [_h('div', {
       staticClass: "status ui basic huge label fat-only"
@@ -16537,7 +16532,7 @@ module.exports={render:function (){with(this) {
       staticClass: "status ui basic small label thin-only"
     }, [_s(ev.title)]), (ev.info != null) ? _h('h4', {
       staticClass: "ui header"
-    }, [_s(ev.info) + " "]) : _e()]), _h('td', [_h('Plink', {
+    }, [_s(ev.info)]) : _e()]), _h('td', [_h('Plink', {
       attrs: {
         "urllink": ev.link
       }
