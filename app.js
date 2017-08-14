@@ -12496,6 +12496,13 @@ module.exports = function spread(callback) {
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -12510,7 +12517,32 @@ module.exports = function spread(callback) {
   data: function data() {
     return {
       timeline: {}, // 時間軸
-      timeline_title: ["議題時間", "議題階段", "相關外部連結"]
+      timeline_title: ["議題時間", "議題階段", "相關外部連結*"],
+      plinkList: [{
+        icon: "linkify",
+        title: '相關',
+        desc: '與議題相關的連結'
+      }, {
+        icon: "pencil",
+        title: '共筆',
+        desc: '會議共同筆記'
+      }, {
+        icon: "book",
+        title: '記錄',
+        desc: '當日共同筆記整理出的重點'
+      }, {
+        icon: "youtube play",
+        title: '直播',
+        desc: '會議直播影片'
+      }, {
+        icon: "users",
+        title: '討論',
+        desc: '進入討論'
+      }, {
+        icon: "edit",
+        title: '留言',
+        desc: '進入留言'
+      }]
     };
   },
 
@@ -12608,44 +12640,54 @@ var main = __webpack_require__(20);
       ulinkall: [],
       data_base_non: [{
         icon: "linkify",
-        text: "相關"
+        text: "相關",
+        long: '與議題相關的連結'
       }],
       data_base: [{
         key: 'hackpad',
         icon: "pencil",
-        text: "共筆"
+        text: "共筆",
+        long: '會議共同筆記'
       }, {
         key: 'sayit',
         icon: "book",
-        text: "記錄"
+        text: "記錄",
+        long: '當日共同筆記整理出的重點'
       }, {
         key: 'youtube',
         icon: "youtube play",
-        text: "直播"
+        text: "直播",
+        long: '會議直播影片 youtube'
       }, {
         key: 'livehouse',
         icon: "youtube play",
-        text: "直播"
+        text: "直播",
+        long: '會議直播影片 livehouse'
       }, {
         key: 'pol.is',
         icon: "users",
-        text: "討論"
+        text: "討論",
+        long: '進入討論'
       }, {
         key: 'talk.vtaiwan.tw',
         icon: "edit",
-        text: "留言"
+        text: "留言",
+        long: '進入留言'
       }, {
         key: 'app.sli.do',
         icon: "bullhorn",
-        text: "提問"
+        text: "提問",
+        long: '會議共同筆記'
       }, {
         key: 'PDF',
         icon: "download disk",
-        text: "PDF"
+        text: "PDF",
+        long: '會議共同筆記'
       }, {
         key: 'g0v.github',
         icon: "github alternate",
-        text: "GitBook"
+        text: "GitBook",
+        long: '會議共同筆記'
       }]
     };
   },
@@ -12662,6 +12704,7 @@ var main = __webpack_require__(20);
           item.link = this.urllink[i];
           item.icon = this.data_base[j].icon;
           item.text = this.data_base[j].text;
+          item.long = this.data_base[j].long;
           this.ulinkall.push(item);
           /* 判斷是否為data_base中的連結 */
           // this.ulinkall
@@ -12681,6 +12724,7 @@ var main = __webpack_require__(20);
           _item.link = this.urllink[i];
           _item.icon = this.data_base_non[0].icon;
           _item.text = this.data_base_non[0].text;
+          _item.long = this.data_base_non[0].long;
           if (/^\[(.*?)\]\((.*)\)/.test(_item.link)) {
             _item.text = RegExp.$1;
             _item.link = RegExp.$2;
@@ -14297,7 +14341,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n*[data-v-88189242] {\n  box-sizing: border-box;\n}\nbody[data-v-88189242] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter[data-v-88189242],\n.fade-leave-active[data-v-88189242] {\n  opacity: 0;\n}\n.fade-leave-active[data-v-88189242],\n.fade-enter-active[data-v-88189242] {\n  transition: opacity .3s ease;\n}\n.component[data-v-88189242] {\n  position: relative;\n}\n.component h1[data-v-88189242], .component h2[data-v-88189242], .component h3[data-v-88189242], .component h4[data-v-88189242], .component h5[data-v-88189242], .component h6[data-v-88189242], .component p[data-v-88189242] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-88189242], .component h2 a[data-v-88189242], .component h3 a[data-v-88189242], .component h4 a[data-v-88189242], .component h5 a[data-v-88189242], .component h6 a[data-v-88189242], .component p a[data-v-88189242] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-88189242] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-88189242] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-88189242] {\n    display: none !important;\n}\n}\n.ui.status[data-v-88189242] {\n  color: #db4f4f;\n  border: 1px solid #db4f4f;\n}\n", ""]);
+exports.push([module.i, "\n*[data-v-88189242] {\n  box-sizing: border-box;\n}\nbody[data-v-88189242] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter[data-v-88189242],\n.fade-leave-active[data-v-88189242] {\n  opacity: 0;\n}\n.fade-leave-active[data-v-88189242],\n.fade-enter-active[data-v-88189242] {\n  transition: opacity .3s ease;\n}\n.component[data-v-88189242] {\n  position: relative;\n}\n.component h1[data-v-88189242], .component h2[data-v-88189242], .component h3[data-v-88189242], .component h4[data-v-88189242], .component h5[data-v-88189242], .component h6[data-v-88189242], .component p[data-v-88189242] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-88189242], .component h2 a[data-v-88189242], .component h3 a[data-v-88189242], .component h4 a[data-v-88189242], .component h5 a[data-v-88189242], .component h6 a[data-v-88189242], .component p a[data-v-88189242] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-88189242] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-88189242] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-88189242] {\n    display: none !important;\n}\n}\n.ui.status[data-v-88189242] {\n  color: #db4f4f;\n  border: 1px solid #db4f4f;\n}\n.ui.fixed.table td[data-v-88189242] {\n  overflow: visible;\n}\n.plinklist[data-v-88189242] {\n  font-size: 1rem;\n}\n", ""]);
 
 // exports
 
@@ -15845,7 +15889,9 @@ module.exports={render:function (){with(this) {
       staticClass: "ui teal icon button",
       attrs: {
         "href": item.link,
-        "target": "_blank"
+        "target": "_blank",
+        "data-tooltip": item.long,
+        "data-inverted": "data-inverted"
       }
     }, [_h('p', [_h('i', {
       staticClass: "icon",
@@ -16537,8 +16583,21 @@ module.exports={render:function (){with(this) {
         "urllink": ev.link
       }
     })])])
-  })])])])
-}},staticRenderFns: []}
+  })])]), _m(0), _h('div', {
+    staticClass: "ui celled list plinklist"
+  }, [_l((plinkList), function(link) {
+    return _h('div', {
+      staticClass: "item"
+    }, [_h('i', {
+      staticClass: "icon",
+      class: link.icon
+    }), _h('div', {
+      staticClass: "content"
+    }, [_h('h5', [_s(link.title)]), _s(link.desc)])])
+  })])])
+}},staticRenderFns: [function (){with(this) {
+  return _h('h4', ["相關外部連結*"])
+}}]}
 
 /***/ },
 /* 144 */
