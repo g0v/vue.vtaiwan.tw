@@ -1,44 +1,43 @@
 <template lang="jade">
 .component.pushable
-  
+
   .sidebar.ui.left.inverted.vertical.menu(@mouseleave="showSidebar('hide')")
     .item(v-for = "(step,idx) in stage")
-      .header 
-        p {{step}} 
+      .header
+        p {{step}}
       .menu
         router-link.item(v-for = "(obj,idx) in allTopics",
                         v-if="step === obj.status",
                         :to="'/topic/' + obj.routeName",
                         :class="{'router-link-active': obj.routeName === routename }",
-                        @click="routename = obj.routeName") 
-          p {{obj.title}}   
+                        @click="routename = obj.routeName")
+          p {{obj.title}}
 
   .opener.fat-only(@mouseover="showSidebar")
 
   .pusher.ui.container
 
     NextStage(v-if = "article.id !== undefined", :article="article")
-    
-    h1.ui.centered.header(v-if = "article.id !== undefined") 
+
+    h1.ui.centered.header(v-if = "article.id !== undefined")
       sup
         i.quote.left.icon
       | {{article.title}} &nbsp;
       sub
         i.quote.right.icon
-    
+
     Slide(v-if = "article.id !== undefined", :article="article")
       // video(:style="{'background-image': 'url('+article.cover+')'}")
 
     .ui.three.item.big.menu(v-if = "article.id")
       router-link.item(v-for="(step, idx) in tabcontent", :to="$route.path+getHash(idx)", :class="{'active':idx===myIdx}", @click.prevent="myIdx=idx")
-        i.icon(v-bind:class="{'info circle': step == '詳細內容','calendar': step == '議題時間軸','comments': step == '參與討論','history': step == '歷史案件','university': step =='院會討論'}")
-        p.fat-only {{step}} 
+        i.icon(v-bind:class="{'info circle': step == '詳細內容','calendar': step == '時程與相關連結','comments': step == '參與討論','history': step == '歷史案件','university': step =='院會討論'}")
+        p.fat-only {{step}}
 
     .information(v-if = "article.id")
       transition(name='fade', mode='out-in')
-        Description(v-if="myIdx === getHash('#desc')", :article="article")
-        Timeline(v-if="myIdx === getHash('#time')", :article="article")
-        Discussion(v-if="myIdx === getHash('#disc')", :article="article")
+        keep-alive
+          component(:is='tabList[myIdx]', :article="article", :class='tabList[myIdx]')
 
 </template>
 
@@ -62,14 +61,18 @@ export default {
   },
   data () {
     return {
-      tabcontent:["詳細內容","議題時間軸",'歷史案件'],
+      tabcontent:["詳細內容","時程與相關連結",'歷史案件'],
       stage:["即將開始","意見徵集","研擬草案","送交院會","歷史案件"],
-      tabList: [
+      hashList: [
         '#desc',
         '#time',
         '#disc'
       ],
-      p:''
+      tabList: [
+        'Description',
+        'Timeline',
+        'Discussion'
+      ]
     }
   },
   computed: {
@@ -119,10 +122,10 @@ export default {
     },
     getHash: function(param) {
       if (typeof param === 'string') {
-        return this.tabList.indexOf(param)
+        return this.hashList.indexOf(param)
       }
       else {
-        return this.tabList[param]
+        return this.hashList[param]
       }
     },
   },
@@ -152,7 +155,7 @@ export default {
 
       this.status_modify(this.article.status);
 
-    } 
+    }
   },
   created:function(){
       this.status_modify(this.article.status);

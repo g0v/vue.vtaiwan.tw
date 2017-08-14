@@ -1,13 +1,13 @@
 <template lang="jade">
-  .component 
-    //- .fat-only 
-    div.styles.context(v-html='information') 
-    //- .thin-only 
+  .component
+    //- .fat-only
+    div.styles.context(v-html='information')
+    //- .thin-only
     //-   div.styles.context(v-html='information')
     h1.centered.ui.header
-      router-link.ui.big.teal.button(:to="$route.path + '#disc'") 
+      router-link.ui.big.teal.button(:to="$route.path + '#disc'")
         i.comments.icon
-        | 參與討論
+        | 進入討論
 </template>
 
 <script>
@@ -15,7 +15,8 @@
   import caxios from '../js/request'
 
   export default {
-    props: ['article'],
+  name: 'Detial_Topic_Description',
+  props: ['article'],
     data() {
       return {
         information: "" // 詳細內容
@@ -70,7 +71,7 @@
     background-color: #f8f8f8;
     font-weight: 600;
   }
-  @media only screen and (max-width: $breakpoint) { 
+  @media only screen and (max-width: $breakpoint) {
     // .context {
     // font-family: $main_font;
     font-size: 1rem;

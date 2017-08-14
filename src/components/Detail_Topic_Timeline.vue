@@ -1,7 +1,7 @@
 <template lang="jade">
 
-  .component 
-    
+  .component
+
     table.ui.fixed.striped.unstackable.table
       thead
         tr.center.aligned
@@ -10,14 +10,14 @@
       tbody
         tr(v-for = "(ev,idx) in timeline.time")
           td.center.aligned
-            div {{ev.start}} 
+            div {{ev.start}}
             i.arrow.down.icon(v-if="ev.end != null")
             div {{ev.end}}
           td
             .status.ui.basic.huge.label.fat-only {{ev.title}}
             .status.ui.basic.small.label.thin-only {{ev.title}}
-            h4.ui.header(v-if="ev.info != null") {{ev.info}} 
-          td 
+            h4.ui.header(v-if="ev.info != null") {{ev.info}}
+          td
             Plink(:urllink="ev.link")
 
 </template>
@@ -28,7 +28,7 @@
   import Plink from './Detail_Topic_Timeline_ParticipationLink.vue'
 
   export default {
-
+    name: 'Detial_Topic_Timeline',
     props: ['article'],
     components: {
       Plink
@@ -36,7 +36,7 @@
     data() {
       return {
         timeline:{}, // 時間軸
-        timeline_title:["議題時間","議題階段","相關連結"]
+        timeline_title:["議題時間","議題階段","相關外部連結"]
       }
     },
     methods: {
@@ -44,13 +44,13 @@
         let id = val.id
         this.timeline = { // initialize dType
          'time': []
-        } 
+        }
         let line = this.timeline // just for alias
         caxios.get('https://talk.vtaiwan.tw/t/' + id + '.json?include_raw=1')
           .then((response) => {
             var detail_info = response.data;
             detail_info = detail_info['post_stream']['posts'].slice(1); // 取得議題時間軸內容
-            
+
             for (var i in detail_info) {
               var regex = /(?: (?:init )?)|\n/g; // 用來分開字串
               var date_regex = /^\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$/g; //yyyy-mm-dd(ex:2016-10-31)

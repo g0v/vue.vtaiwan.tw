@@ -39,6 +39,7 @@ import Discussion_Comment from './Detail_Topic_Discussion_Comment.vue'
 
 
 export default {
+  name: 'Detial_Topic_Discussion',
   props: ['article'],
   components: {
       Discussion_Comment,
