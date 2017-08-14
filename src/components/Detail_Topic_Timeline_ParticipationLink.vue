@@ -2,7 +2,7 @@
 
   .component
     div(v-if = "ulinkall.length > 0")
-      a.ui.teal.icon.button(v-for="(item, index) in ulinkall", :href='item.link' target='_blank')
+      a.ui.teal.icon.button(v-for="(item, index) in ulinkall", :href='item.link' target='_blank', :data-tooltip='item.long', data-inverted)
         p
           i.icon(:class="item.icon")
           | {{ item.text }}
@@ -21,54 +21,64 @@ export default {
       data_base_non:[
         {
           icon:"linkify",
-          text:"相關"
+          text:"相關",
+          long:'與議題相關的連結'
         }
       ],
       data_base:[
         {
           key: 'hackpad',
           icon:"pencil",
-          text:"共筆"
+          text:"共筆",
+          long:'會議共同筆記'
         },
         {
           key: 'sayit',
           icon:"book",
-          text:"記錄"
+          text:"記錄",
+          long:'當日共同筆記整理出的重點'
         },
         {
           key: 'youtube',
           icon:"youtube play",
-          text:"直播"
+          text:"直播",
+          long:'會議直播影片 youtube'
         },
         {
           key: 'livehouse',
           icon:"youtube play",
-          text:"直播"
+          text:"直播",
+          long:'會議直播影片 livehouse'
         },
         {
           key: 'pol.is',
           icon:"users",
-          text:"討論"
+          text:"討論",
+          long:'進入討論'
         },
         {
           key: 'talk.vtaiwan.tw',
           icon:"edit",
-          text:"留言"
+          text:"留言",
+          long:'進入留言'
         },
         {
           key: 'app.sli.do',
           icon:"bullhorn",
-          text:"提問"
+          text:"提問",
+          long:'會議共同筆記'
         },
         {
           key: 'PDF',
           icon:"download disk",
-          text:"PDF"
+          text:"PDF",
+          long:'會議共同筆記'
         },
         {
           key: 'g0v.github',
           icon:"github alternate",
-          text:"GitBook"
+          text:"GitBook",
+          long:'會議共同筆記'
         },
       ]
     }
@@ -85,6 +95,7 @@ export default {
           item.link = this.urllink[i]
           item.icon = this.data_base[j].icon
           item.text = this.data_base[j].text
+          item.long = this.data_base[j].long
           this.ulinkall.push(item)
           /* 判斷是否為data_base中的連結 */
           // this.ulinkall
@@ -104,6 +115,7 @@ export default {
         item.link = this.urllink[i]
         item.icon = this.data_base_non[0].icon
         item.text = this.data_base_non[0].text
+        item.long = this.data_base_non[0].long
         if (/^\[(.*?)\]\((.*)\)/.test(item.link)) {
             item.text = RegExp.$1;
             item.link = RegExp.$2;

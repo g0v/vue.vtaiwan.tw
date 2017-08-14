@@ -20,6 +20,13 @@
           td
             Plink(:urllink="ev.link")
 
+    h4 相關外部連結*
+    .ui.celled.list.plinklist
+      .item(v-for='link in plinkList')
+        i.icon(:class='link.icon')
+        .content
+          h5 {{ link.title }}
+          | {{ link.desc }}
 </template>
 
 <script>
@@ -36,7 +43,39 @@
     data() {
       return {
         timeline:{}, // 時間軸
-        timeline_title:["議題時間","議題階段","相關外部連結"]
+        timeline_title:["議題時間","議題階段","相關外部連結*"],
+        plinkList: [
+          {
+            icon:"linkify",
+            title: '相關',
+            desc: '與議題相關的連結'
+          },
+          {
+            icon:"pencil",
+            title: '共筆',
+            desc: '會議共同筆記'
+          },
+          {
+            icon:"book",
+            title: '記錄',
+            desc: '當日共同筆記整理出的重點'
+          },
+          {
+            icon:"youtube play",
+            title: '直播',
+            desc: '會議直播影片'
+          },
+          {
+            icon:"users",
+            title: '討論',
+            desc: '進入討論'
+          },
+          {
+            icon:"edit",
+            title: '留言',
+            desc: '進入留言'
+          }
+        ]
       }
     },
     methods: {
@@ -112,5 +151,10 @@
   color: $step_color;
   border: 1px solid $step_color;
 }
-
+.ui.fixed.table td {
+  overflow: visible;
+}
+.plinklist {
+  font-size: 1rem;
+}
 </style>
