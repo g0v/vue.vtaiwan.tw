@@ -11985,7 +11985,7 @@ module.exports = function spread(callback) {
 
 /* harmony default export */ exports["default"] = {
   name: 'Detial_Topic_Description',
-  props: ['article'],
+  props: ['articleId'],
   data: function data() {
     return {
       information: "" // 詳細內容
@@ -12004,10 +12004,10 @@ module.exports = function spread(callback) {
     }
   },
   created: function created() {
-    this.getDescription(this.article.id);
+    this.getDescription(this.articleId);
   },
   updated: function updated() {
-    this.getDescription(this.article.id);
+    this.getDescription(this.articleId);
   }
 };
 
@@ -12063,7 +12063,7 @@ module.exports = function spread(callback) {
 
 /* harmony default export */ exports["default"] = {
   name: 'Detial_Topic_Discussion',
-  props: ['article'],
+  props: ['articleId'],
   components: {
     Discussion_Comment: __WEBPACK_IMPORTED_MODULE_3__Detail_Topic_Discussion_Comment_vue___default.a
   },
@@ -12078,10 +12078,9 @@ module.exports = function spread(callback) {
     accordion: function accordion() {
       $('.ui.accordion').accordion();
     },
-    discussionType: function discussionType(article) {
+    discussionType: function discussionType(id) {
       var _this = this;
 
-      var id = article.id;
       var dType = this.dType; // just for alias, it's shallow-copy, not deep-copy
 
       __WEBPACK_IMPORTED_MODULE_0__js_request__["a" /* default */].get('https://talk.vtaiwan.tw/t/' + id + '.json?include_raw=1').then(function (response) {
@@ -12182,12 +12181,12 @@ module.exports = function spread(callback) {
     }
   },
   watch: {
-    article: function article(val) {
+    articleId: function articleId(val) {
       this.discussionType(val);
     }
   },
   created: function created() {
-    this.discussionType(this.article); /* first time call */
+    this.discussionType(this.articleId); /* first time call */
   },
   updated: function updated() {
     $('.ui.accordion').accordion();
@@ -12510,13 +12509,13 @@ module.exports = function spread(callback) {
 
 /* harmony default export */ exports["default"] = {
   name: 'Detial_Topic_Timeline',
-  props: ['article'],
+  props: ['articleId'],
   components: {
     Plink: __WEBPACK_IMPORTED_MODULE_1__Detail_Topic_Timeline_ParticipationLink_vue___default.a
   },
   data: function data() {
     return {
-      timeline: {}, // 時間軸
+      timeline: [], // 時間軸
       timeline_title: ["議題時間", "議題階段", "相關外部連結*"],
       plinkList: [{
         icon: "linkify",
@@ -12547,12 +12546,9 @@ module.exports = function spread(callback) {
   },
 
   methods: {
-    getTimeline: function getTimeline(val) {
-      var id = val.id;
-      this.timeline = { // initialize dType
-        'time': []
-      };
-      var line = this.timeline; // just for alias
+    getTimeline: function getTimeline(id) {
+      var _this = this;
+
       __WEBPACK_IMPORTED_MODULE_0__js_request__["a" /* default */].get('https://talk.vtaiwan.tw/t/' + id + '.json?include_raw=1').then(function (response) {
         var detail_info = response.data;
         detail_info = detail_info['post_stream']['posts'].slice(1); // 取得議題時間軸內容
@@ -12594,22 +12590,22 @@ module.exports = function spread(callback) {
           }
           timeline_content['link'] = links;
 
-          line.time.push(timeline_content);
-          line.time.sort(function (a, b) {
-            return new Date(b.start).getTime() - new Date(a.start).getTime();
-          });
+          _this.timeline.push(timeline_content);
         }
-        return line.time;
+        /* sort the timeline content */
+        _this.timeline.sort(function (a, b) {
+          return new Date(b.start) - new Date(a.start);
+        });
       });
     }
   },
   watch: {
-    article: function article(val) {
+    articleId: function articleId(val) {
       this.getTimeline(val);
     }
   },
   created: function created() {
-    this.getTimeline(this.article);
+    this.getTimeline(this.articleId);
   }
 };
 
@@ -14341,7 +14337,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n*[data-v-88189242] {\n  box-sizing: border-box;\n}\nbody[data-v-88189242] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter[data-v-88189242],\n.fade-leave-active[data-v-88189242] {\n  opacity: 0;\n}\n.fade-leave-active[data-v-88189242],\n.fade-enter-active[data-v-88189242] {\n  transition: opacity .3s ease;\n}\n.component[data-v-88189242] {\n  position: relative;\n}\n.component h1[data-v-88189242], .component h2[data-v-88189242], .component h3[data-v-88189242], .component h4[data-v-88189242], .component h5[data-v-88189242], .component h6[data-v-88189242], .component p[data-v-88189242] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-88189242], .component h2 a[data-v-88189242], .component h3 a[data-v-88189242], .component h4 a[data-v-88189242], .component h5 a[data-v-88189242], .component h6 a[data-v-88189242], .component p a[data-v-88189242] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-88189242] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-88189242] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-88189242] {\n    display: none !important;\n}\n}\n.ui.status[data-v-88189242] {\n  color: #db4f4f;\n  border: 1px solid #db4f4f;\n}\n.ui.fixed.table td[data-v-88189242] {\n  overflow: visible;\n}\n.plinklist[data-v-88189242] {\n  font-size: 1rem;\n}\n", ""]);
+exports.push([module.i, "\n*[data-v-88189242] {\n  box-sizing: border-box;\n}\nbody[data-v-88189242] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter[data-v-88189242],\n.fade-leave-active[data-v-88189242] {\n  opacity: 0;\n}\n.fade-leave-active[data-v-88189242],\n.fade-enter-active[data-v-88189242] {\n  transition: opacity .3s ease;\n}\n.component[data-v-88189242] {\n  position: relative;\n}\n.component h1[data-v-88189242], .component h2[data-v-88189242], .component h3[data-v-88189242], .component h4[data-v-88189242], .component h5[data-v-88189242], .component h6[data-v-88189242], .component p[data-v-88189242] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-88189242], .component h2 a[data-v-88189242], .component h3 a[data-v-88189242], .component h4 a[data-v-88189242], .component h5 a[data-v-88189242], .component h6 a[data-v-88189242], .component p a[data-v-88189242] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-88189242] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-88189242] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-88189242] {\n    display: none !important;\n}\n}\n.ui.status[data-v-88189242] {\n  color: #db4f4f;\n  border: 1px solid #db4f4f;\n}\n.ui.fixed.table td[data-v-88189242] {\n  overflow: visible;\n}\n.due[data-v-88189242] {\n  font-size: 1.2rem;\n}\n.plinklist[data-v-88189242] {\n  font-size: 1rem;\n}\n", ""]);
 
 // exports
 
@@ -16065,7 +16061,7 @@ module.exports={render:function (){with(this) {
     tag: "component",
     class: tabList[myIdx],
     attrs: {
-      "article": article
+      "articleId": article.id
     }
   })])])]) : _e()])])
 }},staticRenderFns: [function (){with(this) {
@@ -16567,11 +16563,11 @@ module.exports={render:function (){with(this) {
     return _h('th', [_h('h3', {
       staticClass: "ui header"
     }, [_s(t)])])
-  })])]), _h('tbody', [_l((timeline.time), function(ev, idx) {
+  })])]), _h('tbody', [_l((timeline), function(ev, idx) {
     return _h('tr', [_h('td', {
-      staticClass: "center aligned"
+      staticClass: "center aligned due"
     }, [_h('div', [_s(ev.start)]), (ev.end != null) ? _h('i', {
-      staticClass: "arrow down icon"
+      staticClass: "caret down icon"
     }) : _e(), _h('div', [_s(ev.end)])]), _h('td', [_h('div', {
       staticClass: "status ui basic huge label fat-only"
     }, [_s(ev.title)]), _h('div', {
@@ -16584,7 +16580,7 @@ module.exports={render:function (){with(this) {
       }
     })])])
   })])]), _m(0), _h('div', {
-    staticClass: "ui celled list plinklist"
+    staticClass: "ui horizontal relaxed list plinklist"
   }, [_l((plinkList), function(link) {
     return _h('div', {
       staticClass: "item"
@@ -16596,7 +16592,7 @@ module.exports={render:function (){with(this) {
     }, [_h('h5', [_s(link.title)]), _s(link.desc)])])
   })])])
 }},staticRenderFns: [function (){with(this) {
-  return _h('h4', ["相關外部連結*"])
+  return _h('h3', ["相關外部連結*"])
 }}]}
 
 /***/ },
