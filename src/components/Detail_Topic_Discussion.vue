@@ -40,7 +40,7 @@ import Discussion_Comment from './Detail_Topic_Discussion_Comment.vue'
 
 export default {
   name: 'Detial_Topic_Discussion',
-  props: ['article'],
+  props: ['articleId'],
   components: {
       Discussion_Comment,
   },
@@ -54,8 +54,7 @@ export default {
     accordion:function(){
       $('.ui.accordion').accordion();
     },
-    discussionType: function(article){
-      let id = article.id
+    discussionType: function(id){
       let dType = this.dType // just for alias, it's shallow-copy, not deep-copy
 
       caxios.get('https://talk.vtaiwan.tw/t/'+ id +'.json?include_raw=1')
@@ -113,12 +112,12 @@ export default {
     }
   },
   watch: {
-    article: function(val){
+    articleId: function(val){
       this.discussionType(val)
     }
   },
   created: function(){
-    this.discussionType(this.article) /* first time call */
+    this.discussionType(this.articleId) /* first time call */
   },
   updated: function(){
     $('.ui.accordion').accordion();

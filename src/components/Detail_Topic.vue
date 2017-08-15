@@ -37,7 +37,7 @@
     .information(v-if = "article.id")
       transition(name='fade', mode='out-in')
         keep-alive
-          component(:is='tabList[myIdx]', :article="article", :class='tabList[myIdx]')
+          component(:is='tabList[myIdx]', :articleId="article.id", :class='tabList[myIdx]')
 
 </template>
 

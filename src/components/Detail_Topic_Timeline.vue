@@ -8,10 +8,10 @@
           th(v-for="t in timeline_title")
             h3.ui.header {{t}}
       tbody
-        tr(v-for = "(ev,idx) in timeline.time")
-          td.center.aligned
+        tr(v-for = "(ev,idx) in timeline")
+          td.center.aligned.due
             div {{ev.start}}
-            i.arrow.down.icon(v-if="ev.end != null")
+            i.caret.down.icon(v-if="ev.end != null")
             div {{ev.end}}
           td
             .status.ui.basic.huge.label.fat-only {{ev.title}}
@@ -20,8 +20,8 @@
           td
             Plink(:urllink="ev.link")
 
-    h4 相關外部連結*
-    .ui.celled.list.plinklist
+    h3 相關外部連結*
+    .ui.horizontal.relaxed.list.plinklist
       .item(v-for='link in plinkList')
         i.icon(:class='link.icon')
         .content
@@ -36,13 +36,13 @@
 
   export default {
     name: 'Detial_Topic_Timeline',
-    props: ['article'],
+    props: ['articleId'],
     components: {
       Plink
     },
     data() {
       return {
-        timeline:{}, // 時間軸
+        timeline: [], // 時間軸
         timeline_title:["議題時間","議題階段","相關外部連結*"],
         plinkList: [
           {
@@ -79,12 +79,7 @@
       }
     },
     methods: {
-      getTimeline(val) {
-        let id = val.id
-        this.timeline = { // initialize dType
-         'time': []
-        }
-        let line = this.timeline // just for alias
+      getTimeline(id) {
         caxios.get('https://talk.vtaiwan.tw/t/' + id + '.json?include_raw=1')
           .then((response) => {
             var detail_info = response.data;
@@ -122,22 +117,20 @@
               }
               timeline_content['link'] = links;
 
-              line.time.push(timeline_content);
-              line.time.sort(function(a,b){
-               return new Date(b.start).getTime() - new Date(a.start).getTime();
-              })
+              this.timeline.push(timeline_content);
             }
-             return line.time;
+            /* sort the timeline content */
+            this.timeline.sort((a,b) => new Date(b.start) - new Date(a.start))
           })
       }
     },
     watch: {
-      article: function(val){
+      articleId: function(val){
         this.getTimeline(val);
       }
     },
     created: function () {
-      this.getTimeline(this.article);
+      this.getTimeline(this.articleId);
     }
   }
 
@@ -153,6 +146,9 @@
 }
 .ui.fixed.table td {
   overflow: visible;
+}
+.due {
+  font-size: 1.2rem;
 }
 .plinklist {
   font-size: 1rem;

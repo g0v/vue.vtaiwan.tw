@@ -16,7 +16,7 @@
 
   export default {
   name: 'Detial_Topic_Description',
-  props: ['article'],
+  props: ['articleId'],
     data() {
       return {
         information: "" // 詳細內容
@@ -33,10 +33,10 @@
       }
     },
     created: function () {
-      this.getDescription(this.article.id);
+      this.getDescription(this.articleId);
     },
     updated: function () {
-      this.getDescription(this.article.id);
+      this.getDescription(this.articleId);
     }
   }
 
