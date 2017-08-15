@@ -80,6 +80,7 @@
     },
     methods: {
       getTimeline(id) {
+        this.timeline = []
         caxios.get('https://talk.vtaiwan.tw/t/' + id + '.json?include_raw=1')
           .then((response) => {
             var detail_info = response.data;

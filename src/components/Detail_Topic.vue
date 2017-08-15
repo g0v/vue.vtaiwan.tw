@@ -7,15 +7,15 @@
         p {{step}}
       .menu
         router-link.item(v-for = "(obj,idx) in allTopics",
-                        v-if="step === obj.status",
-                        :to="'/topic/' + obj.routeName",
-                        :class="{'router-link-active': obj.routeName === routename }",
-                        @click="routename = obj.routeName")
+          v-if="step === obj.status",
+          :to="'/topic/' + obj.routeName",
+          :class="{'router-link-active': obj.routeName === routename }",
+          @click="routename = obj.routeName")
           p {{obj.title}}
 
   .opener.fat-only(@mouseover="showSidebar")
 
-  .pusher.ui.container
+  .pusher
 
     NextStage(v-if = "article.id !== undefined", :article="article")
 
@@ -26,17 +26,18 @@
       sub
         i.quote.right.icon
 
-    Slide(v-if = "article.id !== undefined", :article="article")
+    Slide(v-if = "article.id !== undefined", :articleId="article.id")
       // video(:style="{'background-image': 'url('+article.cover+')'}")
 
-    .ui.big.menu(v-if = "article.id")
-      router-link.item(v-for="(step, idx) in tabcontent", :to="$route.path+getHash(idx)", :class="{'active':idx===myIdx}", @click.prevent="myIdx=idx", v-if='step')
-          i.icon(v-bind:class="{'info circle': step == '詳細內容','calendar': step == '時程與相關連結','comments': step == '參與討論','history': step == '歷史案件','university': step =='院會討論'}")
-          p.fat-only {{step}}
+    .ui.container
 
-    .information(v-if = "article.id")
-      transition(name='fade', mode='out-in')
-        keep-alive
+      .buttonMenu.ui.big.secondary.pointing.menu(v-if = "article.id")
+        router-link.item(v-for="(step, idx) in tabcontent", :to="getHash(idx)", replace, :class="{'active':idx===myIdx}", @click="myIdx=idx", v-if='step')
+            i.icon(v-bind:class="{'info circle': step == '詳細內容','calendar': step == '時程與相關連結','comments': step == '參與討論','history': step == '歷史案件','university': step =='院會討論'}")
+            p.fat-only {{step}}
+
+      .information(v-if = "article.id")
+        transition(name='fade', mode='out-in')
           component(:is='tabList[myIdx]', :articleId="article.id", :class='tabList[myIdx]')
 
 </template>
@@ -61,7 +62,7 @@ export default {
   },
   data () {
     return {
-      tabcontent:["詳細內容","時程與相關連結"],
+      tabcontent:['',"時程與相關連結"],
       stage:["即將開始","意見徵集","研擬草案","送交院會","歷史案件"],
       hashList: [
         '#desc',
@@ -196,10 +197,6 @@ export default {
   }
 }
 
-// .ui.top.menu {
-//   width: 100%;
-// }
-
 .pusher{
   min-height:90vh;
   padding-bottom: 1em;
@@ -209,8 +206,8 @@ export default {
   min-height: 10em;
 }
 
-.ui.menu .item {
-  flex: 1 0 auto;
+.buttonMenu {
   justify-content: center;
+  border: 0 !important;
 }
 </style>

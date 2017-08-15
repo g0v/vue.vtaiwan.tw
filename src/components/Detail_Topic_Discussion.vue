@@ -1,23 +1,18 @@
 <template lang="jade">
 .component
   .ui.left.aligned.container
-
+    //- {{dType}}
     template(v-if = "dType")
+      //- {{dType.type}}
+      .discourse(v-if="dType.type === 'discourse'")
+        .ui.fluid.styled.accordion(v-for="(disc, index) in dType.embeder")
+          .title.discoursetitle
+            i.dropdown.icon
+            | {{disc.title}}
+          .content
+            Discussion_Comment(:comment_id="disc.id", :slice="false")
 
-      .slido(v-html="dType.embeder", v-if = "dType.type === 'typeform'")
-
-      .slido(v-html="dType.slido", v-if = "dType.type === 'slido'")
-
-      .polis(v-html="dType.polis", v-if = "dType.type === 'polis'")
-
-      .livehouse(v-html="dType.livehouse", v-if = "dType.type === 'livehouse'")
-
-      .discourse.ui.fluid.styled.accordion(v-for="(disc, index) in dType.discourse", v-if="dType.type === 'discourse'")
-        .title.discoursetitle
-          i.dropdown.icon
-          | {{disc.title}}
-        .content
-          Discussion_Comment(:comment_id="disc.id", :slice="false")
+      div(v-else, :class='dType.type', v-html='dType.embeder')
 
     template(v-if="lastStep == '歷史案件' || lastStep == '送交院會'")
 
@@ -46,7 +41,10 @@ export default {
   },
   data () {
     return {
-      dType: {},
+      dType: {
+        type: '',
+        embeder: ''
+      },
       lastStep: ""
     }
   },
@@ -55,6 +53,7 @@ export default {
       $('.ui.accordion').accordion();
     },
     discussionType: function(id){
+      this.dType = Object.assign({}, this.dType)
       let dType = this.dType // just for alias, it's shallow-copy, not deep-copy
 
       caxios.get('https://talk.vtaiwan.tw/t/'+ id +'.json?include_raw=1')
@@ -70,18 +69,19 @@ export default {
             rawlinks = post['raw'].split(/\s/)
           }
         }
+        // console.log(rawlinks)
         for(let link of rawlinks){
           if(link.indexOf("pol.is") > -1){ //篩出含有polis的連結
             dType.type = 'polis'
-            dType.polis = "<iframe src="+link+ " frameborder='0' width='100%' height='1000px' data-reactid='.0.2.0.0.0'></iframe>";
+            dType.embeder = "<iframe src="+link+ " frameborder='0' width='100%' height='1000px' data-reactid='.0.2.0.0.0'></iframe>";
           }
           else if(link.indexOf("sli.do") > -1){ //篩出含有slido的連結
             dType.type = 'slido'
-            dType.slido = "<iframe src='"+link+ "' frameborder='0' width='100%' height='1000px' data-reactid='.0.2.0.0.0'></iframe>"
+            dType.embeder = "<iframe src='"+link+ "' frameborder='0' width='100%' height='1000px' data-reactid='.0.2.0.0.0'></iframe>"
           }
-          else if(link.indexOf("livehouse") > -1){ //篩出含有slido的連結
+          else if(link.indexOf("livehouse") > -1){ //篩出含有livehouse的連結
             dType.type = 'livehouse'
-            dType.livehouse = "<iframe width='100%' height='1000px' src='"+link.replace("livehouse.in/","livehouse.in/embed/")+"' frameborder='0' allowfullscreen></iframe>"
+            dType.embeder = "<iframe width='100%' height='1000px' src='"+link.replace("livehouse.in/","livehouse.in/embed/")+"' frameborder='0' allowfullscreen></iframe>"
           }
           else if(link.indexOf("talk.vtaiwan.tw") > -1){ //篩出含有discourse的連結
             link = link.replace(/(.*)\/$/, "$1") // discard last char '/'
@@ -89,7 +89,7 @@ export default {
             .then((response) => {
               let topics = response.sort((a,b)=>chineseSort(a.title,b.title))
               dType.type = 'discourse'
-              dType.discourse = topics.map( t => {
+              dType.embeder = topics.map( t => {
                 return {
                   'title': t.title,
                   'id': t.id
@@ -102,9 +102,6 @@ export default {
             dType.type = 'typeform'
             link = link.replace(/.*\((.*)\)/, "$1")
             dType.embeder = `<iframe src='${link}' frameborder='0' width='100%' height='1000px'></iframe>`
-          }
-          else {
-            console.log(link)
           }
         }
         // this.dType = dType

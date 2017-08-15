@@ -1,7 +1,14 @@
 <template lang="jade">
   .component
-
-     .slide-iframe(v-html = "slide.content")
+    .iframe
+      div(v-html = "slide.iframe")
+    .info
+      div(v-html = 'slide.info')
+      h1.ui.header
+        router-link.ui.big.teal.button(:to="$route.path + '#disc'")
+          p
+            i.comments.icon
+            | 進入討論
 
 </template>
 
@@ -10,36 +17,35 @@
 import caxios from '../js/request'
 
 export default {
-  props: ['article'],
+  props: ['articleId'],
   data () {
     return {
-      slide:"" // 詳細內容
-    }  
+      slide: {
+        iframe: '',
+        info: ''
+      }
+    }
   },
   methods:{
-    getSlide(val){
-      let id = val.id
-        this.slide = { // initialize dType
-         'content': ""
-        } 
-      let slide = this.slide // just for alias
-      caxios.get('https://talk.vtaiwan.tw/t/'+ id +'.json?include_raw=1')
-      .then((response=>{
-        var detail_info = response.data;
-        var parser = new DOMParser ();
-        detail_info = detail_info['post_stream']['posts'][0]['cooked']; // 取得議題時間軸內容
-        var xmlDoc = parser.parseFromString (detail_info, "text/html");
-        var result = xmlDoc.getElementsByTagName("iframe")[0].outerHTML;
-        slide.content = result;
-        return slide.content
-      }))
+    getSlide(id){
+      /* shallow copy */
+      let slide = this.slide
+      caxios.getTopic(id)
+        .then(response => {
+          let post = response.data['post_stream']['posts'][0]['cooked'] // 取得議題時間軸內容
+          let xmlDoc = new DOMParser().parseFromString(post, "text/html")
+          let iframe = xmlDoc.getElementsByTagName("iframe")[0].outerHTML
+          slide.iframe = iframe
+          let info = post.split("<hr>")[1]; // 取得詳細內容(第一篇)
+          slide.info = info.replace(/<if.*slideshare.*e>/, ""); //詳細內容slideshare拿掉
+        })
     }
   },
   created:function(){
-    this.getSlide(this.article);
+    this.getSlide(this.articleId);
   },
   watch:{
-    article: function(val){
+    articleId: function(val){
         this.getSlide(val);
       }
   }
@@ -47,16 +53,27 @@ export default {
 
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import "../sass/global.scss";
-
-.slide-iframe {
-  margin: 0 auto;
-  text-align: center;
-  @media only screen and (max-width: $breakpoint){
-    iframe {
-      width: auto;
+.component {
+  background-color: #eee;
+  padding: 1em 0;
+  display: flex;
+  align-items: center;
+  .iframe {
+    flex: 1 0 40%;
+    margin: auto;
+    text-align: right;
+    @media only screen and (max-width: $breakpoint){
+      iframe {
+        width: auto;
+      }
     }
+  }
+  .info {
+    flex: 2 1 60%;
+    padding: 0 1em 0 1em;
+    font-size: 1.2rem;
   }
 }
 
