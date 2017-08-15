@@ -678,6 +678,13 @@ var results = {};
     }
     return results[uri];
   },
+  getTopic: function getTopic(id) {
+    var uri = 'https://talk.vtaiwan.tw/t/' + id + '.json?include_raw=1';
+    if (!results[uri]) {
+      results[uri] = __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get(uri);
+    }
+    return results[uri];
+  },
   post: function post(uri, jsondata) {
     console.log("jsondata");
     console.log(jsondata);
@@ -11856,6 +11863,7 @@ module.exports = function spread(callback) {
 //
 //
 //
+//
 
 
 
@@ -11876,7 +11884,7 @@ module.exports = function spread(callback) {
   },
   data: function data() {
     return {
-      tabcontent: ["詳細內容", "時程與相關連結"],
+      tabcontent: ['', "時程與相關連結"],
       stage: ["即將開始", "意見徵集", "研擬草案", "送交院會", "歷史案件"],
       hashList: ['#desc', '#time', '#disc'],
       tabList: ['Description', 'Timeline', 'Discussion']
@@ -12050,11 +12058,6 @@ module.exports = function spread(callback) {
 //
 //
 //
-//
-//
-//
-//
-//
 
 
 
@@ -12069,7 +12072,10 @@ module.exports = function spread(callback) {
   },
   data: function data() {
     return {
-      dType: {},
+      dType: {
+        type: '',
+        embeder: ''
+      },
       lastStep: ""
     };
   },
@@ -12081,6 +12087,7 @@ module.exports = function spread(callback) {
     discussionType: function discussionType(id) {
       var _this = this;
 
+      this.dType = Object.assign({}, this.dType);
       var dType = this.dType; // just for alias, it's shallow-copy, not deep-copy
 
       __WEBPACK_IMPORTED_MODULE_0__js_request__["a" /* default */].get('https://talk.vtaiwan.tw/t/' + id + '.json?include_raw=1').then(function (response) {
@@ -12102,6 +12109,7 @@ module.exports = function spread(callback) {
               rawlinks = post['raw'].split(/\s/);
             }
           }
+          // console.log(rawlinks)
         } catch (err) {
           _didIteratorError = true;
           _iteratorError = err;
@@ -12128,15 +12136,15 @@ module.exports = function spread(callback) {
             if (link.indexOf("pol.is") > -1) {
               //篩出含有polis的連結
               dType.type = 'polis';
-              dType.polis = "<iframe src=" + link + " frameborder='0' width='100%' height='1000px' data-reactid='.0.2.0.0.0'></iframe>";
+              dType.embeder = "<iframe src=" + link + " frameborder='0' width='100%' height='1000px' data-reactid='.0.2.0.0.0'></iframe>";
             } else if (link.indexOf("sli.do") > -1) {
               //篩出含有slido的連結
               dType.type = 'slido';
-              dType.slido = "<iframe src='" + link + "' frameborder='0' width='100%' height='1000px' data-reactid='.0.2.0.0.0'></iframe>";
+              dType.embeder = "<iframe src='" + link + "' frameborder='0' width='100%' height='1000px' data-reactid='.0.2.0.0.0'></iframe>";
             } else if (link.indexOf("livehouse") > -1) {
-              //篩出含有slido的連結
+              //篩出含有livehouse的連結
               dType.type = 'livehouse';
-              dType.livehouse = "<iframe width='100%' height='1000px' src='" + link.replace("livehouse.in/", "livehouse.in/embed/") + "' frameborder='0' allowfullscreen></iframe>";
+              dType.embeder = "<iframe width='100%' height='1000px' src='" + link.replace("livehouse.in/", "livehouse.in/embed/") + "' frameborder='0' allowfullscreen></iframe>";
             } else if (link.indexOf("talk.vtaiwan.tw") > -1) {
               //篩出含有discourse的連結
               link = link.replace(/(.*)\/$/, "$1"); // discard last char '/'
@@ -12145,7 +12153,7 @@ module.exports = function spread(callback) {
                   return __WEBPACK_IMPORTED_MODULE_2__js_chineseSort_js___default()(a.title, b.title);
                 });
                 dType.type = 'discourse';
-                dType.discourse = topics.map(function (t) {
+                dType.embeder = topics.map(function (t) {
                   return {
                     'title': t.title,
                     'id': t.id
@@ -12158,8 +12166,6 @@ module.exports = function spread(callback) {
                 dType.type = 'typeform';
                 link = link.replace(/.*\((.*)\)/, "$1");
                 dType.embeder = '<iframe src=\'' + link + '\' frameborder=\'0\' width=\'100%\' height=\'1000px\'></iframe>';
-              } else {
-                console.log(link);
               }
           }
           // this.dType = dType
@@ -12423,41 +12429,47 @@ module.exports = function spread(callback) {
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 
 
 /* harmony default export */ exports["default"] = {
-  props: ['article'],
+  props: ['articleId'],
   data: function data() {
     return {
-      slide: "" // 詳細內容
+      slide: {
+        iframe: '',
+        info: ''
+      }
     };
   },
 
   methods: {
-    getSlide: function getSlide(val) {
-      var id = val.id;
-      this.slide = { // initialize dType
-        'content': ""
-      };
-      var slide = this.slide; // just for alias
-      __WEBPACK_IMPORTED_MODULE_0__js_request__["a" /* default */].get('https://talk.vtaiwan.tw/t/' + id + '.json?include_raw=1').then(function (response) {
-        var detail_info = response.data;
-        var parser = new DOMParser();
-        detail_info = detail_info['post_stream']['posts'][0]['cooked']; // 取得議題時間軸內容
-        var xmlDoc = parser.parseFromString(detail_info, "text/html");
-        var result = xmlDoc.getElementsByTagName("iframe")[0].outerHTML;
-        slide.content = result;
-        return slide.content;
+    getSlide: function getSlide(id) {
+      /* shallow copy */
+      var slide = this.slide;
+      __WEBPACK_IMPORTED_MODULE_0__js_request__["a" /* default */].getTopic(id).then(function (response) {
+        var post = response.data['post_stream']['posts'][0]['cooked']; // 取得議題時間軸內容
+        var xmlDoc = new DOMParser().parseFromString(post, "text/html");
+        var iframe = xmlDoc.getElementsByTagName("iframe")[0].outerHTML;
+        slide.iframe = iframe;
+        var info = post.split("<hr>")[1]; // 取得詳細內容(第一篇)
+        slide.info = info.replace(/<if.*slideshare.*e>/, ""); //詳細內容slideshare拿掉
       });
     }
   },
   created: function created() {
-    this.getSlide(this.article);
+    this.getSlide(this.articleId);
   },
   watch: {
-    article: function article(val) {
+    articleId: function articleId(val) {
       this.getSlide(val);
     }
   }
@@ -12549,6 +12561,7 @@ module.exports = function spread(callback) {
     getTimeline: function getTimeline(id) {
       var _this = this;
 
+      this.timeline = [];
       __WEBPACK_IMPORTED_MODULE_0__js_request__["a" /* default */].get('https://talk.vtaiwan.tw/t/' + id + '.json?include_raw=1').then(function (response) {
         var detail_info = response.data;
         detail_info = detail_info['post_stream']['posts'].slice(1); // 取得議題時間軸內容
@@ -13981,8 +13994,6 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_
     name: 'intro',
     component: __WEBPACK_IMPORTED_MODULE_4__components_Intro_vue___default.a }, { path: '/topic/:tRouteName',
     name: 'topic',
-    component: __WEBPACK_IMPORTED_MODULE_5__components_Detail_Topic_vue___default.a }, { path: '/topic/:tRouteName/step/:sId',
-    name: 'topic_step',
     component: __WEBPACK_IMPORTED_MODULE_5__components_Detail_Topic_vue___default.a }, { path: '/contactus',
     name: 'contactus',
     component: __WEBPACK_IMPORTED_MODULE_6__components_ContactUs_vue___default.a }, { path: '/search',
@@ -14141,7 +14152,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n* {\n  box-sizing: border-box;\n}\nbody {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter,\n.fade-leave-active {\n  opacity: 0;\n}\n.fade-leave-active,\n.fade-enter-active {\n  transition: opacity .3s ease;\n}\n.component {\n  position: relative;\n}\n.component h1, .component h2, .component h3, .component h4, .component h5, .component h6, .component p {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a, .component h2 a, .component h3 a, .component h4 a, .component h5 a, .component h6 a, .component p a {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only {\n    display: none !important;\n}\n}\n.slide-iframe {\n  margin: 0 auto;\n  text-align: center;\n}\n@media only screen and (max-width: 767px) {\n.slide-iframe iframe {\n      width: auto;\n}\n}\n", ""]);
+exports.push([module.i, "\n*[data-v-287bb503] {\n  box-sizing: border-box;\n}\nbody[data-v-287bb503] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter[data-v-287bb503],\n.fade-leave-active[data-v-287bb503] {\n  opacity: 0;\n}\n.fade-leave-active[data-v-287bb503],\n.fade-enter-active[data-v-287bb503] {\n  transition: opacity .3s ease;\n}\n.component[data-v-287bb503] {\n  position: relative;\n}\n.component h1[data-v-287bb503], .component h2[data-v-287bb503], .component h3[data-v-287bb503], .component h4[data-v-287bb503], .component h5[data-v-287bb503], .component h6[data-v-287bb503], .component p[data-v-287bb503] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-287bb503], .component h2 a[data-v-287bb503], .component h3 a[data-v-287bb503], .component h4 a[data-v-287bb503], .component h5 a[data-v-287bb503], .component h6 a[data-v-287bb503], .component p a[data-v-287bb503] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-287bb503] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-287bb503] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-287bb503] {\n    display: none !important;\n}\n}\n.component[data-v-287bb503] {\n  background-color: #eee;\n  padding: 1em 0;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-align: center;\n      align-items: center;\n}\n.component .iframe[data-v-287bb503] {\n    -ms-flex: 1 0 40%;\n        flex: 1 0 40%;\n    margin: auto;\n    text-align: right;\n}\n@media only screen and (max-width: 767px) {\n.component .iframe iframe[data-v-287bb503] {\n        width: auto;\n}\n}\n.component .info[data-v-287bb503] {\n    -ms-flex: 2 1 60%;\n        flex: 2 1 60%;\n    padding: 0 1em 0 1em;\n    font-size: 1.2rem;\n}\n", ""]);
 
 // exports
 
@@ -14225,7 +14236,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n@charset \"UTF-8\";\n*[data-v-4144f431] {\n  box-sizing: border-box;\n}\nbody[data-v-4144f431] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter[data-v-4144f431],\n.fade-leave-active[data-v-4144f431] {\n  opacity: 0;\n}\n.fade-leave-active[data-v-4144f431],\n.fade-enter-active[data-v-4144f431] {\n  transition: opacity .3s ease;\n}\n.component[data-v-4144f431] {\n  position: relative;\n}\n.component h1[data-v-4144f431], .component h2[data-v-4144f431], .component h3[data-v-4144f431], .component h4[data-v-4144f431], .component h5[data-v-4144f431], .component h6[data-v-4144f431], .component p[data-v-4144f431] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-4144f431], .component h2 a[data-v-4144f431], .component h3 a[data-v-4144f431], .component h4 a[data-v-4144f431], .component h5 a[data-v-4144f431], .component h6 a[data-v-4144f431], .component p a[data-v-4144f431] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-4144f431] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-4144f431] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-4144f431] {\n    display: none !important;\n}\n}\n.ui.sidebar[data-v-4144f431] {\n  text-align: left;\n}\n.ui.sidebar .menu[data-v-4144f431] {\n    margin: 0 !important;\n}\n.ui.sidebar .menu .router-link-active[data-v-4144f431] {\n      color: white;\n}\n.opener[data-v-4144f431] {\n  height: 100%;\n  width: 1ch;\n  background: #1B1C1D;\n  /* the color of sidebar */\n  position: fixed;\n  left: 0;\n  z-index: 100;\n}\n.opener[data-v-4144f431]::after {\n    content: '\\5176\\5B83\\63D0\\6848';\n    word-wrap: break-word;\n    width: 3ch;\n    padding: 1em 5px;\n    position: fixed;\n    top: 2em;\n    left: 1ch;\n    color: white;\n    background: #1B1C1D;\n}\n.pusher[data-v-4144f431] {\n  min-height: 90vh;\n  padding-bottom: 1em;\n}\n.information[data-v-4144f431] {\n  min-height: 10em;\n}\n.ui.menu .item[data-v-4144f431] {\n  -ms-flex: 1 0 auto;\n      flex: 1 0 auto;\n  -ms-flex-pack: center;\n      justify-content: center;\n}\n", ""]);
+exports.push([module.i, "\n@charset \"UTF-8\";\n*[data-v-4144f431] {\n  box-sizing: border-box;\n}\nbody[data-v-4144f431] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter[data-v-4144f431],\n.fade-leave-active[data-v-4144f431] {\n  opacity: 0;\n}\n.fade-leave-active[data-v-4144f431],\n.fade-enter-active[data-v-4144f431] {\n  transition: opacity .3s ease;\n}\n.component[data-v-4144f431] {\n  position: relative;\n}\n.component h1[data-v-4144f431], .component h2[data-v-4144f431], .component h3[data-v-4144f431], .component h4[data-v-4144f431], .component h5[data-v-4144f431], .component h6[data-v-4144f431], .component p[data-v-4144f431] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-4144f431], .component h2 a[data-v-4144f431], .component h3 a[data-v-4144f431], .component h4 a[data-v-4144f431], .component h5 a[data-v-4144f431], .component h6 a[data-v-4144f431], .component p a[data-v-4144f431] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-4144f431] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-4144f431] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-4144f431] {\n    display: none !important;\n}\n}\n.ui.sidebar[data-v-4144f431] {\n  text-align: left;\n}\n.ui.sidebar .menu[data-v-4144f431] {\n    margin: 0 !important;\n}\n.ui.sidebar .menu .router-link-active[data-v-4144f431] {\n      color: white;\n}\n.opener[data-v-4144f431] {\n  height: 100%;\n  width: 1ch;\n  background: #1B1C1D;\n  /* the color of sidebar */\n  position: fixed;\n  left: 0;\n  z-index: 100;\n}\n.opener[data-v-4144f431]::after {\n    content: '\\5176\\5B83\\63D0\\6848';\n    word-wrap: break-word;\n    width: 3ch;\n    padding: 1em 5px;\n    position: fixed;\n    top: 2em;\n    left: 1ch;\n    color: white;\n    background: #1B1C1D;\n}\n.pusher[data-v-4144f431] {\n  min-height: 90vh;\n  padding-bottom: 1em;\n}\n.information[data-v-4144f431] {\n  min-height: 10em;\n}\n.buttonMenu[data-v-4144f431] {\n  -ms-flex-pack: center;\n      justify-content: center;\n  border: 0 !important;\n}\n", ""]);
 
 // exports
 
@@ -14717,6 +14728,7 @@ if (typeof __vue_options__ === "function") {
 
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+__vue_options__._scopeId = "data-v-287bb503"
 
 module.exports = __vue_exports__
 
@@ -15508,29 +15520,11 @@ module.exports={render:function (){with(this) {
     staticClass: "component"
   }, [_h('div', {
     staticClass: "ui left aligned container"
-  }, [(dType) ? [(dType.type === 'typeform') ? _h('div', {
-    staticClass: "slido",
-    domProps: {
-      "innerHTML": _s(dType.embeder)
-    }
-  }) : _e(), (dType.type === 'slido') ? _h('div', {
-    staticClass: "slido",
-    domProps: {
-      "innerHTML": _s(dType.slido)
-    }
-  }) : _e(), (dType.type === 'polis') ? _h('div', {
-    staticClass: "polis",
-    domProps: {
-      "innerHTML": _s(dType.polis)
-    }
-  }) : _e(), (dType.type === 'livehouse') ? _h('div', {
-    staticClass: "livehouse",
-    domProps: {
-      "innerHTML": _s(dType.livehouse)
-    }
-  }) : _e(), _l((dType.discourse), function(disc, index) {
-    return (dType.type === 'discourse') ? _h('div', {
-      staticClass: "discourse ui fluid styled accordion"
+  }, [(dType) ? [(dType.type === 'discourse') ? _h('div', {
+    staticClass: "discourse"
+  }, [_l((dType.embeder), function(disc, index) {
+    return _h('div', {
+      staticClass: "ui fluid styled accordion"
     }, [_h('div', {
       staticClass: "title discoursetitle"
     }, [_m(0, true), _s(disc.title)]), _h('div', {
@@ -15540,7 +15534,12 @@ module.exports={render:function (){with(this) {
         "comment_id": disc.id,
         "slice": false
       }
-    })])]) : _e()
+    })])])
+  })]) : _h('div', {
+    class: dType.type,
+    domProps: {
+      "innerHTML": _s(dType.embeder)
+    }
   })] : _e(), (lastStep == '歷史案件' || lastStep == '送交院會') ? [(lastStep === '歷史案件') ? _h('div', {
     staticClass: "history div"
   }, ["本案已討論結束，詳細歷程可參考「議題時間軸」"]) : _h('div', {
@@ -15748,12 +15747,30 @@ module.exports={render:function (){with(this) {
   return _h('div', {
     staticClass: "component"
   }, [_h('div', {
-    staticClass: "slide-iframe",
+    staticClass: "iframe"
+  }, [_h('div', {
     domProps: {
-      "innerHTML": _s(slide.content)
+      "innerHTML": _s(slide.iframe)
     }
-  })])
-}},staticRenderFns: []}
+  })]), _h('div', {
+    staticClass: "info"
+  }, [_h('div', {
+    domProps: {
+      "innerHTML": _s(slide.info)
+    }
+  }), _h('h1', {
+    staticClass: "ui header"
+  }, [_h('router-link', {
+    staticClass: "ui big teal button",
+    attrs: {
+      "to": $route.path + '#disc'
+    }
+  }, [_m(0)])])])])
+}},staticRenderFns: [function (){with(this) {
+  return _h('p', [_h('i', {
+    staticClass: "comments icon"
+  }), "進入討論"])
+}}]}
 
 /***/ },
 /* 130 */
@@ -16014,7 +16031,7 @@ module.exports={render:function (){with(this) {
       "mouseover": showSidebar
     }
   }), _h('div', {
-    staticClass: "pusher ui container"
+    staticClass: "pusher"
   }, [(article.id !== undefined) ? _h('NextStage', {
     attrs: {
       "article": article
@@ -16023,10 +16040,12 @@ module.exports={render:function (){with(this) {
     staticClass: "ui centered header"
   }, [_m(0), _s(article.title) + "  ", _m(1)]) : _e(), (article.id !== undefined) ? _h('Slide', {
     attrs: {
-      "article": article
+      "articleId": article.id
     }
-  }) : _e(), (article.id) ? _h('div', {
-    staticClass: "ui big menu"
+  }) : _e(), _h('div', {
+    staticClass: "ui container"
+  }, [(article.id) ? _h('div', {
+    staticClass: "buttonMenu ui big secondary pointing menu"
   }, [_l((tabcontent), function(step, idx) {
     return (step) ? _h('router-link', {
       staticClass: "item",
@@ -16034,11 +16053,11 @@ module.exports={render:function (){with(this) {
         'active': idx === myIdx
       },
       attrs: {
-        "to": $route.path + getHash(idx)
+        "to": getHash(idx),
+        "replace": "replace"
       },
       on: {
         "click": function($event) {
-          $event.preventDefault();
           myIdx = idx
         }
       }
@@ -16057,13 +16076,13 @@ module.exports={render:function (){with(this) {
       "name": "fade",
       "mode": "out-in"
     }
-  }, [_h('keep-alive', [_h(tabList[myIdx], {
+  }, [_h(tabList[myIdx], {
     tag: "component",
     class: tabList[myIdx],
     attrs: {
       "articleId": article.id
     }
-  })])])]) : _e()])])
+  })])]) : _e()])])])
 }},staticRenderFns: [function (){with(this) {
   return _h('sup', [_h('i', {
     staticClass: "quote left icon"
@@ -16963,8 +16982,8 @@ if(content.locals) module.exports = content.locals;
 if(false) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-287bb503!./../../node_modules/sass-loader/index.js!./../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Detail_Topic_Slide.vue", function() {
-			var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-287bb503!./../../node_modules/sass-loader/index.js!./../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Detail_Topic_Slide.vue");
+		module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-287bb503&scoped=true!./../../node_modules/sass-loader/index.js!./../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Detail_Topic_Slide.vue", function() {
+			var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-287bb503&scoped=true!./../../node_modules/sass-loader/index.js!./../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Detail_Topic_Slide.vue");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
