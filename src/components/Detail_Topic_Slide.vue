@@ -3,9 +3,9 @@
     .iframe
       div(v-html = "slide.iframe")
     .info
-      div(v-html = 'slide.info')
+      .crop(v-html = 'slide.info')
       h1.ui.header
-        router-link.ui.big.teal.button(:to="$route.path + '#disc'")
+        router-link.ui.big.teal.button(:to="$route.path + '#disc'", replace)
           p
             i.comments.icon
             | 進入討論
@@ -78,6 +78,10 @@ export default {
       h1 {
         text-align: center;
       }
+    }
+    .crop {
+      max-height: 30em;
+      overflow: auto;
     }
   }
 }

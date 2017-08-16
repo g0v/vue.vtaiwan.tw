@@ -1,4 +1,4 @@
-<template lang="jade">  
+<template lang="jade">
 
   .Commentcomponent
       div.ui.compact.menu
@@ -10,21 +10,21 @@
           |  {{views['views']}}
         a.item(title="用戶人數")
           i.user.icon
-          |  {{views['participant_count']}}   
+          |  {{views['participant_count']}}
         a.item(title="最新回復")
           i.calendar.icon
-          |  {{this.views['last_posted_at']}} 
+          |  {{this.views['last_posted_at']}}
       div(v-for="(item, index) in comment")
         div.discussioncomment.ui.comments
           div.comment
             a.avatar
               //回復icon
-              img(:src="comment[index]['avatar_template']") 
+              img(:src="comment[index]['avatar_template']")
             div.discussioncontent
               //作者姓名
               a.author
                 | {{comment[index]['username']}}
-              div.metadata               
+              div.metadata
                 span.date
                   //日期
                   div(v-html="comment[index]['created_at']")
@@ -36,7 +36,7 @@
         div.ui.fluid.green.labeled.submit.icon.button
           i.icon.edit
           | 我要留言
-   
+
 </template>
 
 <script>
@@ -74,7 +74,7 @@ export default {
             this.comment[i]['cooked'] = this.comment[i]['cooked'].replace(/<img src="/,'<img src="https://talk.vtaiwan.tw') //不完整的話加入https://talk.vtaiwan.tw
           }
         }
-        
+
         let today = new Date();
         if(this.views['last_posted_at']!=null){
           let lastpostday = new Date(this.views['last_posted_at']);
@@ -97,7 +97,7 @@ export default {
     }
   },
   created:function(){
-    this.getDiscussion_Comment(this.comment_id);  
+    this.getDiscussion_Comment(this.comment_id);
   },
   watch: {
     comment_id: function(val){
@@ -145,7 +145,7 @@ export default {
   margin: 0.5em 0em 0em 3em;
   @media only screen and (max-width: 767px){
     margin: 2em 0em 0em 0.5em;
-  } 
+  }
 }
 .ui.comments {                                //內文寬度
      max-width: 93%;

@@ -1,10 +1,9 @@
 <template lang="jade">
 .component
   .ui.left.aligned.container
-    //- {{dType}}
     template(v-if = "dType")
-      //- {{dType.type}}
-      .discourse(v-if="dType.type === 'discourse'")
+
+      div(v-if="dType.type === 'discourse'")
         .ui.fluid.styled.accordion(v-for="(disc, index) in dType.embeder")
           .title.discoursetitle
             i.dropdown.icon
@@ -65,7 +64,7 @@ export default {
           /* 尋找最新階段 */
           this.lastStep = post['raw'].split(/\s/,1)[0]
           /* 尋找最新階段為 意見徵集 or 研擬草案 的 post */
-          if(post['raw'].indexOf("意見徵集") > -1 || post['raw'].indexOf("研擬草案") > -1){
+          if(this.lastStep === "意見徵集" || this.lastStep === "研擬草案"){
             rawlinks = post['raw'].split(/\s/)
           }
         }
@@ -89,12 +88,11 @@ export default {
             .then((response) => {
               let topics = response.sort((a,b)=>chineseSort(a.title,b.title))
               dType.type = 'discourse'
-              dType.embeder = topics.map( t => {
-                return {
+              dType.embeder = topics.map( t => ({
                   'title': t.title,
                   'id': t.id
-                }
-              })
+                })
+              )
             })
           }
           /* 篩出 typeform 連結 */
@@ -103,8 +101,17 @@ export default {
             link = link.replace(/.*\((.*)\)/, "$1")
             dType.embeder = `<iframe src='${link}' frameborder='0' width='100%' height='1000px'></iframe>`
           }
+          /* 篩出 hackpad 連結 (deprecated) */
+          else if(link.indexOf("hackpad") > -1){
+            dType.type = 'hackpad'
+            dType.embeder = `Hackpad is moving to Dropbox Paper. Use external <a href='${link}' target='_blank'>link</a> instead.`
+          }
+          /* 篩出 join 連結 */
+          else if(link.indexOf("join") > -1){
+            dType.type = 'join'
+            dType.embeder = `Join is not embedible. Use external <a href='${link}' target='_blank'>link</a> instead.`
+          }
         }
-        // this.dType = dType
       })
     }
   },
