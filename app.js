@@ -12437,7 +12437,7 @@ module.exports = function spread(callback) {
 
 
 /* harmony default export */ exports["default"] = {
-  props: ['articleId'],
+  props: ['articleId', 'link'],
   data: function data() {
     return {
       slide: {
@@ -15760,7 +15760,7 @@ module.exports={render:function (){with(this) {
   }, [_h('router-link', {
     staticClass: "ui big teal button",
     attrs: {
-      "to": $route.path + '#disc',
+      "to": link,
       "replace": "replace"
     }
   }, [_m(0)])])])])
@@ -16033,10 +16033,14 @@ module.exports={render:function (){with(this) {
     staticClass: "ui centered header"
   }, [_s(article.title) + "  "]) : _e(), (article.id !== undefined) ? _h('Slide', {
     attrs: {
-      "articleId": article.id
+      "articleId": article.id,
+      "link": tabs(getHash("disc"))
     }
   }) : _e(), _h('div', {
-    staticClass: "ui container"
+    staticClass: "ui container",
+    attrs: {
+      "id": "anchor"
+    }
   }, [(article.id) ? _h('div', {
     staticClass: "buttonMenu ui big secondary pointing menu"
   }, [_l((tabcontent), function(step, idx) {
@@ -16046,7 +16050,8 @@ module.exports={render:function (){with(this) {
         'active': idx === tabIndex
       },
       attrs: {
-        "to": tabs(idx)
+        "to": tabs(idx),
+        "replace": "replace"
       }
     }, [_h('i', {
       staticClass: "icon",
