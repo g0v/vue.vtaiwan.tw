@@ -20,11 +20,7 @@
     NextStage(v-if = "article.id !== undefined", :article="article")
 
     h1.ui.centered.header(v-if = "article.id !== undefined")
-      sup
-        i.quote.left.icon
       | {{article.title}} &nbsp;
-      sub
-        i.quote.right.icon
 
     Slide(v-if = "article.id !== undefined", :articleId="article.id")
       // video(:style="{'background-image': 'url('+article.cover+')'}")

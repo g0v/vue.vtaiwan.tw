@@ -59,22 +59,26 @@ export default {
   background-color: #eee;
   padding: 1em 0;
   display: flex;
+  flex-flow: row wrap;
   align-items: center;
   .iframe {
-    flex: 1 0 40%;
-    margin: auto;
+    flex: 0 0 40%;
     text-align: right;
     @media only screen and (max-width: $breakpoint){
-      iframe {
-        width: auto;
-      }
+      flex: 0 0 100%;
+      text-align: center;
     }
   }
   .info {
-    flex: 2 1 60%;
+    flex: 0 0 50%;
     padding: 0 1em 0 1em;
     font-size: 1.2rem;
+    @media only screen and (max-width: $breakpoint){
+      flex: 0 0 100%;
+      h1 {
+        text-align: center;
+      }
+    }
   }
 }
-
 </style>
