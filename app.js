@@ -11878,7 +11878,7 @@ module.exports = function spread(callback) {
   },
   data: function data() {
     return {
-      tabcontent: [null, "時程與相關連結"],
+      tabcontent: [null, "時程與相關連結", null],
       stage: ["即將開始", "意見徵集", "研擬草案", "送交院會", "歷史案件"],
       hashList: ['desc', 'time', 'disc'],
       tabList: ['Description', 'Timeline', 'Discussion'],
@@ -15755,7 +15755,7 @@ module.exports={render:function (){with(this) {
     domProps: {
       "innerHTML": _s(slide.info)
     }
-  }), _h('h1', {
+  }), (link) ? _h('h1', {
     staticClass: "ui header"
   }, [_h('router-link', {
     staticClass: "ui big teal button",
@@ -15763,7 +15763,7 @@ module.exports={render:function (){with(this) {
       "to": link,
       "replace": "replace"
     }
-  }, [_m(0)])])])])
+  }, [_m(0)])]) : _e()])])
 }},staticRenderFns: [function (){with(this) {
   return _h('p', [_h('i', {
     staticClass: "comments icon"
@@ -16034,7 +16034,7 @@ module.exports={render:function (){with(this) {
   }, [_s(article.title) + "  "]) : _e(), (article.id !== undefined) ? _h('Slide', {
     attrs: {
       "articleId": article.id,
-      "link": tabs(getHash("disc"))
+      "link": tabcontent[2] && tabs(getHash("disc"))
     }
   }) : _e(), _h('div', {
     staticClass: "ui container",
