@@ -11858,12 +11858,6 @@ module.exports = function spread(callback) {
 //
 //
 //
-//
-//
-//
-//
-//
-//
 
 
 
@@ -11884,28 +11878,21 @@ module.exports = function spread(callback) {
   },
   data: function data() {
     return {
-      tabcontent: ['', "時程與相關連結"],
+      tabcontent: [null, "時程與相關連結"],
       stage: ["即將開始", "意見徵集", "研擬草案", "送交院會", "歷史案件"],
-      hashList: ['#desc', '#time', '#disc'],
-      tabList: ['Description', 'Timeline', 'Discussion']
+      hashList: ['desc', 'time', 'disc'],
+      tabList: ['Description', 'Timeline', 'Discussion'],
+      tabIndex: 1
     };
   },
 
   computed: {
-    myIdx: function myIdx() {
-      /* return default when hash is empty (-1) */
-      if (this.$route.hash) return this.getHash(this.$route.hash);else return this.getHash('#time');
-    },
     article: function article() {
       var rtName = this.$route.params.tRouteName;
       var t = this.allTopics.filter(function (o) {
         return o.routeName == rtName;
       })[0];
-      if (t === undefined) {
-        return new Object();
-      } else {
-        return t;
-      };
+      return t || new Object();
     }
   },
   methods: {
@@ -11916,25 +11903,24 @@ module.exports = function spread(callback) {
         $('.ui.left.sidebar').sidebar('show');
       }
     },
-    routename: function routename() {
-      return this.$route.params.tRouteName;
-    },
     status_modify: function status_modify(status) {
-      if (status == "歷史案件") {
+      if (status == "即將開始" || status == "歷史案件" || status == "送交院會") {
         this.tabcontent[2] = null;
-      } else if (status == "送交院會") {
-        this.tabcontent[2] = null;
-      } else if (status == "即將開始" || status == "意見徵集" || status == "研擬草案") {
+      } else if (status == "意見徵集" || status == "研擬草案") {
         this.tabcontent[2] = "參與討論";
       }
-      // return this.tabcontent;
     },
     getHash: function getHash(param) {
-      if (typeof param === 'string') {
+      /* return #hash index, or #hash, or default index */
+      if (param && typeof param === 'string') {
         return this.hashList.indexOf(param);
       } else {
-        return this.hashList[param];
+        return this.hashList[param] || this.$options.data().tabIndex;
       }
+    },
+    tabs: function tabs(idx) {
+      /* FIX ME: please drop-out strings of hashList appear in the path */
+      return this.$route.path.replace(/\/(desc|time|disc)$/, '') + '/' + this.hashList[idx];
     }
   },
   mounted: function mounted() {
@@ -11948,7 +11934,7 @@ module.exports = function spread(callback) {
     }).sidebar('attach events', '#sidebar .menu');
   },
   watch: {
-    article: function article() {
+    $route: function $route() {
       var meta_img = document.createElement('meta');
       meta_img.setAttribute("property", "og:image");
       meta_img.content = this.article.cover;
@@ -11962,10 +11948,12 @@ module.exports = function spread(callback) {
       document.getElementsByTagName('head')[0].appendChild(meta_title);
 
       this.status_modify(this.article.status);
+      this.tabIndex = this.getHash(this.$route.params.tab);
     }
   },
   created: function created() {
     this.status_modify(this.article.status);
+    this.tabIndex = this.getHash(this.$route.params.tab);
   }
 };
 
@@ -12057,7 +12045,6 @@ module.exports = function spread(callback) {
 //
 //
 //
-//
 
 
 
@@ -12105,7 +12092,7 @@ module.exports = function spread(callback) {
             /* 尋找最新階段 */
             _this.lastStep = post['raw'].split(/\s/, 1)[0];
             /* 尋找最新階段為 意見徵集 or 研擬草案 的 post */
-            if (post['raw'].indexOf("意見徵集") > -1 || post['raw'].indexOf("研擬草案") > -1) {
+            if (_this.lastStep === "意見徵集" || _this.lastStep === "研擬草案") {
               rawlinks = post['raw'].split(/\s/);
             }
           }
@@ -12167,8 +12154,17 @@ module.exports = function spread(callback) {
                 link = link.replace(/.*\((.*)\)/, "$1");
                 dType.embeder = '<iframe src=\'' + link + '\' frameborder=\'0\' width=\'100%\' height=\'1000px\'></iframe>';
               }
+              /* 篩出 hackpad 連結 (deprecated) */
+              else if (link.indexOf("hackpad") > -1) {
+                  dType.type = 'hackpad';
+                  dType.embeder = 'Hackpad is moving to Dropbox Paper. Use external <a href=\'' + link + '\' target=\'_blank\'>link</a> instead.';
+                }
+                /* 篩出 join 連結 */
+                else if (link.indexOf("join") > -1) {
+                    dType.type = 'join';
+                    dType.embeder = 'Join is not embedible. Use external <a href=\'' + link + '\' target=\'_blank\'>link</a> instead.';
+                  }
           }
-          // this.dType = dType
         } catch (err) {
           _didIteratorError2 = true;
           _iteratorError2 = err;
@@ -13992,7 +13988,9 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_
     name: 'howTo',
     component: __WEBPACK_IMPORTED_MODULE_3__components_HowToUse_vue___default.a }, { path: '/intro',
     name: 'intro',
-    component: __WEBPACK_IMPORTED_MODULE_4__components_Intro_vue___default.a }, { path: '/topic/:tRouteName',
+    component: __WEBPACK_IMPORTED_MODULE_4__components_Intro_vue___default.a }, { path: '/topic/:tRouteName/:tab',
+    name: 'topic-tab',
+    component: __WEBPACK_IMPORTED_MODULE_5__components_Detail_Topic_vue___default.a }, { path: '/topic/:tRouteName',
     name: 'topic',
     component: __WEBPACK_IMPORTED_MODULE_5__components_Detail_Topic_vue___default.a }, { path: '/contactus',
     name: 'contactus',
@@ -14152,7 +14150,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n*[data-v-287bb503] {\n  box-sizing: border-box;\n}\nbody[data-v-287bb503] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter[data-v-287bb503],\n.fade-leave-active[data-v-287bb503] {\n  opacity: 0;\n}\n.fade-leave-active[data-v-287bb503],\n.fade-enter-active[data-v-287bb503] {\n  transition: opacity .3s ease;\n}\n.component[data-v-287bb503] {\n  position: relative;\n}\n.component h1[data-v-287bb503], .component h2[data-v-287bb503], .component h3[data-v-287bb503], .component h4[data-v-287bb503], .component h5[data-v-287bb503], .component h6[data-v-287bb503], .component p[data-v-287bb503] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-287bb503], .component h2 a[data-v-287bb503], .component h3 a[data-v-287bb503], .component h4 a[data-v-287bb503], .component h5 a[data-v-287bb503], .component h6 a[data-v-287bb503], .component p a[data-v-287bb503] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-287bb503] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-287bb503] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-287bb503] {\n    display: none !important;\n}\n}\n.component[data-v-287bb503] {\n  background-color: #eee;\n  padding: 1em 0;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-align: center;\n      align-items: center;\n}\n.component .iframe[data-v-287bb503] {\n    -ms-flex: 1 0 40%;\n        flex: 1 0 40%;\n    margin: auto;\n    text-align: right;\n}\n@media only screen and (max-width: 767px) {\n.component .iframe iframe[data-v-287bb503] {\n        width: auto;\n}\n}\n.component .info[data-v-287bb503] {\n    -ms-flex: 2 1 60%;\n        flex: 2 1 60%;\n    padding: 0 1em 0 1em;\n    font-size: 1.2rem;\n}\n", ""]);
+exports.push([module.i, "\n*[data-v-287bb503] {\n  box-sizing: border-box;\n}\nbody[data-v-287bb503] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter[data-v-287bb503],\n.fade-leave-active[data-v-287bb503] {\n  opacity: 0;\n}\n.fade-leave-active[data-v-287bb503],\n.fade-enter-active[data-v-287bb503] {\n  transition: opacity .3s ease;\n}\n.component[data-v-287bb503] {\n  position: relative;\n}\n.component h1[data-v-287bb503], .component h2[data-v-287bb503], .component h3[data-v-287bb503], .component h4[data-v-287bb503], .component h5[data-v-287bb503], .component h6[data-v-287bb503], .component p[data-v-287bb503] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-287bb503], .component h2 a[data-v-287bb503], .component h3 a[data-v-287bb503], .component h4 a[data-v-287bb503], .component h5 a[data-v-287bb503], .component h6 a[data-v-287bb503], .component p a[data-v-287bb503] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-287bb503] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-287bb503] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-287bb503] {\n    display: none !important;\n}\n}\n.component[data-v-287bb503] {\n  background-color: #eee;\n  padding: 1em 0;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-flow: row wrap;\n      flex-flow: row wrap;\n  -ms-flex-align: center;\n      align-items: center;\n}\n.component .iframe[data-v-287bb503] {\n    -ms-flex: 0 0 40%;\n        flex: 0 0 40%;\n    text-align: right;\n}\n@media only screen and (max-width: 767px) {\n.component .iframe[data-v-287bb503] {\n        -ms-flex: 0 0 100%;\n            flex: 0 0 100%;\n        text-align: center;\n}\n}\n.component .info[data-v-287bb503] {\n    -ms-flex: 0 0 50%;\n        flex: 0 0 50%;\n    padding: 0 1em 0 1em;\n    font-size: 1.2rem;\n}\n@media only screen and (max-width: 767px) {\n.component .info[data-v-287bb503] {\n        -ms-flex: 0 0 100%;\n            flex: 0 0 100%;\n}\n.component .info h1[data-v-287bb503] {\n          text-align: center;\n}\n}\n.component .info .crop[data-v-287bb503] {\n      max-height: 30em;\n      overflow: auto;\n}\n", ""]);
 
 // exports
 
@@ -15520,9 +15518,7 @@ module.exports={render:function (){with(this) {
     staticClass: "component"
   }, [_h('div', {
     staticClass: "ui left aligned container"
-  }, [(dType) ? [(dType.type === 'discourse') ? _h('div', {
-    staticClass: "discourse"
-  }, [_l((dType.embeder), function(disc, index) {
+  }, [(dType) ? [(dType.type === 'discourse') ? _h('div', [_l((dType.embeder), function(disc, index) {
     return _h('div', {
       staticClass: "ui fluid styled accordion"
     }, [_h('div', {
@@ -15755,6 +15751,7 @@ module.exports={render:function (){with(this) {
   })]), _h('div', {
     staticClass: "info"
   }, [_h('div', {
+    staticClass: "crop",
     domProps: {
       "innerHTML": _s(slide.info)
     }
@@ -15763,7 +15760,8 @@ module.exports={render:function (){with(this) {
   }, [_h('router-link', {
     staticClass: "ui big teal button",
     attrs: {
-      "to": $route.path + '#disc'
+      "to": $route.path + '#disc',
+      "replace": "replace"
     }
   }, [_m(0)])])])])
 }},staticRenderFns: [function (){with(this) {
@@ -16013,15 +16011,10 @@ module.exports={render:function (){with(this) {
       return (step === obj.status) ? _h('router-link', {
         staticClass: "item",
         class: {
-          'router-link-active': obj.routeName === routename
+          'router-link-active': obj.routeName === $route.params.tRouteName
         },
         attrs: {
           "to": '/topic/' + obj.routeName
-        },
-        on: {
-          "click": function($event) {
-            routename = obj.routeName
-          }
         }
       }, [_h('p', [_s(obj.title)])]) : _e()
     })])])
@@ -16038,7 +16031,7 @@ module.exports={render:function (){with(this) {
     }
   }) : _e(), (article.id !== undefined) ? _h('h1', {
     staticClass: "ui centered header"
-  }, [_m(0), _s(article.title) + "  ", _m(1)]) : _e(), (article.id !== undefined) ? _h('Slide', {
+  }, [_s(article.title) + "  "]) : _e(), (article.id !== undefined) ? _h('Slide', {
     attrs: {
       "articleId": article.id
     }
@@ -16050,16 +16043,10 @@ module.exports={render:function (){with(this) {
     return (step) ? _h('router-link', {
       staticClass: "item",
       class: {
-        'active': idx === myIdx
+        'active': idx === tabIndex
       },
       attrs: {
-        "to": getHash(idx),
-        "replace": "replace"
-      },
-      on: {
-        "click": function($event) {
-          myIdx = idx
-        }
+        "to": tabs(idx)
       }
     }, [_h('i', {
       staticClass: "icon",
@@ -16076,22 +16063,14 @@ module.exports={render:function (){with(this) {
       "name": "fade",
       "mode": "out-in"
     }
-  }, [_h(tabList[myIdx], {
+  }, [_h(tabList[tabIndex], {
     tag: "component",
-    class: tabList[myIdx],
+    class: tabList[tabIndex],
     attrs: {
       "articleId": article.id
     }
   })])]) : _e()])])])
-}},staticRenderFns: [function (){with(this) {
-  return _h('sup', [_h('i', {
-    staticClass: "quote left icon"
-  })])
-}},function (){with(this) {
-  return _h('sub', [_h('i', {
-    staticClass: "quote right icon"
-  })])
-}}]}
+}},staticRenderFns: []}
 
 /***/ },
 /* 136 */
@@ -16689,12 +16668,12 @@ module.exports={render:function (){with(this) {
     attrs: {
       "title": "用戶人數"
     }
-  }, [_m(2), " " + _s(views['participant_count']) + "   "]), _h('a', {
+  }, [_m(2), " " + _s(views['participant_count'])]), _h('a', {
     staticClass: "item",
     attrs: {
       "title": "最新回復"
     }
-  }, [_m(3), " " + _s(this.views['last_posted_at']) + " "])]), _l((comment), function(item, index) {
+  }, [_m(3), " " + _s(this.views['last_posted_at'])])]), _l((comment), function(item, index) {
     return _h('div', [_h('div', {
       staticClass: "discussioncomment ui comments"
     }, [_h('div', {
