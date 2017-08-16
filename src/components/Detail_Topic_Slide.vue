@@ -4,7 +4,7 @@
       div(v-html = "slide.iframe")
     .info
       .crop(v-html = 'slide.info')
-      h1.ui.header
+      h1.ui.header(v-if='link')
         router-link.ui.big.teal.button(:to="link", replace)
           p
             i.comments.icon

@@ -21,7 +21,7 @@
     h1.ui.centered.header(v-if = "article.id !== undefined")
       | {{article.title}} &nbsp;
 
-    Slide(v-if="article.id !== undefined", :articleId="article.id", :link='tabs(getHash("disc"))')
+    Slide(v-if="article.id !== undefined", :articleId="article.id", :link='tabcontent[2] && tabs(getHash("disc"))')
 
     #anchor.ui.container
 
@@ -56,7 +56,7 @@ export default {
   },
   data () {
     return {
-      tabcontent:[null,"時程與相關連結"],
+      tabcontent:[null,"時程與相關連結",null],
       stage:["即將開始","意見徵集","研擬草案","送交院會","歷史案件"],
       hashList: [
         'desc',
