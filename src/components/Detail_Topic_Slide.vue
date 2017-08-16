@@ -5,7 +5,7 @@
     .info
       .crop(v-html = 'slide.info')
       h1.ui.header
-        router-link.ui.big.teal.button(:to="$route.path + '#disc'", replace)
+        router-link.ui.big.teal.button(:to="link", replace)
           p
             i.comments.icon
             | 進入討論
@@ -17,7 +17,7 @@
 import caxios from '../js/request'
 
 export default {
-  props: ['articleId'],
+  props: ['articleId', 'link'],
   data () {
     return {
       slide: {

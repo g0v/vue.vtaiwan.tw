@@ -21,12 +21,12 @@
     h1.ui.centered.header(v-if = "article.id !== undefined")
       | {{article.title}} &nbsp;
 
-    Slide(v-if = "article.id !== undefined", :articleId="article.id")
+    Slide(v-if="article.id !== undefined", :articleId="article.id", :link='tabs(getHash("disc"))')
 
-    .ui.container
+    #anchor.ui.container
 
       .buttonMenu.ui.big.secondary.pointing.menu(v-if = "article.id")
-        router-link.item(v-for="(step, idx) in tabcontent", :to="tabs(idx)", :class="{'active':idx === tabIndex}", v-if='step')
+        router-link.item(v-for="(step, idx) in tabcontent", :to="tabs(idx)", replace, :class="{'active':idx === tabIndex}", v-if='step')
             i.icon(:class="{'info circle': step == '詳細內容','calendar': step == '時程與相關連結','comments': step == '參與討論','history': step == '歷史案件','university': step =='院會討論'}")
             p.fat-only {{step}}
 
