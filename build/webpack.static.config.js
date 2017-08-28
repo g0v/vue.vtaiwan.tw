@@ -5,6 +5,7 @@ const HTMLPlugin = require('html-webpack-plugin')
 var PrerenderSpaPlugin = require('prerender-spa-plugin')
 var PrerenderRoute = require('./prerender-route')
 var pathToBourbon = require('node-bourbon').includePaths //???
+var FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 
 module.exports = {
     devtool: '#source-map',
@@ -46,6 +47,7 @@ module.exports = {
         ]
     },
     plugins: [
+        new FaviconsWebpackPlugin(path.join(__dirname, '../src/assets/logo.png')),
         new webpack.LoaderOptionsPlugin({
             vue: vueConfig
         }),
