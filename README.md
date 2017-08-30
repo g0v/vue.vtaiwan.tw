@@ -1,3 +1,5 @@
+![](https://travis-ci.org/g0v/vue.vtaiwan.tw.svg?branch=master)
+
 # 關於 vTaiwan
 
 ## vTaiwan 是什麼？
