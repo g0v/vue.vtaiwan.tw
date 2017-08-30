@@ -16223,7 +16223,7 @@ module.exports={render:function (){with(this) {
     }, [_h('div', {
       staticClass: "image",
       style: ('background-image:url(' + item.cover + ')')
-    }, [(name === 'discuss') ? [(item.status === '意見徵集') ? _h('div', {
+    }, [(name === 'discuss') ? [((item.status === '意見徵集' && item.total > item.progress)) ? _h('div', {
       staticClass: "progressbar"
     }, ["剩", _h('div', {
       staticClass: "active-border",
@@ -16238,7 +16238,7 @@ module.exports={render:function (){with(this) {
       staticClass: "percent"
     }, [_s(Math.floor(item.total - item.progress))])])]), "天"]) : _h('div', {
       staticClass: "progressbar"
-    }, ["討論已結束"])] : _e()]), _h('div', {
+    }, ["徵集結束"])] : _e()]), _h('div', {
       staticClass: "content"
     }, [_h('h3', {
       staticClass: "ui header"
