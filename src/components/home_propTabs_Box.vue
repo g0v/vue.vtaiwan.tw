@@ -20,14 +20,14 @@
       router-link.card(:to="'/topic/' + item.routeName", v-for="item in list", :key='item.title')
         .image(:style="'background-image:url(' + item.cover + ')'")
           template(v-if="name === 'discuss'")
-            .progressbar(v-if="item.status === '意見徵集'")
+            .progressbar(v-if="(item.status === '意見徵集' && item.total > item.progress)")
               | 剩
               .active-border(:data-degrees='Math.floor(item.progress / item.total * 360)', data-color='#000000', data-bgcolor='#3fadc7')
                 .circle
                   span.percent
                     | {{Math.floor(item.total - item.progress)}}
               | 天
-            .progressbar(v-else) 討論已結束
+            .progressbar(v-else) 徵集結束
         .content
           h3.ui.header {{ item.title }}
         .extra.content
