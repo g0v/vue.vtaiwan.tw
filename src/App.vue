@@ -4,9 +4,9 @@
 
   #main.main
     transition(name='fade', mode='out-in')
-      router-view.view(:allTopics="allTopics", :catagories="catagories", :allNews="allNews", :allInfo="allInfo")
+      router-view(:allTopics="allTopics", :catagories="catagories", :allNews="allNews", :allInfo="allInfo")
 
-  footNav.footer
+  footNav
 </template>
 
 <script>
@@ -207,21 +207,6 @@ export default {
   top: 0;
   width: 100%;
   // text-align: center;
-}
-
-.navbar {
-  position: fixed;
-  z-index: 999999;
-  top: 0;
-  left: 0;
-  right: 0;
-}
-
-.footer {
-  position: relative;
-  margin: 0 auto;
-  // margin-top: 40px;
-  max-width: 100%;
 }
 
 </style>

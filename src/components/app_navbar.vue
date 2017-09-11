@@ -1,5 +1,5 @@
 <template lang="jade">
-  .component
+  #nav.component
 
     button.goto.ui.yellow.button(@click.prevent="goAnchor('top')")
       i.big.up.arrow.icon

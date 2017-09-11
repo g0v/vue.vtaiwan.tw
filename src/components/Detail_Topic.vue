@@ -18,17 +18,17 @@
 
     NextStage(v-if = "article.id !== undefined", :article="article")
 
-    h1.ui.centered.header(v-if = "article.id !== undefined")
-      | {{article.title}} &nbsp;
+    h1.ui.centered.header.segment.basic(v-if = "article.id !== undefined")
+      | {{article.title}}
 
     Slide(v-if="article.id !== undefined", :articleId="article.id", :link='tabcontent[2] && tabs(getHash("disc"))')
 
     #anchor.ui.container
 
-      .buttonMenu.ui.big.secondary.pointing.menu(v-if = "article.id")
-        router-link.item(v-for="(step, idx) in tabcontent", :to="tabs(idx)", replace, :class="{'active':idx === tabIndex}", v-if='step')
-            i.icon(:class="{'info circle': step == '詳細內容','calendar': step == '時程與相關連結','comments': step == '參與討論','history': step == '歷史案件','university': step =='院會討論'}")
-            p.fat-only {{step}}
+      .buttonMenu.ui.big.secondary.pointing.menu.segment.basic(v-if = "article.id")
+        router-link.item(v-for="(step, idx) in tabcontent", :to="tabs(idx)", replace, :class="{'active':idx === tabIndex}", :title='step', v-if='step')
+          i.icon(:class="{'info circle': step == '詳細內容','calendar': step == '時程與相關連結','comments': step == '參與討論','history': step == '歷史案件','university': step =='院會討論'}")
+          p.fat-only {{step}}
 
       .information(v-if = "article.id")
         transition(name='fade', mode='out-in')
@@ -46,7 +46,8 @@ import Timeline from './Detail_Topic_Timeline.vue'
 
 export default {
   name: 'Detial_Topic',
-  props: ['allTopics'],
+  props:['allTopics', 'catagories','allNews','allInfo'],
+  // props: ['allTopics'],
   components: {
       NextStage,
       Slide,
@@ -117,7 +118,7 @@ export default {
         mobileTransition: 'overlay',
         // scrollLock: true,
         delaySetup: true
-    }).sidebar('attach events', '#sidebar .menu')
+    }).sidebar('attach events', '.sidebar .menu')
   },
   watch:{
     $route: function(){

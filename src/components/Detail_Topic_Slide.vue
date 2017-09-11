@@ -1,15 +1,20 @@
 <template lang="jade">
   .component
-    .iframe
-      div(v-html = "slide.iframe")
-    .info
-      .crop(v-html = 'slide.info')
-      h1.ui.header(v-if='link')
-        router-link.ui.big.teal.button(:to="link", replace)
-          p
-            i.comments.icon
-            | 進入討論
+    h3.ui.header.centered
+      i.icon.info.circle
+      | 簡介
 
+    .wrapper.ui.container
+      .iframe
+        div(v-html = "slide.iframe")
+      .info
+        .crop(v-html = 'slide.info')
+
+    h3.ui.header.centered(v-if='link')
+      router-link.ui.big.teal.button(:to="link", replace)
+        p
+          i.comments.icon
+          | 進入討論
 </template>
 
 <script>
@@ -58,30 +63,23 @@ export default {
 .component {
   background-color: #eee;
   padding: 1em 0;
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center;
-  .iframe {
-    flex: 0 0 40%;
-    text-align: right;
-    @media only screen and (max-width: $breakpoint){
-      flex: 0 0 100%;
-      text-align: center;
+  .wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    .iframe {
+      margin: 0 auto;
     }
-  }
-  .info {
-    flex: 0 0 50%;
-    padding: 0 1em 0 1em;
-    font-size: 1.2rem;
-    @media only screen and (max-width: $breakpoint){
-      flex: 0 0 100%;
-      h1 {
-        text-align: center;
+    .info {
+      flex: 1 0 60%;
+      padding: 0 0 0 1em;
+      font-size: 1.2rem;
+      @media only screen and (max-width: $breakpoint){
+        flex: 0 0 100%;
       }
-    }
-    .crop {
-      max-height: 30em;
-      overflow: auto;
+      .crop {
+        max-height: 22em; /* align with iframe height */
+        overflow: auto;
+      }
     }
   }
 }

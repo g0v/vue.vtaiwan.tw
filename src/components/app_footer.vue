@@ -47,6 +47,12 @@
 </template>
 <style lang="scss" scoped>
 @import "../sass/global.scss";
+.component {
+  position: relative;
+  margin: 0 auto;
+  // margin-top: 40px;
+  max-width: 100%;
+}
 
 img {
     width: 3.5em;
