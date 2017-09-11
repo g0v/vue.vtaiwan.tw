@@ -1,5 +1,5 @@
 <template lang="jade">
-#app.app(style='display:none')
+#app.app
   Navbar(:routes = "myRoutes", :allTopics = "allTopics")
 
   #main.main
@@ -67,11 +67,6 @@ export default {
     }
   },
   mounted: function(){
-    // $('#test0').hide(); // tester
-    setTimeout(function(){
-      $('#app')[0].style.display="block";
-      $('#spinner-box')[0].style.display="none";
-    }, 1000);
 
     caxios.get('https://talk.vtaiwan.tw/c/meta-data.json')
     .then((response)=>{
