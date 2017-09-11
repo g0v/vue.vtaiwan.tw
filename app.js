@@ -11562,12 +11562,6 @@ module.exports = function spread(callback) {
   mounted: function mounted() {
     var _this = this;
 
-    // $('#test0').hide(); // tester
-    setTimeout(function () {
-      $('#app')[0].style.display = "block";
-      $('#spinner-box')[0].style.display = "none";
-    }, 1000);
-
     __WEBPACK_IMPORTED_MODULE_2__js_request__["a" /* default */].get('https://talk.vtaiwan.tw/c/meta-data.json').then(function (response) {
       var topics = response.data.topic_list.topics.slice(1);
       // console.log(response.data.topic_list.topics[0].title + ' removed')
@@ -15933,8 +15927,7 @@ module.exports={render:function (){with(this) {
   return _h('div', {
     staticClass: "app",
     attrs: {
-      "id": "app",
-      "style": "display:none"
+      "id": "app"
     }
   }, [_h('Navbar', {
     attrs: {
