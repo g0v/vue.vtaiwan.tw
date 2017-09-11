@@ -11868,7 +11868,8 @@ module.exports = function spread(callback) {
 
 /* harmony default export */ exports["default"] = {
   name: 'Detial_Topic',
-  props: ['allTopics'],
+  props: ['allTopics', 'catagories', 'allNews', 'allInfo'],
+  // props: ['allTopics'],
   components: {
     NextStage: __WEBPACK_IMPORTED_MODULE_1__Detail_Topic_NextStage_vue___default.a,
     Slide: __WEBPACK_IMPORTED_MODULE_0__Detail_Topic_Slide_vue___default.a,
@@ -11931,7 +11932,7 @@ module.exports = function spread(callback) {
       mobileTransition: 'overlay',
       // scrollLock: true,
       delaySetup: true
-    }).sidebar('attach events', '#sidebar .menu');
+    }).sidebar('attach events', '.sidebar .menu');
   },
   watch: {
     $route: function $route() {
@@ -12418,6 +12419,11 @@ module.exports = function spread(callback) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__js_request__ = __webpack_require__(3);
+//
+//
+//
+//
+//
 //
 //
 //
@@ -14066,7 +14072,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n*[data-v-1dc163e9] {\n  box-sizing: border-box;\n}\nbody[data-v-1dc163e9] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter[data-v-1dc163e9],\n.fade-leave-active[data-v-1dc163e9] {\n  opacity: 0;\n}\n.fade-leave-active[data-v-1dc163e9],\n.fade-enter-active[data-v-1dc163e9] {\n  transition: opacity .3s ease;\n}\n.component[data-v-1dc163e9] {\n  position: relative;\n}\n.component h1[data-v-1dc163e9], .component h2[data-v-1dc163e9], .component h3[data-v-1dc163e9], .component h4[data-v-1dc163e9], .component h5[data-v-1dc163e9], .component h6[data-v-1dc163e9], .component p[data-v-1dc163e9] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-1dc163e9], .component h2 a[data-v-1dc163e9], .component h3 a[data-v-1dc163e9], .component h4 a[data-v-1dc163e9], .component h5 a[data-v-1dc163e9], .component h6 a[data-v-1dc163e9], .component p a[data-v-1dc163e9] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-1dc163e9] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-1dc163e9] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-1dc163e9] {\n    display: none !important;\n}\n}\nimg[data-v-1dc163e9] {\n  width: 3.5em;\n  height: auto;\n  vertical-align: bottom;\n}\nimg.hidden[data-v-1dc163e9] {\n    display: none;\n}\n.ui.icon[data-v-1dc163e9] {\n  margin: 0 1ch;\n}\n@media only screen and (max-width: 767px) {\n.ui.icon[data-v-1dc163e9] {\n      font-size: x-small;\n}\n}\na.ui.icon.button[data-v-1dc163e9] {\n  background-color: #333;\n}\n", ""]);
+exports.push([module.i, "\n*[data-v-1dc163e9] {\n  box-sizing: border-box;\n}\nbody[data-v-1dc163e9] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter[data-v-1dc163e9],\n.fade-leave-active[data-v-1dc163e9] {\n  opacity: 0;\n}\n.fade-leave-active[data-v-1dc163e9],\n.fade-enter-active[data-v-1dc163e9] {\n  transition: opacity .3s ease;\n}\n.component[data-v-1dc163e9] {\n  position: relative;\n}\n.component h1[data-v-1dc163e9], .component h2[data-v-1dc163e9], .component h3[data-v-1dc163e9], .component h4[data-v-1dc163e9], .component h5[data-v-1dc163e9], .component h6[data-v-1dc163e9], .component p[data-v-1dc163e9] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-1dc163e9], .component h2 a[data-v-1dc163e9], .component h3 a[data-v-1dc163e9], .component h4 a[data-v-1dc163e9], .component h5 a[data-v-1dc163e9], .component h6 a[data-v-1dc163e9], .component p a[data-v-1dc163e9] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-1dc163e9] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-1dc163e9] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-1dc163e9] {\n    display: none !important;\n}\n}\n.component[data-v-1dc163e9] {\n  position: relative;\n  margin: 0 auto;\n  max-width: 100%;\n}\nimg[data-v-1dc163e9] {\n  width: 3.5em;\n  height: auto;\n  vertical-align: bottom;\n}\nimg.hidden[data-v-1dc163e9] {\n    display: none;\n}\n.ui.icon[data-v-1dc163e9] {\n  margin: 0 1ch;\n}\n@media only screen and (max-width: 767px) {\n.ui.icon[data-v-1dc163e9] {\n      font-size: x-small;\n}\n}\na.ui.icon.button[data-v-1dc163e9] {\n  background-color: #333;\n}\n", ""]);
 
 // exports
 
@@ -14150,7 +14156,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n*[data-v-287bb503] {\n  box-sizing: border-box;\n}\nbody[data-v-287bb503] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter[data-v-287bb503],\n.fade-leave-active[data-v-287bb503] {\n  opacity: 0;\n}\n.fade-leave-active[data-v-287bb503],\n.fade-enter-active[data-v-287bb503] {\n  transition: opacity .3s ease;\n}\n.component[data-v-287bb503] {\n  position: relative;\n}\n.component h1[data-v-287bb503], .component h2[data-v-287bb503], .component h3[data-v-287bb503], .component h4[data-v-287bb503], .component h5[data-v-287bb503], .component h6[data-v-287bb503], .component p[data-v-287bb503] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-287bb503], .component h2 a[data-v-287bb503], .component h3 a[data-v-287bb503], .component h4 a[data-v-287bb503], .component h5 a[data-v-287bb503], .component h6 a[data-v-287bb503], .component p a[data-v-287bb503] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-287bb503] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-287bb503] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-287bb503] {\n    display: none !important;\n}\n}\n.component[data-v-287bb503] {\n  background-color: #eee;\n  padding: 1em 0;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-flow: row wrap;\n      flex-flow: row wrap;\n  -ms-flex-align: center;\n      align-items: center;\n}\n.component .iframe[data-v-287bb503] {\n    -ms-flex: 0 0 40%;\n        flex: 0 0 40%;\n    text-align: right;\n}\n@media only screen and (max-width: 767px) {\n.component .iframe[data-v-287bb503] {\n        -ms-flex: 0 0 100%;\n            flex: 0 0 100%;\n        text-align: center;\n}\n}\n.component .info[data-v-287bb503] {\n    -ms-flex: 0 0 50%;\n        flex: 0 0 50%;\n    padding: 0 1em 0 1em;\n    font-size: 1.2rem;\n}\n@media only screen and (max-width: 767px) {\n.component .info[data-v-287bb503] {\n        -ms-flex: 0 0 100%;\n            flex: 0 0 100%;\n}\n.component .info h1[data-v-287bb503] {\n          text-align: center;\n}\n}\n.component .info .crop[data-v-287bb503] {\n      max-height: 30em;\n      overflow: auto;\n}\n", ""]);
+exports.push([module.i, "\n*[data-v-287bb503] {\n  box-sizing: border-box;\n}\nbody[data-v-287bb503] {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter[data-v-287bb503],\n.fade-leave-active[data-v-287bb503] {\n  opacity: 0;\n}\n.fade-leave-active[data-v-287bb503],\n.fade-enter-active[data-v-287bb503] {\n  transition: opacity .3s ease;\n}\n.component[data-v-287bb503] {\n  position: relative;\n}\n.component h1[data-v-287bb503], .component h2[data-v-287bb503], .component h3[data-v-287bb503], .component h4[data-v-287bb503], .component h5[data-v-287bb503], .component h6[data-v-287bb503], .component p[data-v-287bb503] {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a[data-v-287bb503], .component h2 a[data-v-287bb503], .component h3 a[data-v-287bb503], .component h4 a[data-v-287bb503], .component h5 a[data-v-287bb503], .component h6 a[data-v-287bb503], .component p a[data-v-287bb503] {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong[data-v-287bb503] {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only[data-v-287bb503] {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only[data-v-287bb503] {\n    display: none !important;\n}\n}\n.component[data-v-287bb503] {\n  background-color: #eee;\n  padding: 1em 0;\n}\n.component .wrapper[data-v-287bb503] {\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-flow: row wrap;\n        flex-flow: row wrap;\n}\n.component .wrapper .iframe[data-v-287bb503] {\n      margin: 0 auto;\n}\n.component .wrapper .info[data-v-287bb503] {\n      -ms-flex: 1 0 60%;\n          flex: 1 0 60%;\n      padding: 0 0 0 1em;\n      font-size: 1.2rem;\n}\n@media only screen and (max-width: 767px) {\n.component .wrapper .info[data-v-287bb503] {\n          -ms-flex: 0 0 100%;\n              flex: 0 0 100%;\n}\n}\n.component .wrapper .info .crop[data-v-287bb503] {\n        max-height: 22em;\n        /* align with iframe height */\n        overflow: auto;\n}\n", ""]);
 
 // exports
 
@@ -14206,7 +14212,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n* {\n  box-sizing: border-box;\n}\nbody {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter,\n.fade-leave-active {\n  opacity: 0;\n}\n.fade-leave-active,\n.fade-enter-active {\n  transition: opacity .3s ease;\n}\n.component {\n  position: relative;\n}\n.component h1, .component h2, .component h3, .component h4, .component h5, .component h6, .component p {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a, .component h2 a, .component h3 a, .component h4 a, .component h5 a, .component h6 a, .component p a {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only {\n    display: none !important;\n}\n}\n.app {\n  min-height: 100vh;\n  width: 100%;\n  margin: 0;\n  transition: border-color 0.5s ease;\n}\n.app.join {\n    border-color: #f4719d;\n}\n.app.intro {\n    border-color: #ec8013;\n}\n.app.live {\n    border-color: #1313ec;\n}\n.app.track {\n    border-color: #8e8e0b;\n}\n.main {\n  position: relative;\n  top: 0;\n  width: 100%;\n}\n.navbar {\n  position: fixed;\n  z-index: 999999;\n  top: 0;\n  left: 0;\n  right: 0;\n}\n.footer {\n  position: relative;\n  margin: 0 auto;\n  max-width: 100%;\n}\n", ""]);
+exports.push([module.i, "\n* {\n  box-sizing: border-box;\n}\nbody {\n  font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n  font-size: 2.5vmin;\n  padding: 0;\n  margin: 0;\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 0.5s ease;\n}\n.fade-enter,\n.fade-leave-active {\n  opacity: 0;\n}\n.fade-leave-active,\n.fade-enter-active {\n  transition: opacity .3s ease;\n}\n.component {\n  position: relative;\n}\n.component h1, .component h2, .component h3, .component h4, .component h5, .component h6, .component p {\n    font-family: Roboto, \"Microsoft JhengHei\", \"Heiti TC\", sans-serif;\n}\n.component h1 a, .component h2 a, .component h3 a, .component h4 a, .component h5 a, .component h6 a, .component p a {\n      cursor: pointer !important;\n      color: dimgray;\n      border-bottom: 1px dashed lightgray;\n}\n.component strong {\n    font-weight: 900;\n    color: black;\n}\n@media only screen and (max-width: 767px) {\n.fat-only {\n    display: none !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.thin-only {\n    display: none !important;\n}\n}\n.app {\n  min-height: 100vh;\n  width: 100%;\n  margin: 0;\n  transition: border-color 0.5s ease;\n}\n.app.join {\n    border-color: #f4719d;\n}\n.app.intro {\n    border-color: #ec8013;\n}\n.app.live {\n    border-color: #1313ec;\n}\n.app.track {\n    border-color: #8e8e0b;\n}\n.main {\n  position: relative;\n  top: 0;\n  width: 100%;\n}\n", ""]);
 
 // exports
 
@@ -15742,6 +15748,8 @@ module.exports={render:function (){with(this) {
 module.exports={render:function (){with(this) {
   return _h('div', {
     staticClass: "component"
+  }, [_m(0), _h('div', {
+    staticClass: "wrapper ui container"
   }, [_h('div', {
     staticClass: "iframe"
   }, [_h('div', {
@@ -15755,16 +15763,22 @@ module.exports={render:function (){with(this) {
     domProps: {
       "innerHTML": _s(slide.info)
     }
-  }), (link) ? _h('h1', {
-    staticClass: "ui header"
+  })])]), (link) ? _h('h3', {
+    staticClass: "ui header centered"
   }, [_h('router-link', {
     staticClass: "ui big teal button",
     attrs: {
       "to": link,
       "replace": "replace"
     }
-  }, [_m(0)])]) : _e()])])
+  }, [_m(1)])]) : _e()])
 }},staticRenderFns: [function (){with(this) {
+  return _h('h3', {
+    staticClass: "ui header centered"
+  }, [_h('i', {
+    staticClass: "icon info circle"
+  }), "簡介"])
+}},function (){with(this) {
   return _h('p', [_h('i', {
     staticClass: "comments icon"
   }), "進入討論"])
@@ -15938,16 +15952,13 @@ module.exports={render:function (){with(this) {
       "mode": "out-in"
     }
   }, [_h('router-view', {
-    staticClass: "view",
     attrs: {
       "allTopics": allTopics,
       "catagories": catagories,
       "allNews": allNews,
       "allInfo": allInfo
     }
-  })])]), _h('footNav', {
-    staticClass: "footer"
-  })])
+  })])]), _h('footNav')])
 }},staticRenderFns: []}
 
 /***/ },
@@ -16030,8 +16041,8 @@ module.exports={render:function (){with(this) {
       "article": article
     }
   }) : _e(), (article.id !== undefined) ? _h('h1', {
-    staticClass: "ui centered header"
-  }, [_s(article.title) + "  "]) : _e(), (article.id !== undefined) ? _h('Slide', {
+    staticClass: "ui centered header segment basic"
+  }, [_s(article.title)]) : _e(), (article.id !== undefined) ? _h('Slide', {
     attrs: {
       "articleId": article.id,
       "link": tabcontent[2] && tabs(getHash("disc"))
@@ -16042,7 +16053,7 @@ module.exports={render:function (){with(this) {
       "id": "anchor"
     }
   }, [(article.id) ? _h('div', {
-    staticClass: "buttonMenu ui big secondary pointing menu"
+    staticClass: "buttonMenu ui big secondary pointing menu segment basic"
   }, [_l((tabcontent), function(step, idx) {
     return (step) ? _h('router-link', {
       staticClass: "item",
@@ -16051,7 +16062,8 @@ module.exports={render:function (){with(this) {
       },
       attrs: {
         "to": tabs(idx),
-        "replace": "replace"
+        "replace": "replace",
+        "title": step
       }
     }, [_h('i', {
       staticClass: "icon",
@@ -16417,7 +16429,10 @@ module.exports={render:function (){with(this) {
 
 module.exports={render:function (){with(this) {
   return _h('div', {
-    staticClass: "component"
+    staticClass: "component",
+    attrs: {
+      "id": "nav"
+    }
   }, [_h('button', {
     staticClass: "goto ui yellow button",
     on: {
