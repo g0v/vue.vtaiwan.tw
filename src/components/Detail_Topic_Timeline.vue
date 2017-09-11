@@ -21,7 +21,7 @@
             Plink(:urllink="ev.link")
 
     h3 相關外部連結*
-    .ui.horizontal.relaxed.list.plinklist
+    .ui.horizontal.relaxed.celled.list.plinklist
       .item(v-for='link in plinkList')
         i.icon(:class='link.icon')
         .content
@@ -150,8 +150,13 @@
 }
 .due {
   font-size: 1.2rem;
+  line-height: 1.5;
 }
 .plinklist {
   font-size: 1rem;
+  // .item:first-child {
+  //   margin-left: 1em;
+  //   font-size: 1rem;
+  // }
 }
 </style>

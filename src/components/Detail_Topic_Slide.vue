@@ -62,17 +62,24 @@ export default {
 @import "../sass/global.scss";
 .component {
   background-color: #eee;
-  padding: 1em 0;
+  padding: 1rem 0;
+  // .header {
+  //   padding: 1rem 0 0 0;
+  // }
   .wrapper {
     display: flex;
     flex-flow: row wrap;
     .iframe {
-      margin: 0 auto;
+      margin: 1rem auto;
+      @media only screen and (max-width: $breakpoint){
+        margin: 0 -1em;
+      }
     }
     .info {
       flex: 1 0 60%;
-      padding: 0 0 0 1em;
+      padding: 1rem 0 1rem 1em;
       font-size: 1.2rem;
+      line-height: 1.5;
       @media only screen and (max-width: $breakpoint){
         flex: 0 0 100%;
       }
