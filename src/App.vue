@@ -1,6 +1,6 @@
 <template lang="jade">
 #app.app
-  Navbar(:routes = "myRoutes", :allTopics = "allTopics")
+  Navbar(:routes = "myRoutes", :routesMobile = 'routesMobile', :allTopics = "allTopics")
 
   #main.main
     transition(name='fade', mode='out-in')
@@ -27,6 +27,11 @@ export default {
         {en:'User manual',t:'使用手冊',r:'how-to-use'},
         {en:'About',t:'關於 vTaiwan',r:'intro'},
         // {en:'Login', t:'登入',r:'login'},
+      ],
+      routesMobile: [
+        {en:'User manual',t:'使用手冊',r:'how-to-use'},
+        {en:'Home',t:'探索議題',r:''},
+        {en:'Search',t:'搜尋議題',r:'search'},
       ],
       catagories: [],
       allTopics: [],

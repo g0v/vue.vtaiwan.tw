@@ -3,7 +3,7 @@
     .step-progress-bar
       ul.progress-bar
         li(v-for="(s,idx) in steps.stage", v-bind:class='{active:s.active, current:s.current}') {{s.title}}
-     
+
 </template>
 
 <script>
@@ -23,7 +23,7 @@ export default {
         let id = val.id
         this.steps = { // initialize dType
          'stage': []
-        } 
+        }
         let step = this.steps // just for alias
         caxios.get('https://talk.vtaiwan.tw/t/'+ id +'.json?include_raw=1')
         .then((response=>{
@@ -55,31 +55,26 @@ export default {
                 current:false
               }
             ];
+
             detail_info = detail_info['post_stream']['posts'].slice(1); // 取得簡介底下內容
-
-            var end = detail_info.length-1;
-
-            var current = detail_info[end]['raw'].split(" ")[0]; //目前進展
-            this.status = current;
-
-            for(var i in detail_info){ //簡介底下每篇回文
+            if (detail_info.length > 0) {
+              var end = detail_info.length - 1
+              var current = detail_info[end]['raw'].split(" ")[0]; //目前進展
+              for(var i in detail_info){ //簡介底下每篇回文
                 var init  = detail_info[end]['raw'].split(" ")[1]; // if init
-
                 for (var j in steps){
-                    steps[j]['active'] = true;
-                    if(steps[j]['title'] === current && init === 'init'){ //如果是"意見徵集 init",就將active啟動並取消visited
-                        steps[j]['current'] = true;
-                        steps[j]['active'] = false;
-                        step.stage = steps;
-                        return step.stage;// 回傳五階段array
-                    }
-                    if(steps[j]['title'] === current){ //如果是"意見徵集",就將active啟動並取消visited
-                        steps[j]['current'] = true;
-                        steps[j]['active'] = false;
-                        step.stage = steps;
-                        return step.stage;// 回傳五階段array
-                    }
+                  steps[j]['active'] = true;
+                  if(steps[j]['title'] === current){ //如果是"意見徵集",就將active啟動並取消visited
+                    steps[j]['current'] = true;
+                    steps[j]['active'] = false;
+                    step.stage = steps; // 回傳五階段array
+                  }
                 }
+              }
+            }
+            else {
+              steps[0]['current'] = true
+              step.stage = steps
             }
         }))
       }
@@ -95,7 +90,7 @@ export default {
 
 
 }
-    
+
 </script>
 
 <style lang="scss" scoped>
@@ -106,7 +101,7 @@ export default {
   margin: 0 auto;
   display: block;
   padding: 10px 0;
-  height: 100px; 
+  height: 100px;
   width: 600px;
   li {
     font-size:1.2rem;

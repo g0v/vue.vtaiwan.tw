@@ -20,14 +20,9 @@
                 | {{item.slogan}}
             router-link.go-inside.ui.teal.big.button(:to="'/topic/' + item.routeName")
               p 進入議題
-            button.go-to.ui.yellow.right.labeled.icon.button(@click="goAnchor('#proposaltab')")
+            button.go-to.ui.yellow.right.labeled.icon.big.button(@click="goAnchor('#proposaltab')")
               i.down.arrow.icon
               p 還有更多議案
-            //- button.go-to.ui.yellow.vertical.animated.button(@click="goAnchor('#proposaltab')")
-            //-   .hidden.content
-            //-     | 還有更多議案
-            //-   .visible.content
-            //-     i.down.arrow.icon
 </template>
 
 
@@ -77,7 +72,7 @@ export default {
       })
       /* disable loader */
       $('#loader').removeClass('active')
-    }, 1500)
+    }, 1000)
   }
 }
 
@@ -101,7 +96,6 @@ export default {
 }
 
 .swiper-slide {
-  border-radius: 5px;
   overflow: hidden;
 }
 
@@ -112,7 +106,6 @@ export default {
 }
 
 .box {
-  // font-size: 1rem;
   // ********************* centering
   display: flex;
   flex-flow: column;
@@ -130,9 +123,6 @@ export default {
     z-index: 10;
   }
   .status {
-    // color: white;
-    // background: rgba(255,255,255,0.4);
-    // border: 0px;
     font-size: 1.2rem;
     color: $step_color;
     border: 1px solid $step_color;
@@ -144,6 +134,7 @@ export default {
   .slogan {
     margin: .5em 0;
     font-size: 3rem;
+    color: white;
     @media only screen and (max-width: $breakpoint) {
       font-size: 2rem;
     }
@@ -151,17 +142,9 @@ export default {
       color: white;
       margin: 10px;
     }
-    color: white;
   }
   .go-inside {
     margin: 0 0 1em 0;
-  }
-  .go-to {
-    // width: 17ch;
-    // position: absolute;
-    // bottom: 3em;
-    // font-family: $main_font;
-    font-size: 100%;
   }
 }
 

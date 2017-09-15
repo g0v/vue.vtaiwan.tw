@@ -29,9 +29,7 @@
         img(src='../assets/vTaiwan_logo_2017.png', alt='logo')
         span vTaiwan
       .menu
-        router-link.m-item(to='/how-to-use') 使用手冊
-        router-link.m-item(to='/') 探索議題
-        router-link.m-item(to='/search') 搜尋議題
+        router-link.m-item(v-for='route in routesMobile', :to='"/" + route.r') {{route.t}}
 
 </template>
 
@@ -41,7 +39,7 @@ import SearchResult from "./app_nav_SearchResult.vue";
 
 export default {
   name: 'navbar',
-  props: ['routes', 'allTopics'],
+  props: ['routes', 'routesMobile', 'allTopics'],
   components: {
     SearchResult
   },
@@ -105,34 +103,29 @@ button.goto {
   height: 3rem;
   border-radius: 50%;
   padding: 0 0 .3em 1.3ch;
-  // font-size: 20px;
-  // cursor: pointer;
   opacity: 0.8;
   z-index: 20;
-  // i.long.arrow.up.icon{
-    // width: auto;
-  // }
 }
 
 .component {
+    z-index: 999;
   // ****************** push home by nav height
   @media screen and (min-width: $breakpoint){
     height: $navHeight;
   }
 
   nav.fat-only {
+    background: $navBgColor;
+    box-shadow: lightgrey 0px 5px 9px -3px;
+    // max-width: $comp_max_width;
+    padding: 0 1ch;
     position: fixed;
-    z-index: 999999;
     top: 0;
     left: 0;
     right: 0;
-    // display: flex;
-    // align-items: center;
+    margin: 0 auto;
     height: $navHeight;
     overflow: visible;
-    background: $navBgColor;
-    // border-bottom: 1px solid lightgray;
-    box-shadow: lightgray 0 -10px 10px 10px;
   }
 }
 .ui.icon.input{
