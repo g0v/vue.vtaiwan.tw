@@ -11,7 +11,7 @@
           .content
             Discussion_Comment(:comment_id="disc.id", :slice="false")
 
-      div(v-else, :class='dType.type', v-html='dType.embeder')
+      div(v-else, :class='dType.type', v-html='dType.embeder', style='text-align:center')
 
 
 </template>
@@ -100,6 +100,12 @@ export default {
           else if(link.indexOf("join") > -1){
             dType.type = 'join'
             dType.embeder = `Join is not embedible. Use external <a href='${link}' target='_blank'>link</a> instead.`
+          }
+          /* 篩出 圖片連結 */
+          else if(link.match(/.*\.jpg/)){
+            dType.type = 'img'
+            link = link.replace(/.*\((.*)\)/, "$1")
+            dType.embeder = `<img src='${link}' />`
           }
           else {
             dType.type = 'default'
