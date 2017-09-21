@@ -107,10 +107,8 @@ export default {
       //   this.tabcontent[2] ="參與討論";
       // }
 
-      if (this.$route.hash) {
-        console.log(this.$route.hash)
-        this.tabIndex = this.getHash(this.$route.hash)
-      }
+      console.log(this.$route.hash || '')
+      this.tabIndex = this.getHash(this.$route.hash)
 
       /* change meta title & image */
       var meta_img = document.createElement('meta');
@@ -130,8 +128,11 @@ export default {
       if (param && typeof param === 'string') {
         return this.hashList.indexOf(param) || this.$options.data().tabIndex
       }
+      else if (param) {
+        return this.hashList[param]
+      }
       else {
-        return this.hashList[param] || this.$options.data().tabIndex
+        return this.$options.data().tabIndex
       }
     }
   },

@@ -1,17 +1,16 @@
 <template lang="jade">
 .component
   .ui.left.aligned.container
-    template(v-if = "dType")
 
-      div(v-if="dType.type === 'discourse'")
-        .ui.fluid.styled.accordion(v-for="(disc, index) in dType.embeder")
-          .title.discoursetitle
-            i.dropdown.icon
-            | {{disc.title}}
-          .content
-            Discussion_Comment(:comment_id="disc.id", :slice="false")
-
-      div(v-else, :class='dType.type', v-html='dType.embeder', style='text-align:center')
+    div(v-if="dType && dType.type === 'discourse'", :class='dType.type', style='text-align:left')
+      .ui.fluid.styled.accordion(v-for="(disc, index) in dType.embeder")
+        .title.discoursetitle
+          i.dropdown.icon
+          | {{disc.title}}
+        .content
+          Discussion_Comment(:comment_id="disc.id", :slice="false")
+    template(v-else)
+      div(v-if='dType', v-html='dType.embeder', :class='dType.type', style='text-align:center')
 
 
 </template>
@@ -74,7 +73,8 @@ export default {
           }
           else if(link.indexOf("talk.vtaiwan.tw") > -1){ //篩出含有discourse的連結
             link = link.replace(/(.*)\/$/, "$1") // discard last char '/'
-            discourse.getAllTopics(link + '.json',0)
+            console.log(link + '.json')
+            discourse.getAllTopics(link + '.json')
             .then((response) => {
               let topics = response.sort((a,b)=>chineseSort(a.title,b.title))
               dType.type = 'discourse'
@@ -96,11 +96,6 @@ export default {
             dType.type = 'hackpad'
             dType.embeder = `Hackpad is moving to Dropbox Paper. Use external <a href='${link}' target='_blank'>link</a> instead.`
           }
-          /* 篩出 join 連結 */
-          else if(link.indexOf("join") > -1){
-            dType.type = 'join'
-            dType.embeder = `Join is not embedible. Use external <a href='${link}' target='_blank'>link</a> instead.`
-          }
           /* 篩出 圖片連結 */
           else if(link.match(/.*\.jpg/)){
             dType.type = 'img'
@@ -109,7 +104,7 @@ export default {
           }
           else {
             dType.type = 'default'
-            dType.embeder = link
+            dType.embeder = `Please check <a href='${link}' target='_blank'>${link}</a>`
           }
         }
       })
