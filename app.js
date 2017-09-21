@@ -11994,7 +11994,6 @@ module.exports = function spread(callback) {
 //
 //
 //
-//
 
 
 
@@ -12084,7 +12083,8 @@ module.exports = function spread(callback) {
             } else if (link.indexOf("talk.vtaiwan.tw") > -1) {
               //篩出含有discourse的連結
               link = link.replace(/(.*)\/$/, "$1"); // discard last char '/'
-              __WEBPACK_IMPORTED_MODULE_1__js_discourse_js__["a" /* default */].getAllTopics(link + '.json', 0).then(function (response) {
+              console.log(link + '.json');
+              __WEBPACK_IMPORTED_MODULE_1__js_discourse_js__["a" /* default */].getAllTopics(link + '.json').then(function (response) {
                 var topics = response.sort(function (a, b) {
                   return __WEBPACK_IMPORTED_MODULE_2__js_chineseSort_js___default()(a.title, b.title);
                 });
@@ -12108,20 +12108,15 @@ module.exports = function spread(callback) {
                   dType.type = 'hackpad';
                   dType.embeder = 'Hackpad is moving to Dropbox Paper. Use external <a href=\'' + link + '\' target=\'_blank\'>link</a> instead.';
                 }
-                /* 篩出 join 連結 */
-                else if (link.indexOf("join") > -1) {
-                    dType.type = 'join';
-                    dType.embeder = 'Join is not embedible. Use external <a href=\'' + link + '\' target=\'_blank\'>link</a> instead.';
+                /* 篩出 圖片連結 */
+                else if (link.match(/.*\.jpg/)) {
+                    dType.type = 'img';
+                    link = link.replace(/.*\((.*)\)/, "$1");
+                    dType.embeder = '<img src=\'' + link + '\' />';
+                  } else {
+                    dType.type = 'default';
+                    dType.embeder = 'Please check <a href=\'' + link + '\' target=\'_blank\'>' + link + '</a>';
                   }
-                  /* 篩出 圖片連結 */
-                  else if (link.match(/.*\.jpg/)) {
-                      dType.type = 'img';
-                      link = link.replace(/.*\((.*)\)/, "$1");
-                      dType.embeder = '<img src=\'' + link + '\' />';
-                    } else {
-                      dType.type = 'default';
-                      dType.embeder = link;
-                    }
           }
         } catch (err) {
           _didIteratorError2 = true;
@@ -15429,7 +15424,12 @@ module.exports={render:function (){with(this) {
     staticClass: "component"
   }, [_h('div', {
     staticClass: "ui left aligned container"
-  }, [(dType) ? [(dType.type === 'discourse') ? _h('div', [_l((dType.embeder), function(disc, index) {
+  }, [(dType && dType.type === 'discourse') ? _h('div', {
+    class: dType.type,
+    attrs: {
+      "style": "text-align:left"
+    }
+  }, [_l((dType.embeder), function(disc, index) {
     return _h('div', {
       staticClass: "ui fluid styled accordion"
     }, [_h('div', {
@@ -15442,7 +15442,7 @@ module.exports={render:function (){with(this) {
         "slice": false
       }
     })])])
-  })]) : _h('div', {
+  })]) : [(dType) ? _h('div', {
     class: dType.type,
     attrs: {
       "style": "text-align:center"
@@ -15450,7 +15450,7 @@ module.exports={render:function (){with(this) {
     domProps: {
       "innerHTML": _s(dType.embeder)
     }
-  })] : _e()])])
+  }) : _e()]])])
 }},staticRenderFns: [function (){with(this) {
   return _h('i', {
     staticClass: "dropdown icon"
