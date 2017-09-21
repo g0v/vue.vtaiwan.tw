@@ -62,29 +62,10 @@ module.exports = {
             template: 'index.static.html'
         }),
         new PrerenderSpaPlugin(
-            // Absolute path to compiled SPA 
+            // Absolute path to compiled SPA
             path.join(__dirname, '../dist'),
             // List of routes to prerender
             PrerenderRoute.routes,
-            /*
-            [
-                '/',
-                '/how-to-use',
-                '/intro',
-                '/topic/securitization',
-                '/topic/cyberbullying',
-                '/topic/directors-election',
-                '/topic/telemedicine',
-                '/topic/airbnb',
-                '/topic/uberx',
-                '/topic/telework',
-                '/topic/consumer-protection',
-                '/topic/personal-data-protection',
-                '/topic/data-levy',
-                '/topic/infosecurity',
-                '/topic/crowdfunding'
-            ],
-			*/
             {
                 ignoreJSErrors: true,
                 captureAfterTime: 50000,

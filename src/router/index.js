@@ -13,7 +13,18 @@ Vue.use(Router)
 
 export default new Router({
   mode: 'history',
-  scrollBehavior: () => ({ y: 0 }),
+  scrollBehavior (to, from, savedPosition) {
+    if (to.hash) {
+      return {
+        selector: to.hash,
+        offset: { x: 0, y: 50 }
+      }
+    } else if (savedPosition) {
+      return savedPosition
+    } else {
+      return { x: 0, y: 0 }
+    }
+  },
   routes: [
     { path: '/',
       name: 'home',
@@ -24,10 +35,8 @@ export default new Router({
     { path: '/intro',
       name: 'intro',
       component: Intro },
-    { path: '/topic/:tRouteName/:tab',
-      name: 'topic-tab',
-      component: Detail_Topic },
     { path: '/topic/:tRouteName',
+      props: true,
       name: 'topic',
       component: Detail_Topic },
     { path: '/contactus',

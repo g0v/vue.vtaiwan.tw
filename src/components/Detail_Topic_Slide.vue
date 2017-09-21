@@ -11,7 +11,7 @@
         .crop(v-html = 'slide.info')
 
     h3.ui.header.centered(v-if='link')
-      router-link.ui.big.teal.button(:to="link", replace)
+      router-link.ui.big.teal.button(:to="link")
         p
           i.comments.icon
           | 進入討論

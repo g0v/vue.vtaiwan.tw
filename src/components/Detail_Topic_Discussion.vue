@@ -13,16 +13,7 @@
 
       div(v-else, :class='dType.type', v-html='dType.embeder')
 
-    template(v-if="lastStep == '歷史案件' || lastStep == '送交院會'")
 
-      .history.div(v-if = "lastStep==='歷史案件'")
-        | 本案已討論結束，詳細歷程可參考「議題時間軸」
-
-      .other.div(v-else)
-        div(v-if = "lastStep==='送交院會'")
-          | 本案已擬定草案，送交院會審查中
-        div(v-else)
-          | 本案目前無可線上參與的項目
 </template>
 
 <script>
@@ -68,7 +59,6 @@ export default {
             rawlinks = post['raw'].split(/\s/)
           }
         }
-        // console.log(rawlinks)
         for(let link of rawlinks){
           if(link.indexOf("pol.is") > -1){ //篩出含有polis的連結
             dType.type = 'polis'
@@ -110,6 +100,10 @@ export default {
           else if(link.indexOf("join") > -1){
             dType.type = 'join'
             dType.embeder = `Join is not embedible. Use external <a href='${link}' target='_blank'>link</a> instead.`
+          }
+          else {
+            dType.type = 'default'
+            dType.embeder = link
           }
         }
       })
