@@ -3,8 +3,8 @@
   Navbar(:routes = "myRoutes", :routesMobile = 'routesMobile', :allTopics = "allTopics")
 
   #main.main
-    transition(name='fade', mode='out-in')
-      router-view(:allTopics="allTopics", :catagories="catagories", :allNews="allNews", :allInfo="allInfo")
+    //- transition(name='fade', mode='out-in')
+    router-view(:allTopics="allTopics", :catagories="catagories", :allNews="allNews", :allInfo="allInfo")
 
   footNav
 </template>

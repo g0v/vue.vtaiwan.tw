@@ -48,7 +48,7 @@ export default new Router({
     { path: '/subscribe',
       name: 'subscribe',
       component: subscribe },
-    { path: '/**',
+    { path: '*',
       redirect: '/'
     }
   ]

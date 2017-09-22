@@ -45,6 +45,7 @@ import Slide from './Detail_Topic_Slide.vue'
 import NextStage from './Detail_Topic_NextStage.vue'
 import Discussion from './Detail_Topic_Discussion.vue'
 import Timeline from './Detail_Topic_Timeline.vue'
+import caxios from '../js/request'
 
 export default {
   name: 'Detial_Topic',
@@ -120,7 +121,18 @@ export default {
       }
     }
   },
-  created: function () {
+  beforeCreate: function () {
+    /* check if tRouteName exist in talk.vtaiwan */
+    caxios
+      .get('https://talk.vtaiwan.tw/c/meta-data.json')
+      .then((response)=>{
+        /* discard first post "網站基本設定" */
+        let topics = response.data.topic_list.topics.slice(1)
+        /* not found, go home */
+        if (topics.map(topic => topic.slug).indexOf(this.$route.params.tRouteName) < 0) {
+          this.$router.push('/')
+        }
+      })
   },
   mounted:function(){
     $('.ui.left.sidebar').sidebar({
