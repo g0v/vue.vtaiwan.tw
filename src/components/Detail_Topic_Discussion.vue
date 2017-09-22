@@ -58,7 +58,8 @@ export default {
             rawlinks = post['raw'].split(/\s/)
           }
         }
-        for(let link of rawlinks){
+        /* put the last one of the ext-resources to show in embeded area */
+        for(let link of rawlinks.filter(link => link.indexOf('http') > -1)){
           if(link.indexOf("pol.is") > -1){ //篩出含有polis的連結
             dType.type = 'polis'
             dType.embeder = "<iframe src="+link+ " frameborder='0' width='100%' height='1000px' data-reactid='.0.2.0.0.0'></iframe>";
@@ -97,7 +98,7 @@ export default {
             dType.embeder = `Hackpad is moving to Dropbox Paper. Use external <a href='${link}' target='_blank'>link</a> instead.`
           }
           /* 篩出 圖片連結 */
-          else if(link.match(/.*\.jpg/)){
+          else if(/.*\.jpg/.test(link)){
             dType.type = 'img'
             link = link.replace(/.*\((.*)\)/, "$1")
             dType.embeder = `<img src='${link}' />`

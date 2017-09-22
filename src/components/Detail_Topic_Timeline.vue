@@ -88,8 +88,8 @@
 
             for (var i in detail_info) {
               var regex = /(?: (?:init )?)|\n/g; // 用來分開字串
-              var date_regex = /^\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$/g; //yyyy-mm-dd(ex:2016-10-31)
-              var time_regex = /^(2[0-3]|1[0-9]|0[0-9]|[^0-9][0-9]):([0-5][0-9]|[0-9]):([0-5][0-9]|[0-9])$/g; // hh:mm:ss(ex:19:00:00)
+              var date_regex = /^\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$/; //yyyy-mm-dd(ex:2016-10-31)
+              var time_regex = /^(2[0-3]|1[0-9]|0[0-9]|[^0-9][0-9]):([0-5][0-9]|[0-9]):([0-5][0-9]|[0-9])$/; // hh:mm:ss(ex:19:00:00)
               var timeline_content = {}; // 時間軸內容
               var comment = {}; // 暫存處理回覆內容
               var links = []; // 回覆中的連結
@@ -98,30 +98,23 @@
               timeline_content['title'] = comment[0]; // 進度
               timeline_content['start'] = comment[1]; // 開始日期
 
-
-              if (timeline_content['start'].length > comment[2].length) { // 若為"寫草案" 則無結束日期 僅開始日期
-                timeline_content['start'] = timeline_content['start'] + " " + comment[2];
-                timeline_content['end'] = null;
-              }
-              else { // 有結束日期
+              if (date_regex.test(comment[2])) {
                 timeline_content['end'] = comment[2]; // 結束日期
-              }
-
-              if (comment[2].length > 10) { // 無結束日期
+              } else if (time_regex.test(comment[2])) {
+                timeline_content['start'] += " " + comment[2];
                 timeline_content['end'] = null;
               }
+              comment.slice(1).map(item => {
+                if (item.indexOf('http') > -1) {
+                  links.push(item)
+                }
+                else if (date_regex.test(item) || time_regex.test(item)) {}
+                else {
+                  timeline_content['info'] = item
+                }
+              })
 
-              for (var j = 1; j < comment.length; j++) { // 回覆中的連結處理
-                if (comment[j].indexOf("http") > -1) { // 字串含有"http" -> 連結
-                  // console.log(detail_info[i]['raw'])
-                  links.push(comment[j]);
-                }
-                if (comment[j].indexOf("http") == -1 && comment[j].match(date_regex) == null && comment[j].match(time_regex) == null) { // 字串不符合網址、日期、時間等格式 ->  簡介
-                  timeline_content['info'] = comment[j];
-                }
-              }
               timeline_content['link'] = links;
-
               this.timeline.push(timeline_content);
             }
             /* sort the timeline content */
