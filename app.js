@@ -11813,8 +11813,7 @@ module.exports = function spread(callback) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Detail_Topic_Discussion_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__Detail_Topic_Discussion_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Detail_Topic_Timeline_vue__ = __webpack_require__(104);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Detail_Topic_Timeline_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__Detail_Topic_Timeline_vue__);
-//
-//
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__js_request__ = __webpack_require__(3);
 //
 //
 //
@@ -11860,7 +11859,7 @@ module.exports = function spread(callback) {
 
 
 
-// import Description from './Detail_Topic_Description.vue'
+
 
 
 
@@ -11870,18 +11869,15 @@ module.exports = function spread(callback) {
   components: {
     NextStage: __WEBPACK_IMPORTED_MODULE_1__Detail_Topic_NextStage_vue___default.a,
     Slide: __WEBPACK_IMPORTED_MODULE_0__Detail_Topic_Slide_vue___default.a,
-    // Description,
     Discussion: __WEBPACK_IMPORTED_MODULE_2__Detail_Topic_Discussion_vue___default.a,
     Timeline: __WEBPACK_IMPORTED_MODULE_3__Detail_Topic_Timeline_vue___default.a
   },
   data: function data() {
     return {
-      // tabcontent:[null,"時程與相關連結", "參與討論"],
       stages: ["即將開始", "意見徵集", "研擬草案", "送交院會", "歷史案件"],
       hashList: ['#desc', '#time', '#disc'],
       tabList: ['Description', 'Timeline', 'Discussion'],
-      tabIndex: 1,
-      topic: this.$route.params.tRouteName
+      tabIndex: 1
     };
   },
 
@@ -11908,20 +11904,8 @@ module.exports = function spread(callback) {
       $('.ui.left.sidebar').sidebar(param === 'hide' ? 'hide' : 'show');
     },
     status_modify: function status_modify(article) {
-      // console.log(article)
-      // let status = article.status
-      // if(status == "即將開始" || status =="歷史案件" || status == "送交院會"){
-      //   this.tabcontent[2] = null;
-      // }
-      // else if(status == "意見徵集" || status == "研擬草案"){
-      //   this.tabcontent[2] ="參與討論";
-      // }
-
-      if (this.$route.hash) {
-        console.log(this.$route.hash);
-        this.tabIndex = this.getHash(this.$route.hash);
-      }
-
+      /* change when click tab button or switch topic */
+      this.tabIndex = this.getHash(this.$route.hash);
       /* change meta title & image */
       var meta_img = document.createElement('meta');
       meta_img.setAttribute("property", "og:image");
@@ -11937,11 +11921,29 @@ module.exports = function spread(callback) {
     getHash: function getHash(param) {
       /* return #hash index, or #hash, or default index */
       if (param && typeof param === 'string') {
-        return this.hashList.indexOf(param) || this.$options.data().tabIndex;
+        return this.hashList.indexOf(param);
+      } else if (param && typeof param === 'number') {
+        return this.hashList[param];
       } else {
-        return this.hashList[param] || this.$options.data().tabIndex;
+        // console.log(this.$options.data.apply(this))
+        return this.$options.data().tabIndex;
       }
     }
+  },
+  beforeCreate: function beforeCreate() {
+    var _this2 = this;
+
+    /* check if tRouteName exist in talk.vtaiwan */
+    __WEBPACK_IMPORTED_MODULE_4__js_request__["a" /* default */].get('https://talk.vtaiwan.tw/c/meta-data.json').then(function (response) {
+      /* discard first post "網站基本設定" */
+      var topics = response.data.topic_list.topics.slice(1);
+      /* not found, go home */
+      if (topics.map(function (topic) {
+        return topic.slug;
+      }).indexOf(_this2.$route.params.tRouteName) < 0) {
+        _this2.$router.push('/');
+      }
+    });
   },
   mounted: function mounted() {
     $('.ui.left.sidebar').sidebar({
@@ -11960,9 +11962,6 @@ module.exports = function spread(callback) {
     '$route': function $route() {
       this.status_modify(this.article);
     }
-  },
-  created: function created() {
-    // console.log(this.$route.params.tRouteName)
   }
 };
 
@@ -12045,6 +12044,7 @@ module.exports = function spread(callback) {
               rawlinks = post['raw'].split(/\s/);
             }
           }
+          /* put the last one of the ext-resources to show in embeded area */
         } catch (err) {
           _didIteratorError = true;
           _iteratorError = err;
@@ -12065,7 +12065,9 @@ module.exports = function spread(callback) {
         var _iteratorError2 = undefined;
 
         try {
-          for (var _iterator2 = rawlinks[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+          for (var _iterator2 = rawlinks.filter(function (link) {
+            return link.indexOf('http') > -1;
+          })[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
             var link = _step2.value;
 
             if (link.indexOf("pol.is") > -1) {
@@ -12109,7 +12111,7 @@ module.exports = function spread(callback) {
                   dType.embeder = 'Hackpad is moving to Dropbox Paper. Use external <a href=\'' + link + '\' target=\'_blank\'>link</a> instead.';
                 }
                 /* 篩出 圖片連結 */
-                else if (link.match(/.*\.jpg/)) {
+                else if (/.*\.jpg/.test(link)) {
                     dType.type = 'img';
                     link = link.replace(/.*\((.*)\)/, "$1");
                     dType.embeder = '<img src=\'' + link + '\' />';
@@ -12513,41 +12515,31 @@ module.exports = function spread(callback) {
 
         for (var i in detail_info) {
           var regex = /(?: (?:init )?)|\n/g; // 用來分開字串
-          var date_regex = /^\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$/g; //yyyy-mm-dd(ex:2016-10-31)
-          var time_regex = /^(2[0-3]|1[0-9]|0[0-9]|[^0-9][0-9]):([0-5][0-9]|[0-9]):([0-5][0-9]|[0-9])$/g; // hh:mm:ss(ex:19:00:00)
+          var date_regex = /^\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$/; //yyyy-mm-dd(ex:2016-10-31)
+          var time_regex = /^(2[0-3]|1[0-9]|0[0-9]|[^0-9][0-9]):([0-5][0-9]|[0-9]):([0-5][0-9]|[0-9])$/; // hh:mm:ss(ex:19:00:00)
           var timeline_content = {}; // 時間軸內容
           var comment = {}; // 暫存處理回覆內容
           var links = []; // 回覆中的連結
-          timeline_content['title'] = detail_info[i]['raw'].split(regex)[0]; // 進度
-          timeline_content['start'] = detail_info[i]['raw'].split(regex)[1]; // 開始日期
 
           comment = detail_info[i]['raw'].split(regex); // 每一個議題簡介(第一篇)底下回覆內容
+          timeline_content['title'] = comment[0]; // 進度
+          timeline_content['start'] = comment[1]; // 開始日期
 
-          if (timeline_content['start'].length > detail_info[i]['raw'].split(regex)[2].length) {
-            // 若為"寫草案" 則無結束日期 僅開始日期
-            timeline_content['start'] = timeline_content['start'] + " " + detail_info[i]['raw'].split(regex)[2];
-            timeline_content['end'] = null;
-          } else {
-            // 有結束日期
-            timeline_content['end'] = detail_info[i]['raw'].split(regex)[2]; // 結束日期
-          }
-          if (detail_info[i]['raw'].split(regex)[2].length > 10) {
-            // 無結束日期
+          if (date_regex.test(comment[2])) {
+            timeline_content['end'] = comment[2]; // 結束日期
+          } else if (time_regex.test(comment[2])) {
+            timeline_content['start'] += " " + comment[2];
             timeline_content['end'] = null;
           }
-          for (var j = 1; j < comment.length; j++) {
-            // 回覆中的連結處理
-            if (comment[j].indexOf("http") > -1) {
-              // 字串含有"http" -> 連結
-              links.push(detail_info[i]['raw'].split(regex)[j]);
+          comment.slice(1).map(function (item) {
+            if (item.indexOf('http') > -1) {
+              links.push(item);
+            } else if (date_regex.test(item) || time_regex.test(item)) {} else {
+              timeline_content['info'] = item;
             }
-            if (comment[j].indexOf("http") == -1 && comment[j].match(date_regex) == null && comment[j].match(time_regex) == null) {
-              // 字串不符合網址、日期、時間等格式 ->  簡介
-              timeline_content['info'] = comment[j];
-            }
-          }
+          });
+
           timeline_content['link'] = links;
-
           _this.timeline.push(timeline_content);
         }
         /* sort the timeline content */
@@ -12592,11 +12584,6 @@ var main = __webpack_require__(20);
   data: function data() {
     return {
       ulinkall: [],
-      data_base_non: [{
-        icon: "linkify",
-        text: "相關",
-        long: '與議題相關的連結'
-      }],
       data_base: [{
         key: 'hackpad',
         icon: "pencil",
@@ -12633,7 +12620,7 @@ var main = __webpack_require__(20);
         text: "提問",
         long: '會議共同筆記'
       }, {
-        key: 'PDF',
+        key: '.pdf',
         icon: "download disk",
         text: "PDF",
         long: '會議共同筆記'
@@ -12642,58 +12629,36 @@ var main = __webpack_require__(20);
         icon: "github alternate",
         text: "GitBook",
         long: '會議共同筆記'
+      }, {
+        key: '',
+        icon: "linkify",
+        text: "相關",
+        long: '與議題相關的連結'
       }]
     };
   },
 
 
   created: function created(a, b) {
+    var _this = this;
 
-    for (var i = 0; i < this.urllink.length; i++) {
-      var tag = 0;
-      for (var j = 0; j < this.data_base.length; j++) {
-        if (this.urllink[i].indexOf(this.data_base[j].key) != -1) {
-
-          var item = {};
-          item.link = this.urllink[i];
-          item.icon = this.data_base[j].icon;
-          item.text = this.data_base[j].text;
-          item.long = this.data_base[j].long;
-          this.ulinkall.push(item);
-          /* 判斷是否為data_base中的連結 */
-          // this.ulinkall
-          //   .push("<a href="+this.urllink[i]+" target='_blank' class='ui teal icon button'>"+
-          //     this.data_base[j].icon+
-          //     "<span class='fat-only'> "+
-          //     this.data_base[j].text+
-          //     "</span>"+
-          //     "</a>"
-          //   );
-          tag = 1;
-        }
+    this.urllink.map(function (link) {
+      var item = {};
+      /* find matched item in data_base that involved in link */
+      var matched = _this.data_base.filter(function (data) {
+        return link.toLowerCase().indexOf(data.key) > -1;
+      })[0];
+      item.icon = matched.icon;
+      item.long = matched.long;
+      if (/^\[(.*?)\]\((.*)\)/.test(link)) {
+        item.text = RegExp.$1;
+        item.link = RegExp.$2;
+      } else {
+        item.link = link;
+        item.text = matched.text;
       }
-      if (tag != 1) /* 如果不是為data_base的連結 則變成相關連結 */
-        {
-          var _item = {};
-          _item.link = this.urllink[i];
-          _item.icon = this.data_base_non[0].icon;
-          _item.text = this.data_base_non[0].text;
-          _item.long = this.data_base_non[0].long;
-          if (/^\[(.*?)\]\((.*)\)/.test(_item.link)) {
-            _item.text = RegExp.$1;
-            _item.link = RegExp.$2;
-          }
-          this.ulinkall.push(_item);
-          // this.ulinkall
-          //   .push("<a href="+this.urllink[i]+" target='_blank' class='ui teal icon button'>"+
-          //     this.data_base_non[0].icon+
-          //     "<span class='fat-only'> "+
-          //     this.data_base_non[0].text+
-          //     "</span>"+
-          //     "</a>"
-          //   );
-        }
-    }
+      _this.ulinkall.push(item);
+    });
   }
 };
 
@@ -13941,15 +13906,15 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_
     component: __WEBPACK_IMPORTED_MODULE_3__components_HowToUse_vue___default.a }, { path: '/intro',
     name: 'intro',
     component: __WEBPACK_IMPORTED_MODULE_4__components_Intro_vue___default.a }, { path: '/topic/:tRouteName',
-    props: true,
     name: 'topic',
-    component: __WEBPACK_IMPORTED_MODULE_5__components_Detail_Topic_vue___default.a }, { path: '/contactus',
+    component: __WEBPACK_IMPORTED_MODULE_5__components_Detail_Topic_vue___default.a,
+    props: true }, { path: '/contactus',
     name: 'contactus',
     component: __WEBPACK_IMPORTED_MODULE_6__components_ContactUs_vue___default.a }, { path: '/search',
     name: 'search',
     component: __WEBPACK_IMPORTED_MODULE_7__components_app_navbar_search_vue___default.a }, { path: '/subscribe',
     name: 'subscribe',
-    component: __WEBPACK_IMPORTED_MODULE_8__components_Subscribe_vue___default.a }, { path: '/*',
+    component: __WEBPACK_IMPORTED_MODULE_8__components_Subscribe_vue___default.a }, { path: '*',
     redirect: '/'
   }]
 });
@@ -15849,11 +15814,6 @@ module.exports={render:function (){with(this) {
     attrs: {
       "id": "main"
     }
-  }, [_h('transition', {
-    attrs: {
-      "name": "fade",
-      "mode": "out-in"
-    }
   }, [_h('router-view', {
     attrs: {
       "allTopics": allTopics,
@@ -15861,7 +15821,7 @@ module.exports={render:function (){with(this) {
       "allNews": allNews,
       "allInfo": allInfo
     }
-  })])]), _h('footNav')])
+  })]), _h('footNav')])
 }},staticRenderFns: []}
 
 /***/ },
