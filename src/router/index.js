@@ -36,9 +36,9 @@ export default new Router({
       name: 'intro',
       component: Intro },
     { path: '/topic/:tRouteName',
-      props: true,
       name: 'topic',
-      component: Detail_Topic },
+      component: Detail_Topic,
+      props: true },
     { path: '/contactus',
       name: 'contactus',
       component: contactus },
@@ -48,7 +48,7 @@ export default new Router({
     { path: '/subscribe',
       name: 'subscribe',
       component: subscribe },
-    { path: '/*',
+    { path: '/**',
       redirect: '/'
     }
   ]

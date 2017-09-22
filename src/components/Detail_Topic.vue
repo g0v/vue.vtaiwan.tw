@@ -21,13 +21,11 @@
     h1.ui.centered.header.segment.basic(v-if = "article.id")
       | {{article.title}}
 
-    //- Slide(v-if="article.id", :articleId="article.id", :link='tabcontent[2] && hashList[getHash("disc")]')
     Slide(v-if="article.id", :articleId="article.id", :link='status && hashList[2]')
 
     .ui.container
 
       .buttonMenu.ui.big.secondary.pointing.menu.segment.basic(v-if = "article.id")
-        //- router-link.item(v-for="(step, idx) in tabcontent", :to="hashList[idx]", replace, :class="{'active':idx === tabIndex}", :title='step', v-if='step')
         router-link#time.item(:to='"#time"', :class="{'active': 1 === tabIndex}", title='timeline')
           i.icon.calendar
           p.fat-only 時程與相關連結
@@ -45,7 +43,6 @@
 
 import Slide from './Detail_Topic_Slide.vue'
 import NextStage from './Detail_Topic_NextStage.vue'
-// import Description from './Detail_Topic_Description.vue'
 import Discussion from './Detail_Topic_Discussion.vue'
 import Timeline from './Detail_Topic_Timeline.vue'
 
@@ -55,13 +52,11 @@ export default {
   components: {
       NextStage,
       Slide,
-      // Description,
       Discussion,
       Timeline,
   },
   data () {
     return {
-      // tabcontent:[null,"時程與相關連結", "參與討論"],
       stages:["即將開始","意見徵集","研擬草案","送交院會","歷史案件"],
       hashList: [
         '#desc',
@@ -73,8 +68,7 @@ export default {
         'Timeline',
         'Discussion'
       ],
-      tabIndex: 1,
-      topic: this.$route.params.tRouteName
+      tabIndex: 1
     }
   },
   computed: {
@@ -98,20 +92,8 @@ export default {
       $('.ui.left.sidebar').sidebar((param === 'hide') ? 'hide' : 'show')
     },
     status_modify:function(article){
-      // console.log(article)
-      // let status = article.status
-      // if(status == "即將開始" || status =="歷史案件" || status == "送交院會"){
-      //   this.tabcontent[2] = null;
-      // }
-      // else if(status == "意見徵集" || status == "研擬草案"){
-      //   this.tabcontent[2] ="參與討論";
-      // }
-
-      if (this.$route.hash) {
-        console.log(this.$route.hash)
-        this.tabIndex = this.getHash(this.$route.hash)
-      }
-
+      /* change when click tab button or switch topic */
+      this.tabIndex = this.getHash(this.$route.hash)
       /* change meta title & image */
       var meta_img = document.createElement('meta');
       meta_img.setAttribute("property", "og:image");
@@ -123,17 +105,22 @@ export default {
       meta_title.content = this.article.title + " - vTaiwan.tw";
       $('meta[property="og:title"]').remove();
       document.getElementsByTagName('head')[0].appendChild(meta_title);
-
     },
     getHash: function(param) {
       /* return #hash index, or #hash, or default index */
       if (param && typeof param === 'string') {
-        return this.hashList.indexOf(param) || this.$options.data().tabIndex
+        return this.hashList.indexOf(param)
+      }
+      else if (param && typeof param === 'number') {
+        return this.hashList[param]
       }
       else {
-        return this.hashList[param] || this.$options.data().tabIndex
+        // console.log(this.$options.data.apply(this))
+        return this.$options.data().tabIndex
       }
     }
+  },
+  created: function () {
   },
   mounted:function(){
     $('.ui.left.sidebar').sidebar({
@@ -152,9 +139,6 @@ export default {
     '$route': function () {
       this.status_modify(this.article)
     }
-  },
-  created:function(){
-    // console.log(this.$route.params.tRouteName)
   }
 }
 </script>
