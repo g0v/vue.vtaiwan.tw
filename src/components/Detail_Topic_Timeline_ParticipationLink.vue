@@ -18,13 +18,6 @@ export default {
   data () {
     return {
       ulinkall:[],
-      data_base_non:[
-        {
-          icon:"linkify",
-          text:"相關",
-          long:'與議題相關的連結'
-        }
-      ],
       data_base:[
         {
           key: 'hackpad',
@@ -69,7 +62,7 @@ export default {
           long:'會議共同筆記'
         },
         {
-          key: 'PDF',
+          key: '.pdf',
           icon:"download disk",
           text:"PDF",
           long:'會議共同筆記'
@@ -80,57 +73,33 @@ export default {
           text:"GitBook",
           long:'會議共同筆記'
         },
+        {
+          key: '',
+          icon:"linkify",
+          text:"相關",
+          long:'與議題相關的連結'
+        },
       ]
     }
   },
 
   created:function(a,b){
-
-    for(var i=0;i<this.urllink.length;i++){
-      var tag=0;
-      for(var j=0; j<this.data_base.length ;j++){
-        if(this.urllink[i].indexOf(this.data_base[j].key)!=-1){
-
-          let item = {}
-          item.link = this.urllink[i]
-          item.icon = this.data_base[j].icon
-          item.text = this.data_base[j].text
-          item.long = this.data_base[j].long
-          this.ulinkall.push(item)
-          /* 判斷是否為data_base中的連結 */
-          // this.ulinkall
-          //   .push("<a href="+this.urllink[i]+" target='_blank' class='ui teal icon button'>"+
-          //     this.data_base[j].icon+
-          //     "<span class='fat-only'> "+
-          //     this.data_base[j].text+
-          //     "</span>"+
-          //     "</a>"
-          //   );
-          tag = 1;
-        }
+    this.urllink.map(link => {
+      let item = {}
+      /* find matched item in data_base that involved in link */
+      let matched = this.data_base.filter(data => link.toLowerCase().indexOf(data.key) > -1)[0]
+      item.icon = matched.icon
+      item.long = matched.long
+      if (/^\[(.*?)\]\((.*)\)/.test(link)) {
+        item.text = RegExp.$1;
+        item.link = RegExp.$2;
       }
-      if(tag != 1)  /* 如果不是為data_base的連結 則變成相關連結 */
-      {
-        let item = {}
-        item.link = this.urllink[i]
-        item.icon = this.data_base_non[0].icon
-        item.text = this.data_base_non[0].text
-        item.long = this.data_base_non[0].long
-        if (/^\[(.*?)\]\((.*)\)/.test(item.link)) {
-            item.text = RegExp.$1;
-            item.link = RegExp.$2;
-        }
-        this.ulinkall.push(item)
-        // this.ulinkall
-        //   .push("<a href="+this.urllink[i]+" target='_blank' class='ui teal icon button'>"+
-        //     this.data_base_non[0].icon+
-        //     "<span class='fat-only'> "+
-        //     this.data_base_non[0].text+
-        //     "</span>"+
-        //     "</a>"
-        //   );
+      else {
+        item.link = link
+        item.text = matched.text
       }
-    }
+      this.ulinkall.push(item)
+    })
   }
 }
 
