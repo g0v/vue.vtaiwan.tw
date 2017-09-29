@@ -128,7 +128,7 @@ export default {
       .then((response)=>{
         /* discard first post "網站基本設定" */
         let topics = response.data.topic_list.topics.slice(1)
-        /* not found, go home */
+        /* if not found, go home */
         if (topics.map(topic => topic.title.replace(/.* /,'')).indexOf(this.$route.params.tRouteName) < 0) {
           this.$router.push('/')
         }
@@ -182,9 +182,10 @@ export default {
     padding: 1em 5px;
     position: fixed;
     top: 2em;
-    left: 1ch;
+    left: .5ch;
     color: white;
     background: #1B1C1D;
+    border-radius: 3px;
   }
 }
 

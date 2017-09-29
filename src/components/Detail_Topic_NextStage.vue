@@ -2,7 +2,7 @@
   .component
     .step-progress-bar
       ul.progress-bar
-        li(v-for="(s,idx) in steps.stage", v-bind:class='{active:s.active, current:s.current}') {{s.title}}
+        li(v-for="(s,idx) in steps.stage", :class='{active:s.active, current:s.current}') {{s.title}}
 
 </template>
 
@@ -67,9 +67,10 @@ export default {
                   if(steps[j]['title'] === current){ //如果是"意見徵集",就將active啟動並取消visited
                     steps[j]['current'] = true;
                     steps[j]['active'] = false;
-                    step.stage = steps; // 回傳五階段array
+                    break;
                   }
                 }
+                step.stage = steps; // 回傳五階段array
               }
             }
             else {
@@ -120,19 +121,19 @@ ul.progress-bar {
 .step-progress-bar li {
   list-style-type: none;
   float: left;
-  color: $main_color;
+  color: gray;
   width: 20%;
   position: relative;
   text-align: center;
   // font-weight: 600;
-  // font-size:1.2rem;
+  // font-size: 1.2rem;
 }
 .step-progress-bar li:before {
   content: counter(step);
   counter-increment: step;
   width: 32px;
   height: 32px;
-  border: 1px solid $main_color;
+  border: 2px solid gray;
   border-radius: 50%;
   display: block;
   text-align: center;
@@ -140,14 +141,14 @@ ul.progress-bar {
   margin: 0 auto 10px auto;
   z-index: 9;
   background-color: white;
-  // font-weight: 600;
+  font-weight: 600;
 }
 .step-progress-bar li:after {
   content: "";
   width: 100%;
   position: absolute;
-  height: 1px;
-  background-color: $main_color;
+  height: 2px;
+  background-color: gray;
   top: 16px;
   left: 50%;
   z-index: -1;
@@ -156,22 +157,22 @@ ul.progress-bar {
   content: none;
 }
 .step-progress-bar li.active {
-  color: gray;
+  color: $main_color;
+}
+.step-progress-bar li.active:before{
+  border-color: $main_color;
+}
+.step-progress-bar li.active:after{
+  background-color: $main_color;
 }
 .step-progress-bar li.current {
   color: $step_color;
 }
-.step-progress-bar li.active:before{
-  border-color: gray;
-}
 .step-progress-bar li.current:before{
   border-color: $step_color;
 }
-.step-progress-bar li.active:after{
-  background-color: gray;
-}
 .step-progress-bar li.current:after{
-  background-color: $main_color;
+  background-color: $step_color;
 }
 
 
