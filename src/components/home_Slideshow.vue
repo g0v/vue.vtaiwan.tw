@@ -58,15 +58,14 @@ export default {
       /* initialize swiper when document ready */
       new Swiper ('.swiper-container', {
         observer: true,
-        // scrollbar: '.swiper-scrollbar',
-        // pagination : '.swiper-pagination',
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
         autoplay: 8000,
         direction: 'horizontal',
         keyboardControl: true,
         slidesPerView: 1.2,
         centeredSlides: true,
         spaceBetween: 20,
-        // paginationClickable :true,
         loop: true,
         grabCursor: true
       })
