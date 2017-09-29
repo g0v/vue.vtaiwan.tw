@@ -11939,7 +11939,7 @@ module.exports = function spread(callback) {
       var topics = response.data.topic_list.topics.slice(1);
       /* not found, go home */
       if (topics.map(function (topic) {
-        return topic.slug;
+        return topic.title.replace(/.* /, '');
       }).indexOf(_this2.$route.params.tRouteName) < 0) {
         _this2.$router.push('/');
       }
@@ -12085,7 +12085,6 @@ module.exports = function spread(callback) {
             } else if (link.indexOf("talk.vtaiwan.tw") > -1) {
               //篩出含有discourse的連結
               link = link.replace(/(.*)\/$/, "$1"); // discard last char '/'
-              console.log(link + '.json');
               __WEBPACK_IMPORTED_MODULE_1__js_discourse_js__["a" /* default */].getAllTopics(link + '.json').then(function (response) {
                 var topics = response.sort(function (a, b) {
                   return __WEBPACK_IMPORTED_MODULE_2__js_chineseSort_js___default()(a.title, b.title);
