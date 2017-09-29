@@ -74,7 +74,6 @@ export default {
           }
           else if(link.indexOf("talk.vtaiwan.tw") > -1){ //篩出含有discourse的連結
             link = link.replace(/(.*)\/$/, "$1") // discard last char '/'
-            console.log(link + '.json')
             discourse.getAllTopics(link + '.json')
             .then((response) => {
               let topics = response.sort((a,b)=>chineseSort(a.title,b.title))

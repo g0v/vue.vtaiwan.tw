@@ -129,7 +129,7 @@ export default {
         /* discard first post "網站基本設定" */
         let topics = response.data.topic_list.topics.slice(1)
         /* not found, go home */
-        if (topics.map(topic => topic.slug).indexOf(this.$route.params.tRouteName) < 0) {
+        if (topics.map(topic => topic.title.replace(/.* /,'')).indexOf(this.$route.params.tRouteName) < 0) {
           this.$router.push('/')
         }
       })
