@@ -15678,7 +15678,7 @@ module.exports={render:function (){with(this) {
       staticClass: "go-to ui yellow right labeled icon big button",
       on: {
         "click": function($event) {
-          goAnchor('#proposaltab')
+          goAnchor('.proposalTab')
         }
       }
     }, [_m(4, true), _m(5, true)])])])
