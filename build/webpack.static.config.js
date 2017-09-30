@@ -69,6 +69,10 @@ module.exports = {
             {
                 ignoreJSErrors: true,
                 captureAfterTime: 50000,
+                phantomPageViewportSize: {
+                    width: 1280,
+                    height: 800
+                },
             }
         )
     ]
