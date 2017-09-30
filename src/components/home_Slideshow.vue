@@ -20,7 +20,7 @@
                 | {{item.slogan}}
             router-link.go-inside.ui.teal.big.button(:to="'/topic/' + item.routeName")
               p 進入議題
-            button.go-to.ui.yellow.right.labeled.icon.big.button(@click="goAnchor('#proposaltab')")
+            button.go-to.ui.yellow.right.labeled.icon.big.button(@click="goAnchor('.proposalTab')")
               i.down.arrow.icon
               p 還有更多議案
 </template>
