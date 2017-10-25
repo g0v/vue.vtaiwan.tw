@@ -15305,7 +15305,7 @@ module.exports={render:function (){with(this) {
   return _h('a', {
     staticClass: "ui circular icon orange button",
     attrs: {
-      "href": "mailto:replies+contactus@vtaiwan.tw",
+      "href": "mailto:replies+private@vtaiwan.tw",
       "exact": "",
       "title": "Email Us"
     }
