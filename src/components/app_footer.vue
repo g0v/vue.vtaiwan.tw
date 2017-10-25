@@ -39,7 +39,7 @@
             img(src='../assets/vTaiwan_logo_2017.png', alt='logo')
           a.ui.circular.icon.grey.button(href="https://github.com/g0v/vue.vtaiwan.tw" title="Github" target="_blank")
             i.big.github.icon
-          router-link.ui.circular.icon.orange.button(to='/Contactus', exact='', title="Contact Us")
+          a.ui.circular.icon.orange.button(href='mailto:replies+contactus@vtaiwan.tw', exact='', title="Email Us")
             i.big.mail.icon
 
           img.hidden(src='../assets/rolling.gif', alt='loading')
