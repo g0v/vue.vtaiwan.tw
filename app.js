@@ -15170,9 +15170,9 @@ module.exports={render:function (){with(this) {
     attrs: {
       "to": "/contactus",
       "exact": "",
-      "title": "聯絡我們"
+      "title": "留言"
     }
-  }, ["聯絡我們"]), _h('router-link', {
+  }, ["留言"]), _h('router-link', {
     staticClass: "item",
     attrs: {
       "to": "/how-to-use",
@@ -15531,7 +15531,7 @@ module.exports={render:function (){with(this) {
     }
   }, ["閱讀更多..."]) : _e()])])])])
 }},staticRenderFns: [function (){with(this) {
-  return _h('h2', ["聯絡我們"])
+  return _h('h2', ["留言"])
 }},function (){with(this) {
   return _h('p', ["vTaiwan 是個由 g0v 眾多人維護的開放社群，歡迎給予我們您寶貴的意見與指教，我們將盡速回應。您的意見也將公開於討論區中，供所有讀者參考。"])
 }},function (){with(this) {
