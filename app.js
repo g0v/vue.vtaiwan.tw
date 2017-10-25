@@ -15195,14 +15195,7 @@ module.exports={render:function (){with(this) {
       "exact": "",
       "title": "Home"
     }
-  }, [_m(9)]), _m(10), _h('router-link', {
-    staticClass: "ui circular icon orange button",
-    attrs: {
-      "to": "/Contactus",
-      "exact": "",
-      "title": "Contact Us"
-    }
-  }, [_m(11)]), _m(12)])])])
+  }, [_m(9)]), _m(10), _m(11), _m(12)])])])
 }},staticRenderFns: [function (){with(this) {
   return _h('div', {
     staticClass: "three wide column"
@@ -15309,9 +15302,16 @@ module.exports={render:function (){with(this) {
     staticClass: "big github icon"
   })])
 }},function (){with(this) {
-  return _h('i', {
+  return _h('a', {
+    staticClass: "ui circular icon orange button",
+    attrs: {
+      "href": "mailto:replies+contactus@vtaiwan.tw",
+      "exact": "",
+      "title": "Email Us"
+    }
+  }, [_h('i', {
     staticClass: "big mail icon"
-  })
+  })])
 }},function (){with(this) {
   return _h('img', {
     staticClass: "hidden",
