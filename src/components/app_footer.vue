@@ -20,7 +20,7 @@
             .three.wide.column
               h4.ui.inverted.header 關於我們
               .ui.inverted.link.list
-                router-link.item(to='/contactus', exact='', title="聯絡我們") 聯絡我們
+                router-link.item(to='/contactus', exact='', title="留言") 留言
                 router-link.item(to='/how-to-use', exact='', title="使用手冊") 使用手冊
                 router-link.item(to='/intro', exact='', title="關於vTaiwan") 關於 vTaiwan
             .seven.wide.column

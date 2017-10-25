@@ -3,7 +3,7 @@
     .ui.container
       .row.BGgray
         .ui.left.aligned.text.container
-          h2 聯絡我們
+          h2 留言
           p vTaiwan 是個由 g0v 眾多人維護的開放社群，歡迎給予我們您寶貴的意見與指教，我們將盡速回應。您的意見也將公開於討論區中，供所有讀者參考。
             .ui.form
               .field
