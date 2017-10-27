@@ -12475,7 +12475,7 @@ module.exports = function spread(callback) {
   data: function data() {
     return {
       timeline: [], // 時間軸
-      timeline_title: ["議題時間", "議題階段", "相關外部連結*"],
+      timeline_title: ["議題時間", "議題階段", "相關外部連結"],
       plinkList: [{
         icon: "linkify",
         title: '相關',
