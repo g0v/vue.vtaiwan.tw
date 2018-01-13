@@ -39,8 +39,10 @@ export default {
         .then(response => {
           let post = response.data['post_stream']['posts'][0]['cooked'] // 取得議題時間軸內容
           let xmlDoc = new DOMParser().parseFromString(post, "text/html")
-          let iframe = xmlDoc.getElementsByTagName("iframe")[0].outerHTML
-          slide.iframe = iframe
+          try {
+              let iframe = xmlDoc.getElementsByTagName("iframe")[0].outerHTML
+              slide.iframe = iframe
+          } catch (e) {};
           let info = post.split("<hr>")[1]; // 取得詳細內容(第一篇)
           slide.info = info.replace(/<if.*slideshare.*e>/, ""); //詳細內容slideshare拿掉
         })
