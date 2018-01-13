@@ -12405,8 +12405,10 @@ module.exports = function spread(callback) {
       __WEBPACK_IMPORTED_MODULE_0__js_request__["a" /* default */].getTopic(id).then(function (response) {
         var post = response.data['post_stream']['posts'][0]['cooked']; // 取得議題時間軸內容
         var xmlDoc = new DOMParser().parseFromString(post, "text/html");
-        var iframe = xmlDoc.getElementsByTagName("iframe")[0].outerHTML;
-        slide.iframe = iframe;
+        try {
+          var iframe = xmlDoc.getElementsByTagName("iframe")[0].outerHTML;
+          slide.iframe = iframe;
+        } catch (e) {};
         var info = post.split("<hr>")[1]; // 取得詳細內容(第一篇)
         slide.info = info.replace(/<if.*slideshare.*e>/, ""); //詳細內容slideshare拿掉
       });
