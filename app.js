@@ -12793,6 +12793,42 @@ var main = __webpack_require__(20);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ exports["default"] = {
   name: 'HowToUse',
@@ -15415,15 +15451,43 @@ module.exports={render:function (){with(this) {
     staticClass: "ui center aligned icon header"
   }, [_h('i', {
     staticClass: "circular talk icon"
-  }), "如何有效的發言？"]), _h('div', {
+  }), "vTaiwan 說明"]), _h('div', {
     staticClass: "ui left aligned text container"
-  }, [_h('p', ["vTaiwan全部的訊息都是公開閱覽。"]), _h('p', ["基本上，發言沒有任何的資格或內容限制。但若您能夠參考以下的說明來進行發言，將會讓您的發言更容易被行政機關或其他參與者所閱讀及理解："]), _h('p', ["第一，您在提出法規制訂或修改建議時，除了「內容」外，也可以補充說明「理由」，也就是您提出建議前所考量的各種因素。「理由」可以是資訊、案例，或者是具體可行的想法，如果可以附上訊息的來源出處更好，這樣將有助於行政機關或其他參與者更容易理解您的建議。"]), _h('p', ["第二，針對討論主題，也歡迎提出詢問。例如，行政機關的文字說明不夠清晰，或者是為了討論需要，希望行政機關能夠提供更多資訊的時候。"]), _h('p', ["第三，若您單純只是認同某個建議，可以直接為它按「讚」，而不用再說一次一樣的東西。若您不認同某個建議，或是某段說明的內容，可以提出建議或詢問，但請避免加入過多的個人情緒，例如直接的批評或是嘲諷，這樣無助於您意見的被採納。"])]), _h('h1', {
+  }, [_h('p', ["📣這裡是 vTaiwan 虛擬法規調適平台的工作小組社團，歡迎自由加入成為社群的貢獻者，幫助台灣在制定／修改法規的路上更加開放透明、促進更多的公民參與：)"])]), _h('h1', {
     staticClass: "ui center aligned icon header"
   }, [_h('i', {
     staticClass: "circular flag icon"
-  }), "為何有些發言被標示？"]), _h('div', {
+  }), "我可以怎麼開始幫忙呢？"]), _h('div', {
     staticClass: "ui left aligned text container"
-  }, [_h('p', ["用高亮度標示的發言，是版主推薦作為有效發言的範例。這些發言被推薦的原因，不是「內容」寫了什麼，而是具備良好的討論態度及陳述方式。"]), _h('p', ["vTaiwan 的版主團隊為中立性質，不會對個別的發言採取支持或反對立場。"])]), _h('h1', {
+  }, [_h('h2', ["🗣️提供意見：針對議題提供想法或意見"]), _h('p', ["vTaiwan 網站上有各式各樣的議題在進行意見徵集，歡迎留下你的意見、經驗，或想法，提供給行政部門參考。"]), _h('h2', ["📣擴散議題：讓意見徵集被看到"]), _h('p', ["協助轉貼、擴散 vTaiwan 網站上正在進行的意見徵集的議題給任何人，尤其是讓有可能會被該議題影響到的人們（利害關係人）或該領域的專家，讓他們能有機會在徵集意見期間內提出意見。"]), _h('h2', ["✍️編輯文字：讓議題更加淺顯易懂"]), _h('p', ["如果你覺得某個 vTaiwan 上的議題的說明會讓公民很難懂，歡迎動手修改，你可以建立一個比較淺顯易懂的版本貼在社團，讓法律專長的社群朋友確認內容，形式不拘，不管是文字、圖像、懶人包或顏文字都可以。如果你有擅長法律白話文的熱心朋友，也歡迎介紹他幫忙。"]), _h('p', ["當然，如果想修改 vTaiwan 網站的說明文字也是沒有問題的唷。"]), _h('h2', ["🎨影像設計：讓議題更吸睛"]), _h('p', ["vTaiwan 也徵求擅長影像設計的朋友，讓 vTaiwan 上的議題可以透過影像的力量更容易地被傳遞出去，得到更多公民意見的回饋。"]), _h('h2', ["📫意見回饋：提出想法"]), _h('p', ["如果你有任何關於能讓 vTaiwan 變得更好的發想，歡迎用各種方式告訴我們！"]), _h('h2', ["㊙️其實你想做什麼都可以：沒有人是萬能的"]), _h('p', ["除了把意見回饋給我們，或是你就直接動手吧，\n「不要問為什麼『沒有人』做這個，先承認你自己就是『沒有人』。」\n但如果你在過程中需要幫助，歡迎在社團或slack上和大家聊聊。"]), _h('h2', ["或是參加我們的實體活動 ", _h('a', {
+    attrs: {
+      "href": "https://www.facebook.com/groups/vtaiwan/",
+      "target": "_blank"
+    }
+  }, ["vTaiwan 小松", _h('sup', [_h('i', {
+    staticClass: "external link icon"
+  })])])]), _h('p', ["如同 g0v 社群，vTaiwan 社群也是自由且去中心化的，工作都自主提案參與，分工協作，所有活動沒有強制性，專案皆由社群成員各自發起串連。"])]), _h('h1', {
+    staticClass: "ui center aligned icon header"
+  }, [_h('i', {
+    staticClass: "circular talk icon"
+  }), "我可以怎麼開始幫忙呢？"]), _h('div', {
+    staticClass: "ui text container"
+  }, [_h('h2', ["相關連結"]), _h('ul', [_h('li', [_h('a', {
+    attrs: {
+      "href": "https://www.facebook.com/vtaiwan.tw/",
+      "target": "_blank"
+    }
+  }, ["vTaiwan Facebook"])])]), _h('ul', [_h('li', [_h('a', {
+    attrs: {
+      "href": "https://vtw.link/",
+      "target": "_blank"
+    }
+  }, ["Hackfoldr"])])]), _h('ul', [_h('li', [_h('a', {
+    attrs: {
+      "href": "https://g0v.hackpad.com/ep/pad/static/h",
+      "target": "_blank"
+    }
+  }, ["聊天室：g0v-tw slack「#vtaiwan」"])])])]), _h('h1', {
     staticClass: "ui center aligned icon header"
   }, [_h('i', {
     staticClass: "circular send icon"
@@ -15445,7 +15509,7 @@ module.exports={render:function (){with(this) {
       "href": "http://join.gov.tw/idea/",
       "target": "_blank"
     }
-  }, ["公共政策網路參與平台 ", _h('sup', [_h('i', {
+  }, ["公共政策網路參與平台 ", _h('sup', [_h('i', {
     staticClass: "external link icon"
   })])])])])])])
 }}]}
