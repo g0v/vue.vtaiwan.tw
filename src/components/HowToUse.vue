@@ -66,28 +66,6 @@
         ul
           li
             a(href='https://g0v.hackpad.com/ep/pad/static/h', target='_blank') 聊天室：g0v-tw slack「#vtaiwan」
-
-      h1.ui.center.aligned.icon.header
-        i.circular.send.icon
-        | 來提個案吧！
-
-      .ui.text.container
-        p 由下而上的提案，經網路連署後由各部會處理並回應。
-
-      // h1.ui.header
-      //   i.edit.icon
-      //   | 提案
-
-      .ui.center.aligned.basic.segment
-        a(href='http://join.gov.tw/idea/', target='_blank')
-          .ui.massive.teal.labeled.icon.button
-            i.edit.icon
-            p 提案
-        h3
-          a(href='http://join.gov.tw/idea/', target='_blank')
-            | 公共政策網路參與平台&nbsp;
-            sup
-              i.external.link.icon
 </template>
 
 <script>
