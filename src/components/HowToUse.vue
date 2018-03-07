@@ -43,7 +43,7 @@
         p 除了把意見回饋給我們，或是你就直接動手吧，
           | 「不要問為什麼『沒有人』做這個，先承認你自己就是『沒有人』。」
           | 但如果你在過程中需要幫助，歡迎在社團或slack上和大家聊聊。
-        h2 或是參加我們的實體活動&nbsp;
+        h2 ❤️或是參加我們的實體活動&nbsp;
           a(href='https://www.facebook.com/groups/vtaiwan/', target='_blank')
             | vTaiwan 小松
             sup
