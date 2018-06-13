@@ -12115,8 +12115,16 @@ module.exports = function spread(callback) {
                     link = link.replace(/.*\((.*)\)/, "$1");
                     dType.embeder = '<img src=\'' + link + '\' />';
                   } else {
+                    var item = {};
+                    if (/^\[(.*?)\]\((.*)\)/.test(link)) {
+                      item.text = RegExp.$1;
+                      item.link = RegExp.$2;
+                    } else {
+                      item.link = link;
+                      item.text = link;
+                    }
                     dType.type = 'default';
-                    dType.embeder = 'Please check <a href=\'' + link + '\' target=\'_blank\'>' + link + '</a>';
+                    dType.embeder = 'Please check <a href=\'' + item.link + '\' target=\'_blank\'>' + item.text + '</a>';
                   }
           }
         } catch (err) {
