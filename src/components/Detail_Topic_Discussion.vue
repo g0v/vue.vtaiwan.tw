@@ -103,8 +103,17 @@ export default {
             dType.embeder = `<img src='${link}' />`
           }
           else {
+            let item = {}
+            if (/^\[(.*?)\]\((.*)\)/.test(link)) {
+              item.text = RegExp.$1;
+              item.link = RegExp.$2;
+            }
+            else {
+              item.link = link
+              item.text = link
+            }
             dType.type = 'default'
-            dType.embeder = `Please check <a href='${link}' target='_blank'>${link}</a>`
+            dType.embeder = `Please check <a href='${item.link}' target='_blank'>${item.text}</a>`
           }
         }
       })
