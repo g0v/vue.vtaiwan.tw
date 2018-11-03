@@ -98,6 +98,10 @@ export default {
   overflow: hidden;
 }
 
+.swiper-button-prev, .swiper-button-next {
+  transform: scale(1.5)
+}
+
 // ******************************* Desktop CSS
 
 .ui.label{
