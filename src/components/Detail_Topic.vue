@@ -106,6 +106,11 @@ export default {
       meta_title.content = this.article.title + " - vTaiwan.tw";
       $('meta[property="og:title"]').remove();
       document.getElementsByTagName('head')[0].appendChild(meta_title);
+      var meta_description = document.createElement('meta');
+      meta_description.setAttribute("property", "og:description");
+      meta_description.content = this.article.title + this.article.status;
+      $('meta[property="og:title"]').remove();
+      document.getElementsByTagName('head')[0].appendChild(meta_description);
     },
     getHash: function(param) {
       /* return #hash index, or #hash, or default index */
