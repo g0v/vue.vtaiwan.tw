@@ -27,6 +27,8 @@
                   span.percent
                     | {{Math.floor(item.total - item.progress)}}
               | 天
+            .progressbar(v-else-if="(item.status === '意見徵集' && item.total == item.progress)")
+              | 最後一天
             .progressbar(v-else) 徵集結束
         .content
           h3.ui.header {{ item.title }}
