@@ -4,7 +4,7 @@
       .ui.massive.horizontal.celled.selection.list
         .item(v-for="(c,idx) in catagories")
           router-link(:to="'/catagory/'+c.routeName") 
-            img.ui.avatar.image(:src="c.cover || 'http://lorempixel.com/320/240/transport'")
+            img.ui.avatar.image(v-lazy="c.cover || 'http://lorempixel.com/320/240/transport'")
             | {{c.t}}
 
 </template>

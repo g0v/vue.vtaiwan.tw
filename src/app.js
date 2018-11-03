@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import VueLazyload from 'vue-lazyload'
 import App from './App.vue'
 import store from './store'
 import router from './router'
@@ -13,6 +14,8 @@ sync(store, router)
 Object.keys(filters).forEach(key => {
 	Vue.filter(key, filters[key])
 })
+
+Vue.use(VueLazyload)
 
 // create the app instance.
 // here we inject the router and store to all child components,
