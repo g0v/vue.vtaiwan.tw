@@ -13697,8 +13697,6 @@ var main = __webpack_require__(20);
 //
 //
 //
-//
-//
 
 /* harmony default export */ exports["default"] = {
   name: 'box',
@@ -16124,15 +16122,9 @@ module.exports={render:function (){with(this) {
       staticClass: "circle"
     }, [_h('span', {
       staticClass: "percent"
-    }, [_s(Math.floor(item.total - item.progress))])])]), "天"]) : _e(), _h('div', {
-      directives: [{
-        name: "else-if",
-        rawName: "v-else-if",
-        value: ((item.status === '意見徵集' && item.total == item.progress)),
-        expression: "(item.status === '意見徵集' && item.total == item.progress)"
-      }],
+    }, [_s(Math.floor(item.total - item.progress))])])]), "天"]) : _h('div', {
       staticClass: "progressbar"
-    }, ["最後一天"])] : _e()]), _h('div', {
+    }, ["徵集結束"])] : _e()]), _h('div', {
       staticClass: "content"
     }, [_h('h3', {
       staticClass: "ui header"
