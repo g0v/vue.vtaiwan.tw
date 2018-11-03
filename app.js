@@ -11917,6 +11917,11 @@ module.exports = function spread(callback) {
       meta_title.content = this.article.title + " - vTaiwan.tw";
       $('meta[property="og:title"]').remove();
       document.getElementsByTagName('head')[0].appendChild(meta_title);
+      var meta_description = document.createElement('meta');
+      meta_description.setAttribute("property", "og:description");
+      meta_description.content = this.article.title + this.article.status;
+      $('meta[property="og:title"]').remove();
+      document.getElementsByTagName('head')[0].appendChild(meta_description);
     },
     getHash: function getHash(param) {
       /* return #hash index, or #hash, or default index */
@@ -13650,6 +13655,8 @@ var main = __webpack_require__(20);
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
+//
+//
 //
 //
 //
@@ -16100,9 +16107,15 @@ module.exports={render:function (){with(this) {
       staticClass: "circle"
     }, [_h('span', {
       staticClass: "percent"
-    }, [_s(Math.floor(item.total - item.progress))])])]), "天"]) : _h('div', {
+    }, [_s(Math.floor(item.total - item.progress))])])]), "天"]) : _e(), _h('div', {
+      directives: [{
+        name: "else-if",
+        rawName: "v-else-if",
+        value: ((item.status === '意見徵集' && item.total == item.progress)),
+        expression: "(item.status === '意見徵集' && item.total == item.progress)"
+      }],
       staticClass: "progressbar"
-    }, ["徵集結束"])] : _e()]), _h('div', {
+    }, ["最後一天"])] : _e()]), _h('div', {
       staticClass: "content"
     }, [_h('h3', {
       staticClass: "ui header"
