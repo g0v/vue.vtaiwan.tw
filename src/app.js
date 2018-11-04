@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueLazyload from 'vue-lazyload'
+import VueOffline from 'vue-offline'
 import App from './App.vue'
 import store from './store'
 import router from './router'
@@ -16,6 +17,7 @@ Object.keys(filters).forEach(key => {
 })
 
 Vue.use(VueLazyload)
+Vue.use(VueOffline)
 
 // create the app instance.
 // here we inject the router and store to all child components,

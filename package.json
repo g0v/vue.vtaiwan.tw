@@ -46,6 +46,7 @@
         "url-loader": "^0.5.7",
         "vue": "^2.0.0",
         "vue-loader": "^9.5.0",
+        "vue-offline": "^1.0.204",
         "vue-router": "^2.0.0",
         "vue-server-renderer": "^2.0.0",
         "vuex": "^2.0.0",
