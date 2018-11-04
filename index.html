@@ -45,6 +45,13 @@
     {{ APP }}
     <script src="/dist/client-vendor-bundle.js"></script>
     <script src="/dist/client-bundle.js"></script>
+    <script> // --- new node ---
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js');
+            });
+        }
+    </script>
 </body>
 
 </html>
