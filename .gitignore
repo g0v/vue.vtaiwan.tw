@@ -6,3 +6,4 @@ _public/
 debug.log
 build/prerender-route.json
 .vscode/
+*.log
