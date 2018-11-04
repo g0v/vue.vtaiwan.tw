@@ -1,6 +1,7 @@
 const path = require('path')
 const webpack = require('webpack')
 const vueConfig = require('./vue-loader.config')
+const ServiceWorkerWebpackPlugin = require('serviceworker-webpack-plugin')
 
 var pathToBourbon = require('node-bourbon').includePaths //???
 
@@ -54,6 +55,9 @@ module.exports = {
           includePaths: [pathToBourbon]
         }
       }
+    }),
+    new ServiceWorkerWebpackPlugin({
+      entry: path.resolve(__dirname, '../src/sw.js'),
     })
   ]
 }
