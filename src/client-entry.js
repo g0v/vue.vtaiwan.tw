@@ -1,3 +1,5 @@
+import * as OfflinePluginRuntime from 'offline-plugin/runtime';
+OfflinePluginRuntime.install();
 
 require('es6-promise').polyfill()
 import { app, store } from './app'
