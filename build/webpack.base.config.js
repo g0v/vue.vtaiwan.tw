@@ -60,6 +60,14 @@ module.exports = {
     //new ServiceWorkerWebpackPlugin({
     //  entry: path.join(__dirname, '../src/sw.js'),
     //}),
-    new OfflinePlugin()
+    new OfflinePlugin({
+      // Unless specified in webpack's configuration itself
+      publicPath: '/',
+
+      appShell: '/',
+      externals: [
+        '/'
+      ]
+    })
   ]
 }
