@@ -63,10 +63,16 @@ module.exports = {
     new OfflinePlugin({
       // Unless specified in webpack's configuration itself
       publicPath: '/',
-
+      autoUpdate: true,
+      relativePaths: false,
       appShell: '/',
       externals: [
-        '/'
+        '/',
+        '/dist/client-bundle.js',
+        '/dist/client-vendor-bundle.js',
+        '/dist/vTaiwan_logo_2017.png',
+        '/dist/rolling.gif',
+        'https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/semantic.min.css'
       ]
     })
   ]
