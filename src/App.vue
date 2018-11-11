@@ -6,6 +6,9 @@
     //- transition(name='fade', mode='out-in')
     router-view(:allTopics="allTopics", :catagories="catagories", :allNews="allNews", :allInfo="allInfo")
 
+
+  .offline(v-show="OfflineOnly") This part is visible only if user is offline
+
   footNav
 </template>
 

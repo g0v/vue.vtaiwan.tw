@@ -1,3 +1,13 @@
+import * as OfflinePluginRuntime from 'offline-plugin/runtime';
+OfflinePluginRuntime.install();
+
+/*
+import runtime from 'serviceworker-webpack-plugin/lib/runtime';
+
+if ('serviceWorker' in navigator) {
+  const registration = runtime.register();
+}
+*/
 
 require('es6-promise').polyfill()
 import { app, store } from './app'
