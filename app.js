@@ -15334,7 +15334,14 @@ module.exports={render:function (){with(this) {
       "title": "PDIS 公共數位創新空間",
       "target": "_blank"
     }
-  }, ["PDIS"])])])
+  }, ["PDIS"]), _h('a', {
+    staticClass: "item",
+    attrs: {
+      "href": "http://org.vtaiwan.tw",
+      "title": "歷史資料",
+      "target": "_blank"
+    }
+  }, ["歷史資料"])])])
 }},function (){with(this) {
   return _h('h4', {
     staticClass: "ui inverted header"
