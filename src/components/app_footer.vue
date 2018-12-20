@@ -11,7 +11,7 @@
                 a.item(href="https://talk.vtaiwan.tw/" title="vTaiwan討論區" target="_blank") 討論區
                 a.item(href="https://github.com/g0v/vue.vtaiwan.tw" title="Github" target="_blank") Github
                 a.item(href="https://pdis.tw/" title="PDIS 公共數位創新空間" target="_blank") PDIS
-                a.item(href="http://org.vtaiwan.tw" title="歷史資料" target="_blank") 歷史資料
+                a.item(href="https://org.vtaiwan.tw" title="歷史資料" target="_blank") 歷史資料
             .three.wide.column
               h4.ui.inverted.header 影音專區
               .ui.inverted.link.list
