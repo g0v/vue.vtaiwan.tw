@@ -15337,7 +15337,7 @@ module.exports={render:function (){with(this) {
   }, ["PDIS"]), _h('a', {
     staticClass: "item",
     attrs: {
-      "href": "http://org.vtaiwan.tw",
+      "href": "https://org.vtaiwan.tw",
       "title": "歷史資料",
       "target": "_blank"
     }
