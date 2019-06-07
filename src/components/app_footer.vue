@@ -16,7 +16,7 @@
               h4.ui.inverted.header 影音專區
               .ui.inverted.link.list
                 a.item(href="https://www.youtube.com/channel/UChC85hbUuDAvFpc7Uuj69DA/" title="Youtube" target="_blank") Youtube
-                a.item(href="https://www.facebook.com/vtaiwan.tw/" title="Fackbook" target="_blank") Fackbook
+                a.item(href="https://www.facebook.com/vtaiwan.tw/" title="Facebook" target="_blank") Facebook
                 router-link.item(to='/subscribe', exact='', title="訂閱電子報") 訂閱電子報
             .three.wide.column
               h4.ui.inverted.header 關於我們
