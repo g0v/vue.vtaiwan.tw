@@ -15360,10 +15360,10 @@ module.exports={render:function (){with(this) {
     staticClass: "item",
     attrs: {
       "href": "https://www.facebook.com/vtaiwan.tw/",
-      "title": "Fackbook",
+      "title": "Facebook",
       "target": "_blank"
     }
-  }, ["Fackbook"])
+  }, ["Facebook"])
 }},function (){with(this) {
   return _h('h4', {
     staticClass: "ui inverted header"
