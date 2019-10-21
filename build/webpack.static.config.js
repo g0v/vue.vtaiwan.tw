@@ -5,7 +5,7 @@ const HTMLPlugin = require('html-webpack-plugin')
 var PrerenderSpaPlugin = require('prerender-spa-plugin')
 var PrerenderRoute = require('./prerender-route')
 var pathToBourbon = require('node-bourbon').includePaths //???
-var FaviconsWebpackPlugin = require('favicons-webpack-plugin')
+var FaviconsWebpackPlugin = require('webapp-webpack-plugin')
 
 module.exports = {
     devtool: '#source-map',
