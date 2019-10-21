@@ -75,21 +75,19 @@
 	Author Tobias Koppers @sokra
 */
 // css base code, injected by the css-loader
-module.exports = function() {
+module.exports = function(useSourceMap) {
 	var list = [];
 
 	// return the list of modules as css string
 	list.toString = function toString() {
-		var result = [];
-		for(var i = 0; i < this.length; i++) {
-			var item = this[i];
+		return this.map(function (item) {
+			var content = cssWithMappingToString(item, useSourceMap);
 			if(item[2]) {
-				result.push("@media " + item[2] + "{" + item[1] + "}");
+				return "@media " + item[2] + "{" + content + "}";
 			} else {
-				result.push(item[1]);
+				return content;
 			}
-		}
-		return result.join("");
+		}).join("");
 	};
 
 	// import a list of modules into the list
@@ -120,6 +118,34 @@ module.exports = function() {
 	};
 	return list;
 };
+
+function cssWithMappingToString(item, useSourceMap) {
+	var content = item[1] || '';
+	var cssMapping = item[3];
+	if (!cssMapping) {
+		return content;
+	}
+
+	if (useSourceMap && typeof btoa === 'function') {
+		var sourceMapping = toComment(cssMapping);
+		var sourceURLs = cssMapping.sources.map(function (source) {
+			return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */'
+		});
+
+		return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
+	}
+
+	return [content].join('\n');
+}
+
+// Adapted from convert-source-map (MIT)
+function toComment(sourceMap) {
+	// eslint-disable-next-line no-undef
+	var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
+	var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
+
+	return '/*# ' + data + ' */';
+}
 
 
 /***/ }),
@@ -10620,7 +10646,9 @@ module.exports = __vue_exports__
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__filters__ = __webpack_require__(20);
 /* unused harmony reexport router */
 /* unused harmony reexport store */
-function _objectSpread2(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -10644,7 +10672,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_2_vue_
 // here we inject the router and store to all child components,
 // making them available everywhere as `this.$router` and `this.$store`.
 
-var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a(_objectSpread2({
+var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a(_objectSpread({
   router: __WEBPACK_IMPORTED_MODULE_5__router__["a" /* default */],
   store: __WEBPACK_IMPORTED_MODULE_4__store__["a" /* default */],
   filters: __WEBPACK_IMPORTED_MODULE_7__filters__
@@ -11549,7 +11577,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         en: 'About',
         t: '關於 vTaiwan',
         r: 'intro'
-      }],
+      } // {en:'Login', t:'登入',r:'login'},
+      ],
       routesMobile: [{
         en: 'User manual',
         t: '使用手冊',
@@ -14034,7 +14063,7 @@ var store = new __WEBPACK_IMPORTED_MODULE_1_vuex___default.a.Store({
 /* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(0)();
+exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
@@ -14048,7 +14077,7 @@ exports.push([module.i, "\n*[data-v-0aea0f33] {\n  box-sizing: border-box;\n}\nb
 /* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(0)();
+exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
@@ -14062,7 +14091,7 @@ exports.push([module.i, "\n*[data-v-1568d51d] {\n  box-sizing: border-box;\n}\nb
 /* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(0)();
+exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
@@ -14076,7 +14105,7 @@ exports.push([module.i, "\n*[data-v-1dc163e9] {\n  box-sizing: border-box;\n}\nb
 /* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(0)();
+exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
@@ -14090,7 +14119,7 @@ exports.push([module.i, "\n* {\n  box-sizing: border-box;\n}\nbody {\n  font-fam
 /* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(0)();
+exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
@@ -14104,7 +14133,7 @@ exports.push([module.i, "\n*[data-v-1effc5c6] {\n  box-sizing: border-box;\n}\nb
 /* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(0)();
+exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
@@ -14118,7 +14147,7 @@ exports.push([module.i, "\n*[data-v-237d3245] {\n  box-sizing: border-box;\n}\nb
 /* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(0)();
+exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
@@ -14132,7 +14161,7 @@ exports.push([module.i, "\n*[data-v-27dbf9ac] {\n  box-sizing: border-box;\n}\nb
 /* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(0)();
+exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
@@ -14146,7 +14175,7 @@ exports.push([module.i, "\n*[data-v-280eaafe] {\n  box-sizing: border-box;\n}\nb
 /* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(0)();
+exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
@@ -14160,7 +14189,7 @@ exports.push([module.i, "\n*[data-v-287bb503] {\n  box-sizing: border-box;\n}\nb
 /* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(0)();
+exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
@@ -14174,7 +14203,7 @@ exports.push([module.i, "\n*[data-v-2e520813] {\n  box-sizing: border-box;\n}\nb
 /* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(0)();
+exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
@@ -14188,7 +14217,7 @@ exports.push([module.i, "\n*[data-v-30cdb09e] {\n  box-sizing: border-box;\n}\nb
 /* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(0)();
+exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
@@ -14202,7 +14231,7 @@ exports.push([module.i, "\n* {\n  box-sizing: border-box;\n}\nbody {\n  font-fam
 /* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(0)();
+exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
@@ -14216,7 +14245,7 @@ exports.push([module.i, "\n* {\n  box-sizing: border-box;\n}\nbody {\n  font-fam
 /* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(0)();
+exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
@@ -14230,7 +14259,7 @@ exports.push([module.i, "\n*[data-v-3b7b10e8] {\n  box-sizing: border-box;\n}\nb
 /* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(0)();
+exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
@@ -14244,7 +14273,7 @@ exports.push([module.i, "\n@charset \"UTF-8\";\n*[data-v-4144f431] {\n  box-sizi
 /* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(0)();
+exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
@@ -14258,7 +14287,7 @@ exports.push([module.i, "\n*[data-v-5da6cb6a] {\n  box-sizing: border-box;\n}\nb
 /* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(0)();
+exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
@@ -14272,7 +14301,7 @@ exports.push([module.i, "\n*[data-v-60640b22] {\n  box-sizing: border-box;\n}\nb
 /* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(0)();
+exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
@@ -14286,7 +14315,7 @@ exports.push([module.i, "\n*[data-v-67d7e20d] {\n  box-sizing: border-box;\n}\nb
 /* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(0)();
+exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
@@ -14300,7 +14329,7 @@ exports.push([module.i, "\n*[data-v-84f59ea8] {\n  box-sizing: border-box;\n}\nb
 /* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(0)();
+exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
@@ -14314,7 +14343,7 @@ exports.push([module.i, "\n*[data-v-86ffac4e] {\n  box-sizing: border-box;\n}\nb
 /* 89 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(0)();
+exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
@@ -14328,7 +14357,7 @@ exports.push([module.i, "\n*[data-v-8718f044] {\n  box-sizing: border-box;\n}\nb
 /* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(0)();
+exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
@@ -14342,7 +14371,7 @@ exports.push([module.i, "\n*[data-v-88189242] {\n  box-sizing: border-box;\n}\nb
 /* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(0)();
+exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
@@ -14356,7 +14385,7 @@ exports.push([module.i, "\n*[data-v-91a79d22] {\n  box-sizing: border-box;\n}\nb
 /* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(0)();
+exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
