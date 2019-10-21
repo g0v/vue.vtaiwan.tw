@@ -32,7 +32,7 @@
         .ui.inverted.section.divider
 
         .ui.center.aligned.container
-          a.ui.circular.facebook.icon.button(href="https://www.facebook.com/vtaiwan.tw/" title="Fackbook" target="_blank")
+          a.ui.circular.facebook.icon.button(href="https://www.facebook.com/vtaiwan.tw/" title="Facebook" target="_blank")
             i.big.facebook.icon
           a.ui.circular.youtube.icon.button(href="https://www.youtube.com/channel/UChC85hbUuDAvFpc7Uuj69DA/" title="Youtube" target="_blank")
             i.big.youtube.icon

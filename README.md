@@ -26,7 +26,7 @@
 * 在Github上
 [複製本專案](https://github.com/g0v/vue.vtaiwan.tw)
 * 安裝
-[nodeJS](https://nodejs.org/en/) & [yarn](https://yarnpkg.com/en/docs/install)
+[nodeJS 6.17.1](https://nodejs.org/en/) & [yarn](https://yarnpkg.com/en/docs/install)
 * 下載相關套件
 ```yarn install```
 * 近端測試
