@@ -7,3 +7,4 @@ debug.log
 build/prerender-route.json
 .vscode/
 *.log
+yarn.lock
