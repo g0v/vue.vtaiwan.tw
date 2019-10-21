@@ -21,24 +21,24 @@ module.exports = {
     module: {
         loaders: [{
                 test: /\.vue$/,
-                loader: 'vue'
+                loader: 'vue-loader'
             },
             {
                 test: /\.js$/,
-                loader: 'babel',
+                loader: 'babel-loader',
                 exclude: /node_modules/
             },
             {
                 test: /\.css$/,
-                loader: 'style!css',
+                loader: 'style-loader!css-loader',
             },
             {
                 test: /\.scss$/,
-                loader: 'style!css!sass'
+                loader: 'style-loader!css-loader!sass-loader'
             },
             {
                 test: /\.(png|jpg|gif|svg)$/,
-                loader: 'url',
+                loader: 'url-loader',
                 query: {
                     limit: 10000,
                     name: '[name].[ext]'
