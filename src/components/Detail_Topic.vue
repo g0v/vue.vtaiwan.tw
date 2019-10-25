@@ -1,4 +1,4 @@
-<template lang="jade">
+<template lang="pug">
 .component.pushable
 
   .sidebar.ui.left.inverted.vertical.menu(@mouseleave="showSidebar('hide')")

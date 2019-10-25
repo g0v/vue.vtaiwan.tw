@@ -1,4 +1,4 @@
-<template lang="jade">
+<template lang="pug">
   .component
     .ui.container
       .ui.massive.horizontal.celled.selection.list

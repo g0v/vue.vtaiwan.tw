@@ -1,4 +1,4 @@
-<template lang="jade">
+<template lang="pug">
   .component
     .ui.container
       .row.BGgray
@@ -118,7 +118,7 @@ export default {
     text-align: left;
 }
 
-.ui.green.button,  {                         //送出按鈕
+.ui.green.button{                         //送出按鈕
   background-color: #40B3BF;
   margin-bottom:1em;
 }

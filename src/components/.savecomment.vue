@@ -1,4 +1,4 @@
-<template lang="jade">  
+<template lang="pug">  
  div.container
           h2.ui.header
           i.icon.inverted.circular.blue.comment 

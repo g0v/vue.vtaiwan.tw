@@ -1,4 +1,4 @@
-<template lang="jade">
+<template lang="pug">
   .track
     h1
       i.unhide.icon 

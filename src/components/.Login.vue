@@ -2,7 +2,7 @@
   @import "../sass/global.scss";
 </style>
 
-<template lang="jade">
+<template lang="pug">
   .component
     h1
       i.user.icon

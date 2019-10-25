@@ -1,4 +1,4 @@
-<template lang="jade">
+<template lang="pug">
   .component
     //- .fat-only
     div.styles.context(v-html='information')

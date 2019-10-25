@@ -1,4 +1,4 @@
-<template lang="jade">
+<template lang="pug">
 #app.app
   Navbar(:routes = "myRoutes", :routesMobile = 'routesMobile', :allTopics = "allTopics")
 

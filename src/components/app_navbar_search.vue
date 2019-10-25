@@ -1,4 +1,4 @@
-<template lang="jade">
+<template lang="pug">
 .component
    .ui.category.search.thin-only(:class="{active: myKey}", @keyup.down="onKeyDown()")  
      .ui.icon.input

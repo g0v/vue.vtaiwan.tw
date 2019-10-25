@@ -1,4 +1,4 @@
-<template lang="jade">
+<template lang="pug">
 
   .Commentcomponent
       div.ui.compact.menu
@@ -122,10 +122,10 @@ export default {
 .ui.menu .item {                            //資訊列
   padding: 0.5em 0.8em;
 }
-.ui.green.button,  {                         //我要留言按鈕
+.ui.green.button{                         //我要留言按鈕
   background-color: #40B3BF;
 }
-.ui.fluid.button, {                         //我要留言按鈕大小
+.ui.fluid.button{                         //我要留言按鈕大小
   width: 76%;
   margin: auto;
   margin-bottom: 1em;

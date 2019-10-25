@@ -1,4 +1,4 @@
-<template lang="jade">
+<template lang="pug">
   .component
     h3.ui.header.centered
       i.icon.info.circle

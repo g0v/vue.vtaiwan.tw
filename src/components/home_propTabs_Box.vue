@@ -1,4 +1,4 @@
-<template lang="jade">
+<template lang="pug">
 .component
   .ui.container.basic.segment(:id="name")
 

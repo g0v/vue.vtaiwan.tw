@@ -1,4 +1,4 @@
-<template lang="jade">
+<template lang="pug">
   .component#searchresult
       .results
         .category(v-if="stage.length !== 0", v-for="(s, idx) in stage", v-on:click="sHide") 

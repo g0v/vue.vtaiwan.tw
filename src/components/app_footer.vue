@@ -1,4 +1,4 @@
-<template lang="jade">
+<template lang="pug">
   #footer.component
 
       .ui.inverted.vertical.footer.segment

@@ -1,4 +1,4 @@
-<template lang="jade">
+<template lang="pug">
 .component
   .ui.text.container
     h1 {{locate.title}}

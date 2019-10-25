@@ -5,7 +5,7 @@
   }
 </style>
 
-<template lang="jade">
+<template lang="pug">
   .component
     .ui.container
 

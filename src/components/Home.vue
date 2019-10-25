@@ -1,4 +1,4 @@
-<template lang="jade">
+<template lang="pug">
 
   .home
     Slideshow(:hotTopics="hotTopics", :allTopics="allTopics").slideshow
@@ -10,7 +10,7 @@
     // .ui.divider
     News(:allNews="allNews")
     Info(:allInfo="allInfo")
-   // Catagories(:catagories="catagories").catagories
+    // Catagories(:catagories="catagories").catagories
 
 </template>
 

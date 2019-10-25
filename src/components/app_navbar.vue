@@ -1,4 +1,4 @@
-<template lang="jade">
+<template lang="pug">
   #nav.component
 
     button.goto.ui.yellow.button(@click.prevent="goAnchor('top')")
@@ -9,9 +9,9 @@
 
         .seven.wide.column
           .ui.category.search(:class="{active: myKey}", @keyup.down="onKeyDown()")
-           .ui.icon.input
-             input.prompt(type="search", v-model="myKey", placeholder="搜尋...")
-             i.search.icon
+            .ui.icon.input
+              input.prompt(type="search", v-model="myKey", placeholder="搜尋...")
+              i.search.icon
             SearchResult(v-show="myKey", :allTopics="allTopics", :myKey = "myKey", :myIdx="myIdx")
 
         .two.wide.column
