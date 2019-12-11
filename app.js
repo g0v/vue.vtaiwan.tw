@@ -19069,7 +19069,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "ui left aligned text container"
   }, [_c('p', [_vm._v("法律規定了社會上每個人的權利與義務，因此法規應該具備哪些內容，不只是行政機關，或是立法部門的工作，而是與每個人都切身相關。")]), _c('p', [_vm._v("此外，越多利益關係人加入討論，就能夠讓法規的內容越完整周延，避免出現權益受到影響、但意見又無法表達的矛盾狀況。簡單來說，參與 vTaiwan，不只能夠照顧到自己的權益，同時也是在幫助每一個可能的利益關係人。")]), _c('p', [_c('a', {
     attrs: {
-      "href": "https://vtw.link/1v_1Wwt5gqaUEJeBNR5XU6Hm3JpqSxDorROfCzpDK1bY/https%253A%252F%252Fg0v.hackpad.tw%252FvTaiwan-CdeO6d226QQ",
+      "href": "https://vtw.link/",
       "target": "_blank"
     }
   }, [_vm._v("點我了解如何參加 vTaiwan！")])])]), _c('h1', {
