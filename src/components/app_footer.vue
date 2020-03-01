@@ -28,6 +28,7 @@
               h4.ui.inverted.header vTaiwan
               p
                 | vTaiwan 為討論法規該如何制定或修改的平台，透過彼此的意見交流，希望能夠產出符合各利益關係人期待，也貼近實際需求的法規內容。
+              a(href="mailto:support@vtaiwan.tw") 支援信箱 support@vtaiwan.tw
 
         .ui.inverted.section.divider
 
