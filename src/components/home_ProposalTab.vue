@@ -11,11 +11,15 @@
       // a.step(v-for="(step, idx) in steps", :class="{'active': idx == myIdx}", @click="myIdx = idx", v-bind:href="'#'+step.dataName")
       .ui.vertical.menu
         a.fitted.item(v-for="(step, idx) in steps", :class="{'active': idx == myIdx}", @click="myIdx = idx", :href="'#'+step.dataName")
-          p {{step.label}}
+          p 
+            i(:class ="step.icon" class="icon")
+            | {{step.label}}
 
     .ui.top.attached.big.steps.fat-only
       a.step(v-for="(step, idx) in steps", :class="{'active': idx == myIdx}", @click="myIdx = idx")
-        .label {{step.label}}
+        .label 
+            i(:class ="step.icon" class="icon")
+            | {{step.label}}
         .number {{idx + 1}}
 
     .ui.segment(id="context" v-bind:class="{ 'basic': onMobile, 'attached': !onMobile}")
@@ -43,26 +47,31 @@ export default {
       onMobile: false,
       steps: [
         {
+          icon: 'bullhorn',
           label: '即將開始專案',
           description: '在草案未形成前跳脫時間空間限制，擴大搜集利害相關人之意見',
           dataName: 'soon'
         },
         {
+          icon: 'users',
           label: '意見徵集專案',
           description: '邀請核心利害相關者參與諮詢會議，加入實體見面討論，一同將意見化為草案',
           dataName: 'discuss'
         },
         {
+          icon: 'edit',
           label: '研擬草案中專案',
           description: '將成熟的草案加強、寫成定案',
           dataName: 'curate'
         },
         {
+          icon: 'angle right',
           label: '送交院會專案',
           description: '送交立法院',
           dataName: 'deploy'
         },
         {
+          icon: 'history',
           label: '歷史案件',
           description: '追蹤審查進度與結果',
           dataName: 'history'
