@@ -26,11 +26,11 @@
 * 在Github上
 [複製本專案](https://github.com/g0v/vue.vtaiwan.tw)
 * 安裝
-[nodeJS 6.17.1](https://nodejs.org/en/) & [yarn](https://yarnpkg.com/en/docs/install)
+[nodeJS 6.17.1](https://nodejs.org/en/)
 * 下載相關套件
-```yarn install```
+```npm install```
 * 近端測試
-```yarn dev```
+```npm run dev```
 * 要做的內容與相關討論，請見[議題區](https://github.com/g0v/vue.vtaiwan.tw/issues)
 * 本專案的技術框架使用Vue，請參考[VueJS](https://vuejs.org/)或[Vue說明](https://cn.vuejs.org/)
 * 開發環境使用Webpack與vue-loader，如欲設定環境或引入資源，請閱讀[Webpack](http://webpack.github.io/)與[vue-loader](https://github.com/vuejs/vue-loader)。
@@ -47,9 +47,9 @@
 如需手動 deploy，方式如下：
 
 ```
-yarn install
+npm install
 node build/get-route.js
-yarn build:static
+npm run build:static
 ./deploy
 ```
 

@@ -38,6 +38,6 @@ before_script:
 
 script:
   - node build/get-route.js
-  - yarn build:static
+  - node run build:static
 
 after_success: .travis/after_success.sh
