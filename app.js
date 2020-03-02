@@ -16514,6 +16514,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'proposalTab',
@@ -16528,22 +16532,27 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       /* default tab */
       onMobile: false,
       steps: [{
+        icon: 'bullhorn',
         label: '即將開始專案',
         description: '在草案未形成前跳脫時間空間限制，擴大搜集利害相關人之意見',
         dataName: 'soon'
       }, {
+        icon: 'users',
         label: '意見徵集專案',
         description: '邀請核心利害相關者參與諮詢會議，加入實體見面討論，一同將意見化為草案',
         dataName: 'discuss'
       }, {
+        icon: 'edit',
         label: '研擬草案中專案',
         description: '將成熟的草案加強、寫成定案',
         dataName: 'curate'
       }, {
+        icon: 'angle right',
         label: '送交院會專案',
         description: '送交立法院',
         dataName: 'deploy'
       }, {
+        icon: 'history',
         label: '歷史案件',
         description: '追蹤審查進度與結果',
         dataName: 'history'
@@ -18351,7 +18360,10 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
           _vm.myIdx = idx
         }
       }
-    }, [_c('p', [_vm._v(_vm._s(step.label))])])
+    }, [_c('p', [_c('i', {
+      staticClass: "icon",
+      class: step.icon
+    }), _vm._v(_vm._s(step.label))])])
   }), 0)]), _c('div', {
     staticClass: "ui top attached big steps fat-only"
   }, _vm._l((_vm.steps), function(step, idx) {
@@ -18367,7 +18379,10 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       }
     }, [_c('div', {
       staticClass: "label"
-    }, [_vm._v(_vm._s(step.label))]), _c('div', {
+    }, [_c('i', {
+      staticClass: "icon",
+      class: step.icon
+    }), _vm._v(_vm._s(step.label))]), _c('div', {
       staticClass: "number"
     }, [_vm._v(_vm._s(idx + 1))])])
   }), 0), _c('div', {
@@ -18569,7 +18584,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "seven wide column"
   }, [_c('h4', {
     staticClass: "ui inverted header"
-  }, [_vm._v("vTaiwan")]), _c('p', [_vm._v("vTaiwan 為討論法規該如何制定或修改的平台，透過彼此的意見交流，希望能夠產出符合各利益關係人期待，也貼近實際需求的法規內容。")])])
+  }, [_vm._v("vTaiwan")]), _c('p', [_vm._v("vTaiwan 為討論法規該如何制定或修改的平台，透過彼此的意見交流，希望能夠產出符合各利益關係人期待，也貼近實際需求的法規內容。")]), _c('a', {
+    attrs: {
+      "href": "mailto:support@vtaiwan.tw"
+    }
+  }, [_vm._v("支援信箱 support@vtaiwan.tw")])])
 },function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('a', {
     staticClass: "ui circular facebook icon button",
