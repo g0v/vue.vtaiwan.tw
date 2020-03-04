@@ -12,6 +12,7 @@
                 a.item(href="https://github.com/g0v/vue.vtaiwan.tw" title="Github" target="_blank") Github
                 a.item(href="https://pdis.tw/" title="PDIS 公共數位創新空間" target="_blank") PDIS
                 a.item(href="https://org.vtaiwan.tw" title="歷史資料" target="_blank") 歷史資料
+                a.item(href="https://join.gov.tw/policies/detail/031e9918-59d5-4a1a-b105-96af228f3147" title="公共政策網路參與平台" target="_blank") 公共政策網路參與平台                
             .three.wide.column
               h4.ui.inverted.header 影音專區
               .ui.inverted.link.list
