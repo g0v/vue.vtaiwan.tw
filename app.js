@@ -18578,7 +18578,14 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "title": "歷史資料",
       "target": "_blank"
     }
-  }, [_vm._v("歷史資料")])])])
+  }, [_vm._v("歷史資料")]), _c('a', {
+    staticClass: "item",
+    attrs: {
+      "href": "https://join.gov.tw/policies/detail/031e9918-59d5-4a1a-b105-96af228f3147",
+      "title": "公共政策網路參與平台",
+      "target": "_blank"
+    }
+  }, [_vm._v("公共政策網路參與平台                ")])])])
 },function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "seven wide column"
