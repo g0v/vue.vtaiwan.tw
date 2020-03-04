@@ -201,7 +201,7 @@ $tabColor: #d94f4f;
       // font-family: $logo_font;
       position: absolute;
       font-weight: 700;
-      font-size: 8.5rem;
+      font-size: 5rem;
       transform: scale(1, 0.9);
       color: #eda7a7;
       // margin: 3% 0 0 25%;
