@@ -198,7 +198,7 @@ export default {
   min-height: 100vh;
   width: 100%;
   margin: 0;
-  @include transition(border-color 0.5s ease);
+  transition: border-color 0.5s ease;
   &.join {    border-color: $join  }
   &.intro {   border-color: $intro  }
   &.live {    border-color: $live  }

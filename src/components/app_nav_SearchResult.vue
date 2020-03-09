@@ -92,11 +92,11 @@ export default {
       color: rgba(0,0,0,.4); 
     }
     .result {
-      background: #FFF;
+      background-color: #FFF;
       margin-left: 100px;
       border-left: 1px solid rgba(34,36,38,.15);
       border-bottom: 1px solid rgba(34,36,38,.1);
-      transition: background .1s ease,border-color .1s ease;
+      transition: background-color .1s ease, border-color .1s ease;
       padding: 1em;
       cursor: pointer;
       display: block;

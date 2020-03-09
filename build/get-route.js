@@ -34,7 +34,10 @@ request(opts, function(error, response, results) {
             }
         }
         prerender_json.routes = routes
-        fs.writeFile(file_name, JSON.stringify(prerender_json, null, '\t'));
+        fs.writeFile(file_name, JSON.stringify(prerender_json, null, '\t'), (err) => {
+            if (err) throw err;
+            console.log('The file has been saved!');
+        });
     } else {
         console.log('get topic list error=' + error + ' ' + response.statusCode);
     }

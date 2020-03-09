@@ -13,10 +13,10 @@
     "build:static": "cross-env NODE_ENV=production webpack --config build/webpack.static.config.js --progress --hide-modules && cp 404.html dist"
   },
   "engines": {
-    "node": ">=6.9.0"
+    "node": ">=6.9.0 <13.0.0"
   },
   "dependencies": {
-    "@babel/core": "^7.0.0",
+    "@babel/core": "^7.8.7",
     "@babel/plugin-proposal-class-properties": "^7.0.0",
     "@babel/plugin-proposal-decorators": "^7.0.0",
     "@babel/plugin-proposal-export-namespace-from": "^7.0.0",
@@ -26,7 +26,7 @@
     "@babel/plugin-proposal-throw-expressions": "^7.0.0",
     "@babel/plugin-syntax-dynamic-import": "^7.0.0",
     "@babel/plugin-syntax-import-meta": "^7.0.0",
-    "@babel/preset-env": "^7.6.3",
+    "@babel/preset-env": "^7.8.7",
     "autoprefixer": "^6.7.7",
     "axios": "^0.18.1",
     "babel-loader": "^8.0.0",
@@ -40,7 +40,7 @@
     "livescript": "^1.5.0",
     "lru-cache": "^4.0.1",
     "node-bourbon": "^4.2.8",
-    "node-sass": "4.12.0",
+    "node-sass": "^4.13.1",
     "offline-plugin": "^5.0.5",
     "prerender-spa-plugin": "2.1.0",
     "sass-loader": "4.1.1",
