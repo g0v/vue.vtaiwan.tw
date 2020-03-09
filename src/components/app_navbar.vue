@@ -208,7 +208,7 @@ form.search {
     color: dimgray;
     cursor: pointer;
     text-decoration: none;
-    @include transition(background-color 0.5s ease);
+    transition: background-color 0.5s ease;
 
     &:hover {
       color: white;

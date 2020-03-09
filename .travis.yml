@@ -1,9 +1,10 @@
 language: node_js
 
 node_js:
-  - "v6.17.1"
+  - "v12.16.1"
 
-sudo: false
+os:
+  - linux
 
 git:
   depth: 1
