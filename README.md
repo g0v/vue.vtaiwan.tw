@@ -26,7 +26,7 @@
 * 在Github上
 [複製本專案](https://github.com/g0v/vue.vtaiwan.tw)
 * 安裝
-[nodeJS 6.17.1](https://nodejs.org/en/)
+[nodeJS](https://nodejs.org/en/) v6~v12
 * 下載相關套件
 ```npm install```
 * 近端測試
