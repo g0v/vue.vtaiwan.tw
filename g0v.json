@@ -1,0 +1,10 @@
+{
+  "repo": "g0v/vue.vtaiwan.tw",
+  "author": "jokeum",
+  "homepage": "http://vue.vtaiwan.tw/",
+  "description_zh": "這是一個討論法規該如何制定或修改的平台，透過彼此的意見交流，希望能夠產出符合各利益關係人期待，也貼近實際需求的法規內容。",
+  "name_zh": "數位經濟法規線上諮詢系統 界面 3.0",
+  "name": "vTaiwan",
+  "status": "Released",
+  "repository": "https://github.com/g0v/vue.vtaiwan.tw"
+}
