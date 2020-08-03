@@ -81,3 +81,13 @@ Secondly, administrative and regulatory agencies will collect, assemble and orga
 Thanks to the contribution of g0v vTaiwan community, National Development Council Regulatory Reform Cetner, Science and Technology Law Institute, and all participants. 
 
 
+# Develop
+* Clone this project　(https://github.com/g0v/vue.vtaiwan.tw)
+* Install [nodeJS](https://nodejs.org/en/) v6~v12
+* Install package
+```npm install```
+* Run locally
+```npm run dev```
+* To help fix recent issues, go to [Issues](https://github.com/g0v/vue.vtaiwan.tw/issues)
+* This project use Vue, please check [VueJS](https://vuejs.org/) ot [Vue說明](https://cn.vuejs.org/)
+* The develope env uses Webpack and vue-loader, to config env setting or include libraries please check [Webpack](http://webpack.github.io/)與[vue-loader](https://github.com/vuejs/vue-loader)。
