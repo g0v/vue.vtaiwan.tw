@@ -51,9 +51,6 @@
 
         p 如同 g0v 社群，vTaiwan 社群也是自由且去中心化的，工作都自主提案參與，分工協作，所有活動沒有強制性，專案皆由社群成員各自發起串連。
 
-      h1.ui.center.aligned.icon.header
-        i.circular.talk.icon
-        | 我可以怎麼開始幫忙呢？
 
       .ui.text.container
         h2 相關連結
