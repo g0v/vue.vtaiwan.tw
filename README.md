@@ -1,6 +1,6 @@
 ![](https://travis-ci.org/g0v/vue.vtaiwan.tw.svg?branch=master)
 
-# 關於 vTaiwan
+# 關於 vTaiwan 
 
 ## vTaiwan 是什麼？
 
@@ -54,4 +54,30 @@ npm run build:static
 ```
 
 Deploy 後可至 http://vue.vtaiwan.tw 看到結果。
+
+---
+
+# About vTaiwan
+
+## What is vTaiwan?
+
+vTaiwan is a platform invite to discuss and initiate regulatory reform. Through idea exchange and collaboration, it hopes to develop regulations and laws that best serve needs to all stakeholders. 
+
+
+## Why vTaiwan？
+
+Law commonly refers to a system of rules created and enforced through social or governmental institutions to regulate behavior. It's impacts all citizens, not only the the parliament or administratives. Therefore, it's important to show care and get involved. 
+
+
+Besides, the more inputs gathered from relavant staakeholders, the better it serves the public. Participating vTaiwan can not only guard our own rights and benefits, but also help protect every possible stakeholders in various topic, issues and aspects.
+
+
+## What does it do when giving opinoins in vTaiwan？
+
+Firstly, all discussion, opinions are open to public, including to the government. Therefore, the administrative and regulatory agencies can gain insights from the public. All particpants can also deeply discuss and gain mutual understanding on their interested topics. 
+
+Secondly, administrative and regulatory agencies will collect, assemble and organize all opinoins, and bring those to final decision. Agencies are asked to response in the limited period of time, whether the opinions got adopted or rejected to regulatory reform, as well as to provide reasons behind. 
+
+Thanks to the contribution of g0v vTaiwan community, National Development Council Regulatory Reform Cetner, Science and Technology Law Institute, and all participants. 
+
 
