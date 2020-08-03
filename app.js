@@ -17153,9 +17153,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'HowToUse',
   data: function data() {
@@ -21720,11 +21717,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, [_vm._v("vTaiwan 小松"), _c('sup', [_c('i', {
     staticClass: "external link icon"
-  })])])]), _c('p', [_vm._v("如同 g0v 社群，vTaiwan 社群也是自由且去中心化的，工作都自主提案參與，分工協作，所有活動沒有強制性，專案皆由社群成員各自發起串連。")])]), _c('h1', {
-    staticClass: "ui center aligned icon header"
-  }, [_c('i', {
-    staticClass: "circular talk icon"
-  }), _vm._v("我可以怎麼開始幫忙呢？")]), _c('div', {
+  })])])]), _c('p', [_vm._v("如同 g0v 社群，vTaiwan 社群也是自由且去中心化的，工作都自主提案參與，分工協作，所有活動沒有強制性，專案皆由社群成員各自發起串連。")])]), _c('div', {
     staticClass: "ui text container"
   }, [_c('h2', [_vm._v("相關連結")]), _c('ul', [_c('li', [_c('a', {
     attrs: {
