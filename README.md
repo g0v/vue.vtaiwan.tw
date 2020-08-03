@@ -90,4 +90,4 @@ Thanks to the contribution of g0v vTaiwan community, National Development Counci
 ```npm run dev```
 * To help fix recent issues, go to [Issues](https://github.com/g0v/vue.vtaiwan.tw/issues)
 * This project use Vue, please check [VueJS](https://vuejs.org/) ot [Vue說明](https://cn.vuejs.org/)
-* The develope env uses Webpack and vue-loader, to config env setting or include libraries please check [Webpack](http://webpack.github.io/)與[vue-loader](https://github.com/vuejs/vue-loader)。
+* The develope env uses Webpack and vue-loader, to config env setting or include libraries please check [Webpack](http://webpack.github.io/) and [vue-loader](https://github.com/vuejs/vue-loader)。
