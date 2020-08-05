@@ -53,7 +53,7 @@ npm run build:static
 ./deploy
 ```
 
-Deploy 後可至 http://vue.vtaiwan.tw 看到結果。
+Deploy 後可至 https://vtaiwan.tw 看到結果。
 
 ---
 
