@@ -6,9 +6,11 @@
 
 這是一個討論法規該如何制定或修改的平台，透過彼此的意見交流，希望能夠產出符合各利益關係人期待，也貼近實際需求的法規內容。
 
-## 為什麼要參與 vTaiwan ？
+## 為什麼要參與 vTaiwan？
 
 法律規定了社會上每個人的權利與義務，因此法規應該具備哪些內容，不只是行政機關，或是立法部門的工作，而是與每個人都切身相關。
+
+補:2019年新制法律，與每人切身相關(https://chirui.pixnet.net/blog/post/272168132-2019%E6%96%B0%E5%88%B6%E4%B8%8A%E8%B7%AF%EF%BC%8C%E4%BD%A0%E4%B8%80%E5%AE%9A%E8%A6%81%E7%9F%A5%E9%81%93%E7%9A%84%E5%8D%81%E5%80%8B%E8%88%87%E4%BD%A0%E5%88%87%E8%BA%AB)
 
 此外，越多利益關係人加入討論，就能夠讓法規的內容越完整周延，避免出現權益受到影響、但意見又無法表達的矛盾狀況。簡單來說，參與 vTaiwan，不只能夠照顧到自己的權益，同時也是在幫助每一個可能的利益關係人。
 
@@ -64,7 +66,7 @@ Deploy 後可至 https://vtaiwan.tw 看到結果。
 vTaiwan is a platform invite to discuss and initiate regulatory reform. Through idea exchange and collaboration, it hopes to develop regulations and laws that best serve needs to all stakeholders. 
 
 
-## Why vTaiwan？
+## Why vTaiwan?
 
 Law commonly refers to a system of rules created and enforced through social or governmental institutions to regulate behavior. It's impacts all citizens, not only the the parliament or administratives. Therefore, it's important to show care and get involved. 
 
@@ -72,7 +74,7 @@ Law commonly refers to a system of rules created and enforced through social or 
 Besides, the more inputs gathered from relavant staakeholders, the better it serves the public. Participating vTaiwan can not only guard our own rights and benefits, but also help protect every possible stakeholders in various topic, issues and aspects.
 
 
-## What does it do when giving opinoins in vTaiwan？
+## What does it do when giving opinoins in vTaiwan?
 
 Firstly, all discussion, opinions are open to public, including to the government. Therefore, the administrative and regulatory agencies can gain insights from the public. All particpants can also deeply discuss and gain mutual understanding on their interested topics. 
 
