@@ -1,5 +1,14 @@
 ![](https://travis-ci.org/g0v/vue.vtaiwan.tw.svg?branch=master)
 
+開發請改到這裡： http://github.com/g0v/vue.vTaiwan-neo
+
+下次大幅更新已另開 repo：https://github.com/g0v/vTaiwan-hono
+
+This repository is not actively maintained; the current
+https://vtaiwan.tw/ site is being developed in this repository:
+
+http://github.com/g0v/vue.vTaiwan-neo
+
 # 關於 vTaiwan 
 
 ## vTaiwan 是什麼？
